@@ -1,0 +1,46 @@
+name: luxora_ai
+description: Luxora AI — emotionally intelligent Florida travel concierge (iOS & Android).
+publish_to: "none"
+version: 0.1.0+1
+
+environment:
+  sdk: ^3.11.5
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  go_router: ^16.0.0
+  google_fonts: ^6.2.1
+  shared_preferences: ^2.5.3
+  http: ^1.2.2
+  url_launcher: ^6.3.1
+  flutter_map: ^8.3.0
+  latlong2: ^0.9.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.14.3
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: assets/branding/app_icon.png
+  adaptive_icon_background: "#0C0A09"
+  adaptive_icon_foreground: assets/branding/app_icon.png
+  web:
+    generate: true
+    image_path: assets/branding/app_icon.png
+    background_color: "#0C0A09"
+    theme_color: "#FBBF24"
+  windows:
+    generate: true
+    image_path: assets/branding/app_icon.png
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/unsplash/curated.json
+    - assets/images/founder.png
