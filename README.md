@@ -40,6 +40,32 @@ Pick a device:
 - **iOS Simulator** / **Android Emulator**
 - `flutter run -d chrome` — web preview only (not the store build)
 
+## GitHub repository
+
+Local git is initialized on branch `main`. Remote (after you create the repo on GitHub):
+
+**https://github.com/anthonyblackmer-cloud/luxora-ai**
+
+One-time push (GitHub CLI was installed; you must sign in once):
+
+```powershell
+cd "d:\Beta build\luxora_ai"
+gh auth login
+gh repo create luxora-ai --private --source=. --remote=origin --push
+```
+
+If the empty repo already exists on GitHub, use:
+
+```powershell
+git push -u origin main
+```
+
+`config/unsplash.local.json` stays **gitignored** — never commit API keys.
+
+## Codemagic
+
+`codemagic.yaml` defines `luxora-ios-workflow` and `luxora-android-workflow`. In Codemagic: **Add application** → paste the repo URL above → enable YAML → add `UNSPLASH_ACCESS_KEY` to your existing `appstore_credentials` group → configure signing for `com.luxora.luxoraAi` / `com.luxora.luxora_ai`.
+
 ## Project layout
 
 | Path | Purpose |
@@ -50,6 +76,8 @@ Pick a device:
 | `lib/theme/` | Luxury cinematic theme |
 | `lib/data/` | Florida MVP catalog |
 | `android/` · `ios/` | Store-ready native projects |
+| `codemagic.yaml` | CI: iOS IPA + Android AAB |
+| `assets/branding/app_icon.png` | Master app icon |
 
 ## Store release (later)
 
