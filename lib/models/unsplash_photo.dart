@@ -60,6 +60,19 @@ class UnsplashPhoto {
         downloadLocation: json['downloadLocation'] as String,
       );
 
+  /// Large hotlink for fullscreen / lightbox viewing (Unsplash CDN resize).
+  String get hotlinkUrlExpanded {
+    final uri = Uri.parse(hotlinkUrl);
+    return uri.replace(
+      queryParameters: {
+        ...uri.queryParameters,
+        'w': '2400',
+        'q': '85',
+        'auto': 'format',
+      },
+    ).toString();
+  }
+
   /// Sized hotlink for small thumbnails (Unsplash CDN crop).
   String hotlinkUrlSized({int width = 160, int height = 160}) {
     final uri = Uri.parse(hotlinkUrl);

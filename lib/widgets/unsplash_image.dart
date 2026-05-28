@@ -3,6 +3,7 @@ import 'package:luxora_ai/models/unsplash_photo.dart';
 import 'package:luxora_ai/services/unsplash_download_tracker.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/widgets/unsplash_attribution.dart';
+import 'package:luxora_ai/widgets/unsplash_photo_lightbox.dart';
 
 /// Renders Unsplash photos via API hotlink only — with required attribution.
 ///
@@ -20,6 +21,9 @@ class UnsplashImage extends StatefulWidget {
     this.overlayChild,
     this.compactAttribution = false,
     this.showAttributionOverlay = true,
+    this.bottomCaption,
+    this.expandOnTap = true,
+    this.heroTag,
     this.trackUsageOnDisplay = false,
     this.onUserSelect,
   });
@@ -35,6 +39,11 @@ class UnsplashImage extends StatefulWidget {
   final bool compactAttribution;
   /// When false, attribution must appear elsewhere on screen (e.g. timeline card).
   final bool showAttributionOverlay;
+  /// Optional label above the attribution pill (e.g. place location on detail hero).
+  final String? bottomCaption;
+  /// Opens fullscreen lightbox on image tap (not on attribution links).
+  final bool expandOnTap;
+  final String? heroTag;
   final bool trackUsageOnDisplay;
   final VoidCallback? onUserSelect;
 
@@ -53,8 +62,18 @@ class _UnsplashImageState extends State<UnsplashImage> {
     }
   }
 
-  void _handleTap() {
+  void _handleImageTap() {
     _downloadTracker.trackUsage(widget.photo, force: true);
+    if (widget.expandOnTap) {
+      showUnsplashPhotoLightbox(
+        context,
+        photo: widget.photo,
+        caption: widget.bottomCaption,
+        heroTag: widget.heroTag ?? 'unsplash-${widget.photo.id}',
+        onViewDetails: widget.onUserSelect,
+      );
+      return;
+    }
     widget.onUserSelect?.call();
   }
 
@@ -89,29 +108,80 @@ class _UnsplashImageState extends State<UnsplashImage> {
       image = widget.presentationFilter!(image);
     }
 
+    final heroTag = widget.heroTag ?? 'unsplash-${widget.photo.id}';
+    final imageLayer = Hero(
+      tag: heroTag,
+      child: Stack(
+        fit: StackFit.expand,
+        children: [
+          image,
+          if (widget.scrim != null)
+            DecoratedBox(decoration: BoxDecoration(gradient: widget.scrim)),
+          if (widget.overlayChild != null)
+            Positioned.fill(child: widget.overlayChild!),
+          if (widget.expandOnTap)
+            Positioned(
+              top: 8,
+              right: 8,
+              child: IgnorePointer(
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    color: Colors.black.withValues(alpha: 0.38),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: const Padding(
+                    padding: EdgeInsets.all(5),
+                    child: Icon(
+                      Icons.open_in_full_rounded,
+                      size: 16,
+                      color: LuxColors.cream,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+        ],
+      ),
+    );
+
     return ClipRRect(
       borderRadius: radius,
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          onTap: _handleTap,
-          child: SizedBox(
-            width: widget.width,
-            height: widget.height,
-            child: Stack(
-              fit: StackFit.expand,
-              children: [
-                image,
-                if (widget.scrim != null)
-                  DecoratedBox(decoration: BoxDecoration(gradient: widget.scrim)),
-                if (widget.overlayChild != null)
-                  Positioned.fill(child: widget.overlayChild!),
-                if (widget.showAttributionOverlay)
-                  Positioned(
-                    left: 8,
-                    right: 8,
-                    bottom: 6,
-                    child: DecoratedBox(
+      child: SizedBox(
+        width: widget.width,
+        height: widget.height,
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            GestureDetector(
+              onTap: _handleImageTap,
+              behavior: HitTestBehavior.opaque,
+              child: imageLayer,
+            ),
+            if (widget.showAttributionOverlay)
+              Positioned(
+                left: 8,
+                right: 8,
+                bottom: 8,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    if (widget.bottomCaption != null &&
+                        widget.bottomCaption!.isNotEmpty) ...[
+                      Padding(
+                        padding: const EdgeInsets.only(left: 4, bottom: 6),
+                        child: Text(
+                          widget.bottomCaption!,
+                          style: const TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                            height: 1.3,
+                            color: LuxColors.cream,
+                          ),
+                        ),
+                      ),
+                    ],
+                    DecoratedBox(
                       decoration: BoxDecoration(
                         color: Colors.black.withValues(alpha: 0.42),
                         borderRadius: BorderRadius.circular(6),
@@ -119,7 +189,7 @@ class _UnsplashImageState extends State<UnsplashImage> {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
                           horizontal: 8,
-                          vertical: 5,
+                          vertical: 6,
                         ),
                         child: UnsplashAttribution(
                           photo: widget.photo,
@@ -127,10 +197,10 @@ class _UnsplashImageState extends State<UnsplashImage> {
                         ),
                       ),
                     ),
-                  ),
-              ],
-            ),
-          ),
+                  ],
+                ),
+              ),
+          ],
         ),
       ),
     );

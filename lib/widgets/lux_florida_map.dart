@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:luxora_ai/data/curated_places_catalog.dart';
+import 'package:luxora_ai/data/orlando_hub.dart';
 import 'package:luxora_ai/models/lux_place.dart';
+import 'package:luxora_ai/util/place_distance.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -13,12 +15,17 @@ class LuxFloridaMap extends StatefulWidget {
     required this.places,
     this.routePlaceIds = const [],
     this.gemPlaceIds = const {},
+    this.radiusMiles,
+    this.showOrlandoHub = true,
     this.onPlaceTap,
   });
 
   final List<LuxPlace> places;
   final List<String> routePlaceIds;
   final Set<String> gemPlaceIds;
+  /// When set, draws a ring from the Orlando hub (discover radius).
+  final double? radiusMiles;
+  final bool showOrlandoHub;
   final void Function(LuxPlace place)? onPlaceTap;
 
   @override
@@ -26,7 +33,7 @@ class LuxFloridaMap extends StatefulWidget {
 }
 
 class _LuxFloridaMapState extends State<LuxFloridaMap> {
-  static const _orlando = LatLng(28.5383, -81.3792);
+  static final _orlando = PlaceDistance.orlandoCenter;
 
   final MapController _controller = MapController();
 
@@ -39,16 +46,19 @@ class _LuxFloridaMapState extends State<LuxFloridaMap> {
   @override
   void didUpdateWidget(LuxFloridaMap oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.places != widget.places) {
+    if (oldWidget.places != widget.places ||
+        oldWidget.radiusMiles != widget.radiusMiles) {
       WidgetsBinding.instance.addPostFrameCallback((_) => _fitToPlaces());
     }
   }
 
   void _fitToPlaces() {
-    final points = widget.places
-        .map((p) => LatLng(p.latitude, p.longitude))
-        .toList();
+    final points = <LatLng>[
+      if (widget.showOrlandoHub) _orlando,
+      ...widget.places.map((p) => LatLng(p.latitude, p.longitude)),
+    ];
     if (points.isEmpty) {
+      _controller.move(_orlando, 9);
       return;
     }
     if (points.length == 1) {
@@ -80,7 +90,7 @@ class _LuxFloridaMapState extends State<LuxFloridaMap> {
       borderRadius: BorderRadius.circular(16),
       child: FlutterMap(
         mapController: _controller,
-        options: const MapOptions(
+        options: MapOptions(
           initialCenter: _orlando,
           initialZoom: 8.2,
           minZoom: 6,
@@ -91,6 +101,19 @@ class _LuxFloridaMapState extends State<LuxFloridaMap> {
             urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
             userAgentPackageName: 'com.luxora.luxora_ai',
           ),
+          if (widget.radiusMiles != null && widget.radiusMiles! > 0)
+            CircleLayer(
+              circles: [
+                CircleMarker(
+                  point: _orlando,
+                  radius: widget.radiusMiles! * 1609.344,
+                  useRadiusInMeter: true,
+                  color: LuxColors.gold.withValues(alpha: 0.08),
+                  borderColor: LuxColors.gold.withValues(alpha: 0.45),
+                  borderStrokeWidth: 2,
+                ),
+              ],
+            ),
           if (route.length >= 2)
             PolylineLayer(
               polylines: [
@@ -103,6 +126,42 @@ class _LuxFloridaMapState extends State<LuxFloridaMap> {
             ),
           MarkerLayer(
             markers: [
+              if (widget.showOrlandoHub)
+                Marker(
+                  point: _orlando,
+                  width: 52,
+                  height: 52,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(7),
+                        decoration: BoxDecoration(
+                          color: LuxColors.gold.withValues(alpha: 0.9),
+                          shape: BoxShape.circle,
+                          border: Border.all(color: LuxColors.cream, width: 2),
+                        ),
+                        child: const Icon(
+                          Icons.home_work_rounded,
+                          size: 18,
+                          color: Color(0xFF0C0A09),
+                        ),
+                      ),
+                      const SizedBox(height: 2),
+                      Text(
+                        OrlandoHub.name,
+                        style: const TextStyle(
+                          fontSize: 9,
+                          fontWeight: FontWeight.w800,
+                          color: LuxColors.cream,
+                          shadows: [
+                            Shadow(color: Colors.black, blurRadius: 6),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               for (final place in widget.places)
                 Marker(
                   point: LatLng(place.latitude, place.longitude),

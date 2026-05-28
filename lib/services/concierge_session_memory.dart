@@ -1,3 +1,4 @@
+import 'package:luxora_ai/l10n/luxora_l10n_helpers.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /// In-trip style preferences the concierge remembers for this session.
@@ -66,16 +67,5 @@ class ConciergeSessionMemory {
   }
 }
 
-/// Multi-select personality layers — shapes Gems, Feed, map, and timeline.
-const styleMemorySuggestions = [
-  'Less crowded',
-  'Luxury but not flashy',
-  'Hidden luxury',
-  'Walkable when possible',
-  'Slow mornings',
-  'No tourist traps',
-  'Nature heavy',
-  'Nature + wellness only',
-  'Aesthetic dining',
-  'Family-easy logistics',
-];
+/// @deprecated Use [styleMemoryCanonicalPrefs].
+const styleMemorySuggestions = styleMemoryCanonicalPrefs;

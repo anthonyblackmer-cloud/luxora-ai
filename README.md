@@ -4,6 +4,8 @@
 
 Downloadable **iOS and Android** app — Florida-first (Orlando MVP).
 
+**Discover radius:** Feed, Map, and Gems filter **75+ curated destinations** (major theme parks, museums, springs, beaches, Space Coast, Tampa, Keys, and more) by distance from Orlando (25 / 50 / 100 mi or All Florida). See `docs/DISCOVER_RADIUS.md`. Optional Supabase sync via `--dart-define=SUPABASE_URL` + `SUPABASE_ANON_KEY`.
+
 > The vacation already started.
 
 ### Unsplash imagery

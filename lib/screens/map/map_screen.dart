@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:luxora_ai/data/map_ai_capabilities.dart';
+import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
+import 'package:luxora_ai/l10n/luxora_l10n_helpers.dart';
 import 'package:luxora_ai/models/lux_place.dart';
+import 'package:luxora_ai/services/discover_radius_controller.dart';
 import 'package:luxora_ai/services/places_repository.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
+import 'package:luxora_ai/widgets/attraction_detail_sheet.dart';
+import 'package:luxora_ai/widgets/destination_search_sheet.dart';
+import 'package:luxora_ai/widgets/discover_radius_selector.dart';
+import 'package:luxora_ai/widgets/discover_scope_banner.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
 import 'package:luxora_ai/widgets/lux_florida_map.dart';
 
@@ -10,23 +16,35 @@ class MapScreen extends StatelessWidget {
   const MapScreen({super.key});
 
   static void _showPlace(BuildContext context, LuxPlace place) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text('${place.title} · ${place.location}'),
-        behavior: SnackBarBehavior.floating,
-        duration: const Duration(seconds: 3),
-      ),
-    );
+    showAttractionDetailSheet(context, place: place);
   }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: ListView(
+      child: ListenableBuilder(
+        listenable: DiscoverRadiusController.instance,
+        builder: (context, _) {
+          final radius = DiscoverRadiusController.instance.radius;
+          final repo = PlacesRepository.instance;
+          final places = repo.placesWithinRadius(radius);
+          final placeIds = places.map((p) => p.id).toSet();
+          final routeIds = defaultItineraryRouteIds()
+              .where(placeIds.contains)
+              .toList();
+          final gemIds =
+              defaultGemPlaceIds().where(placeIds.contains).toSet();
+          final radiusMiles =
+              radius.isUnlimited ? null : radius.miles.toDouble();
+          final l = context.l10n;
+          final capabilities = mapAiCapabilitiesL10n(l);
+          final capabilitiesFuture = mapAiCapabilitiesFutureL10n(l);
+
+          return ListView(
         padding: const EdgeInsets.all(20),
         children: [
           Text(
-            'AI MAP',
+            l.mapBadge,
             style: TextStyle(
               fontSize: 11,
               fontWeight: FontWeight.w700,
@@ -35,36 +53,42 @@ class MapScreen extends StatelessWidget {
             ),
           ),
           Text(
-            'Your intelligent route',
+            l.mapTitle,
             style: Theme.of(context).textTheme.headlineMedium,
           ),
           const SizedBox(height: 8),
-          const Text(
-            'Pins for your curated day — gold diamonds are Gems, cyan markers '
-            'are today’s timeline, gold line is the mood route.',
-            style: TextStyle(color: LuxColors.stone400, height: 1.45),
+          Text(
+            l.mapSubtitle,
+            style: const TextStyle(color: LuxColors.stone400, height: 1.45),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 14),
+          DestinationSearchBar(hint: l.discoverSearchHint),
+          const SizedBox(height: 14),
+          const DiscoverRadiusSelector(),
+          const SizedBox(height: 12),
+          const DiscoverScopeBanner(),
+          const SizedBox(height: 14),
           AspectRatio(
             aspectRatio: 16 / 10,
             child: GlassCard(
               padding: EdgeInsets.zero,
               glow: true,
               child: LuxFloridaMap(
-                places: PlacesRepository.instance.mappablePlaces,
-                routePlaceIds: defaultItineraryRouteIds(),
-                gemPlaceIds: defaultGemPlaceIds(),
+                places: places,
+                routePlaceIds: routeIds,
+                gemPlaceIds: gemIds,
+                radiusMiles: radiusMiles,
                 onPlaceTap: (place) => _showPlace(context, place),
               ),
             ),
           ),
           const SizedBox(height: 20),
           Text(
-            'AI map powers',
+            l.mapAiPowers,
             style: Theme.of(context).textTheme.titleMedium,
           ),
           const SizedBox(height: 10),
-          ...mapAiCapabilities.map(
+          ...capabilities.map(
             (cap) => Padding(
               padding: const EdgeInsets.only(bottom: 8),
               child: GlassCard(
@@ -105,8 +129,8 @@ class MapScreen extends StatelessWidget {
                                     color: Colors.white.withValues(alpha: 0.08),
                                     borderRadius: BorderRadius.circular(4),
                                   ),
-                                  child: const Text(
-                                    'Soon',
+                                  child: Text(
+                                    l.commonSoon,
                                     style: TextStyle(
                                       fontSize: 9,
                                       color: LuxColors.stone500,
@@ -134,16 +158,16 @@ class MapScreen extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           Text(
-            'AI navigation layer (next)',
+            l.mapNavLayerTitle,
             style: Theme.of(context).textTheme.titleMedium,
           ),
           const SizedBox(height: 8),
-          const Text(
-            'Beyond discovery — live intelligence on whether a stop is worth it right now.',
-            style: TextStyle(color: LuxColors.stone500, fontSize: 13, height: 1.35),
+          Text(
+            l.mapNavLayerSubtitle,
+            style: const TextStyle(color: LuxColors.stone500, fontSize: 13, height: 1.35),
           ),
           const SizedBox(height: 10),
-          ...mapAiCapabilitiesFuture.map(
+          ...capabilitiesFuture.map(
             (cap) => Padding(
               padding: const EdgeInsets.only(bottom: 8),
               child: GlassCard(
@@ -174,8 +198,8 @@ class MapScreen extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              const Text(
-                                'Roadmap',
+                              Text(
+                                l.commonRoadmap,
                                 style: TextStyle(
                                   fontSize: 9,
                                   color: LuxColors.feedLive,
@@ -203,14 +227,14 @@ class MapScreen extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           Text(
-            'Seamless booking (partners)',
+            l.mapBookingTitle,
             style: Theme.of(context).textTheme.titleMedium,
           ),
           const SizedBox(height: 8),
           Wrap(
             spacing: 8,
             runSpacing: 8,
-            children: affiliateCategories
+            children: affiliateCategoriesL10n(l)
                 .map(
                   (c) => Chip(
                     label: Text(c, style: const TextStyle(fontSize: 12)),
@@ -222,6 +246,8 @@ class MapScreen extends StatelessWidget {
           ),
           const SizedBox(height: 24),
         ],
+          );
+        },
       ),
     );
   }

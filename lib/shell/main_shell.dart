@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:luxora_ai/l10n/app_localizations.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/widgets/lux_background.dart';
 
@@ -11,6 +12,12 @@ class MainShell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l = AppLocalizations.of(context);
+    final compactNav = MediaQuery.sizeOf(context).width < 560;
+    final navBg = Theme.of(context).brightness == Brightness.dark
+        ? const Color(0xFF0C0A09).withValues(alpha: 0.92)
+        : Theme.of(context).colorScheme.surface.withValues(alpha: 0.95);
+
     return LuxBackground(
       child: Scaffold(
         backgroundColor: Colors.transparent,
@@ -18,42 +25,53 @@ class MainShell extends StatelessWidget {
         resizeToAvoidBottomInset: !kIsWeb,
         body: navigationShell,
         bottomNavigationBar: NavigationBar(
+          height: compactNav ? 68 : 74,
+          labelBehavior: compactNav
+              ? NavigationDestinationLabelBehavior.onlyShowSelected
+              : NavigationDestinationLabelBehavior.alwaysShow,
+          labelTextStyle: WidgetStateProperty.resolveWith<TextStyle>((states) {
+            final selected = states.contains(WidgetState.selected);
+            return TextStyle(
+              fontSize: compactNav ? 10 : 11,
+              fontWeight: selected ? FontWeight.w700 : FontWeight.w600,
+            );
+          }),
           selectedIndex: navigationShell.currentIndex,
           onDestinationSelected: navigationShell.goBranch,
-          backgroundColor: const Color(0xFF0C0A09).withValues(alpha: 0.92),
+          backgroundColor: navBg,
           indicatorColor: LuxColors.gold.withValues(alpha: 0.2),
-          destinations: const [
+          destinations: [
             NavigationDestination(
-              icon: Icon(Icons.chat_bubble_outline_rounded),
-              selectedIcon: Icon(Icons.chat_bubble_rounded),
-              label: 'Concierge',
+              icon: const Icon(Icons.chat_bubble_outline_rounded),
+              selectedIcon: const Icon(Icons.chat_bubble_rounded),
+              label: l.navConcierge,
             ),
             NavigationDestination(
-              icon: Icon(Icons.view_timeline_outlined),
-              selectedIcon: Icon(Icons.view_timeline_rounded),
-              label: 'Timeline',
+              icon: const Icon(Icons.view_timeline_outlined),
+              selectedIcon: const Icon(Icons.view_timeline_rounded),
+              label: l.navTimeline,
             ),
             NavigationDestination(
-              icon: Icon(Icons.map_outlined),
-              selectedIcon: Icon(Icons.map_rounded),
-              label: 'Map',
+              icon: const Icon(Icons.map_outlined),
+              selectedIcon: const Icon(Icons.map_rounded),
+              label: l.navMap,
             ),
             NavigationDestination(
-              icon: Icon(Icons.diamond_outlined),
-              selectedIcon: Icon(Icons.diamond_rounded),
-              label: 'Gems',
-              tooltip: 'Insider secrets & local-only',
+              icon: const Icon(Icons.diamond_outlined),
+              selectedIcon: const Icon(Icons.diamond_rounded),
+              label: l.navGems,
+              tooltip: l.navGems,
             ),
             NavigationDestination(
-              icon: Icon(Icons.explore_outlined),
-              selectedIcon: Icon(Icons.explore_rounded),
-              label: 'Feed',
-              tooltip: 'Trending & live discovery',
+              icon: const Icon(Icons.explore_outlined),
+              selectedIcon: const Icon(Icons.explore_rounded),
+              label: l.navFeed,
+              tooltip: l.navFeed,
             ),
             NavigationDestination(
-              icon: Icon(Icons.auto_awesome_outlined),
-              selectedIcon: Icon(Icons.auto_awesome_rounded),
-              label: 'Trips',
+              icon: const Icon(Icons.auto_awesome_outlined),
+              selectedIcon: const Icon(Icons.auto_awesome_rounded),
+              label: l.navTrips,
             ),
           ],
         ),

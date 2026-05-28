@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:luxora_ai/data/florida_experiences.dart';
+import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
+import 'package:luxora_ai/l10n/luxora_l10n_helpers.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/widgets/lux_background.dart';
 import 'package:luxora_ai/widgets/lux_button.dart';
@@ -10,6 +11,7 @@ class LandingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l = context.l10n;
     final display = Theme.of(context).textTheme.displayLarge;
 
     return LuxBackground(
@@ -26,7 +28,7 @@ class LandingScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'FLORIDA · ORLANDO MVP',
+                        l.landingBadge,
                         style: TextStyle(
                           fontSize: 11,
                           fontWeight: FontWeight.w700,
@@ -36,7 +38,7 @@ class LandingScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: 16),
                       Text(
-                        'The vacation',
+                        l.landingTitle1,
                         style: display?.copyWith(fontSize: 44),
                       ),
                       ShaderMask(
@@ -44,7 +46,7 @@ class LandingScreen extends StatelessWidget {
                           colors: [LuxColors.cream, LuxColors.gold, LuxColors.sunset],
                         ).createShader(bounds),
                         child: Text(
-                          'already started.',
+                          l.landingTitle2,
                           style: display?.copyWith(
                             fontSize: 44,
                             color: Colors.white,
@@ -53,9 +55,7 @@ class LandingScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: 20),
                       Text(
-                        'Luxora AI is your emotionally intelligent concierge — '
-                        'hidden gems, rooftop sunsets, and moments designed to feel '
-                        'unforgettable before you even pack.',
+                        l.landingSubtitle,
                         style: TextStyle(
                           fontSize: 17,
                           height: 1.45,
@@ -64,20 +64,20 @@ class LandingScreen extends StatelessWidget {
                       ),
                       const Spacer(),
                       LuxButton(
-                        label: 'Begin your journey',
+                        label: l.landingBegin,
                         icon: Icons.arrow_forward_rounded,
                         onPressed: () => context.push('/onboarding'),
                       ),
                       const SizedBox(height: 12),
                       LuxButton(
-                        label: 'Talk to Luxora',
+                        label: l.landingTalk,
                         outline: true,
                         icon: Icons.auto_awesome_rounded,
                         onPressed: () => context.go('/concierge'),
                       ),
                       const SizedBox(height: 12),
                       LuxButton(
-                        label: 'Why we’re building this',
+                        label: l.landingWhy,
                         outline: true,
                         icon: Icons.favorite_outline_rounded,
                         onPressed: () => context.push('/story'),
@@ -89,7 +89,7 @@ class LandingScreen extends StatelessWidget {
                               size: 16, color: LuxColors.gold.withValues(alpha: 0.8)),
                           const SizedBox(width: 8),
                           Text(
-                            'Memories · Emotion · Escape · Connection',
+                            l.landingValues,
                             style: TextStyle(fontSize: 12, color: LuxColors.stone500),
                           ),
                         ],
@@ -105,7 +105,7 @@ class LandingScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Launch region',
+                        l.landingRegionBadge,
                         style: TextStyle(
                           fontSize: 11,
                           fontWeight: FontWeight.w700,
@@ -115,14 +115,14 @@ class LandingScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: 8),
                       Text(
-                        'Orlando & Florida — curated for feeling',
+                        l.landingRegionTitle,
                         style: Theme.of(context).textTheme.titleLarge,
                       ),
                       const SizedBox(height: 16),
                       Wrap(
                         spacing: 8,
                         runSpacing: 8,
-                        children: floridaCategories
+                        children: floridaCategoriesL10n(l)
                             .map(
                               (c) => Chip(
                                 label: Text(c),

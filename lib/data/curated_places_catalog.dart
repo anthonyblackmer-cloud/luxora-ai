@@ -1,7 +1,14 @@
+import 'package:luxora_ai/data/curated_places_attractions.dart';
+import 'package:luxora_ai/data/curated_places_major_attractions.dart';
 import 'package:luxora_ai/models/lux_place.dart';
 
-/// Curated Florida places — imagery via [LuxPlace.unsplashPhotoId] + Unsplash API rules.
-const curatedPlacesCatalog = <LuxPlace>[
+export 'package:luxora_ai/data/curated_places_attractions.dart'
+    show curatedPlacesAttractions;
+export 'package:luxora_ai/data/curated_places_major_attractions.dart'
+    show curatedPlacesMajorAttractions;
+
+/// Core demo places (original MVP set) — mood covers + flagship gems.
+const _curatedPlacesCore = <LuxPlace>[
   LuxPlace(
     id: 'place-winter-park-rooftop',
     slug: 'winter-park-rooftop',
@@ -164,6 +171,20 @@ const curatedPlacesCatalog = <LuxPlace>[
   ),
 ];
 
+List<LuxPlace> _mergeCatalogSlices(List<LuxPlace> base, List<LuxPlace> extra) {
+  final ids = base.map((p) => p.id).toSet();
+  return [
+    ...base,
+    ...extra.where((p) => !ids.contains(p.id)),
+  ];
+}
+
+/// Full catalog: core + attractions + major destinations (deduped by id).
+final curatedPlacesCatalog = _mergeCatalogSlices(
+  _mergeCatalogSlices(_curatedPlacesCore, curatedPlacesAttractions),
+  curatedPlacesMajorAttractions,
+);
+
 const kFeedItemPlaceIds = <String, String>{
   'feed-rooftop-viral': 'place-winter-park-rooftop',
   'feed-disney-after-dark': 'place-disney-night',
@@ -171,6 +192,12 @@ const kFeedItemPlaceIds = <String, String>{
   'feed-creator-keys': 'place-keys-sail',
   'feed-summer-springs': 'place-springs-circuit',
   'feed-live-storm': 'place-gulf-beach-clearing',
+  'feed-universal-hype': 'place-universal-studios',
+  'feed-kennedy-launch': 'place-kennedy-space-center',
+  'feed-lake-eola-sunset': 'place-lake-eola',
+  'feed-clearwater-weekend': 'place-clearwater-beach',
+  'feed-kelly-park-tube': 'place-kelly-park-rock-springs',
+  'feed-disney-springs-date': 'place-disney-springs',
 };
 
 const kGemPlaceIds = <String, String>{
@@ -178,6 +205,10 @@ const kGemPlaceIds = <String, String>{
   'gem-winter-park-alley': 'place-winter-park-courtyard',
   'gem-merritt-island': 'place-mangrove-paddle',
   'gem-mount-dora': 'place-mount-dora-porch',
+  'gem-kelly-park-tube': 'place-kelly-park-rock-springs',
+  'gem-blue-spring-manatee': 'place-blue-spring-state-park',
+  'gem-sanford-riverwalk': 'place-sanford-riverwalk',
+  'gem-enchanted-forest': 'place-enchanted-forest',
 };
 
 const kItineraryMomentPlaceIds = <String, String>{

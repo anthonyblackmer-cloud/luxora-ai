@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:luxora_ai/data/curated_places_catalog.dart';
+import 'package:luxora_ai/l10n/catalog_localizer.dart';
+import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/data/gem_discoveries.dart';
+import 'package:luxora_ai/services/discover_radius_controller.dart';
 import 'package:luxora_ai/services/places_repository.dart';
 import 'package:luxora_ai/services/unsplash_download_tracker.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
+import 'package:luxora_ai/widgets/attraction_detail_sheet.dart';
+import 'package:luxora_ai/widgets/destination_search_sheet.dart';
+import 'package:luxora_ai/widgets/discover_radius_selector.dart';
+import 'package:luxora_ai/widgets/discover_scope_banner.dart';
 import 'package:luxora_ai/widgets/lux_place_image.dart';
 import 'package:luxora_ai/widgets/affiliate_hint.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
@@ -12,14 +19,33 @@ import 'package:luxora_ai/widgets/glass_card.dart';
 class GemsScreen extends StatelessWidget {
   const GemsScreen({super.key});
 
+  List<HiddenGem> _gemsForRadius() {
+    final radius = DiscoverRadiusController.instance.radius;
+    final repo = PlacesRepository.instance;
+    return hiddenGemsCatalog.where((gem) {
+      final placeId = kGemPlaceIds[gem.id];
+      if (placeId == null) {
+        return true;
+      }
+      final place = repo.byId(placeId);
+      return place != null && repo.isDiscoverable(place, radius);
+    }).toList();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: ListView.builder(
+      child: ListenableBuilder(
+        listenable: DiscoverRadiusController.instance,
+        builder: (context, _) {
+          final gems = _gemsForRadius();
+
+          return ListView.builder(
         padding: const EdgeInsets.all(20),
-        itemCount: hiddenGemsCatalog.length + 1,
+        itemCount: gems.length + 1,
         itemBuilder: (context, i) {
           if (i == 0) {
+            final l = context.l10n;
             return Padding(
               padding: const EdgeInsets.only(bottom: 20),
               child: Column(
@@ -32,7 +58,7 @@ class GemsScreen extends StatelessWidget {
                           size: 20),
                       const SizedBox(width: 8),
                       Text(
-                        'INSIDER CURATION',
+                        l.gemsBadge,
                         style: TextStyle(
                           fontSize: 11,
                           fontWeight: FontWeight.w700,
@@ -43,32 +69,49 @@ class GemsScreen extends StatelessWidget {
                     ],
                   ),
                   Text(
-                    'Hidden Gems',
+                    l.gemsTitle,
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
                   const SizedBox(height: 8),
-                  const Text(
-                    'Secret discoveries locals guard — why it’s special, when to go, '
-                    'how crowded it gets, and tips you won’t find on a postcard.',
-                    style: TextStyle(color: LuxColors.stone400, height: 1.45),
+                  Text(
+                    l.gemsSubtitle,
+                    style: const TextStyle(color: LuxColors.stone400, height: 1.45),
                   ),
                   const SizedBox(height: 12),
                   Wrap(
                     spacing: 6,
                     runSpacing: 6,
-                    children: const [
-                      _Pill('Hidden places'),
-                      _Pill('Local-only'),
-                      _Pill('Insider tips'),
-                      _Pill('Crowd intel'),
+                    children: [
+                      _Pill(l.gemsPillHidden),
+                      _Pill(l.gemsPillLocal),
+                      _Pill(l.gemsPillInsider),
+                      _Pill(l.gemsPillCrowd),
                     ],
                   ),
+                  const SizedBox(height: 16),
+                  DestinationSearchBar(hint: l.gemsSearchHint),
+                  const SizedBox(height: 14),
+                  const DiscoverRadiusSelector(),
+                  const SizedBox(height: 12),
+                  const DiscoverScopeBanner(),
+                  if (gems.isEmpty) ...[
+                    const SizedBox(height: 16),
+                    Text(
+                      l.gemsEmptyHint,
+                      style: TextStyle(
+                        color: LuxColors.stone500,
+                        height: 1.45,
+                        fontSize: 13,
+                      ),
+                    ),
+                  ],
                 ],
               ),
             );
           }
 
-          final gem = hiddenGemsCatalog[i - 1];
+          final gem = gems[i - 1];
+          final gl = context.l10n;
           final place =
               PlacesRepository.instance.byId(kGemPlaceIds[gem.id]);
           return Padding(
@@ -81,6 +124,9 @@ class GemsScreen extends StatelessWidget {
                   final photo = place?.unsplashPhoto;
                   if (photo != null) {
                     UnsplashDownloadTracker().trackUsage(photo, force: true);
+                  }
+                  if (place != null) {
+                    showAttractionDetailSheet(context, place: place);
                   }
                 },
                 child: Column(
@@ -104,7 +150,7 @@ class GemsScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(6),
                           ),
                           child: Text(
-                            'LOCAL SECRET',
+                            gl.gemLocalSecret,
                             style: TextStyle(
                               fontSize: 9,
                               fontWeight: FontWeight.w800,
@@ -123,14 +169,14 @@ class GemsScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          gem.title,
+                          catalogText(context, gem.title),
                           style: const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
                         Text(
-                          gem.location,
+                          catalogText(context, gem.location),
                           style: const TextStyle(
                             fontSize: 12,
                             color: LuxColors.stone500,
@@ -139,31 +185,31 @@ class GemsScreen extends StatelessWidget {
                         const SizedBox(height: 14),
                         _GemDetail(
                           icon: Icons.auto_awesome_rounded,
-                          label: 'Why it’s special',
-                          value: gem.whySpecial,
+                          label: gl.gemWhySpecial,
+                          value: catalogText(context, gem.whySpecial),
                         ),
                         _GemDetail(
                           icon: Icons.schedule_rounded,
-                          label: 'Best time to go',
-                          value: gem.bestTime,
+                          label: gl.gemBestTime,
+                          value: catalogText(context, gem.bestTime),
                         ),
                         _GemDetail(
                           icon: Icons.people_outline_rounded,
-                          label: 'Crowd level',
-                          value: gem.crowdLevel,
+                          label: gl.gemCrowdLevel,
+                          value: catalogText(context, gem.crowdLevel),
                         ),
                         _GemDetail(
                           icon: Icons.tips_and_updates_outlined,
-                          label: 'Insider tip',
-                          value: gem.insiderTip,
+                          label: gl.gemInsiderTip,
+                          value: catalogText(context, gem.insiderTip),
                         ),
                         _GemDetail(
                           icon: Icons.visibility_off_outlined,
-                          label: 'Local-only note',
-                          value: gem.localOnlyNote,
+                          label: gl.gemLocalNote,
+                          value: catalogText(context, gem.localOnlyNote),
                         ),
                         const SizedBox(height: 12),
-                        const AffiliateHint(category: 'this experience'),
+                        AffiliateHint(category: gl.affiliateExperiences),
                       ],
                     ),
                   ),
@@ -172,6 +218,8 @@ class GemsScreen extends StatelessWidget {
             ),
             ),
           );
+        },
+      );
         },
       ),
     );

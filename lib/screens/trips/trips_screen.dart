@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:luxora_ai/l10n/catalog_localizer.dart';
+import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/data/saved_trips.dart';
 import 'package:luxora_ai/services/trip_cover_resolver.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
+import 'package:luxora_ai/widgets/attraction_detail_sheet.dart';
 import 'package:luxora_ai/widgets/lux_place_image.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
 import 'package:luxora_ai/widgets/lux_button.dart';
@@ -12,6 +15,7 @@ class TripsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l = context.l10n;
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.all(20),
@@ -25,7 +29,7 @@ class TripsScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'COLLECTIONS',
+                        l.tripsBadge,
                         style: TextStyle(
                           fontSize: 11,
                           fontWeight: FontWeight.w700,
@@ -34,12 +38,12 @@ class TripsScreen extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        'Saved trips',
+                        l.tripsTitle,
                         style: Theme.of(context).textTheme.headlineMedium,
                       ),
                       const SizedBox(height: 6),
-                      const Text(
-                        'Tap a trip for a live snapshot — next moment, weather, sunset, and timeline.',
+                      Text(
+                        l.tripsSubtitle,
                         style: TextStyle(
                           color: LuxColors.stone400,
                           fontSize: 13,
@@ -50,7 +54,7 @@ class TripsScreen extends StatelessWidget {
                   ),
                 ),
                 LuxButton(
-                  label: 'New',
+                  label: l.commonNew,
                   icon: Icons.add_rounded,
                   onPressed: () => context.push('/onboarding'),
                 ),
@@ -65,12 +69,15 @@ class TripsScreen extends StatelessWidget {
                       padding: const EdgeInsets.only(bottom: 14),
                       child: _TripCard(trip: trip),
                     ),
-                  const Center(
+                  Center(
                     child: Padding(
-                      padding: EdgeInsets.only(top: 8),
+                      padding: const EdgeInsets.only(top: 8),
                       child: Text(
-                        'Trip covers from mood catalog · Supabase sync Phase 2',
-                        style: TextStyle(fontSize: 11, color: LuxColors.stone500),
+                        l.tripsFooter,
+                        style: const TextStyle(
+                          fontSize: 11,
+                          color: LuxColors.stone500,
+                        ),
                       ),
                     ),
                   ),
@@ -99,6 +106,7 @@ class _TripCardState extends State<_TripCard> {
   @override
   Widget build(BuildContext context) {
     final trip = widget.trip;
+    final l = context.l10n;
 
     final cover = TripCoverResolver.instance.forSavedTrip(trip);
 
@@ -112,6 +120,12 @@ class _TripCardState extends State<_TripCard> {
             place: cover,
             presentation: LuxImagePresentation.tripCover,
             trackUsageOnDisplay: true,
+            onUserSelect: cover == null
+                ? null
+                : () => showAttractionDetailSheet(
+                      context,
+                      place: cover,
+                    ),
             fallbackGradient: const [
               Color(0xFFF59E0B),
               Color(0xFF1C1917),
@@ -130,7 +144,7 @@ class _TripCardState extends State<_TripCard> {
                     children: [
                       Expanded(
                         child: Text(
-                          trip.title,
+                          catalogText(context, trip.title),
                           style: const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w700,
@@ -152,7 +166,7 @@ class _TripCardState extends State<_TripCard> {
                   ),
                   const SizedBox(height: 6),
                   Text(
-                    trip.dateRange,
+                    catalogText(context, trip.dateRange),
                     style: const TextStyle(
                       fontSize: 12,
                       color: LuxColors.stone500,
@@ -160,7 +174,7 @@ class _TripCardState extends State<_TripCard> {
                   ),
                   const SizedBox(height: 12),
                   Text(
-                    trip.statusLine,
+                    catalogText(context, trip.statusLine),
                     style: const TextStyle(
                       fontSize: 13,
                       height: 1.4,
@@ -180,7 +194,7 @@ class _TripCardState extends State<_TripCard> {
                         const SizedBox(width: 6),
                         Expanded(
                           child: Text(
-                            trip.weatherWindow!,
+                            catalogText(context, trip.weatherWindow!),
                             style: TextStyle(
                               fontSize: 12,
                               color: LuxColors.gold.withValues(alpha: 0.85),
@@ -194,8 +208,9 @@ class _TripCardState extends State<_TripCard> {
                   Wrap(
                     spacing: 6,
                     runSpacing: 6,
-                    children:
-                        trip.moodTags.map((t) => _MoodTag(label: t)).toList(),
+                    children: trip.moodTags
+                        .map((t) => _MoodTag(label: catalogText(context, t)))
+                        .toList(),
                   ),
                 ],
               ),
@@ -223,34 +238,34 @@ class _TripCardState extends State<_TripCard> {
                   if (trip.liveWeatherNote != null)
                     _PreviewRow(
                       icon: Icons.cloud_outlined,
-                      label: 'Live weather',
-                      value: trip.liveWeatherNote!,
+                      label: l.tripsLiveWeather,
+                      value: catalogText(context, trip.liveWeatherNote!),
                       accent: LuxColors.feedAccent,
                     ),
                   if (trip.nextExperience != null)
                     _PreviewRow(
                       icon: Icons.place_outlined,
-                      label: 'Next up',
-                      value: trip.nextExperience!,
+                      label: l.tripsNextUp,
+                      value: catalogText(context, trip.nextExperience!),
                     ),
                   if (trip.sunsetWindow != null)
                     _PreviewRow(
                       icon: Icons.wb_twilight_rounded,
-                      label: 'Sunset window',
-                      value: trip.sunsetWindow!,
+                      label: l.tripsSunsetWindow,
+                      value: catalogText(context, trip.sunsetWindow!),
                       accent: LuxColors.gold,
                     ),
                   if (trip.timelineSnapshot != null)
                     _PreviewRow(
                       icon: Icons.view_timeline_outlined,
-                      label: 'Timeline snapshot',
-                      value: trip.timelineSnapshot!,
+                      label: l.tripsTimelineSnapshot,
+                      value: catalogText(context, trip.timelineSnapshot!),
                     ),
                   const SizedBox(height: 12),
                   TextButton.icon(
                     onPressed: () => context.go('/itinerary'),
                     icon: const Icon(Icons.arrow_forward_rounded, size: 18),
-                    label: const Text('Open full timeline'),
+                    label: Text(l.tripsOpenTimeline),
                     style: TextButton.styleFrom(
                       foregroundColor: LuxColors.gold,
                     ),

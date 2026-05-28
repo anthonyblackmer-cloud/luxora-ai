@@ -24,15 +24,19 @@ abstract final class LuxColors {
 
 ThemeData buildLuxTheme() {
   final display = GoogleFonts.cormorantGaramondTextTheme();
-  final body = GoogleFonts.dmSansTextTheme();
+  final body = GoogleFonts.notoSansTextTheme();
 
   return ThemeData(
     useMaterial3: true,
     brightness: Brightness.dark,
     // Mood chips use emoji — Noto fallback avoids web console warnings.
     fontFamilyFallback: const [
-      'Noto Color Emoji',
       'Noto Sans',
+      'Noto Sans SC',
+      'Noto Sans JP',
+      'Noto Sans KR',
+      'Noto Sans Devanagari',
+      'Noto Color Emoji',
       'Segoe UI Emoji',
       'Apple Color Emoji',
     ],
@@ -46,6 +50,47 @@ ThemeData buildLuxTheme() {
     textTheme: body.apply(
       bodyColor: const Color(0xFFFAFAF9),
       displayColor: const Color(0xFFFAFAF9),
+    ).copyWith(
+      displayLarge: display.displayLarge?.copyWith(
+        fontWeight: FontWeight.w600,
+        height: 1.05,
+      ),
+      displayMedium: display.displayMedium?.copyWith(
+        fontWeight: FontWeight.w600,
+      ),
+      titleLarge: display.titleLarge?.copyWith(fontWeight: FontWeight.w600),
+    ),
+  );
+}
+
+ThemeData buildLuxLightTheme() {
+  final display = GoogleFonts.cormorantGaramondTextTheme();
+  final body = GoogleFonts.notoSansTextTheme();
+
+  return ThemeData(
+    useMaterial3: true,
+    brightness: Brightness.light,
+    fontFamilyFallback: const [
+      'Noto Sans',
+      'Noto Sans SC',
+      'Noto Sans JP',
+      'Noto Sans KR',
+      'Noto Sans Devanagari',
+      'Noto Color Emoji',
+      'Segoe UI Emoji',
+      'Apple Color Emoji',
+    ],
+    scaffoldBackgroundColor: const Color(0xFFFAFAF9),
+    colorScheme: const ColorScheme.light(
+      primary: Color(0xFFD97706),
+      secondary: Color(0xFFEA580C),
+      surface: Color(0xFFFFFFFF),
+      onSurface: Color(0xFF1C1917),
+      onSurfaceVariant: Color(0xFF57534E),
+    ),
+    textTheme: body.apply(
+      bodyColor: const Color(0xFF1C1917),
+      displayColor: const Color(0xFF1C1917),
     ).copyWith(
       displayLarge: display.displayLarge?.copyWith(
         fontWeight: FontWeight.w600,

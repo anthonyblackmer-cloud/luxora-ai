@@ -111,4 +111,70 @@ const discoveryFeed = [
     gradient: [Color(0xFF64748B), Color(0xFF0EA5E9), Color(0xFF1E3A5F)],
     isLive: true,
   ),
+  FeedItem(
+    id: 'feed-universal-hype',
+    kind: FeedItemKind.trending,
+    title: 'Epic coaster weekend — Universal',
+    subtitle: 'Studios + Islands · 2-park rhythm',
+    location: 'International Drive',
+    headline:
+        'Express passes trending for spring break — night shows back on the lagoon.',
+    socialProof: 'Trending · thrill seekers',
+    gradient: [Color(0xFFEF4444), Color(0xFF7C3AED), Color(0xFF0F172A)],
+  ),
+  FeedItem(
+    id: 'feed-kennedy-launch',
+    kind: FeedItemKind.seasonal,
+    title: 'Space Coast launch window',
+    subtitle: 'Kennedy Space Center',
+    location: 'Merritt Island, FL',
+    headline:
+        'Align your Orlando stay with a morning launch viewing — backup indoor exhibits if scrubbed.',
+    socialProof: 'Seasonal · launch calendar',
+    gradient: [Color(0xFF1E3A8A), Color(0xFF0EA5E9), Color(0xFF020617)],
+  ),
+  FeedItem(
+    id: 'feed-lake-eola-sunset',
+    kind: FeedItemKind.viralSpot,
+    title: 'Lake Eola golden loop',
+    subtitle: 'Downtown Orlando · free',
+    location: 'Downtown Orlando',
+    headline:
+        'The skyline walk everyone’s posting — swan boats at 6 PM, tacos after.',
+    socialProof: '8.1K saves · #DowntownOrlando',
+    gradient: [Color(0xFFF97316), Color(0xFFEC4899), Color(0xFF4C1D95)],
+  ),
+  FeedItem(
+    id: 'feed-clearwater-weekend',
+    kind: FeedItemKind.seasonal,
+    title: 'Clearwater beach weekend',
+    subtitle: 'Gulf day trip',
+    location: 'Clearwater, FL',
+    headline:
+        'Pair a park-off day with sugar sand — sunset pier festival Saturdays.',
+    socialProof: 'Weekend route · beach + seafood',
+    gradient: [Color(0xFF38BDF8), Color(0xFFFBBF24), Color(0xFF0F172A)],
+  ),
+  FeedItem(
+    id: 'feed-kelly-park-tube',
+    kind: FeedItemKind.creatorPick,
+    title: 'Tube Rock Springs run',
+    subtitle: '@floridaspringslife',
+    location: 'Apopka, FL',
+    headline:
+        'Creator loop: Kelly Park tube run → Wekiwa picnic — the locals’ summer circuit.',
+    socialProof: 'Creator pick · springs season',
+    gradient: [Color(0xFF14B8A6), Color(0xFF059669), Color(0xFF134E4A)],
+  ),
+  FeedItem(
+    id: 'feed-disney-springs-date',
+    kind: FeedItemKind.trending,
+    title: 'Disney Springs date night',
+    subtitle: 'No park ticket needed',
+    location: 'Lake Buena Vista',
+    headline:
+        'Waterfront tasting panels + live music — the move when park days need a breather.',
+    socialProof: 'Trending · couples + foodies',
+    gradient: [Color(0xFFA855F7), Color(0xFFF472B6), Color(0xFF1E1B4B)],
+  ),
 ];

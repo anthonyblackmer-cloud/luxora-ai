@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:luxora_ai/data/curated_places_catalog.dart';
+import 'package:luxora_ai/l10n/app_localizations.dart';
+import 'package:luxora_ai/l10n/catalog_localizer.dart';
+import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/data/feed_items.dart';
+import 'package:luxora_ai/services/discover_radius_controller.dart';
 import 'package:luxora_ai/services/places_repository.dart';
 import 'package:luxora_ai/services/unsplash_download_tracker.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
+import 'package:luxora_ai/widgets/attraction_detail_sheet.dart';
+import 'package:luxora_ai/widgets/destination_search_sheet.dart';
+import 'package:luxora_ai/widgets/discover_radius_selector.dart';
+import 'package:luxora_ai/widgets/discover_scope_banner.dart';
 import 'package:luxora_ai/widgets/lux_place_image.dart';
 import 'package:luxora_ai/widgets/affiliate_hint.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
@@ -15,9 +23,16 @@ class FeedList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: ListView.builder(
+      child: ListenableBuilder(
+        listenable: DiscoverRadiusController.instance,
+        builder: (context, _) {
+          final radius = DiscoverRadiusController.instance.radius;
+          final feed = PlacesRepository.instance.feedWithinRadius(radius);
+          final l = context.l10n;
+
+          return ListView.builder(
         padding: const EdgeInsets.all(20),
-        itemCount: discoveryFeed.length + 1,
+        itemCount: feed.length + 1,
         itemBuilder: (context, i) {
           if (i == 0) {
             return Padding(
@@ -32,7 +47,7 @@ class FeedList extends StatelessWidget {
                           size: 22),
                       const SizedBox(width: 8),
                       Text(
-                        'LIVE DISCOVERY',
+                        l.feedBadge,
                         style: TextStyle(
                           fontSize: 11,
                           fontWeight: FontWeight.w800,
@@ -43,32 +58,48 @@ class FeedList extends StatelessWidget {
                     ],
                   ),
                   Text(
-                    'Experience Feed',
+                    l.feedTitle,
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
                   const SizedBox(height: 8),
-                  const Text(
-                    'What’s moving right now — trending spots, new openings, '
-                    'creator picks, seasonal routes, and live updates.',
-                    style: TextStyle(color: LuxColors.stone400, height: 1.45),
+                  Text(
+                    l.feedSubtitle,
+                    style: const TextStyle(color: LuxColors.stone400, height: 1.45),
                   ),
                   const SizedBox(height: 12),
                   Wrap(
                     spacing: 6,
                     runSpacing: 6,
-                    children: const [
-                      _FeedPill('Trending', LuxColors.feedAccent),
-                      _FeedPill('New openings', Color(0xFFA78BFA)),
-                      _FeedPill('Creator picks', LuxColors.feedHot),
-                      _FeedPill('Live updates', LuxColors.feedLive),
+                    children: [
+                      _FeedPill(l.feedPillTrending, LuxColors.feedAccent),
+                      _FeedPill(l.feedPillNewOpenings, const Color(0xFFA78BFA)),
+                      _FeedPill(l.feedPillCreator, LuxColors.feedHot),
+                      _FeedPill(l.feedPillLive, LuxColors.feedLive),
                     ],
                   ),
+                  const SizedBox(height: 16),
+                  DestinationSearchBar(hint: l.discoverSearchHint),
+                  const SizedBox(height: 14),
+                  const DiscoverRadiusSelector(),
+                  const SizedBox(height: 12),
+                  const DiscoverScopeBanner(),
+                  if (feed.isEmpty) ...[
+                    const SizedBox(height: 16),
+                    Text(
+                      l.feedEmptyHint,
+                      style: TextStyle(
+                        color: LuxColors.stone500,
+                        height: 1.45,
+                        fontSize: 13,
+                      ),
+                    ),
+                  ],
                 ],
               ),
             );
           }
 
-          final item = discoveryFeed[i - 1];
+          final item = feed[i - 1];
           final placeId = kFeedItemPlaceIds[item.id];
           final place = PlacesRepository.instance.byId(placeId);
           return Padding(
@@ -81,6 +112,9 @@ class FeedList extends StatelessWidget {
                   final photo = place?.unsplashPhoto;
                   if (photo != null) {
                     UnsplashDownloadTracker().trackUsage(photo, force: true);
+                  }
+                  if (place != null) {
+                    showAttractionDetailSheet(context, place: place);
                   }
                 },
                 child: DecoratedBox(
@@ -108,7 +142,7 @@ class FeedList extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.all(10),
                         child: _FeedBadge(
-                          label: item.kindLabel,
+                          label: catalogText(context, item.kindLabel),
                           live: item.isLive,
                         ),
                       ),
@@ -120,14 +154,14 @@ class FeedList extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          item.title,
+                          catalogText(context, item.title),
                           style: const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
                         Text(
-                          '${item.subtitle} · ${item.location}',
+                          '${catalogText(context, item.subtitle)} · ${catalogText(context, item.location)}',
                           style: const TextStyle(
                             fontSize: 12,
                             color: LuxColors.stone500,
@@ -135,7 +169,7 @@ class FeedList extends StatelessWidget {
                         ),
                         const SizedBox(height: 10),
                         Text(
-                          item.headline,
+                          catalogText(context, item.headline),
                           style: const TextStyle(
                             color: LuxColors.stone300,
                             height: 1.4,
@@ -152,7 +186,7 @@ class FeedList extends StatelessWidget {
                             const SizedBox(width: 6),
                             Expanded(
                               child: Text(
-                                item.socialProof,
+                                catalogText(context, item.socialProof),
                                 style: TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w700,
@@ -164,7 +198,7 @@ class FeedList extends StatelessWidget {
                         ),
                         const SizedBox(height: 12),
                         AffiliateHint(
-                          category: _affiliateForKind(item.kind),
+                          category: _affiliateForKind(l, item.kind),
                         ),
                       ],
                     ),
@@ -176,18 +210,20 @@ class FeedList extends StatelessWidget {
             ),
           );
         },
+          );
+        },
       ),
     );
   }
 
-  String _affiliateForKind(FeedItemKind kind) {
+  String _affiliateForKind(AppLocalizations l, FeedItemKind kind) {
     return switch (kind) {
-      FeedItemKind.newOpening => 'restaurant reservations',
-      FeedItemKind.seasonal => 'experiences & tours',
-      FeedItemKind.viralSpot => 'restaurant reservations',
-      FeedItemKind.trending => 'theme park tickets',
-      FeedItemKind.creatorPick => 'experiences & tours',
-      FeedItemKind.liveUpdate => 'day passes',
+      FeedItemKind.newOpening => l.affiliateRestaurants,
+      FeedItemKind.seasonal => l.affiliateExperiences,
+      FeedItemKind.viralSpot => l.affiliateRestaurants,
+      FeedItemKind.trending => l.affiliateThemeParks,
+      FeedItemKind.creatorPick => l.affiliateExperiences,
+      FeedItemKind.liveUpdate => l.affiliateDayPasses,
     };
   }
 }

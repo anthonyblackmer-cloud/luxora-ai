@@ -7,6 +7,7 @@ import 'package:luxora_ai/widgets/unsplash_image.dart';
 /// Tab-specific presentation for [LuxPlace] heroes — Unsplash via [UnsplashImage] only.
 enum LuxImagePresentation {
   feedHero,
+  detailHero,
   gemMood,
   timelineThumb,
   tripCover,
@@ -20,6 +21,7 @@ class LuxPlaceImage extends StatelessWidget {
     this.fallbackGradient,
     this.borderRadius,
     this.overlayChild,
+    this.bottomCaption,
     this.trackUsageOnDisplay = false,
     this.onUserSelect,
   });
@@ -30,6 +32,7 @@ class LuxPlaceImage extends StatelessWidget {
     required List<Color> this.fallbackGradient,
     this.borderRadius,
     this.overlayChild,
+    this.bottomCaption,
   })  : place = null,
         trackUsageOnDisplay = false,
         onUserSelect = null;
@@ -39,6 +42,7 @@ class LuxPlaceImage extends StatelessWidget {
   final List<Color>? fallbackGradient;
   final BorderRadius? borderRadius;
   final Widget? overlayChild;
+  final String? bottomCaption;
   final bool trackUsageOnDisplay;
   final VoidCallback? onUserSelect;
 
@@ -57,9 +61,11 @@ class LuxPlaceImage extends StatelessWidget {
       presentationFilter: _presentationFilter,
       scrim: _scrimGradient(),
       overlayChild: overlayChild,
+      bottomCaption: bottomCaption,
       compactAttribution: presentation == LuxImagePresentation.timelineThumb,
       showAttributionOverlay:
           presentation != LuxImagePresentation.timelineThumb,
+      expandOnTap: presentation != LuxImagePresentation.timelineThumb,
       trackUsageOnDisplay: trackUsageOnDisplay,
       onUserSelect: onUserSelect,
     );
@@ -67,6 +73,7 @@ class LuxPlaceImage extends StatelessWidget {
 
   double _height() => switch (presentation) {
         LuxImagePresentation.feedHero => 140,
+        LuxImagePresentation.detailHero => 220,
         LuxImagePresentation.gemMood => 112,
         LuxImagePresentation.timelineThumb => 56,
         LuxImagePresentation.tripCover => 108,
@@ -83,7 +90,9 @@ class LuxPlaceImage extends StatelessWidget {
 
   Widget Function(Widget child)? get _presentationFilter =>
       switch (presentation) {
-        LuxImagePresentation.feedHero => (child) => ColorFiltered(
+        LuxImagePresentation.feedHero ||
+        LuxImagePresentation.detailHero =>
+          (child) => ColorFiltered(
               colorFilter: const ColorFilter.matrix([
                 1.08, 0, 0, 0, 8,
                 0, 1.05, 0, 0, 4,
@@ -115,6 +124,16 @@ class LuxPlaceImage extends StatelessWidget {
               Color(0x85000000), // ~52% bottom
             ],
             stops: [0.0, 0.42, 1.0],
+          ),
+        LuxImagePresentation.detailHero => const LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Color(0x59000000),
+              Color(0x1F000000),
+              Color(0x8C000000),
+            ],
+            stops: [0.0, 0.35, 1.0],
           ),
         LuxImagePresentation.gemMood => const LinearGradient(
             begin: Alignment.topCenter,

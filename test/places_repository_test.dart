@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 // Loads assets/unsplash/curated.json in tests.
 import 'package:luxora_ai/data/curated_places_catalog.dart';
 import 'package:luxora_ai/data/saved_trips.dart';
+import 'package:luxora_ai/models/discover_radius.dart';
 import 'package:luxora_ai/services/places_repository.dart';
 import 'package:luxora_ai/services/trip_cover_resolver.dart';
 import 'package:luxora_ai/services/unsplash_photo_registry.dart';
@@ -11,6 +12,7 @@ void main() {
   setUpAll(() async {
     TestWidgetsFlutterBinding.ensureInitialized();
     await UnsplashPhotoRegistry.instance.ensureLoaded();
+    await PlacesRepository.instance.initialize();
   });
 
   test('feed and gem ids resolve to places with image urls', () {
@@ -23,6 +25,52 @@ void main() {
     for (final id in kGemPlaceIds.values) {
       expect(repo.byId(id)?.unsplashPhoto?.hotlinkUrl, isNotEmpty);
     }
+  });
+
+  test('catalog includes major tourist attractions', () {
+    final repo = PlacesRepository.instance;
+    expect(repo.mappablePlaces.length, greaterThan(70));
+    for (final id in [
+      'place-hollywood-studios',
+      'place-animal-kingdom',
+      'place-busch-gardens-tampa',
+      'place-everglades-national-park',
+      'place-st-augustine-historic',
+    ]) {
+      expect(repo.byId(id), isNotNull, reason: 'missing $id');
+    }
+  });
+
+  test('search finds destinations by name and respects radius', () {
+    final repo = PlacesRepository.instance;
+    final disney = repo.searchPlaces(
+      'magic kingdom',
+      radius: DiscoverRadius.miles50,
+    );
+    expect(disney, isNotEmpty);
+    expect(disney.first.id, 'place-magic-kingdom');
+
+    final keysIn50 = repo.searchPlaces(
+      'key west',
+      radius: DiscoverRadius.miles50,
+    );
+    expect(keysIn50, isEmpty);
+
+    final keysAll = repo.searchPlaces(
+      'key west',
+      radius: DiscoverRadius.allFlorida,
+    );
+    expect(keysAll, isNotEmpty);
+  });
+
+  test('radius filter excludes Keys from 50mi Orlando hub', () {
+    final repo = PlacesRepository.instance;
+    final within50 = repo.placesWithinRadius(DiscoverRadius.miles50);
+    expect(within50.any((p) => p.id == 'place-keys-sail'), isFalse);
+    expect(within50.any((p) => p.id == 'place-magic-kingdom'), isTrue);
+
+    final all = repo.placesWithinRadius(DiscoverRadius.allFlorida);
+    expect(all.any((p) => p.id == 'place-keys-sail'), isTrue);
   });
 
   test('trip cover resolver maps saved trips', () {

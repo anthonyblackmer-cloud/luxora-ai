@@ -1,7 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:luxora_ai/data/florida_experiences.dart';
+import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
+import 'package:luxora_ai/l10n/luxora_l10n_helpers.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
 import 'package:luxora_ai/services/trip_profile_storage.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
@@ -42,6 +43,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l = context.l10n;
     return LuxBackground(
       child: Scaffold(
         backgroundColor: Colors.transparent,
@@ -75,8 +77,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 const SizedBox(height: 16),
                 LuxButton(
                   label: _step == _stepCount - 1
-                      ? 'Meet your concierge'
-                      : 'Continue',
+                      ? l.onboardFinish
+                      : l.commonContinue,
                   icon: Icons.favorite_rounded,
                   onPressed: _next,
                 ),
@@ -89,25 +91,26 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   }
 
   Widget _buildStep() {
+    final l = context.l10n;
     return switch (_step) {
       0 => _stepCard(
-          'Where dreams land first',
-          'Where are you headed?',
+          l.onboardStep1Title,
+          l.onboardStep1Subtitle,
           [
-            _field('Destination', _profile.destination, (v) {
+            _field(l.onboardDestination, _profile.destination, (v) {
               setState(() => _profile = _profile.copyWith(destination: v));
             }),
-            _field('Region', _profile.region, (v) {
+            _field(l.onboardRegion, _profile.region, (v) {
               setState(() => _profile = _profile.copyWith(region: v));
             }),
           ],
         ),
       1 => _stepCard(
-          'Time to feel free',
-          'When does your escape begin?',
+          l.onboardStep2Title,
+          l.onboardStep2Subtitle,
           [
             LuxSliderField(
-              label: 'Trip budget (USD)',
+              label: l.onboardBudget,
               value: _profile.budgetUsd.toDouble(),
               min: _budgetMinUsd.toDouble(),
               max: _budgetMaxUsd.toDouble(),
@@ -123,11 +126,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           ],
         ),
       2 => _stepCard(
-          "Who shares the story",
-          "Who's traveling with you?",
+          l.onboardStep3Title,
+          l.onboardStep3Subtitle,
           [
             LuxSliderField(
-              label: 'Travelers',
+              label: l.onboardTravelers,
               value: _profile.travelerCount.toDouble(),
               min: 1,
               max: 12,
@@ -141,11 +144,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           ],
         ),
       3 => _stepCard(
-          'Your rhythm',
-          'How should your days flow?',
+          l.onboardStep4Title,
+          l.onboardStep4Subtitle,
           [
             LuxSliderField(
-              label: 'Nightlife interest',
+              label: l.onboardNightlife,
               value: _profile.nightlifeInterest.toDouble(),
               min: 0,
               max: 100,
@@ -159,7 +162,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               },
             ),
             LuxSliderField(
-              label: 'Foodie passion',
+              label: l.onboardFoodie,
               value: _profile.foodieInterest.toDouble(),
               min: 0,
               max: 100,
@@ -175,15 +178,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           ],
         ),
       _ => _stepCard(
-          'The heart of Luxora',
-          'What do you want this trip to FEEL like?',
+          l.onboardStep5Title,
+          l.onboardStep5Subtitle,
           [
             TextField(
               maxLines: 3,
               style: const TextStyle(color: Colors.white),
-              decoration: _inputDeco(
-                'Sunset dinners, slow mornings, laughter with my partner…',
-              ),
+              decoration: _inputDeco(l.onboardTripFeelHint),
               onChanged: (v) =>
                   setState(() => _profile = _profile.copyWith(tripFeel: v)),
             ),
@@ -191,7 +192,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             Wrap(
               spacing: 8,
               runSpacing: 8,
-              children: moodOptions.map((m) {
+              children: moodOptionsL10n(l).map((m) {
                 final selected = _profile.moods.contains(m.mood);
                 return FilterChip(
                   selected: selected,

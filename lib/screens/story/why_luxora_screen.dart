@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:luxora_ai/data/why_luxora_story.dart';
+import 'package:luxora_ai/l10n/app_localizations.dart';
+import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
 import 'package:luxora_ai/widgets/lux_background.dart';
@@ -8,9 +9,11 @@ import 'package:luxora_ai/widgets/lux_button.dart';
 
 class WhyLuxoraScreen extends StatelessWidget {
   const WhyLuxoraScreen({super.key});
+  static const _founderImageAsset = 'assets/images/founder.png';
 
   @override
   Widget build(BuildContext context) {
+    final l = context.l10n;
     final titleStyle = Theme.of(context).textTheme.headlineSmall;
 
     return LuxBackground(
@@ -30,7 +33,7 @@ class WhyLuxoraScreen extends StatelessWidget {
             },
           ),
           title: Text(
-            'Our story',
+            l.storyTitle,
             style: TextStyle(
               fontSize: 15,
               fontWeight: FontWeight.w600,
@@ -44,28 +47,21 @@ class WhyLuxoraScreen extends StatelessWidget {
             _FounderHero(),
             const SizedBox(height: 28),
             Text(
-              'Why we’re building Luxora',
+              l.storyHeading,
               style: titleStyle?.copyWith(fontSize: 26),
             ),
             const SizedBox(height: 12),
-            const _BodyText(
-              'We realized that planning a Florida / Orlando trip is surprisingly '
-              'fragmented and overwhelming.',
-            ),
+            _BodyText(l.storyProblemLead),
             const SizedBox(height: 20),
-            const _SectionTitle('People usually jump between'),
+            _SectionTitle(l.storyJumpingBetween),
             const SizedBox(height: 10),
-            ...WhyLuxoraStory.fragmentedSources.map((t) => _Bullet(t)),
+            ..._fragmentedSources(l).map((t) => _Bullet(t)),
             const SizedBox(height: 8),
-            const _BodyText(
-              '…and still end up with generic tourist plans.',
-            ),
+            _BodyText(l.storyProblemTail),
             const SizedBox(height: 24),
             const _GoldDivider(),
             const SizedBox(height: 24),
-            const _BodyText(
-              'We want to build something different.',
-            ),
+            _BodyText(l.storyDifferentLead),
             const SizedBox(height: 8),
             GlassCard(
               glow: true,
@@ -73,7 +69,7 @@ class WhyLuxoraScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Not just a travel planner',
+                    l.storyNotPlannerTitle,
                     style: TextStyle(
                       fontSize: 13,
                       fontWeight: FontWeight.w700,
@@ -81,8 +77,8 @@ class WhyLuxoraScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 6),
-                  const Text(
-                    'An emotion-first AI travel companion.',
+                  Text(
+                    l.storyNotPlannerBody,
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w700,
@@ -93,15 +89,15 @@ class WhyLuxoraScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            const _ContrastRow(
-              insteadOf: '“Where should I go?”',
-              weAsk: '“How do you want this trip to feel?”',
+            _ContrastRow(
+              insteadOf: l.storyInsteadQuestion,
+              weAsk: l.storyFeelQuestion,
             ),
             const SizedBox(height: 16),
             Wrap(
               spacing: 8,
               runSpacing: 8,
-              children: WhyLuxoraStory.moodExamples
+              children: _moodExamples(l)
                   .map(
                     (m) => Chip(
                       label: Text(m),
@@ -119,27 +115,23 @@ class WhyLuxoraScreen extends StatelessWidget {
                   .toList(),
             ),
             const SizedBox(height: 12),
-            const _BodyText(
-              'Then AI builds a personalized experience around that mood.',
-            ),
+            _BodyText(l.storyMoodBuildLine),
             const SizedBox(height: 24),
             const _GoldDivider(),
             const SizedBox(height: 24),
-            const _SectionTitle('Why Florida / Orlando first?'),
+            _SectionTitle(l.storyFloridaFirstTitle),
             const SizedBox(height: 8),
-            const _BodyText(
-              'Orlando is a perfect test market:',
-            ),
+            _BodyText(l.storyFloridaFirstLead),
             const SizedBox(height: 10),
-            ...WhyLuxoraStory.orlandoWhyBullets.map((t) => _Bullet(t)),
+            ..._orlandoWhyBullets(l).map((t) => _Bullet(t)),
             const SizedBox(height: 24),
             const _GoldDivider(),
             const SizedBox(height: 24),
-            const _SectionTitle('Our vision'),
+            _SectionTitle(l.storyVisionTitle),
             const SizedBox(height: 8),
-            const _BodyText('Combine:'),
+            _BodyText(l.storyVisionLead),
             const SizedBox(height: 10),
-            ...WhyLuxoraStory.visionPillars.map((t) => _Bullet(t)),
+            ..._visionPillars(l).map((t) => _Bullet(t)),
             const SizedBox(height: 16),
             GlassCard(
               child: Row(
@@ -153,8 +145,7 @@ class WhyLuxoraScreen extends StatelessWidget {
                   const SizedBox(width: 12),
                   Expanded(
                     child: Text(
-                      'So the app feels closer to a luxury AI concierge — '
-                      'not another boring itinerary tool.',
+                      l.storyVisionCard,
                       style: TextStyle(
                         fontSize: 15,
                         height: 1.45,
@@ -169,18 +160,18 @@ class WhyLuxoraScreen extends StatelessWidget {
             const SizedBox(height: 24),
             const _GoldDivider(),
             const SizedBox(height: 24),
-            const _SectionTitle('Long-term opportunity'),
+            _SectionTitle(l.storyLongTermTitle),
             const SizedBox(height: 10),
-            ...WhyLuxoraStory.longTermOpportunity.map((t) => _Bullet(t)),
+            ..._longTermOpportunity(l).map((t) => _Bullet(t)),
             const SizedBox(height: 32),
             LuxButton(
-              label: 'Begin your journey',
+              label: l.landingBegin,
               icon: Icons.arrow_forward_rounded,
               onPressed: () => context.push('/onboarding'),
             ),
             const SizedBox(height: 12),
             LuxButton(
-              label: 'Talk to Luxora',
+              label: l.landingTalk,
               outline: true,
               icon: Icons.chat_bubble_rounded,
               onPressed: () => context.go('/concierge'),
@@ -193,8 +184,11 @@ class WhyLuxoraScreen extends StatelessWidget {
 }
 
 class _FounderHero extends StatelessWidget {
+  const _FounderHero();
+
   @override
   Widget build(BuildContext context) {
+    final l = context.l10n;
     return ClipRRect(
       borderRadius: BorderRadius.circular(20),
       child: AspectRatio(
@@ -203,7 +197,7 @@ class _FounderHero extends StatelessWidget {
           fit: StackFit.expand,
           children: [
             Image.asset(
-              WhyLuxoraStory.founderImageAsset,
+              WhyLuxoraScreen._founderImageAsset,
               fit: BoxFit.cover,
               alignment: Alignment.topCenter,
               errorBuilder: (_, _, _) => Container(
@@ -235,7 +229,7 @@ class _FounderHero extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'BUILT WITH INTENTION',
+                    l.storyHeroBadge,
                     style: TextStyle(
                       fontSize: 10,
                       fontWeight: FontWeight.w700,
@@ -245,14 +239,14 @@ class _FounderHero extends StatelessWidget {
                   ),
                   const SizedBox(height: 6),
                   Text(
-                    'Creator, Luxora AI',
+                    l.storyHeroCreator,
                     style: Theme.of(context).textTheme.titleLarge?.copyWith(
                           fontWeight: FontWeight.w600,
                         ),
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    'Florida · emotion-first travel',
+                    l.storyHeroSubtitle,
                     style: TextStyle(
                       fontSize: 13,
                       color: LuxColors.stone300.withValues(alpha: 0.9),
@@ -389,11 +383,12 @@ class _ContrastRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l = context.l10n;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Text(
-          'Instead of asking',
+          l.storyInsteadOfAsking,
           style: TextStyle(fontSize: 12, color: LuxColors.stone500),
         ),
         const SizedBox(height: 4),
@@ -409,7 +404,7 @@ class _ContrastRow extends StatelessWidget {
         ),
         const SizedBox(height: 14),
         Text(
-          'The app asks',
+          l.storyAppAsks,
           style: TextStyle(
             fontSize: 12,
             fontWeight: FontWeight.w700,
@@ -430,3 +425,50 @@ class _ContrastRow extends StatelessWidget {
     );
   }
 }
+
+List<String> _fragmentedSources(AppLocalizations l) => [
+      l.storySourceGoogleMaps,
+      l.storySourceTikTok,
+      l.storySourceInstagram,
+      l.storySourceTravelBlogs,
+      l.storySourceRestaurantApps,
+      l.storySourceWeatherApps,
+      l.storySourceTicketSites,
+      l.storySourceTop10,
+    ];
+
+List<String> _moodExamples(AppLocalizations l) => [
+      l.conciergePromptRomantic,
+      l.conciergePromptWellness,
+      l.conciergePromptFamily,
+      l.conciergePromptHiddenLuxury,
+      l.styleLessCrowded,
+      l.styleSlowMornings,
+      l.styleNatureHeavy,
+    ];
+
+List<String> _orlandoWhyBullets(AppLocalizations l) => [
+      l.storyBulletMarket,
+      l.storyBulletAudience,
+      l.storyBulletOptions,
+      l.storyBulletRepeat,
+      l.storyBulletLogisticsGap,
+    ];
+
+List<String> _visionPillars(AppLocalizations l) => [
+      l.storyPillarAiItinerary,
+      l.storyPillarMoodPlanning,
+      l.storyPillarLiveDiscovery,
+      l.storyPillarHiddenGems,
+      l.storyPillarRouting,
+      l.storyPillarWeatherSunset,
+      l.storyPillarPremiumUx,
+    ];
+
+List<String> _longTermOpportunity(AppLocalizations l) => [
+      l.storyOpportunityMultilingual,
+      l.storyOpportunityAffiliate,
+      l.storyOpportunityInventory,
+      l.storyOpportunitySubscriptions,
+      l.storyOpportunityScale,
+    ];

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 
 /// Subtle placeholder for seamless booking / affiliate integration.
@@ -9,6 +10,7 @@ class AffiliateHint extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l = context.l10n;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       decoration: BoxDecoration(
@@ -24,7 +26,7 @@ class AffiliateHint extends StatelessWidget {
           const SizedBox(width: 6),
           Flexible(
             child: Text(
-              'Reserve · $category · premium partner (soon)',
+              l.affiliateReserve(category),
               style: TextStyle(
                 fontSize: 11,
                 color: LuxColors.gold.withValues(alpha: 0.9),

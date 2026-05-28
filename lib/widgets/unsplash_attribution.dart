@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/models/unsplash_photo.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -41,14 +42,14 @@ class UnsplashAttribution extends StatelessWidget {
       text: TextSpan(
         style: style,
         children: [
-          const TextSpan(text: 'Photo by '),
+          TextSpan(text: '${context.l10n.photoBy} '),
           TextSpan(
             text: photo.photographerName,
             style: linkStyle,
             recognizer: TapGestureRecognizer()
               ..onTap = () => _open(photo.photographerProfileUrl),
           ),
-          const TextSpan(text: ' on '),
+          TextSpan(text: ' ${context.l10n.photoOn} '),
           TextSpan(
             text: 'Unsplash',
             style: linkStyle,

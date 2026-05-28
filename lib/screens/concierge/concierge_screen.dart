@@ -3,11 +3,13 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:luxora_ai/data/concierge_prompts.dart';
+import 'package:luxora_ai/l10n/app_localizations.dart';
+import 'package:luxora_ai/l10n/luxora_l10n_helpers.dart';
 import 'package:luxora_ai/services/concierge_session_memory.dart';
 import 'package:luxora_ai/services/trip_profile_storage.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
+import 'package:luxora_ai/widgets/settings/luxora_settings_sheet.dart';
 
 class ConciergeScreen extends StatefulWidget {
   const ConciergeScreen({super.key});
@@ -27,7 +29,7 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
   @override
   void initState() {
     super.initState();
-    _load();
+    WidgetsBinding.instance.addPostFrameCallback((_) => _load());
   }
 
   @override
@@ -40,15 +42,12 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
   Future<void> _load() async {
     final profile = await TripProfileStorage().load();
     final prefs = await _memory.load();
+    if (!mounted) return;
+    final welcome = AppLocalizations.of(context).conciergeWelcome;
     setState(() {
       _tripFeel = profile?.tripFeel;
       _stylePrefs = prefs;
-      _messages.add((
-        user: false,
-        text:
-            'Welcome to Luxora — your emotionally intelligent Florida companion.\n\n'
-            'Choose a prompt below, or describe the feeling you want your trip to create.',
-      ));
+      _messages.add((user: false, text: welcome));
     });
   }
 
@@ -140,41 +139,278 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
     return 'I’m curating a flow of moments across Florida — anticipation built in, stress left out.$feel$style Try Gems for secrets or Feed for what’s buzzing right now.';
   }
 
+  Future<void> _showStyleRefineSheet(AppLocalizations l) async {
+    await showModalBottomSheet<void>(
+      context: context,
+      useSafeArea: true,
+      backgroundColor: const Color(0xFF12100F),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(22)),
+      ),
+      builder: (ctx) {
+        return Padding(
+          padding: const EdgeInsets.fromLTRB(16, 12, 16, 20),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Center(
+                child: Container(
+                  width: 42,
+                  height: 4,
+                  decoration: BoxDecoration(
+                    color: Colors.white.withValues(alpha: 0.22),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 14),
+              Text(
+                l.conciergeStyleMemory,
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              const SizedBox(height: 12),
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: [
+                  for (final s in styleMemoryCanonicalPrefs)
+                    FilterChip(
+                      label: Text(localizeStylePref(l, s)),
+                      selected: _stylePrefs.contains(s),
+                      onSelected: _stylePrefs.contains(s)
+                          ? (_) => _removeStylePref(s)
+                          : (_) => _addStylePref(s),
+                      selectedColor: LuxColors.gemAccent.withValues(alpha: 0.2),
+                      backgroundColor: Colors.white.withValues(alpha: 0.04),
+                      checkmarkColor: LuxColors.gemAccent,
+                    ),
+                ],
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    final l = AppLocalizations.of(context);
+    final prompts = conciergePromptChipsL10n(l);
+    final primaryPrompts = [
+      prompts[0], // Romantic
+      prompts[1], // Wellness
+      prompts[2], // Family
+      prompts[6], // Adventure
+    ];
+    final activeStylePreview = _stylePrefs.take(5).toList();
+
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
+        padding: const EdgeInsets.fromLTRB(16, 14, 16, 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        l.conciergeBrand,
+                        style: TextStyle(
+                          fontSize: 11,
+                          fontWeight: FontWeight.w700,
+                          letterSpacing: 3,
+                          color: LuxColors.gold.withValues(alpha: 0.85),
+                        ),
+                      ),
+                      Text(
+                        l.conciergeTitle,
+                        style: Theme.of(context).textTheme.headlineSmall,
+                      ),
+                      if (_tripFeel != null && _tripFeel!.isNotEmpty) ...[
+                        const SizedBox(height: 4),
+                        Text(
+                          l.conciergeTripFeel(_tripFeel!),
+                          style: const TextStyle(
+                            color: LuxColors.stone500,
+                            fontSize: 13,
+                          ),
+                        ),
+                      ],
+                    ],
+                  ),
+                ),
+                IconButton(
+                  tooltip: l.settings,
+                  onPressed: () => LuxoraSettingsSheet.show(context),
+                  icon: Icon(
+                    Icons.settings_outlined,
+                    color: LuxColors.gold.withValues(alpha: 0.9),
+                  ),
+                  style: IconButton.styleFrom(
+                    backgroundColor: Colors.white.withValues(alpha: 0.06),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 14),
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
+              decoration: BoxDecoration(
+                color: Colors.white.withValues(alpha: 0.07),
+                borderRadius: BorderRadius.circular(16),
+                border: Border.all(color: Colors.white.withValues(alpha: 0.1)),
+              ),
+              child: Text(
+                'Welcome to Luxora — your emotionally intelligent Florida companion.\nWhat kind of experience are you craving today?',
+                style: TextStyle(
+                  fontSize: 15,
+                  height: 1.42,
+                  color: LuxColors.stone300.withValues(alpha: 0.96),
+                ),
+              ),
+            ),
+            const SizedBox(height: 16),
             Text(
-              'LUXORA',
+              l.conciergeQuickPrompts,
               style: TextStyle(
                 fontSize: 11,
                 fontWeight: FontWeight.w700,
-                letterSpacing: 3,
-                color: LuxColors.gold.withValues(alpha: 0.85),
+                letterSpacing: 0.5,
+                color: LuxColors.stone500.withValues(alpha: 0.9),
               ),
             ),
-            Text(
-              'Concierge',
-              style: Theme.of(context).textTheme.headlineSmall,
+            const SizedBox(height: 10),
+            SizedBox(
+              height: 122,
+              child: ListView.separated(
+                scrollDirection: Axis.horizontal,
+                itemCount: primaryPrompts.length,
+                separatorBuilder: (_, index) => const SizedBox(width: 10),
+                itemBuilder: (context, i) {
+                  final chip = primaryPrompts[i];
+                  return SizedBox(
+                    width: 176,
+                    child: InkWell(
+                      onTap: () => _send(chip.prompt),
+                      borderRadius: BorderRadius.circular(16),
+                      child: Container(
+                        padding: const EdgeInsets.all(12),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(16),
+                          gradient: LinearGradient(
+                            colors: [
+                              LuxColors.gold.withValues(alpha: 0.15),
+                              Colors.white.withValues(alpha: 0.03),
+                            ],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                          ),
+                          border: Border.all(
+                            color: LuxColors.gold.withValues(alpha: 0.35),
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: LuxColors.gold.withValues(alpha: 0.07),
+                              blurRadius: 14,
+                            ),
+                          ],
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Icon(
+                              switch (i) {
+                                0 => Icons.favorite_rounded,
+                                1 => Icons.spa_rounded,
+                                2 => Icons.family_restroom_rounded,
+                                _ => Icons.explore_rounded,
+                              },
+                              color: LuxColors.gold.withValues(alpha: 0.95),
+                              size: 20,
+                            ),
+                            Text(
+                              chip.label,
+                              style: const TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w700,
+                                height: 1.2,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
             ),
-            if (_tripFeel != null && _tripFeel!.isNotEmpty) ...[
-              const SizedBox(height: 4),
-              Text(
-                'Trip feel: “$_tripFeel”',
-                style: const TextStyle(color: LuxColors.stone500, fontSize: 13),
+            const SizedBox(height: 12),
+            Row(
+              children: [
+                Expanded(
+                  child: OutlinedButton.icon(
+                    onPressed: () => _showStyleRefineSheet(l),
+                    icon: const Icon(Icons.tune_rounded, size: 18),
+                    label: const Text('Refine My Style'),
+                    style: OutlinedButton.styleFrom(
+                      foregroundColor: LuxColors.cream,
+                      side: BorderSide(
+                        color: LuxColors.gemAccent.withValues(alpha: 0.42),
+                      ),
+                      padding: const EdgeInsets.symmetric(vertical: 12),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(14),
+                      ),
+                      backgroundColor: Colors.white.withValues(alpha: 0.03),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            if (activeStylePreview.isNotEmpty) ...[
+              const SizedBox(height: 8),
+              Wrap(
+                spacing: 6,
+                runSpacing: 6,
+                children: [
+                  for (final s in activeStylePreview)
+                    InputChip(
+                      label: Text(localizeStylePref(l, s)),
+                      onDeleted: () => _removeStylePref(s),
+                      labelStyle: const TextStyle(fontSize: 11),
+                      deleteIcon: const Icon(Icons.close, size: 14),
+                      backgroundColor: LuxColors.gemSurface.withValues(alpha: 0.86),
+                      side: BorderSide(
+                        color: LuxColors.gemAccent.withValues(alpha: 0.35),
+                      ),
+                    ),
+                  if (_stylePrefs.length > activeStylePreview.length)
+                    Chip(
+                      label: Text('+${_stylePrefs.length - activeStylePreview.length}'),
+                      backgroundColor: Colors.white.withValues(alpha: 0.04),
+                    ),
+                ],
               ),
             ],
-            const SizedBox(height: 12),
+            const SizedBox(height: 10),
             Expanded(
               child: GlassCard(
-                padding: const EdgeInsets.all(12),
+                padding: const EdgeInsets.fromLTRB(12, 10, 12, 10),
                 child: Column(
                   children: [
-                    Expanded(
+                    SizedBox(
+                      height: 132,
                       child: ListView.builder(
                         controller: _scrollController,
                         itemCount: _messages.length,
@@ -215,119 +451,40 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
                         },
                       ),
                     ),
-                    const SizedBox(height: 8),
-                    Text(
-                      'Quick prompts',
-                      style: TextStyle(
-                        fontSize: 11,
-                        fontWeight: FontWeight.w700,
-                        color: LuxColors.stone500.withValues(alpha: 0.95),
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    SizedBox(
-                      height: 36,
-                      child: ListView.separated(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: conciergePromptChips.length,
-                        separatorBuilder: (context, index) =>
-                            const SizedBox(width: 8),
-                        itemBuilder: (context, i) {
-                          final chip = conciergePromptChips[i];
-                          return ActionChip(
-                            label: Text(chip.label),
-                            labelStyle: const TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w600,
-                            ),
-                            backgroundColor:
-                                LuxColors.gold.withValues(alpha: 0.12),
-                            side: BorderSide(
-                              color: LuxColors.gold.withValues(alpha: 0.35),
-                            ),
-                            onPressed: () => _send(chip.prompt),
-                          );
-                        },
-                      ),
-                    ),
-                    if (_stylePrefs.isNotEmpty) ...[
-                      const SizedBox(height: 10),
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text(
-                          'Remembering for this trip',
-                          style: TextStyle(
-                            fontSize: 11,
-                            fontWeight: FontWeight.w700,
-                            color: LuxColors.gemAccent.withValues(alpha: 0.9),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 6),
-                      Wrap(
-                        spacing: 6,
-                        runSpacing: 6,
-                        children: _stylePrefs
-                            .map(
-                              (p) => InputChip(
-                                label: Text(p),
-                                labelStyle: const TextStyle(fontSize: 11),
-                                deleteIcon: const Icon(Icons.close, size: 14),
-                                onDeleted: () => _removeStylePref(p),
-                                backgroundColor:
-                                    LuxColors.gemSurface.withValues(alpha: 0.9),
-                                side: BorderSide(
-                                  color:
-                                      LuxColors.gemAccent.withValues(alpha: 0.35),
-                                ),
-                              ),
-                            )
-                            .toList(),
-                      ),
-                    ],
-                    const SizedBox(height: 10),
-                    Text(
-                      'Style memory',
-                      style: TextStyle(
-                        fontSize: 11,
-                        fontWeight: FontWeight.w700,
-                        color: LuxColors.stone500.withValues(alpha: 0.95),
-                      ),
-                    ),
-                    const SizedBox(height: 6),
-                    Wrap(
-                      spacing: 6,
-                      runSpacing: 6,
-                      children: [
-                        for (final s in styleMemorySuggestions)
-                          FilterChip(
-                            label: Text(s, style: const TextStyle(fontSize: 11)),
-                            selected: _stylePrefs.contains(s),
-                            onSelected: _stylePrefs.contains(s)
-                                ? (_) => _removeStylePref(s)
-                                : (_) => _addStylePref(s),
-                            selectedColor:
-                                LuxColors.gemAccent.withValues(alpha: 0.2),
-                            backgroundColor: Colors.white.withValues(alpha: 0.04),
-                            checkmarkColor: LuxColors.gemAccent,
-                          ),
-                      ],
-                    ),
-                    const SizedBox(height: 10),
+                    const Spacer(),
                     TextField(
                       controller: _controller,
-                      style: const TextStyle(color: Colors.white),
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                      ),
                       decoration: InputDecoration(
-                        hintText:
-                            'Describe the feeling you want your trip to create…',
+                        hintText: 'Describe the feeling you want your trip to have...',
                         hintStyle: TextStyle(
-                          color: LuxColors.stone500.withValues(alpha: 0.8),
+                          color: LuxColors.stone500.withValues(alpha: 0.72),
+                          fontSize: 16,
                         ),
                         filled: true,
-                        fillColor: Colors.white.withValues(alpha: 0.06),
+                        fillColor: Colors.white.withValues(alpha: 0.07),
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(24),
-                          borderSide: BorderSide.none,
+                          borderRadius: BorderRadius.circular(26),
+                          borderSide: BorderSide(
+                            color: LuxColors.gold.withValues(alpha: 0.2),
+                          ),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(26),
+                          borderSide: BorderSide(
+                            color: LuxColors.gold.withValues(alpha: 0.22),
+                          ),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(26),
+                          borderSide: BorderSide(
+                            color: LuxColors.gold.withValues(alpha: 0.55),
+                            width: 1.2,
+                          ),
                         ),
                         suffixIcon: IconButton(
                           icon: const Icon(

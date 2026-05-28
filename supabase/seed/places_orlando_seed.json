@@ -1,0 +1,47 @@
+[
+  {
+    "external_id": "place-magic-kingdom",
+    "slug": "magic-kingdom",
+    "title": "Magic Kingdom",
+    "category": "family",
+    "location": "Lake Buena Vista, FL",
+    "latitude": 28.4177,
+    "longitude": -81.5812,
+    "description": "Iconic castle park — pacing for wonder, not marathon miles.",
+    "mood_tags": ["family", "iconic", "trending"],
+    "unsplash_photo_id": "X_LNSoZ7xeM",
+    "aspect_role": "hero",
+    "sort_order": 10,
+    "is_active": true
+  },
+  {
+    "external_id": "place-kennedy-space-center",
+    "slug": "kennedy-space-center",
+    "title": "Kennedy Space Center",
+    "category": "adventure",
+    "location": "Merritt Island, FL",
+    "latitude": 28.5241,
+    "longitude": -80.6819,
+    "description": "Launch history and Atlantis — full-day awe for all ages.",
+    "mood_tags": ["family", "adventure", "iconic"],
+    "unsplash_photo_id": "X_LNSoZ7xeM",
+    "aspect_role": "hero",
+    "sort_order": 20,
+    "is_active": true
+  },
+  {
+    "external_id": "place-wekiwa-springs",
+    "slug": "wekiwa-springs-dawn",
+    "title": "Wekiwa crystal float",
+    "category": "springs",
+    "location": "Apopka, FL",
+    "latitude": 28.757,
+    "longitude": -81.498,
+    "description": "Quiet spring water — locals’ east bank secret.",
+    "mood_tags": ["hidden", "nature", "springs", "gem"],
+    "unsplash_photo_id": "RE1uPSyVuls",
+    "aspect_role": "hero",
+    "sort_order": 30,
+    "is_active": true
+  }
+]

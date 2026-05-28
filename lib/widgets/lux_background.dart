@@ -8,12 +8,19 @@ class LuxBackground extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     return DecoratedBox(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [Color(0xFF1C1917), LuxColors.bg, LuxColors.bg],
+          colors: isDark
+              ? const [Color(0xFF1C1917), LuxColors.bg, LuxColors.bg]
+              : const [
+                  Color(0xFFFFF7ED),
+                  Color(0xFFFAFAF9),
+                  Color(0xFFFAFAF9),
+                ],
         ),
       ),
       child: Stack(
