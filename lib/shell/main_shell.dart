@@ -13,10 +13,9 @@ class MainShell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l = AppLocalizations.of(context);
+    final tokens = luxThemeTokensOf(context);
     final compactNav = MediaQuery.sizeOf(context).width < 560;
-    final navBg = Theme.of(context).brightness == Brightness.dark
-        ? const Color(0xFF0C0A09).withValues(alpha: 0.92)
-        : Theme.of(context).colorScheme.surface.withValues(alpha: 0.95);
+    final navBg = tokens.bg.withValues(alpha: 0.92);
 
     return LuxBackground(
       child: Scaffold(
@@ -39,7 +38,7 @@ class MainShell extends StatelessWidget {
           selectedIndex: navigationShell.currentIndex,
           onDestinationSelected: navigationShell.goBranch,
           backgroundColor: navBg,
-          indicatorColor: LuxColors.gold.withValues(alpha: 0.2),
+          indicatorColor: tokens.accent.withValues(alpha: 0.22),
           destinations: [
             NavigationDestination(
               icon: const Icon(Icons.chat_bubble_outline_rounded),

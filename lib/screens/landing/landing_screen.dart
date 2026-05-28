@@ -13,6 +13,7 @@ class LandingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final l = context.l10n;
     final display = Theme.of(context).textTheme.displayLarge;
+    final tokens = luxThemeTokensOf(context);
 
     return LuxBackground(
       child: Scaffold(
@@ -36,21 +37,57 @@ class LandingScreen extends StatelessWidget {
                           color: LuxColors.gold.withValues(alpha: 0.9),
                         ),
                       ),
-                      const SizedBox(height: 16),
-                      Text(
-                        l.landingTitle1,
-                        style: display?.copyWith(fontSize: 44),
-                      ),
-                      ShaderMask(
-                        shaderCallback: (bounds) => const LinearGradient(
-                          colors: [LuxColors.cream, LuxColors.gold, LuxColors.sunset],
-                        ).createShader(bounds),
-                        child: Text(
-                          l.landingTitle2,
-                          style: display?.copyWith(
-                            fontSize: 44,
-                            color: Colors.white,
+                      const SizedBox(height: 14),
+                      Container(
+                        width: double.infinity,
+                        padding: const EdgeInsets.fromLTRB(12, 10, 12, 10),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(16),
+                          gradient: LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                            colors: [
+                              tokens.accent.withValues(alpha: 0.15),
+                              tokens.bgSecondary.withValues(alpha: 0.08),
+                            ],
                           ),
+                          border: Border.all(
+                            color: tokens.accent.withValues(alpha: 0.25),
+                          ),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              l.landingTitle1,
+                              style: display?.copyWith(
+                                fontSize: 44,
+                                color: tokens.textPrimary,
+                                shadows: [
+                                  Shadow(
+                                    color: Colors.black.withValues(alpha: 0.5),
+                                    blurRadius: 12,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            ShaderMask(
+                              shaderCallback: (bounds) => LinearGradient(
+                                colors: [
+                                  tokens.textPrimary,
+                                  tokens.accent,
+                                  tokens.accentSecondary,
+                                ],
+                              ).createShader(bounds),
+                              child: Text(
+                                l.landingTitle2,
+                                style: display?.copyWith(
+                                  fontSize: 44,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                       const SizedBox(height: 20),

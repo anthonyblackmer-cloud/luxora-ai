@@ -8,19 +8,13 @@ class LuxBackground extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final tokens = luxThemeTokensOf(context);
     return DecoratedBox(
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: isDark
-              ? const [Color(0xFF1C1917), LuxColors.bg, LuxColors.bg]
-              : const [
-                  Color(0xFFFFF7ED),
-                  Color(0xFFFAFAF9),
-                  Color(0xFFFAFAF9),
-                ],
+          colors: [tokens.bgSecondary, tokens.bg, tokens.bg],
         ),
       ),
       child: Stack(
@@ -28,17 +22,17 @@ class LuxBackground extends StatelessWidget {
           Positioned(
             top: -80,
             left: -40,
-            child: _orb(LuxColors.gold.withValues(alpha: 0.18), 200),
+            child: _orb(tokens.accent.withValues(alpha: 0.2), 200),
           ),
           Positioned(
             top: 120,
             right: -60,
-            child: _orb(LuxColors.sunset.withValues(alpha: 0.12), 160),
+            child: _orb(tokens.orbSecondary, 160),
           ),
           Positioned(
             bottom: 80,
             left: -30,
-            child: _orb(LuxColors.ocean.withValues(alpha: 0.1), 140),
+            child: _orb(tokens.orbTertiary, 140),
           ),
           child,
         ],

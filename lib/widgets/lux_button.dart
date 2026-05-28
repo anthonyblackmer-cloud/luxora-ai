@@ -17,12 +17,13 @@ class LuxButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final tokens = luxThemeTokensOf(context);
     if (outline) {
       return OutlinedButton.icon(
         onPressed: onPressed,
         style: OutlinedButton.styleFrom(
-          foregroundColor: LuxColors.gold,
-          side: BorderSide(color: LuxColors.gold.withValues(alpha: 0.45)),
+          foregroundColor: tokens.accent,
+          side: BorderSide(color: tokens.accent.withValues(alpha: 0.45)),
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
           shape: const StadiumBorder(),
         ),
@@ -34,11 +35,11 @@ class LuxButton extends StatelessWidget {
     return FilledButton.icon(
       onPressed: onPressed,
       style: FilledButton.styleFrom(
-        backgroundColor: LuxColors.gold,
-        foregroundColor: LuxColors.bg,
+        backgroundColor: tokens.accent,
+        foregroundColor: tokens.bg,
         padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 14),
         elevation: 8,
-        shadowColor: LuxColors.gold.withValues(alpha: 0.45),
+        shadowColor: tokens.glow.withValues(alpha: 0.7),
         shape: const StadiumBorder(),
       ),
       icon: Icon(icon ?? Icons.arrow_forward_rounded, size: 18),

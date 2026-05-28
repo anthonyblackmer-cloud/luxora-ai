@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 const _localeKey = 'luxora_locale';
-const _darkModeKey = 'luxora_dark_mode';
+const _themePresetKey = 'luxora_theme_preset';
 
 class LuxoraAppState extends ChangeNotifier {
   LuxoraAppState() {
@@ -13,14 +13,15 @@ class LuxoraAppState extends ChangeNotifier {
   }
 
   String _locale = 'en';
-  bool _isDarkMode = true;
+  LuxThemePreset _themePreset = LuxThemePreset.goldenEmber;
   bool _loaded = false;
 
   String get locale => _locale;
-  bool get isDarkMode => _isDarkMode;
+  LuxThemePreset get themePreset => _themePreset;
+  LuxThemePalette get themePalette => paletteFor(_themePreset);
   bool get isLoaded => _loaded;
 
-  ThemeData get theme => _isDarkMode ? buildLuxTheme() : buildLuxLightTheme();
+  ThemeData get theme => buildLuxTheme(_themePreset);
 
   static String _initialLocaleFromDevice() {
     final lang =
@@ -42,7 +43,13 @@ class LuxoraAppState extends ChangeNotifier {
         LuxoraLanguageCatalog.supportedCodes.contains(storedLocale)) {
       _locale = storedLocale;
     }
-    _isDarkMode = prefs.getBool(_darkModeKey) ?? true;
+    final rawPreset = prefs.getString(_themePresetKey);
+    if (rawPreset != null) {
+      _themePreset = LuxThemePreset.values.firstWhere(
+        (v) => v.name == rawPreset,
+        orElse: () => LuxThemePreset.goldenEmber,
+      );
+    }
     _loaded = true;
     notifyListeners();
   }
@@ -57,12 +64,11 @@ class LuxoraAppState extends ChangeNotifier {
     await prefs.setString(_localeKey, code);
   }
 
-  Future<void> setDarkMode(bool value) async {
-    _isDarkMode = value;
+  Future<void> setThemePreset(LuxThemePreset preset) async {
+    if (_themePreset == preset) return;
+    _themePreset = preset;
     notifyListeners();
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool(_darkModeKey, value);
+    await prefs.setString(_themePresetKey, preset.name);
   }
-
-  void toggleTheme() => setDarkMode(!_isDarkMode);
 }

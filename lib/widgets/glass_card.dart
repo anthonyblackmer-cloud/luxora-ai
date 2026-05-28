@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:luxora_ai/theme/lux_theme.dart';
 
 class GlassCard extends StatelessWidget {
   const GlassCard({
@@ -14,16 +15,17 @@ class GlassCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final tokens = luxThemeTokensOf(context);
     return Container(
       padding: padding,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
-        color: Colors.white.withValues(alpha: 0.06),
-        border: Border.all(color: Colors.white.withValues(alpha: 0.1)),
+        color: tokens.bgSecondary.withValues(alpha: 0.46),
+        border: Border.all(color: tokens.accent.withValues(alpha: 0.16)),
         boxShadow: glow
             ? [
                 BoxShadow(
-                  color: const Color(0xFFFBBF24).withValues(alpha: 0.2),
+                  color: tokens.glow.withValues(alpha: 0.55),
                   blurRadius: 40,
                   spreadRadius: -8,
                 ),

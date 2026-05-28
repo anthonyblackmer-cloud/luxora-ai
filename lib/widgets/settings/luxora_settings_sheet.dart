@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:luxora_ai/l10n/app_localizations.dart';
 import 'package:luxora_ai/settings/luxora_language_catalog.dart';
 import 'package:luxora_ai/state/luxora_app_state.dart';
+import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/widgets/settings/luxora_language_picker_sheet.dart';
 import 'package:luxora_ai/widgets/settings/luxora_premium_sheet_shell.dart';
 
@@ -33,26 +34,34 @@ class LuxoraSettingsSheet extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ListTile(
-              contentPadding: EdgeInsets.zero,
-              leading: Icon(
-                appState.isDarkMode ? Icons.dark_mode : Icons.light_mode,
-                color: theme.colorScheme.primary,
-              ),
-              title: Text(
-                l.appearance,
-                style: const TextStyle(fontWeight: FontWeight.w500),
-              ),
-              subtitle: Text(
-                appState.isDarkMode ? l.dark_mode : l.light_mode,
-                style: subtitleStyle,
-              ),
-              trailing: Switch(
-                value: appState.isDarkMode,
-                onChanged: appState.setDarkMode,
-                activeThumbColor: theme.colorScheme.primary,
-                activeTrackColor: theme.colorScheme.primary.withValues(alpha: 0.5),
-              ),
+            Row(
+              children: [
+                Icon(Icons.palette_outlined, color: theme.colorScheme.primary),
+                const SizedBox(width: 10),
+                Text(
+                  l.appearance,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 8),
+            Text(
+              'Choose your signature atmosphere',
+              style: subtitleStyle,
+            ),
+            const SizedBox(height: 10),
+            Column(
+              children: [
+                for (final palette in luxThemePalettes)
+                  _ThemePreviewCard(
+                    palette: palette,
+                    selected: appState.themePreset == palette.id,
+                    onTap: () => appState.setThemePreset(palette.id),
+                  ),
+              ],
             ),
             palette.sectionDivider(),
             InkWell(
@@ -128,6 +137,105 @@ class LuxoraSettingsSheet extends StatelessWidget {
                 ),
               ),
             ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _ThemePreviewCard extends StatelessWidget {
+  const _ThemePreviewCard({
+    required this.palette,
+    required this.selected,
+    required this.onTap,
+  });
+
+  final LuxThemePalette palette;
+  final bool selected;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(14),
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 10),
+        padding: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(14),
+          border: Border.all(
+            color: selected
+                ? palette.accent.withValues(alpha: 0.9)
+                : theme.colorScheme.outline.withValues(alpha: 0.28),
+            width: selected ? 1.4 : 1,
+          ),
+          color: theme.colorScheme.surface.withValues(alpha: 0.45),
+          boxShadow: selected
+              ? [
+                  BoxShadow(
+                    color: palette.glow.withValues(alpha: 0.45),
+                    blurRadius: 18,
+                  ),
+                ]
+              : null,
+        ),
+        child: Row(
+          children: [
+            Container(
+              width: 66,
+              height: 46,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                gradient: LinearGradient(
+                  colors: [palette.bg, palette.bgSecondary, palette.accent],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+              ),
+              child: Align(
+                alignment: Alignment.bottomRight,
+                child: Container(
+                  width: 16,
+                  height: 16,
+                  margin: const EdgeInsets.all(6),
+                  decoration: BoxDecoration(
+                    color: palette.accentSecondary,
+                    shape: BoxShape.circle,
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    palette.name,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 14,
+                    ),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    palette.mood,
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: theme.colorScheme.onSurfaceVariant,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            if (selected)
+              Icon(
+                Icons.check_circle_rounded,
+                color: palette.accent,
+              ),
           ],
         ),
       ),

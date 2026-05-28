@@ -77,6 +77,8 @@ class LuxoraApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
 
             theme: state.theme,
+            themeAnimationDuration: const Duration(milliseconds: 450),
+            themeAnimationCurve: Curves.easeInOutCubic,
 
             locale: Locale(state.locale),
 
@@ -96,7 +98,18 @@ class LuxoraApp extends StatelessWidget {
 
             routerConfig: createAppRouter(),
 
-            builder: webViewportGuard,
+            builder: (context, child) {
+              final guarded = webViewportGuard(context, child);
+              final tint = state.themePalette.overlayTint;
+              if (tint.a <= 0.001) return guarded;
+              return Stack(
+                fit: StackFit.expand,
+                children: [
+                  guarded,
+                  IgnorePointer(child: ColoredBox(color: tint)),
+                ],
+              );
+            },
 
           );
 
