@@ -50,6 +50,9 @@ class AppLocalizationsFr extends AppLocalizations {
   String get commonRoadmap => 'Feuille de route';
 
   @override
+  String get commonLive => 'En direct';
+
+  @override
   String get commonClose => 'Fermer';
 
   @override
@@ -106,6 +109,35 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get conciergeInputHint =>
       'Décrivez l’émotion que vous voulez créer pendant votre voyage…';
+
+  @override
+  String get conciergeGreetingMorning => 'Bonjour.';
+
+  @override
+  String get conciergeGreetingAfternoon => 'Bon après-midi.';
+
+  @override
+  String get conciergeGreetingEvening => 'Bonsoir.';
+
+  @override
+  String get conciergeWelcomeWarm =>
+      'Je suis là pour façonner la Floride selon ce que vous voulez ressentir, pas une liste de sites. De quoi avez-vous envie aujourd’hui ?';
+
+  @override
+  String get conciergeRefineStyle => 'Affiner mon style';
+
+  @override
+  String get conciergeRecallReturning => 'Bon retour.';
+
+  @override
+  String conciergeRecallStyle(String prefs) {
+    return 'Je me souviens que vous aimez $prefs.';
+  }
+
+  @override
+  String conciergeRecallFeelLine(String feel) {
+    return 'Et vous vouliez que ce voyage évoque : « $feel ».';
+  }
 
   @override
   String get conciergePromptRomantic => 'Escapade romantique';
@@ -228,6 +260,30 @@ class AppLocalizationsFr extends AppLocalizations {
   String get feedPillLive => 'Mises à jour en direct';
 
   @override
+  String get feedMoodPrompt => 'QUE VOULEZ-VOUS RESSENTIR ?';
+
+  @override
+  String get feedMoodAll => 'Tout';
+
+  @override
+  String get feedMoodRomantic => 'Romantique';
+
+  @override
+  String get feedMoodCalm => 'Calme';
+
+  @override
+  String get feedMoodAdventurous => 'Aventureux';
+
+  @override
+  String get feedMoodPampered => 'Choyé';
+
+  @override
+  String get feedMoodSocial => 'Animé';
+
+  @override
+  String get feedMoodFoodie => 'Gourmand';
+
+  @override
   String get feedEmptyHint =>
       'Aucune carte dans ce rayon : essayez 50 mi ou Toute la Floride pour la côte du Golfe et les Keys.';
 
@@ -263,6 +319,14 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get gemLocalSecret => 'SECRET LOCAL';
+
+  @override
+  String get gemsMatchedBadge => 'Votre style';
+
+  @override
+  String gemsMatchedNote(int count) {
+    return '$count pépites correspondent à votre style';
+  }
 
   @override
   String get gemWhySpecial => 'Pourquoi c’est spécial';
@@ -309,6 +373,38 @@ class AppLocalizationsFr extends AppLocalizations {
   String mapPlanDayHomeBase(String hotel) {
     return 'Départ depuis $hotel';
   }
+
+  @override
+  String get mapCrowdLevelQuiet => 'Calme';
+
+  @override
+  String get mapCrowdLevelModerate => 'Modéré';
+
+  @override
+  String get mapCrowdLevelBusy => 'Animé';
+
+  @override
+  String get mapCrowdLevelPacked => 'Très animé';
+
+  @override
+  String mapCrowdAtStop(String level) {
+    return 'Affluence : $level';
+  }
+
+  @override
+  String get mapRerouteButton => 'Réorienter vers des arrêts plus calmes';
+
+  @override
+  String mapRerouteApplied(int count) {
+    return 'Journée ajustée — $count arrêts échangés pour moins de foule.';
+  }
+
+  @override
+  String get mapRerouteNone => 'Votre itinéraire semble déjà serein.';
+
+  @override
+  String get mapRerouteRainHint =>
+      'Pluie probable — touchez pour réorienter vers des options couvertes.';
 
   @override
   String get mapAiPowers => 'Pouvoirs de la carte IA';
@@ -475,6 +571,18 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get tripsOpenTimeline => 'Ouvrir la chronologie complète';
+
+  @override
+  String get tripsShare => 'Partager';
+
+  @override
+  String get shareItineraryFooter =>
+      'Conçu avec Luxora, votre compagnon de Floride émotionnellement intelligent.';
+
+  @override
+  String shareSubject(String title) {
+    return 'Mon $title';
+  }
 
   @override
   String get itineraryBadge => 'VOTRE PROGRAMME';
@@ -914,6 +1022,45 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get dayFlowReasonNightOut =>
       'Une dernière étincelle : une sortie nocturne.';
+
+  @override
+  String weatherToday(String place) {
+    return 'En ce moment à $place';
+  }
+
+  @override
+  String weatherSunset(String time) {
+    return 'Coucher du soleil $time';
+  }
+
+  @override
+  String weatherRainNote(int percent) {
+    return '$percent% de risque de pluie — prévoyez une petite laine.';
+  }
+
+  @override
+  String get weatherConditionClear => 'Dégagé';
+
+  @override
+  String get weatherConditionPartlyCloudy => 'Partiellement nuageux';
+
+  @override
+  String get weatherConditionCloudy => 'Nuageux';
+
+  @override
+  String get weatherConditionFog => 'Brouillard';
+
+  @override
+  String get weatherConditionDrizzle => 'Bruine';
+
+  @override
+  String get weatherConditionRain => 'Pluie';
+
+  @override
+  String get weatherConditionSnow => 'Neige';
+
+  @override
+  String get weatherConditionThunder => 'Orages';
 
   @override
   String get dayFlowVibeFoodie => 'Gourmand';

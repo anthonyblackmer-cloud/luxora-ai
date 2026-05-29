@@ -20,7 +20,7 @@ workflows:
         XCODE_SCHEME: Runner
         BUNDLE_ID: com.luxora.luxoraAi
         APP_BUILD_NAME: "0.1.0"
-        APP_BUILD_NUMBER: "1"
+        APP_BUILD_NUMBER: "2"
 
     scripts:
       - name: Install dependencies
@@ -64,7 +64,7 @@ workflows:
       vars:
         PACKAGE_NAME: com.luxora.luxora_ai
         APP_BUILD_NAME: "0.1.0"
-        APP_BUILD_NUMBER: "1"
+        APP_BUILD_NUMBER: "2"
 
     scripts:
       - name: Install dependencies

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:luxora_ai/l10n/app_localizations.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_helpers.dart';
+import 'package:luxora_ai/models/trip_profile.dart';
 import 'package:luxora_ai/services/concierge_session_memory.dart';
 import 'package:luxora_ai/services/trip_profile_storage.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
@@ -43,13 +44,42 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
   Future<void> _load() async {
     final profile = await TripProfileStorage().load();
     final prefs = await _memory.load();
+    final lastVisit = await _memory.lastVisit();
     if (!mounted) return;
-    final welcome = AppLocalizations.of(context).conciergeWelcome;
+    final l = AppLocalizations.of(context);
+    final recall = _recallLine(l, profile, prefs, returning: lastVisit != null);
     setState(() {
       _tripFeel = profile?.tripFeel;
       _stylePrefs = prefs;
-      _messages.add((user: false, text: welcome));
+      _messages.add((user: false, text: l.conciergeWelcome));
+      if (recall != null) {
+        _messages.add((user: false, text: recall));
+      }
     });
+    unawaited(_memory.markVisited());
+  }
+
+  /// Builds a personalized recall bubble for returning travelers — surfacing
+  /// the style prefs and trip feel the concierge has remembered. Returns null
+  /// for first-time visitors or when there's nothing to recall.
+  String? _recallLine(
+    AppLocalizations l,
+    TripProfile? profile,
+    List<String> prefs, {
+    required bool returning,
+  }) {
+    if (!returning) return null;
+    final parts = <String>[];
+    if (prefs.isNotEmpty) {
+      final pretty = prefs.map((p) => localizeStylePref(l, p)).join(' · ');
+      parts.add(l.conciergeRecallStyle(pretty));
+    }
+    final feel = profile?.tripFeel;
+    if (feel != null && feel.trim().isNotEmpty) {
+      parts.add(l.conciergeRecallFeelLine(feel.trim()));
+    }
+    if (parts.isEmpty) return null;
+    return '${l.conciergeRecallReturning} ${parts.join(' ')}';
   }
 
   Future<void> _addStylePref(String pref) async {
@@ -102,6 +132,13 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
         curve: Curves.easeOut,
       );
     });
+  }
+
+  String _greeting(AppLocalizations l) {
+    final hour = DateTime.now().hour;
+    if (hour < 12) return l.conciergeGreetingMorning;
+    if (hour < 18) return l.conciergeGreetingAfternoon;
+    return l.conciergeGreetingEvening;
   }
 
   String _styleMemoryLine() {
@@ -282,7 +319,7 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
                 border: Border.all(color: Colors.white.withValues(alpha: 0.1)),
               ),
               child: Text(
-                'Welcome to Luxora — your emotionally intelligent Florida companion.\nWhat kind of experience are you craving today?',
+                '${_greeting(l)} ${l.conciergeWelcomeWarm}',
                 style: TextStyle(
                   fontSize: 15,
                   height: 1.42,
@@ -373,7 +410,7 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
                   child: OutlinedButton.icon(
                     onPressed: () => _showStyleRefineSheet(l),
                     icon: const Icon(Icons.tune_rounded, size: 18),
-                    label: const Text('Refine My Style'),
+                    label: Text(l.conciergeRefineStyle),
                     style: OutlinedButton.styleFrom(
                       foregroundColor: LuxColors.cream,
                       side: BorderSide(
@@ -471,7 +508,7 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
                         fontWeight: FontWeight.w500,
                       ),
                       decoration: InputDecoration(
-                        hintText: 'Describe the feeling you want your trip to have...',
+                        hintText: l.conciergeInputHint,
                         hintStyle: TextStyle(
                           color: LuxColors.stone500.withValues(alpha: 0.72),
                           fontSize: 16,

@@ -48,6 +48,9 @@ class AppLocalizationsKo extends AppLocalizations {
   String get commonRoadmap => '로드맵';
 
   @override
+  String get commonLive => '라이브';
+
+  @override
   String get commonClose => '닫기';
 
   @override
@@ -103,6 +106,35 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get conciergeInputHint => '여행을 통해 만들고 싶은 느낌을 설명하세요.';
+
+  @override
+  String get conciergeGreetingMorning => '좋은 아침이에요.';
+
+  @override
+  String get conciergeGreetingAfternoon => '좋은 오후예요.';
+
+  @override
+  String get conciergeGreetingEvening => '좋은 저녁이에요.';
+
+  @override
+  String get conciergeWelcomeWarm =>
+      '명소 목록이 아니라, 어떤 기분을 원하는지에 맞춰 플로리다를 설계해 드릴게요. 오늘은 무엇이 끌리세요?';
+
+  @override
+  String get conciergeRefineStyle => '내 스타일 다듬기';
+
+  @override
+  String get conciergeRecallReturning => '다시 오셨네요.';
+
+  @override
+  String conciergeRecallStyle(String prefs) {
+    return '$prefs을(를) 좋아하셨던 걸 기억해요.';
+  }
+
+  @override
+  String conciergeRecallFeelLine(String feel) {
+    return '그리고 이번 여행이 “$feel” 느낌이길 원하셨죠.';
+  }
 
   @override
   String get conciergePromptRomantic => '낭만적인 휴가';
@@ -224,6 +256,30 @@ class AppLocalizationsKo extends AppLocalizations {
   String get feedPillLive => '실시간 업데이트';
 
   @override
+  String get feedMoodPrompt => '어떤 기분을 원하세요?';
+
+  @override
+  String get feedMoodAll => '전체';
+
+  @override
+  String get feedMoodRomantic => '로맨틱';
+
+  @override
+  String get feedMoodCalm => '차분함';
+
+  @override
+  String get feedMoodAdventurous => '모험적';
+
+  @override
+  String get feedMoodPampered => '호사';
+
+  @override
+  String get feedMoodSocial => '활기찬';
+
+  @override
+  String get feedMoodFoodie => '미식';
+
+  @override
   String get feedEmptyHint =>
       '이 반경에는 피드 카드가 없습니다. 걸프 해안과 키스 하이라이트를 보려면 50마일 또는 All Florida를 시도해 보세요.';
 
@@ -258,6 +314,14 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get gemLocalSecret => '로컬 비밀';
+
+  @override
+  String get gemsMatchedBadge => '내 취향';
+
+  @override
+  String gemsMatchedNote(int count) {
+    return '내 취향에 맞는 $count곳';
+  }
 
   @override
   String get gemWhySpecial => '특별한 이유';
@@ -304,6 +368,37 @@ class AppLocalizationsKo extends AppLocalizations {
   String mapPlanDayHomeBase(String hotel) {
     return '$hotel에서 출발';
   }
+
+  @override
+  String get mapCrowdLevelQuiet => '한산';
+
+  @override
+  String get mapCrowdLevelModerate => '보통';
+
+  @override
+  String get mapCrowdLevelBusy => '혼잡';
+
+  @override
+  String get mapCrowdLevelPacked => '매우 혼잡';
+
+  @override
+  String mapCrowdAtStop(String level) {
+    return '혼잡도: $level';
+  }
+
+  @override
+  String get mapRerouteButton => '더 한산한 경유지로 경로 변경';
+
+  @override
+  String mapRerouteApplied(int count) {
+    return '일정 조정 — $count곳을 덜 붐비는 곳으로 바꿨습니다.';
+  }
+
+  @override
+  String get mapRerouteNone => '이 경로는 이미 여유로워 보입니다.';
+
+  @override
+  String get mapRerouteRainHint => '비 가능성 — 실내 대안으로 경로를 바꿔 보세요.';
 
   @override
   String get mapAiPowers => 'AI 지도의 힘';
@@ -460,6 +555,17 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get tripsOpenTimeline => '전체 타임라인 열기';
+
+  @override
+  String get tripsShare => '공유';
+
+  @override
+  String get shareItineraryFooter => '감성 지능형 플로리다 동반자 Luxora와 함께 계획했어요.';
+
+  @override
+  String shareSubject(String title) {
+    return '내 $title';
+  }
 
   @override
   String get itineraryBadge => '귀하의 타임라인';
@@ -870,6 +976,45 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get dayFlowReasonNightOut => '마지막 빛 — 밤 나들이.';
+
+  @override
+  String weatherToday(String place) {
+    return '지금 $place';
+  }
+
+  @override
+  String weatherSunset(String time) {
+    return '일몰 $time';
+  }
+
+  @override
+  String weatherRainNote(int percent) {
+    return '강수 확률 $percent% — 얇은 겉옷을 챙기세요.';
+  }
+
+  @override
+  String get weatherConditionClear => '맑음';
+
+  @override
+  String get weatherConditionPartlyCloudy => '부분적으로 흐림';
+
+  @override
+  String get weatherConditionCloudy => '흐림';
+
+  @override
+  String get weatherConditionFog => '안개';
+
+  @override
+  String get weatherConditionDrizzle => '이슬비';
+
+  @override
+  String get weatherConditionRain => '비';
+
+  @override
+  String get weatherConditionSnow => '눈';
+
+  @override
+  String get weatherConditionThunder => '뇌우';
 
   @override
   String get dayFlowVibeFoodie => '미식 중심';

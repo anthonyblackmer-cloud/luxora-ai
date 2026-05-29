@@ -5,10 +5,26 @@ import 'package:shared_preferences/shared_preferences.dart';
 /// Future: merge into persistent trip profile (Supabase).
 class ConciergeSessionMemory {
   static const _key = 'luxora_concierge_style_prefs';
+  static const _lastVisitKey = 'luxora_concierge_last_visit';
 
   Future<List<String>> load() async {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getStringList(_key) ?? [];
+  }
+
+  /// The timestamp of the previous concierge visit, or null on first ever open.
+  /// Lets the concierge greet a returning traveler with what it remembers.
+  Future<DateTime?> lastVisit() async {
+    final prefs = await SharedPreferences.getInstance();
+    final raw = prefs.getString(_lastVisitKey);
+    return raw == null ? null : DateTime.tryParse(raw);
+  }
+
+  /// Stamps "now" as the latest visit. Call after reading [lastVisit] so the
+  /// next open can recognize a returning user.
+  Future<void> markVisited() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(_lastVisitKey, DateTime.now().toIso8601String());
   }
 
   Future<void> save(List<String> prefs) async {

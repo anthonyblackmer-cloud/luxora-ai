@@ -49,6 +49,9 @@ class AppLocalizationsHi extends AppLocalizations {
   String get commonRoadmap => 'रोडमैप';
 
   @override
+  String get commonLive => 'लाइव';
+
+  @override
   String get commonClose => 'बंद करें';
 
   @override
@@ -105,6 +108,35 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get conciergeInputHint =>
       'उस भावना का वर्णन करें जो आप अपनी यात्रा में पैदा करना चाहते हैं…';
+
+  @override
+  String get conciergeGreetingMorning => 'सुप्रभात।';
+
+  @override
+  String get conciergeGreetingAfternoon => 'नमस्कार।';
+
+  @override
+  String get conciergeGreetingEvening => 'शुभ संध्या।';
+
+  @override
+  String get conciergeWelcomeWarm =>
+      'मैं फ्लोरिडा को आपकी पसंदीदा अनुभूति के अनुसार ढालने के लिए यहाँ हूँ — न कि स्थलों की सूची के अनुसार। आज आपका क्या मन है?';
+
+  @override
+  String get conciergeRefineStyle => 'मेरी शैली निखारें';
+
+  @override
+  String get conciergeRecallReturning => 'वापसी पर स्वागत है।';
+
+  @override
+  String conciergeRecallStyle(String prefs) {
+    return 'मुझे याद है आपको $prefs पसंद है।';
+  }
+
+  @override
+  String conciergeRecallFeelLine(String feel) {
+    return 'और आप चाहते थे कि यह यात्रा ऐसा महसूस कराए: “$feel”।';
+  }
 
   @override
   String get conciergePromptRomantic => 'रोमांटिक गेटवे';
@@ -227,6 +259,30 @@ class AppLocalizationsHi extends AppLocalizations {
   String get feedPillLive => 'लाइव अपडेट';
 
   @override
+  String get feedMoodPrompt => 'आप कैसा महसूस करना चाहते हैं?';
+
+  @override
+  String get feedMoodAll => 'सब कुछ';
+
+  @override
+  String get feedMoodRomantic => 'रोमांटिक';
+
+  @override
+  String get feedMoodCalm => 'शांत';
+
+  @override
+  String get feedMoodAdventurous => 'साहसिक';
+
+  @override
+  String get feedMoodPampered => 'लाड़-प्यार';
+
+  @override
+  String get feedMoodSocial => 'जीवंत';
+
+  @override
+  String get feedMoodFoodie => 'खाने का शौक़';
+
+  @override
   String get feedEmptyHint =>
       'इस दायरे में कोई फ़ीड कार्ड नहीं - खाड़ी तट और कीज़ हाइलाइट्स के लिए 50 मील या ऑल फ़्लोरिडा का प्रयास करें।';
 
@@ -261,6 +317,14 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get gemLocalSecret => 'स्थानीय रहस्य';
+
+  @override
+  String get gemsMatchedBadge => 'आपकी शैली';
+
+  @override
+  String gemsMatchedNote(int count) {
+    return '$count रत्न आपकी शैली से मेल खाते हैं';
+  }
 
   @override
   String get gemWhySpecial => 'यह खास क्यों है?';
@@ -307,6 +371,38 @@ class AppLocalizationsHi extends AppLocalizations {
   String mapPlanDayHomeBase(String hotel) {
     return '$hotel से शुरू';
   }
+
+  @override
+  String get mapCrowdLevelQuiet => 'शांत';
+
+  @override
+  String get mapCrowdLevelModerate => 'मध्यम';
+
+  @override
+  String get mapCrowdLevelBusy => 'भीड़';
+
+  @override
+  String get mapCrowdLevelPacked => 'बहुत भीड़';
+
+  @override
+  String mapCrowdAtStop(String level) {
+    return 'भीड़: $level';
+  }
+
+  @override
+  String get mapRerouteButton => 'शांत स्टॉप्स के लिए रूट बदलें';
+
+  @override
+  String mapRerouteApplied(int count) {
+    return 'दिन समायोजित — $count स्टॉप कम भीड़ वाले स्थानों से बदले गए।';
+  }
+
+  @override
+  String get mapRerouteNone => 'आपका रूट पहले से शांत लगता है।';
+
+  @override
+  String get mapRerouteRainHint =>
+      'बारिश की संभावना — इनडोर विकल्पों के लिए रूट बदलें।';
 
   @override
   String get mapAiPowers => 'एआई मानचित्र शक्तियाँ';
@@ -472,6 +568,18 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get tripsOpenTimeline => 'पूर्ण टाइमलाइन खोलें';
+
+  @override
+  String get tripsShare => 'साझा करें';
+
+  @override
+  String get shareItineraryFooter =>
+      'Luxora के साथ नियोजित — आपका भावनात्मक रूप से समझदार फ्लोरिडा साथी।';
+
+  @override
+  String shareSubject(String title) {
+    return 'मेरी $title';
+  }
 
   @override
   String get itineraryBadge => 'तुम्हारी टाइमलाइन';
@@ -899,6 +1007,45 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get dayFlowReasonNightOut => 'एक आख़िरी चमक — रात की सैर।';
+
+  @override
+  String weatherToday(String place) {
+    return '$place में अभी';
+  }
+
+  @override
+  String weatherSunset(String time) {
+    return 'सूर्यास्त $time';
+  }
+
+  @override
+  String weatherRainNote(int percent) {
+    return '$percent% बारिश की संभावना — एक हल्की परत साथ रखें।';
+  }
+
+  @override
+  String get weatherConditionClear => 'साफ़';
+
+  @override
+  String get weatherConditionPartlyCloudy => 'आंशिक रूप से बादल';
+
+  @override
+  String get weatherConditionCloudy => 'बादल';
+
+  @override
+  String get weatherConditionFog => 'कोहरा';
+
+  @override
+  String get weatherConditionDrizzle => 'बूंदाबांदी';
+
+  @override
+  String get weatherConditionRain => 'बारिश';
+
+  @override
+  String get weatherConditionSnow => 'बर्फ़';
+
+  @override
+  String get weatherConditionThunder => 'आंधी-तूफ़ान';
 
   @override
   String get dayFlowVibeFoodie => 'खाने का शौक़';

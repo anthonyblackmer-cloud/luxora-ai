@@ -49,6 +49,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get commonRoadmap => 'Yol Haritası';
 
   @override
+  String get commonLive => 'Canlı';
+
+  @override
   String get commonClose => 'Kapat';
 
   @override
@@ -105,6 +108,35 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get conciergeInputHint =>
       'Seyahatinizin yaratmasını istediğiniz duyguyu tanımlayın…';
+
+  @override
+  String get conciergeGreetingMorning => 'Günaydın.';
+
+  @override
+  String get conciergeGreetingAfternoon => 'İyi günler.';
+
+  @override
+  String get conciergeGreetingEvening => 'İyi akşamlar.';
+
+  @override
+  String get conciergeWelcomeWarm =>
+      'Florida\'yı gezilecek yerler listesine göre değil, nasıl hissetmek istediğinize göre şekillendirmek için buradayım. Bugün canınız ne istiyor?';
+
+  @override
+  String get conciergeRefineStyle => 'Tarzımı İnceleyelim';
+
+  @override
+  String get conciergeRecallReturning => 'Tekrar hoş geldin.';
+
+  @override
+  String conciergeRecallStyle(String prefs) {
+    return '$prefs sevdiğini hatırlıyorum.';
+  }
+
+  @override
+  String conciergeRecallFeelLine(String feel) {
+    return 'Ve bu seyahatin şöyle hissettirmesini istemiştin: “$feel”.';
+  }
 
   @override
   String get conciergePromptRomantic => 'Romantik kaçamak';
@@ -226,6 +258,30 @@ class AppLocalizationsTr extends AppLocalizations {
   String get feedPillLive => 'Canlı güncellemeler';
 
   @override
+  String get feedMoodPrompt => 'NASIL HİSSETMEK İSTİYORSUN?';
+
+  @override
+  String get feedMoodAll => 'Her şey';
+
+  @override
+  String get feedMoodRomantic => 'Romantik';
+
+  @override
+  String get feedMoodCalm => 'Sakin';
+
+  @override
+  String get feedMoodAdventurous => 'Maceracı';
+
+  @override
+  String get feedMoodPampered => 'Şımartılmış';
+
+  @override
+  String get feedMoodSocial => 'Hareketli';
+
+  @override
+  String get feedMoodFoodie => 'Gurme';
+
+  @override
   String get feedEmptyHint =>
       'Bu çevrede yayın kartı yok; Körfez kıyısı ve Keys\'in önemli noktaları için 50 mil veya Tüm Florida\'yı deneyin.';
 
@@ -260,6 +316,14 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get gemLocalSecret => 'YEREL GİZLİ';
+
+  @override
+  String get gemsMatchedBadge => 'Senin tarzın';
+
+  @override
+  String gemsMatchedNote(int count) {
+    return 'Tarzına uygun $count mücevher';
+  }
 
   @override
   String get gemWhySpecial => 'Neden özel?';
@@ -306,6 +370,38 @@ class AppLocalizationsTr extends AppLocalizations {
   String mapPlanDayHomeBase(String hotel) {
     return '$hotel noktasından başlıyor';
   }
+
+  @override
+  String get mapCrowdLevelQuiet => 'Sakin';
+
+  @override
+  String get mapCrowdLevelModerate => 'Orta';
+
+  @override
+  String get mapCrowdLevelBusy => 'Kalabalık';
+
+  @override
+  String get mapCrowdLevelPacked => 'Çok kalabalık';
+
+  @override
+  String mapCrowdAtStop(String level) {
+    return 'Kalabalık: $level';
+  }
+
+  @override
+  String get mapRerouteButton => 'Daha sakin duraklar için yeniden rota';
+
+  @override
+  String mapRerouteApplied(int count) {
+    return 'Gün ayarlandı — $count durak daha sakin yerlerle değiştirildi.';
+  }
+
+  @override
+  String get mapRerouteNone => 'Rotanız zaten sakin görünüyor.';
+
+  @override
+  String get mapRerouteRainHint =>
+      'Yağmur olası — kapalı alternatifler için yeniden rota.';
 
   @override
   String get mapAiPowers => 'Yapay zeka harita güçleri';
@@ -472,6 +568,18 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get tripsOpenTimeline => 'Tam zaman çizelgesini aç';
+
+  @override
+  String get tripsShare => 'Paylaş';
+
+  @override
+  String get shareItineraryFooter =>
+      'Luxora ile planlandı — duygusal olarak zeki Florida arkadaşın.';
+
+  @override
+  String shareSubject(String title) {
+    return '$title gezim';
+  }
 
   @override
   String get itineraryBadge => 'ZAMAN ÇİZELGİNİZ';
@@ -900,6 +1008,45 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get dayFlowReasonNightOut => 'Son bir parıltı — bir gece çıkışı.';
+
+  @override
+  String weatherToday(String place) {
+    return 'Şu anda $place';
+  }
+
+  @override
+  String weatherSunset(String time) {
+    return 'Gün batımı $time';
+  }
+
+  @override
+  String weatherRainNote(int percent) {
+    return '%$percent yağmur ihtimali — yanına ince bir şeyler al.';
+  }
+
+  @override
+  String get weatherConditionClear => 'Açık';
+
+  @override
+  String get weatherConditionPartlyCloudy => 'Parçalı bulutlu';
+
+  @override
+  String get weatherConditionCloudy => 'Bulutlu';
+
+  @override
+  String get weatherConditionFog => 'Sis';
+
+  @override
+  String get weatherConditionDrizzle => 'Çiseleme';
+
+  @override
+  String get weatherConditionRain => 'Yağmur';
+
+  @override
+  String get weatherConditionSnow => 'Kar';
+
+  @override
+  String get weatherConditionThunder => 'Gök gürültülü fırtına';
 
   @override
   String get dayFlowVibeFoodie => 'Gurme odaklı';

@@ -54,36 +54,43 @@ List<MapAiCapability> mapAiCapabilitiesL10n(AppLocalizations l) => [
         icon: Icons.favorite_outline_rounded,
         title: l.mapCapMoodTitle,
         description: l.mapCapMoodDesc,
+        comingSoon: false,
       ),
       MapAiCapability(
         icon: Icons.route_rounded,
         title: l.mapCapDriveTitle,
         description: l.mapCapDriveDesc,
+        comingSoon: false,
       ),
       MapAiCapability(
         icon: Icons.cloud_outlined,
         title: l.mapCapWeatherTitle,
         description: l.mapCapWeatherDesc,
+        comingSoon: false,
       ),
       MapAiCapability(
         icon: Icons.wb_twilight_rounded,
         title: l.mapCapSunsetTitle,
         description: l.mapCapSunsetDesc,
+        comingSoon: false,
       ),
       MapAiCapability(
         icon: Icons.groups_outlined,
         title: l.mapCapCrowdTitle,
         description: l.mapCapCrowdDesc,
+        comingSoon: false,
       ),
       MapAiCapability(
         icon: Icons.diamond_outlined,
         title: l.mapCapGemsTitle,
         description: l.mapCapGemsDesc,
+        comingSoon: false,
       ),
       MapAiCapability(
         icon: Icons.tune_rounded,
         title: l.mapCapPersonalTitle,
         description: l.mapCapPersonalDesc,
+        comingSoon: false,
       ),
     ];
 
@@ -92,6 +99,7 @@ List<MapAiCapability> mapAiCapabilitiesFutureL10n(AppLocalizations l) => [
         icon: Icons.local_fire_department_outlined,
         title: l.mapFutureCrowdTitle,
         description: l.mapFutureCrowdDesc,
+        comingSoon: false,
       ),
       MapAiCapability(
         icon: Icons.local_parking_outlined,
@@ -107,6 +115,7 @@ List<MapAiCapability> mapAiCapabilitiesFutureL10n(AppLocalizations l) => [
         icon: Icons.alt_route_rounded,
         title: l.mapFutureRerouteTitle,
         description: l.mapFutureRerouteDesc,
+        comingSoon: false,
       ),
     ];
 

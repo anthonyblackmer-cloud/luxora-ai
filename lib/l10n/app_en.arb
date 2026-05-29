@@ -13,6 +13,7 @@
   "commonContinue": "Continue",
   "commonNew": "New",
   "commonRoadmap": "Roadmap",
+  "commonLive": "Live",
   "commonClose": "Close",
   "commonCancel": "Cancel",
   "commonDelete": "Delete",
@@ -34,6 +35,20 @@
   "conciergeRemembering": "Remembering for this trip",
   "conciergeStyleMemory": "Style memory",
   "conciergeInputHint": "Describe the feeling you want your trip to create…",
+  "conciergeGreetingMorning": "Good morning.",
+  "conciergeGreetingAfternoon": "Good afternoon.",
+  "conciergeGreetingEvening": "Good evening.",
+  "conciergeWelcomeWarm": "I'm here to shape Florida around how you want to feel — not a checklist of sights. What are you craving today?",
+  "conciergeRefineStyle": "Refine My Style",
+  "conciergeRecallReturning": "Welcome back.",
+  "conciergeRecallStyle": "I remember you like {prefs}.",
+  "@conciergeRecallStyle": {
+    "placeholders": { "prefs": { "type": "String" } }
+  },
+  "conciergeRecallFeelLine": "And you wanted this trip to feel: “{feel}”.",
+  "@conciergeRecallFeelLine": {
+    "placeholders": { "feel": { "type": "String" } }
+  },
   "conciergePromptRomantic": "Romantic getaway",
   "conciergePromptWellness": "Wellness reset",
   "conciergePromptFamily": "Family magic",
@@ -83,6 +98,14 @@
   "feedPillNewOpenings": "New openings",
   "feedPillCreator": "Creator picks",
   "feedPillLive": "Live updates",
+  "feedMoodPrompt": "HOW DO YOU WANT TO FEEL?",
+  "feedMoodAll": "Everything",
+  "feedMoodRomantic": "Romantic",
+  "feedMoodCalm": "Calm",
+  "feedMoodAdventurous": "Adventurous",
+  "feedMoodPampered": "Pampered",
+  "feedMoodSocial": "Buzzing",
+  "feedMoodFoodie": "Foodie",
   "feedEmptyHint": "No feed cards in this radius — try 50 mi or All Florida for Gulf coast and Keys highlights.",
   "gemsBadge": "INSIDER CURATION",
   "gemsTitle": "Hidden Gems",
@@ -94,6 +117,11 @@
   "gemsEmptyHint": "No gems in this radius yet — widen to 50 mi or beyond for springs and Space Coast secrets.",
   "gemsSearchHint": "Search hidden gems & destinations…",
   "gemLocalSecret": "LOCAL SECRET",
+  "gemsMatchedBadge": "Your style",
+  "gemsMatchedNote": "{count, plural, =1{1 gem matched to your style} other{{count} gems matched to your style}}",
+  "@gemsMatchedNote": {
+    "placeholders": { "count": { "type": "int" } }
+  },
   "gemWhySpecial": "Why it’s special",
   "gemBestTime": "Best time to go",
   "gemCrowdLevel": "Crowd level",
@@ -117,6 +145,21 @@
   "@mapPlanDayHomeBase": {
     "placeholders": { "hotel": { "type": "String" } }
   },
+  "mapCrowdLevelQuiet": "Quiet",
+  "mapCrowdLevelModerate": "Moderate",
+  "mapCrowdLevelBusy": "Busy",
+  "mapCrowdLevelPacked": "Packed",
+  "mapCrowdAtStop": "Crowd: {level}",
+  "@mapCrowdAtStop": {
+    "placeholders": { "level": { "type": "String" } }
+  },
+  "mapRerouteButton": "Reroute for calmer stops",
+  "mapRerouteApplied": "Day adjusted — {count} stops swapped for lighter crowds.",
+  "@mapRerouteApplied": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "mapRerouteNone": "Your route already looks calm.",
+  "mapRerouteRainHint": "Rain likely — tap reroute for indoor backups.",
   "mapAiPowers": "AI map powers",
   "mapNavLayerTitle": "AI navigation layer (next)",
   "mapNavLayerSubtitle": "Beyond discovery — live intelligence on whether a stop is worth it right now.",
@@ -172,6 +215,12 @@
   "tripsSunsetWindow": "Sunset window",
   "tripsTimelineSnapshot": "Timeline snapshot",
   "tripsOpenTimeline": "Open full timeline",
+  "tripsShare": "Share",
+  "shareItineraryFooter": "Planned with Luxora — your emotionally intelligent Florida companion.",
+  "shareSubject": "My {title}",
+  "@shareSubject": {
+    "placeholders": { "title": { "type": "String" } }
+  },
   "itineraryBadge": "YOUR TIMELINE",
   "itineraryTagline": "Every moment connected — anticipation built in, stress left out.",
   "itineraryDayTab": "Day {day} · {label}",
@@ -317,6 +366,26 @@
   "dayFlowReasonAfternoonGem": "A hidden gem away from the crowds.",
   "dayFlowReasonEveningDining": "The meal of the day — your foodie pick.",
   "dayFlowReasonNightOut": "One last glow — a night out.",
+  "weatherToday": "Right now in {place}",
+  "@weatherToday": {
+    "placeholders": { "place": { "type": "String" } }
+  },
+  "weatherSunset": "Sunset {time}",
+  "@weatherSunset": {
+    "placeholders": { "time": { "type": "String" } }
+  },
+  "weatherRainNote": "{percent}% chance of rain — pack a light layer.",
+  "@weatherRainNote": {
+    "placeholders": { "percent": { "type": "int" } }
+  },
+  "weatherConditionClear": "Clear",
+  "weatherConditionPartlyCloudy": "Partly cloudy",
+  "weatherConditionCloudy": "Cloudy",
+  "weatherConditionFog": "Fog",
+  "weatherConditionDrizzle": "Drizzle",
+  "weatherConditionRain": "Rain",
+  "weatherConditionSnow": "Snow",
+  "weatherConditionThunder": "Thunderstorms",
   "dayFlowVibeFoodie": "Foodie-forward",
   "dayFlowVibeNightlife": "Nightlife",
   "dayFlowVibePoolside": "Poolside",

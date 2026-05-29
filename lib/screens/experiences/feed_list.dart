@@ -4,6 +4,7 @@ import 'package:luxora_ai/l10n/app_localizations.dart';
 import 'package:luxora_ai/l10n/catalog_localizer.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/data/feed_items.dart';
+import 'package:luxora_ai/models/lux_place.dart';
 import 'package:luxora_ai/services/discover_radius_controller.dart';
 import 'package:luxora_ai/services/places_repository.dart';
 import 'package:luxora_ai/services/unsplash_download_tracker.dart';
@@ -16,9 +17,59 @@ import 'package:luxora_ai/widgets/lux_place_image.dart';
 import 'package:luxora_ai/widgets/affiliate_hint.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
 
+/// Emotional entry points for the discovery feed — "how do you want to feel?"
+/// Each maps to the mood tags carried by places so the feed can be filtered by
+/// feeling rather than category.
+enum FeedMood { all, romantic, calm, adventurous, pampered, social, foodie }
+
+extension FeedMoodX on FeedMood {
+  List<String> get tags => switch (this) {
+        FeedMood.all => const [],
+        FeedMood.romantic => const ['romantic'],
+        FeedMood.calm => const ['relaxing', 'wellness', 'springs', 'beach'],
+        FeedMood.adventurous => const ['adventure', 'nature', 'water'],
+        FeedMood.pampered => const ['luxury', 'wellness'],
+        FeedMood.social => const ['nightlife', 'trending', 'social'],
+        FeedMood.foodie => const ['foodie', 'dining'],
+      };
+
+  IconData get icon => switch (this) {
+        FeedMood.all => Icons.auto_awesome_rounded,
+        FeedMood.romantic => Icons.favorite_rounded,
+        FeedMood.calm => Icons.spa_rounded,
+        FeedMood.adventurous => Icons.explore_rounded,
+        FeedMood.pampered => Icons.diamond_rounded,
+        FeedMood.social => Icons.celebration_rounded,
+        FeedMood.foodie => Icons.restaurant_rounded,
+      };
+
+  String label(AppLocalizations l) => switch (this) {
+        FeedMood.all => l.feedMoodAll,
+        FeedMood.romantic => l.feedMoodRomantic,
+        FeedMood.calm => l.feedMoodCalm,
+        FeedMood.adventurous => l.feedMoodAdventurous,
+        FeedMood.pampered => l.feedMoodPampered,
+        FeedMood.social => l.feedMoodSocial,
+        FeedMood.foodie => l.feedMoodFoodie,
+      };
+
+  bool matches(LuxPlace place) {
+    if (this == FeedMood.all) return true;
+    final wanted = tags;
+    return place.moodTags.any((t) => wanted.contains(t.toLowerCase()));
+  }
+}
+
 /// Dynamic discovery — trending, social, seasonal, live (not insider curation).
-class FeedList extends StatelessWidget {
+class FeedList extends StatefulWidget {
   const FeedList({super.key});
+
+  @override
+  State<FeedList> createState() => _FeedListState();
+}
+
+class _FeedListState extends State<FeedList> {
+  FeedMood _mood = FeedMood.all;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +78,14 @@ class FeedList extends StatelessWidget {
         listenable: DiscoverRadiusController.instance,
         builder: (context, _) {
           final radius = DiscoverRadiusController.instance.radius;
-          final feed = PlacesRepository.instance.feedWithinRadius(radius);
+          final allFeed = PlacesRepository.instance.feedWithinRadius(radius);
+          final feed = _mood == FeedMood.all
+              ? allFeed
+              : allFeed.where((item) {
+                  final place = PlacesRepository.instance
+                      .byId(kFeedItemPlaceIds[item.id]);
+                  return place != null && _mood.matches(place);
+                }).toList();
           final l = context.l10n;
 
           return ListView.builder(
@@ -76,6 +134,56 @@ class FeedList extends StatelessWidget {
                       _FeedPill(l.feedPillCreator, LuxColors.feedHot),
                       _FeedPill(l.feedPillLive, LuxColors.feedLive),
                     ],
+                  ),
+                  const SizedBox(height: 16),
+                  Text(
+                    l.feedMoodPrompt,
+                    style: TextStyle(
+                      fontSize: 11,
+                      fontWeight: FontWeight.w700,
+                      letterSpacing: 1.5,
+                      color: LuxColors.feedAccent.withValues(alpha: 0.9),
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  SizedBox(
+                    height: 36,
+                    child: ListView.separated(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: FeedMood.values.length,
+                      separatorBuilder: (_, _) => const SizedBox(width: 8),
+                      itemBuilder: (context, i) {
+                        final mood = FeedMood.values[i];
+                        final selected = mood == _mood;
+                        return ChoiceChip(
+                          selected: selected,
+                          onSelected: (_) => setState(() => _mood = mood),
+                          avatar: Icon(
+                            mood.icon,
+                            size: 15,
+                            color: selected
+                                ? LuxColors.feedAccent
+                                : LuxColors.stone400,
+                          ),
+                          label: Text(mood.label(l)),
+                          labelStyle: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                            color:
+                                selected ? LuxColors.cream : LuxColors.stone400,
+                          ),
+                          backgroundColor: Colors.white.withValues(alpha: 0.04),
+                          selectedColor:
+                              LuxColors.feedAccent.withValues(alpha: 0.18),
+                          side: BorderSide(
+                            color: selected
+                                ? LuxColors.feedAccent.withValues(alpha: 0.5)
+                                : Colors.white.withValues(alpha: 0.1),
+                          ),
+                          showCheckmark: false,
+                        );
+                      },
+                    ),
                   ),
                   const SizedBox(height: 16),
                   DestinationSearchBar(hint: l.discoverSearchHint),

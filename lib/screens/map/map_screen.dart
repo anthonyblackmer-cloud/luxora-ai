@@ -4,9 +4,13 @@ import 'package:luxora_ai/l10n/catalog_localizer.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_helpers.dart';
 import 'package:luxora_ai/models/lux_place.dart';
+import 'package:luxora_ai/data/orlando_hub.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
+import 'package:luxora_ai/services/crowd_prediction_service.dart';
 import 'package:luxora_ai/services/day_flow_planner.dart';
+import 'package:luxora_ai/services/day_flow_rerouter.dart';
 import 'package:luxora_ai/services/discover_radius_controller.dart';
+import 'package:luxora_ai/services/weather_service.dart';
 import 'package:luxora_ai/services/home_base_store.dart';
 import 'package:luxora_ai/services/places_repository.dart';
 import 'package:luxora_ai/services/saved_places_storage.dart';
@@ -18,6 +22,7 @@ import 'package:luxora_ai/widgets/discover_radius_selector.dart';
 import 'package:luxora_ai/widgets/discover_scope_banner.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
 import 'package:luxora_ai/widgets/lux_florida_map.dart';
+import 'package:luxora_ai/widgets/weather_card.dart';
 
 class MapScreen extends StatelessWidget {
   const MapScreen({super.key});
@@ -62,11 +67,6 @@ class MapScreen extends StatelessWidget {
                     homeBase: homeBase,
                     savedIds: savedIds,
                   );
-                  final routeIds = dayFlow.isEmpty
-                      ? defaultItineraryRouteIds()
-                          .where(placeIds.contains)
-                          .toList()
-                      : dayFlow.orderedPlaceIds;
 
                   // Map pins: capped (curated + nearest OSM) unioned with the
                   // user's saved + day-flow places so those always render.
@@ -80,6 +80,9 @@ class MapScreen extends StatelessWidget {
                     mapPins[b.place.id] = b.place;
                   }
                   final mapPlaces = mapPins.values.toList();
+                  final fallbackRouteIds = defaultItineraryRouteIds()
+                      .where(placeIds.contains)
+                      .toList();
 
                   return ListView(
         padding: const EdgeInsets.all(20),
@@ -109,24 +112,25 @@ class MapScreen extends StatelessWidget {
           const SizedBox(height: 12),
           const DiscoverScopeBanner(),
           const SizedBox(height: 14),
-          AspectRatio(
-            aspectRatio: 16 / 10,
-            child: GlassCard(
-              padding: EdgeInsets.zero,
-              glow: true,
-              child: LuxFloridaMap(
-                places: mapPlaces,
-                routePlaceIds: routeIds,
-                gemPlaceIds: gemIds,
-                radiusMiles: radiusMiles,
-                onPlaceTap: (place) => _showPlace(context, place),
-              ),
+          _MapRoutePlanner(
+            key: ValueKey(
+              '${profile?.hashCode}-${savedIds.join(',')}-$homeBaseId-${radius.name}',
             ),
-          ),
-          const SizedBox(height: 16),
-          _PlanMyDay(
-            flow: dayFlow,
-            onTapStop: (place) => _showPlace(context, place),
+            initialFlow: dayFlow,
+            fallbackRouteIds: fallbackRouteIds,
+            mapPlaces: mapPlaces,
+            pool: places,
+            profile: profile,
+            homeBase: homeBase,
+            savedIds: savedIds,
+            gemIds: gemIds,
+            radiusMiles: radiusMiles,
+            weatherLat: homeBase?.latitude ?? OrlandoHub.latitude,
+            weatherLng: homeBase?.longitude ?? OrlandoHub.longitude,
+            weatherLabel: homeBase != null
+                ? catalogText(context, homeBase.title)
+                : OrlandoHub.name,
+            onPlaceTap: (place) => _showPlace(context, place),
           ),
           const SizedBox(height: 20),
           Text(
@@ -244,14 +248,24 @@ class MapScreen extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              Text(
-                                l.commonRoadmap,
-                                style: TextStyle(
-                                  fontSize: 9,
-                                  color: LuxColors.feedLive,
-                                  fontWeight: FontWeight.w700,
+                              if (cap.comingSoon)
+                                Text(
+                                  l.commonRoadmap,
+                                  style: TextStyle(
+                                    fontSize: 9,
+                                    color: LuxColors.feedLive,
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                )
+                              else
+                                Text(
+                                  l.commonLive,
+                                  style: TextStyle(
+                                    fontSize: 9,
+                                    color: LuxColors.gold,
+                                    fontWeight: FontWeight.w700,
+                                  ),
                                 ),
-                              ),
                             ],
                           ),
                           const SizedBox(height: 4),
@@ -306,6 +320,143 @@ class MapScreen extends StatelessWidget {
 
 }
 
+/// Map + weather + day plan with crowd outlook and one-tap reroute.
+class _MapRoutePlanner extends StatefulWidget {
+  const _MapRoutePlanner({
+    super.key,
+    required this.initialFlow,
+    required this.fallbackRouteIds,
+    required this.mapPlaces,
+    required this.pool,
+    required this.profile,
+    required this.homeBase,
+    required this.savedIds,
+    required this.gemIds,
+    required this.radiusMiles,
+    required this.weatherLat,
+    required this.weatherLng,
+    required this.weatherLabel,
+    required this.onPlaceTap,
+  });
+
+  final DayFlow initialFlow;
+  final List<String> fallbackRouteIds;
+  final List<LuxPlace> mapPlaces;
+  final List<LuxPlace> pool;
+  final TripProfile? profile;
+  final LuxPlace? homeBase;
+  final Set<String> savedIds;
+  final Set<String> gemIds;
+  final double? radiusMiles;
+  final double weatherLat;
+  final double weatherLng;
+  final String weatherLabel;
+  final void Function(LuxPlace place) onPlaceTap;
+
+  @override
+  State<_MapRoutePlanner> createState() => _MapRoutePlannerState();
+}
+
+class _MapRoutePlannerState extends State<_MapRoutePlanner> {
+  late DayFlow _flow;
+  bool _rainLikely = false;
+  String? _rerouteMessage;
+
+  @override
+  void initState() {
+    super.initState();
+    _flow = widget.initialFlow;
+    _loadWeather();
+  }
+
+  @override
+  void didUpdateWidget(_MapRoutePlanner oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.initialFlow != widget.initialFlow) {
+      _flow = widget.initialFlow;
+      _rerouteMessage = null;
+    }
+    if (oldWidget.weatherLat != widget.weatherLat ||
+        oldWidget.weatherLng != widget.weatherLng) {
+      _loadWeather();
+    }
+  }
+
+  Future<void> _loadWeather() async {
+    final weather = await WeatherService.instance.fetch(
+      widget.weatherLat,
+      widget.weatherLng,
+    );
+    if (!mounted) return;
+    setState(() => _rainLikely = weather?.rainLikely ?? false);
+  }
+
+  List<String> get _routeIds => _flow.isEmpty
+      ? widget.fallbackRouteIds
+      : _flow.orderedPlaceIds;
+
+  List<LuxPlace> get _mapPlacesWithFlow {
+    final byId = {for (final p in widget.mapPlaces) p.id: p};
+    for (final b in _flow.blocks) {
+      byId[b.place.id] = b.place;
+    }
+    return byId.values.toList();
+  }
+
+  void _reroute() {
+    final l = context.l10n;
+    final result = DayFlowRerouter.apply(
+      flow: _flow,
+      pool: widget.pool,
+      profile: widget.profile,
+      rainLikely: _rainLikely,
+      savedIds: widget.savedIds,
+    );
+    setState(() {
+      _flow = result.flow;
+      _rerouteMessage = result.changed
+          ? l.mapRerouteApplied(result.swappedStopCount)
+          : l.mapRerouteNone;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        AspectRatio(
+          aspectRatio: 16 / 10,
+          child: GlassCard(
+            padding: EdgeInsets.zero,
+            glow: true,
+            child: LuxFloridaMap(
+              places: _mapPlacesWithFlow,
+              routePlaceIds: _routeIds,
+              gemPlaceIds: widget.gemIds,
+              radiusMiles: widget.radiusMiles,
+              onPlaceTap: widget.onPlaceTap,
+            ),
+          ),
+        ),
+        const SizedBox(height: 16),
+        WeatherCard(
+          latitude: widget.weatherLat,
+          longitude: widget.weatherLng,
+          placeLabel: widget.weatherLabel,
+        ),
+        _PlanMyDay(
+          flow: _flow,
+          rainLikely: _rainLikely,
+          rerouteMessage: _rerouteMessage,
+          onReroute: _flow.isEmpty ? null : _reroute,
+          onTapStop: widget.onPlaceTap,
+        ),
+      ],
+    );
+  }
+}
+
 /// The "Plan my day" card — renders the Day Flow as a time-of-day timeline
 /// (morning → night) with a one-line rationale per stop, so the plan reads
 /// like a concierge sequenced it around how the traveler wants to feel.
@@ -313,9 +464,15 @@ class _PlanMyDay extends StatelessWidget {
   const _PlanMyDay({
     required this.flow,
     required this.onTapStop,
+    this.rainLikely = false,
+    this.rerouteMessage,
+    this.onReroute,
   });
 
   final DayFlow flow;
+  final bool rainLikely;
+  final String? rerouteMessage;
+  final VoidCallback? onReroute;
   final void Function(LuxPlace place) onTapStop;
 
   @override
@@ -431,6 +588,56 @@ class _PlanMyDay extends StatelessWidget {
                   ],
                 ),
               ),
+            if (onReroute != null) ...[
+              const SizedBox(height: 12),
+              if (rainLikely)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: Row(
+                    children: [
+                      const Icon(
+                        Icons.umbrella_rounded,
+                        size: 14,
+                        color: LuxColors.gold,
+                      ),
+                      const SizedBox(width: 6),
+                      Expanded(
+                        child: Text(
+                          l.mapRerouteRainHint,
+                          style: const TextStyle(
+                            fontSize: 12,
+                            height: 1.3,
+                            color: LuxColors.stone400,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              OutlinedButton.icon(
+                onPressed: onReroute,
+                icon: const Icon(Icons.alt_route_rounded, size: 18),
+                label: Text(l.mapRerouteButton),
+                style: OutlinedButton.styleFrom(
+                  foregroundColor: LuxColors.gold,
+                  side: BorderSide(
+                    color: LuxColors.gold.withValues(alpha: 0.45),
+                  ),
+                ),
+              ),
+              if (rerouteMessage != null)
+                Padding(
+                  padding: const EdgeInsets.only(top: 8),
+                  child: Text(
+                    rerouteMessage!,
+                    style: const TextStyle(
+                      fontSize: 12,
+                      height: 1.35,
+                      color: LuxColors.stone400,
+                    ),
+                  ),
+                ),
+            ],
             const SizedBox(height: 14),
             for (final (index, block) in flow.blocks.indexed)
               _DayFlowRow(
@@ -529,6 +736,19 @@ class _DayFlowRow extends StatelessWidget {
                         color: LuxColors.stone400,
                       ),
                     ),
+                    const SizedBox(height: 2),
+                    Text(
+                      l.mapCrowdAtStop(
+                        _crowdLevelLabel(
+                          l,
+                          CrowdPredictionService.levelForBlock(block),
+                        ),
+                      ),
+                      style: TextStyle(
+                        fontSize: 11,
+                        color: LuxColors.stone500.withValues(alpha: 0.95),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -584,4 +804,12 @@ String _vibeLabel(AppLocalizations l, DayInterest interest) =>
       DayInterest.poolside => l.dayFlowVibePoolside,
       DayInterest.adventure => l.dayFlowVibeAdventure,
       DayInterest.culture => l.dayFlowVibeCulture,
+    };
+
+String _crowdLevelLabel(AppLocalizations l, CrowdLevel level) =>
+    switch (level) {
+      CrowdLevel.quiet => l.mapCrowdLevelQuiet,
+      CrowdLevel.moderate => l.mapCrowdLevelModerate,
+      CrowdLevel.busy => l.mapCrowdLevelBusy,
+      CrowdLevel.packed => l.mapCrowdLevelPacked,
     };

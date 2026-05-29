@@ -48,6 +48,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get commonRoadmap => 'ロードマップ';
 
   @override
+  String get commonLive => 'ライブ';
+
+  @override
   String get commonClose => '閉じる';
 
   @override
@@ -103,6 +106,35 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get conciergeInputHint => '旅行で感じてほしいことを説明してください…';
+
+  @override
+  String get conciergeGreetingMorning => 'おはようございます。';
+
+  @override
+  String get conciergeGreetingAfternoon => 'こんにちは。';
+
+  @override
+  String get conciergeGreetingEvening => 'こんばんは。';
+
+  @override
+  String get conciergeWelcomeWarm =>
+      '名所のリストではなく、どう感じたいかに合わせてフロリダを形づくります。今日はどんな気分ですか？';
+
+  @override
+  String get conciergeRefineStyle => 'スタイルを調整';
+
+  @override
+  String get conciergeRecallReturning => 'おかえりなさい。';
+
+  @override
+  String conciergeRecallStyle(String prefs) {
+    return '$prefsがお好みでしたね。';
+  }
+
+  @override
+  String conciergeRecallFeelLine(String feel) {
+    return 'そして、この旅では「$feel」を感じたいとのことでした。';
+  }
 
   @override
   String get conciergePromptRomantic => 'ロマンチックな休暇';
@@ -224,6 +256,30 @@ class AppLocalizationsJa extends AppLocalizations {
   String get feedPillLive => 'ライブアップデート';
 
   @override
+  String get feedMoodPrompt => 'どんな気分になりたい？';
+
+  @override
+  String get feedMoodAll => 'すべて';
+
+  @override
+  String get feedMoodRomantic => 'ロマンチック';
+
+  @override
+  String get feedMoodCalm => '穏やか';
+
+  @override
+  String get feedMoodAdventurous => '冒険';
+
+  @override
+  String get feedMoodPampered => '贅沢';
+
+  @override
+  String get feedMoodSocial => 'にぎやか';
+
+  @override
+  String get feedMoodFoodie => 'グルメ';
+
+  @override
   String get feedEmptyHint =>
       'この半径内にはフィード カードはありません。メキシコ湾岸とキーズのハイライトについては、50 マイルまたはオール フロリダをお試しください。';
 
@@ -258,6 +314,14 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get gemLocalSecret => 'ローカルシークレット';
+
+  @override
+  String get gemsMatchedBadge => 'あなた向け';
+
+  @override
+  String gemsMatchedNote(int count) {
+    return 'あなたのスタイルに合う$count件';
+  }
 
   @override
   String get gemWhySpecial => 'なぜ特別なのか';
@@ -303,6 +367,37 @@ class AppLocalizationsJa extends AppLocalizations {
   String mapPlanDayHomeBase(String hotel) {
     return '$hotel から出発';
   }
+
+  @override
+  String get mapCrowdLevelQuiet => '静か';
+
+  @override
+  String get mapCrowdLevelModerate => '普通';
+
+  @override
+  String get mapCrowdLevelBusy => '混雑';
+
+  @override
+  String get mapCrowdLevelPacked => '大混雑';
+
+  @override
+  String mapCrowdAtStop(String level) {
+    return '混雑度: $level';
+  }
+
+  @override
+  String get mapRerouteButton => '静かな立ち寄り先にルート変更';
+
+  @override
+  String mapRerouteApplied(int count) {
+    return 'プランを調整 — $count か所を混雑の少ない場所に変更しました。';
+  }
+
+  @override
+  String get mapRerouteNone => 'このルートはすでに落ち着いています。';
+
+  @override
+  String get mapRerouteRainHint => '雨の可能性 — 屋内プランへルート変更できます。';
 
   @override
   String get mapAiPowers => 'AI マップの力';
@@ -460,6 +555,17 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get tripsOpenTimeline => '完全なタイムラインを開く';
+
+  @override
+  String get tripsShare => '共有';
+
+  @override
+  String get shareItineraryFooter => 'Luxora —— 感情を理解するフロリダの相棒 —— と一緒にプランニング。';
+
+  @override
+  String shareSubject(String title) {
+    return '私の$title';
+  }
 
   @override
   String get itineraryBadge => 'あなたのタイムライン';
@@ -869,6 +975,45 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get dayFlowReasonNightOut => '最後のきらめき。夜のお出かけ。';
+
+  @override
+  String weatherToday(String place) {
+    return '$placeの現在';
+  }
+
+  @override
+  String weatherSunset(String time) {
+    return '日の入り $time';
+  }
+
+  @override
+  String weatherRainNote(int percent) {
+    return '降水確率$percent% — 羽織るものを持って。';
+  }
+
+  @override
+  String get weatherConditionClear => '晴れ';
+
+  @override
+  String get weatherConditionPartlyCloudy => '晴れ時々曇り';
+
+  @override
+  String get weatherConditionCloudy => '曇り';
+
+  @override
+  String get weatherConditionFog => '霧';
+
+  @override
+  String get weatherConditionDrizzle => '霧雨';
+
+  @override
+  String get weatherConditionRain => '雨';
+
+  @override
+  String get weatherConditionSnow => '雪';
+
+  @override
+  String get weatherConditionThunder => '雷雨';
 
   @override
   String get dayFlowVibeFoodie => 'グルメ志向';

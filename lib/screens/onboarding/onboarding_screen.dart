@@ -6,6 +6,7 @@ import 'package:luxora_ai/l10n/luxora_l10n_helpers.dart';
 import 'package:luxora_ai/data/saved_trips.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
 import 'package:luxora_ai/services/saved_trips_store.dart';
+import 'package:luxora_ai/services/trip_feel_interpreter.dart';
 import 'package:luxora_ai/services/trip_profile_store.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
@@ -29,10 +30,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   static const _budgetMaxUsd = 100000;
 
   Future<void> _finish() async {
-    await TripProfileStore.instance.save(_profile);
+    // Let the typed "trip feel" actually reshape the dials/moods that drive
+    // the Day Flow and recommendations.
+    final enriched = TripFeelInterpreter.enrich(_profile);
+    await TripProfileStore.instance.save(enriched);
     await SavedTripsStore.instance.add(
       SavedTripSummary.fromProfile(
-        _profile,
+        enriched,
         id: 'trip-${DateTime.now().millisecondsSinceEpoch}',
       ),
     );

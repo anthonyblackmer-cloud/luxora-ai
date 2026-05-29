@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:luxora_ai/l10n/catalog_localizer.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/data/saved_trips.dart';
@@ -203,6 +204,33 @@ class _TripCard extends StatefulWidget {
 class _TripCardState extends State<_TripCard> {
   bool _expanded = false;
 
+  /// Composes a cinematic, shareable itinerary card as text and hands it to
+  /// the OS share sheet.
+  Future<void> _shareTrip() async {
+    final l = context.l10n;
+    final trip = widget.trip;
+    final title = catalogText(context, trip.title);
+    final lines = <String>['\u2728 $title', catalogText(context, trip.dateRange)];
+    final snapshot = trip.timelineSnapshot;
+    if (snapshot != null && snapshot.trim().isNotEmpty) {
+      lines.add('');
+      lines.add(catalogText(context, snapshot));
+    }
+    final moods =
+        trip.moodTags.map((t) => catalogText(context, t)).join(' \u00b7 ');
+    if (moods.isNotEmpty) lines.add(moods);
+    final sunset = trip.sunsetWindow;
+    if (sunset != null && sunset.trim().isNotEmpty) {
+      lines.add('\ud83c\udf05 ${catalogText(context, sunset)}');
+    }
+    lines.add('');
+    lines.add(l.shareItineraryFooter);
+
+    await SharePlus.instance.share(
+      ShareParams(text: lines.join('\n'), subject: l.shareSubject(title)),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final trip = widget.trip;
@@ -373,6 +401,14 @@ class _TripCardState extends State<_TripCard> {
                         ),
                       ),
                       const Spacer(),
+                      TextButton.icon(
+                        onPressed: _shareTrip,
+                        icon: const Icon(Icons.ios_share_rounded, size: 18),
+                        label: Text(l.tripsShare),
+                        style: TextButton.styleFrom(
+                          foregroundColor: LuxColors.gold,
+                        ),
+                      ),
                       TextButton.icon(
                         onPressed: widget.onDelete,
                         icon: const Icon(Icons.delete_outline_rounded, size: 18),

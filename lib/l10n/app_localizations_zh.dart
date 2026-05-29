@@ -48,6 +48,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get commonRoadmap => '路线图';
 
   @override
+  String get commonLive => '实时';
+
+  @override
   String get commonClose => '关闭';
 
   @override
@@ -103,6 +106,34 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get conciergeInputHint => '描述你希望这趟旅行带来的感觉…';
+
+  @override
+  String get conciergeGreetingMorning => '早上好。';
+
+  @override
+  String get conciergeGreetingAfternoon => '下午好。';
+
+  @override
+  String get conciergeGreetingEvening => '晚上好。';
+
+  @override
+  String get conciergeWelcomeWarm => '我会围绕你想要的感受来安排佛罗里达之行，而不是一张景点清单。今天你想要什么？';
+
+  @override
+  String get conciergeRefineStyle => '优化我的风格';
+
+  @override
+  String get conciergeRecallReturning => '欢迎回来。';
+
+  @override
+  String conciergeRecallStyle(String prefs) {
+    return '我记得你喜欢$prefs。';
+  }
+
+  @override
+  String conciergeRecallFeelLine(String feel) {
+    return '你还希望这趟旅行带来这样的感觉：“$feel”。';
+  }
 
   @override
   String get conciergePromptRomantic => '浪漫度假';
@@ -223,6 +254,30 @@ class AppLocalizationsZh extends AppLocalizations {
   String get feedPillLive => '实时更新';
 
   @override
+  String get feedMoodPrompt => '你想要什么感觉？';
+
+  @override
+  String get feedMoodAll => '全部';
+
+  @override
+  String get feedMoodRomantic => '浪漫';
+
+  @override
+  String get feedMoodCalm => '宁静';
+
+  @override
+  String get feedMoodAdventurous => '探险';
+
+  @override
+  String get feedMoodPampered => '尊享';
+
+  @override
+  String get feedMoodSocial => '热闹';
+
+  @override
+  String get feedMoodFoodie => '美食';
+
+  @override
   String get feedEmptyHint => '此范围内没有动态卡片。试试 50 mi 或全佛罗里达，查看墨西哥湾海岸和群岛亮点。';
 
   @override
@@ -254,6 +309,14 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get gemLocalSecret => '本地秘密';
+
+  @override
+  String get gemsMatchedBadge => '你的风格';
+
+  @override
+  String gemsMatchedNote(int count) {
+    return '$count 个符合你风格的去处';
+  }
 
   @override
   String get gemWhySpecial => '特别之处';
@@ -297,6 +360,37 @@ class AppLocalizationsZh extends AppLocalizations {
   String mapPlanDayHomeBase(String hotel) {
     return '从 $hotel 出发';
   }
+
+  @override
+  String get mapCrowdLevelQuiet => '安静';
+
+  @override
+  String get mapCrowdLevelModerate => '适中';
+
+  @override
+  String get mapCrowdLevelBusy => '拥挤';
+
+  @override
+  String get mapCrowdLevelPacked => '非常拥挤';
+
+  @override
+  String mapCrowdAtStop(String level) {
+    return '人流：$level';
+  }
+
+  @override
+  String get mapRerouteButton => '改道至更安静的站点';
+
+  @override
+  String mapRerouteApplied(int count) {
+    return '已调整行程 — 已将 $count 个站点换成人流更少的地点。';
+  }
+
+  @override
+  String get mapRerouteNone => '您的路线看起来已经很从容。';
+
+  @override
+  String get mapRerouteRainHint => '可能下雨 — 点击改道选择室内备选。';
 
   @override
   String get mapAiPowers => 'AI 地图能力';
@@ -448,6 +542,17 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get tripsOpenTimeline => '打开完整的时间线';
+
+  @override
+  String get tripsShare => '分享';
+
+  @override
+  String get shareItineraryFooter => '由 Luxora 规划——你善解人意的佛罗里达旅伴。';
+
+  @override
+  String shareSubject(String title) {
+    return '我的$title';
+  }
 
   @override
   String get itineraryBadge => '你的行程';
@@ -854,6 +959,45 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get dayFlowReasonNightOut => '最后的精彩——夜晚出游。';
+
+  @override
+  String weatherToday(String place) {
+    return '$place此刻';
+  }
+
+  @override
+  String weatherSunset(String time) {
+    return '日落 $time';
+  }
+
+  @override
+  String weatherRainNote(int percent) {
+    return '$percent% 降雨概率——带件薄外套。';
+  }
+
+  @override
+  String get weatherConditionClear => '晴';
+
+  @override
+  String get weatherConditionPartlyCloudy => '局部多云';
+
+  @override
+  String get weatherConditionCloudy => '多云';
+
+  @override
+  String get weatherConditionFog => '雾';
+
+  @override
+  String get weatherConditionDrizzle => '毛毛雨';
+
+  @override
+  String get weatherConditionRain => '雨';
+
+  @override
+  String get weatherConditionSnow => '雪';
+
+  @override
+  String get weatherConditionThunder => '雷暴';
 
   @override
   String get dayFlowVibeFoodie => '美食优先';

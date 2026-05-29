@@ -50,6 +50,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get commonRoadmap => 'Дорожная карта';
 
   @override
+  String get commonLive => 'В эфире';
+
+  @override
   String get commonClose => 'Закрыть';
 
   @override
@@ -106,6 +109,35 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get conciergeInputHint =>
       'Опишите ощущение, которое вы хотите, чтобы ваша поездка вызвала…';
+
+  @override
+  String get conciergeGreetingMorning => 'Доброе утро.';
+
+  @override
+  String get conciergeGreetingAfternoon => 'Добрый день.';
+
+  @override
+  String get conciergeGreetingEvening => 'Добрый вечер.';
+
+  @override
+  String get conciergeWelcomeWarm =>
+      'Я здесь, чтобы выстроить Флориду вокруг того, что вы хотите почувствовать, а не вокруг списка достопримечательностей. Чего вам хочется сегодня?';
+
+  @override
+  String get conciergeRefineStyle => 'Уточнить мой стиль';
+
+  @override
+  String get conciergeRecallReturning => 'С возвращением.';
+
+  @override
+  String conciergeRecallStyle(String prefs) {
+    return 'Я помню, что вам нравится $prefs.';
+  }
+
+  @override
+  String conciergeRecallFeelLine(String feel) {
+    return 'И вы хотели, чтобы поездка ощущалась так: «$feel».';
+  }
 
   @override
   String get conciergePromptRomantic => 'Романтический отдых';
@@ -228,6 +260,30 @@ class AppLocalizationsRu extends AppLocalizations {
   String get feedPillLive => 'Живые обновления';
 
   @override
+  String get feedMoodPrompt => 'ЧТО ВЫ ХОТИТЕ ПОЧУВСТВОВАТЬ?';
+
+  @override
+  String get feedMoodAll => 'Всё';
+
+  @override
+  String get feedMoodRomantic => 'Романтика';
+
+  @override
+  String get feedMoodCalm => 'Спокойствие';
+
+  @override
+  String get feedMoodAdventurous => 'Приключения';
+
+  @override
+  String get feedMoodPampered => 'Нега';
+
+  @override
+  String get feedMoodSocial => 'Оживлённо';
+
+  @override
+  String get feedMoodFoodie => 'Гастрономия';
+
+  @override
   String get feedEmptyHint =>
       'В этом радиусе нет карточек с фидами — попробуйте 50 миль или всю Флориду, чтобы увидеть побережье Мексиканского залива и основные моменты Киса.';
 
@@ -262,6 +318,14 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get gemLocalSecret => 'МЕСТНАЯ СЕКРЕТА';
+
+  @override
+  String get gemsMatchedBadge => 'Ваш стиль';
+
+  @override
+  String gemsMatchedNote(int count) {
+    return '$count жемчужин в вашем стиле';
+  }
 
   @override
   String get gemWhySpecial => 'Почему это особенное';
@@ -308,6 +372,38 @@ class AppLocalizationsRu extends AppLocalizations {
   String mapPlanDayHomeBase(String hotel) {
     return 'Старт от $hotel';
   }
+
+  @override
+  String get mapCrowdLevelQuiet => 'Спокойно';
+
+  @override
+  String get mapCrowdLevelModerate => 'Умеренно';
+
+  @override
+  String get mapCrowdLevelBusy => 'Многолюдно';
+
+  @override
+  String get mapCrowdLevelPacked => 'Очень многолюдно';
+
+  @override
+  String mapCrowdAtStop(String level) {
+    return 'Загруженность: $level';
+  }
+
+  @override
+  String get mapRerouteButton => 'Перестроить маршрут на более спокойные точки';
+
+  @override
+  String mapRerouteApplied(int count) {
+    return 'День скорректирован — $count остановок заменены на менее людные.';
+  }
+
+  @override
+  String get mapRerouteNone => 'Ваш маршрут уже выглядит спокойным.';
+
+  @override
+  String get mapRerouteRainHint =>
+      'Вероятен дождь — нажмите, чтобы выбрать крытые альтернативы.';
 
   @override
   String get mapAiPowers => 'Силы карты ИИ';
@@ -474,6 +570,18 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get tripsOpenTimeline => 'Открыть полную хронологию';
+
+  @override
+  String get tripsShare => 'Поделиться';
+
+  @override
+  String get shareItineraryFooter =>
+      'Спланировано с Luxora — вашим эмоционально интеллектуальным спутником по Флориде.';
+
+  @override
+  String shareSubject(String title) {
+    return 'Моя поездка: $title';
+  }
 
   @override
   String get itineraryBadge => 'ВАША ГРАФИКА';
@@ -902,6 +1010,45 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get dayFlowReasonNightOut => 'Последний штрих — вечерний выход.';
+
+  @override
+  String weatherToday(String place) {
+    return 'Сейчас в $place';
+  }
+
+  @override
+  String weatherSunset(String time) {
+    return 'Закат $time';
+  }
+
+  @override
+  String weatherRainNote(int percent) {
+    return '$percent% вероятность дождя — возьмите лёгкую куртку.';
+  }
+
+  @override
+  String get weatherConditionClear => 'Ясно';
+
+  @override
+  String get weatherConditionPartlyCloudy => 'Переменная облачность';
+
+  @override
+  String get weatherConditionCloudy => 'Облачно';
+
+  @override
+  String get weatherConditionFog => 'Туман';
+
+  @override
+  String get weatherConditionDrizzle => 'Морось';
+
+  @override
+  String get weatherConditionRain => 'Дождь';
+
+  @override
+  String get weatherConditionSnow => 'Снег';
+
+  @override
+  String get weatherConditionThunder => 'Грозы';
 
   @override
   String get dayFlowVibeFoodie => 'Гастрономия';

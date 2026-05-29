@@ -196,6 +196,12 @@ abstract class AppLocalizations {
   /// **'Roadmap'**
   String get commonRoadmap;
 
+  /// No description provided for @commonLive.
+  ///
+  /// In en, this message translates to:
+  /// **'Live'**
+  String get commonLive;
+
   /// No description provided for @commonClose.
   ///
   /// In en, this message translates to:
@@ -303,6 +309,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Describe the feeling you want your trip to create…'**
   String get conciergeInputHint;
+
+  /// No description provided for @conciergeGreetingMorning.
+  ///
+  /// In en, this message translates to:
+  /// **'Good morning.'**
+  String get conciergeGreetingMorning;
+
+  /// No description provided for @conciergeGreetingAfternoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Good afternoon.'**
+  String get conciergeGreetingAfternoon;
+
+  /// No description provided for @conciergeGreetingEvening.
+  ///
+  /// In en, this message translates to:
+  /// **'Good evening.'**
+  String get conciergeGreetingEvening;
+
+  /// No description provided for @conciergeWelcomeWarm.
+  ///
+  /// In en, this message translates to:
+  /// **'I\'m here to shape Florida around how you want to feel — not a checklist of sights. What are you craving today?'**
+  String get conciergeWelcomeWarm;
+
+  /// No description provided for @conciergeRefineStyle.
+  ///
+  /// In en, this message translates to:
+  /// **'Refine My Style'**
+  String get conciergeRefineStyle;
+
+  /// No description provided for @conciergeRecallReturning.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome back.'**
+  String get conciergeRecallReturning;
+
+  /// No description provided for @conciergeRecallStyle.
+  ///
+  /// In en, this message translates to:
+  /// **'I remember you like {prefs}.'**
+  String conciergeRecallStyle(String prefs);
+
+  /// No description provided for @conciergeRecallFeelLine.
+  ///
+  /// In en, this message translates to:
+  /// **'And you wanted this trip to feel: “{feel}”.'**
+  String conciergeRecallFeelLine(String feel);
 
   /// No description provided for @conciergePromptRomantic.
   ///
@@ -526,6 +580,54 @@ abstract class AppLocalizations {
   /// **'Live updates'**
   String get feedPillLive;
 
+  /// No description provided for @feedMoodPrompt.
+  ///
+  /// In en, this message translates to:
+  /// **'HOW DO YOU WANT TO FEEL?'**
+  String get feedMoodPrompt;
+
+  /// No description provided for @feedMoodAll.
+  ///
+  /// In en, this message translates to:
+  /// **'Everything'**
+  String get feedMoodAll;
+
+  /// No description provided for @feedMoodRomantic.
+  ///
+  /// In en, this message translates to:
+  /// **'Romantic'**
+  String get feedMoodRomantic;
+
+  /// No description provided for @feedMoodCalm.
+  ///
+  /// In en, this message translates to:
+  /// **'Calm'**
+  String get feedMoodCalm;
+
+  /// No description provided for @feedMoodAdventurous.
+  ///
+  /// In en, this message translates to:
+  /// **'Adventurous'**
+  String get feedMoodAdventurous;
+
+  /// No description provided for @feedMoodPampered.
+  ///
+  /// In en, this message translates to:
+  /// **'Pampered'**
+  String get feedMoodPampered;
+
+  /// No description provided for @feedMoodSocial.
+  ///
+  /// In en, this message translates to:
+  /// **'Buzzing'**
+  String get feedMoodSocial;
+
+  /// No description provided for @feedMoodFoodie.
+  ///
+  /// In en, this message translates to:
+  /// **'Foodie'**
+  String get feedMoodFoodie;
+
   /// No description provided for @feedEmptyHint.
   ///
   /// In en, this message translates to:
@@ -591,6 +693,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'LOCAL SECRET'**
   String get gemLocalSecret;
+
+  /// No description provided for @gemsMatchedBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'Your style'**
+  String get gemsMatchedBadge;
+
+  /// No description provided for @gemsMatchedNote.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 gem matched to your style} other{{count} gems matched to your style}}'**
+  String gemsMatchedNote(int count);
 
   /// No description provided for @gemWhySpecial.
   ///
@@ -669,6 +783,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Starting from {hotel}'**
   String mapPlanDayHomeBase(String hotel);
+
+  /// No description provided for @mapCrowdLevelQuiet.
+  ///
+  /// In en, this message translates to:
+  /// **'Quiet'**
+  String get mapCrowdLevelQuiet;
+
+  /// No description provided for @mapCrowdLevelModerate.
+  ///
+  /// In en, this message translates to:
+  /// **'Moderate'**
+  String get mapCrowdLevelModerate;
+
+  /// No description provided for @mapCrowdLevelBusy.
+  ///
+  /// In en, this message translates to:
+  /// **'Busy'**
+  String get mapCrowdLevelBusy;
+
+  /// No description provided for @mapCrowdLevelPacked.
+  ///
+  /// In en, this message translates to:
+  /// **'Packed'**
+  String get mapCrowdLevelPacked;
+
+  /// No description provided for @mapCrowdAtStop.
+  ///
+  /// In en, this message translates to:
+  /// **'Crowd: {level}'**
+  String mapCrowdAtStop(String level);
+
+  /// No description provided for @mapRerouteButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Reroute for calmer stops'**
+  String get mapRerouteButton;
+
+  /// No description provided for @mapRerouteApplied.
+  ///
+  /// In en, this message translates to:
+  /// **'Day adjusted — {count} stops swapped for lighter crowds.'**
+  String mapRerouteApplied(int count);
+
+  /// No description provided for @mapRerouteNone.
+  ///
+  /// In en, this message translates to:
+  /// **'Your route already looks calm.'**
+  String get mapRerouteNone;
+
+  /// No description provided for @mapRerouteRainHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Rain likely — tap reroute for indoor backups.'**
+  String get mapRerouteRainHint;
 
   /// No description provided for @mapAiPowers.
   ///
@@ -963,6 +1131,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Open full timeline'**
   String get tripsOpenTimeline;
+
+  /// No description provided for @tripsShare.
+  ///
+  /// In en, this message translates to:
+  /// **'Share'**
+  String get tripsShare;
+
+  /// No description provided for @shareItineraryFooter.
+  ///
+  /// In en, this message translates to:
+  /// **'Planned with Luxora — your emotionally intelligent Florida companion.'**
+  String get shareItineraryFooter;
+
+  /// No description provided for @shareSubject.
+  ///
+  /// In en, this message translates to:
+  /// **'My {title}'**
+  String shareSubject(String title);
 
   /// No description provided for @itineraryBadge.
   ///
@@ -1761,6 +1947,72 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'One last glow — a night out.'**
   String get dayFlowReasonNightOut;
+
+  /// No description provided for @weatherToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Right now in {place}'**
+  String weatherToday(String place);
+
+  /// No description provided for @weatherSunset.
+  ///
+  /// In en, this message translates to:
+  /// **'Sunset {time}'**
+  String weatherSunset(String time);
+
+  /// No description provided for @weatherRainNote.
+  ///
+  /// In en, this message translates to:
+  /// **'{percent}% chance of rain — pack a light layer.'**
+  String weatherRainNote(int percent);
+
+  /// No description provided for @weatherConditionClear.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear'**
+  String get weatherConditionClear;
+
+  /// No description provided for @weatherConditionPartlyCloudy.
+  ///
+  /// In en, this message translates to:
+  /// **'Partly cloudy'**
+  String get weatherConditionPartlyCloudy;
+
+  /// No description provided for @weatherConditionCloudy.
+  ///
+  /// In en, this message translates to:
+  /// **'Cloudy'**
+  String get weatherConditionCloudy;
+
+  /// No description provided for @weatherConditionFog.
+  ///
+  /// In en, this message translates to:
+  /// **'Fog'**
+  String get weatherConditionFog;
+
+  /// No description provided for @weatherConditionDrizzle.
+  ///
+  /// In en, this message translates to:
+  /// **'Drizzle'**
+  String get weatherConditionDrizzle;
+
+  /// No description provided for @weatherConditionRain.
+  ///
+  /// In en, this message translates to:
+  /// **'Rain'**
+  String get weatherConditionRain;
+
+  /// No description provided for @weatherConditionSnow.
+  ///
+  /// In en, this message translates to:
+  /// **'Snow'**
+  String get weatherConditionSnow;
+
+  /// No description provided for @weatherConditionThunder.
+  ///
+  /// In en, this message translates to:
+  /// **'Thunderstorms'**
+  String get weatherConditionThunder;
 
   /// No description provided for @dayFlowVibeFoodie.
   ///
