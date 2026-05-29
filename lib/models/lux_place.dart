@@ -12,9 +12,12 @@ enum LuxPlaceCategory {
   springs,
   romantic,
   adventure,
+  hotel,
 }
 
 enum LuxImageRole { hero, card, thumb }
+
+enum LuxPlaceSource { curated, osm }
 
 class LuxPlace {
   const LuxPlace({
@@ -32,6 +35,8 @@ class LuxPlace {
     this.aspectRole = LuxImageRole.hero,
     this.sortOrder = 0,
     this.isActive = true,
+    this.website,
+    this.source = LuxPlaceSource.curated,
   });
 
   final String id;
@@ -48,6 +53,14 @@ class LuxPlace {
   final LuxImageRole aspectRole;
   final int sortOrder;
   final bool isActive;
+
+  /// Public website / homepage when known (e.g. from the OSM import). Used to
+  /// deep-link directly to a venue's live menu instead of a web search.
+  final String? website;
+
+  /// Where the record originated — `curated` (hand-authored / editorial) vs
+  /// `osm` (bulk OpenStreetMap import). Lets the UI keep the curated map clean.
+  final LuxPlaceSource source;
 
   UnsplashPhoto? get unsplashPhoto =>
       UnsplashPhotoRegistry.instance.byId(unsplashPhotoId);
@@ -78,6 +91,7 @@ class LuxPlace {
             .toList() ??
         const <String>[];
 
+    final website = (row['website'] as String?)?.trim();
     return LuxPlace(
       id: externalId,
       slug: slug,
@@ -91,10 +105,17 @@ class LuxPlace {
       moodTags: moodTags,
       storagePath: row['storage_path'] as String?,
       aspectRole: _aspectRoleFromString(row['aspect_role'] as String?),
-      sortOrder: row['sort_order'] as int? ?? 0,
+      sortOrder: (row['sort_order'] as num?)?.toInt() ?? 0,
       isActive: row['is_active'] as bool? ?? true,
+      website: (website != null && website.isNotEmpty) ? website : null,
+      source: _sourceFromString(row['source'] as String?),
     );
   }
+
+  static LuxPlaceSource _sourceFromString(String? raw) => switch (raw) {
+        'osm' => LuxPlaceSource.osm,
+        _ => LuxPlaceSource.curated,
+      };
 
   static LuxImageRole _aspectRoleFromString(String? raw) => switch (raw) {
         'card' => LuxImageRole.card,
@@ -112,5 +133,6 @@ class LuxPlace {
         LuxPlaceCategory.springs => 'Springs',
         LuxPlaceCategory.romantic => 'Romantic',
         LuxPlaceCategory.adventure => 'Adventure',
+        LuxPlaceCategory.hotel => 'Hotel',
       };
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:luxora_ai/l10n/app_localizations.dart';
 import 'package:luxora_ai/l10n/catalog_localizer.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/models/discover_radius.dart';
@@ -66,6 +67,29 @@ class DestinationSearchBar extends StatelessWidget {
   }
 }
 
+/// Quick category filter for the search sheet — lets users pull a type of
+/// place on demand instead of scrolling the full catalog.
+enum _PlaceFilter { all, hotels, restaurants, destinations }
+
+extension _PlaceFilterX on _PlaceFilter {
+  String labelL10n(AppLocalizations l) => switch (this) {
+        _PlaceFilter.all => l.discoverFilterAll,
+        _PlaceFilter.hotels => l.discoverFilterHotels,
+        _PlaceFilter.restaurants => l.discoverFilterRestaurants,
+        _PlaceFilter.destinations => l.discoverFilterDestinations,
+      };
+
+  bool matches(LuxPlace p) => switch (this) {
+        _PlaceFilter.all => true,
+        _PlaceFilter.hotels => p.category == LuxPlaceCategory.hotel,
+        _PlaceFilter.restaurants => p.category == LuxPlaceCategory.dining ||
+            p.category == LuxPlaceCategory.nightlife,
+        _PlaceFilter.destinations => p.category != LuxPlaceCategory.hotel &&
+            p.category != LuxPlaceCategory.dining &&
+            p.category != LuxPlaceCategory.nightlife,
+      };
+}
+
 class _DestinationSearchSheet extends StatefulWidget {
   const _DestinationSearchSheet();
 
@@ -76,6 +100,7 @@ class _DestinationSearchSheet extends StatefulWidget {
 class _DestinationSearchSheetState extends State<_DestinationSearchSheet> {
   final _controller = TextEditingController();
   final _focus = FocusNode();
+  _PlaceFilter _filter = _PlaceFilter.all;
 
   @override
   void initState() {
@@ -202,7 +227,43 @@ class _DestinationSearchSheetState extends State<_DestinationSearchSheet> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 10, 16, 6),
+                  padding: const EdgeInsets.fromLTRB(12, 12, 12, 2),
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        for (final f in _PlaceFilter.values)
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 4),
+                            child: ChoiceChip(
+                              label: Text(f.labelL10n(l)),
+                              selected: _filter == f,
+                              showCheckmark: false,
+                              labelStyle: TextStyle(
+                                fontSize: 13,
+                                fontWeight: FontWeight.w600,
+                                color: _filter == f
+                                    ? const Color(0xFF0C0A09)
+                                    : LuxColors.stone300,
+                              ),
+                              selectedColor: LuxColors.gold,
+                              backgroundColor:
+                                  Colors.white.withValues(alpha: 0.06),
+                              side: BorderSide(
+                                color: _filter == f
+                                    ? LuxColors.gold
+                                    : Colors.white.withValues(alpha: 0.1),
+                              ),
+                              onSelected: (_) =>
+                                  setState(() => _filter = f),
+                            ),
+                          ),
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 8, 16, 6),
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
@@ -220,22 +281,43 @@ class _DestinationSearchSheetState extends State<_DestinationSearchSheet> {
                     listenable: DiscoverRadiusController.instance,
                     builder: (context, _) {
                       final r = DiscoverRadiusController.instance.radius;
-                      final results = PlacesRepository.instance.searchPlaces(
-                        _controller.text,
-                        radius: r,
-                      );
+                      final repo = PlacesRepository.instance;
 
                       if (_controller.text.trim().isEmpty) {
-                        return _SuggestionsList(
+                        // No query: All → curated suggestions; a category tab →
+                        // pull the nearest venues of that type on demand.
+                        if (_filter == _PlaceFilter.all) {
+                          return _SuggestionsList(
+                            scrollController: scrollController,
+                            radius: r,
+                            onTap: _openPlace,
+                            onSuggestion: (term) {
+                              _controller.text = term;
+                              setState(() {});
+                            },
+                          );
+                        }
+                        return _BrowseList(
                           scrollController: scrollController,
-                          radius: r,
+                          title: _filter.labelL10n(l),
+                          places: repo
+                              .placesWithinRadius(r)
+                              .where(_filter.matches)
+                              .take(80)
+                              .toList(),
                           onTap: _openPlace,
-                          onSuggestion: (term) {
-                            _controller.text = term;
-                            setState(() {});
-                          },
                         );
                       }
+
+                      final results = repo
+                          .searchPlaces(
+                            _controller.text,
+                            radius: r,
+                            limit: _filter == _PlaceFilter.all ? 40 : 150,
+                          )
+                          .where(_filter.matches)
+                          .take(60)
+                          .toList();
 
                       if (results.isEmpty) {
                         return ListView(
@@ -279,6 +361,71 @@ class _DestinationSearchSheetState extends State<_DestinationSearchSheet> {
           );
         },
       ),
+    );
+  }
+}
+
+/// On-demand category browse list (e.g. nearest Hotels / Restaurants) shown
+/// when a filter tab is selected without a search query.
+class _BrowseList extends StatelessWidget {
+  const _BrowseList({
+    required this.scrollController,
+    required this.title,
+    required this.places,
+    required this.onTap,
+  });
+
+  final ScrollController scrollController;
+  final String title;
+  final List<LuxPlace> places;
+  final void Function(LuxPlace place) onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final l = context.l10n;
+    if (places.isEmpty) {
+      return ListView(
+        controller: scrollController,
+        padding: const EdgeInsets.all(24),
+        children: [
+          const Icon(Icons.travel_explore_rounded,
+              size: 40, color: LuxColors.stone500),
+          const SizedBox(height: 12),
+          Text(
+            l.discoverSearchEmpty,
+            textAlign: TextAlign.center,
+            style: const TextStyle(color: LuxColors.stone500, height: 1.45),
+          ),
+        ],
+      );
+    }
+    return ListView.builder(
+      controller: scrollController,
+      padding: const EdgeInsets.fromLTRB(16, 4, 16, 24),
+      itemCount: places.length + 1,
+      itemBuilder: (context, i) {
+        if (i == 0) {
+          return Padding(
+            padding: const EdgeInsets.only(bottom: 8),
+            child: Text(
+              '$title · ${places.length}',
+              style: const TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w700,
+                color: LuxColors.stone500,
+              ),
+            ),
+          );
+        }
+        final place = places[i - 1];
+        return _SearchResultTile(
+          place: place,
+          milesLabel: PlaceDistance.milesLabel(
+            PlaceDistance.milesFromOrlandoHub(place),
+          ),
+          onTap: () => onTap(place),
+        );
+      },
     );
   }
 }
@@ -441,5 +588,6 @@ class _SearchResultTile extends StatelessWidget {
         LuxPlaceCategory.springs => Icons.water_rounded,
         LuxPlaceCategory.romantic => Icons.favorite_rounded,
         LuxPlaceCategory.adventure => Icons.terrain_rounded,
+        LuxPlaceCategory.hotel => Icons.hotel_rounded,
       };
 }

@@ -49,7 +49,16 @@ class AppLocalizationsTr extends AppLocalizations {
   String get commonRoadmap => 'Yol Haritası';
 
   @override
-  String get commonClose => 'Kapalı';
+  String get commonClose => 'Kapat';
+
+  @override
+  String get commonCancel => 'İptal';
+
+  @override
+  String get commonDelete => 'Sil';
+
+  @override
+  String get settingsStartOverSubtitle => 'Sıfırdan yeni bir gezi başlatın';
 
   @override
   String get navConcierge => 'Kapıcı';
@@ -141,6 +150,18 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get discoverSearchEmpty =>
       'Bu yarıçapta eşleşme yok; daha kısa bir ad deneyin, Harita veya Akış\'ta mesafe çipinizi genişletin veya \"plaj\", \"Disney\" veya \"yaylar\" şeklinde arama yapın.';
+
+  @override
+  String get discoverFilterAll => 'Tümü';
+
+  @override
+  String get discoverFilterHotels => 'Oteller';
+
+  @override
+  String get discoverFilterRestaurants => 'Restoranlar';
+
+  @override
+  String get discoverFilterDestinations => 'Yerler';
 
   @override
   String get discoverPopularInRadius => 'Çevrenizdeki popüler';
@@ -264,6 +285,27 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get mapSubtitle =>
       'Seçilmiş gününüz için Pinler - altın pırlantalar Mücevherlerdir, camgöbeği işaretleyiciler bugünün zaman çizelgesidir, altın çizgi ise ruh hali rotasıdır.';
+
+  @override
+  String get mapPlanDayTitle => 'Günümü planla';
+
+  @override
+  String get mapPlanDaySuggested =>
+      'Gezi ruh haline göre önerildi — kendine özel yapmak için yerleri işaretle.';
+
+  @override
+  String get mapPlanDayEmpty =>
+      'Destinasyonları işaretle (♥), Luxora Orlando üssünden optimize bir rota oluştursun — daha az sürüş, daha çok his.';
+
+  @override
+  String mapPlanDaySummary(int count, String miles, String time) {
+    return '$count durak · $miles · $time sürüş';
+  }
+
+  @override
+  String mapPlanDayHomeBase(String hotel) {
+    return '$hotel noktasından başlıyor';
+  }
 
   @override
   String get mapAiPowers => 'Yapay zeka harita güçleri';
@@ -396,6 +438,27 @@ class AppLocalizationsTr extends AppLocalizations {
       'Ruh hali kataloğundan gezi kapakları · Supabase senkronizasyonu Aşama 2';
 
   @override
+  String get tripsPlanNew => 'Yeni gezi planla';
+
+  @override
+  String get tripsEmptyTitle => 'Henüz kayıtlı gezi yok';
+
+  @override
+  String get tripsEmptyBody =>
+      'İlk gezini planla; burada görünecek ve istediğin zaman geri dönebileceksin.';
+
+  @override
+  String get tripsDeleteTitle => 'Gezi silinsin mi?';
+
+  @override
+  String tripsDeleteBody(String title) {
+    return 'Bu, “$title” gezisini kayıtlı gezilerinden kaldırır. Geri alınamaz.';
+  }
+
+  @override
+  String get tripsDeleted => 'Gezi silindi';
+
+  @override
   String get tripsLiveWeather => 'Canlı hava durumu';
 
   @override
@@ -463,6 +526,74 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get detailLocation => 'Konum';
+
+  @override
+  String get detailGetDirections => 'Yol Tarifi Al';
+
+  @override
+  String get detailParkMap => 'Park haritası';
+
+  @override
+  String get detailViewOnMap => 'Haritada Gör';
+
+  @override
+  String get detailMapsError => 'Bu cihazda harita açılamadı.';
+
+  @override
+  String get detailGoogleMaps => 'Google Haritalar';
+
+  @override
+  String get detailAppleMaps => 'Apple Haritalar';
+
+  @override
+  String get detailOpenInMaps => 'Haritalarda aç';
+
+  @override
+  String detailDriveFromOrlando(String time) {
+    return 'Orlando’dan $time sürüş';
+  }
+
+  @override
+  String get detailSaveToItinerary => 'Gezi planına kaydet';
+
+  @override
+  String get detailSaved => 'Kaydedildi';
+
+  @override
+  String get detailSavedSnack => 'Gezi planına kaydedildi';
+
+  @override
+  String get detailRemovedSnack => 'Gezi planından kaldırıldı';
+
+  @override
+  String get detailSetHomeBase => 'Ana üs yap';
+
+  @override
+  String get detailHomeBaseActive => 'Gezinizin ana üssü';
+
+  @override
+  String get detailHomeBaseHint =>
+      'Gününüzün rotası burada başlar ve burada biter.';
+
+  @override
+  String get detailHomeBaseSetSnack => 'Gezinizin ana üssü olarak ayarlandı';
+
+  @override
+  String get detailHomeBaseClearedSnack => 'Ana üs kaldırıldı';
+
+  @override
+  String get detailMenuTitle => 'Menü öne çıkanlar';
+
+  @override
+  String get detailMenuDisclaimer =>
+      'Seçili öne çıkanlar — tam menü ve fiyatlar mekana göre değişebilir.';
+
+  @override
+  String get detailMenuComingSoon =>
+      'Bu menüyü hâlâ hazırlıyoruz. Bu arada güncel menü ve fiyatları çevrimiçi görüntüleyin.';
+
+  @override
+  String get detailViewMenuOnline => 'Menüyü çevrimiçi görüntüle';
 
   @override
   String get photoClose => 'Kapalı';
@@ -712,6 +843,80 @@ class AppLocalizationsTr extends AppLocalizations {
   String get onboardFoodie => 'Yemek tutkusu';
 
   @override
+  String get onboardPoolside => 'Havuz ve dinlenme';
+
+  @override
+  String get onboardAdventure => 'Macera ve doğa';
+
+  @override
+  String get onboardCulture => 'Kültür ve gezi';
+
+  @override
+  String get dayFlowSubtitle =>
+      'Bir yapılacaklar listesi değil, nasıl hissetmek istediğinize göre şekillenen bir gün.';
+
+  @override
+  String get dayFlowMorning => 'SABAH';
+
+  @override
+  String get dayFlowMidday => 'ÖĞLE';
+
+  @override
+  String get dayFlowAfternoon => 'ÖĞLEDEN SONRA';
+
+  @override
+  String get dayFlowEvening => 'AKŞAM';
+
+  @override
+  String get dayFlowNight => 'GECE';
+
+  @override
+  String get dayFlowReasonMorningPool =>
+      'Yavaşça başlayın — gün başlamadan havuz ya da spa.';
+
+  @override
+  String get dayFlowReasonMorningCalm =>
+      'Günün havasını belirleyen nazik bir başlangıç.';
+
+  @override
+  String get dayFlowReasonMiddayAdventure =>
+      'Enerjinin zirvede olduğu saatler — zindeyken büyük macera.';
+
+  @override
+  String get dayFlowReasonMiddayCulture => 'Günün en parlak ışığında gezi.';
+
+  @override
+  String get dayFlowReasonMiddayIcon => 'Günün öne çıkan anı.';
+
+  @override
+  String get dayFlowReasonAfternoonDowntime =>
+      'Enerji toplamak için öğleden sonra molası.';
+
+  @override
+  String get dayFlowReasonAfternoonGem => 'Kalabalıktan uzak gizli bir cevher.';
+
+  @override
+  String get dayFlowReasonEveningDining => 'Günün yemeği — gurme seçiminiz.';
+
+  @override
+  String get dayFlowReasonNightOut => 'Son bir parıltı — bir gece çıkışı.';
+
+  @override
+  String get dayFlowVibeFoodie => 'Gurme odaklı';
+
+  @override
+  String get dayFlowVibeNightlife => 'Gece hayatı';
+
+  @override
+  String get dayFlowVibePoolside => 'Havuz';
+
+  @override
+  String get dayFlowVibeAdventure => 'Maceracı';
+
+  @override
+  String get dayFlowVibeCulture => 'Kültür';
+
+  @override
   String get onboardStep5Title => 'Luxora\'nın kalbi';
 
   @override
@@ -817,6 +1022,9 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get placeCatAdventure => 'Macera';
+
+  @override
+  String get placeCatHotel => 'Otel';
 
   @override
   String get styleLessCrowded => 'Daha az kalabalık';

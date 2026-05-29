@@ -1,5 +1,45 @@
 import 'package:flutter/material.dart';
+import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
+
+/// Reusable circular close button for modal bottom sheets / pull-downs.
+///
+/// Drag-to-dismiss is unreliable on some devices, so every sheet exposes an
+/// explicit tap target. Pops the nearest route when tapped.
+class LuxSheetCloseButton extends StatelessWidget {
+  const LuxSheetCloseButton({
+    super.key,
+    this.color,
+    this.background,
+    this.onClose,
+  });
+
+  final Color? color;
+  final Color? background;
+  final VoidCallback? onClose;
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    final fg = color ?? scheme.onSurface;
+    return Semantics(
+      button: true,
+      label: context.l10n.commonClose,
+      child: Material(
+        color: background ?? fg.withValues(alpha: 0.06),
+        shape: const CircleBorder(),
+        clipBehavior: Clip.antiAlias,
+        child: InkWell(
+          onTap: onClose ?? () => Navigator.of(context).maybePop(),
+          child: Padding(
+            padding: const EdgeInsets.all(8),
+            child: Icon(Icons.close_rounded, size: 20, color: fg),
+          ),
+        ),
+      ),
+    );
+  }
+}
 
 /// Discipline-style premium bottom sheet shell — Luxora gold / stone palette.
 class LuxoraPremiumSheetPalette {
@@ -120,11 +160,22 @@ class LuxoraPremiumSheetShell extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 20, 20, 16),
-                  child: Text(
-                    title,
-                    textAlign: TextAlign.center,
-                    style: palette.titleStyle(theme.textTheme),
+                  padding: const EdgeInsets.fromLTRB(20, 16, 20, 16),
+                  child: Row(
+                    children: [
+                      const SizedBox(width: 44),
+                      Expanded(
+                        child: Text(
+                          title,
+                          textAlign: TextAlign.center,
+                          style: palette.titleStyle(theme.textTheme),
+                        ),
+                      ),
+                      LuxSheetCloseButton(
+                        color: palette.scheme.onSurface,
+                        background: palette.scheme.onSurface.withValues(alpha: 0.06),
+                      ),
+                    ],
                   ),
                 ),
                 Expanded(child: child),

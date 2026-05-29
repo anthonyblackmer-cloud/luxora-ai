@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:luxora_ai/l10n/app_localizations.dart';
 import 'package:luxora_ai/settings/luxora_language_catalog.dart';
 import 'package:luxora_ai/state/luxora_app_state.dart';
@@ -90,6 +91,52 @@ class LuxoraSettingsSheet extends StatelessWidget {
                           const SizedBox(height: 2),
                           Text(
                             LuxoraLanguageCatalog.displayName(appState.locale),
+                            style: TextStyle(
+                              fontSize: 13,
+                              color: theme.colorScheme.onSurfaceVariant,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Icon(
+                      Icons.chevron_right_rounded,
+                      color: theme.colorScheme.onSurfaceVariant,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            palette.sectionDivider(),
+            InkWell(
+              onTap: () {
+                Navigator.of(context).pop();
+                context.push('/onboarding');
+              },
+              borderRadius: BorderRadius.circular(12),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.add_road_rounded,
+                      color: theme.colorScheme.primary,
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            l.tripsPlanNew,
+                            style: const TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 16,
+                            ),
+                          ),
+                          const SizedBox(height: 2),
+                          Text(
+                            l.settingsStartOverSubtitle,
                             style: TextStyle(
                               fontSize: 13,
                               color: theme.colorScheme.onSurfaceVariant,

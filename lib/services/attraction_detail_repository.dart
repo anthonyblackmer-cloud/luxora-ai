@@ -1,3 +1,4 @@
+import 'package:luxora_ai/data/restaurant_menus.dart';
 import 'package:luxora_ai/models/attraction_detail.dart';
 import 'package:luxora_ai/models/lux_place.dart';
 import 'package:luxora_ai/services/places_repository.dart';
@@ -9,12 +10,19 @@ class AttractionDetailRepository {
   final PlacesRepository _places = PlacesRepository.instance;
 
   AttractionDetail forPlace(LuxPlace place) {
+    final mapUrl = officialParkMaps[place.id];
+    final menu = restaurantMenus[place.id] ?? const [];
     final seeded = _seeded[place.id];
     if (seeded != null) {
-      return seeded;
+      var detail = seeded;
+      if (mapUrl != null) detail = detail.copyWith(officialMapUrl: mapUrl);
+      if (menu.isNotEmpty) detail = detail.copyWith(menu: menu);
+      return detail;
     }
 
     return AttractionDetail(
+      officialMapUrl: mapUrl,
+      menu: menu,
       placeId: place.id,
       title: place.title,
       emotionalHook:
@@ -64,6 +72,19 @@ class AttractionDetailRepository {
         .toList();
     return matches;
   }
+
+  /// Publicly available official park maps, keyed by place id. Only includes
+  /// links that land directly on a real map (Disney's official maps hub and
+  /// Universal's printable Volcano Bay PDF). Other parks publish maps only via
+  /// their apps, so they fall back to the embedded interactive mini-map.
+  static const Map<String, String> officialParkMaps = {
+    'place-hollywood-studios': 'https://disneyworld.disney.go.com/common/maps/',
+    'place-animal-kingdom': 'https://disneyworld.disney.go.com/common/maps/',
+    'place-typhoon-lagoon': 'https://disneyworld.disney.go.com/common/maps/',
+    'place-blizzard-beach': 'https://disneyworld.disney.go.com/common/maps/',
+    'place-volcano-bay':
+        'https://www.universalorlando.com/webdata/k2/en/us/files/Documents/uvb-park-map.pdf',
+  };
 
   static const Map<String, AttractionDetail> _seeded = {
     'place-wekiwa-springs': AttractionDetail(

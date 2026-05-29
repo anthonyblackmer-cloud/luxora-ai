@@ -50,7 +50,16 @@ class AppLocalizationsRu extends AppLocalizations {
   String get commonRoadmap => 'Дорожная карта';
 
   @override
-  String get commonClose => 'Закрывать';
+  String get commonClose => 'Закрыть';
+
+  @override
+  String get commonCancel => 'Отмена';
+
+  @override
+  String get commonDelete => 'Удалить';
+
+  @override
+  String get settingsStartOverSubtitle => 'Начните новое путешествие с нуля';
 
   @override
   String get navConcierge => 'Консьерж';
@@ -142,6 +151,18 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get discoverSearchEmpty =>
       'В этом радиусе нет совпадений — попробуйте более короткое имя, увеличьте метку расстояния на карте или в ленте или выполните поиск по словам «пляж», «Дисней» или «источники».';
+
+  @override
+  String get discoverFilterAll => 'Все';
+
+  @override
+  String get discoverFilterHotels => 'Отели';
+
+  @override
+  String get discoverFilterRestaurants => 'Рестораны';
+
+  @override
+  String get discoverFilterDestinations => 'Места';
 
   @override
   String get discoverPopularInRadius => 'Популярно в вашем радиусе';
@@ -266,6 +287,27 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get mapSubtitle =>
       'Булавки для выбранного вами дня: золотые ромбы — это драгоценные камни, голубые маркеры — это шкала сегодняшнего дня, золотая линия — это маршрут настроения.';
+
+  @override
+  String get mapPlanDayTitle => 'Спланировать мой день';
+
+  @override
+  String get mapPlanDaySuggested =>
+      'Предложено по настроению вашей поездки — добавьте места в закладки, чтобы настроить.';
+
+  @override
+  String get mapPlanDayEmpty =>
+      'Добавьте места в закладки (♥), и Luxora построит оптимальный маршрут от вашего хаба в Орландо — меньше дороги, больше впечатлений.';
+
+  @override
+  String mapPlanDaySummary(int count, String miles, String time) {
+    return '$count остановок · $miles · $time в пути';
+  }
+
+  @override
+  String mapPlanDayHomeBase(String hotel) {
+    return 'Старт от $hotel';
+  }
 
   @override
   String get mapAiPowers => 'Силы карты ИИ';
@@ -398,6 +440,27 @@ class AppLocalizationsRu extends AppLocalizations {
       'Обложки поездок из каталога настроений · Supabase sync Phase 2';
 
   @override
+  String get tripsPlanNew => 'Запланировать новое путешествие';
+
+  @override
+  String get tripsEmptyTitle => 'Пока нет сохранённых путешествий';
+
+  @override
+  String get tripsEmptyBody =>
+      'Запланируйте первое путешествие — оно появится здесь, и к нему можно будет вернуться в любой момент.';
+
+  @override
+  String get tripsDeleteTitle => 'Удалить путешествие?';
+
+  @override
+  String tripsDeleteBody(String title) {
+    return 'Это удалит «$title» из сохранённых путешествий. Действие необратимо.';
+  }
+
+  @override
+  String get tripsDeleted => 'Путешествие удалено';
+
+  @override
   String get tripsLiveWeather => 'Живая погода';
 
   @override
@@ -465,6 +528,74 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get detailLocation => 'Расположение';
+
+  @override
+  String get detailGetDirections => 'Маршрут';
+
+  @override
+  String get detailParkMap => 'Карта парка';
+
+  @override
+  String get detailViewOnMap => 'Показать на карте';
+
+  @override
+  String get detailMapsError => 'Не удалось открыть карты на этом устройстве.';
+
+  @override
+  String get detailGoogleMaps => 'Google Карты';
+
+  @override
+  String get detailAppleMaps => 'Apple Карты';
+
+  @override
+  String get detailOpenInMaps => 'Открыть в картах';
+
+  @override
+  String detailDriveFromOrlando(String time) {
+    return '$time на машине от Орландо';
+  }
+
+  @override
+  String get detailSaveToItinerary => 'Добавить в маршрут';
+
+  @override
+  String get detailSaved => 'Сохранено';
+
+  @override
+  String get detailSavedSnack => 'Добавлено в ваш маршрут';
+
+  @override
+  String get detailRemovedSnack => 'Удалено из вашего маршрута';
+
+  @override
+  String get detailSetHomeBase => 'Сделать базой';
+
+  @override
+  String get detailHomeBaseActive => 'База вашей поездки';
+
+  @override
+  String get detailHomeBaseHint =>
+      'Маршрут дня начинается и заканчивается здесь.';
+
+  @override
+  String get detailHomeBaseSetSnack => 'Установлено как база вашей поездки';
+
+  @override
+  String get detailHomeBaseClearedSnack => 'База сброшена';
+
+  @override
+  String get detailMenuTitle => 'Хиты меню';
+
+  @override
+  String get detailMenuDisclaimer =>
+      'Избранные позиции — полное меню и цены могут отличаться в заведении.';
+
+  @override
+  String get detailMenuComingSoon =>
+      'Мы ещё составляем это меню. А пока посмотрите актуальное меню и цены онлайн.';
+
+  @override
+  String get detailViewMenuOnline => 'Посмотреть меню онлайн';
 
   @override
   String get photoClose => 'Закрывать';
@@ -713,6 +844,81 @@ class AppLocalizationsRu extends AppLocalizations {
   String get onboardFoodie => 'Гурманская страсть';
 
   @override
+  String get onboardPoolside => 'Бассейн и отдых';
+
+  @override
+  String get onboardAdventure => 'Приключения и природа';
+
+  @override
+  String get onboardCulture => 'Культура и осмотр';
+
+  @override
+  String get dayFlowSubtitle =>
+      'День, выстроенный вокруг того, что вы хотите почувствовать, а не список дел.';
+
+  @override
+  String get dayFlowMorning => 'УТРО';
+
+  @override
+  String get dayFlowMidday => 'ПОЛДЕНЬ';
+
+  @override
+  String get dayFlowAfternoon => 'ДЕНЬ';
+
+  @override
+  String get dayFlowEvening => 'ВЕЧЕР';
+
+  @override
+  String get dayFlowNight => 'НОЧЬ';
+
+  @override
+  String get dayFlowReasonMorningPool =>
+      'Начните не спеша — бассейн или спа до начала дня.';
+
+  @override
+  String get dayFlowReasonMorningCalm => 'Спокойное начало, чтобы задать тон.';
+
+  @override
+  String get dayFlowReasonMiddayAdventure =>
+      'Часы пиковой энергии — главное приключение, пока вы полны сил.';
+
+  @override
+  String get dayFlowReasonMiddayCulture =>
+      'Осмотр достопримечательностей при лучшем дневном свете.';
+
+  @override
+  String get dayFlowReasonMiddayIcon => 'Главный момент дня.';
+
+  @override
+  String get dayFlowReasonAfternoonDowntime =>
+      'Дневной отдых, чтобы восстановить силы.';
+
+  @override
+  String get dayFlowReasonAfternoonGem => 'Скрытая жемчужина вдали от толп.';
+
+  @override
+  String get dayFlowReasonEveningDining =>
+      'Главная трапеза дня — ваш гастрономический выбор.';
+
+  @override
+  String get dayFlowReasonNightOut => 'Последний штрих — вечерний выход.';
+
+  @override
+  String get dayFlowVibeFoodie => 'Гастрономия';
+
+  @override
+  String get dayFlowVibeNightlife => 'Ночная жизнь';
+
+  @override
+  String get dayFlowVibePoolside => 'Бассейн';
+
+  @override
+  String get dayFlowVibeAdventure => 'Приключения';
+
+  @override
+  String get dayFlowVibeCulture => 'Культура';
+
+  @override
   String get onboardStep5Title => 'Сердце Луксоры';
 
   @override
@@ -818,6 +1024,9 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get placeCatAdventure => 'Приключение';
+
+  @override
+  String get placeCatHotel => 'Отель';
 
   @override
   String get styleLessCrowded => 'Менее многолюдно';

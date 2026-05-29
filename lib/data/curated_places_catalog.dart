@@ -1,9 +1,15 @@
 import 'package:luxora_ai/data/curated_places_attractions.dart';
+import 'package:luxora_ai/data/curated_places_dining.dart';
+import 'package:luxora_ai/data/curated_places_lodging.dart';
 import 'package:luxora_ai/data/curated_places_major_attractions.dart';
 import 'package:luxora_ai/models/lux_place.dart';
 
 export 'package:luxora_ai/data/curated_places_attractions.dart'
     show curatedPlacesAttractions;
+export 'package:luxora_ai/data/curated_places_dining.dart'
+    show curatedPlacesDining;
+export 'package:luxora_ai/data/curated_places_lodging.dart'
+    show curatedPlacesLodging;
 export 'package:luxora_ai/data/curated_places_major_attractions.dart'
     show curatedPlacesMajorAttractions;
 
@@ -179,10 +185,17 @@ List<LuxPlace> _mergeCatalogSlices(List<LuxPlace> base, List<LuxPlace> extra) {
   ];
 }
 
-/// Full catalog: core + attractions + major destinations (deduped by id).
+/// Full catalog: core + attractions + major destinations + lodging + dining
+/// (deduped by id).
 final curatedPlacesCatalog = _mergeCatalogSlices(
-  _mergeCatalogSlices(_curatedPlacesCore, curatedPlacesAttractions),
-  curatedPlacesMajorAttractions,
+  _mergeCatalogSlices(
+    _mergeCatalogSlices(
+      _mergeCatalogSlices(_curatedPlacesCore, curatedPlacesAttractions),
+      curatedPlacesMajorAttractions,
+    ),
+    curatedPlacesLodging,
+  ),
+  curatedPlacesDining,
 );
 
 const kFeedItemPlaceIds = <String, String>{

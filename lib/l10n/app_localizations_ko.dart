@@ -48,7 +48,16 @@ class AppLocalizationsKo extends AppLocalizations {
   String get commonRoadmap => '로드맵';
 
   @override
-  String get commonClose => '닫다';
+  String get commonClose => '닫기';
+
+  @override
+  String get commonCancel => '취소';
+
+  @override
+  String get commonDelete => '삭제';
+
+  @override
+  String get settingsStartOverSubtitle => '처음부터 새로운 여행을 시작하세요';
 
   @override
   String get navConcierge => '관리인';
@@ -139,6 +148,18 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String get discoverSearchEmpty =>
       '이 반경에는 일치하는 항목이 없습니다. 더 짧은 이름을 사용하거나 지도 또는 피드에서 거리 칩을 넓히거나 \'해변\', \'디즈니\' 또는 \'봄\'을 검색하세요.';
+
+  @override
+  String get discoverFilterAll => '전체';
+
+  @override
+  String get discoverFilterHotels => '호텔';
+
+  @override
+  String get discoverFilterRestaurants => '레스토랑';
+
+  @override
+  String get discoverFilterDestinations => '명소';
 
   @override
   String get discoverPopularInRadius => '해당 반경에서 인기 있음';
@@ -264,6 +285,27 @@ class AppLocalizationsKo extends AppLocalizations {
       '선별된 하루를 위한 핀 — 금색 다이아몬드는 보석, 청록색 마커는 오늘의 타임라인, 금색 선은 기분 경로입니다.';
 
   @override
+  String get mapPlanDayTitle => '내 하루 계획하기';
+
+  @override
+  String get mapPlanDaySuggested =>
+      '여행 무드를 바탕으로 제안했어요 — 장소를 즐겨찾기해 나만의 일정으로 만드세요.';
+
+  @override
+  String get mapPlanDayEmpty =>
+      '목적지를 즐겨찾기(♥)하면 Luxora가 올랜도 허브에서 출발하는 최적 경로를 만듭니다. 운전은 적게, 감동은 크게.';
+
+  @override
+  String mapPlanDaySummary(int count, String miles, String time) {
+    return '$count곳 · $miles · 차로 $time';
+  }
+
+  @override
+  String mapPlanDayHomeBase(String hotel) {
+    return '$hotel에서 출발';
+  }
+
+  @override
   String get mapAiPowers => 'AI 지도의 힘';
 
   @override
@@ -385,6 +427,26 @@ class AppLocalizationsKo extends AppLocalizations {
   String get tripsFooter => '무드 카탈로그의 여행 커버 · Supabase 동기화 2단계';
 
   @override
+  String get tripsPlanNew => '새 여행 계획하기';
+
+  @override
+  String get tripsEmptyTitle => '아직 저장된 여행이 없습니다';
+
+  @override
+  String get tripsEmptyBody => '첫 여행을 계획하면 여기에 표시되어 언제든 다시 볼 수 있습니다.';
+
+  @override
+  String get tripsDeleteTitle => '여행을 삭제할까요?';
+
+  @override
+  String tripsDeleteBody(String title) {
+    return '저장된 여행에서 “$title”을(를) 삭제합니다. 되돌릴 수 없습니다.';
+  }
+
+  @override
+  String get tripsDeleted => '여행이 삭제되었습니다';
+
+  @override
   String get tripsLiveWeather => '실시간 날씨';
 
   @override
@@ -451,6 +513,73 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get detailLocation => '위치';
+
+  @override
+  String get detailGetDirections => '길찾기';
+
+  @override
+  String get detailParkMap => '파크 맵';
+
+  @override
+  String get detailViewOnMap => '지도에서 보기';
+
+  @override
+  String get detailMapsError => '이 기기에서 지도를 열 수 없습니다.';
+
+  @override
+  String get detailGoogleMaps => 'Google 지도';
+
+  @override
+  String get detailAppleMaps => 'Apple 지도';
+
+  @override
+  String get detailOpenInMaps => '지도에서 열기';
+
+  @override
+  String detailDriveFromOrlando(String time) {
+    return '올랜도에서 차로 $time';
+  }
+
+  @override
+  String get detailSaveToItinerary => '일정에 저장';
+
+  @override
+  String get detailSaved => '저장됨';
+
+  @override
+  String get detailSavedSnack => '일정에 저장했습니다';
+
+  @override
+  String get detailRemovedSnack => '일정에서 삭제했습니다';
+
+  @override
+  String get detailSetHomeBase => '베이스로 설정';
+
+  @override
+  String get detailHomeBaseActive => '여행 베이스';
+
+  @override
+  String get detailHomeBaseHint => '하루 경로가 이곳에서 시작하고 끝납니다.';
+
+  @override
+  String get detailHomeBaseSetSnack => '여행 베이스로 설정했습니다';
+
+  @override
+  String get detailHomeBaseClearedSnack => '베이스를 해제했습니다';
+
+  @override
+  String get detailMenuTitle => '메뉴 하이라이트';
+
+  @override
+  String get detailMenuDisclaimer =>
+      '대표 메뉴 일부입니다. 전체 메뉴와 가격은 매장에 따라 다를 수 있습니다.';
+
+  @override
+  String get detailMenuComingSoon =>
+      '이 메뉴는 아직 준비 중입니다. 그동안 최신 메뉴와 가격은 온라인에서 확인하세요.';
+
+  @override
+  String get detailViewMenuOnline => '온라인에서 메뉴 보기';
 
   @override
   String get photoClose => '닫다';
@@ -689,6 +818,75 @@ class AppLocalizationsKo extends AppLocalizations {
   String get onboardFoodie => '미식가의 열정';
 
   @override
+  String get onboardPoolside => '수영장과 휴식';
+
+  @override
+  String get onboardAdventure => '모험과 야외 활동';
+
+  @override
+  String get onboardCulture => '문화와 관광';
+
+  @override
+  String get dayFlowSubtitle => '할 일 목록이 아니라, 어떤 기분을 원하는지에 맞춰 짠 하루.';
+
+  @override
+  String get dayFlowMorning => '아침';
+
+  @override
+  String get dayFlowMidday => '정오';
+
+  @override
+  String get dayFlowAfternoon => '오후';
+
+  @override
+  String get dayFlowEvening => '저녁';
+
+  @override
+  String get dayFlowNight => '밤';
+
+  @override
+  String get dayFlowReasonMorningPool => '천천히 시작하세요 — 하루가 시작되기 전 수영장이나 스파에서.';
+
+  @override
+  String get dayFlowReasonMorningCalm => '하루의 분위기를 잡아주는 부드러운 시작.';
+
+  @override
+  String get dayFlowReasonMiddayAdventure => '에너지가 최고조인 시간 — 컨디션이 좋을 때 큰 모험을.';
+
+  @override
+  String get dayFlowReasonMiddayCulture => '햇살이 밝을 때 즐기는 관광.';
+
+  @override
+  String get dayFlowReasonMiddayIcon => '하루의 하이라이트.';
+
+  @override
+  String get dayFlowReasonAfternoonDowntime => '재충전을 위한 오후의 휴식.';
+
+  @override
+  String get dayFlowReasonAfternoonGem => '인파를 벗어난 숨은 명소.';
+
+  @override
+  String get dayFlowReasonEveningDining => '하루의 메인 식사 — 당신의 미식 선택.';
+
+  @override
+  String get dayFlowReasonNightOut => '마지막 빛 — 밤 나들이.';
+
+  @override
+  String get dayFlowVibeFoodie => '미식 중심';
+
+  @override
+  String get dayFlowVibeNightlife => '나이트라이프';
+
+  @override
+  String get dayFlowVibePoolside => '수영장';
+
+  @override
+  String get dayFlowVibeAdventure => '모험적인';
+
+  @override
+  String get dayFlowVibeCulture => '문화';
+
+  @override
   String get onboardStep5Title => '룩소라의 심장부';
 
   @override
@@ -792,6 +990,9 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get placeCatAdventure => '모험';
+
+  @override
+  String get placeCatHotel => '호텔';
 
   @override
   String get styleLessCrowded => '덜 혼잡함';

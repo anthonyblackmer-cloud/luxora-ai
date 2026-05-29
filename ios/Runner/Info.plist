@@ -6,6 +6,25 @@
 	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<!-- Declares localizations for App Store Connect / system. In-app UI uses Flutter ARB;
+	     Apple also scans .lproj bundles in the IPA — see ios/Runner/*.lproj/InfoPlist.strings
+	     (dart run tool/generate_ios_lproj_localizations.dart). Keep in sync with
+	     lib/l10n supported locales (zh → zh-Hans for iOS). -->
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>de</string>
+		<string>en</string>
+		<string>es</string>
+		<string>fr</string>
+		<string>hi</string>
+		<string>it</string>
+		<string>ja</string>
+		<string>ko</string>
+		<string>pt</string>
+		<string>ru</string>
+		<string>tr</string>
+		<string>zh-Hans</string>
+	</array>
 	<key>CFBundleDisplayName</key>
 	<string>Luxora AI</string>
 	<key>CFBundleExecutable</key>

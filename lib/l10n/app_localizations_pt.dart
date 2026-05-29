@@ -53,6 +53,15 @@ class AppLocalizationsPt extends AppLocalizations {
   String get commonClose => 'Fechar';
 
   @override
+  String get commonCancel => 'Cancelar';
+
+  @override
+  String get commonDelete => 'Excluir';
+
+  @override
+  String get settingsStartOverSubtitle => 'Comece uma nova viagem do zero';
+
+  @override
   String get navConcierge => 'Porteiro';
 
   @override
@@ -142,6 +151,18 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get discoverSearchEmpty =>
       'Não há correspondências neste raio. Tente um nome mais curto, aumente o chip de distância no mapa ou no feed ou pesquise “praia”, “Disney” ou “fontes”.';
+
+  @override
+  String get discoverFilterAll => 'Todos';
+
+  @override
+  String get discoverFilterHotels => 'Hotéis';
+
+  @override
+  String get discoverFilterRestaurants => 'Restaurantes';
+
+  @override
+  String get discoverFilterDestinations => 'Destinos';
 
   @override
   String get discoverPopularInRadius => 'Popular em seu raio';
@@ -266,6 +287,27 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get mapSubtitle =>
       'Pins para o seu dia selecionado – diamantes dourados são joias, marcadores ciano são a linha do tempo de hoje, linha dourada é a rota do humor.';
+
+  @override
+  String get mapPlanDayTitle => 'Planejar meu dia';
+
+  @override
+  String get mapPlanDaySuggested =>
+      'Sugerido pelo clima da sua viagem — marque lugares para personalizar.';
+
+  @override
+  String get mapPlanDayEmpty =>
+      'Marque destinos (♥) e a Luxora cria uma rota otimizada a partir da sua base em Orlando: menos direção, mais emoção.';
+
+  @override
+  String mapPlanDaySummary(int count, String miles, String time) {
+    return '$count paradas · $miles · $time de carro';
+  }
+
+  @override
+  String mapPlanDayHomeBase(String hotel) {
+    return 'Saindo de $hotel';
+  }
 
   @override
   String get mapAiPowers => 'Poderes do mapa de IA';
@@ -398,6 +440,27 @@ class AppLocalizationsPt extends AppLocalizations {
       'Capas de viagens do catálogo de humor · Sincronização Supabase Fase 2';
 
   @override
+  String get tripsPlanNew => 'Planejar uma nova viagem';
+
+  @override
+  String get tripsEmptyTitle => 'Nenhuma viagem salva ainda';
+
+  @override
+  String get tripsEmptyBody =>
+      'Planeje sua primeira viagem e ela aparecerá aqui, pronta para retomar quando quiser.';
+
+  @override
+  String get tripsDeleteTitle => 'Excluir viagem?';
+
+  @override
+  String tripsDeleteBody(String title) {
+    return 'Isso remove “$title” das suas viagens salvas. Não pode ser desfeito.';
+  }
+
+  @override
+  String get tripsDeleted => 'Viagem excluída';
+
+  @override
   String get tripsLiveWeather => 'Clima ao vivo';
 
   @override
@@ -465,6 +528,74 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get detailLocation => 'Localização';
+
+  @override
+  String get detailGetDirections => 'Como chegar';
+
+  @override
+  String get detailParkMap => 'Mapa do parque';
+
+  @override
+  String get detailViewOnMap => 'Ver no mapa';
+
+  @override
+  String get detailMapsError =>
+      'Não foi possível abrir o mapa neste dispositivo.';
+
+  @override
+  String get detailGoogleMaps => 'Google Maps';
+
+  @override
+  String get detailAppleMaps => 'Apple Mapas';
+
+  @override
+  String get detailOpenInMaps => 'Abrir nos mapas';
+
+  @override
+  String detailDriveFromOrlando(String time) {
+    return '$time de carro desde Orlando';
+  }
+
+  @override
+  String get detailSaveToItinerary => 'Salvar no itinerário';
+
+  @override
+  String get detailSaved => 'Salvo';
+
+  @override
+  String get detailSavedSnack => 'Salvo no seu itinerário';
+
+  @override
+  String get detailRemovedSnack => 'Removido do seu itinerário';
+
+  @override
+  String get detailSetHomeBase => 'Definir como base';
+
+  @override
+  String get detailHomeBaseActive => 'A base da sua viagem';
+
+  @override
+  String get detailHomeBaseHint => 'A rota do seu dia começa e termina aqui.';
+
+  @override
+  String get detailHomeBaseSetSnack => 'Definido como base da sua viagem';
+
+  @override
+  String get detailHomeBaseClearedSnack => 'Base removida';
+
+  @override
+  String get detailMenuTitle => 'Destaques do cardápio';
+
+  @override
+  String get detailMenuDisclaimer =>
+      'Seleção de destaques — o cardápio completo e os preços podem variar no local.';
+
+  @override
+  String get detailMenuComingSoon =>
+      'Ainda estamos preparando este cardápio. Enquanto isso, veja o cardápio e os preços atualizados online.';
+
+  @override
+  String get detailViewMenuOnline => 'Ver cardápio online';
 
   @override
   String get photoClose => 'Fechar';
@@ -716,6 +847,81 @@ class AppLocalizationsPt extends AppLocalizations {
   String get onboardFoodie => 'Paixão gastronômica';
 
   @override
+  String get onboardPoolside => 'Piscina e descanso';
+
+  @override
+  String get onboardAdventure => 'Aventura e ar livre';
+
+  @override
+  String get onboardCulture => 'Cultura e passeios';
+
+  @override
+  String get dayFlowSubtitle =>
+      'Um dia moldado por como você quer se sentir — não uma lista de tarefas.';
+
+  @override
+  String get dayFlowMorning => 'MANHÃ';
+
+  @override
+  String get dayFlowMidday => 'MEIO-DIA';
+
+  @override
+  String get dayFlowAfternoon => 'TARDE';
+
+  @override
+  String get dayFlowEvening => 'ANOITECER';
+
+  @override
+  String get dayFlowNight => 'NOITE';
+
+  @override
+  String get dayFlowReasonMorningPool =>
+      'Comece devagar: piscina ou spa antes de o dia começar.';
+
+  @override
+  String get dayFlowReasonMorningCalm => 'Um começo suave para definir o tom.';
+
+  @override
+  String get dayFlowReasonMiddayAdventure =>
+      'Horas de pico de energia: a grande aventura enquanto você está descansado.';
+
+  @override
+  String get dayFlowReasonMiddayCulture => 'Passeios com a melhor luz do dia.';
+
+  @override
+  String get dayFlowReasonMiddayIcon => 'O momento marcante do dia.';
+
+  @override
+  String get dayFlowReasonAfternoonDowntime =>
+      'Um descanso à tarde para recarregar.';
+
+  @override
+  String get dayFlowReasonAfternoonGem =>
+      'Uma joia escondida longe das multidões.';
+
+  @override
+  String get dayFlowReasonEveningDining =>
+      'A refeição do dia: a sua escolha gastronômica.';
+
+  @override
+  String get dayFlowReasonNightOut => 'Um último brilho: uma noite fora.';
+
+  @override
+  String get dayFlowVibeFoodie => 'Gastronômico';
+
+  @override
+  String get dayFlowVibeNightlife => 'Vida noturna';
+
+  @override
+  String get dayFlowVibePoolside => 'Piscina';
+
+  @override
+  String get dayFlowVibeAdventure => 'Aventureiro';
+
+  @override
+  String get dayFlowVibeCulture => 'Cultura';
+
+  @override
   String get onboardStep5Title => 'O coração de Luxora';
 
   @override
@@ -820,6 +1026,9 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get placeCatAdventure => 'Aventura';
+
+  @override
+  String get placeCatHotel => 'Hotel';
 
   @override
   String get styleLessCrowded => 'Menos lotado';

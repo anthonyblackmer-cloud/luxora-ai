@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:luxora_ai/l10n/catalog_localizer.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/data/saved_trips.dart';
+import 'package:luxora_ai/services/saved_trips_store.dart';
 import 'package:luxora_ai/services/trip_cover_resolver.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/widgets/attraction_detail_sheet.dart';
@@ -62,26 +63,37 @@ class TripsScreen extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             Expanded(
-              child: ListView(
-                children: [
-                  for (final trip in savedTripSummaries)
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 14),
-                      child: _TripCard(trip: trip),
-                    ),
-                  Center(
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 8),
-                      child: Text(
-                        l.tripsFooter,
-                        style: const TextStyle(
-                          fontSize: 11,
-                          color: LuxColors.stone500,
+              child: ValueListenableBuilder<List<SavedTripSummary>>(
+                valueListenable: SavedTripsStore.instance.trips,
+                builder: (context, trips, _) {
+                  if (trips.isEmpty) {
+                    return _EmptyTrips(onCreate: () => context.push('/onboarding'));
+                  }
+                  return ListView(
+                    children: [
+                      for (final trip in trips)
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 14),
+                          child: _TripCard(
+                            trip: trip,
+                            onDelete: () => _confirmDelete(context, trip),
+                          ),
+                        ),
+                      Center(
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 8),
+                          child: Text(
+                            l.tripsFooter,
+                            style: const TextStyle(
+                              fontSize: 11,
+                              color: LuxColors.stone500,
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                  ),
-                ],
+                    ],
+                  );
+                },
               ),
             ),
           ],
@@ -89,12 +101,100 @@ class TripsScreen extends StatelessWidget {
       ),
     );
   }
+
+  Future<void> _confirmDelete(
+    BuildContext context,
+    SavedTripSummary trip,
+  ) async {
+    final l = context.l10n;
+    final messenger = ScaffoldMessenger.of(context);
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        backgroundColor: const Color(0xFF1C1917),
+        title: Text(l.tripsDeleteTitle),
+        content: Text(l.tripsDeleteBody(catalogText(context, trip.title))),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(false),
+            child: Text(l.commonCancel),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(true),
+            style: TextButton.styleFrom(foregroundColor: const Color(0xFFEF4444)),
+            child: Text(l.commonDelete),
+          ),
+        ],
+      ),
+    );
+    if (confirmed == true) {
+      await SavedTripsStore.instance.remove(trip.id);
+      messenger.showSnackBar(
+        SnackBar(
+          content: Text(l.tripsDeleted),
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
+    }
+  }
+}
+
+class _EmptyTrips extends StatelessWidget {
+  const _EmptyTrips({required this.onCreate});
+
+  final VoidCallback onCreate;
+
+  @override
+  Widget build(BuildContext context) {
+    final l = context.l10n;
+    return Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(
+            Icons.luggage_outlined,
+            size: 56,
+            color: LuxColors.gold.withValues(alpha: 0.6),
+          ),
+          const SizedBox(height: 16),
+          Text(
+            l.tripsEmptyTitle,
+            style: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w700,
+              color: LuxColors.cream,
+            ),
+          ),
+          const SizedBox(height: 8),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 32),
+            child: Text(
+              l.tripsEmptyBody,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 13,
+                height: 1.4,
+                color: LuxColors.stone400,
+              ),
+            ),
+          ),
+          const SizedBox(height: 20),
+          LuxButton(
+            label: l.tripsPlanNew,
+            icon: Icons.add_rounded,
+            onPressed: onCreate,
+          ),
+        ],
+      ),
+    );
+  }
 }
 
 class _TripCard extends StatefulWidget {
-  const _TripCard({required this.trip});
+  const _TripCard({required this.trip, required this.onDelete});
 
   final SavedTripSummary trip;
+  final VoidCallback onDelete;
 
   @override
   State<_TripCard> createState() => _TripCardState();
@@ -262,13 +362,26 @@ class _TripCardState extends State<_TripCard> {
                       value: catalogText(context, trip.timelineSnapshot!),
                     ),
                   const SizedBox(height: 12),
-                  TextButton.icon(
-                    onPressed: () => context.go('/itinerary'),
-                    icon: const Icon(Icons.arrow_forward_rounded, size: 18),
-                    label: Text(l.tripsOpenTimeline),
-                    style: TextButton.styleFrom(
-                      foregroundColor: LuxColors.gold,
-                    ),
+                  Row(
+                    children: [
+                      TextButton.icon(
+                        onPressed: () => context.go('/itinerary'),
+                        icon: const Icon(Icons.arrow_forward_rounded, size: 18),
+                        label: Text(l.tripsOpenTimeline),
+                        style: TextButton.styleFrom(
+                          foregroundColor: LuxColors.gold,
+                        ),
+                      ),
+                      const Spacer(),
+                      TextButton.icon(
+                        onPressed: widget.onDelete,
+                        icon: const Icon(Icons.delete_outline_rounded, size: 18),
+                        label: Text(l.commonDelete),
+                        style: TextButton.styleFrom(
+                          foregroundColor: LuxColors.stone400,
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),

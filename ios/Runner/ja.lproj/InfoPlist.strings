@@ -1,0 +1,4 @@
+/* Native iOS localization bundle for App Store language detection.
+   In-app UI strings come from Flutter ARB (lib/l10n). */
+"CFBundleDisplayName" = "Luxora AI";
+"CFBundleName" = "Luxora AI";

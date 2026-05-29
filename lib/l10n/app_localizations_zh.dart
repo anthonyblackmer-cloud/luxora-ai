@@ -51,6 +51,15 @@ class AppLocalizationsZh extends AppLocalizations {
   String get commonClose => '关闭';
 
   @override
+  String get commonCancel => '取消';
+
+  @override
+  String get commonDelete => '删除';
+
+  @override
+  String get settingsStartOverSubtitle => '从零开始规划新行程';
+
+  @override
   String get navConcierge => '礼宾';
 
   @override
@@ -139,6 +148,18 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String get discoverSearchEmpty =>
       '此范围内没有匹配项。试试更短的名称，在地图或动态中扩大距离，或搜索“海滩”“Disney”“泉水”。';
+
+  @override
+  String get discoverFilterAll => '全部';
+
+  @override
+  String get discoverFilterHotels => '酒店';
+
+  @override
+  String get discoverFilterRestaurants => '餐厅';
+
+  @override
+  String get discoverFilterDestinations => '景点';
 
   @override
   String get discoverPopularInRadius => '你范围内的热门';
@@ -259,6 +280,25 @@ class AppLocalizationsZh extends AppLocalizations {
   String get mapSubtitle => '为你精选一天的标记：金色菱形是秘境，青色标记是今日行程，金线是情绪路线。';
 
   @override
+  String get mapPlanDayTitle => '规划我的一天';
+
+  @override
+  String get mapPlanDaySuggested => '根据你的旅行心情推荐——收藏地点即可个性化定制。';
+
+  @override
+  String get mapPlanDayEmpty => '收藏目的地（♥），Luxora 会从你的奥兰多基地生成优化路线——少开车，多体验。';
+
+  @override
+  String mapPlanDaySummary(int count, String miles, String time) {
+    return '$count 站 · $miles · 车程 $time';
+  }
+
+  @override
+  String mapPlanDayHomeBase(String hotel) {
+    return '从 $hotel 出发';
+  }
+
+  @override
   String get mapAiPowers => 'AI 地图能力';
 
   @override
@@ -375,6 +415,26 @@ class AppLocalizationsZh extends AppLocalizations {
   String get tripsFooter => '旅行封面来自心情目录 · Supabase 同步第 2 阶段';
 
   @override
+  String get tripsPlanNew => '规划新行程';
+
+  @override
+  String get tripsEmptyTitle => '还没有已保存的行程';
+
+  @override
+  String get tripsEmptyBody => '规划你的第一个行程，它将显示在这里，随时可以再次查看。';
+
+  @override
+  String get tripsDeleteTitle => '删除行程？';
+
+  @override
+  String tripsDeleteBody(String title) {
+    return '这会将“$title”从你保存的行程中移除。此操作无法撤销。';
+  }
+
+  @override
+  String get tripsDeleted => '行程已删除';
+
+  @override
   String get tripsLiveWeather => '实时天气';
 
   @override
@@ -441,6 +501,71 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get detailLocation => '位置';
+
+  @override
+  String get detailGetDirections => '获取路线';
+
+  @override
+  String get detailParkMap => '园区地图';
+
+  @override
+  String get detailViewOnMap => '在地图上查看';
+
+  @override
+  String get detailMapsError => '无法在此设备上打开地图。';
+
+  @override
+  String get detailGoogleMaps => '谷歌地图';
+
+  @override
+  String get detailAppleMaps => '苹果地图';
+
+  @override
+  String get detailOpenInMaps => '在地图中打开';
+
+  @override
+  String detailDriveFromOrlando(String time) {
+    return '距奥兰多车程 $time';
+  }
+
+  @override
+  String get detailSaveToItinerary => '保存到行程';
+
+  @override
+  String get detailSaved => '已保存';
+
+  @override
+  String get detailSavedSnack => '已保存到你的行程';
+
+  @override
+  String get detailRemovedSnack => '已从你的行程中移除';
+
+  @override
+  String get detailSetHomeBase => '设为大本营';
+
+  @override
+  String get detailHomeBaseActive => '你的行程大本营';
+
+  @override
+  String get detailHomeBaseHint => '你的一日路线从这里出发并返回。';
+
+  @override
+  String get detailHomeBaseSetSnack => '已设为你的行程大本营';
+
+  @override
+  String get detailHomeBaseClearedSnack => '已清除大本营';
+
+  @override
+  String get detailMenuTitle => '菜单精选';
+
+  @override
+  String get detailMenuDisclaimer => '精选推荐——完整菜单和价格以店内为准。';
+
+  @override
+  String get detailMenuComingSoon => '我们仍在整理这份菜单。在此期间，请在线查看最新菜单和价格。';
+
+  @override
+  String get detailViewMenuOnline => '在线查看菜单';
 
   @override
   String get photoClose => '关闭';
@@ -677,6 +802,75 @@ class AppLocalizationsZh extends AppLocalizations {
   String get onboardFoodie => '美食热情';
 
   @override
+  String get onboardPoolside => '泳池与休闲';
+
+  @override
+  String get onboardAdventure => '探险与户外';
+
+  @override
+  String get onboardCulture => '文化与观光';
+
+  @override
+  String get dayFlowSubtitle => '围绕你想要的感受来安排的一天，而不是一张清单。';
+
+  @override
+  String get dayFlowMorning => '早晨';
+
+  @override
+  String get dayFlowMidday => '中午';
+
+  @override
+  String get dayFlowAfternoon => '下午';
+
+  @override
+  String get dayFlowEvening => '傍晚';
+
+  @override
+  String get dayFlowNight => '夜晚';
+
+  @override
+  String get dayFlowReasonMorningPool => '慢慢开始——在一天开始前先去泳池或水疗。';
+
+  @override
+  String get dayFlowReasonMorningCalm => '以轻松的方式开启一天，奠定基调。';
+
+  @override
+  String get dayFlowReasonMiddayAdventure => '精力最充沛的时段——趁状态好去尽情探险。';
+
+  @override
+  String get dayFlowReasonMiddayCulture => '在最明亮的日光下观光。';
+
+  @override
+  String get dayFlowReasonMiddayIcon => '一天中的招牌时刻。';
+
+  @override
+  String get dayFlowReasonAfternoonDowntime => '下午放松，恢复精力。';
+
+  @override
+  String get dayFlowReasonAfternoonGem => '远离人群的隐藏宝地。';
+
+  @override
+  String get dayFlowReasonEveningDining => '一天中的主餐——你的美食之选。';
+
+  @override
+  String get dayFlowReasonNightOut => '最后的精彩——夜晚出游。';
+
+  @override
+  String get dayFlowVibeFoodie => '美食优先';
+
+  @override
+  String get dayFlowVibeNightlife => '夜生活';
+
+  @override
+  String get dayFlowVibePoolside => '泳池';
+
+  @override
+  String get dayFlowVibeAdventure => '探险';
+
+  @override
+  String get dayFlowVibeCulture => '文化';
+
+  @override
   String get onboardStep5Title => 'Luxora 的核心';
 
   @override
@@ -780,6 +974,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get placeCatAdventure => '冒险';
+
+  @override
+  String get placeCatHotel => '酒店';
 
   @override
   String get styleLessCrowded => '人更少';

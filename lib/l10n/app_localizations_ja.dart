@@ -48,7 +48,16 @@ class AppLocalizationsJa extends AppLocalizations {
   String get commonRoadmap => 'ロードマップ';
 
   @override
-  String get commonClose => '近い';
+  String get commonClose => '閉じる';
+
+  @override
+  String get commonCancel => 'キャンセル';
+
+  @override
+  String get commonDelete => '削除';
+
+  @override
+  String get settingsStartOverSubtitle => 'ゼロから新しい旅を計画';
 
   @override
   String get navConcierge => 'コンシェルジュ';
@@ -139,6 +148,18 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get discoverSearchEmpty =>
       'この範囲内に一致するものはありません。名前を短くするか、マップまたはフィードで距離チップを広げるか、「ビーチ」、「ディズニー」、または「泉」を検索してください。';
+
+  @override
+  String get discoverFilterAll => 'すべて';
+
+  @override
+  String get discoverFilterHotels => 'ホテル';
+
+  @override
+  String get discoverFilterRestaurants => 'レストラン';
+
+  @override
+  String get discoverFilterDestinations => '名所';
 
   @override
   String get discoverPopularInRadius => 'あなたの半径内で人気のある';
@@ -264,6 +285,26 @@ class AppLocalizationsJa extends AppLocalizations {
       '厳選した 1 日のピン — ゴールドのダイヤモンドは宝石、シアンのマーカーは今日のタイムライン、ゴールドのラインはムードルートです。';
 
   @override
+  String get mapPlanDayTitle => '一日をプランニング';
+
+  @override
+  String get mapPlanDaySuggested => '旅のムードからの提案です。場所をブックマークして自分仕様に。';
+
+  @override
+  String get mapPlanDayEmpty =>
+      '行き先をブックマーク（♥）すると、Luxora がオーランドの拠点から最適なルートを作成します。移動は少なく、感動は多く。';
+
+  @override
+  String mapPlanDaySummary(int count, String miles, String time) {
+    return '$countか所 · $miles · 車で$time';
+  }
+
+  @override
+  String mapPlanDayHomeBase(String hotel) {
+    return '$hotel から出発';
+  }
+
+  @override
   String get mapAiPowers => 'AI マップの力';
 
   @override
@@ -386,6 +427,26 @@ class AppLocalizationsJa extends AppLocalizations {
   String get tripsFooter => 'ムードカタログからの旅行カバー · Supabase 同期フェーズ 2';
 
   @override
+  String get tripsPlanNew => '新しい旅を計画する';
+
+  @override
+  String get tripsEmptyTitle => '保存された旅はまだありません';
+
+  @override
+  String get tripsEmptyBody => '最初の旅を計画すると、ここに表示され、いつでも見返せます。';
+
+  @override
+  String get tripsDeleteTitle => '旅を削除しますか？';
+
+  @override
+  String tripsDeleteBody(String title) {
+    return '「$title」を保存した旅から削除します。元に戻せません。';
+  }
+
+  @override
+  String get tripsDeleted => '旅を削除しました';
+
+  @override
   String get tripsLiveWeather => 'ライブ天気';
 
   @override
@@ -452,6 +513,71 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get detailLocation => '位置';
+
+  @override
+  String get detailGetDirections => 'ルートを表示';
+
+  @override
+  String get detailParkMap => 'パークマップ';
+
+  @override
+  String get detailViewOnMap => '地図で見る';
+
+  @override
+  String get detailMapsError => 'この端末で地図を開けませんでした。';
+
+  @override
+  String get detailGoogleMaps => 'Google マップ';
+
+  @override
+  String get detailAppleMaps => 'Apple マップ';
+
+  @override
+  String get detailOpenInMaps => '地図で開く';
+
+  @override
+  String detailDriveFromOrlando(String time) {
+    return 'オーランドから車で$time';
+  }
+
+  @override
+  String get detailSaveToItinerary => '旅程に保存';
+
+  @override
+  String get detailSaved => '保存済み';
+
+  @override
+  String get detailSavedSnack => '旅程に保存しました';
+
+  @override
+  String get detailRemovedSnack => '旅程から削除しました';
+
+  @override
+  String get detailSetHomeBase => '拠点に設定';
+
+  @override
+  String get detailHomeBaseActive => '旅の拠点';
+
+  @override
+  String get detailHomeBaseHint => '1日のルートはここから始まり、ここで終わります。';
+
+  @override
+  String get detailHomeBaseSetSnack => '旅の拠点に設定しました';
+
+  @override
+  String get detailHomeBaseClearedSnack => '拠点を解除しました';
+
+  @override
+  String get detailMenuTitle => 'メニューのハイライト';
+
+  @override
+  String get detailMenuDisclaimer => 'おすすめの一部です。実際のメニューや価格は店舗により異なる場合があります。';
+
+  @override
+  String get detailMenuComingSoon => 'このメニューはまだ準備中です。最新のメニューと価格はオンラインでご確認ください。';
+
+  @override
+  String get detailViewMenuOnline => 'オンラインでメニューを見る';
 
   @override
   String get photoClose => '近い';
@@ -691,6 +817,75 @@ class AppLocalizationsJa extends AppLocalizations {
   String get onboardFoodie => '食通の情熱';
 
   @override
+  String get onboardPoolside => 'プールとくつろぎ';
+
+  @override
+  String get onboardAdventure => '冒険とアウトドア';
+
+  @override
+  String get onboardCulture => '文化と観光';
+
+  @override
+  String get dayFlowSubtitle => 'やることリストではなく、どう感じたいかで形づくる一日。';
+
+  @override
+  String get dayFlowMorning => '朝';
+
+  @override
+  String get dayFlowMidday => '昼';
+
+  @override
+  String get dayFlowAfternoon => '午後';
+
+  @override
+  String get dayFlowEvening => '夕方';
+
+  @override
+  String get dayFlowNight => '夜';
+
+  @override
+  String get dayFlowReasonMorningPool => 'ゆっくり始めましょう。一日が始まる前にプールやスパで。';
+
+  @override
+  String get dayFlowReasonMorningCalm => '穏やかな始まりで一日の流れを整えます。';
+
+  @override
+  String get dayFlowReasonMiddayAdventure => 'エネルギーがピークの時間帯。元気なうちに大きな冒険を。';
+
+  @override
+  String get dayFlowReasonMiddayCulture => '日差しが明るいうちに観光を。';
+
+  @override
+  String get dayFlowReasonMiddayIcon => '一日のハイライト。';
+
+  @override
+  String get dayFlowReasonAfternoonDowntime => '午後はゆっくり休んで充電を。';
+
+  @override
+  String get dayFlowReasonAfternoonGem => '人混みを離れた隠れた名所。';
+
+  @override
+  String get dayFlowReasonEveningDining => '一日のメインの食事。あなたのグルメな選択。';
+
+  @override
+  String get dayFlowReasonNightOut => '最後のきらめき。夜のお出かけ。';
+
+  @override
+  String get dayFlowVibeFoodie => 'グルメ志向';
+
+  @override
+  String get dayFlowVibeNightlife => 'ナイトライフ';
+
+  @override
+  String get dayFlowVibePoolside => 'プール';
+
+  @override
+  String get dayFlowVibeAdventure => 'アドベンチャー';
+
+  @override
+  String get dayFlowVibeCulture => 'カルチャー';
+
+  @override
   String get onboardStep5Title => 'ルクソラの中心部';
 
   @override
@@ -794,6 +989,9 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get placeCatAdventure => 'アドベンチャー';
+
+  @override
+  String get placeCatHotel => 'ホテル';
 
   @override
   String get styleLessCrowded => '混雑が少ない';

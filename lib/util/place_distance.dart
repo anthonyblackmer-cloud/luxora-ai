@@ -29,4 +29,25 @@ abstract final class PlaceDistance {
     }
     return '${miles.round()} mi';
   }
+
+  /// Rough driving-time estimate from the Orlando hub, assuming a blended
+  /// 45 mph Florida average (highway + surface streets). This is an estimate
+  /// for planning context, not a routed ETA.
+  static String driveTimeFromOrlandoLabel(LuxPlace place) {
+    return driveTimeLabel(milesFromOrlandoHub(place));
+  }
+
+  static String driveTimeLabel(double miles) {
+    const avgMph = 45.0;
+    final minutes = (miles / avgMph * 60).round();
+    if (minutes < 5) {
+      return '<5 min';
+    }
+    if (minutes < 60) {
+      return '$minutes min';
+    }
+    final hours = minutes ~/ 60;
+    final rem = minutes % 60;
+    return rem == 0 ? '${hours}h' : '${hours}h ${rem}m';
+  }
 }

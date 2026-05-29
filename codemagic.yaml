@@ -26,6 +26,9 @@ workflows:
       - name: Install dependencies
         script: flutter pub get
 
+      - name: Generate iOS localization bundles
+        script: dart run tool/generate_ios_lproj_localizations.dart
+
       - name: Build IPA
         script: |
           set -euo pipefail

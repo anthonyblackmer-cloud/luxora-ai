@@ -49,7 +49,16 @@ class AppLocalizationsHi extends AppLocalizations {
   String get commonRoadmap => 'रोडमैप';
 
   @override
-  String get commonClose => 'बंद करना';
+  String get commonClose => 'बंद करें';
+
+  @override
+  String get commonCancel => 'रद्द करें';
+
+  @override
+  String get commonDelete => 'हटाएँ';
+
+  @override
+  String get settingsStartOverSubtitle => 'शुरुआत से एक नई यात्रा बनाएँ';
 
   @override
   String get navConcierge => 'दरबान';
@@ -142,6 +151,18 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get discoverSearchEmpty =>
       'इस दायरे में कोई मिलान नहीं - एक छोटा नाम आज़माएं, मानचित्र या फ़ीड पर अपनी दूरी चिप को चौड़ा करें, या \"समुद्र तट\", \"डिज़नी\", या \"स्प्रिंग्स\" खोजें।';
+
+  @override
+  String get discoverFilterAll => 'सभी';
+
+  @override
+  String get discoverFilterHotels => 'होटल';
+
+  @override
+  String get discoverFilterRestaurants => 'रेस्तरां';
+
+  @override
+  String get discoverFilterDestinations => 'गंतव्य';
 
   @override
   String get discoverPopularInRadius => 'आपके दायरे में लोकप्रिय';
@@ -265,6 +286,27 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get mapSubtitle =>
       'आपके चयनित दिन के लिए पिन - सोने के हीरे रत्न हैं, सियान मार्कर आज की समयरेखा हैं, सोने की रेखा मूड मार्ग है।';
+
+  @override
+  String get mapPlanDayTitle => 'मेरा दिन प्लान करें';
+
+  @override
+  String get mapPlanDaySuggested =>
+      'आपकी यात्रा के मूड के आधार पर सुझाया गया — इसे अपना बनाने के लिए स्थान बुकमार्क करें।';
+
+  @override
+  String get mapPlanDayEmpty =>
+      'गंतव्य बुकमार्क करें (♥) और Luxora आपके ऑरलैंडो हब से एक अनुकूलित रूट बनाएगा — कम ड्राइविंग, ज़्यादा एहसास।';
+
+  @override
+  String mapPlanDaySummary(int count, String miles, String time) {
+    return '$count पड़ाव · $miles · $time ड्राइव';
+  }
+
+  @override
+  String mapPlanDayHomeBase(String hotel) {
+    return '$hotel से शुरू';
+  }
 
   @override
   String get mapAiPowers => 'एआई मानचित्र शक्तियाँ';
@@ -396,6 +438,27 @@ class AppLocalizationsHi extends AppLocalizations {
   String get tripsFooter => 'मूड कैटलॉग से यात्रा कवर · सुपाबेस सिंक चरण 2';
 
   @override
+  String get tripsPlanNew => 'नई यात्रा की योजना बनाएँ';
+
+  @override
+  String get tripsEmptyTitle => 'अभी तक कोई सहेजी गई यात्रा नहीं';
+
+  @override
+  String get tripsEmptyBody =>
+      'अपनी पहली यात्रा की योजना बनाएँ और वह यहाँ दिखाई देगी, जब चाहें फिर से देखें।';
+
+  @override
+  String get tripsDeleteTitle => 'यात्रा हटाएँ?';
+
+  @override
+  String tripsDeleteBody(String title) {
+    return 'यह “$title” को आपकी सहेजी गई यात्राओं से हटा देगा। इसे पूर्ववत नहीं किया जा सकता।';
+  }
+
+  @override
+  String get tripsDeleted => 'यात्रा हटाई गई';
+
+  @override
   String get tripsLiveWeather => 'लाइव मौसम';
 
   @override
@@ -463,6 +526,74 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get detailLocation => 'जगह';
+
+  @override
+  String get detailGetDirections => 'दिशा-निर्देश पाएँ';
+
+  @override
+  String get detailParkMap => 'पार्क मानचित्र';
+
+  @override
+  String get detailViewOnMap => 'मानचित्र पर देखें';
+
+  @override
+  String get detailMapsError => 'इस डिवाइस पर मानचित्र नहीं खोला जा सका।';
+
+  @override
+  String get detailGoogleMaps => 'Google मानचित्र';
+
+  @override
+  String get detailAppleMaps => 'Apple मानचित्र';
+
+  @override
+  String get detailOpenInMaps => 'मानचित्र में खोलें';
+
+  @override
+  String detailDriveFromOrlando(String time) {
+    return 'ऑरलैंडो से $time की ड्राइव';
+  }
+
+  @override
+  String get detailSaveToItinerary => 'यात्रा-योजना में सहेजें';
+
+  @override
+  String get detailSaved => 'सहेजा गया';
+
+  @override
+  String get detailSavedSnack => 'आपकी यात्रा-योजना में सहेजा गया';
+
+  @override
+  String get detailRemovedSnack => 'आपकी यात्रा-योजना से हटाया गया';
+
+  @override
+  String get detailSetHomeBase => 'होम बेस सेट करें';
+
+  @override
+  String get detailHomeBaseActive => 'आपकी यात्रा का होम बेस';
+
+  @override
+  String get detailHomeBaseHint =>
+      'आपके दिन का रूट यहीं से शुरू और खत्म होता है।';
+
+  @override
+  String get detailHomeBaseSetSnack => 'आपकी यात्रा का होम बेस सेट किया गया';
+
+  @override
+  String get detailHomeBaseClearedSnack => 'होम बेस हटाया गया';
+
+  @override
+  String get detailMenuTitle => 'मेन्यू की झलकियाँ';
+
+  @override
+  String get detailMenuDisclaimer =>
+      'चुनिंदा व्यंजन — पूरा मेन्यू और कीमतें स्थान पर भिन्न हो सकती हैं।';
+
+  @override
+  String get detailMenuComingSoon =>
+      'हम अभी यह मेन्यू तैयार कर रहे हैं। तब तक नवीनतम मेन्यू और कीमतें ऑनलाइन देखें।';
+
+  @override
+  String get detailViewMenuOnline => 'मेन्यू ऑनलाइन देखें';
 
   @override
   String get photoClose => 'बंद करना';
@@ -709,6 +840,82 @@ class AppLocalizationsHi extends AppLocalizations {
   String get onboardFoodie => 'खाने का शौक';
 
   @override
+  String get onboardPoolside => 'पूल और आराम';
+
+  @override
+  String get onboardAdventure => 'रोमांच और बाहरी गतिविधियाँ';
+
+  @override
+  String get onboardCulture => 'संस्कृति और दर्शनीय स्थल';
+
+  @override
+  String get dayFlowSubtitle =>
+      'एक दिन जो इस पर आधारित है कि आप कैसा महसूस करना चाहते हैं — कोई चेकलिस्ट नहीं।';
+
+  @override
+  String get dayFlowMorning => 'सुबह';
+
+  @override
+  String get dayFlowMidday => 'दोपहर';
+
+  @override
+  String get dayFlowAfternoon => 'अपराह्न';
+
+  @override
+  String get dayFlowEvening => 'शाम';
+
+  @override
+  String get dayFlowNight => 'रात';
+
+  @override
+  String get dayFlowReasonMorningPool =>
+      'धीरे शुरू करें — दिन शुरू होने से पहले पूल या स्पा में।';
+
+  @override
+  String get dayFlowReasonMorningCalm =>
+      'दिन का माहौल तय करने के लिए एक शांत शुरुआत।';
+
+  @override
+  String get dayFlowReasonMiddayAdventure =>
+      'सबसे ज़्यादा ऊर्जा वाले घंटे — तरोताज़ा रहते हुए बड़ा रोमांच।';
+
+  @override
+  String get dayFlowReasonMiddayCulture =>
+      'दिन की सबसे अच्छी रोशनी में दर्शनीय स्थल।';
+
+  @override
+  String get dayFlowReasonMiddayIcon => 'दिन का सबसे ख़ास पल।';
+
+  @override
+  String get dayFlowReasonAfternoonDowntime =>
+      'तरोताज़ा होने के लिए दोपहर का आराम।';
+
+  @override
+  String get dayFlowReasonAfternoonGem => 'भीड़ से दूर एक छिपा हुआ रत्न।';
+
+  @override
+  String get dayFlowReasonEveningDining =>
+      'दिन का मुख्य भोजन — आपकी पसंदीदा खाने की जगह।';
+
+  @override
+  String get dayFlowReasonNightOut => 'एक आख़िरी चमक — रात की सैर।';
+
+  @override
+  String get dayFlowVibeFoodie => 'खाने का शौक़';
+
+  @override
+  String get dayFlowVibeNightlife => 'नाइटलाइफ़';
+
+  @override
+  String get dayFlowVibePoolside => 'पूल';
+
+  @override
+  String get dayFlowVibeAdventure => 'साहसिक';
+
+  @override
+  String get dayFlowVibeCulture => 'संस्कृति';
+
+  @override
   String get onboardStep5Title => 'लक्सोरा का दिल';
 
   @override
@@ -815,6 +1022,9 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get placeCatAdventure => 'साहसिक काम';
+
+  @override
+  String get placeCatHotel => 'होटल';
 
   @override
   String get styleLessCrowded => 'कम भीड़';

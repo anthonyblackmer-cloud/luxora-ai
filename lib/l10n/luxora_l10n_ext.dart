@@ -34,5 +34,6 @@ extension LuxPlaceCategoryL10n on LuxPlaceCategory {
         LuxPlaceCategory.springs => l.placeCatSprings,
         LuxPlaceCategory.romantic => l.placeCatRomantic,
         LuxPlaceCategory.adventure => l.placeCatAdventure,
+        LuxPlaceCategory.hotel => l.placeCatHotel,
       };
 }

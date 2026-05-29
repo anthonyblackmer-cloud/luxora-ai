@@ -36,12 +36,16 @@ class TripProfileStorage {
         'nightlifeInterest': p.nightlifeInterest,
         'relaxationVsAdventure': p.relaxationVsAdventure,
         'foodieInterest': p.foodieInterest,
+        'poolsideInterest': p.poolsideInterest,
+        'adventureInterest': p.adventureInterest,
+        'cultureInterest': p.cultureInterest,
         'discoveryStyle': p.discoveryStyle.name,
         'tripFeel': p.tripFeel,
         'moods': p.moods.map((m) => m.name).toList(),
       };
 
   TripProfile _decode(Map<String, dynamic> m) {
+    final relaxAdventure = m['relaxationVsAdventure'] as int? ?? 50;
     return TripProfile(
       destination: m['destination'] as String? ?? 'Orlando',
       region: m['region'] as String? ?? 'Florida',
@@ -55,8 +59,13 @@ class TripProfileStorage {
       luxuryLevel: LuxuryLevel.values
           .byName(m['luxuryLevel'] as String? ?? 'premium'),
       nightlifeInterest: m['nightlifeInterest'] as int? ?? 40,
-      relaxationVsAdventure: m['relaxationVsAdventure'] as int? ?? 50,
+      relaxationVsAdventure: relaxAdventure,
       foodieInterest: m['foodieInterest'] as int? ?? 70,
+      // Back-compat: profiles saved before the split derive their poolside /
+      // adventure dials from the old single relax↔adventure axis.
+      poolsideInterest: m['poolsideInterest'] as int? ?? (100 - relaxAdventure),
+      adventureInterest: m['adventureInterest'] as int? ?? relaxAdventure,
+      cultureInterest: m['cultureInterest'] as int? ?? 40,
       discoveryStyle: DiscoveryStyle.values
           .byName(m['discoveryStyle'] as String? ?? 'balanced'),
       tripFeel: m['tripFeel'] as String? ?? '',

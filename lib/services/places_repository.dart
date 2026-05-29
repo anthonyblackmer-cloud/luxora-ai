@@ -2,6 +2,7 @@ import 'package:luxora_ai/data/curated_places_catalog.dart';
 import 'package:luxora_ai/data/feed_items.dart';
 import 'package:luxora_ai/models/discover_radius.dart';
 import 'package:luxora_ai/models/lux_place.dart';
+import 'package:luxora_ai/services/places_asset_repository.dart';
 import 'package:luxora_ai/services/places_remote_repository.dart';
 import 'package:luxora_ai/util/place_distance.dart';
 
@@ -20,6 +21,12 @@ class PlacesRepository {
     }
     _initialized = true;
     _loadLocal();
+    // Bundled OpenStreetMap import (keyless, offline). Curated entries are
+    // loaded first and take precedence on any id collision.
+    final osm = await PlacesAssetRepository.loadOsmPlaces();
+    if (osm.isNotEmpty) {
+      _mergePlaces(osm, overwrite: false);
+    }
     final remote = await PlacesRemoteRepository.tryFetchPlaces();
     if (remote != null && remote.isNotEmpty) {
       _mergePlaces(remote);
@@ -35,8 +42,9 @@ class PlacesRepository {
     }
   }
 
-  void _mergePlaces(List<LuxPlace> remote) {
-    for (final p in remote) {
+  void _mergePlaces(List<LuxPlace> incoming, {bool overwrite = true}) {
+    for (final p in incoming) {
+      if (!overwrite && _byId.containsKey(p.id)) continue;
       _byId[p.id] = p;
       _bySlug[p.slug] = p;
     }
@@ -82,6 +90,23 @@ class PlacesRepository {
         (a, b) => PlaceDistance.milesFromOrlandoHub(a)
             .compareTo(PlaceDistance.milesFromOrlandoHub(b)),
       );
+  }
+
+  /// Places to plot as map pins. Keeps all curated/editorial places within the
+  /// radius but caps bulk OSM pins to the nearest [osmCap] so the map stays
+  /// readable and performant even with thousands of imported venues.
+  List<LuxPlace> mapPlacesWithinRadius(DiscoverRadius radius, {int osmCap = 50}) {
+    final all = placesWithinRadius(radius); // distance-sorted
+    final result = <LuxPlace>[];
+    var osmCount = 0;
+    for (final p in all) {
+      if (p.source == LuxPlaceSource.osm) {
+        if (osmCount >= osmCap) continue;
+        osmCount++;
+      }
+      result.add(p);
+    }
+    return result;
   }
 
   List<LuxPlace> gemsWithinRadius(DiscoverRadius radius) {

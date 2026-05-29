@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_helpers.dart';
+import 'package:luxora_ai/data/saved_trips.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
-import 'package:luxora_ai/services/trip_profile_storage.dart';
+import 'package:luxora_ai/services/saved_trips_store.dart';
+import 'package:luxora_ai/services/trip_profile_store.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
 import 'package:luxora_ai/widgets/lux_background.dart';
@@ -21,16 +23,21 @@ class OnboardingScreen extends StatefulWidget {
 class _OnboardingScreenState extends State<OnboardingScreen> {
   int _step = 0;
   TripProfile _profile = const TripProfile();
-  final _storage = TripProfileStorage();
 
   static const _stepCount = 5;
   static const _budgetMinUsd = 1000;
   static const _budgetMaxUsd = 100000;
 
   Future<void> _finish() async {
-    await _storage.save(_profile);
+    await TripProfileStore.instance.save(_profile);
+    await SavedTripsStore.instance.add(
+      SavedTripSummary.fromProfile(
+        _profile,
+        id: 'trip-${DateTime.now().millisecondsSinceEpoch}',
+      ),
+    );
     if (!mounted) return;
-    context.go('/concierge');
+    context.go('/trips');
   }
 
   void _next() {
@@ -55,7 +62,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   icon: const Icon(Icons.arrow_back_rounded),
                   onPressed: () => setState(() => _step--),
                 )
-              : null,
+              : IconButton(
+                  icon: const Icon(Icons.close_rounded),
+                  tooltip: l.commonClose,
+                  onPressed: () {
+                    if (context.canPop()) {
+                      context.pop();
+                    } else {
+                      context.go('/concierge');
+                    }
+                  },
+                ),
         ),
         body: SafeArea(
           child: Padding(
@@ -158,6 +175,48 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 setState(
                   () => _profile =
                       _profile.copyWith(nightlifeInterest: v.round()),
+                );
+              },
+            ),
+            LuxSliderField(
+              label: l.onboardPoolside,
+              value: _profile.poolsideInterest.toDouble(),
+              min: 0,
+              max: 100,
+              divisions: 20,
+              suffix: '%',
+              onChanged: (v) {
+                setState(
+                  () => _profile =
+                      _profile.copyWith(poolsideInterest: v.round()),
+                );
+              },
+            ),
+            LuxSliderField(
+              label: l.onboardAdventure,
+              value: _profile.adventureInterest.toDouble(),
+              min: 0,
+              max: 100,
+              divisions: 20,
+              suffix: '%',
+              onChanged: (v) {
+                setState(
+                  () => _profile =
+                      _profile.copyWith(adventureInterest: v.round()),
+                );
+              },
+            ),
+            LuxSliderField(
+              label: l.onboardCulture,
+              value: _profile.cultureInterest.toDouble(),
+              min: 0,
+              max: 100,
+              divisions: 20,
+              suffix: '%',
+              onChanged: (v) {
+                setState(
+                  () => _profile =
+                      _profile.copyWith(cultureInterest: v.round()),
                 );
               },
             ),

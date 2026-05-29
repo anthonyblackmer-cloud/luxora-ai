@@ -9,6 +9,7 @@ import 'package:luxora_ai/services/concierge_session_memory.dart';
 import 'package:luxora_ai/services/trip_profile_storage.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
+import 'package:luxora_ai/widgets/settings/luxora_premium_sheet_shell.dart';
 import 'package:luxora_ai/widgets/settings/luxora_settings_sheet.dart';
 
 class ConciergeScreen extends StatefulWidget {
@@ -165,12 +166,22 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
                 ),
               ),
               const SizedBox(height: 14),
-              Text(
-                l.conciergeStyleMemory,
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                ),
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      l.conciergeStyleMemory,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ),
+                  LuxSheetCloseButton(
+                    color: LuxColors.cream,
+                    background: Colors.white.withValues(alpha: 0.06),
+                  ),
+                ],
               ),
               const SizedBox(height: 12),
               Wrap(

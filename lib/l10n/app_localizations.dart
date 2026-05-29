@@ -202,6 +202,24 @@ abstract class AppLocalizations {
   /// **'Close'**
   String get commonClose;
 
+  /// No description provided for @commonCancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get commonCancel;
+
+  /// No description provided for @commonDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get commonDelete;
+
+  /// No description provided for @settingsStartOverSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Start a fresh trip from scratch'**
+  String get settingsStartOverSubtitle;
+
   /// No description provided for @navConcierge.
   ///
   /// In en, this message translates to:
@@ -369,6 +387,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No matches in this radius — try a shorter name, widen your distance chip on Map or Feed, or search “beach”, “Disney”, or “springs”.'**
   String get discoverSearchEmpty;
+
+  /// No description provided for @discoverFilterAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get discoverFilterAll;
+
+  /// No description provided for @discoverFilterHotels.
+  ///
+  /// In en, this message translates to:
+  /// **'Hotels'**
+  String get discoverFilterHotels;
+
+  /// No description provided for @discoverFilterRestaurants.
+  ///
+  /// In en, this message translates to:
+  /// **'Restaurants'**
+  String get discoverFilterRestaurants;
+
+  /// No description provided for @discoverFilterDestinations.
+  ///
+  /// In en, this message translates to:
+  /// **'Destinations'**
+  String get discoverFilterDestinations;
 
   /// No description provided for @discoverPopularInRadius.
   ///
@@ -598,6 +640,36 @@ abstract class AppLocalizations {
   /// **'Pins for your curated day — gold diamonds are Gems, cyan markers are today’s timeline, gold line is the mood route.'**
   String get mapSubtitle;
 
+  /// No description provided for @mapPlanDayTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Plan my day'**
+  String get mapPlanDayTitle;
+
+  /// No description provided for @mapPlanDaySuggested.
+  ///
+  /// In en, this message translates to:
+  /// **'Suggested from your trip mood — bookmark places to make it yours.'**
+  String get mapPlanDaySuggested;
+
+  /// No description provided for @mapPlanDayEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Bookmark destinations (♥) and Luxora builds an optimized route from your Orlando hub — least driving, most feeling.'**
+  String get mapPlanDayEmpty;
+
+  /// No description provided for @mapPlanDaySummary.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} stops · {miles} · {time} drive'**
+  String mapPlanDaySummary(int count, String miles, String time);
+
+  /// No description provided for @mapPlanDayHomeBase.
+  ///
+  /// In en, this message translates to:
+  /// **'Starting from {hotel}'**
+  String mapPlanDayHomeBase(String hotel);
+
   /// No description provided for @mapAiPowers.
   ///
   /// In en, this message translates to:
@@ -826,6 +898,42 @@ abstract class AppLocalizations {
   /// **'Trip covers from mood catalog · Supabase sync Phase 2'**
   String get tripsFooter;
 
+  /// No description provided for @tripsPlanNew.
+  ///
+  /// In en, this message translates to:
+  /// **'Plan a new trip'**
+  String get tripsPlanNew;
+
+  /// No description provided for @tripsEmptyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No saved trips yet'**
+  String get tripsEmptyTitle;
+
+  /// No description provided for @tripsEmptyBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Plan your first trip and it will appear here, ready to revisit anytime.'**
+  String get tripsEmptyBody;
+
+  /// No description provided for @tripsDeleteTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete trip?'**
+  String get tripsDeleteTitle;
+
+  /// No description provided for @tripsDeleteBody.
+  ///
+  /// In en, this message translates to:
+  /// **'This removes “{title}” from your saved trips. This can’t be undone.'**
+  String tripsDeleteBody(String title);
+
+  /// No description provided for @tripsDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Trip deleted'**
+  String get tripsDeleted;
+
   /// No description provided for @tripsLiveWeather.
   ///
   /// In en, this message translates to:
@@ -957,6 +1065,132 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Location'**
   String get detailLocation;
+
+  /// No description provided for @detailGetDirections.
+  ///
+  /// In en, this message translates to:
+  /// **'Get Directions'**
+  String get detailGetDirections;
+
+  /// No description provided for @detailParkMap.
+  ///
+  /// In en, this message translates to:
+  /// **'Park map'**
+  String get detailParkMap;
+
+  /// No description provided for @detailViewOnMap.
+  ///
+  /// In en, this message translates to:
+  /// **'View on map'**
+  String get detailViewOnMap;
+
+  /// No description provided for @detailMapsError.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn’t open maps on this device.'**
+  String get detailMapsError;
+
+  /// No description provided for @detailGoogleMaps.
+  ///
+  /// In en, this message translates to:
+  /// **'Google Maps'**
+  String get detailGoogleMaps;
+
+  /// No description provided for @detailAppleMaps.
+  ///
+  /// In en, this message translates to:
+  /// **'Apple Maps'**
+  String get detailAppleMaps;
+
+  /// No description provided for @detailOpenInMaps.
+  ///
+  /// In en, this message translates to:
+  /// **'Open in maps'**
+  String get detailOpenInMaps;
+
+  /// No description provided for @detailDriveFromOrlando.
+  ///
+  /// In en, this message translates to:
+  /// **'{time} drive from Orlando'**
+  String detailDriveFromOrlando(String time);
+
+  /// No description provided for @detailSaveToItinerary.
+  ///
+  /// In en, this message translates to:
+  /// **'Save to itinerary'**
+  String get detailSaveToItinerary;
+
+  /// No description provided for @detailSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved'**
+  String get detailSaved;
+
+  /// No description provided for @detailSavedSnack.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved to your itinerary'**
+  String get detailSavedSnack;
+
+  /// No description provided for @detailRemovedSnack.
+  ///
+  /// In en, this message translates to:
+  /// **'Removed from your itinerary'**
+  String get detailRemovedSnack;
+
+  /// No description provided for @detailSetHomeBase.
+  ///
+  /// In en, this message translates to:
+  /// **'Set as home base'**
+  String get detailSetHomeBase;
+
+  /// No description provided for @detailHomeBaseActive.
+  ///
+  /// In en, this message translates to:
+  /// **'Your trip home base'**
+  String get detailHomeBaseActive;
+
+  /// No description provided for @detailHomeBaseHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Your day’s route starts and ends here.'**
+  String get detailHomeBaseHint;
+
+  /// No description provided for @detailHomeBaseSetSnack.
+  ///
+  /// In en, this message translates to:
+  /// **'Set as your trip home base'**
+  String get detailHomeBaseSetSnack;
+
+  /// No description provided for @detailHomeBaseClearedSnack.
+  ///
+  /// In en, this message translates to:
+  /// **'Home base cleared'**
+  String get detailHomeBaseClearedSnack;
+
+  /// No description provided for @detailMenuTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Menu highlights'**
+  String get detailMenuTitle;
+
+  /// No description provided for @detailMenuDisclaimer.
+  ///
+  /// In en, this message translates to:
+  /// **'Selected highlights — full menu and prices may vary at the venue.'**
+  String get detailMenuDisclaimer;
+
+  /// No description provided for @detailMenuComingSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'We’re still curating this menu. View the latest menu and prices online in the meantime.'**
+  String get detailMenuComingSoon;
+
+  /// No description provided for @detailViewMenuOnline.
+  ///
+  /// In en, this message translates to:
+  /// **'View menu online'**
+  String get detailViewMenuOnline;
 
   /// No description provided for @photoClose.
   ///
@@ -1420,6 +1654,144 @@ abstract class AppLocalizations {
   /// **'Foodie passion'**
   String get onboardFoodie;
 
+  /// No description provided for @onboardPoolside.
+  ///
+  /// In en, this message translates to:
+  /// **'Poolside & downtime'**
+  String get onboardPoolside;
+
+  /// No description provided for @onboardAdventure.
+  ///
+  /// In en, this message translates to:
+  /// **'Adventure & outdoors'**
+  String get onboardAdventure;
+
+  /// No description provided for @onboardCulture.
+  ///
+  /// In en, this message translates to:
+  /// **'Culture & sightseeing'**
+  String get onboardCulture;
+
+  /// No description provided for @dayFlowSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A day shaped around how you want to feel — not a checklist.'**
+  String get dayFlowSubtitle;
+
+  /// No description provided for @dayFlowMorning.
+  ///
+  /// In en, this message translates to:
+  /// **'MORNING'**
+  String get dayFlowMorning;
+
+  /// No description provided for @dayFlowMidday.
+  ///
+  /// In en, this message translates to:
+  /// **'MIDDAY'**
+  String get dayFlowMidday;
+
+  /// No description provided for @dayFlowAfternoon.
+  ///
+  /// In en, this message translates to:
+  /// **'AFTERNOON'**
+  String get dayFlowAfternoon;
+
+  /// No description provided for @dayFlowEvening.
+  ///
+  /// In en, this message translates to:
+  /// **'EVENING'**
+  String get dayFlowEvening;
+
+  /// No description provided for @dayFlowNight.
+  ///
+  /// In en, this message translates to:
+  /// **'NIGHT'**
+  String get dayFlowNight;
+
+  /// No description provided for @dayFlowReasonMorningPool.
+  ///
+  /// In en, this message translates to:
+  /// **'Ease in slowly — poolside or spa before the day begins.'**
+  String get dayFlowReasonMorningPool;
+
+  /// No description provided for @dayFlowReasonMorningCalm.
+  ///
+  /// In en, this message translates to:
+  /// **'A gentle start to set the tone.'**
+  String get dayFlowReasonMorningCalm;
+
+  /// No description provided for @dayFlowReasonMiddayAdventure.
+  ///
+  /// In en, this message translates to:
+  /// **'Peak energy hours — the big adventure while you\'re fresh.'**
+  String get dayFlowReasonMiddayAdventure;
+
+  /// No description provided for @dayFlowReasonMiddayCulture.
+  ///
+  /// In en, this message translates to:
+  /// **'Sightseeing while the light is bright.'**
+  String get dayFlowReasonMiddayCulture;
+
+  /// No description provided for @dayFlowReasonMiddayIcon.
+  ///
+  /// In en, this message translates to:
+  /// **'The signature moment of the day.'**
+  String get dayFlowReasonMiddayIcon;
+
+  /// No description provided for @dayFlowReasonAfternoonDowntime.
+  ///
+  /// In en, this message translates to:
+  /// **'Afternoon downtime to recharge.'**
+  String get dayFlowReasonAfternoonDowntime;
+
+  /// No description provided for @dayFlowReasonAfternoonGem.
+  ///
+  /// In en, this message translates to:
+  /// **'A hidden gem away from the crowds.'**
+  String get dayFlowReasonAfternoonGem;
+
+  /// No description provided for @dayFlowReasonEveningDining.
+  ///
+  /// In en, this message translates to:
+  /// **'The meal of the day — your foodie pick.'**
+  String get dayFlowReasonEveningDining;
+
+  /// No description provided for @dayFlowReasonNightOut.
+  ///
+  /// In en, this message translates to:
+  /// **'One last glow — a night out.'**
+  String get dayFlowReasonNightOut;
+
+  /// No description provided for @dayFlowVibeFoodie.
+  ///
+  /// In en, this message translates to:
+  /// **'Foodie-forward'**
+  String get dayFlowVibeFoodie;
+
+  /// No description provided for @dayFlowVibeNightlife.
+  ///
+  /// In en, this message translates to:
+  /// **'Nightlife'**
+  String get dayFlowVibeNightlife;
+
+  /// No description provided for @dayFlowVibePoolside.
+  ///
+  /// In en, this message translates to:
+  /// **'Poolside'**
+  String get dayFlowVibePoolside;
+
+  /// No description provided for @dayFlowVibeAdventure.
+  ///
+  /// In en, this message translates to:
+  /// **'Adventurous'**
+  String get dayFlowVibeAdventure;
+
+  /// No description provided for @dayFlowVibeCulture.
+  ///
+  /// In en, this message translates to:
+  /// **'Culture'**
+  String get dayFlowVibeCulture;
+
   /// No description provided for @onboardStep5Title.
   ///
   /// In en, this message translates to:
@@ -1629,6 +2001,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Adventure'**
   String get placeCatAdventure;
+
+  /// No description provided for @placeCatHotel.
+  ///
+  /// In en, this message translates to:
+  /// **'Hotel'**
+  String get placeCatHotel;
 
   /// No description provided for @styleLessCrowded.
   ///
