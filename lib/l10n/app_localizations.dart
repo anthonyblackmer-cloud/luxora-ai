@@ -2181,6 +2181,12 @@ abstract class AppLocalizations {
   /// **'Your agenda is ready on Map'**
   String get conciergeAgendaUpdatedSnack;
 
+  /// No description provided for @conciergeAgendaSyncFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Map and Timeline did not update. Try one clear request, for example: Plan a 4-day Disney and Universal trip.'**
+  String get conciergeAgendaSyncFailed;
+
   /// No description provided for @conciergeViewAgendaOnMap.
   ///
   /// In en, this message translates to:

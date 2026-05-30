@@ -1587,6 +1587,7 @@
   "conciergeThinking": "Luxora está pensando…",
   "conciergeItinerarySynced": "Adicionei à agenda de hoje no Mapa e à sua Timeline — mesmas paradas, prontas para partilhar.",
   "conciergeAgendaUpdatedSnack": "A sua agenda está pronta no Mapa",
+  "conciergeAgendaSyncFailed": "Map and Timeline did not update. Try one clear request, for example: Plan a 4-day Disney and Universal trip.",
   "conciergeViewAgendaOnMap": "Ver no Mapa",
   "conciergeAgendaDealsIntro": "Associei ofertas autorizadas às paragens da sua agenda — compare antes de comprar na bilheteira:",
   "conciergeAgendaDealsSnack": "Ofertas de bilhetes associadas à sua agenda",

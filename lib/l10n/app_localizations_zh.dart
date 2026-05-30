@@ -1155,6 +1155,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get conciergeAgendaUpdatedSnack => '地图上的行程已就绪';
 
   @override
+  String get conciergeAgendaSyncFailed =>
+      'Map and Timeline did not update. Try one clear request, for example: Plan a 4-day Disney and Universal trip.';
+
+  @override
   String get conciergeViewAgendaOnMap => '在地图上查看';
 
   @override

@@ -20,6 +20,7 @@ import 'package:luxora_ai/services/concierge_voice_service.dart';
 import 'package:luxora_ai/services/trip_profile_storage.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/util/concierge_agenda_chat_format.dart';
+import 'package:luxora_ai/util/lux_snack_bar.dart';
 import 'package:luxora_ai/util/concierge_ai_user_message.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
 import 'package:luxora_ai/widgets/concierge/concierge_voice_settings_sheet.dart';
@@ -50,6 +51,7 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
   bool _voiceProcessing = false;
   bool _luxoraSpeaking = false;
   String _voicePartial = '';
+  String? _lastItinerarySourceMessage;
   final _voice = ConciergeVoiceService.instance;
 
   @override
@@ -200,12 +202,7 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
       if (!mounted) return;
       if (!started) {
         setState(_resetVoiceUi);
-        messenger.showSnackBar(
-          SnackBar(
-            content: Text(l.conciergeVoiceSoon),
-            behavior: SnackBarBehavior.floating,
-          ),
-        );
+        LuxSnackBar.show(context, message: l.conciergeVoiceSoon);
         return;
       }
       if (_voiceReleaseQueued) {
@@ -241,11 +238,9 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
       });
       if (text.trim().isEmpty) {
         if (mounted) setState(_resetVoiceUi);
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(AppLocalizations.of(context).conciergeVoiceNoSpeech),
-            behavior: SnackBarBehavior.floating,
-          ),
+        LuxSnackBar.show(
+          context,
+          message: AppLocalizations.of(context).conciergeVoiceNoSpeech,
         );
         return;
       }
@@ -337,14 +332,29 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
       );
       _apiHistory.add(ConciergeChatMessage(role: 'assistant', content: reply));
       if (!mounted) return;
-      final skipItinerary =
-          ConciergeTripSaveSync.shouldSkipItineraryRebuild(trimmed);
-      final sync = skipItinerary
-          ? null
-          : await ConciergeItinerarySync.applyAfterChat(
-              userMessage: trimmed,
+      final planningMessage = ConciergeAgendaChatFormat.resolvePlanningMessage(
+        currentUserMessage: trimmed,
+        assistantReply: reply,
+        history: [
+          for (final msg in _apiHistory)
+            (role: msg.role, content: msg.content),
+        ],
+        lastSyncedPlanningMessage: _lastItinerarySourceMessage,
+        tripFeel: _profile?.tripFeel,
+      );
+      final shouldSync = ConciergeTripSaveSync.shouldRebuildItinerary(
+            planningMessage,
+          ) ||
+          ConciergeAgendaChatFormat.assistantPromisedAgendaSync(reply);
+      final sync = shouldSync
+          ? await ConciergeItinerarySync.applyAfterChat(
+              userMessage: planningMessage,
               profile: _profile,
-            );
+            )
+          : null;
+      if (sync != null) {
+        _lastItinerarySourceMessage = planningMessage;
+      }
       if (!mounted) return;
       var ticketDeals = sync?.attachedDeals ?? const [];
       if (ticketDeals.isEmpty && ConciergeTicketSync.wantsTicketHelp(trimmed)) {
@@ -390,6 +400,8 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
             fallback: l.conciergeItinerarySynced,
           );
         }
+      } else if (ConciergeAgendaChatFormat.assistantPromisedAgendaSync(reply)) {
+        displayReply = l.conciergeAgendaSyncFailed;
       }
       if (!mounted) return;
       setState(() {
@@ -410,28 +422,16 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
           }
           WidgetsBinding.instance.addPostFrameCallback((_) async {
             if (!mounted) return;
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text(l.conciergeAgendaUpdatedSnack),
-                behavior: SnackBarBehavior.floating,
-                action: SnackBarAction(
-                  label: l.conciergeViewAgendaOnMap,
-                  onPressed: () => context.go('/map'),
-                ),
-              ),
-            );
+            var snackMessage = l.conciergeAgendaUpdatedSnack;
             if (!showDealsInChat && agendaDealsChat.isNotEmpty) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(l.conciergeAgendaDealsSnack),
-                  behavior: SnackBarBehavior.floating,
-                  action: SnackBarAction(
-                    label: l.conciergeViewTicketDeals,
-                    onPressed: () => context.push('/ticket-savings'),
-                  ),
-                ),
-              );
+              snackMessage = '$snackMessage\n${l.conciergeAgendaDealsSnack}';
             }
+            LuxSnackBar.show(
+              context,
+              message: snackMessage,
+              actionLabel: l.conciergeViewAgendaOnMap,
+              onAction: () => context.go('/map'),
+            );
             await Future<void>.delayed(const Duration(milliseconds: 1200));
             if (!mounted) return;
             await _archiveAndStartFreshThread(
@@ -440,6 +440,7 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
                 sync.flow,
                 plan: sync.plan,
               ),
+              showSnackBar: false,
             );
           });
         }
@@ -508,11 +509,9 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
     });
     _scrollToEnd();
     if (showSnackBar && mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(l.conciergeThreadArchivedSnack),
-          behavior: SnackBarBehavior.floating,
-        ),
+      LuxSnackBar.show(
+        context,
+        message: l.conciergeThreadArchivedSnack,
       );
     }
   }

@@ -46,10 +46,14 @@ void main() {
       isTrue,
     );
     expect(
-      ConciergeTripSaveSync.shouldSkipItineraryRebuild(
+      ConciergeTripSaveSync.shouldRebuildItinerary('Save my trip'),
+      isFalse,
+    );
+    expect(
+      ConciergeTripSaveSync.shouldRebuildItinerary(
         'Save my trip and plan a spa day',
       ),
-      isFalse,
+      isTrue,
     );
     expect(
       ConciergeItinerarySync.applyAfterChat(userMessage: 'Save my trip'),

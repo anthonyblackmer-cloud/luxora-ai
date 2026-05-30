@@ -1587,6 +1587,7 @@
   "conciergeThinking": "Luxora 正在思考…",
   "conciergeItinerarySynced": "已写入地图上的今日行程和时间线 — 相同站点，可分享。",
   "conciergeAgendaUpdatedSnack": "地图上的行程已就绪",
+  "conciergeAgendaSyncFailed": "Map and Timeline did not update. Try one clear request, for example: Plan a 4-day Disney and Universal trip.",
   "conciergeViewAgendaOnMap": "在地图上查看",
   "conciergeAgendaDealsIntro": "我已将授权门票优惠与您行程中的站点匹配 — 请在窗口购票前比较：",
   "conciergeAgendaDealsSnack": "已匹配您行程的门票优惠",

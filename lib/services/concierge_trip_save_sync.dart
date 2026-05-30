@@ -4,6 +4,7 @@ import 'package:luxora_ai/l10n/app_localizations.dart';
 import 'package:luxora_ai/models/trip_plan.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
 import 'package:luxora_ai/services/active_trip_plan_store.dart';
+import 'package:luxora_ai/services/concierge_theme_park_planner.dart';
 import 'package:luxora_ai/services/city_pack_registry.dart';
 import 'package:luxora_ai/services/saved_trips_store.dart';
 import 'package:luxora_ai/services/trip_profile_store.dart';
@@ -52,17 +53,29 @@ abstract final class ConciergeTripSaveSync {
     'plan a',
     'plan my',
     'plan an',
+    'plan our',
+    'plan the',
+    'plan for',
     'build a',
     'build my',
     'create a',
     'create my',
+    'make a',
+    'make an',
+    'make me a',
+    'make me an',
     'schedule a',
     'schedule my',
     'add a stop',
     'add to my day',
     'itinerary for',
+    'itinerary to',
     'day with',
     'day at',
+    'trip to',
+    'trip for',
+    'excursion',
+    'itinerary',
   ];
 
   static bool wantsSaveTrip(String message) {
@@ -78,13 +91,25 @@ abstract final class ConciergeTripSaveSync {
 
   static bool shouldSkipItineraryRebuild(String message) {
     if (wantsListSavedTrips(message)) return true;
-    if (wantsSaveTrip(message) && !_hasPlanningIntent(message)) return true;
+    if (wantsSaveTrip(message) && !hasPlanningIntent(message)) return true;
     return false;
   }
 
-  static bool _hasPlanningIntent(String message) {
+  /// True when the traveler (or recalled trip feel) is asking to build/update agenda.
+  static bool shouldRebuildItinerary(String message) {
+    final trimmed = message.trim();
+    if (trimmed.isEmpty) return false;
+    if (shouldSkipItineraryRebuild(trimmed)) return false;
+    if (ConciergeThemeParkPlanner.parseIntent(trimmed).isExcursion) return true;
+    return hasPlanningIntent(trimmed);
+  }
+
+  static bool hasPlanningIntent(String message) {
     final lower = message.toLowerCase();
-    return _planningPhrases.any(lower.contains);
+    if (_planningPhrases.any(lower.contains)) return true;
+    return RegExp(
+      r'\b(\d+|one|two|three|four|five|six|seven)[\s-]*(day|night)',
+    ).hasMatch(lower);
   }
 
   static Future<ConciergeTripSaveResult> saveCurrentTrip({

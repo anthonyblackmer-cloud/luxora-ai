@@ -1205,6 +1205,10 @@ class AppLocalizationsIt extends AppLocalizations {
   String get conciergeAgendaUpdatedSnack => 'La tua agenda è pronta su Mappa';
 
   @override
+  String get conciergeAgendaSyncFailed =>
+      'Map and Timeline did not update. Try one clear request, for example: Plan a 4-day Disney and Universal trip.';
+
+  @override
   String get conciergeViewAgendaOnMap => 'Vai alla Mappa';
 
   @override

@@ -1587,6 +1587,7 @@
   "conciergeThinking": "Luxoraが考えています…",
   "conciergeItinerarySynced": "今日の予定をマップとタイムラインに反映しました — 同じ立ち寄り先、共有できます。",
   "conciergeAgendaUpdatedSnack": "マップで予定の準備ができました",
+  "conciergeAgendaSyncFailed": "Map and Timeline did not update. Try one clear request, for example: Plan a 4-day Disney and Universal trip.",
   "conciergeViewAgendaOnMap": "マップで見る",
   "conciergeAgendaDealsIntro": "予定の立ち寄り先に正規チケット特典をマッチしました — 現地購入前に比較してください：",
   "conciergeAgendaDealsSnack": "予定にマッチしたチケット特典",

@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:luxora_ai/models/trip_plan.dart';
+import 'package:luxora_ai/services/concierge_trip_save_sync.dart';
 import 'package:luxora_ai/util/concierge_agenda_chat_format.dart';
 
 void main() {
@@ -36,6 +37,49 @@ I've mapped it on Timeline for you.''';
     expect(condensed, contains('Love this energy'));
     expect(condensed, isNot(contains('9:00 AM')));
     expect(condensed, isNot(contains('Magic Kingdom')));
+  });
+
+  test('shouldRebuildItinerary detects excursion and plan our', () {
+    expect(
+      ConciergeTripSaveSync.shouldRebuildItinerary(
+        'Plan our four-day Disney and Universal excursion',
+      ),
+      isTrue,
+    );
+    expect(
+      ConciergeTripSaveSync.shouldRebuildItinerary('Thanks so much!'),
+      isFalse,
+    );
+  });
+
+  test('resolvePlanningMessage uses prior user request after yes', () {
+    final text = ConciergeAgendaChatFormat.resolvePlanningMessage(
+      currentUserMessage: 'Yes, please do that',
+      assistantReply: 'Your agenda is ready on Map and Timeline.',
+      history: [
+        (
+          role: 'user',
+          content:
+              'Create a four-day Disney and Universal excursion for my family',
+        ),
+        (role: 'assistant', content: 'Sounds wonderful — want me to build it?'),
+        (role: 'user', content: 'Yes, please do that'),
+      ],
+      lastSyncedPlanningMessage: null,
+      tripFeel: '',
+    );
+
+    expect(text.toLowerCase(), contains('disney'));
+    expect(text.toLowerCase(), contains('four-day'));
+  });
+
+  test('assistantPromisedAgendaSync detects map and timeline reply', () {
+    expect(
+      ConciergeAgendaChatFormat.assistantPromisedAgendaSync(
+        'I added that to your Map and Timeline.',
+      ),
+      isTrue,
+    );
   });
 
   test('formatAgendaForChat lists synced timeline stops', () {

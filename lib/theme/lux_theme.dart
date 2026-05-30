@@ -443,11 +443,19 @@ ThemeData buildLuxTheme(LuxThemePreset preset) {
       style: TextButton.styleFrom(foregroundColor: palette.accent),
     ),
     snackBarTheme: SnackBarThemeData(
-      backgroundColor: palette.isLight ? palette.textPrimary : palette.bgSecondary,
+      backgroundColor:
+          palette.isLight ? palette.surface : const Color(0xFF292524),
       contentTextStyle: TextStyle(
-        color: palette.isLight ? palette.bg : palette.textPrimary,
+        color: palette.textPrimary,
+        fontWeight: FontWeight.w500,
       ),
+      actionTextColor: palette.accent,
+      closeIconColor: palette.accent,
       behavior: SnackBarBehavior.floating,
+      elevation: 10,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(14),
+      ),
     ),
     dialogTheme: DialogThemeData(
       backgroundColor: palette.bgSecondary,

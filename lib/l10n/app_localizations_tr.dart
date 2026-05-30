@@ -1196,6 +1196,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get conciergeAgendaUpdatedSnack => 'Gündeminiz Harita\'da hazır';
 
   @override
+  String get conciergeAgendaSyncFailed =>
+      'Map and Timeline did not update. Try one clear request, for example: Plan a 4-day Disney and Universal trip.';
+
+  @override
   String get conciergeViewAgendaOnMap => 'Harita\'da gör';
 
   @override

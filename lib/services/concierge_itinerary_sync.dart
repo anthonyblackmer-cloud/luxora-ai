@@ -43,7 +43,9 @@ abstract final class ConciergeItinerarySync {
   }) async {
     final trimmed = userMessage.trim();
     if (trimmed.isEmpty) return null;
-    if (ConciergeTripSaveSync.shouldSkipItineraryRebuild(trimmed)) return null;
+    if (!ConciergeTripSaveSync.shouldRebuildItinerary(trimmed)) return null;
+
+    await PlacesRepository.instance.initialize();
 
     final base = profile ?? TripProfileStore.instance.profile.value ?? const TripProfile();
     final mergedFeel = _mergeTripFeel(base.tripFeel, trimmed);

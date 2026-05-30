@@ -1,4 +1,5 @@
 import 'package:luxora_ai/models/trip_plan.dart';
+import 'package:luxora_ai/services/concierge_trip_save_sync.dart';
 
 /// When false, Concierge keeps chat warm and brief — full stops live on Map/Timeline.
 abstract final class ConciergeAgendaChatFormat {
@@ -48,6 +49,58 @@ abstract final class ConciergeAgendaChatFormat {
   static bool wantsAgendaDetailInChat(String message) {
     final lower = message.toLowerCase();
     return _detailPhrases.any(lower.contains);
+  }
+
+  /// Model replied as if Map/Timeline were updated — client must sync to match.
+  static bool assistantPromisedAgendaSync(String reply) {
+    final lower = reply.toLowerCase();
+    if (lower.contains('map') &&
+        (lower.contains('timeline') || lower.contains('agenda'))) {
+      return true;
+    }
+    if (lower.contains('added to') &&
+        (lower.contains('agenda') ||
+            lower.contains('timeline') ||
+            lower.contains('map'))) {
+      return true;
+    }
+    return lower.contains('ready on map') ||
+        lower.contains('on map and') ||
+        lower.contains('your agenda is') ||
+        lower.contains('built your day') ||
+        lower.contains('sequenced your day');
+  }
+
+  /// Best user text to feed the itinerary engine for this exchange.
+  static String resolvePlanningMessage({
+    required String currentUserMessage,
+    required String assistantReply,
+    required List<({String role, String content})> history,
+    String? lastSyncedPlanningMessage,
+    String? tripFeel,
+  }) {
+    if (ConciergeTripSaveSync.shouldRebuildItinerary(currentUserMessage)) {
+      return currentUserMessage;
+    }
+    if (!assistantPromisedAgendaSync(assistantReply)) {
+      return currentUserMessage;
+    }
+    for (var i = history.length - 1; i >= 0; i--) {
+      final entry = history[i];
+      if (entry.role != 'user') continue;
+      if (ConciergeTripSaveSync.shouldRebuildItinerary(entry.content)) {
+        return entry.content;
+      }
+    }
+    final feel = tripFeel?.trim() ?? '';
+    if (feel.isNotEmpty && ConciergeTripSaveSync.shouldRebuildItinerary(feel)) {
+      return feel;
+    }
+    if (lastSyncedPlanningMessage != null &&
+        lastSyncedPlanningMessage.trim().isNotEmpty) {
+      return lastSyncedPlanningMessage;
+    }
+    return currentUserMessage;
   }
 
   /// Drops hour-by-hour / numbered stop lists from the model reply.

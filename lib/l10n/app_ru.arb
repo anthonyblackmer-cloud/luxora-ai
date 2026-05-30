@@ -1587,6 +1587,7 @@
   "conciergeThinking": "Luxora думает…",
   "conciergeItinerarySynced": "Я добавила это в повестку дня на Карте и в Timeline — те же остановки, готовы к отправке.",
   "conciergeAgendaUpdatedSnack": "Ваша повестка готова на Карте",
+  "conciergeAgendaSyncFailed": "Map and Timeline did not update. Try one clear request, for example: Plan a 4-day Disney and Universal trip.",
   "conciergeViewAgendaOnMap": "Открыть Карту",
   "conciergeAgendaDealsIntro": "Я сопоставила авторизованные предложения на билеты с остановками вашей повестки — сравните перед покупкой на кассе:",
   "conciergeAgendaDealsSnack": "Предложения на билеты под вашу повестку",

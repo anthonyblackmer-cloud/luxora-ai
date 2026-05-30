@@ -1587,6 +1587,7 @@
   "conciergeThinking": "Luxora가 생각 중…",
   "conciergeItinerarySynced": "오늘 일정을 지도와 타임라인에 반영했습니다 — 같은 경유지, 공유 준비 완료.",
   "conciergeAgendaUpdatedSnack": "지도에서 일정이 준비되었습니다",
+  "conciergeAgendaSyncFailed": "Map and Timeline did not update. Try one clear request, for example: Plan a 4-day Disney and Universal trip.",
   "conciergeViewAgendaOnMap": "지도에서 보기",
   "conciergeAgendaDealsIntro": "일정의 경유지에 공식 티켓 할인을 매칭했습니다 — 현장 구매 전에 비교해 보세요:",
   "conciergeAgendaDealsSnack": "일정에 맞는 티켓 할인",

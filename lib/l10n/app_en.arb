@@ -512,6 +512,7 @@
   "conciergeThinking": "Luxora is thinking…",
   "conciergeItinerarySynced": "I've added that to Today's agenda on Map and your Timeline — the same stops, ready to share.",
   "conciergeAgendaUpdatedSnack": "Your agenda is ready on Map",
+  "conciergeAgendaSyncFailed": "Map and Timeline did not update. Try one clear request, for example: Plan a 4-day Disney and Universal trip.",
   "conciergeViewAgendaOnMap": "View on Map",
   "conciergeAgendaDealsIntro": "I matched authorized ticket deals to stops on your agenda — compare before you buy at the gate:",
   "conciergeAgendaDealsSnack": "Ticket deals matched to your agenda",

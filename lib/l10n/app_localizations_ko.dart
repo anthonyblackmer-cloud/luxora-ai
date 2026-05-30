@@ -1177,6 +1177,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get conciergeAgendaUpdatedSnack => '지도에서 일정이 준비되었습니다';
 
   @override
+  String get conciergeAgendaSyncFailed =>
+      'Map and Timeline did not update. Try one clear request, for example: Plan a 4-day Disney and Universal trip.';
+
+  @override
   String get conciergeViewAgendaOnMap => '지도에서 보기';
 
   @override

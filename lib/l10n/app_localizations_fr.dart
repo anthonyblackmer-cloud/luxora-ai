@@ -1206,6 +1206,10 @@ class AppLocalizationsFr extends AppLocalizations {
   String get conciergeAgendaUpdatedSnack => 'Ton agenda est prête sur Carte';
 
   @override
+  String get conciergeAgendaSyncFailed =>
+      'Map and Timeline did not update. Try one clear request, for example: Plan a 4-day Disney and Universal trip.';
+
+  @override
   String get conciergeViewAgendaOnMap => 'Voir sur Carte';
 
   @override

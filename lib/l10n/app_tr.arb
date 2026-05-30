@@ -1587,6 +1587,7 @@
   "conciergeThinking": "Luxora düşünüyor…",
   "conciergeItinerarySynced": "Bugünün gündemine Harita ve Timeline'a ekledim — aynı duraklar, paylaşmaya hazır.",
   "conciergeAgendaUpdatedSnack": "Gündeminiz Harita'da hazır",
+  "conciergeAgendaSyncFailed": "Map and Timeline did not update. Try one clear request, for example: Plan a 4-day Disney and Universal trip.",
   "conciergeViewAgendaOnMap": "Harita'da gör",
   "conciergeAgendaDealsIntro": "Gündeminizdeki duraklarla yetkili bilet fırsatlarını eşleştirdim — gişeden almadan önce karşılaştırın:",
   "conciergeAgendaDealsSnack": "Gündeminize uyan bilet fırsatları",

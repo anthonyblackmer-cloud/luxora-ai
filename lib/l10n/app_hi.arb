@@ -1587,6 +1587,7 @@
   "conciergeThinking": "Luxora सोच रहा है…",
   "conciergeItinerarySynced": "मैंने इसे मानचित्र पर आज के एजेंडे और आपकी टाइमलाइन में जोड़ दिया — वही स्टॉप, साझा करने के लिए तैयार।",
   "conciergeAgendaUpdatedSnack": "आपका एजेंडा मानचित्र पर तैयार है",
+  "conciergeAgendaSyncFailed": "Map and Timeline did not update. Try one clear request, for example: Plan a 4-day Disney and Universal trip.",
   "conciergeViewAgendaOnMap": "मानचित्र पर देखें",
   "conciergeAgendaDealsIntro": "मैंने आपके एजेंडे के स्टॉप से अधिकृत टिकट ऑफ़र मिलाए हैं — गेट पर खरीदने से पहले तुलना करें:",
   "conciergeAgendaDealsSnack": "आपके एजेंडे से मेल खाते टिकट ऑफ़र",
