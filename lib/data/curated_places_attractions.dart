@@ -2,8 +2,8 @@ import 'package:luxora_ai/models/lux_place.dart';
 
 /// Orlando-area and Florida destinations — expanded starter catalog.
 ///
-/// Imagery reuses curated Unsplash ids by category until `tool/sync_unsplash_curated.dart`
-/// fetches venue-specific photos (see `tool/unsplash_place_searches.dart`).
+/// Theme-park hero images are synced via `tool/sync_unsplash_curated.dart`
+/// (see `tool/unsplash_place_searches.dart`). Remaining entries may reuse category placeholders.
 const curatedPlacesAttractions = <LuxPlace>[
   // —— Orlando core & theme parks (~0–20 mi) ——
   LuxPlace(
@@ -11,7 +11,7 @@ const curatedPlacesAttractions = <LuxPlace>[
     slug: 'magic-kingdom',
     title: 'Magic Kingdom',
     category: LuxPlaceCategory.family,
-    unsplashPhotoId: 'X_LNSoZ7xeM',
+    unsplashPhotoId: 'uPQiTOzYoo0',
     location: 'Lake Buena Vista, FL',
     latitude: 28.4177,
     longitude: -81.5812,
@@ -23,7 +23,7 @@ const curatedPlacesAttractions = <LuxPlace>[
     slug: 'epcot',
     title: 'EPCOT',
     category: LuxPlaceCategory.family,
-    unsplashPhotoId: 'X_LNSoZ7xeM',
+    unsplashPhotoId: 'SBu6qxHoVuU',
     location: 'Lake Buena Vista, FL',
     latitude: 28.3747,
     longitude: -81.5494,
@@ -35,7 +35,7 @@ const curatedPlacesAttractions = <LuxPlace>[
     slug: 'universal-studios-florida',
     title: 'Universal Studios Florida',
     category: LuxPlaceCategory.family,
-    unsplashPhotoId: 'X_LNSoZ7xeM',
+    unsplashPhotoId: 'oKHhThOuQX8',
     location: 'Orlando, FL',
     latitude: 28.4794,
     longitude: -81.4686,
@@ -59,7 +59,7 @@ const curatedPlacesAttractions = <LuxPlace>[
     slug: 'disney-springs',
     title: 'Disney Springs',
     category: LuxPlaceCategory.dining,
-    unsplashPhotoId: 'JZYQ_P94T-Q',
+    unsplashPhotoId: 'fcb8itcGQtc',
     location: 'Lake Buena Vista, FL',
     latitude: 28.3712,
     longitude: -81.5183,
@@ -180,7 +180,7 @@ const curatedPlacesAttractions = <LuxPlace>[
     slug: 'kelly-park-rock-springs',
     title: 'Rock Springs at Kelly Park',
     category: LuxPlaceCategory.springs,
-    unsplashPhotoId: 'RE1uPSyVuls',
+    unsplashPhotoId: 'z78FxiNCA5w',
     location: 'Apopka, FL',
     latitude: 28.7648,
     longitude: -81.5009,
@@ -229,7 +229,7 @@ const curatedPlacesAttractions = <LuxPlace>[
     slug: 'kennedy-space-center',
     title: 'Kennedy Space Center',
     category: LuxPlaceCategory.adventure,
-    unsplashPhotoId: 'X_LNSoZ7xeM',
+    unsplashPhotoId: 'RV8XBVx2e48',
     location: 'Merritt Island, FL',
     latitude: 28.5241,
     longitude: -80.6819,
@@ -303,7 +303,7 @@ const curatedPlacesAttractions = <LuxPlace>[
     slug: 'clearwater-beach',
     title: 'Clearwater Beach',
     category: LuxPlaceCategory.beach,
-    unsplashPhotoId: 'xMMA_mtJ8xM',
+    unsplashPhotoId: 'tJh_UdyrPK4',
     location: 'Clearwater, FL',
     latitude: 27.9775,
     longitude: -82.8285,

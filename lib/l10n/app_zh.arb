@@ -501,19 +501,19 @@
   "mapCrowdLevelModerate": "缓和",
   "mapCrowdLevelPacked": "包装好的",
   "mapCrowdLevelQuiet": "安静的",
-  "mapFutureCrowdDesc": "泉水、公园和爆红屋顶的实时密度：现在值得去吗？",
-  "mapFutureCrowdTitle": "实时人潮热度",
-  "mapFutureParkingDesc": "出发前的阻力评分：代客泊车、车库，或最合适的网约车上下车点。",
-  "mapFutureParkingTitle": "停车难度",
+  "mapFutureCrowdDesc": "Plan my day 每站从安静到拥挤的预测窗口。",
+  "mapFutureCrowdTitle": "人流展望",
+  "mapFutureParkingDesc": "出发前对代客泊车、车库与到达摩擦的估算。",
+  "mapFutureParkingTitle": "停车展望",
   "mapFutureRerouteDesc": "天气变化或人潮激增？轻点一下重塑当天剩余行程。",
   "mapFutureRerouteTitle": "即时改线",
-  "mapFutureTrafficDesc": "按压力加权的路线，不只看分钟数，也看车程感受。",
-  "mapFutureTrafficTitle": "驾驶阻力评分",
+  "mapFutureTrafficDesc": "日程每段路程的压力分 — 不只是分钟数。",
+  "mapFutureTrafficTitle": "Drive friction score",
   "mapHotelIntelBannerBody": "您的酒店决定了驾车时间、日间流量以及就餐地点。 Luxora 可帮助您挑选 — 无预订压力。",
   "mapHotelIntelBannerCta": "探索酒店智能",
   "mapHotelIntelBannerTitle": "选择合适的基地",
-  "mapNavLayerSubtitle": "不止发现，还能实时判断某个停靠点现在是否值得去。",
-  "mapNavLayerTitle": "AI 导航层（下一步）",
+  "mapNavLayerSubtitle": "日程中的人流、停车与驾驶压力 — 加一键改线。",
+  "mapNavLayerTitle": "站点摩擦智能",
   "mapPlanDayEmpty": "为目的地添加书签 (♥)，Luxora 会构建一条从您的奥兰多枢纽出发的优化路线 — 最少的驾驶，最多的感受。",
   "mapPlanDayHomeBase": "从{hotel}出发",
   "@mapPlanDayHomeBase": {
@@ -780,6 +780,39 @@
     }
   },
   "paywallHeadlineMiamiDefault": "体验不同的迈阿密",
+  "keysWaterIntelTitle": "群岛水域情报",
+  "keysWaterBestTime": "最佳时段：{time}",
+  "@keysWaterBestTime": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "keysWaterTemp": "水温：{note}",
+  "@keysWaterTemp": {
+    "placeholders": {
+      "note": {
+        "type": "String"
+      }
+    }
+  },
+  "keysWaterSnorkelScore": "浮潜",
+  "keysWaterDivingScore": "潜水",
+  "keysWaterBoatingScore": "乘船",
+  "keysWaterFishingScore": "钓鱼",
+  "keysWaterWindScore": "风力",
+  "keysWaterSunsetScore": "日落",
+  "keysWaterCrowdScore": "人流",
+  "keysMoodRoutesTitle": "群岛主题路线",
+  "keysMoodRouteStart": "开始 {time}",
+  "@keysMoodRouteStart": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
   "paywallHeadlineMiamiWeekend": "不要浪费你的迈阿密周末",
   "paywallHeroEyebrow": "您的私人礼宾服务",
   "paywallHeroHeadline": "不要浪费你的假期",
@@ -867,6 +900,10 @@
   "radiusDesc50Miami": "温伍德、椰林、比斯坎湾",
   "radiusDescAll": "群岛、迈阿密及全州亮点",
   "radiusDescAllMiami": "佛罗里达群岛步道和全州亮点",
+  "radiusDesc25Keys": "拉哥岛、伊斯拉莫拉达及北部礁带",
+  "radiusDesc50Keys": "马拉松、大松岛及中部群岛海滩",
+  "radiusDesc100Keys": "贯穿基韦斯特的全线海外公路",
+  "radiusDescAllKeys": "全岛链及一日游水域",
   "rightNowButton": "我们现在应该做什么？",
   "rightNowEmpty": "您的半径范围内还没有强大的时刻 - 扩大发现或为一些最喜欢的书签添加书签。",
   "rightNowFamilyCalm": "午睡窗外的平静 — 距离{minutes}轻松的家庭重置还有{place}分钟。",
@@ -1007,6 +1044,7 @@
   "settings": "设置",
   "settingsStartOverSubtitle": "从零开始全新的旅程",
   "settingsUnlockConciergeSubtitle": "一次性城市包——不是订阅",
+  "settingsOpenConciergeSubtitle": "打开 AI 礼宾标签页",
   "settingsUnlockConciergeTitle": "解锁城市礼宾服务",
   "settings_language_picker_note": "更改会立即生效。",
   "settings_regions_coming_subtitle": "主页枢纽和城市包即将推出。",
@@ -1434,6 +1472,52 @@
         "type": "String"
       },
       "speed": {
+        "type": "int"
+      }
+    }
+  },
+  "mapParkingLevelEasy": "容易",
+  "mapParkingLevelModerate": "适中",
+  "mapParkingLevelDifficult": "困难",
+  "mapParkingLevelLimited": "有限 · 请早到",
+  "mapParkingAtStop": "停车：{level}",
+  "@mapParkingAtStop": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "mapDriveFrictionAtStop": "驾驶负担：{score}/90",
+  "@mapDriveFrictionAtStop": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "detailTravelIntelTitle": "行程摩擦展望",
+  "detailTravelIntelSubtitle": "按类别、时间与距离预测 — 非实时传感器。",
+  "detailCrowdOutlook": "人流：{level}",
+  "@detailCrowdOutlook": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "detailParkingOutlook": "停车：{level}",
+  "@detailParkingOutlook": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "detailDriveFrictionOutlook": "驾驶负担：{score}/90",
+  "@detailDriveFrictionOutlook": {
+    "placeholders": {
+      "score": {
         "type": "int"
       }
     }

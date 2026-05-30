@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
-import 'package:luxora_ai/services/paywall_service.dart';
 import 'package:luxora_ai/services/weather_concierge_launcher.dart';
 import 'package:luxora_ai/settings/luxora_language_catalog.dart';
 import 'package:luxora_ai/state/luxora_app_state.dart';
@@ -213,13 +212,6 @@ class MoreScreen extends StatelessWidget {
                     title: l.helpCenterTitle,
                     subtitle: l.moreCardHelpSub,
                     onTap: () => _showHelp(context),
-                  ),
-                  const SizedBox(height: 10),
-                  LuxoraMoreListTile(
-                    icon: Icons.diamond_outlined,
-                    title: l.settingsUnlockConciergeTitle,
-                    subtitle: l.moreCardCityPacksSub,
-                    onTap: () => PaywallService.showPaywall(context),
                   ),
                   const SizedBox(height: 10),
                   LuxoraMoreListTile(

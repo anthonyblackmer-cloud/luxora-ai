@@ -113,80 +113,93 @@ class LuxoraPremiumSheetShell extends StatelessWidget {
     final theme = Theme.of(context);
     final palette = LuxoraPremiumSheetPalette.of(context);
     final tokens = luxThemeTokensOf(context);
-    final height = MediaQuery.sizeOf(context).height * heightFraction;
 
-    return Container(
-      height: height,
-      decoration: BoxDecoration(
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: palette.isDark
-              ? const [
-                  Color(0xFF0F0A09),
-                  Color(0xFF1C1917),
-                  Color(0xFF0F0A09),
-                ]
-              : [
-                  tokens.bg,
-                  tokens.bgSecondary,
-                  tokens.bg,
-                ],
-        ),
-        border: Border.all(
-          color: palette.borderMuted,
-        ),
-      ),
-      child: Stack(
-        fit: StackFit.expand,
-        children: [
-          if (palette.isDark)
-            Positioned(
-              top: -60,
-              left: MediaQuery.sizeOf(context).width * 0.15,
-              child: _GlowOrb(
-                color: palette.accent.withValues(alpha: 0.18),
-              ),
-            ),
-          SafeArea(
-            child: Column(
-              children: [
-                const SizedBox(height: 8),
-                Container(
-                  width: 40,
-                  height: 4,
-                  decoration: BoxDecoration(
-                    color: palette.scheme.onSurfaceVariant.withValues(alpha: 0.35),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 16, 20, 16),
-                  child: Row(
-                    children: [
-                      const SizedBox(width: 44),
-                      Expanded(
-                        child: Text(
-                          title,
-                          textAlign: TextAlign.center,
-                          style: palette.titleStyle(theme.textTheme),
-                        ),
-                      ),
-                      LuxSheetCloseButton(
-                        color: palette.scheme.onSurface,
-                        background: palette.scheme.onSurface.withValues(alpha: 0.06),
-                      ),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final fallbackHeight = MediaQuery.sizeOf(context).height * heightFraction;
+        final sheetHeight = constraints.hasBoundedHeight && constraints.maxHeight.isFinite
+            ? constraints.maxHeight
+            : fallbackHeight;
+
+        return Container(
+          height: sheetHeight,
+          decoration: BoxDecoration(
+            borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: palette.isDark
+                  ? const [
+                      Color(0xFF0F0A09),
+                      Color(0xFF1C1917),
+                      Color(0xFF0F0A09),
+                    ]
+                  : [
+                      tokens.bg,
+                      tokens.bgSecondary,
+                      tokens.bg,
                     ],
-                  ),
-                ),
-                Expanded(child: child),
-                if (footer != null) footer!,
-              ],
+            ),
+            border: Border.all(
+              color: palette.borderMuted,
             ),
           ),
-        ],
-      ),
+          child: Stack(
+            fit: StackFit.expand,
+            children: [
+              if (palette.isDark)
+                Positioned(
+                  top: -60,
+                  left: MediaQuery.sizeOf(context).width * 0.15,
+                  child: _GlowOrb(
+                    color: palette.accent.withValues(alpha: 0.18),
+                  ),
+                ),
+              SafeArea(
+                bottom: true,
+                child: Column(
+                  children: [
+                    const SizedBox(height: 8),
+                    Container(
+                      width: 40,
+                      height: 4,
+                      decoration: BoxDecoration(
+                        color: palette.scheme.onSurfaceVariant
+                            .withValues(alpha: 0.35),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(20, 12, 20, 12),
+                      child: Row(
+                        children: [
+                          const SizedBox(width: 44),
+                          Expanded(
+                            child: Text(
+                              title,
+                              textAlign: TextAlign.center,
+                              style: palette.titleStyle(theme.textTheme).copyWith(
+                                    fontSize: 24,
+                                  ),
+                            ),
+                          ),
+                          LuxSheetCloseButton(
+                            color: palette.scheme.onSurface,
+                            background: palette.scheme.onSurface
+                                .withValues(alpha: 0.06),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Expanded(child: child),
+                    if (footer != null) footer!,
+                  ],
+                ),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }

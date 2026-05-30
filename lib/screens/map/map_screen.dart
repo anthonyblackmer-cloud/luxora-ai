@@ -8,6 +8,8 @@ import 'package:luxora_ai/models/trip_profile.dart';
 import 'package:luxora_ai/services/city_pack_registry.dart';
 import 'package:luxora_ai/util/place_distance.dart';
 import 'package:luxora_ai/services/crowd_prediction_service.dart';
+import 'package:luxora_ai/services/drive_friction_service.dart';
+import 'package:luxora_ai/widgets/travel_stop_intel_card.dart';
 import 'package:luxora_ai/services/day_flow_planner.dart';
 import 'package:luxora_ai/services/day_flow_rerouter.dart';
 import 'package:luxora_ai/services/discover_radius_controller.dart';
@@ -23,6 +25,7 @@ import 'package:luxora_ai/widgets/destination_search_sheet.dart';
 import 'package:luxora_ai/widgets/discover_radius_selector.dart';
 import 'package:luxora_ai/widgets/discover_scope_banner.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
+import 'package:luxora_ai/widgets/florida_keys/keys_concierge_cards.dart';
 import 'package:luxora_ai/widgets/miami/miami_concierge_cards.dart';
 import 'package:luxora_ai/widgets/lux_florida_map.dart';
 import 'package:luxora_ai/widgets/golden_hour_card.dart';
@@ -128,6 +131,19 @@ class MapScreen extends StatelessWidget {
           if (CityPackRegistry.instance.active.cityId == 'miami') ...[
             const SizedBox(height: 14),
             MiamiMoodRoutesPanel(
+              onRouteSelected: (route) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(route.title),
+                    behavior: SnackBarBehavior.floating,
+                  ),
+                );
+              },
+            ),
+          ],
+          if (CityPackRegistry.instance.active.cityId == 'florida-keys') ...[
+            const SizedBox(height: 14),
+            KeysMoodRoutesPanel(
               onRouteSelected: (route) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
@@ -724,6 +740,12 @@ class _PlanMyDay extends StatelessWidget {
             for (final (index, block) in flow.blocks.indexed)
               _DayFlowRow(
                 block: block,
+                legOrigin: index == 0
+                    ? flow.start
+                    : LatLng(
+                        flow.blocks[index - 1].place.latitude,
+                        flow.blocks[index - 1].place.longitude,
+                      ),
                 isLast: index == flow.blocks.length - 1,
                 onTap: () => onTapStop(block.place),
               ),
@@ -737,17 +759,31 @@ class _PlanMyDay extends StatelessWidget {
 class _DayFlowRow extends StatelessWidget {
   const _DayFlowRow({
     required this.block,
+    required this.legOrigin,
     required this.isLast,
     required this.onTap,
   });
 
   final DayBlock block;
+  final LatLng legOrigin;
   final bool isLast;
   final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
     final l = context.l10n;
+    final at = CrowdPredictionService.timeForPhase(block.phase);
+    final friction = DriveFrictionService.scoreForLeg(
+      from: legOrigin,
+      to: block.place,
+      atLocal: at,
+    );
+    final intelLines = travelStopIntelLines(
+      l,
+      place: block.place,
+      atLocal: at,
+      driveFriction: friction,
+    );
     return InkWell(
       borderRadius: BorderRadius.circular(10),
       onTap: onTap,
@@ -778,7 +814,7 @@ class _DayFlowRow extends StatelessWidget {
                 if (!isLast)
                   Container(
                     width: 2,
-                    height: 26,
+                    height: 52,
                     margin: const EdgeInsets.symmetric(vertical: 2),
                     color: LuxColors.gold.withValues(alpha: 0.22),
                   ),
@@ -818,19 +854,19 @@ class _DayFlowRow extends StatelessWidget {
                         color: LuxColors.stone400,
                       ),
                     ),
-                    const SizedBox(height: 2),
-                    Text(
-                      l.mapCrowdAtStop(
-                        _crowdLevelLabel(
-                          l,
-                          CrowdPredictionService.levelForBlock(block),
+                    const SizedBox(height: 4),
+                    for (final line in intelLines)
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 2),
+                        child: Text(
+                          line,
+                          style: TextStyle(
+                            fontSize: 11,
+                            height: 1.25,
+                            color: LuxColors.stone500.withValues(alpha: 0.95),
+                          ),
                         ),
                       ),
-                      style: TextStyle(
-                        fontSize: 11,
-                        color: LuxColors.stone500.withValues(alpha: 0.95),
-                      ),
-                    ),
                   ],
                 ),
               ),
@@ -886,12 +922,4 @@ String _vibeLabel(AppLocalizations l, DayInterest interest) =>
       DayInterest.poolside => l.dayFlowVibePoolside,
       DayInterest.adventure => l.dayFlowVibeAdventure,
       DayInterest.culture => l.dayFlowVibeCulture,
-    };
-
-String _crowdLevelLabel(AppLocalizations l, CrowdLevel level) =>
-    switch (level) {
-      CrowdLevel.quiet => l.mapCrowdLevelQuiet,
-      CrowdLevel.moderate => l.mapCrowdLevelModerate,
-      CrowdLevel.busy => l.mapCrowdLevelBusy,
-      CrowdLevel.packed => l.mapCrowdLevelPacked,
     };

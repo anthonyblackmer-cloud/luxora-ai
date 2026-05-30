@@ -1,3 +1,4 @@
+import 'package:luxora_ai/data/florida_keys/florida_keys_ticket_deals.dart';
 import 'package:luxora_ai/data/miami/miami_ticket_deals.dart';
 import 'package:luxora_ai/data/ticket_deals_catalog.dart';
 import 'package:luxora_ai/models/ticket_deal.dart';
@@ -11,6 +12,7 @@ abstract final class TicketDealsResolver {
     if (fromRepo.isNotEmpty) return fromRepo;
     return switch (cityId) {
       'miami' => miamiTicketDealsCatalog,
+      'florida-keys' => floridaKeysTicketDealsCatalog,
       _ => ticketDealsCatalog,
     };
   }
@@ -31,7 +33,7 @@ abstract final class TicketDealsResolver {
   }
 
   static TicketDeal? byIdAnyCity(String id) {
-    for (final cityId in ['orlando', 'miami']) {
+    for (final cityId in ['orlando', 'miami', 'florida-keys']) {
       for (final d in TicketDealsRepository.instance.dealsForCity(cityId)) {
         if (d.id == id) return d;
       }
@@ -40,6 +42,9 @@ abstract final class TicketDealsResolver {
       if (d.id == id) return d;
     }
     for (final d in miamiTicketDealsCatalog) {
+      if (d.id == id) return d;
+    }
+    for (final d in floridaKeysTicketDealsCatalog) {
       if (d.id == id) return d;
     }
     return null;

@@ -221,6 +221,10 @@
   "radiusDesc50Miami": "Wynwood, Coconut Grove, Key Biscayne",
   "radiusDesc100Miami": "Everglades, Fort Lauderdale, deeper South Florida",
   "radiusDescAllMiami": "Florida Keys trail and statewide highlights",
+  "radiusDesc25Keys": "Key Largo, Islamorada, and upper reef corridor",
+  "radiusDesc50Keys": "Marathon, Big Pine, and middle Keys beaches",
+  "radiusDesc100Keys": "Full Overseas Highway through Key West",
+  "radiusDescAllKeys": "Entire island chain and day-trip waters",
   "feedBadge": "LIVE DISCOVERY",
   "feedTitle": "Experience Feed",
   "feedSubtitle": "What’s moving right now — trending spots, new openings, creator picks, seasonal routes, and live updates.",
@@ -282,6 +286,18 @@
   "mapCrowdAtStop": "Crowd: {level}",
   "@mapCrowdAtStop": {
     "placeholders": { "level": { "type": "String" } }
+  },
+  "mapParkingLevelEasy": "Easy",
+  "mapParkingLevelModerate": "Moderate",
+  "mapParkingLevelDifficult": "Difficult",
+  "mapParkingLevelLimited": "Limited · arrive early",
+  "mapParkingAtStop": "Parking: {level}",
+  "@mapParkingAtStop": {
+    "placeholders": { "level": { "type": "String" } }
+  },
+  "mapDriveFrictionAtStop": "Drive friction: {score}/90",
+  "@mapDriveFrictionAtStop": {
+    "placeholders": { "score": { "type": "int" } }
   },
   "mapRerouteButton": "Reroute for calmer stops",
   "mapRerouteApplied": "Day adjusted — {count} stops swapped for lighter crowds.",
@@ -416,8 +432,8 @@
   "conciergeVoiceHold": "Hold to speak",
   "conciergeVoiceSoon": "Voice concierge is coming soon — for now, tap a moment or type how you want to feel.",
   "mapAiPowers": "AI map powers",
-  "mapNavLayerTitle": "AI navigation layer (next)",
-  "mapNavLayerSubtitle": "Beyond discovery — live intelligence on whether a stop is worth it right now.",
+  "mapNavLayerTitle": "Stop friction intelligence",
+  "mapNavLayerSubtitle": "Crowd, parking, and drive-stress outlook on each Plan my day stop — plus one-tap reroute.",
   "mapBookingTitle": "Seamless booking (partners)",
   "mapCapMoodTitle": "Mood-based routes",
   "mapCapMoodDesc": "Paths that match romantic, wellness, family, or adventure — not just shortest drive time.",
@@ -433,12 +449,12 @@
   "mapCapGemsDesc": "Insider pins surfaced along your route — not just top-10 tourist stops.",
   "mapCapPersonalTitle": "Route personalization",
   "mapCapPersonalDesc": "Your trip feel, pace, and budget reshape the map in real time.",
-  "mapFutureCrowdTitle": "Live crowd heat",
-  "mapFutureCrowdDesc": "Real-time density on springs, parks, and viral rooftops — worth it right now?",
-  "mapFutureParkingTitle": "Parking difficulty",
-  "mapFutureParkingDesc": "Friction score before you commit — valet, garage, or rideshare sweet spot.",
+  "mapFutureCrowdTitle": "Crowd outlook",
+  "mapFutureCrowdDesc": "Predicted quiet-to-packed windows on each stop in Plan my day.",
+  "mapFutureParkingTitle": "Parking outlook",
+  "mapFutureParkingDesc": "Estimated valet, garage, and arrival friction before you go.",
   "mapFutureTrafficTitle": "Drive friction score",
-  "mapFutureTrafficDesc": "Stress-weighted routing — not just minutes, but how the drive will feel.",
+  "mapFutureTrafficDesc": "Stress-weighted leg scores on your day plan — not just drive minutes.",
   "mapFutureRerouteTitle": "Spontaneous reroute",
   "mapFutureRerouteDesc": "Weather shift or crowd spike? One tap to reshape the rest of your day.",
   "affiliateReserve": "Reserve · {category} · premium partner (soon)",
@@ -497,6 +513,20 @@
   "detailBestFor": "Best for",
   "detailVibeMatch": "Vibe Match",
   "detailCrowd": "Crowd",
+  "detailTravelIntelTitle": "Trip friction outlook",
+  "detailTravelIntelSubtitle": "Predicted from category, time, and distance — not live sensors.",
+  "detailCrowdOutlook": "Crowd: {level}",
+  "@detailCrowdOutlook": {
+    "placeholders": { "level": { "type": "String" } }
+  },
+  "detailParkingOutlook": "Parking: {level}",
+  "@detailParkingOutlook": {
+    "placeholders": { "level": { "type": "String" } }
+  },
+  "detailDriveFrictionOutlook": "Drive friction: {score}/90",
+  "@detailDriveFrictionOutlook": {
+    "placeholders": { "score": { "type": "int" } }
+  },
   "detailPrice": "Price",
   "detailLocation": "Location",
   "detailGetDirections": "Get Directions",
@@ -1082,6 +1112,7 @@
   "paywallConciergePromise": "One-time purchase · Personal concierge · No subscription",
   "settingsUnlockConciergeTitle": "Unlock city concierge",
   "settingsUnlockConciergeSubtitle": "One-time city pack — not a subscription",
+  "settingsOpenConciergeSubtitle": "Open your AI concierge tab",
 
   "weatherMiamiHumidityIndoor": "High humidity today. Hit the beach or pool earlier, then Wynwood or Brickell for indoor dining and galleries during the hottest hours.",
   "weatherMiamiHeatAdvisory": "Heat advisory conditions — light fabrics, hydration, and shade breaks between outdoor stops.",
@@ -1130,6 +1161,33 @@
   "miamiMoodRoutesTitle": "Miami Mood Routes",
   "miamiMoodRouteStart": "Start around {time}",
   "@miamiMoodRouteStart": {
+    "placeholders": {
+      "time": {"type": "String"}
+    }
+  },
+  "keysWaterIntelTitle": "Keys Water Intelligence",
+  "keysWaterBestTime": "Best window: {time}",
+  "@keysWaterBestTime": {
+    "placeholders": {
+      "time": {"type": "String"}
+    }
+  },
+  "keysWaterTemp": "Water: {note}",
+  "@keysWaterTemp": {
+    "placeholders": {
+      "note": {"type": "String"}
+    }
+  },
+  "keysWaterSnorkelScore": "Snorkel",
+  "keysWaterDivingScore": "Dive",
+  "keysWaterBoatingScore": "Boat",
+  "keysWaterFishingScore": "Fish",
+  "keysWaterWindScore": "Wind",
+  "keysWaterSunsetScore": "Sunset",
+  "keysWaterCrowdScore": "Crowd",
+  "keysMoodRoutesTitle": "Keys Island Routes",
+  "keysMoodRouteStart": "Start {time}",
+  "@keysMoodRouteStart": {
     "placeholders": {
       "time": {"type": "String"}
     }

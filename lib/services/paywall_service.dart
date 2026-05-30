@@ -33,7 +33,25 @@ abstract final class PaywallService {
       return true;
     }
 
-    final result = await context.push<bool>('/paywall?city=$id');
+    return _pushPaywall(context, id);
+  }
+
+  /// Settings entry — show paywall when locked, otherwise open the Concierge tab.
+  static Future<void> openConciergeEntry(BuildContext context) async {
+    final id = CityPackRegistry.instance.active.cityId;
+    if (needsUnlock(id)) {
+      await _pushPaywall(context, id);
+      return;
+    }
+
+    await CityPackSync.switchCity(id);
+    if (context.mounted) {
+      context.go('/concierge');
+    }
+  }
+
+  static Future<bool> _pushPaywall(BuildContext context, String cityId) async {
+    final result = await context.push<bool>('/paywall?city=$cityId');
     return result ?? false;
   }
 

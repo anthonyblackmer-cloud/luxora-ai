@@ -501,19 +501,19 @@
   "mapCrowdLevelModerate": "보통의",
   "mapCrowdLevelPacked": "포장됨",
   "mapCrowdLevelQuiet": "조용한",
-  "mapFutureCrowdDesc": "샘, 공원, 바이러스 옥상의 실시간 밀도 - 지금 당장 가치가 있나요?",
-  "mapFutureCrowdTitle": "실시간 군중 열기",
-  "mapFutureParkingDesc": "약속하기 전 마찰 점수 - 주차 대행, 차고 또는 차량 공유 최적의 장소.",
-  "mapFutureParkingTitle": "주차난이도",
+  "mapFutureCrowdDesc": "Plan my day 각 정류장의 한산~만원 예측 구간.",
+  "mapFutureCrowdTitle": "혼잡 전망",
+  "mapFutureParkingDesc": "출발 전 발렛·주차장·도착 마찰 추정.",
+  "mapFutureParkingTitle": "주차 전망",
   "mapFutureRerouteDesc": "날씨 변화 또는 군중 급증? 탭 한 번으로 남은 하루를 바꿔보세요.",
   "mapFutureRerouteTitle": "자발적인 경로 변경",
-  "mapFutureTrafficDesc": "스트레스 가중치 라우팅 - 단지 몇 분이 아니라 드라이브의 느낌이 어떻게 될지.",
-  "mapFutureTrafficTitle": "드라이브 마찰 점수",
+  "mapFutureTrafficDesc": "일정 각 구간의 스트레스 점수 — 시간만이 아님.",
+  "mapFutureTrafficTitle": "Drive friction score",
   "mapHotelIntelBannerBody": "호텔은 운전 시간, 하루 흐름, 식사 장소를 결정합니다. Luxora는 예약에 대한 압박 없이 선택을 도와드립니다.",
   "mapHotelIntelBannerCta": "Hotel Intelligence 살펴보기",
   "mapHotelIntelBannerTitle": "올바른 본거지를 선택하세요",
-  "mapNavLayerSubtitle": "발견 그 이상 - 지금 당장 정차할 가치가 있는지에 대한 실시간 인텔리전스입니다.",
-  "mapNavLayerTitle": "AI 탐색 레이어(다음)",
+  "mapNavLayerSubtitle": "일정의 혼잡·주차·운전 스트ress — 원탭 재경로 포함.",
+  "mapNavLayerTitle": "정류장 마찰 인텔",
   "mapPlanDayEmpty": "목적지를 북마크(♥)하면 Luxora는 올랜도 허브에서 가장 적은 운전으로 가장 기분 좋은 최적의 경로를 구축합니다.",
   "mapPlanDayHomeBase": "{hotel}에서 출발",
   "@mapPlanDayHomeBase": {
@@ -780,6 +780,39 @@
     }
   },
   "paywallHeadlineMiamiDefault": "마이애미를 다르게 경험해보세요",
+  "keysWaterIntelTitle": "키스 수역 인텔리전스",
+  "keysWaterBestTime": "최적 시간: {time}",
+  "@keysWaterBestTime": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "keysWaterTemp": "수온: {note}",
+  "@keysWaterTemp": {
+    "placeholders": {
+      "note": {
+        "type": "String"
+      }
+    }
+  },
+  "keysWaterSnorkelScore": "스노클",
+  "keysWaterDivingScore": "다이빙",
+  "keysWaterBoatingScore": "보트",
+  "keysWaterFishingScore": "낚시",
+  "keysWaterWindScore": "바람",
+  "keysWaterSunsetScore": "일몰",
+  "keysWaterCrowdScore": "혼잡",
+  "keysMoodRoutesTitle": "키스 섬 루트",
+  "keysMoodRouteStart": "시작 {time}",
+  "@keysMoodRouteStart": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
   "paywallHeadlineMiamiWeekend": "마이애미 주말을 낭비하지 마세요",
   "paywallHeroEyebrow": "귀하의 개인 컨시어지",
   "paywallHeroHeadline": "휴가를 낭비하지 마세요",
@@ -867,6 +900,10 @@
   "radiusDesc50Miami": "윈우드, 코코넛 그로브, 키 비스케인",
   "radiusDescAll": "키스, 마이애미, 주 전체 하이라이트",
   "radiusDescAllMiami": "플로리다 키스 트레일과 주 전체 하이라이트",
+  "radiusDesc25Keys": "키 라르고, 이슬라모라다 및 북부 리프 회랑",
+  "radiusDesc50Keys": "마라톤, 빅 파인 및 중부 키스 해변",
+  "radiusDesc100Keys": "키 웨스트까지 전체 오버시즈 하이웨이",
+  "radiusDescAllKeys": "전체 섬 체인과 당일치기 수역",
   "rightNowButton": "지금 당장 무엇을 해야 할까요?",
   "rightNowEmpty": "아직 귀하의 반경에 좋은 순간이 없습니다. 몇 가지 즐겨찾기를 발견하거나 북마크에 추가하세요.",
   "rightNowFamilyCalm": "낮잠 창 ​​진정 — {minutes}에서 가족이 쉽게 재설정할 수 있는 시간은 {place}분입니다.",
@@ -1007,6 +1044,7 @@
   "settings": "설정",
   "settingsStartOverSubtitle": "처음부터 새로운 여행을 시작해보세요",
   "settingsUnlockConciergeSubtitle": "일회성 시티팩 — 구독이 아님",
+  "settingsOpenConciergeSubtitle": "AI 컨시어지 탭 열기",
   "settingsUnlockConciergeTitle": "도시 컨시어지 잠금 해제",
   "settings_language_picker_note": "변경사항은 즉시 적용됩니다.",
   "settings_regions_coming_subtitle": "홈 허브와 시티 팩이 곧 출시됩니다.",
@@ -1434,6 +1472,52 @@
         "type": "String"
       },
       "speed": {
+        "type": "int"
+      }
+    }
+  },
+  "mapParkingLevelEasy": "쉬움",
+  "mapParkingLevelModerate": "보통",
+  "mapParkingLevelDifficult": "어려움",
+  "mapParkingLevelLimited": "제한적 · 일찍 도착",
+  "mapParkingAtStop": "주차: {level}",
+  "@mapParkingAtStop": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "mapDriveFrictionAtStop": "운전 부담: {score}/90",
+  "@mapDriveFrictionAtStop": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "detailTravelIntelTitle": "여행 마찰 전망",
+  "detailTravelIntelSubtitle": "카테고리·시간·거리 기반 예측 — 실시간 센서 없음.",
+  "detailCrowdOutlook": "혼잡: {level}",
+  "@detailCrowdOutlook": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "detailParkingOutlook": "주차: {level}",
+  "@detailParkingOutlook": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "detailDriveFrictionOutlook": "운전 부담: {score}/90",
+  "@detailDriveFrictionOutlook": {
+    "placeholders": {
+      "score": {
         "type": "int"
       }
     }

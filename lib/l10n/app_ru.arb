@@ -501,19 +501,19 @@
   "mapCrowdLevelModerate": "Умеренный",
   "mapCrowdLevelPacked": "упакованный",
   "mapCrowdLevelQuiet": "Тихий",
-  "mapFutureCrowdDesc": "Плотность источников, парков и вирусных крыш в реальном времени — стоит ли оно того прямо сейчас?",
-  "mapFutureCrowdTitle": "Живая толпа, жара",
-  "mapFutureParkingDesc": "Оценка трения перед совершением сделки — золотая середина для парковщика, гаража или совместного использования автомобилей.",
-  "mapFutureParkingTitle": "Сложность парковки",
+  "mapFutureCrowdDesc": "Прогноз от спокойно до переполнено на каждой остановке Plan my day.",
+  "mapFutureCrowdTitle": "Прогноз толпы",
+  "mapFutureParkingDesc": "Оценка трения с valet, гаражом и приездом до выезда.",
+  "mapFutureParkingTitle": "Прогноз парковки",
   "mapFutureRerouteDesc": "Смена погоды или всплеск толпы? Одно касание, чтобы изменить остальную часть вашего дня.",
   "mapFutureRerouteTitle": "Спонтанное перенаправление",
-  "mapFutureTrafficDesc": "Маршрутизация с учетом стресса — не просто минуты, а то, как будет ощущаться поездка.",
-  "mapFutureTrafficTitle": "Оценка трения привода",
+  "mapFutureTrafficDesc": "Оценка стресса по каждому плечу маршрута — не только минуты.",
+  "mapFutureTrafficTitle": "Drive friction score",
   "mapHotelIntelBannerBody": "Ваш отель определяет время поездки, дневной поток и то, где вы едите. Luxora поможет вам сделать выбор без давления на бронирование.",
   "mapHotelIntelBannerCta": "Изучите информацию об отеле",
   "mapHotelIntelBannerTitle": "Выберите правильную базу",
-  "mapNavLayerSubtitle": "Помимо открытий — живая информация о том, стоит ли останавливаться прямо сейчас.",
-  "mapNavLayerTitle": "Слой навигации AI (следующий)",
+  "mapNavLayerSubtitle": "Толпа, парковка и стресс в пути в плане дня — плюс спontaneous reroute.",
+  "mapNavLayerTitle": "Интеллект трения по остановкам",
   "mapPlanDayEmpty": "Добавьте пункты назначения в закладки (♥), и Луксора построит оптимизированный маршрут из вашего узла в Орландо — минимум поездок, максимум ощущений.",
   "mapPlanDayHomeBase": "Начиная с {hotel}",
   "@mapPlanDayHomeBase": {
@@ -780,6 +780,39 @@
     }
   },
   "paywallHeadlineMiamiDefault": "ОПЫТ МАЙАМИ ПО-РАЗНОМУ",
+  "keysWaterIntelTitle": "Водная аналитика Кис",
+  "keysWaterBestTime": "Лучшее окно: {time}",
+  "@keysWaterBestTime": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "keysWaterTemp": "Вода: {note}",
+  "@keysWaterTemp": {
+    "placeholders": {
+      "note": {
+        "type": "String"
+      }
+    }
+  },
+  "keysWaterSnorkelScore": "Снорклинг",
+  "keysWaterDivingScore": "Дайвинг",
+  "keysWaterBoatingScore": "Лодка",
+  "keysWaterFishingScore": "Рыбалка",
+  "keysWaterWindScore": "Ветер",
+  "keysWaterSunsetScore": "Закат",
+  "keysWaterCrowdScore": "Люди",
+  "keysMoodRoutesTitle": "Островные маршруты Кис",
+  "keysMoodRouteStart": "Старт {time}",
+  "@keysMoodRouteStart": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
   "paywallHeadlineMiamiWeekend": "НЕ ПОТЕРЯЙТЕ СВОИ ВЫХОДНЫЕ В МАЙАМИ",
   "paywallHeroEyebrow": "ВАШ ЛИЧНЫЙ КОНСЬЕРЖ",
   "paywallHeroHeadline": "НЕ ПОТЕРЯЙТЕ СВОЙ ОТПУСК",
@@ -867,6 +900,10 @@
   "radiusDesc50Miami": "Винвуд, Коконат Гроув, Ки-Бискейн",
   "radiusDescAll": "Кис, Майами, достопримечательности штата",
   "radiusDescAllMiami": "Тропа Флорида-Кис и достопримечательности штата",
+  "radiusDesc25Keys": "Ки-Ларго, Исламорада и северный рифовый коридор",
+  "radiusDesc50Keys": "Маратон, Биг-Пайн и пляжи средних Кис",
+  "radiusDesc100Keys": "Вся Overseas Highway до Ки-Уэста",
+  "radiusDescAllKeys": "Вся цепь островов и воды для однодневных поездок",
   "rightNowButton": "Что нам следует делать прямо сейчас?",
   "rightNowEmpty": "В вашем радиусе пока нет сильных моментов — расширьте список избранных или добавьте в закладки несколько избранных.",
   "rightNowFamilyCalm": "Спокойствие перед сном — {minutes} минут до легкой семейной перезагрузки в {place}.",
@@ -1007,6 +1044,7 @@
   "settings": "Настройки",
   "settingsStartOverSubtitle": "Начните новое путешествие с нуля",
   "settingsUnlockConciergeSubtitle": "Одноразовый городской пакет — не подписка",
+  "settingsOpenConciergeSubtitle": "Открыть вкладку ИИ-консьержа",
   "settingsUnlockConciergeTitle": "Разблокировать городского консьержа",
   "settings_language_picker_note": "Изменения вступают в силу немедленно.",
   "settings_regions_coming_subtitle": "Домашний хаб и городские пакеты — скоро.",
@@ -1434,6 +1472,52 @@
         "type": "String"
       },
       "speed": {
+        "type": "int"
+      }
+    }
+  },
+  "mapParkingLevelEasy": "Легко",
+  "mapParkingLevelModerate": "Умеренно",
+  "mapParkingLevelDifficult": "Сложно",
+  "mapParkingLevelLimited": "Ограничено · приезжайте рано",
+  "mapParkingAtStop": "Парковка: {level}",
+  "@mapParkingAtStop": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "mapDriveFrictionAtStop": "Стресс в пути: {score}/90",
+  "@mapDriveFrictionAtStop": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "detailTravelIntelTitle": "Прогноз трения поездки",
+  "detailTravelIntelSubtitle": "Прогноз по категории, времени и расстоянию — без live-сенсоров.",
+  "detailCrowdOutlook": "Толпа: {level}",
+  "@detailCrowdOutlook": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "detailParkingOutlook": "Парковка: {level}",
+  "@detailParkingOutlook": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "detailDriveFrictionOutlook": "Стресс в пути: {score}/90",
+  "@detailDriveFrictionOutlook": {
+    "placeholders": {
+      "score": {
         "type": "int"
       }
     }

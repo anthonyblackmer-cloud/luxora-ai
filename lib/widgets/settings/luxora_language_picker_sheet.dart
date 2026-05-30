@@ -12,8 +12,19 @@ class LuxoraLanguagePickerSheet extends StatelessWidget {
     return showModalBottomSheet<void>(
       context: context,
       isScrollControlled: true,
+      useSafeArea: true,
       backgroundColor: Colors.transparent,
-      builder: (ctx) => const LuxoraLanguagePickerSheet(),
+      builder: (ctx) => FractionallySizedBox(
+        heightFactor: 0.88,
+        alignment: Alignment.bottomCenter,
+        widthFactor: 1,
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 920),
+            child: const LuxoraLanguagePickerSheet(),
+          ),
+        ),
+      ),
     );
   }
 
@@ -27,6 +38,7 @@ class LuxoraLanguagePickerSheet extends StatelessWidget {
 
     return LuxoraPremiumSheetShell(
       title: l.language,
+      heightFraction: 1,
       footer: Padding(
         padding: const EdgeInsets.fromLTRB(24, 8, 24, 16),
         child: Text(

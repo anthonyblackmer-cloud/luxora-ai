@@ -546,6 +546,18 @@ class AppLocalizationsHi extends AppLocalizations {
       'फ़्लोरिडा कीज़ ट्रेल और राज्यव्यापी मुख्य आकर्षण';
 
   @override
+  String get radiusDesc25Keys => 'की लार्गो, इस्लामोराडा और ऊपरी रीफ कॉरिडोर';
+
+  @override
+  String get radiusDesc50Keys => 'मैराथन, बिग पाइन और मध्य कीज़ समुद्र तट';
+
+  @override
+  String get radiusDesc100Keys => 'की वेस्ट तक पूरी ओवरसीज़ हाईवे';
+
+  @override
+  String get radiusDescAllKeys => 'पूरी द्वीप श्रृंखला और दिन-यात्रा जल';
+
+  @override
   String get feedBadge => 'लाइव खोज';
 
   @override
@@ -702,6 +714,28 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String mapCrowdAtStop(String level) {
     return 'भीड़: $level';
+  }
+
+  @override
+  String get mapParkingLevelEasy => 'आसान';
+
+  @override
+  String get mapParkingLevelModerate => 'मध्यम';
+
+  @override
+  String get mapParkingLevelDifficult => 'कठिन';
+
+  @override
+  String get mapParkingLevelLimited => 'सीमित · जल्दी पहुँचें';
+
+  @override
+  String mapParkingAtStop(String level) {
+    return 'पार्किंग: $level';
+  }
+
+  @override
+  String mapDriveFrictionAtStop(int score) {
+    return 'ड्राइव घर्षण: $score/90';
   }
 
   @override
@@ -947,11 +981,11 @@ class AppLocalizationsHi extends AppLocalizations {
   String get mapAiPowers => 'एआई मानचित्र शक्तियाँ';
 
   @override
-  String get mapNavLayerTitle => 'एआई नेविगेशन परत (अगला)';
+  String get mapNavLayerTitle => 'स्टॉप घर्षण इंटेल';
 
   @override
   String get mapNavLayerSubtitle =>
-      'खोज से परे - इस समय रुकना उचित है या नहीं, इस पर लाइव इंटेलिजेंस।';
+      'योजना में भीड़, पार्किंग और ड्राइव तनाव — और स्पontaneous reroute।';
 
   @override
   String get mapBookingTitle => 'निर्बाध बुकिंग (साझेदार)';
@@ -1006,25 +1040,25 @@ class AppLocalizationsHi extends AppLocalizations {
       'आपकी यात्रा का अनुभव, गति और बजट वास्तविक समय में मानचित्र को नया आकार देते हैं।';
 
   @override
-  String get mapFutureCrowdTitle => 'लाइव भीड़ गर्मी';
+  String get mapFutureCrowdTitle => 'भीड़ का अनुमान';
 
   @override
   String get mapFutureCrowdDesc =>
-      'झरनों, पार्कों और वायरल छतों पर वास्तविक समय घनत्व - अभी इसके लायक है?';
+      'Plan my day में हर स्टॉप पर शांत से भरी हुई का अनुमानित समय।';
 
   @override
-  String get mapFutureParkingTitle => 'पार्किंग की कठिनाई';
+  String get mapFutureParkingTitle => 'पार्किंग अनुमान';
 
   @override
   String get mapFutureParkingDesc =>
-      'आपके प्रतिबद्ध होने से पहले घर्षण स्कोर - वैलेट, गेराज, या राइडशेयर स्वीट स्पॉट।';
+      'निकलने से पहले valet, गैरेज और आगमन की अनुमानित परेशानी।';
 
   @override
-  String get mapFutureTrafficTitle => 'ड्राइव घर्षण स्कोर';
+  String get mapFutureTrafficTitle => 'Drive friction score';
 
   @override
   String get mapFutureTrafficDesc =>
-      'तनाव-भारित रूटिंग - न केवल मिनट, बल्कि ड्राइव कैसा महसूस करेगी।';
+      'दिन की योजना में प्रत्येक leg पर तनाव स्कोर — सिर्फ मिनट नहीं।';
 
   @override
   String get mapFutureRerouteTitle => 'स्वतःस्फूर्त पुनः मार्ग';
@@ -1167,6 +1201,28 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get detailCrowd => 'भीड़';
+
+  @override
+  String get detailTravelIntelTitle => 'यात्रा घर्षण अनुमान';
+
+  @override
+  String get detailTravelIntelSubtitle =>
+      'श्रेणी, समय और दूरी से अनुमान — लाइव सेंसर नहीं।';
+
+  @override
+  String detailCrowdOutlook(String level) {
+    return 'भीड़: $level';
+  }
+
+  @override
+  String detailParkingOutlook(String level) {
+    return 'पार्किंग: $level';
+  }
+
+  @override
+  String detailDriveFrictionOutlook(int score) {
+    return 'ड्राइव घर्षण: $score/90';
+  }
 
   @override
   String get detailPrice => 'कीमत';
@@ -2569,6 +2625,9 @@ class AppLocalizationsHi extends AppLocalizations {
       'एक बार का सिटी पैक - सदस्यता नहीं';
 
   @override
+  String get settingsOpenConciergeSubtitle => 'अपना AI दरबान टैब खोलें';
+
+  @override
   String get weatherMiamiHumidityIndoor =>
       'आज उच्च आर्द्रता. सबसे पहले समुद्र तट या पूल पर जाएँ, फिर सबसे गर्म घंटों के दौरान इनडोर भोजन और दीर्घाओं के लिए वेनवुड या ब्रिकेल पर जाएँ।';
 
@@ -2643,6 +2702,48 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String miamiMoodRouteStart(String time) {
     return '$time के आसपास प्रारंभ करें';
+  }
+
+  @override
+  String get keysWaterIntelTitle => 'कीज़ जल खुफिया';
+
+  @override
+  String keysWaterBestTime(String time) {
+    return 'सर्वोत्तम समय: $time';
+  }
+
+  @override
+  String keysWaterTemp(String note) {
+    return 'पानी: $note';
+  }
+
+  @override
+  String get keysWaterSnorkelScore => 'स्नॉर्कल';
+
+  @override
+  String get keysWaterDivingScore => 'गोताखोरी';
+
+  @override
+  String get keysWaterBoatingScore => 'नौका';
+
+  @override
+  String get keysWaterFishingScore => 'मछली';
+
+  @override
+  String get keysWaterWindScore => 'हवा';
+
+  @override
+  String get keysWaterSunsetScore => 'सूर्यास्त';
+
+  @override
+  String get keysWaterCrowdScore => 'भीड़';
+
+  @override
+  String get keysMoodRoutesTitle => 'कीज़ द्वीप मार्ग';
+
+  @override
+  String keysMoodRouteStart(String time) {
+    return 'शुरू $time';
   }
 
   @override

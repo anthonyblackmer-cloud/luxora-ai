@@ -501,19 +501,19 @@
   "mapCrowdLevelModerate": "Mäßig",
   "mapCrowdLevelPacked": "Verpackt",
   "mapCrowdLevelQuiet": "Ruhig",
-  "mapFutureCrowdDesc": "Echtzeitdichte bei Quellen, Parks und viralen Rooftops: lohnt es sich gerade?",
-  "mapFutureCrowdTitle": "Live-Andrangskarte",
-  "mapFutureParkingDesc": "Reibungsscore, bevor du dich festlegst: Valet, Parkhaus oder idealer Rideshare-Punkt.",
-  "mapFutureParkingTitle": "Parkschwierigkeit",
+  "mapFutureCrowdDesc": "Prognose von ruhig bis voll auf jedem Stopp in „Plan my day“.",
+  "mapFutureCrowdTitle": "Andrang-Ausblick",
+  "mapFutureParkingDesc": "Geschätzte Reibung bei Valet, Parkhaus und Ankunft — vor dem Losfahren.",
+  "mapFutureParkingTitle": "Park-Ausblick",
   "mapFutureRerouteDesc": "Wetterwechsel oder Besucheransturm? Ein Tipp formt den Rest deines Tages neu.",
   "mapFutureRerouteTitle": "Spontane Umleitung",
-  "mapFutureTrafficDesc": "Stressgewichtete Routen: nicht nur Minuten, sondern wie sich die Fahrt anfühlt.",
-  "mapFutureTrafficTitle": "Fahrstress-Score",
+  "mapFutureTrafficDesc": "Stressgewichtete Etappen-Scores im Tagesplan — nicht nur Fahrminuten.",
+  "mapFutureTrafficTitle": "Drive friction score",
   "mapHotelIntelBannerBody": "Ihr Hotel bestimmt die Fahrzeiten, den Tagesablauf und den Ort, an dem Sie essen. Luxora hilft Ihnen bei der Auswahl – ohne Buchungsdruck.",
   "mapHotelIntelBannerCta": "Entdecken Sie Hotel Intelligence",
   "mapHotelIntelBannerTitle": "Wählen Sie die richtige Heimatbasis",
-  "mapNavLayerSubtitle": "Mehr als Entdeckung: Live-Intelligenz, ob sich ein Stopp gerade lohnt.",
-  "mapNavLayerTitle": "KI-Navigationsebene (als Nächstes)",
+  "mapNavLayerSubtitle": "Andrang, Parken und Fahrstress im Tagesplan — plus spontane Umleitung.",
+  "mapNavLayerTitle": "Reibungs-Intelligenz pro Stopp",
   "mapPlanDayEmpty": "Setzen Sie ein Lesezeichen für Ziele (♥) und Luxora erstellt eine optimierte Route von Ihrem Drehkreuz in Orlando aus – am wenigsten fahren, am meisten Gefühl.",
   "mapPlanDayHomeBase": "Ab {hotel}",
   "@mapPlanDayHomeBase": {
@@ -780,6 +780,39 @@
     }
   },
   "paywallHeadlineMiamiDefault": "ERLEBEN SIE MIAMI ANDERS",
+  "keysWaterIntelTitle": "Keys Wasser-Intelligence",
+  "keysWaterBestTime": "Bestes Fenster: {time}",
+  "@keysWaterBestTime": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "keysWaterTemp": "Wasser: {note}",
+  "@keysWaterTemp": {
+    "placeholders": {
+      "note": {
+        "type": "String"
+      }
+    }
+  },
+  "keysWaterSnorkelScore": "Schnorcheln",
+  "keysWaterDivingScore": "Tauchen",
+  "keysWaterBoatingScore": "Boot",
+  "keysWaterFishingScore": "Angeln",
+  "keysWaterWindScore": "Wind",
+  "keysWaterSunsetScore": "Sonnenuntergang",
+  "keysWaterCrowdScore": "Menschenmenge",
+  "keysMoodRoutesTitle": "Keys-Inselrouten",
+  "keysMoodRouteStart": "Start {time}",
+  "@keysMoodRouteStart": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
   "paywallHeadlineMiamiWeekend": "Verschwenden Sie nicht Ihr Miami-Wochenende",
   "paywallHeroEyebrow": "IHR PERSÖNLICHER CONCIERGE",
   "paywallHeroHeadline": "VERGEBEN SIE IHREN URLAUB NICHT",
@@ -867,6 +900,10 @@
   "radiusDesc50Miami": "Wynwood, Coconut Grove, Key Biscayne",
   "radiusDescAll": "Keys, Miami und Highlights im ganzen Staat",
   "radiusDescAllMiami": "Florida Keys Trail und landesweite Highlights",
+  "radiusDesc25Keys": "Key Largo, Islamorada und oberes Riff",
+  "radiusDesc50Keys": "Marathon, Big Pine und mittlere Keys-Strände",
+  "radiusDesc100Keys": "Gesamte Overseas Highway bis Key West",
+  "radiusDescAllKeys": "Ganze Inselkette und Tagesausflugsgewässer",
   "rightNowButton": "Was sollen wir jetzt tun?",
   "rightNowEmpty": "Noch kein starker Moment in Ihrem Umkreis – erweitern Sie, entdecken Sie ein paar Favoriten oder setzen Sie ein Lesezeichen.",
   "rightNowFamilyCalm": "Ruhiges Nickerchenfenster – {minutes} Minuten bis zu einem einfachen Familien-Reset am {place}.",
@@ -1007,6 +1044,7 @@
   "settings": "Einstellungen",
   "settingsStartOverSubtitle": "Beginnen Sie eine völlig neue Reise",
   "settingsUnlockConciergeSubtitle": "Einmaliges City-Paket – kein Abonnement",
+  "settingsOpenConciergeSubtitle": "Zum KI-Concierge-Tab wechseln",
   "settingsUnlockConciergeTitle": "Stadt-Concierge freischalten",
   "settings_language_picker_note": "Änderungen werden sofort übernommen.",
   "settings_regions_coming_subtitle": "Home-Hub und Städtepakete, bald verfügbar.",
@@ -1434,6 +1472,52 @@
         "type": "String"
       },
       "speed": {
+        "type": "int"
+      }
+    }
+  },
+  "mapParkingLevelEasy": "Einfach",
+  "mapParkingLevelModerate": "Mäßig",
+  "mapParkingLevelDifficult": "Schwierig",
+  "mapParkingLevelLimited": "Begrenzt · früh ankommen",
+  "mapParkingAtStop": "Parken: {level}",
+  "@mapParkingAtStop": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "mapDriveFrictionAtStop": "Fahrstress: {score}/90",
+  "@mapDriveFrictionAtStop": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "detailTravelIntelTitle": "Reibungs-Ausblick",
+  "detailTravelIntelSubtitle": "Prognose aus Kategorie, Uhrzeit und Entfernung — keine Live-Sensoren.",
+  "detailCrowdOutlook": "Andrang: {level}",
+  "@detailCrowdOutlook": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "detailParkingOutlook": "Parken: {level}",
+  "@detailParkingOutlook": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "detailDriveFrictionOutlook": "Fahrstress: {score}/90",
+  "@detailDriveFrictionOutlook": {
+    "placeholders": {
+      "score": {
         "type": "int"
       }
     }

@@ -59,31 +59,35 @@ const mapAiCapabilities = [
   ),
 ];
 
-/// Flagship map layer — AI navigation beyond discovery (roadmap).
+/// Navigation layer — stop intel + reroute on Plan my day (predicted, not live sensors).
 const mapAiCapabilitiesFuture = [
   MapAiCapability(
     icon: Icons.local_fire_department_outlined,
-    title: 'Live crowd heat',
+    title: 'Crowd outlook',
     description:
-        'Real-time density on springs, parks, and viral rooftops — worth it right now?',
+        'Predicted quiet-to-packed windows on each stop in Plan my day.',
+    comingSoon: false,
   ),
   MapAiCapability(
     icon: Icons.local_parking_outlined,
-    title: 'Parking difficulty',
+    title: 'Parking outlook',
     description:
-        'Friction score before you commit — valet, garage, or rideshare sweet spot.',
+        'Estimated valet, garage, and arrival friction before you go.',
+    comingSoon: false,
   ),
   MapAiCapability(
     icon: Icons.traffic_outlined,
     title: 'Drive friction score',
     description:
-        'Stress-weighted routing — not just minutes, but how the drive will feel.',
+        'Stress-weighted leg scores on your day plan — not just drive minutes.',
+    comingSoon: false,
   ),
   MapAiCapability(
-    icon: Icons.swap_calls_rounded,
+    icon: Icons.alt_route_rounded,
     title: 'Spontaneous reroute',
     description:
         'Weather shift or crowd spike? One tap to reshape the rest of your day.',
+    comingSoon: false,
   ),
 ];
 

@@ -501,19 +501,19 @@
   "mapCrowdLevelModerate": "मध्यम",
   "mapCrowdLevelPacked": "पैक्ड",
   "mapCrowdLevelQuiet": "शांत",
-  "mapFutureCrowdDesc": "झरनों, पार्कों और वायरल छतों पर वास्तविक समय घनत्व - अभी इसके लायक है?",
-  "mapFutureCrowdTitle": "लाइव भीड़ गर्मी",
-  "mapFutureParkingDesc": "आपके प्रतिबद्ध होने से पहले घर्षण स्कोर - वैलेट, गेराज, या राइडशेयर स्वीट स्पॉट।",
-  "mapFutureParkingTitle": "पार्किंग की कठिनाई",
+  "mapFutureCrowdDesc": "Plan my day में हर स्टॉप पर शांत से भरी हुई का अनुमानित समय।",
+  "mapFutureCrowdTitle": "भीड़ का अनुमान",
+  "mapFutureParkingDesc": "निकलने से पहले valet, गैरेज और आगमन की अनुमानित परेशानी।",
+  "mapFutureParkingTitle": "पार्किंग अनुमान",
   "mapFutureRerouteDesc": "मौसम में बदलाव या भीड़ में बढ़ोतरी? अपने शेष दिन को नया आकार देने के लिए एक टैप।",
   "mapFutureRerouteTitle": "स्वतःस्फूर्त पुनः मार्ग",
-  "mapFutureTrafficDesc": "तनाव-भारित रूटिंग - न केवल मिनट, बल्कि ड्राइव कैसा महसूस करेगी।",
-  "mapFutureTrafficTitle": "ड्राइव घर्षण स्कोर",
+  "mapFutureTrafficDesc": "दिन की योजना में प्रत्येक leg पर तनाव स्कोर — सिर्फ मिनट नहीं।",
+  "mapFutureTrafficTitle": "Drive friction score",
   "mapHotelIntelBannerBody": "आपके होटल का आकार, यात्रा का समय, दिन का प्रवाह और आप कहाँ खाते हैं। लक्सोरा आपको चुनने में मदद करता है - बुकिंग के दबाव के बिना।",
   "mapHotelIntelBannerCta": "होटल इंटेलिजेंस का अन्वेषण करें",
   "mapHotelIntelBannerTitle": "सही घरेलू आधार चुनें",
-  "mapNavLayerSubtitle": "खोज से परे - इस समय रुकना उचित है या नहीं, इस पर लाइव इंटेलिजेंस।",
-  "mapNavLayerTitle": "एआई नेविगेशन परत (अगला)",
+  "mapNavLayerSubtitle": "योजना में भीड़, पार्किंग और ड्राइव तनाव — और स्पontaneous reroute।",
+  "mapNavLayerTitle": "स्टॉप घर्षण इंटेल",
   "mapPlanDayEmpty": "गंतव्यों को बुकमार्क करें (♥) और लक्सोरा आपके ऑरलैंडो हब से एक अनुकूलित मार्ग बनाता है - सबसे कम ड्राइविंग, सबसे अधिक अहसास।",
   "mapPlanDayHomeBase": "{hotel} से शुरू",
   "@mapPlanDayHomeBase": {
@@ -780,6 +780,39 @@
     }
   },
   "paywallHeadlineMiamiDefault": "मियामी को अलग तरह से अनुभव करें",
+  "keysWaterIntelTitle": "कीज़ जल खुफिया",
+  "keysWaterBestTime": "सर्वोत्तम समय: {time}",
+  "@keysWaterBestTime": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "keysWaterTemp": "पानी: {note}",
+  "@keysWaterTemp": {
+    "placeholders": {
+      "note": {
+        "type": "String"
+      }
+    }
+  },
+  "keysWaterSnorkelScore": "स्नॉर्कल",
+  "keysWaterDivingScore": "गोताखोरी",
+  "keysWaterBoatingScore": "नौका",
+  "keysWaterFishingScore": "मछली",
+  "keysWaterWindScore": "हवा",
+  "keysWaterSunsetScore": "सूर्यास्त",
+  "keysWaterCrowdScore": "भीड़",
+  "keysMoodRoutesTitle": "कीज़ द्वीप मार्ग",
+  "keysMoodRouteStart": "शुरू {time}",
+  "@keysMoodRouteStart": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
   "paywallHeadlineMiamiWeekend": "अपना मियामी सप्ताहांत बर्बाद मत करो",
   "paywallHeroEyebrow": "आपका व्यक्तिगत द्वारपाल",
   "paywallHeroHeadline": "अपनी छुट्टियाँ बर्बाद मत करो",
@@ -867,6 +900,10 @@
   "radiusDesc50Miami": "विनवुड, कोकोनट ग्रोव, की बिस्केन",
   "radiusDescAll": "कीज़, मियामी, राज्यव्यापी मुख्य आकर्षण",
   "radiusDescAllMiami": "फ़्लोरिडा कीज़ ट्रेल और राज्यव्यापी मुख्य आकर्षण",
+  "radiusDesc25Keys": "की लार्गो, इस्लामोराडा और ऊपरी रीफ कॉरिडोर",
+  "radiusDesc50Keys": "मैराथन, बिग पाइन और मध्य कीज़ समुद्र तट",
+  "radiusDesc100Keys": "की वेस्ट तक पूरी ओवरसीज़ हाईवे",
+  "radiusDescAllKeys": "पूरी द्वीप श्रृंखला और दिन-यात्रा जल",
   "rightNowButton": "हमें अभी क्या करना चाहिए?",
   "rightNowEmpty": "आपके दायरे में अभी तक कोई मजबूत क्षण नहीं है - कुछ पसंदीदा खोजें या बुकमार्क करें।",
   "rightNowFamilyCalm": "झपकी-खिड़की शांत - {minutes} पर एक आसान पारिवारिक रीसेट के लिए {place} मिनट।",
@@ -1007,6 +1044,7 @@
   "settings": "सेटिंग्स",
   "settingsStartOverSubtitle": "नए सिरे से एक नई यात्रा शुरू करें",
   "settingsUnlockConciergeSubtitle": "एक बार का सिटी पैक - सदस्यता नहीं",
+  "settingsOpenConciergeSubtitle": "अपना AI दरबान टैब खोलें",
   "settingsUnlockConciergeTitle": "शहर द्वारपाल को अनलॉक करें",
   "settings_language_picker_note": "परिवर्तन तुरंत लागू होते हैं.",
   "settings_regions_coming_subtitle": "होम हब और सिटी पैक - जल्द ही आ रहे हैं।",
@@ -1434,6 +1472,52 @@
         "type": "String"
       },
       "speed": {
+        "type": "int"
+      }
+    }
+  },
+  "mapParkingLevelEasy": "आसान",
+  "mapParkingLevelModerate": "मध्यम",
+  "mapParkingLevelDifficult": "कठिन",
+  "mapParkingLevelLimited": "सीमित · जल्दी पहुँचें",
+  "mapParkingAtStop": "पार्किंग: {level}",
+  "@mapParkingAtStop": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "mapDriveFrictionAtStop": "ड्राइव घर्षण: {score}/90",
+  "@mapDriveFrictionAtStop": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "detailTravelIntelTitle": "यात्रा घर्षण अनुमान",
+  "detailTravelIntelSubtitle": "श्रेणी, समय और दूरी से अनुमान — लाइव सेंसर नहीं।",
+  "detailCrowdOutlook": "भीड़: {level}",
+  "@detailCrowdOutlook": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "detailParkingOutlook": "पार्किंग: {level}",
+  "@detailParkingOutlook": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "detailDriveFrictionOutlook": "ड्राइव घर्षण: {score}/90",
+  "@detailDriveFrictionOutlook": {
+    "placeholders": {
+      "score": {
         "type": "int"
       }
     }

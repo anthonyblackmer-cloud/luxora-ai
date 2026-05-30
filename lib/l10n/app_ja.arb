@@ -501,19 +501,19 @@
   "mapCrowdLevelModerate": "適度",
   "mapCrowdLevelPacked": "詰め込まれた",
   "mapCrowdLevelQuiet": "静かな",
-  "mapFutureCrowdDesc": "泉、公園、ウイルスが蔓延する屋上のリアルタイムの密度 - 今すぐに価値があるでしょうか?",
-  "mapFutureCrowdTitle": "ライブの観客の熱気",
-  "mapFutureParkingDesc": "コミットする前の摩擦スコア - 係員付きサービス、ガレージ、またはライドシェアのスイート スポット。",
-  "mapFutureParkingTitle": "駐車の困難さ",
+  "mapFutureCrowdDesc": "Plan my dayの各停車地で静か〜混雑の予測ウィンドウ。",
+  "mapFutureCrowdTitle": "混雑見通し",
+  "mapFutureParkingDesc": "出発前のバレー・ガレージ・到着の推定負担。",
+  "mapFutureParkingTitle": "駐車見通し",
   "mapFutureRerouteDesc": "天候の変化か、それとも観客の急増か？ワンタップで一日の残りの時間を作り直します。",
   "mapFutureRerouteTitle": "自発的な再ルート",
-  "mapFutureTrafficDesc": "ストレスを加重したルーティング — 単なる分ではなく、ドライブの感触を考慮します。",
-  "mapFutureTrafficTitle": "ドライブフリクションスコア",
+  "mapFutureTrafficDesc": "日次プラン各 leg のストレススコア — 分だけではありません。",
+  "mapFutureTrafficTitle": "Drive friction score",
   "mapHotelIntelBannerBody": "ホテルによって、車での移動時間、一日の流れ、食事場所が決まります。 Luxora は、予約にプレッシャーをかけることなく、商品選びをお手伝いします。",
   "mapHotelIntelBannerCta": "ホテル インテリジェンスを探索する",
   "mapHotelIntelBannerTitle": "適切なホームベースを選択する",
-  "mapNavLayerSubtitle": "発見を超えて - 今すぐ立ち寄る価値があるかどうかについての生きた情報。",
-  "mapNavLayerTitle": "AI ナビゲーション層 (次)",
+  "mapNavLayerSubtitle": "プラン内の混雑・駐車・運転ストレス — ワンタップ再ルート付き。",
+  "mapNavLayerTitle": "停車地フリクション",
   "mapPlanDayEmpty": "目的地をブックマーク (♥) すると、Luxora がオーランドのハブから最適化されたルートを構築します。運転は最小限で、気分は最高です。",
   "mapPlanDayHomeBase": "{hotel}から出発",
   "@mapPlanDayHomeBase": {
@@ -780,6 +780,39 @@
     }
   },
   "paywallHeadlineMiamiDefault": "マイアミを一味違った体験してみませんか",
+  "keysWaterIntelTitle": "キーズ水域インテリジェンス",
+  "keysWaterBestTime": "最適な時間: {time}",
+  "@keysWaterBestTime": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "keysWaterTemp": "水温: {note}",
+  "@keysWaterTemp": {
+    "placeholders": {
+      "note": {
+        "type": "String"
+      }
+    }
+  },
+  "keysWaterSnorkelScore": "シュノーケル",
+  "keysWaterDivingScore": "ダイビング",
+  "keysWaterBoatingScore": "ボート",
+  "keysWaterFishingScore": "釣り",
+  "keysWaterWindScore": "風",
+  "keysWaterSunsetScore": "夕日",
+  "keysWaterCrowdScore": "混雑",
+  "keysMoodRoutesTitle": "キーズ島ルート",
+  "keysMoodRouteStart": "開始 {time}",
+  "@keysMoodRouteStart": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
   "paywallHeadlineMiamiWeekend": "マイアミの週末を無駄にしないでください",
   "paywallHeroEyebrow": "あなたの専属コンシェルジュ",
   "paywallHeroHeadline": "休暇を無駄にしないでください",
@@ -867,6 +900,10 @@
   "radiusDesc50Miami": "ウィンウッド、ココナッツ グローブ、キー ビスケーン",
   "radiusDescAll": "マイアミ州キーズ、州全体のハイライト",
   "radiusDescAllMiami": "フロリダキーズのトレイルと州全体のハイライト",
+  "radiusDesc25Keys": "キーラーゴ、イスラモラーダ、北部リーフ回廊",
+  "radiusDesc50Keys": "マラソン、ビッグパイン、中Keysのビーチ",
+  "radiusDesc100Keys": "キーウェストまでの全オーバーシーズハイウェイ",
+  "radiusDescAllKeys": "島チェーン全体と日帰り水域",
   "rightNowButton": "私たちは今何をすべきでしょうか？",
   "rightNowEmpty": "まだあなたの周囲に強烈な瞬間はありません。お気に入りをいくつか見つけたり、ブックマークしたりしてください。",
   "rightNowFamilyCalm": "昼寝のような静けさ — {minutes} で家族が簡単にリセットできるまで、あと {place} 分です。",
@@ -1007,6 +1044,7 @@
   "settings": "設定",
   "settingsStartOverSubtitle": "新たな旅を一から始める",
   "settingsUnlockConciergeSubtitle": "1 回限りのシティ パック — サブスクリプションではありません",
+  "settingsOpenConciergeSubtitle": "AIコンシェルジュタブを開く",
   "settingsUnlockConciergeTitle": "シティコンシェルジュのロックを解除する",
   "settings_language_picker_note": "変更はすぐに適用されます。",
   "settings_regions_coming_subtitle": "ホームハブパックとシティパックは近日発売予定です。",
@@ -1434,6 +1472,52 @@
         "type": "String"
       },
       "speed": {
+        "type": "int"
+      }
+    }
+  },
+  "mapParkingLevelEasy": "簡単",
+  "mapParkingLevelModerate": "普通",
+  "mapParkingLevelDifficult": "難しい",
+  "mapParkingLevelLimited": "限られ · 早めに到着",
+  "mapParkingAtStop": "駐車: {level}",
+  "@mapParkingAtStop": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "mapDriveFrictionAtStop": "ドライブ負担: {score}/90",
+  "@mapDriveFrictionAtStop": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "detailTravelIntelTitle": "旅の摩擦見通し",
+  "detailTravelIntelSubtitle": "カテゴリ・時間・距離から予測 — ライブセンサーなし。",
+  "detailCrowdOutlook": "混雑: {level}",
+  "@detailCrowdOutlook": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "detailParkingOutlook": "駐車: {level}",
+  "@detailParkingOutlook": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "detailDriveFrictionOutlook": "ドライブ負担: {score}/90",
+  "@detailDriveFrictionOutlook": {
+    "placeholders": {
+      "score": {
         "type": "int"
       }
     }

@@ -1,11 +1,13 @@
 import 'package:latlong2/latlong.dart';
 import 'package:luxora_ai/data/hotels_catalog.dart';
+import 'package:luxora_ai/data/florida_keys/florida_keys_hotels_catalog.dart';
 import 'package:luxora_ai/data/miami/miami_hotels_catalog.dart';
 import 'package:luxora_ai/l10n/app_localizations.dart';
 import 'package:luxora_ai/models/lux_hotel.dart';
 import 'package:luxora_ai/models/lux_place.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
 import 'package:luxora_ai/services/day_flow_planner.dart';
+import 'package:luxora_ai/services/drive_friction_service.dart';
 import 'package:luxora_ai/services/city_pack_registry.dart';
 import 'package:luxora_ai/services/places_repository.dart';
 import 'package:luxora_ai/util/place_distance.dart';
@@ -16,11 +18,14 @@ abstract final class HotelIntelligenceService {
     final ids = CityPackRegistry.instance.hotelIntelIds.toSet();
     final orlando = HotelsCatalog.all.where((h) => ids.contains(h.id));
     final miami = MiamiHotelsCatalog.all.where((h) => ids.contains(h.id));
-    return [...orlando, ...miami];
+    final keys = FloridaKeysHotelsCatalog.all.where((h) => ids.contains(h.id));
+    return [...orlando, ...miami, ...keys];
   }
 
   static LuxHotel? hotelById(String id) =>
-      HotelsCatalog.byId(id) ?? MiamiHotelsCatalog.byId(id);
+      HotelsCatalog.byId(id) ??
+      MiamiHotelsCatalog.byId(id) ??
+      FloridaKeysHotelsCatalog.byId(id);
 
   static LuxPlace? placeFor(LuxHotel hotel) =>
       PlacesRepository.instance.byId(hotel.placeId);
@@ -347,11 +352,12 @@ abstract final class HotelIntelligenceService {
   }
 
   static int travelFrictionScore(LuxHotel hotel) {
+    final place = placeFor(hotel);
+    if (place == null) return 50;
+
+    var friction = DriveFrictionService.scoreFromHub(place);
     final walk = hotel.walkabilityScore;
-    final miles = _milesFromHub(hotel);
-    var friction = 50;
     friction -= (walk - 50) ~/ 3;
-    friction += (miles - 10).round().clamp(0, 20);
     if (hotel.bestForTags.contains(HotelBestForTag.resortFeel)) {
       friction -= 8;
     }

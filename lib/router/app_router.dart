@@ -51,6 +51,7 @@ GoRouter createAppRouter() {
         builder: (context, state) => _luxPage(const WhyLuxoraScreen()),
       ),
       GoRoute(
+        parentNavigatorKey: _rootKey,
         path: '/paywall',
         pageBuilder: (context, state) {
           final cityId = state.uri.queryParameters['city'] ?? 'orlando';

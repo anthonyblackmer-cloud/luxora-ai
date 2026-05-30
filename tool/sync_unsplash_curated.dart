@@ -51,23 +51,24 @@ Future<void> main(List<String> args) async {
 
   final outFile = File('assets/unsplash/curated.json');
   await outFile.parent.create(recursive: true);
-  final photos = onlyPlace != null
-      ? await _loadCurated(outFile)
-      : <Map<String, dynamic>>[];
+  final photos = await _loadCurated(outFile);
 
+  var skipped = 0;
   for (final entry in searches.entries) {
     final placeKey = entry.key;
     final query = entry.value;
     final photoId = await _searchPhotoId(query, headers);
     if (photoId == null) {
-      stderr.writeln('No results for $placeKey ($query)');
-      exit(2);
+      stderr.writeln('SKIP $placeKey — no results ($query)');
+      skipped++;
+      continue;
     }
 
     final photo = await _fetchPhoto(photoId, headers);
     if (photo == null) {
-      stderr.writeln('Failed to load photo $photoId for $placeKey');
-      exit(3);
+      stderr.writeln('SKIP $placeKey — failed to load $photoId');
+      skipped++;
+      continue;
     }
 
     final photoEntry = {...photo, 'placeKey': placeKey};
@@ -93,7 +94,13 @@ Future<void> main(List<String> args) async {
 
   stdout.writeln('Wrote ${outFile.path} (${photos.length} photos)');
   stdout.writeln('Wrote ${mapFile.path}');
-  stdout.writeln('Patched lib/data/curated_places_catalog.dart');
+  stdout.writeln('Patched curated catalog Dart files');
+  if (skipped > 0) {
+    stderr.writeln('Skipped $skipped place(s) — adjust query in unsplash_place_searches.dart');
+  }
+  if (idByPlace.isEmpty) {
+    exit(2);
+  }
 }
 
 Future<List<Map<String, dynamic>>> _loadCurated(File outFile) async {
@@ -112,31 +119,67 @@ Future<Map<String, String>> _loadPlaceIdMap(File mapFile) async {
   return decoded.map((k, v) => MapEntry(k, v as String));
 }
 
-/// Updates `unsplashPhotoId` for each place id in the catalog Dart file.
+/// Updates `unsplashPhotoId` for each place id across all curated catalog Dart files.
 Future<void> _patchCatalogPhotoIds(Map<String, String> idByPlace) async {
-  final catalogFile = File('lib/data/curated_places_catalog.dart');
-  var content = await catalogFile.readAsString();
+  const catalogFiles = [
+    'lib/data/curated_places_catalog.dart',
+    'lib/data/curated_places_attractions.dart',
+    'lib/data/curated_places_major_attractions.dart',
+    'lib/data/curated_places_dining.dart',
+    'lib/data/curated_places_lodging.dart',
+  ];
 
-  for (final entry in idByPlace.entries) {
-    final placeId = entry.key;
-    final photoId = entry.value;
-    final pattern = RegExp(
-      "(id: '$placeId',[\\s\\S]*?unsplashPhotoId: ')[^']+(')",
-    );
-    if (!pattern.hasMatch(content)) {
-      stderr.writeln('Catalog patch miss: $placeId');
-      exit(4);
+  for (final path in catalogFiles) {
+    final file = File(path);
+    if (!file.existsSync()) continue;
+
+    var content = await file.readAsString();
+    var patched = 0;
+
+    for (final entry in idByPlace.entries) {
+      final placeId = entry.key;
+      final photoId = entry.value;
+
+      if (!content.contains("id: '$placeId'")) {
+        continue;
+      }
+
+      final literalPattern = RegExp(
+        "(id: '$placeId',[\\s\\S]*?unsplashPhotoId: ')[^']+(')",
+      );
+      if (literalPattern.hasMatch(content)) {
+        content = content.replaceFirstMapped(
+          literalPattern,
+          (m) => '${m.group(1)}$photoId${m.group(2)}',
+        );
+        patched++;
+        continue;
+      }
+
+      final constPattern = RegExp(
+        "(id: '$placeId',[\\s\\S]*?unsplashPhotoId: )_Photo\\.\\w+",
+      );
+      if (constPattern.hasMatch(content)) {
+        content = content.replaceFirstMapped(
+          constPattern,
+          (m) => "${m.group(1)}'$photoId'",
+        );
+        patched++;
+        continue;
+      }
+
+      stderr.writeln('Catalog patch miss in $path: $placeId');
     }
-    content = content.replaceFirstMapped(
-      pattern,
-      (m) => '${m.group(1)}$photoId${m.group(2)}',
-    );
-  }
 
-  await catalogFile.writeAsString(content);
+    if (patched > 0) {
+      await file.writeAsString(content);
+      stdout.writeln('Patched $path ($patched places)');
+    }
+  }
 }
 
 Future<String?> _searchPhotoId(String query, Map<String, String> headers) async {
+  await Future<void>.delayed(const Duration(milliseconds: 1200));
   final uri = Uri.parse(
     'https://api.unsplash.com/search/photos?query=${Uri.encodeQueryComponent(query)}&per_page=1&orientation=landscape',
   );

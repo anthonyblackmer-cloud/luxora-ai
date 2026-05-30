@@ -2,6 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:luxora_ai/data/curated_places_catalog.dart';
 import 'package:luxora_ai/data/hotels_catalog.dart';
+import 'package:luxora_ai/data/florida_keys/florida_keys_content.dart';
+import 'package:luxora_ai/data/florida_keys/florida_keys_ticket_deals.dart';
 import 'package:luxora_ai/data/miami/miami_content.dart';
 import 'package:luxora_ai/data/miami/miami_ticket_deals.dart';
 import 'package:luxora_ai/data/orlando_hub.dart';
@@ -81,6 +83,7 @@ class CityPackRegistry extends ChangeNotifier {
     await _loadBundledPacks();
     _mergeOrlandoFromDartCatalog();
     _mergeMiamiFromDartCatalog();
+    _mergeFloridaKeysFromDartCatalog();
 
     try {
       final prefs = await SharedPreferences.getInstance();
@@ -129,6 +132,7 @@ class CityPackRegistry extends ChangeNotifier {
     const assets = [
       'assets/city_packs/city_pack_orlando.json',
       'assets/city_packs/city_pack_miami.json',
+      'assets/city_packs/city_pack_florida-keys.json',
       'assets/city_packs/city_pack_nyc.json',
       'assets/city_packs/city_pack_vegas.json',
       'assets/city_packs/city_pack_paris.json',
@@ -249,6 +253,57 @@ class CityPackRegistry extends ChangeNotifier {
       maxRadiusMiles: 75,
     );
     _cities['miami'] = miami;
+  }
+
+  void _mergeFloridaKeysFromDartCatalog() {
+    final existing = _cities['florida-keys'];
+    final keysPlaces = FloridaKeysContent.places;
+    final keysHotels = FloridaKeysContent.hotels;
+    final keys = CityPack(
+      cityId: 'florida-keys',
+      cityName: 'Florida Keys',
+      stateId: 'florida',
+      description: existing?.description ??
+          'From Key Largo reef dives to Key West sunsets — island concierge for boating, '
+          'snorkeling, fishing, and barefoot luxury across the Overseas Highway.',
+      heroImageUrl: existing?.heroImageUrl ?? 'AK2vwEobto4',
+      mapCenterLat: 24.65,
+      mapCenterLng: -81.45,
+      hubLabel: 'Florida Keys, FL',
+      supportedCategories: existing?.supportedCategories ??
+          [
+            'hotel',
+            'dining',
+            'beach',
+            'adventure',
+            'nature',
+            'wellness',
+            'luxury',
+            'foodie',
+            'water',
+          ],
+      featuredExperienceIds: keysPlaces
+          .where((p) => p.id.contains('-exp-'))
+          .map((p) => p.id)
+          .toList(),
+      featuredHotelIds: keysHotels.map((h) => h.placeId).toList(),
+      featuredRestaurantIds: keysPlaces
+          .where((p) => p.category.name == 'dining')
+          .map((p) => p.id)
+          .toList(),
+      featuredTicketDealIds:
+          floridaKeysTicketDealsCatalog.map((d) => d.id).toList(),
+      featuredHotelIntelIds: keysHotels.map((h) => h.id).toList(),
+      districts: FloridaKeysContent.districts,
+      experiences: const [],
+      feedItemPlaceIds: FloridaKeysContent.feedItemPlaceIds,
+      gemPlaceIds: FloridaKeysContent.gemPlaceIds,
+      itineraryMomentPlaceIds: FloridaKeysContent.itineraryMomentPlaceIds,
+      osmAssetPath: existing?.osmAssetPath,
+      defaultRadiusMiles: 30,
+      maxRadiusMiles: 120,
+    );
+    _cities['florida-keys'] = keys;
   }
 
   static List<DistrictPack> _orlandoDistricts() => [

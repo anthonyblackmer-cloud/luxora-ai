@@ -1,6 +1,7 @@
 import 'package:luxora_ai/data/city_content_catalog.dart';
 import 'package:luxora_ai/data/curated_places_catalog.dart';
 import 'package:luxora_ai/data/feed_items.dart';
+import 'package:luxora_ai/data/florida_keys/florida_keys_content.dart';
 import 'package:luxora_ai/data/miami/miami_content.dart';
 import 'package:luxora_ai/models/discover_radius.dart';
 import 'package:luxora_ai/models/lux_place.dart';
@@ -71,6 +72,10 @@ class PlacesRepository {
       _bySlug[tagged.slug] = tagged;
     }
     for (final p in MiamiContent.places) {
+      _byId[p.id] = p;
+      _bySlug[p.slug] = p;
+    }
+    for (final p in FloridaKeysContent.places) {
       _byId[p.id] = p;
       _bySlug[p.slug] = p;
     }

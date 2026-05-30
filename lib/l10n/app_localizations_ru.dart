@@ -549,6 +549,20 @@ class AppLocalizationsRu extends AppLocalizations {
       'Тропа Флорида-Кис и достопримечательности штата';
 
   @override
+  String get radiusDesc25Keys =>
+      'Ки-Ларго, Исламорада и северный рифовый коридор';
+
+  @override
+  String get radiusDesc50Keys => 'Маратон, Биг-Пайн и пляжи средних Кис';
+
+  @override
+  String get radiusDesc100Keys => 'Вся Overseas Highway до Ки-Уэста';
+
+  @override
+  String get radiusDescAllKeys =>
+      'Вся цепь островов и воды для однодневных поездок';
+
+  @override
   String get feedBadge => 'ЖИВОЕ ОТКРЫТИЕ';
 
   @override
@@ -705,6 +719,28 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String mapCrowdAtStop(String level) {
     return 'Толпа: $level';
+  }
+
+  @override
+  String get mapParkingLevelEasy => 'Легко';
+
+  @override
+  String get mapParkingLevelModerate => 'Умеренно';
+
+  @override
+  String get mapParkingLevelDifficult => 'Сложно';
+
+  @override
+  String get mapParkingLevelLimited => 'Ограничено · приезжайте рано';
+
+  @override
+  String mapParkingAtStop(String level) {
+    return 'Парковка: $level';
+  }
+
+  @override
+  String mapDriveFrictionAtStop(int score) {
+    return 'Стресс в пути: $score/90';
   }
 
   @override
@@ -951,11 +987,11 @@ class AppLocalizationsRu extends AppLocalizations {
   String get mapAiPowers => 'Силы карты ИИ';
 
   @override
-  String get mapNavLayerTitle => 'Слой навигации AI (следующий)';
+  String get mapNavLayerTitle => 'Интеллект трения по остановкам';
 
   @override
   String get mapNavLayerSubtitle =>
-      'Помимо открытий — живая информация о том, стоит ли останавливаться прямо сейчас.';
+      'Толпа, парковка и стресс в пути в плане дня — плюс спontaneous reroute.';
 
   @override
   String get mapBookingTitle => 'Бесшовное бронирование (партнеры)';
@@ -1010,25 +1046,25 @@ class AppLocalizationsRu extends AppLocalizations {
       'Ощущение, темп и бюджет вашей поездки меняют карту в реальном времени.';
 
   @override
-  String get mapFutureCrowdTitle => 'Живая толпа, жара';
+  String get mapFutureCrowdTitle => 'Прогноз толпы';
 
   @override
   String get mapFutureCrowdDesc =>
-      'Плотность источников, парков и вирусных крыш в реальном времени — стоит ли оно того прямо сейчас?';
+      'Прогноз от спокойно до переполнено на каждой остановке Plan my day.';
 
   @override
-  String get mapFutureParkingTitle => 'Сложность парковки';
+  String get mapFutureParkingTitle => 'Прогноз парковки';
 
   @override
   String get mapFutureParkingDesc =>
-      'Оценка трения перед совершением сделки — золотая середина для парковщика, гаража или совместного использования автомобилей.';
+      'Оценка трения с valet, гаражом и приездом до выезда.';
 
   @override
-  String get mapFutureTrafficTitle => 'Оценка трения привода';
+  String get mapFutureTrafficTitle => 'Drive friction score';
 
   @override
   String get mapFutureTrafficDesc =>
-      'Маршрутизация с учетом стресса — не просто минуты, а то, как будет ощущаться поездка.';
+      'Оценка стресса по каждому плечу маршрута — не только минуты.';
 
   @override
   String get mapFutureRerouteTitle => 'Спонтанное перенаправление';
@@ -1172,6 +1208,28 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get detailCrowd => 'Толпа';
+
+  @override
+  String get detailTravelIntelTitle => 'Прогноз трения поездки';
+
+  @override
+  String get detailTravelIntelSubtitle =>
+      'Прогноз по категории, времени и расстоянию — без live-сенсоров.';
+
+  @override
+  String detailCrowdOutlook(String level) {
+    return 'Толпа: $level';
+  }
+
+  @override
+  String detailParkingOutlook(String level) {
+    return 'Парковка: $level';
+  }
+
+  @override
+  String detailDriveFrictionOutlook(int score) {
+    return 'Стресс в пути: $score/90';
+  }
 
   @override
   String get detailPrice => 'Цена';
@@ -2580,6 +2638,9 @@ class AppLocalizationsRu extends AppLocalizations {
       'Одноразовый городской пакет — не подписка';
 
   @override
+  String get settingsOpenConciergeSubtitle => 'Открыть вкладку ИИ-консьержа';
+
+  @override
   String get weatherMiamiHumidityIndoor =>
       'Сегодня высокая влажность. Сходите на пляж или в бассейн раньше, а затем в Уинвуд или Брикелл, чтобы пообедать в помещении и в галереях в самые жаркие часы.';
 
@@ -2654,6 +2715,48 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String miamiMoodRouteStart(String time) {
     return 'Начало около $time';
+  }
+
+  @override
+  String get keysWaterIntelTitle => 'Водная аналитика Кис';
+
+  @override
+  String keysWaterBestTime(String time) {
+    return 'Лучшее окно: $time';
+  }
+
+  @override
+  String keysWaterTemp(String note) {
+    return 'Вода: $note';
+  }
+
+  @override
+  String get keysWaterSnorkelScore => 'Снорклинг';
+
+  @override
+  String get keysWaterDivingScore => 'Дайвинг';
+
+  @override
+  String get keysWaterBoatingScore => 'Лодка';
+
+  @override
+  String get keysWaterFishingScore => 'Рыбалка';
+
+  @override
+  String get keysWaterWindScore => 'Ветер';
+
+  @override
+  String get keysWaterSunsetScore => 'Закат';
+
+  @override
+  String get keysWaterCrowdScore => 'Люди';
+
+  @override
+  String get keysMoodRoutesTitle => 'Островные маршруты Кис';
+
+  @override
+  String keysMoodRouteStart(String time) {
+    return 'Старт $time';
   }
 
   @override

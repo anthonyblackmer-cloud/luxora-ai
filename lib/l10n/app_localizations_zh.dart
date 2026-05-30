@@ -530,6 +530,18 @@ class AppLocalizationsZh extends AppLocalizations {
   String get radiusDescAllMiami => '佛罗里达群岛步道和全州亮点';
 
   @override
+  String get radiusDesc25Keys => '拉哥岛、伊斯拉莫拉达及北部礁带';
+
+  @override
+  String get radiusDesc50Keys => '马拉松、大松岛及中部群岛海滩';
+
+  @override
+  String get radiusDesc100Keys => '贯穿基韦斯特的全线海外公路';
+
+  @override
+  String get radiusDescAllKeys => '全岛链及一日游水域';
+
+  @override
   String get feedBadge => '实时发现';
 
   @override
@@ -680,6 +692,28 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String mapCrowdAtStop(String level) {
     return '人群：$level';
+  }
+
+  @override
+  String get mapParkingLevelEasy => '容易';
+
+  @override
+  String get mapParkingLevelModerate => '适中';
+
+  @override
+  String get mapParkingLevelDifficult => '困难';
+
+  @override
+  String get mapParkingLevelLimited => '有限 · 请早到';
+
+  @override
+  String mapParkingAtStop(String level) {
+    return '停车：$level';
+  }
+
+  @override
+  String mapDriveFrictionAtStop(int score) {
+    return '驾驶负担：$score/90';
   }
 
   @override
@@ -912,10 +946,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get mapAiPowers => 'AI 地图能力';
 
   @override
-  String get mapNavLayerTitle => 'AI 导航层（下一步）';
+  String get mapNavLayerTitle => '站点摩擦智能';
 
   @override
-  String get mapNavLayerSubtitle => '不止发现，还能实时判断某个停靠点现在是否值得去。';
+  String get mapNavLayerSubtitle => '日程中的人流、停车与驾驶压力 — 加一键改线。';
 
   @override
   String get mapBookingTitle => '无缝预订（合作伙伴）';
@@ -963,22 +997,22 @@ class AppLocalizationsZh extends AppLocalizations {
   String get mapCapPersonalDesc => '你的旅行氛围、节奏和预算会实时重塑地图。';
 
   @override
-  String get mapFutureCrowdTitle => '实时人潮热度';
+  String get mapFutureCrowdTitle => '人流展望';
 
   @override
-  String get mapFutureCrowdDesc => '泉水、公园和爆红屋顶的实时密度：现在值得去吗？';
+  String get mapFutureCrowdDesc => 'Plan my day 每站从安静到拥挤的预测窗口。';
 
   @override
-  String get mapFutureParkingTitle => '停车难度';
+  String get mapFutureParkingTitle => '停车展望';
 
   @override
-  String get mapFutureParkingDesc => '出发前的阻力评分：代客泊车、车库，或最合适的网约车上下车点。';
+  String get mapFutureParkingDesc => '出发前对代客泊车、车库与到达摩擦的估算。';
 
   @override
-  String get mapFutureTrafficTitle => '驾驶阻力评分';
+  String get mapFutureTrafficTitle => 'Drive friction score';
 
   @override
-  String get mapFutureTrafficDesc => '按压力加权的路线，不只看分钟数，也看车程感受。';
+  String get mapFutureTrafficDesc => '日程每段路程的压力分 — 不只是分钟数。';
 
   @override
   String get mapFutureRerouteTitle => '即时改线';
@@ -1116,6 +1150,27 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get detailCrowd => '人潮';
+
+  @override
+  String get detailTravelIntelTitle => '行程摩擦展望';
+
+  @override
+  String get detailTravelIntelSubtitle => '按类别、时间与距离预测 — 非实时传感器。';
+
+  @override
+  String detailCrowdOutlook(String level) {
+    return '人流：$level';
+  }
+
+  @override
+  String detailParkingOutlook(String level) {
+    return '停车：$level';
+  }
+
+  @override
+  String detailDriveFrictionOutlook(int score) {
+    return '驾驶负担：$score/90';
+  }
 
   @override
   String get detailPrice => '价格';
@@ -2449,6 +2504,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get settingsUnlockConciergeSubtitle => '一次性城市包——不是订阅';
 
   @override
+  String get settingsOpenConciergeSubtitle => '打开 AI 礼宾标签页';
+
+  @override
   String get weatherMiamiHumidityIndoor =>
       '今天湿度高。早点去海滩或泳池，然后在最热的时候前往温伍德或布里克尔的室内餐厅和画廊。';
 
@@ -2519,6 +2577,48 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String miamiMoodRouteStart(String time) {
     return '在 $time 左右开始';
+  }
+
+  @override
+  String get keysWaterIntelTitle => '群岛水域情报';
+
+  @override
+  String keysWaterBestTime(String time) {
+    return '最佳时段：$time';
+  }
+
+  @override
+  String keysWaterTemp(String note) {
+    return '水温：$note';
+  }
+
+  @override
+  String get keysWaterSnorkelScore => '浮潜';
+
+  @override
+  String get keysWaterDivingScore => '潜水';
+
+  @override
+  String get keysWaterBoatingScore => '乘船';
+
+  @override
+  String get keysWaterFishingScore => '钓鱼';
+
+  @override
+  String get keysWaterWindScore => '风力';
+
+  @override
+  String get keysWaterSunsetScore => '日落';
+
+  @override
+  String get keysWaterCrowdScore => '人流';
+
+  @override
+  String get keysMoodRoutesTitle => '群岛主题路线';
+
+  @override
+  String keysMoodRouteStart(String time) {
+    return '开始 $time';
   }
 
   @override

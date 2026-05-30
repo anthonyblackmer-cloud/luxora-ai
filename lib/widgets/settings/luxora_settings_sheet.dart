@@ -4,6 +4,7 @@ import 'package:luxora_ai/l10n/app_localizations.dart';
 import 'package:luxora_ai/settings/luxora_language_catalog.dart';
 import 'package:luxora_ai/state/luxora_app_state.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
+import 'package:luxora_ai/services/city_pack_registry.dart';
 import 'package:luxora_ai/services/paywall_service.dart';
 import 'package:luxora_ai/widgets/settings/luxora_language_picker_sheet.dart';
 import 'package:luxora_ai/widgets/settings/luxora_premium_sheet_shell.dart';
@@ -15,8 +16,19 @@ class LuxoraSettingsSheet extends StatelessWidget {
     return showModalBottomSheet<void>(
       context: context,
       isScrollControlled: true,
+      useSafeArea: true,
       backgroundColor: Colors.transparent,
-      builder: (ctx) => const LuxoraSettingsSheet(),
+      builder: (ctx) => FractionallySizedBox(
+        heightFactor: 0.88,
+        alignment: Alignment.bottomCenter,
+        widthFactor: 1,
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 920),
+            child: const LuxoraSettingsSheet(),
+          ),
+        ),
+      ),
     );
   }
 
@@ -27,10 +39,12 @@ class LuxoraSettingsSheet extends StatelessWidget {
     final appState = LuxoraAppState.of(context);
     final l = AppLocalizations.of(context);
     final subtitleStyle = palette.subtitleStyle(theme.textTheme);
+    final activeCityId = CityPackRegistry.instance.active.cityId;
+    final conciergeUnlocked = !PaywallService.needsUnlock(activeCityId);
 
     return LuxoraPremiumSheetShell(
       title: l.settings,
-      heightFraction: 0.88,
+      heightFraction: 1,
       child: SingleChildScrollView(
         padding: const EdgeInsets.fromLTRB(20, 0, 20, 16),
         child: Column(
@@ -189,7 +203,7 @@ class LuxoraSettingsSheet extends StatelessWidget {
             InkWell(
               onTap: () {
                 Navigator.of(context).pop();
-                PaywallService.showPaywall(context);
+                PaywallService.openConciergeEntry(context);
               },
               borderRadius: BorderRadius.circular(12),
               child: Padding(
@@ -197,7 +211,9 @@ class LuxoraSettingsSheet extends StatelessWidget {
                 child: Row(
                   children: [
                     Icon(
-                      Icons.diamond_rounded,
+                      conciergeUnlocked
+                          ? Icons.spatial_audio_off_rounded
+                          : Icons.diamond_rounded,
                       color: theme.colorScheme.primary,
                     ),
                     const SizedBox(width: 12),
@@ -206,7 +222,9 @@ class LuxoraSettingsSheet extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            l.settingsUnlockConciergeTitle,
+                            conciergeUnlocked
+                                ? l.navConcierge
+                                : l.settingsUnlockConciergeTitle,
                             style: const TextStyle(
                               fontWeight: FontWeight.w600,
                               fontSize: 16,
@@ -214,7 +232,9 @@ class LuxoraSettingsSheet extends StatelessWidget {
                           ),
                           const SizedBox(height: 2),
                           Text(
-                            l.settingsUnlockConciergeSubtitle,
+                            conciergeUnlocked
+                                ? l.settingsOpenConciergeSubtitle
+                                : l.settingsUnlockConciergeSubtitle,
                             style: TextStyle(
                               fontSize: 13,
                               color: theme.colorScheme.onSurfaceVariant,

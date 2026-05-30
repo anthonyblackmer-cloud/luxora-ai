@@ -533,6 +533,18 @@ class AppLocalizationsJa extends AppLocalizations {
   String get radiusDescAllMiami => 'フロリダキーズのトレイルと州全体のハイライト';
 
   @override
+  String get radiusDesc25Keys => 'キーラーゴ、イスラモラーダ、北部リーフ回廊';
+
+  @override
+  String get radiusDesc50Keys => 'マラソン、ビッグパイン、中Keysのビーチ';
+
+  @override
+  String get radiusDesc100Keys => 'キーウェストまでの全オーバーシーズハイウェイ';
+
+  @override
+  String get radiusDescAllKeys => '島チェーン全体と日帰り水域';
+
+  @override
   String get feedBadge => 'ライブディスカバリー';
 
   @override
@@ -688,6 +700,28 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String mapCrowdAtStop(String level) {
     return '群衆: $level';
+  }
+
+  @override
+  String get mapParkingLevelEasy => '簡単';
+
+  @override
+  String get mapParkingLevelModerate => '普通';
+
+  @override
+  String get mapParkingLevelDifficult => '難しい';
+
+  @override
+  String get mapParkingLevelLimited => '限られ · 早めに到着';
+
+  @override
+  String mapParkingAtStop(String level) {
+    return '駐車: $level';
+  }
+
+  @override
+  String mapDriveFrictionAtStop(int score) {
+    return 'ドライブ負担: $score/90';
   }
 
   @override
@@ -928,10 +962,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get mapAiPowers => 'AI マップの力';
 
   @override
-  String get mapNavLayerTitle => 'AI ナビゲーション層 (次)';
+  String get mapNavLayerTitle => '停車地フリクション';
 
   @override
-  String get mapNavLayerSubtitle => '発見を超えて - 今すぐ立ち寄る価値があるかどうかについての生きた情報。';
+  String get mapNavLayerSubtitle => 'プラン内の混雑・駐車・運転ストレス — ワンタップ再ルート付き。';
 
   @override
   String get mapBookingTitle => 'シームレスな予約（パートナー）';
@@ -981,25 +1015,22 @@ class AppLocalizationsJa extends AppLocalizations {
   String get mapCapPersonalDesc => '旅行の気分、ペース、予算に応じて地図がリアルタイムで再形成されます。';
 
   @override
-  String get mapFutureCrowdTitle => 'ライブの観客の熱気';
+  String get mapFutureCrowdTitle => '混雑見通し';
 
   @override
-  String get mapFutureCrowdDesc =>
-      '泉、公園、ウイルスが蔓延する屋上のリアルタイムの密度 - 今すぐに価値があるでしょうか?';
+  String get mapFutureCrowdDesc => 'Plan my dayの各停車地で静か〜混雑の予測ウィンドウ。';
 
   @override
-  String get mapFutureParkingTitle => '駐車の困難さ';
+  String get mapFutureParkingTitle => '駐車見通し';
 
   @override
-  String get mapFutureParkingDesc =>
-      'コミットする前の摩擦スコア - 係員付きサービス、ガレージ、またはライドシェアのスイート スポット。';
+  String get mapFutureParkingDesc => '出発前のバレー・ガレージ・到着の推定負担。';
 
   @override
-  String get mapFutureTrafficTitle => 'ドライブフリクションスコア';
+  String get mapFutureTrafficTitle => 'Drive friction score';
 
   @override
-  String get mapFutureTrafficDesc =>
-      'ストレスを加重したルーティング — 単なる分ではなく、ドライブの感触を考慮します。';
+  String get mapFutureTrafficDesc => '日次プラン各 leg のストレススコア — 分だけではありません。';
 
   @override
   String get mapFutureRerouteTitle => '自発的な再ルート';
@@ -1138,6 +1169,27 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get detailCrowd => '群衆';
+
+  @override
+  String get detailTravelIntelTitle => '旅の摩擦見通し';
+
+  @override
+  String get detailTravelIntelSubtitle => 'カテゴリ・時間・距離から予測 — ライブセンサーなし。';
+
+  @override
+  String detailCrowdOutlook(String level) {
+    return '混雑: $level';
+  }
+
+  @override
+  String detailParkingOutlook(String level) {
+    return '駐車: $level';
+  }
+
+  @override
+  String detailDriveFrictionOutlook(int score) {
+    return 'ドライブ負担: $score/90';
+  }
 
   @override
   String get detailPrice => '価格';
@@ -2497,6 +2549,9 @@ class AppLocalizationsJa extends AppLocalizations {
       '1 回限りのシティ パック — サブスクリプションではありません';
 
   @override
+  String get settingsOpenConciergeSubtitle => 'AIコンシェルジュタブを開く';
+
+  @override
   String get weatherMiamiHumidityIndoor =>
       '今日は湿度が高いですね。早めにビーチやプールに行き、最も暑い時間帯にはウィンウッドやブリッケルで屋内ダイニングやギャラリーを楽しみましょう。';
 
@@ -2571,6 +2626,48 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String miamiMoodRouteStart(String time) {
     return '$time 頃から開始';
+  }
+
+  @override
+  String get keysWaterIntelTitle => 'キーズ水域インテリジェンス';
+
+  @override
+  String keysWaterBestTime(String time) {
+    return '最適な時間: $time';
+  }
+
+  @override
+  String keysWaterTemp(String note) {
+    return '水温: $note';
+  }
+
+  @override
+  String get keysWaterSnorkelScore => 'シュノーケル';
+
+  @override
+  String get keysWaterDivingScore => 'ダイビング';
+
+  @override
+  String get keysWaterBoatingScore => 'ボート';
+
+  @override
+  String get keysWaterFishingScore => '釣り';
+
+  @override
+  String get keysWaterWindScore => '風';
+
+  @override
+  String get keysWaterSunsetScore => '夕日';
+
+  @override
+  String get keysWaterCrowdScore => '混雑';
+
+  @override
+  String get keysMoodRoutesTitle => 'キーズ島ルート';
+
+  @override
+  String keysMoodRouteStart(String time) {
+    return '開始 $time';
   }
 
   @override

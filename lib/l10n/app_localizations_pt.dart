@@ -548,6 +548,21 @@ class AppLocalizationsPt extends AppLocalizations {
       'Trilha de Florida Keys e destaques em todo o estado';
 
   @override
+  String get radiusDesc25Keys =>
+      'Key Largo, Islamorada e corredor do recife superior';
+
+  @override
+  String get radiusDesc50Keys =>
+      'Marathon, Big Pine e praias das Keys centrais';
+
+  @override
+  String get radiusDesc100Keys => 'Overseas Highway completa até Key West';
+
+  @override
+  String get radiusDescAllKeys =>
+      'Cadeia inteira de ilhas e águas para passeios';
+
+  @override
   String get feedBadge => 'DESCOBERTA AO VIVO';
 
   @override
@@ -704,6 +719,28 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String mapCrowdAtStop(String level) {
     return 'Multidão: $level';
+  }
+
+  @override
+  String get mapParkingLevelEasy => 'Fácil';
+
+  @override
+  String get mapParkingLevelModerate => 'Moderado';
+
+  @override
+  String get mapParkingLevelDifficult => 'Difícil';
+
+  @override
+  String get mapParkingLevelLimited => 'Limitado · chegue cedo';
+
+  @override
+  String mapParkingAtStop(String level) {
+    return 'Estacionamento: $level';
+  }
+
+  @override
+  String mapDriveFrictionAtStop(int score) {
+    return 'Atrito de condução: $score/90';
   }
 
   @override
@@ -949,11 +986,11 @@ class AppLocalizationsPt extends AppLocalizations {
   String get mapAiPowers => 'Poderes do mapa de IA';
 
   @override
-  String get mapNavLayerTitle => 'Camada de navegação AI (próximo)';
+  String get mapNavLayerTitle => 'Inteligência de atrito por parada';
 
   @override
   String get mapNavLayerSubtitle =>
-      'Além da descoberta: inteligência ao vivo sobre se vale a pena parar agora.';
+      'Multidão, estacionamento e stress de condução no plano — mais rerota espontânea.';
 
   @override
   String get mapBookingTitle => 'Reserva perfeita (parceiros)';
@@ -1008,25 +1045,25 @@ class AppLocalizationsPt extends AppLocalizations {
       'A sensação, o ritmo e o orçamento da sua viagem remodelam o mapa em tempo real.';
 
   @override
-  String get mapFutureCrowdTitle => 'Calor da multidão ao vivo';
+  String get mapFutureCrowdTitle => 'Perspectiva de multidão';
 
   @override
   String get mapFutureCrowdDesc =>
-      'Densidade em tempo real em nascentes, parques e telhados virais – vale a pena agora?';
+      'Janelas previstas de calmo a lotado em cada parada do Plan my day.';
 
   @override
-  String get mapFutureParkingTitle => 'Dificuldade de estacionamento';
+  String get mapFutureParkingTitle => 'Perspectiva de estacionamento';
 
   @override
   String get mapFutureParkingDesc =>
-      'Pontuação de atrito antes de você se comprometer - ponto ideal para manobrista, garagem ou compartilhamento de viagens.';
+      'Atrito estimado de manobrista, garagem e chegada antes de sair.';
 
   @override
-  String get mapFutureTrafficTitle => 'Pontuação de atrito do drive';
+  String get mapFutureTrafficTitle => 'Drive friction score';
 
   @override
   String get mapFutureTrafficDesc =>
-      'Roteamento ponderado pelo estresse - não apenas minutos, mas como será a sensação da viagem.';
+      'Pontuação de stress por trecho no plano do dia — não só minutos.';
 
   @override
   String get mapFutureRerouteTitle => 'Redirecionamento espontâneo';
@@ -1170,6 +1207,28 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get detailCrowd => 'Multidão';
+
+  @override
+  String get detailTravelIntelTitle => 'Perspectiva de atrito da viagem';
+
+  @override
+  String get detailTravelIntelSubtitle =>
+      'Previsão por categoria, hora e distância — sem sensores ao vivo.';
+
+  @override
+  String detailCrowdOutlook(String level) {
+    return 'Multidão: $level';
+  }
+
+  @override
+  String detailParkingOutlook(String level) {
+    return 'Estacionamento: $level';
+  }
+
+  @override
+  String detailDriveFrictionOutlook(int score) {
+    return 'Atrito de condução: $score/90';
+  }
 
   @override
   String get detailPrice => 'Preço';
@@ -2580,6 +2639,9 @@ class AppLocalizationsPt extends AppLocalizations {
       'Pacote urbano único – não é uma assinatura';
 
   @override
+  String get settingsOpenConciergeSubtitle => 'Abrir a aba do concierge com IA';
+
+  @override
   String get weatherMiamiHumidityIndoor =>
       'Alta umidade hoje. Vá para a praia ou piscina mais cedo e depois para Wynwood ou Brickell para jantares em ambientes fechados e galerias durante os horários mais quentes.';
 
@@ -2654,6 +2716,48 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String miamiMoodRouteStart(String time) {
     return 'Comece por volta de $time';
+  }
+
+  @override
+  String get keysWaterIntelTitle => 'Inteligência aquática das Keys';
+
+  @override
+  String keysWaterBestTime(String time) {
+    return 'Melhor janela: $time';
+  }
+
+  @override
+  String keysWaterTemp(String note) {
+    return 'Água: $note';
+  }
+
+  @override
+  String get keysWaterSnorkelScore => 'Snorkel';
+
+  @override
+  String get keysWaterDivingScore => 'Mergulho';
+
+  @override
+  String get keysWaterBoatingScore => 'Barco';
+
+  @override
+  String get keysWaterFishingScore => 'Pesca';
+
+  @override
+  String get keysWaterWindScore => 'Vento';
+
+  @override
+  String get keysWaterSunsetScore => 'Pôr do sol';
+
+  @override
+  String get keysWaterCrowdScore => 'Multidão';
+
+  @override
+  String get keysMoodRoutesTitle => 'Rotas insulares das Keys';
+
+  @override
+  String keysMoodRouteStart(String time) {
+    return 'Início $time';
   }
 
   @override

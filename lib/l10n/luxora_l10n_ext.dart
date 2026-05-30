@@ -52,13 +52,21 @@ extension DiscoverRadiusL10n on DiscoverRadius {
       };
 
   String descriptionL10n(AppLocalizations l) {
-    final isMiami = CityPackRegistry.instance.active.cityId == 'miami';
-    if (isMiami) {
+    final cityId = CityPackRegistry.instance.active.cityId;
+    if (cityId == 'miami') {
       return switch (this) {
         DiscoverRadius.miles25 => l.radiusDesc25Miami,
         DiscoverRadius.miles50 => l.radiusDesc50Miami,
         DiscoverRadius.miles100 => l.radiusDesc100Miami,
         DiscoverRadius.allFlorida => l.radiusDescAllMiami,
+      };
+    }
+    if (cityId == 'florida-keys') {
+      return switch (this) {
+        DiscoverRadius.miles25 => l.radiusDesc25Keys,
+        DiscoverRadius.miles50 => l.radiusDesc50Keys,
+        DiscoverRadius.miles100 => l.radiusDesc100Keys,
+        DiscoverRadius.allFlorida => l.radiusDescAllKeys,
       };
     }
     return switch (this) {

@@ -501,19 +501,19 @@
   "mapCrowdLevelModerate": "Ilıman",
   "mapCrowdLevelPacked": "Paketlenmiş",
   "mapCrowdLevelQuiet": "Sessizlik",
-  "mapFutureCrowdDesc": "Kaynaklarda, parklarda ve viral çatılarda gerçek zamanlı yoğunluk; buna değer mi?",
-  "mapFutureCrowdTitle": "Canlı kalabalık ısısı",
-  "mapFutureParkingDesc": "Taahhüt etmeden önce sürtünme puanı - vale, garaj veya araç paylaşımı en iyi nokta.",
-  "mapFutureParkingTitle": "Park etme zorluğu",
+  "mapFutureCrowdDesc": "Plan my day'deki her durak için sakin–doludan tahmin edilen pencereler.",
+  "mapFutureCrowdTitle": "Kalabalık görünümü",
+  "mapFutureParkingDesc": "Gitmeden önce vale, otopark ve varış sürtünmesi tahmini.",
+  "mapFutureParkingTitle": "Park görünümü",
   "mapFutureRerouteDesc": "Hava değişimi mi yoksa kalabalık artışı mı? Günün geri kalanını yeniden şekillendirmek için tek dokunuş.",
   "mapFutureRerouteTitle": "Kendiliğinden yeniden yönlendirme",
-  "mapFutureTrafficDesc": "Stres ağırlıklı yönlendirme; yalnızca dakikalar değil, sürücünün nasıl hissedeceği.",
-  "mapFutureTrafficTitle": "Sürtünme puanını artırın",
+  "mapFutureTrafficDesc": "Gün planında bacak bazlı stres puanları — sadece dakika değil.",
+  "mapFutureTrafficTitle": "Drive friction score",
   "mapHotelIntelBannerBody": "Oteliniz sürüş sürelerini, günün akışını ve nerede yemek yediğinizi şekillendirir. Luxora rezervasyon baskısı olmadan seçim yapmanıza yardımcı olur.",
   "mapHotelIntelBannerCta": "Hotel Intelligence'ı keşfedin",
   "mapHotelIntelBannerTitle": "Doğru ana üssü seçin",
-  "mapNavLayerSubtitle": "Keşfin ötesinde - şu anda durmaya değip değmeyeceğine dair canlı istihbarat.",
-  "mapNavLayerTitle": "Yapay zeka gezinme katmanı (sonraki)",
+  "mapNavLayerSubtitle": "Planda kalabalık, park ve sürüş stresi — artı spontane yeniden rota.",
+  "mapNavLayerTitle": "Durak sürtünme zekâsı",
   "mapPlanDayEmpty": "Destinasyonları işaretleyin (♥) ve Luxora, Orlando merkezinizden en az sürüş, en çok duygu ile optimize edilmiş bir rota oluşturur.",
   "mapPlanDayHomeBase": "{hotel}'den başlıyor",
   "@mapPlanDayHomeBase": {
@@ -780,6 +780,39 @@
     }
   },
   "paywallHeadlineMiamiDefault": "MIAMI'Yİ FARKLI BİR ŞEKİLDE DENEYİMLEYİN",
+  "keysWaterIntelTitle": "Keys su istihbaratı",
+  "keysWaterBestTime": "En iyi pencere: {time}",
+  "@keysWaterBestTime": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "keysWaterTemp": "Su: {note}",
+  "@keysWaterTemp": {
+    "placeholders": {
+      "note": {
+        "type": "String"
+      }
+    }
+  },
+  "keysWaterSnorkelScore": "Şnorkel",
+  "keysWaterDivingScore": "Dalış",
+  "keysWaterBoatingScore": "Tekne",
+  "keysWaterFishingScore": "Balık",
+  "keysWaterWindScore": "Rüzgar",
+  "keysWaterSunsetScore": "Gün batımı",
+  "keysWaterCrowdScore": "Kalabalık",
+  "keysMoodRoutesTitle": "Keys ada rotaları",
+  "keysMoodRouteStart": "Başlangıç {time}",
+  "@keysMoodRouteStart": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
   "paywallHeadlineMiamiWeekend": "MIAMI HAFTASONUNUZU ziyan etmeyin",
   "paywallHeroEyebrow": "KİŞİSEL CONCIERGE'İNİZ",
   "paywallHeroHeadline": "TATİLİNİZİ BOŞA KAÇIRMAYIN",
@@ -867,6 +900,10 @@
   "radiusDesc50Miami": "Wynwood, Coconut Grove, Key Biscayne",
   "radiusDescAll": "Keys, Miami, eyalet çapında öne çıkanlar",
   "radiusDescAllMiami": "Florida Keys yolu ve eyalet çapında öne çıkanlar",
+  "radiusDesc25Keys": "Key Largo, Islamorada ve üst resif koridoru",
+  "radiusDesc50Keys": "Marathon, Big Pine ve orta Keys plajları",
+  "radiusDesc100Keys": "Key West'e kadar tüm Overseas Highway",
+  "radiusDescAllKeys": "Tüm ada zinciri ve günübirlik sular",
   "rightNowButton": "Şu anda ne yapmalıyız?",
   "rightNowEmpty": "Çevrenizde henüz güçlü bir an yok; genişletin, keşfedin veya birkaç favoriyi yer imlerine ekleyin.",
   "rightNowFamilyCalm": "Şekerleme penceresi sakinliği — {minutes} konumunda ailece kolay bir sıfırlamaya {place} dakika kaldı.",
@@ -1007,6 +1044,7 @@
   "settings": "Ayarlar",
   "settingsStartOverSubtitle": "Sıfırdan yeni bir yolculuğa başlayın",
   "settingsUnlockConciergeSubtitle": "Tek seferlik şehir paketi – abonelik değil",
+  "settingsOpenConciergeSubtitle": "Yapay zeka kapıcı sekmesini aç",
   "settingsUnlockConciergeTitle": "Şehir kapıcısının kilidini açın",
   "settings_language_picker_note": "Değişiklikler hemen uygulanır.",
   "settings_regions_coming_subtitle": "Ana merkez ve şehir paketleri — çok yakında.",
@@ -1434,6 +1472,52 @@
         "type": "String"
       },
       "speed": {
+        "type": "int"
+      }
+    }
+  },
+  "mapParkingLevelEasy": "Kolay",
+  "mapParkingLevelModerate": "Ilıman",
+  "mapParkingLevelDifficult": "Zor",
+  "mapParkingLevelLimited": "Sınırlı · erken gelin",
+  "mapParkingAtStop": "Park: {level}",
+  "@mapParkingAtStop": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "mapDriveFrictionAtStop": "Sürüş sürtünmesi: {score}/90",
+  "@mapDriveFrictionAtStop": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "detailTravelIntelTitle": "Yolculuk sürtünme görünümü",
+  "detailTravelIntelSubtitle": "Kategori, saat ve mesafeden tahmin — canlı sensör yok.",
+  "detailCrowdOutlook": "Kalabalık: {level}",
+  "@detailCrowdOutlook": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "detailParkingOutlook": "Park: {level}",
+  "@detailParkingOutlook": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "detailDriveFrictionOutlook": "Sürüş sürtünmesi: {score}/90",
+  "@detailDriveFrictionOutlook": {
+    "placeholders": {
+      "score": {
         "type": "int"
       }
     }

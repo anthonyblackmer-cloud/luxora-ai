@@ -1,0 +1,95 @@
+{
+  "cityId": "florida-keys",
+  "cityName": "Florida Keys",
+  "stateId": "florida",
+  "description": "Island chain from Key Largo to Key West — reef snorkel, sunset sails, and barefoot luxury.",
+  "heroImageUrl": "AK2vwEobto4",
+  "mapCenterLat": 24.65,
+  "mapCenterLng": -81.45,
+  "hubLabel": "Florida Keys, FL",
+  "supportedCategories": [
+    "hotel",
+    "dining",
+    "beach",
+    "adventure",
+    "nature",
+    "wellness",
+    "luxury",
+    "foodie",
+    "water"
+  ],
+  "featuredExperiences": [],
+  "featuredHotels": [],
+  "featuredRestaurants": [],
+  "featuredTicketDeals": [],
+  "featuredHotelIntel": [],
+  "defaultRadiusMiles": 30,
+  "maxRadiusMiles": 120,
+  "districts": [
+    {
+      "districtId": "keys-key-largo",
+      "cityId": "florida-keys",
+      "districtName": "Key Largo",
+      "districtType": "beach",
+      "description": "Reef gateway and dive capital.",
+      "mapBounds": {
+        "north": 25.13,
+        "south": 25.04,
+        "east": -80.38,
+        "west": -80.51
+      }
+    },
+    {
+      "districtId": "keys-islamorada",
+      "cityId": "florida-keys",
+      "districtName": "Islamorada",
+      "districtType": "resort",
+      "description": "Sportfishing and marina life.",
+      "mapBounds": {
+        "north": 24.96,
+        "south": 24.88,
+        "east": -80.57,
+        "west": -80.68
+      }
+    },
+    {
+      "districtId": "keys-marathon",
+      "cityId": "florida-keys",
+      "districtName": "Marathon",
+      "districtType": "beach",
+      "description": "Seven Mile Bridge and middle Keys calm.",
+      "mapBounds": {
+        "north": 24.75,
+        "south": 24.67,
+        "east": -81.02,
+        "west": -81.14
+      }
+    },
+    {
+      "districtId": "keys-big-pine",
+      "cityId": "florida-keys",
+      "districtName": "Big Pine Key",
+      "districtType": "nature",
+      "description": "Key deer and Bahia Honda sands.",
+      "mapBounds": {
+        "north": 24.71,
+        "south": 24.63,
+        "east": -81.31,
+        "west": -81.42
+      }
+    },
+    {
+      "districtId": "keys-key-west",
+      "cityId": "florida-keys",
+      "districtName": "Key West",
+      "districtType": "nightlife",
+      "description": "Sunset celebration and Old Town nights.",
+      "mapBounds": {
+        "north": 24.59,
+        "south": 24.52,
+        "east": -81.72,
+        "west": -81.84
+      }
+    }
+  ]
+}

@@ -105,11 +105,13 @@ List<MapAiCapability> mapAiCapabilitiesFutureL10n(AppLocalizations l) => [
         icon: Icons.local_parking_outlined,
         title: l.mapFutureParkingTitle,
         description: l.mapFutureParkingDesc,
+        comingSoon: false,
       ),
       MapAiCapability(
         icon: Icons.traffic_outlined,
         title: l.mapFutureTrafficTitle,
         description: l.mapFutureTrafficDesc,
+        comingSoon: false,
       ),
       MapAiCapability(
         icon: Icons.alt_route_rounded,

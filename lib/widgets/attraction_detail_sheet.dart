@@ -10,13 +10,16 @@ import 'package:luxora_ai/models/lux_place.dart';
 import 'package:luxora_ai/services/attraction_detail_repository.dart';
 import 'package:luxora_ai/services/home_base_store.dart';
 import 'package:luxora_ai/services/map_launcher.dart';
+import 'package:luxora_ai/services/florida_keys_concierge_service.dart';
 import 'package:luxora_ai/services/miami_concierge_service.dart';
 import 'package:luxora_ai/services/places_repository.dart';
 import 'package:luxora_ai/services/saved_places_storage.dart';
 import 'package:luxora_ai/util/place_distance.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
+import 'package:luxora_ai/widgets/florida_keys/keys_concierge_cards.dart';
 import 'package:luxora_ai/widgets/miami/miami_concierge_cards.dart';
 import 'package:luxora_ai/widgets/lux_place_image.dart';
+import 'package:luxora_ai/widgets/travel_stop_intel_card.dart';
 import 'package:luxora_ai/widgets/lux_button.dart';
 import 'package:luxora_ai/widgets/settings/luxora_premium_sheet_shell.dart';
 
@@ -121,10 +124,17 @@ class _AttractionDetailSheet extends StatelessWidget {
                   place: place,
                   officialMapUrl: detail.officialMapUrl,
                 ),
+                const SizedBox(height: 12),
+                TravelStopIntelCard(place: place),
                 if (MiamiBeachIntelligenceService.forPlace(place.id)
                     case final beachIntel?) ...[
                   const SizedBox(height: 12),
                   MiamiBeachIntelCard(intel: beachIntel),
+                ],
+                if (KeysWaterIntelligenceService.forPlace(place.id)
+                    case final waterIntel?) ...[
+                  const SizedBox(height: 12),
+                  KeysWaterIntelCard(intel: waterIntel),
                 ],
                 if (MiamiNightlifeService.forPlace(place.id)
                     case final nightlife?) ...[

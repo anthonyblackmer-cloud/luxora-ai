@@ -1072,6 +1072,30 @@ abstract class AppLocalizations {
   /// **'Florida Keys trail and statewide highlights'**
   String get radiusDescAllMiami;
 
+  /// No description provided for @radiusDesc25Keys.
+  ///
+  /// In en, this message translates to:
+  /// **'Key Largo, Islamorada, and upper reef corridor'**
+  String get radiusDesc25Keys;
+
+  /// No description provided for @radiusDesc50Keys.
+  ///
+  /// In en, this message translates to:
+  /// **'Marathon, Big Pine, and middle Keys beaches'**
+  String get radiusDesc50Keys;
+
+  /// No description provided for @radiusDesc100Keys.
+  ///
+  /// In en, this message translates to:
+  /// **'Full Overseas Highway through Key West'**
+  String get radiusDesc100Keys;
+
+  /// No description provided for @radiusDescAllKeys.
+  ///
+  /// In en, this message translates to:
+  /// **'Entire island chain and day-trip waters'**
+  String get radiusDescAllKeys;
+
   /// No description provided for @feedBadge.
   ///
   /// In en, this message translates to:
@@ -1347,6 +1371,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Crowd: {level}'**
   String mapCrowdAtStop(String level);
+
+  /// No description provided for @mapParkingLevelEasy.
+  ///
+  /// In en, this message translates to:
+  /// **'Easy'**
+  String get mapParkingLevelEasy;
+
+  /// No description provided for @mapParkingLevelModerate.
+  ///
+  /// In en, this message translates to:
+  /// **'Moderate'**
+  String get mapParkingLevelModerate;
+
+  /// No description provided for @mapParkingLevelDifficult.
+  ///
+  /// In en, this message translates to:
+  /// **'Difficult'**
+  String get mapParkingLevelDifficult;
+
+  /// No description provided for @mapParkingLevelLimited.
+  ///
+  /// In en, this message translates to:
+  /// **'Limited · arrive early'**
+  String get mapParkingLevelLimited;
+
+  /// No description provided for @mapParkingAtStop.
+  ///
+  /// In en, this message translates to:
+  /// **'Parking: {level}'**
+  String mapParkingAtStop(String level);
+
+  /// No description provided for @mapDriveFrictionAtStop.
+  ///
+  /// In en, this message translates to:
+  /// **'Drive friction: {score}/90'**
+  String mapDriveFrictionAtStop(int score);
 
   /// No description provided for @mapRerouteButton.
   ///
@@ -1734,13 +1794,13 @@ abstract class AppLocalizations {
   /// No description provided for @mapNavLayerTitle.
   ///
   /// In en, this message translates to:
-  /// **'AI navigation layer (next)'**
+  /// **'Stop friction intelligence'**
   String get mapNavLayerTitle;
 
   /// No description provided for @mapNavLayerSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Beyond discovery — live intelligence on whether a stop is worth it right now.'**
+  /// **'Crowd, parking, and drive-stress outlook on each Plan my day stop — plus one-tap reroute.'**
   String get mapNavLayerSubtitle;
 
   /// No description provided for @mapBookingTitle.
@@ -1836,25 +1896,25 @@ abstract class AppLocalizations {
   /// No description provided for @mapFutureCrowdTitle.
   ///
   /// In en, this message translates to:
-  /// **'Live crowd heat'**
+  /// **'Crowd outlook'**
   String get mapFutureCrowdTitle;
 
   /// No description provided for @mapFutureCrowdDesc.
   ///
   /// In en, this message translates to:
-  /// **'Real-time density on springs, parks, and viral rooftops — worth it right now?'**
+  /// **'Predicted quiet-to-packed windows on each stop in Plan my day.'**
   String get mapFutureCrowdDesc;
 
   /// No description provided for @mapFutureParkingTitle.
   ///
   /// In en, this message translates to:
-  /// **'Parking difficulty'**
+  /// **'Parking outlook'**
   String get mapFutureParkingTitle;
 
   /// No description provided for @mapFutureParkingDesc.
   ///
   /// In en, this message translates to:
-  /// **'Friction score before you commit — valet, garage, or rideshare sweet spot.'**
+  /// **'Estimated valet, garage, and arrival friction before you go.'**
   String get mapFutureParkingDesc;
 
   /// No description provided for @mapFutureTrafficTitle.
@@ -1866,7 +1926,7 @@ abstract class AppLocalizations {
   /// No description provided for @mapFutureTrafficDesc.
   ///
   /// In en, this message translates to:
-  /// **'Stress-weighted routing — not just minutes, but how the drive will feel.'**
+  /// **'Stress-weighted leg scores on your day plan — not just drive minutes.'**
   String get mapFutureTrafficDesc;
 
   /// No description provided for @mapFutureRerouteTitle.
@@ -2126,6 +2186,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Crowd'**
   String get detailCrowd;
+
+  /// No description provided for @detailTravelIntelTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Trip friction outlook'**
+  String get detailTravelIntelTitle;
+
+  /// No description provided for @detailTravelIntelSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Predicted from category, time, and distance — not live sensors.'**
+  String get detailTravelIntelSubtitle;
+
+  /// No description provided for @detailCrowdOutlook.
+  ///
+  /// In en, this message translates to:
+  /// **'Crowd: {level}'**
+  String detailCrowdOutlook(String level);
+
+  /// No description provided for @detailParkingOutlook.
+  ///
+  /// In en, this message translates to:
+  /// **'Parking: {level}'**
+  String detailParkingOutlook(String level);
+
+  /// No description provided for @detailDriveFrictionOutlook.
+  ///
+  /// In en, this message translates to:
+  /// **'Drive friction: {score}/90'**
+  String detailDriveFrictionOutlook(int score);
 
   /// No description provided for @detailPrice.
   ///
@@ -4613,6 +4703,12 @@ abstract class AppLocalizations {
   /// **'One-time city pack — not a subscription'**
   String get settingsUnlockConciergeSubtitle;
 
+  /// No description provided for @settingsOpenConciergeSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Open your AI concierge tab'**
+  String get settingsOpenConciergeSubtitle;
+
   /// No description provided for @weatherMiamiHumidityIndoor.
   ///
   /// In en, this message translates to:
@@ -4732,6 +4828,78 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Start around {time}'**
   String miamiMoodRouteStart(String time);
+
+  /// No description provided for @keysWaterIntelTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Keys Water Intelligence'**
+  String get keysWaterIntelTitle;
+
+  /// No description provided for @keysWaterBestTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Best window: {time}'**
+  String keysWaterBestTime(String time);
+
+  /// No description provided for @keysWaterTemp.
+  ///
+  /// In en, this message translates to:
+  /// **'Water: {note}'**
+  String keysWaterTemp(String note);
+
+  /// No description provided for @keysWaterSnorkelScore.
+  ///
+  /// In en, this message translates to:
+  /// **'Snorkel'**
+  String get keysWaterSnorkelScore;
+
+  /// No description provided for @keysWaterDivingScore.
+  ///
+  /// In en, this message translates to:
+  /// **'Dive'**
+  String get keysWaterDivingScore;
+
+  /// No description provided for @keysWaterBoatingScore.
+  ///
+  /// In en, this message translates to:
+  /// **'Boat'**
+  String get keysWaterBoatingScore;
+
+  /// No description provided for @keysWaterFishingScore.
+  ///
+  /// In en, this message translates to:
+  /// **'Fish'**
+  String get keysWaterFishingScore;
+
+  /// No description provided for @keysWaterWindScore.
+  ///
+  /// In en, this message translates to:
+  /// **'Wind'**
+  String get keysWaterWindScore;
+
+  /// No description provided for @keysWaterSunsetScore.
+  ///
+  /// In en, this message translates to:
+  /// **'Sunset'**
+  String get keysWaterSunsetScore;
+
+  /// No description provided for @keysWaterCrowdScore.
+  ///
+  /// In en, this message translates to:
+  /// **'Crowd'**
+  String get keysWaterCrowdScore;
+
+  /// No description provided for @keysMoodRoutesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Keys Island Routes'**
+  String get keysMoodRoutesTitle;
+
+  /// No description provided for @keysMoodRouteStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Start {time}'**
+  String keysMoodRouteStart(String time);
 
   /// No description provided for @paywallHeadlineMiamiDefault.
   ///

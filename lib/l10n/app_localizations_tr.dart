@@ -548,6 +548,18 @@ class AppLocalizationsTr extends AppLocalizations {
       'Florida Keys yolu ve eyalet çapında öne çıkanlar';
 
   @override
+  String get radiusDesc25Keys => 'Key Largo, Islamorada ve üst resif koridoru';
+
+  @override
+  String get radiusDesc50Keys => 'Marathon, Big Pine ve orta Keys plajları';
+
+  @override
+  String get radiusDesc100Keys => 'Key West\'e kadar tüm Overseas Highway';
+
+  @override
+  String get radiusDescAllKeys => 'Tüm ada zinciri ve günübirlik sular';
+
+  @override
   String get feedBadge => 'CANLI KEŞİF';
 
   @override
@@ -704,6 +716,28 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String mapCrowdAtStop(String level) {
     return 'Kalabalık: $level';
+  }
+
+  @override
+  String get mapParkingLevelEasy => 'Kolay';
+
+  @override
+  String get mapParkingLevelModerate => 'Ilıman';
+
+  @override
+  String get mapParkingLevelDifficult => 'Zor';
+
+  @override
+  String get mapParkingLevelLimited => 'Sınırlı · erken gelin';
+
+  @override
+  String mapParkingAtStop(String level) {
+    return 'Park: $level';
+  }
+
+  @override
+  String mapDriveFrictionAtStop(int score) {
+    return 'Sürüş sürtünmesi: $score/90';
   }
 
   @override
@@ -949,11 +983,11 @@ class AppLocalizationsTr extends AppLocalizations {
   String get mapAiPowers => 'Yapay zeka harita güçleri';
 
   @override
-  String get mapNavLayerTitle => 'Yapay zeka gezinme katmanı (sonraki)';
+  String get mapNavLayerTitle => 'Durak sürtünme zekâsı';
 
   @override
   String get mapNavLayerSubtitle =>
-      'Keşfin ötesinde - şu anda durmaya değip değmeyeceğine dair canlı istihbarat.';
+      'Planda kalabalık, park ve sürüş stresi — artı spontane yeniden rota.';
 
   @override
   String get mapBookingTitle => 'Sorunsuz rezervasyon (iş ortakları)';
@@ -1008,25 +1042,25 @@ class AppLocalizationsTr extends AppLocalizations {
       'Seyahat hissiniz, hızınız ve bütçeniz haritayı gerçek zamanlı olarak yeniden şekillendirir.';
 
   @override
-  String get mapFutureCrowdTitle => 'Canlı kalabalık ısısı';
+  String get mapFutureCrowdTitle => 'Kalabalık görünümü';
 
   @override
   String get mapFutureCrowdDesc =>
-      'Kaynaklarda, parklarda ve viral çatılarda gerçek zamanlı yoğunluk; buna değer mi?';
+      'Plan my day\'deki her durak için sakin–doludan tahmin edilen pencereler.';
 
   @override
-  String get mapFutureParkingTitle => 'Park etme zorluğu';
+  String get mapFutureParkingTitle => 'Park görünümü';
 
   @override
   String get mapFutureParkingDesc =>
-      'Taahhüt etmeden önce sürtünme puanı - vale, garaj veya araç paylaşımı en iyi nokta.';
+      'Gitmeden önce vale, otopark ve varış sürtünmesi tahmini.';
 
   @override
-  String get mapFutureTrafficTitle => 'Sürtünme puanını artırın';
+  String get mapFutureTrafficTitle => 'Drive friction score';
 
   @override
   String get mapFutureTrafficDesc =>
-      'Stres ağırlıklı yönlendirme; yalnızca dakikalar değil, sürücünün nasıl hissedeceği.';
+      'Gün planında bacak bazlı stres puanları — sadece dakika değil.';
 
   @override
   String get mapFutureRerouteTitle => 'Kendiliğinden yeniden yönlendirme';
@@ -1170,6 +1204,28 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get detailCrowd => 'Kalabalık';
+
+  @override
+  String get detailTravelIntelTitle => 'Yolculuk sürtünme görünümü';
+
+  @override
+  String get detailTravelIntelSubtitle =>
+      'Kategori, saat ve mesafeden tahmin — canlı sensör yok.';
+
+  @override
+  String detailCrowdOutlook(String level) {
+    return 'Kalabalık: $level';
+  }
+
+  @override
+  String detailParkingOutlook(String level) {
+    return 'Park: $level';
+  }
+
+  @override
+  String detailDriveFrictionOutlook(int score) {
+    return 'Sürüş sürtünmesi: $score/90';
+  }
 
   @override
   String get detailPrice => 'Fiyat';
@@ -2576,6 +2632,9 @@ class AppLocalizationsTr extends AppLocalizations {
       'Tek seferlik şehir paketi – abonelik değil';
 
   @override
+  String get settingsOpenConciergeSubtitle => 'Yapay zeka kapıcı sekmesini aç';
+
+  @override
   String get weatherMiamiHumidityIndoor =>
       'Bugün yüksek nem. Daha önce plaja veya havuza gidin, ardından en sıcak saatlerde kapalı mekanda yemek yemek ve galeriler için Wynwood veya Brickell\'e gidin.';
 
@@ -2650,6 +2709,48 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String miamiMoodRouteStart(String time) {
     return '$time civarında başlayın';
+  }
+
+  @override
+  String get keysWaterIntelTitle => 'Keys su istihbaratı';
+
+  @override
+  String keysWaterBestTime(String time) {
+    return 'En iyi pencere: $time';
+  }
+
+  @override
+  String keysWaterTemp(String note) {
+    return 'Su: $note';
+  }
+
+  @override
+  String get keysWaterSnorkelScore => 'Şnorkel';
+
+  @override
+  String get keysWaterDivingScore => 'Dalış';
+
+  @override
+  String get keysWaterBoatingScore => 'Tekne';
+
+  @override
+  String get keysWaterFishingScore => 'Balık';
+
+  @override
+  String get keysWaterWindScore => 'Rüzgar';
+
+  @override
+  String get keysWaterSunsetScore => 'Gün batımı';
+
+  @override
+  String get keysWaterCrowdScore => 'Kalabalık';
+
+  @override
+  String get keysMoodRoutesTitle => 'Keys ada rotaları';
+
+  @override
+  String keysMoodRouteStart(String time) {
+    return 'Başlangıç $time';
   }
 
   @override
