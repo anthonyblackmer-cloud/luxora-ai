@@ -4,6 +4,7 @@ import 'package:luxora_ai/l10n/app_localizations.dart';
 import 'package:luxora_ai/settings/luxora_language_catalog.dart';
 import 'package:luxora_ai/state/luxora_app_state.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
+import 'package:luxora_ai/services/paywall_service.dart';
 import 'package:luxora_ai/widgets/settings/luxora_language_picker_sheet.dart';
 import 'package:luxora_ai/widgets/settings/luxora_premium_sheet_shell.dart';
 
@@ -137,6 +138,52 @@ class LuxoraSettingsSheet extends StatelessWidget {
                           const SizedBox(height: 2),
                           Text(
                             l.settingsStartOverSubtitle,
+                            style: TextStyle(
+                              fontSize: 13,
+                              color: theme.colorScheme.onSurfaceVariant,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Icon(
+                      Icons.chevron_right_rounded,
+                      color: theme.colorScheme.onSurfaceVariant,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            palette.sectionDivider(),
+            InkWell(
+              onTap: () {
+                Navigator.of(context).pop();
+                PaywallService.showPaywall(context);
+              },
+              borderRadius: BorderRadius.circular(12),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.diamond_rounded,
+                      color: theme.colorScheme.primary,
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            l.settingsUnlockConciergeTitle,
+                            style: const TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 16,
+                            ),
+                          ),
+                          const SizedBox(height: 2),
+                          Text(
+                            l.settingsUnlockConciergeSubtitle,
                             style: TextStyle(
                               fontSize: 13,
                               color: theme.colorScheme.onSurfaceVariant,

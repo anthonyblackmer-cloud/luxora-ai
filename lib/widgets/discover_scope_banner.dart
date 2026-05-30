@@ -18,7 +18,7 @@ class DiscoverScopeBanner extends StatelessWidget {
         final l = context.l10n;
         final label = radius.isUnlimited
             ? l.scopeDestinationsAll(count)
-            : l.scopeDestinationsRadius(
+            : l.scopeDestinationsForRadius(
                 count,
                 radius.shortLabelL10n(l),
               );

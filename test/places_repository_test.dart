@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:luxora_ai/data/curated_places_catalog.dart';
 import 'package:luxora_ai/data/saved_trips.dart';
 import 'package:luxora_ai/models/discover_radius.dart';
+import 'package:luxora_ai/services/city_pack_registry.dart';
 import 'package:luxora_ai/services/places_repository.dart';
 import 'package:luxora_ai/services/trip_cover_resolver.dart';
 import 'package:luxora_ai/services/unsplash_photo_registry.dart';
@@ -12,6 +13,7 @@ void main() {
   setUpAll(() async {
     TestWidgetsFlutterBinding.ensureInitialized();
     await UnsplashPhotoRegistry.instance.ensureLoaded();
+    await CityPackRegistry.instance.load();
     await PlacesRepository.instance.initialize();
   });
 
@@ -51,16 +53,16 @@ void main() {
     expect(disney.first.id, 'place-magic-kingdom');
 
     final keysIn50 = repo.searchPlaces(
-      'key west',
+      'key west old town',
       radius: DiscoverRadius.miles50,
     );
     expect(keysIn50, isEmpty);
 
     final keysAll = repo.searchPlaces(
-      'key west',
+      'key west old town',
       radius: DiscoverRadius.allFlorida,
     );
-    expect(keysAll, isNotEmpty);
+    expect(keysAll.any((p) => p.id == 'place-key-west-old-town'), isTrue);
   });
 
   test('radius filter excludes Keys from 50mi Orlando hub', () {

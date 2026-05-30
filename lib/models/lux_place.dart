@@ -1,3 +1,4 @@
+import 'package:luxora_ai/models/partner_sponsorship.dart';
 import 'package:luxora_ai/models/unsplash_photo.dart';
 import 'package:luxora_ai/services/unsplash_photo_registry.dart';
 
@@ -37,6 +38,8 @@ class LuxPlace {
     this.isActive = true,
     this.website,
     this.source = LuxPlaceSource.curated,
+    this.sponsorship,
+    this.cityPackId,
   });
 
   final String id;
@@ -61,6 +64,12 @@ class LuxPlace {
   /// Where the record originated — `curated` (hand-authored / editorial) vs
   /// `osm` (bulk OpenStreetMap import). Lets the UI keep the curated map clean.
   final LuxPlaceSource source;
+
+  /// Optional partner campaign — organic ranking must ignore when absent/null.
+  final PartnerSponsorship? sponsorship;
+
+  /// Which [CityPack] owns this place — null legacy rows default to orlando.
+  final String? cityPackId;
 
   UnsplashPhoto? get unsplashPhoto =>
       UnsplashPhotoRegistry.instance.byId(unsplashPhotoId);
@@ -109,6 +118,7 @@ class LuxPlace {
       isActive: row['is_active'] as bool? ?? true,
       website: (website != null && website.isNotEmpty) ? website : null,
       source: _sourceFromString(row['source'] as String?),
+      cityPackId: row['city_pack_id'] as String?,
     );
   }
 

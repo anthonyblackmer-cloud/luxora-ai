@@ -6,9 +6,11 @@ import 'package:luxora_ai/models/discover_radius.dart';
 import 'package:luxora_ai/models/lux_place.dart';
 import 'package:luxora_ai/services/discover_radius_controller.dart';
 import 'package:luxora_ai/services/places_repository.dart';
+import 'package:luxora_ai/models/sponsorship_extensions.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/util/place_distance.dart';
 import 'package:luxora_ai/widgets/attraction_detail_sheet.dart';
+import 'package:luxora_ai/widgets/partner_sponsor_badge.dart';
 
 /// Opens destination search (catalog title, city, category, tags).
 Future<void> showDestinationSearchSheet(BuildContext context) {
@@ -269,7 +271,7 @@ class _DestinationSearchSheetState extends State<_DestinationSearchSheet> {
                     child: Text(
                       radius.isUnlimited
                           ? l.discoverSearchScopeAll
-                          : l.discoverSearchScopeRadius(
+                          : l.discoverSearchScopeForRadius(
                               radius.shortLabelL10n(l),
                             ),
                       style: const TextStyle(fontSize: 11, color: LuxColors.stone500),
@@ -557,9 +559,16 @@ class _SearchResultTile extends StatelessWidget {
                           fontSize: 15,
                         ),
                       ),
+                      if (place.activeSponsorship != null) ...[
+                        const SizedBox(height: 4),
+                        PartnerSponsorBadge(
+                          sponsorship: place.activeSponsorship!,
+                          compact: true,
+                        ),
+                      ],
                       const SizedBox(height: 2),
                       Text(
-                        '${catalogText(context, place.location)} · ${place.category.labelL10n(l)} · ${l.milesFromOrlando(milesLabel)}',
+                        '${catalogText(context, place.location)} · ${place.category.labelL10n(l)} · ${l.milesFromActiveHub(milesLabel)}',
                         style: const TextStyle(
                           fontSize: 12,
                           color: LuxColors.stone500,

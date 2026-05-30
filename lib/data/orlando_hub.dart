@@ -1,4 +1,4 @@
-/// Orlando trip hub — default center for distance filters and map focus.
+/// Default Orlando hub coordinates — seed values for the orlando city pack.
 abstract final class OrlandoHub {
   static const String name = 'Orlando';
   static const String label = 'Orlando, FL';

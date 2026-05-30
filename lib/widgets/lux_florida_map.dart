@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:luxora_ai/data/curated_places_catalog.dart';
-import 'package:luxora_ai/data/orlando_hub.dart';
 import 'package:luxora_ai/models/lux_place.dart';
+import 'package:luxora_ai/services/city_pack_registry.dart';
 import 'package:luxora_ai/util/place_distance.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -15,6 +14,7 @@ class LuxFloridaMap extends StatefulWidget {
     required this.places,
     this.routePlaceIds = const [],
     this.gemPlaceIds = const {},
+    this.sponsoredPlaceIds = const {},
     this.radiusMiles,
     this.showOrlandoHub = true,
     this.cinematic = true,
@@ -24,6 +24,7 @@ class LuxFloridaMap extends StatefulWidget {
   final List<LuxPlace> places;
   final List<String> routePlaceIds;
   final Set<String> gemPlaceIds;
+  final Set<String> sponsoredPlaceIds;
   /// When set, draws a ring from the Orlando hub (discover radius).
   final double? radiusMiles;
   final bool showOrlandoHub;
@@ -37,7 +38,7 @@ class LuxFloridaMap extends StatefulWidget {
 
 class _LuxFloridaMapState extends State<LuxFloridaMap>
     with SingleTickerProviderStateMixin {
-  static final _orlando = PlaceDistance.orlandoCenter;
+  static final _hub = PlaceDistance.hubCenter;
   static const _distance = Distance();
 
   final MapController _controller = MapController();
@@ -82,11 +83,11 @@ class _LuxFloridaMapState extends State<LuxFloridaMap>
 
   void _fitToPlaces() {
     final points = <LatLng>[
-      if (widget.showOrlandoHub) _orlando,
+      if (widget.showOrlandoHub) _hub,
       ...widget.places.map((p) => LatLng(p.latitude, p.longitude)),
     ];
     if (points.isEmpty) {
-      _controller.move(_orlando, 9);
+      _controller.move(_hub, 9);
       return;
     }
     if (points.length == 1) {
@@ -173,7 +174,7 @@ class _LuxFloridaMapState extends State<LuxFloridaMap>
           return FlutterMap(
             mapController: _controller,
             options: MapOptions(
-              initialCenter: _orlando,
+              initialCenter: _hub,
               initialZoom: 8.2,
               minZoom: 6,
               maxZoom: 16,
@@ -187,7 +188,7 @@ class _LuxFloridaMapState extends State<LuxFloridaMap>
                 CircleLayer(
                   circles: [
                     CircleMarker(
-                      point: _orlando,
+                      point: _hub,
                       radius: widget.radiusMiles! * 1609.344,
                       useRadiusInMeter: true,
                       color: LuxColors.gold.withValues(alpha: 0.08),
@@ -221,7 +222,7 @@ class _LuxFloridaMapState extends State<LuxFloridaMap>
                 markers: [
                   if (widget.showOrlandoHub)
                     Marker(
-                      point: _orlando,
+                      point: _hub,
                       width: 52,
                       height: 52,
                       child: Column(
@@ -242,7 +243,7 @@ class _LuxFloridaMapState extends State<LuxFloridaMap>
                           ),
                           const SizedBox(height: 2),
                           Text(
-                            OrlandoHub.name,
+                            CityPackRegistry.instance.hubLabel.split(',').first,
                             style: const TextStyle(
                               fontSize: 9,
                               fontWeight: FontWeight.w800,
@@ -264,6 +265,7 @@ class _LuxFloridaMapState extends State<LuxFloridaMap>
                         place: place,
                         isGem: widget.gemPlaceIds.contains(place.id),
                         isOnRoute: widget.routePlaceIds.contains(place.id),
+                        isSponsored: widget.sponsoredPlaceIds.contains(place.id),
                         reveal: widget.routePlaceIds.contains(place.id)
                             ? _pinReveal(
                                 widget.routePlaceIds.indexOf(place.id),
@@ -301,6 +303,7 @@ class _PlaceMarker extends StatelessWidget {
     required this.place,
     required this.isGem,
     required this.isOnRoute,
+    this.isSponsored = false,
     this.reveal = 1,
     this.onTap,
   });
@@ -308,6 +311,7 @@ class _PlaceMarker extends StatelessWidget {
   final LuxPlace place;
   final bool isGem;
   final bool isOnRoute;
+  final bool isSponsored;
   final double reveal;
   final VoidCallback? onTap;
 
@@ -315,14 +319,18 @@ class _PlaceMarker extends StatelessWidget {
   Widget build(BuildContext context) {
     final color = isGem
         ? LuxColors.gold
-        : isOnRoute
-            ? LuxColors.ocean
-            : LuxColors.stone300;
+        : isSponsored
+            ? LuxColors.gold.withValues(alpha: 0.85)
+            : isOnRoute
+                ? LuxColors.ocean
+                : LuxColors.stone300;
     final icon = isGem
         ? Icons.diamond_rounded
-        : isOnRoute
-            ? Icons.place_rounded
-            : Icons.location_on_rounded;
+        : isSponsored
+            ? Icons.verified_rounded
+            : isOnRoute
+                ? Icons.place_rounded
+                : Icons.location_on_rounded;
     final eased = Curves.easeOutBack.transform(reveal.clamp(0, 1));
 
     return GestureDetector(
@@ -339,11 +347,14 @@ class _PlaceMarker extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: const Color(0xFF0C0A09).withValues(alpha: 0.88),
                   shape: BoxShape.circle,
-                  border: Border.all(color: color, width: 2),
+                  border: Border.all(
+                    color: color,
+                    width: isSponsored ? 2.5 : 2,
+                  ),
                   boxShadow: [
                     BoxShadow(
-                      color: color.withValues(alpha: 0.35 * reveal),
-                      blurRadius: 8 + 6 * reveal,
+                      color: color.withValues(alpha: (0.35 + (isSponsored ? 0.15 : 0)) * reveal),
+                      blurRadius: 8 + 6 * reveal + (isSponsored ? 4 : 0),
                     ),
                   ],
                 ),
@@ -359,8 +370,10 @@ class _PlaceMarker extends StatelessWidget {
 
 /// Default map layers for the Luxora demo trip.
 List<String> defaultItineraryRouteIds() {
-  final keys = kItineraryMomentPlaceIds.keys.toList()..sort();
-  return keys.map((k) => kItineraryMomentPlaceIds[k]!).toList();
+  final map = CityPackRegistry.instance.itineraryMomentPlaceIds;
+  final keys = map.keys.toList()..sort();
+  return keys.map((k) => map[k]!).toList();
 }
 
-Set<String> defaultGemPlaceIds() => kGemPlaceIds.values.toSet();
+Set<String> defaultGemPlaceIds() =>
+    CityPackRegistry.instance.gemPlaceIds.values.toSet();

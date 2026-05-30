@@ -31,34 +31,19 @@
   "catSpas": "水疗",
   "catSprings": "泉水",
   "catThemeParks": "主题公园",
-  "commonClose": "关闭",
   "commonCancel": "取消",
-  "commonDelete": "删除",
-  "settingsStartOverSubtitle": "从零开始规划新行程",
-  "tripsPlanNew": "规划新行程",
-  "tripsEmptyTitle": "还没有已保存的行程",
-  "tripsEmptyBody": "规划你的第一个行程，它将显示在这里，随时可以再次查看。",
-  "tripsDeleteTitle": "删除行程？",
-  "tripsDeleteBody": "这会将“{title}”从你保存的行程中移除。此操作无法撤销。",
-  "@tripsDeleteBody": {
-    "placeholders": { "title": { "type": "String" } }
-  },
-  "tripsDeleted": "行程已删除",
+  "commonClose": "关闭",
   "commonContinue": "继续",
+  "commonDelete": "删除",
+  "commonLive": "居住",
   "commonNew": "新内容",
   "commonRoadmap": "路线图",
-  "commonLive": "实时",
   "commonSoon": "即将推出",
   "conciergeBrand": "LUXORA",
-  "conciergeInputHint": "描述你希望这趟旅行带来的感觉…",
-  "conciergeGreetingMorning": "早上好。",
   "conciergeGreetingAfternoon": "下午好。",
   "conciergeGreetingEvening": "晚上好。",
-  "conciergeWelcomeWarm": "我会围绕你想要的感受来安排佛罗里达之行，而不是一张景点清单。今天你想要什么？",
-  "conciergeRefineStyle": "优化我的风格",
-  "conciergeRecallReturning": "欢迎回来。",
-  "conciergeRecallStyle": "我记得你喜欢{prefs}。",
-  "conciergeRecallFeelLine": "你还希望这趟旅行带来这样的感觉：“{feel}”。",
+  "conciergeGreetingMorning": "早上好。",
+  "conciergeInputHint": "描述你希望这趟旅行带来的感觉…",
   "conciergePromptAdventure": "冒险模式",
   "conciergePromptDisney": "夜色迪士尼",
   "conciergePromptFamily": "家庭魔法",
@@ -68,6 +53,24 @@
   "conciergePromptSoftLuxury": "柔和奢华逃离",
   "conciergePromptWellness": "身心重启",
   "conciergeQuickPrompts": "快速提示",
+  "conciergeRecallFeelLine": "你希望这次旅行有“{feel}”的感觉。",
+  "@conciergeRecallFeelLine": {
+    "placeholders": {
+      "feel": {
+        "type": "String"
+      }
+    }
+  },
+  "conciergeRecallReturning": "欢迎回来。",
+  "conciergeRecallStyle": "我记得你喜欢{prefs}。",
+  "@conciergeRecallStyle": {
+    "placeholders": {
+      "prefs": {
+        "type": "String"
+      }
+    }
+  },
+  "conciergeRefineStyle": "完善我的风格",
   "conciergeRemembering": "为本次旅行记住",
   "conciergeStyleMemory": "风格记忆",
   "conciergeTitle": "礼宾",
@@ -79,53 +82,99 @@
       }
     }
   },
+  "conciergeVoiceHold": "按住说话",
+  "conciergeVoiceSoon": "语音礼宾服务即将推出 - 现在，只需轻按某个时刻或输入您想要的感受即可。",
   "conciergeWelcome": "欢迎来到 Luxora，你的佛罗里达情绪智能旅伴。\n\n选择下方提示，或描述你希望这趟旅行带来的感觉。",
+  "conciergeWelcomeWarm": "我来这里是为了按照您想要的感觉塑造佛罗里达——而不是一张景点清单。今天你想吃什么？",
   "dark_mode": "深色模式",
+  "dayFlowAfternoon": "下午",
+  "dayFlowEvening": "晚上",
+  "dayFlowMidday": "正午",
+  "dayFlowMorning": "早晨",
+  "dayFlowNight": "夜晚",
+  "dayFlowReasonAfternoonDowntime": "下午休息充电。",
+  "dayFlowReasonAfternoonGem": "远离人群的隐藏宝石。",
+  "dayFlowReasonEveningDining": "当天的美食 — 您的美食家之选。",
+  "dayFlowReasonMiddayAdventure": "精力充沛的时间——趁你精力充沛的时候来一次大冒险。",
+  "dayFlowReasonMiddayCulture": "趁着灯光明亮的时候游览。",
+  "dayFlowReasonMiddayIcon": "当天的签名时刻。",
+  "dayFlowReasonMorningCalm": "温和的开始定下基调。",
+  "dayFlowReasonMorningPool": "在一天开始之前，在池畔或水疗中心慢慢放松。",
+  "dayFlowReasonNightOut": "最后的光芒——一个夜晚。",
+  "dayFlowSubtitle": "这一天是围绕您想要的感受而设计的，而不是一张清单。",
+  "dayFlowVibeAdventure": "喜欢冒险",
+  "dayFlowVibeCulture": "文化",
+  "dayFlowVibeFoodie": "美食家前卫",
+  "dayFlowVibeNightlife": "夜生活",
+  "dayFlowVibePoolside": "池畔",
+  "detailAppleMaps": "苹果地图",
   "detailBestFor": "最适合",
   "detailBestTime": "最佳前往时间",
   "detailCostRange": "成本范围",
   "detailCrowd": "人潮",
+  "detailDriveFromHub": "从{time}出发的{hub}车程",
+  "@detailDriveFromHub": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      },
+      "hub": {
+        "type": "String"
+      }
+    }
+  },
+  "detailDriveFromOrlando": "从奥兰多出发 {time} 车程",
+  "@detailDriveFromOrlando": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
   "detailDuration": "时长",
+  "detailGetDirections": "获取路线",
+  "detailGoogleMaps": "谷歌地图",
+  "detailHomeBaseActive": "您的旅行大本营",
+  "detailHomeBaseClearedSnack": "基地已清除",
+  "detailHomeBaseHint": "您一天的路线从这里开始和结束。",
+  "detailHomeBaseSetSnack": "设为您的旅行大本营",
   "detailInsiderTips": "内行建议",
   "detailLocation": "位置",
-  "detailGetDirections": "获取路线",
-  "detailParkMap": "园区地图",
-  "detailViewOnMap": "在地图上查看",
   "detailMapsError": "无法在此设备上打开地图。",
-  "detailGoogleMaps": "谷歌地图",
-  "detailAppleMaps": "苹果地图",
-  "detailOpenInMaps": "在地图中打开",
-  "detailDriveFromOrlando": "距奥兰多车程 {time}",
-  "@detailDriveFromOrlando": {
-    "placeholders": { "time": { "type": "String" } }
-  },
-  "detailSaveToItinerary": "保存到行程",
-  "detailSaved": "已保存",
-  "detailSavedSnack": "已保存到你的行程",
-  "detailRemovedSnack": "已从你的行程中移除",
-  "detailSetHomeBase": "设为大本营",
-  "detailHomeBaseActive": "你的行程大本营",
-  "detailHomeBaseHint": "你的一日路线从这里出发并返回。",
-  "detailHomeBaseSetSnack": "已设为你的行程大本营",
-  "detailHomeBaseClearedSnack": "已清除大本营",
-  "detailMenuTitle": "菜单精选",
-  "detailMenuDisclaimer": "精选推荐——完整菜单和价格以店内为准。",
-  "detailMenuComingSoon": "我们仍在整理这份菜单。在此期间，请在线查看最新菜单和价格。",
-  "detailViewMenuOnline": "在线查看菜单",
+  "detailMenuComingSoon": "我们仍在策划这个菜单。同时在线查看最新菜单和价格。",
+  "detailMenuDisclaimer": "精选亮点 - 完整菜单和价格可能因场地而异。",
+  "detailMenuTitle": "菜单亮点",
   "detailNearbyGems": "附近秘境",
+  "detailOpenInMaps": "在地图中打开",
+  "detailParkMap": "公园地图",
   "detailPractical": "实用细节",
   "detailPrice": "价格",
+  "detailRemovedSnack": "已从您的行程中删除",
   "detailReserve": "预订体验",
   "detailReserveSoon": "预订合作伙伴即将上线。",
+  "detailSaveToItinerary": "保存至行程",
+  "detailSaved": "已保存",
+  "detailSavedSnack": "已保存至您的行程",
+  "detailSetHomeBase": "设置为大本营",
   "detailVibeMatch": "氛围匹配",
+  "detailViewMenuOnline": "在线查看菜单",
+  "detailViewOnMap": "在地图上查看",
   "detailWhySpecial": "特别之处",
+  "discoverFilterAll": "全部",
+  "discoverFilterDestinations": "目的地",
+  "discoverFilterHotels": "酒店",
+  "discoverFilterRestaurants": "餐厅",
+  "discoverFromHub": "来自{hub}",
+  "@discoverFromHub": {
+    "placeholders": {
+      "hub": {
+        "type": "String"
+      }
+    }
+  },
   "discoverFromOrlando": "从奥兰多出发",
   "discoverPopularInRadius": "你范围内的热门",
   "discoverSearchEmpty": "此范围内没有匹配项。试试更短的名称，在地图或动态中扩大距离，或搜索“海滩”“Disney”“泉水”。",
-  "discoverFilterAll": "全部",
-  "discoverFilterHotels": "酒店",
-  "discoverFilterRestaurants": "餐厅",
-  "discoverFilterDestinations": "景点",
   "discoverSearchHint": "搜索目的地…",
   "discoverSearchScopeAll": "正在搜索佛罗里达全目录",
   "discoverSearchScopeRadius": "奥兰多 {radius} 范围内",
@@ -136,20 +185,41 @@
       }
     }
   },
+  "discoverSearchScopeRadiusHub": "在 {hub} 的 {radius} 内",
+  "@discoverSearchScopeRadiusHub": {
+    "placeholders": {
+      "radius": {
+        "type": "String"
+      },
+      "hub": {
+        "type": "String"
+      }
+    }
+  },
   "discoverSearchTitle": "查找目的地",
   "discoverTrySearching": "试着搜索",
+  "featuredCityHomeSubtitle": "奥兰多有用的合作伙伴选项 - 清晰标记，绝不会隐藏为人工智能选择。",
+  "featuredCityHomeTitle": "特色合作伙伴",
+  "featuredDiningSubtitle": "Luxora 合作餐厅的亮点 — 您的有机宝石清单保持独立。",
+  "featuredDiningTitle": "特色餐饮",
+  "featuredExperiencesSubtitle": "根据您的心情推荐的推荐 — 始终贴上标签，从不伪装成 AI 排名。",
+  "featuredExperiencesTitle": "特色体验",
+  "featuredStaysSubtitle": "合作伙伴安置 — 与 Luxora 的有机酒店比赛分数分开。",
+  "featuredStaysTitle": "特色住宿",
+  "featuredTicketPartnersSubtitle": "授权合作伙伴提供的优惠 — 与下面的自然节省进行比较。",
+  "featuredTicketPartnersTitle": "精选票务合作伙伴",
   "feedBadge": "实时发现",
   "feedEmptyHint": "此范围内没有动态卡片。试试 50 mi 或全佛罗里达，查看墨西哥湾海岸和群岛亮点。",
+  "feedMoodAdventurous": "喜欢冒险",
+  "feedMoodAll": "一切",
+  "feedMoodCalm": "冷静的",
+  "feedMoodFoodie": "美食家",
+  "feedMoodPampered": "养尊处优",
+  "feedMoodPrompt": "您想要感觉如何？",
+  "feedMoodRomantic": "浪漫的",
+  "feedMoodSocial": "嗡嗡声",
   "feedPillCreator": "创作者精选",
   "feedPillLive": "实时更新",
-  "feedMoodPrompt": "你想要什么感觉？",
-  "feedMoodAll": "全部",
-  "feedMoodRomantic": "浪漫",
-  "feedMoodCalm": "宁静",
-  "feedMoodAdventurous": "探险",
-  "feedMoodPampered": "尊享",
-  "feedMoodSocial": "热闹",
-  "feedMoodFoodie": "美食",
   "feedPillNewOpenings": "新开业",
   "feedPillTrending": "热门",
   "feedSubtitle": "此刻正在发生的事：热门地点、新开业、创作者精选、季节路线和实时更新。",
@@ -159,11 +229,18 @@
   "gemInsiderTip": "内行提示",
   "gemLocalNote": "本地限定备注",
   "gemLocalSecret": "本地秘密",
-  "gemsMatchedBadge": "你的风格",
-  "gemsMatchedNote": "{count} 个符合你风格的去处",
   "gemWhySpecial": "特别之处",
   "gemsBadge": "内行精选",
   "gemsEmptyHint": "此范围内暂时没有秘境。扩大到 50 mi 或更远，发现泉水和太空海岸秘密。",
+  "gemsMatchedBadge": "你的风格",
+  "gemsMatchedNote": "{count, plural, =1{1 gem matched to your style} other{{count} 个宝石与您的风格匹配}}",
+  "@gemsMatchedNote": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "gemsPillCrowd": "人潮情报",
   "gemsPillHidden": "隐藏地点",
   "gemsPillInsider": "内行建议",
@@ -171,6 +248,191 @@
   "gemsSearchHint": "搜索隐藏秘境和目的地…",
   "gemsSubtitle": "当地人珍藏的秘密发现：特别之处、最佳时间、人潮程度，以及明信片上找不到的建议。",
   "gemsTitle": "隐藏秘境",
+  "goldenHourKindBeach": "海滩夕阳窗",
+  "goldenHourKindRooftop": "屋顶黄金时段",
+  "goldenHourKindScenic": "风景摄影时机",
+  "goldenHourLeaveBy": "在{time}（{minutes}分钟车程）出发前往{place} — 日落前约 15 分钟到达。",
+  "@goldenHourLeaveBy": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      },
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "goldenHourTitle": "黄金时段",
+  "helpCenterBody": "发送电子邮件至 support@luxora.ai 获取礼宾帮助。应用内指南即将推出。",
+  "helpCenterTitle": "帮助中心",
+  "hotelAddHomeBase": "添加为基地",
+  "hotelCheckRates": "查看价格",
+  "hotelCompareDriveImpact": "推动影响",
+  "hotelCompareNearby": "附近亮点",
+  "hotelComparePrice": "价格范围",
+  "hotelCompareSelected": "已选择 {count} 个",
+  "@hotelCompareSelected": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "hotelCompareSubtitle": "并排礼宾视图 — 最多三家酒店。",
+  "hotelCompareTitle": "比较住宿",
+  "hotelDiscoveryTitle": "为奥兰多策划",
+  "hotelDistanceTitle": "到关键地点的距离",
+  "hotelGetDirections": "获取路线",
+  "hotelHomeBaseActive": "基地活动",
+  "hotelHomeBaseBadge": "基地",
+  "hotelIntelBadge": "酒店情报",
+  "hotelIntelSubtitle": "Luxora 会根据您想要的旅行选择适合您一天的住宿，而不是预订网格。",
+  "hotelIntelTitle": "找到你的基地",
+  "hotelItineraryImpactBody": "从集线器出发的粗略行驶时间：{driveTime}。旅行摩擦分数：{friction}/90（越低越平静）。",
+  "@hotelItineraryImpactBody": {
+    "placeholders": {
+      "driveTime": {
+        "type": "String"
+      },
+      "friction": {
+        "type": "int"
+      }
+    }
+  },
+  "hotelItineraryImpactTitle": "这如何塑造你的日子",
+  "hotelLuxoraScore": "卢克索拉",
+  "hotelMatchAdults": "成年人",
+  "hotelMatchAttractions": "您清单上的景点",
+  "hotelMatchAttractionsGeneral": "您计划的景点",
+  "hotelMatchBestForCouple": "想要浪漫而又不想主题公园混乱的情侣。",
+  "hotelMatchBestForFamily": "想要享受泳池时光而又不想牺牲公园使用权的家庭。",
+  "hotelMatchBestForGroup": "团体平衡舒适性、便利性和平静的后勤。",
+  "hotelMatchBestForLabel": "最适合：",
+  "hotelMatchBudget": "预算舒适区",
+  "hotelMatchImpactDefault": "将平均驾驶时间保持在 {time} 左右，以便您的一天流程保持轻松。",
+  "@hotelMatchImpactDefault": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelMatchImpactDisney": "较短的迪士尼线路 — 从您家门口到公园大约需要 {time}。",
+  "@hotelMatchImpactDisney": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelMatchImpactUniversal": "环球快车福利或水上出租车服务可以节省您一天的时间。",
+  "hotelMatchImpactWalkable": "步行去吃晚饭——在公园度过漫长的一天后，可以减少停车压力。",
+  "hotelMatchItineraryLabel": "行程：",
+  "hotelMatchKids": "孩子们",
+  "hotelMatchLuxuryLevel": "想要的奢华程度",
+  "hotelMatchNearbyLabel": "附近：",
+  "hotelMatchResultsTitle": "您最喜欢的 3 场比赛",
+  "hotelMatchTradeoffCarNeeded": "您将依赖汽车或拼车服务，而不是步行到任何地方的基地。",
+  "hotelMatchTradeoffDefault": "每次住宿都会有一些权衡——Luxora 选择了这里作为您的首要任务。",
+  "hotelMatchTradeoffLessFamily": "与专门的家庭度假村相比，较少关注以儿童为中心的设施。",
+  "hotelMatchTradeoffLessRomantic": "主题公园的活力比安静的情侣休养地还要多。",
+  "hotelMatchTradeoffLuxuryBudget": "高级度假村定价——房间预算更多，其他地方预算更少。",
+  "hotelMatchTradeoffsLabel": "权衡：",
+  "hotelMatchTransport": "出行",
+  "hotelMatchTravelers": "旅行者",
+  "hotelMatchWhyMulti": "{hotel} 根据您的{attractions} 行程，缩短行车时间，让夜晚轻松度过。",
+  "@hotelMatchWhyMulti": {
+    "placeholders": {
+      "attractions": {
+        "type": "String"
+      },
+      "hotel": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelMatchWhySingle": "{neighborhood} 的 {hotel} 符合您想要的这次旅行的感觉。",
+  "@hotelMatchWhySingle": {
+    "placeholders": {
+      "hotel": {
+        "type": "String"
+      },
+      "neighborhood": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelMatchWhyTitle": "比赛得分 {score}",
+  "@hotelMatchWhyTitle": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "hotelMatchmakerCta": "AI酒店红娘",
+  "hotelMatchmakerRun": "查找我最喜欢的 3 家住宿",
+  "hotelMatchmakerSubtitle": "分享您的旅行方式 — Luxora 推荐您在哪里度过美好时光。",
+  "hotelMatchmakerTeaser": "告诉卢克索拉您的旅行风格，并通过诚实的权衡获得礼宾精选的三种住宿。",
+  "hotelMatchmakerTitle": "酒店红娘",
+  "hotelNearbyDefault": "{neighborhood} 周围的餐饮和体验。",
+  "@hotelNearbyDefault": {
+    "placeholders": {
+      "neighborhood": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelPriceBudget": "预算",
+  "hotelPriceLuxury": "奢华",
+  "hotelPriceModerate": "缓和",
+  "hotelPriceUpscale": "高档",
+  "hotelReasonBetterGroup": "更适合您的团体类型和能量水平。",
+  "hotelReasonCloseStops": "接近您时间表上的计划停靠点。",
+  "hotelReasonFitsBudget": "适合 {range} 舒适区，不会在错误的度假村上超支。",
+  "@hotelReasonFitsBudget": {
+    "placeholders": {
+      "range": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelReasonLowStress": "度假村式的平静——更少的后勤工作，更多的假期。",
+  "hotelReasonMatchesMood": "符合您的旅行心情和节奏。",
+  "hotelReasonNearbyDining": "附近有很多餐厅，让您度过轻松的夜晚。",
+  "hotelReasonSavesDrive": "与通用枢纽相比可节省行驶时间 — 距中心约 {time}。",
+  "@hotelReasonSavesDrive": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelSave": "保存酒店",
+  "hotelSaved": "已保存",
+  "hotelScoreFamily": "家庭",
+  "hotelScoreLuxury": "奢华",
+  "hotelScoreRomance": "浪漫",
+  "hotelScoreWalkability": "走",
+  "hotelTagBudget": "预算友好",
+  "hotelTagCouples": "最适合情侣",
+  "hotelTagDisney": "最适合迪士尼",
+  "hotelTagFamily": "适合家庭入住",
+  "hotelTagLuxuryStaycation": "豪华住宿",
+  "hotelTagQuiet": "安静的逃离",
+  "hotelTagResort": "度假村的感觉",
+  "hotelTagUniversal": "最适合环球",
+  "hotelTagWalkableDining": "适合步行就餐",
+  "hotelTransportCar": "租车",
+  "hotelTransportRideshare": "共乘",
+  "hotelTransportShuttle": "度假村班车",
+  "hotelTransportWalkable": "适合步行的街区",
+  "hotelViewOnMap": "在地图上查看",
+  "hotelVisitWebsite": "访问网站",
+  "hotelWhyRecommendTitle": "为什么 Luxora 推荐这个",
   "itineraryBadge": "你的行程",
   "itineraryDayTab": "第 {day} 天 · {label}",
   "@itineraryDayTab": {
@@ -196,36 +458,17 @@
   "landingWhy": "我们为何打造它",
   "language": "语言",
   "light_mode": "浅色模式",
-  "mapPlanDayTitle": "规划我的一天",
-  "mapPlanDaySuggested": "根据你的旅行心情推荐——收藏地点即可个性化定制。",
-  "mapPlanDayEmpty": "收藏目的地（♥），Luxora 会从你的奥兰多基地生成优化路线——少开车，多体验。",
-  "mapPlanDaySummary": "{count} 站 · {miles} · 车程 {time}",
-  "@mapPlanDaySummary": {
-    "placeholders": {
-      "count": { "type": "int" },
-      "miles": { "type": "String" },
-      "time": { "type": "String" }
-    }
-  },
-  "mapPlanDayHomeBase": "从 {hotel} 出发",
-  "@mapPlanDayHomeBase": {
-    "placeholders": { "hotel": { "type": "String" } }
-  },
-  "mapCrowdLevelQuiet": "安静",
-  "mapCrowdLevelModerate": "适中",
-  "mapCrowdLevelBusy": "拥挤",
-  "mapCrowdLevelPacked": "非常拥挤",
-  "mapCrowdAtStop": "人流：{level}",
-  "@mapCrowdAtStop": {
-    "placeholders": { "level": { "type": "String" } }
-  },
-  "mapRerouteButton": "改道至更安静的站点",
-  "mapRerouteApplied": "已调整行程 — 已将 {count} 个站点换成人流更少的地点。",
-  "@mapRerouteApplied": {
-    "placeholders": { "count": { "type": "int" } }
-  },
-  "mapRerouteNone": "您的路线看起来已经很从容。",
-  "mapRerouteRainHint": "可能下雨 — 点击改道选择室内备选。",
+  "localSecretDisneySpringsParking": "最好的停车位是橙色车库——沿着码头一侧走，而不是在主入口处。",
+  "localSecretLakeEolaSunset": "当天空变成金色时，面向圆形剧场一侧拍摄天鹅照片。",
+  "localSecretMiamiLittleHavanaDomino": "首先在橱窗购物车上买咖啡——当你拿着 Cortadito 时，边线的常客就会打开。",
+  "localSecretMiamiOceanDriveSunrise": "早上 7 点，鲁穆斯 (Lummus) 面向东 — 装饰艺术粉彩在早午餐人群到来之前闪闪发光。",
+  "localSecretMiamiPantherAlley": "在窗口点餐，顺时针沿着小巷行走——早上 8:45 时，最好的壁画光线照射在绿松石色的墙壁上。",
+  "localSecretMiamiVizcayaMangrove": "跳过主要的露台高峰——从东花园进入，逆时针沿着红树林木板路行走。",
+  "localSecretMiamiWynwoodAlley": "穿过 Panther Coffee 后面的装货巷——当地人在没有主线人群的情况下拍摄壁画。",
+  "localSecretTitle": "当地秘密",
+  "localSecretWekiwaSprings": "下午 2 点后请跳过主木板路 — 北步道入口保持安静。",
+  "localSecretWinterParkParkAvenue": "当地人躲进书店后面的小巷庭院——没有路牌。",
+  "localSecretWorldFoodTrucks": "点的是每日捕获的海鲜，而不是汉堡——远处窗口的队伍移动得更快。",
   "mapAiPowers": "AI 地图能力",
   "mapBadge": "AI 地图",
   "mapBookingTitle": "无缝预订（合作伙伴）",
@@ -243,6 +486,18 @@
   "mapCapSunsetTitle": "此刻最佳日落",
   "mapCapWeatherDesc": "雨天备用路线，以及海滩、屋顶和泉水的实时窗口。",
   "mapCapWeatherTitle": "天气感知建议",
+  "mapCrowdAtStop": "人群：{level}",
+  "@mapCrowdAtStop": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "mapCrowdLevelBusy": "忙碌的",
+  "mapCrowdLevelModerate": "缓和",
+  "mapCrowdLevelPacked": "包装好的",
+  "mapCrowdLevelQuiet": "安静的",
   "mapFutureCrowdDesc": "泉水、公园和爆红屋顶的实时密度：现在值得去吗？",
   "mapFutureCrowdTitle": "实时人潮热度",
   "mapFutureParkingDesc": "出发前的阻力评分：代客泊车、车库，或最合适的网约车上下车点。",
@@ -251,10 +506,109 @@
   "mapFutureRerouteTitle": "即时改线",
   "mapFutureTrafficDesc": "按压力加权的路线，不只看分钟数，也看车程感受。",
   "mapFutureTrafficTitle": "驾驶阻力评分",
+  "mapHotelIntelBannerBody": "您的酒店决定了驾车时间、日间流量以及就餐地点。 Luxora 可帮助您挑选 — 无预订压力。",
+  "mapHotelIntelBannerCta": "探索酒店智能",
+  "mapHotelIntelBannerTitle": "选择合适的基地",
   "mapNavLayerSubtitle": "不止发现，还能实时判断某个停靠点现在是否值得去。",
   "mapNavLayerTitle": "AI 导航层（下一步）",
+  "mapPlanDayEmpty": "为目的地添加书签 (♥)，Luxora 会构建一条从您的奥兰多枢纽出发的优化路线 — 最少的驾驶，最多的感受。",
+  "mapPlanDayHomeBase": "从{hotel}出发",
+  "@mapPlanDayHomeBase": {
+    "placeholders": {
+      "hotel": {
+        "type": "String"
+      }
+    }
+  },
+  "mapPlanDaySuggested": "根据您的旅行心情推荐 - 为地点添加书签，使其成为您的旅行心情。",
+  "mapPlanDaySummary": "{count} 站 · {miles} · {time} 车程",
+  "@mapPlanDaySummary": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "miles": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "mapPlanDayTitle": "计划我的一天",
+  "mapRerouteApplied": "日数调整 — {count} 个停靠站更换为人流量较少的站点。",
+  "@mapRerouteApplied": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapRerouteButton": "更改路线以安排更平静的停靠点",
+  "mapRerouteNone": "你的路线看起来已经很平静了。",
+  "mapRerouteRainHint": "可能会下雨——点击重新路由进行室内备份。",
   "mapSubtitle": "为你精选一天的标记：金色菱形是秘境，青色标记是今日行程，金线是情绪路线。",
   "mapTitle": "你的智能路线",
+  "miamiBeachBestTime": "最佳时间：{time}",
+  "@miamiBeachBestTime": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "miamiBeachCrowdScore": "人群",
+  "miamiBeachFamilyScore": "家庭",
+  "miamiBeachIntelTitle": "海滩情报",
+  "miamiBeachParking": "停车场：{level}",
+  "@miamiBeachParking": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "miamiBeachPhotoScore": "照片",
+  "miamiBeachRomanceScore": "浪漫",
+  "miamiBeachSunsetScore": "日落",
+  "miamiMoodRouteStart": "在 {time} 左右开始",
+  "@miamiMoodRouteStart": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "miamiMoodRoutesTitle": "迈阿密风情路线",
+  "miamiNightlifeArrival": "最佳到达时间：{time}",
+  "@miamiNightlifeArrival": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "miamiNightlifeDressCode": "着装要求：{code}",
+  "@miamiNightlifeDressCode": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "miamiNightlifeReservation": "建议预订",
+  "miamiNightlifeTitle": "夜生活礼宾部",
+  "milesFromHub": "距{distance}的{hub}",
+  "@milesFromHub": {
+    "placeholders": {
+      "distance": {
+        "type": "String"
+      },
+      "hub": {
+        "type": "String"
+      }
+    }
+  },
   "milesFromOrlando": "距奥兰多 {distance}",
   "@milesFromOrlando": {
     "placeholders": {
@@ -263,6 +617,18 @@
       }
     }
   },
+  "momentFamilyMemory": "家族记忆",
+  "momentFeelRelaxed": "感觉轻松",
+  "momentImpressSpouse": "给我的配偶留下深刻印象",
+  "momentLuxuryValue": "奢华而不超支",
+  "momentPerfectSunset": "完美的日落",
+  "momentPromptFamilyMemory": "我想要一个难忘的家庭时刻，对父母来说很轻松，对孩子来说却很神奇。",
+  "momentPromptImpressSpouse": "今晚我想用一些浪漫和意想不到的东西给我的配偶留下深刻的印象。",
+  "momentPromptLuxuryValue": "我想要一种不用花很多钱就能感觉特别的奢华。",
+  "momentPromptPerfectSunset": "我想要完美的佛罗里达日落时刻 - 我们应该在哪里以及什么时候离开？",
+  "momentPromptRelaxed": "我想在接下来的几个小时里感到完全放松——缓慢、美丽、没有人群。",
+  "momentsSubtitle": "寻找一种感觉——而不是一个地方。",
+  "momentsTitle": "卢克索拉时刻",
   "moodAdventurous": "冒险",
   "moodFamily": "家庭联结",
   "moodFoodie": "美食体验",
@@ -272,51 +638,52 @@
   "moodRomantic": "浪漫",
   "moodSocial": "社交",
   "moodWellness": "康养静修",
+  "moreCardAboutSub": "我们为何构建 Luxora",
+  "moreCardCityPacksSub": "解锁目的地礼宾服务",
+  "moreCardFavoritesSub": "您已添加书签的目的地",
+  "moreCardGemsSub": "知情人发现当地人守卫",
+  "moreCardHelpSub": "指南和礼宾支持",
+  "moreCardHotelsSub": "智能保持与您的心情相匹配",
+  "moreCardItinerarySub": "您每日的黄金之旅",
+  "moreCardNotificationsSub": "行程提醒和礼宾服务更新",
+  "moreCardNotificationsTitle": "通知",
+  "moreCardPartnersSub": "特色合作伙伴体验",
+  "moreCardProfileSub": "谁旅行，应该有什么感觉",
+  "moreCardProfileTitle": "行程简介",
+  "moreCardSettingsSub": "主题、城市包和偏好",
+  "moreCardTicketsSub": "比较授权合作伙伴节省的费用",
+  "moreCardWeatherSub": "预测日指导",
+  "morePageSubtitle": "旅行工具、帐户和偏好 — 专为轻松访问而精心设计。",
+  "morePageTitle": "更多的",
+  "moreSectionAccount": "帐户",
+  "moreSectionApp": "应用程序",
+  "moreSectionTravelTools": "旅行工具",
   "navConcierge": "礼宾",
+  "navDiscover": "发现",
   "navFeed": "动态",
   "navGems": "秘境",
   "navMap": "地图",
+  "navMore": "更多的",
+  "navStays": "住宿",
+  "navTicketSavings": "储蓄",
   "navTimeline": "行程",
   "navTrips": "旅行",
+  "notificationsComingSoon": "旅行通知将在未来的更新中发布。",
+  "occasionAnniversary": "周年纪念日",
+  "occasionDateNight": "约会之夜",
+  "occasionFamily": "有孩子的家庭",
+  "occasionGeneral": "只是探索",
+  "occasionHoneymoon": "蜜月",
+  "occasionProposal": "求婚之旅",
+  "onboardAdventure": "探险与户外",
   "onboardBudget": "旅行预算（USD）",
+  "onboardCulture": "文化与观光",
   "onboardDestination": "目的地",
   "onboardFinish": "认识你的礼宾",
   "onboardFoodie": "美食热情",
-  "onboardPoolside": "泳池与休闲",
-  "onboardAdventure": "探险与户外",
-  "onboardCulture": "文化与观光",
-  "dayFlowSubtitle": "围绕你想要的感受来安排的一天，而不是一张清单。",
-  "dayFlowMorning": "早晨",
-  "dayFlowMidday": "中午",
-  "dayFlowAfternoon": "下午",
-  "dayFlowEvening": "傍晚",
-  "dayFlowNight": "夜晚",
-  "dayFlowReasonMorningPool": "慢慢开始——在一天开始前先去泳池或水疗。",
-  "dayFlowReasonMorningCalm": "以轻松的方式开启一天，奠定基调。",
-  "dayFlowReasonMiddayAdventure": "精力最充沛的时段——趁状态好去尽情探险。",
-  "dayFlowReasonMiddayCulture": "在最明亮的日光下观光。",
-  "dayFlowReasonMiddayIcon": "一天中的招牌时刻。",
-  "dayFlowReasonAfternoonDowntime": "下午放松，恢复精力。",
-  "dayFlowReasonAfternoonGem": "远离人群的隐藏宝地。",
-  "dayFlowReasonEveningDining": "一天中的主餐——你的美食之选。",
-  "dayFlowReasonNightOut": "最后的精彩——夜晚出游。",
-  "weatherToday": "{place}此刻",
-  "weatherSunset": "日落 {time}",
-  "weatherRainNote": "{percent}% 降雨概率——带件薄外套。",
-  "weatherConditionClear": "晴",
-  "weatherConditionPartlyCloudy": "局部多云",
-  "weatherConditionCloudy": "多云",
-  "weatherConditionFog": "雾",
-  "weatherConditionDrizzle": "毛毛雨",
-  "weatherConditionRain": "雨",
-  "weatherConditionSnow": "雪",
-  "weatherConditionThunder": "雷暴",
-  "dayFlowVibeFoodie": "美食优先",
-  "dayFlowVibeNightlife": "夜生活",
-  "dayFlowVibePoolside": "泳池",
-  "dayFlowVibeAdventure": "探险",
-  "dayFlowVibeCulture": "文化",
   "onboardNightlife": "夜生活兴趣",
+  "onboardOccasionLabel": "什么场合？",
+  "onboardPoolside": "池畔和休息时间",
   "onboardRegion": "地区",
   "onboardStep1Subtitle": "你要去哪里？",
   "onboardStep1Title": "梦想最先降落的地方",
@@ -330,28 +697,277 @@
   "onboardStep5Title": "Luxora 的核心",
   "onboardTravelers": "旅行者",
   "onboardTripFeelHint": "日落晚餐、慢悠悠的早晨、和伴侣一起大笑…",
+  "partnerOffersTitle": "合作伙伴优惠",
+  "paywallBenefitAvoidTrapsBody": "寻找当地人真正推荐的体验。",
+  "paywallBenefitAvoidTrapsTitle": "避免旅游陷阱",
+  "paywallBenefitSaveMoneyBody": "了解门票优惠、本地优惠和更明智的选择。",
+  "paywallBenefitSaveMoneyTitle": "省钱",
+  "paywallBenefitSaveTimeBody": "跳过数小时的研究和规划。",
+  "paywallBenefitSaveTimeTitle": "节省时间",
+  "paywallBenefitTravelSmarterBody": "根据天气、人群和您的旅行方式获取建议。",
+  "paywallBenefitTravelSmarterTitle": "更智慧的旅行",
+  "paywallConciergePromise": "一次性购买·私人礼宾·无需订阅",
+  "paywallContinueExploring": "继续探索",
+  "paywallCtaUnlock": "解锁{cityName}礼宾服务",
+  "@paywallCtaUnlock": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallEmotionalLine": "您已经在假期上花费了数千美元。不要把体验留给机会。",
+  "paywallFeatureAiConcierge": "人工智能礼宾",
+  "paywallFeatureCrowdIntel": "群体情报",
+  "paywallFeatureDining": "餐饮推荐",
+  "paywallFeatureGpsNav": "GPS导航",
+  "paywallFeatureHiddenGems": "隐藏的宝石",
+  "paywallFeatureHotelIntel": "酒店情报",
+  "paywallFeatureItineraries": "个性化行程",
+  "paywallFeatureLocalSecrets": "当地秘密",
+  "paywallFeatureTicketSavings": "智能门票节省",
+  "paywallFeatureUnlimitedPlanning": "无限的城市规划",
+  "paywallFeatureWeatherConcierge": "天气礼宾部",
+  "paywallFutureUpdatesIncluded": "包含未来的 {cityName} 更新",
+  "@paywallFutureUpdatesIncluded": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallHeadlineAdventure": "探索大多数游客从未见过的{cityName}。",
+  "@paywallHeadlineAdventure": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallHeadlineCouples": "您的完美{cityName}度假之旅从这里开始。",
+  "@paywallHeadlineCouples": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallHeadlineFamily": "花更少的时间规划，花更多的时间在 {cityName} 留下美好回忆。",
+  "@paywallHeadlineFamily": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallHeadlineFoodie": "像当地人一样品尝{cityName}。",
+  "@paywallHeadlineFoodie": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallHeadlineLuxury": "以不同的方式体验{cityName}。",
+  "@paywallHeadlineLuxury": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallHeadlineMiamiDefault": "体验不同的迈阿密",
+  "paywallHeadlineMiamiWeekend": "不要浪费你的迈阿密周末",
+  "paywallHeroEyebrow": "您的私人礼宾服务",
+  "paywallHeroHeadline": "不要浪费你的假期",
+  "paywallHeroSubheadline": "Luxora 计划了这次旅行，以便您可以享受它。",
+  "paywallLessThanDinner": "比一顿假期晚餐的费用还要少。",
+  "paywallLifetimeAccess": "终身使用 {cityName}",
+  "@paywallLifetimeAccess": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallLockedConciergeRecs": "礼宾建议",
+  "paywallLockedDateNight": "浪漫约会之夜路线",
+  "paywallLockedFamilyPlans": "家庭无压力计划",
+  "paywallLockedHiddenLuxury": "隐藏的奢华体验",
+  "paywallLockedHotelMatchmaker": "智能酒店红娘",
+  "paywallLockedPreviewSubtitle": "解锁以揭示为您的旅行量身定制的路线和秘密。",
+  "paywallLockedPreviewTitle": "在礼宾部等候",
+  "paywallLockedVipSecrets": "VIP 本地秘密",
+  "paywallLockedWeatherReroute": "天气感知重新路由",
+  "paywallLuxoraPriceLine": "{price}一次",
+  "@paywallLuxoraPriceLine": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallMostVacationsCost": "大多数 {cityName} 假期费用为 {minUsd}–{maxUsd}+",
+  "@paywallMostVacationsCost": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      },
+      "minUsd": {
+        "type": "String"
+      },
+      "maxUsd": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallNoMonthlyFees": "无月费",
+  "paywallNoSubscription": "没有订阅",
+  "paywallOneTimePurchase": "一次性购买",
+  "paywallReview1": "“节省了我们数小时的计划时间。”",
+  "paywallReview2": "“发现了我们永远不会发现的地方。”",
+  "paywallReview3": "“仅为了隐藏的宝石就值得了。”",
+  "paywallSocialProofTitle": "解锁卢克索拉的旅行者",
+  "paywallUnlockCityConcierge": "解锁{cityName}礼宾服务",
+  "@paywallUnlockCityConcierge": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallWhatYouUnlock": "你解锁什么",
+  "paywallWhyTravelersUnlock": "为什么旅行者解锁卢克索拉",
   "photoBy": "摄影：",
   "photoClose": "关闭",
   "photoOn": "在",
   "photoViewDestination": "查看目的地",
   "placeCatAdventure": "冒险",
-  "placeCatHotel": "酒店",
   "placeCatBeach": "海滩",
   "placeCatDining": "餐饮",
   "placeCatFamily": "家庭",
+  "placeCatHotel": "酒店",
   "placeCatNature": "自然",
   "placeCatNightlife": "夜生活",
   "placeCatRomantic": "浪漫",
   "placeCatSprings": "泉水",
   "placeCatWellness": "康养",
-  "radius100": "100 mi",
-  "radius25": "25 mi",
-  "radius50": "50 mi",
+  "radius100": "100 英里",
+  "radius25": "25 英里",
+  "radius50": "50 英里",
   "radiusAllFlorida": "全佛罗里达",
   "radiusDesc100": "坦帕湾、代托纳、更远的墨西哥湾",
+  "radiusDesc100Miami": "大沼泽地、劳德代尔堡、南佛罗里达州深处",
   "radiusDesc25": "奥兰多核心区周边一日游",
+  "radiusDesc25Miami": "南海滩、布里克尔和核心社区",
   "radiusDesc50": "泉水、海岸一日游、太空海岸",
+  "radiusDesc50Miami": "温伍德、椰林、比斯坎湾",
   "radiusDescAll": "群岛、迈阿密及全州亮点",
+  "radiusDescAllMiami": "佛罗里达群岛步道和全州亮点",
+  "rightNowButton": "我们现在应该做什么？",
+  "rightNowEmpty": "您的半径范围内还没有强大的时刻 - 扩大发现或为一些最喜欢的书签添加书签。",
+  "rightNowFamilyCalm": "午睡窗外的平静 — 距离{minutes}轻松的家庭重置还有{place}分钟。",
+  "@rightNowFamilyCalm": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowGoldenHour": "黄金时段即将到来 — 大约 {minutes} 分钟后出发前往{place}（日落时分{crowd}）。",
+  "@rightNowGoldenHour": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      },
+      "crowd": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowPerfectWeather": "您距{minutes} 还需 {district} 分钟。天空看起来很棒 - 趁人群仍是 {crowd} 时前往 {place}。",
+  "@rightNowPerfectWeather": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "district": {
+        "type": "String"
+      },
+      "place": {
+        "type": "String"
+      },
+      "crowd": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowQuietGem": "安静的窗口 — 距离{minutes}还有 {place} 分钟（现在有{crowd}）。",
+  "@rightNowQuietGem": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      },
+      "crowd": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowRainyIndoor": "雷达上有雨 — {minutes} 分钟到达舒适的室内地点：{place}。",
+  "@rightNowRainyIndoor": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowResultTitle": "现在",
+  "rightNowRomantic": "约会之夜的能量 — 距离高峰期还有 {minutes} 分钟到达{place}。",
+  "@rightNowRomantic": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowScenicCoffee": "您距{minutes} 还需 {district} 分钟。天气非常好 — 在{place} 喝杯咖啡，然后在人群到来（{crowd} 人群）之前漫步 {walkArea}。",
+  "@rightNowScenicCoffee": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "district": {
+        "type": "String"
+      },
+      "place": {
+        "type": "String"
+      },
+      "walkArea": {
+        "type": "String"
+      },
+      "crowd": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowTapForDetails": "点击查看详情",
+  "savedFavoritesEmpty": "在地图或提要上为目的地添加书签 - 它们将显示在此处。",
+  "savedFavoritesTitle": "已保存的收藏夹",
   "scopeDestinationsAll": "{count} 个目的地 · 全佛罗里达",
   "@scopeDestinationsAll": {
     "placeholders": {
@@ -371,10 +987,46 @@
       }
     }
   },
+  "scopeDestinationsRadiusHub": "{count} 个目的地 · 在 {hub} 的 {radius} 范围内",
+  "@scopeDestinationsRadiusHub": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "radius": {
+        "type": "String"
+      },
+      "hub": {
+        "type": "String"
+      }
+    }
+  },
   "settings": "设置",
+  "settingsStartOverSubtitle": "从零开始全新的旅程",
+  "settingsUnlockConciergeSubtitle": "一次性城市包——不是订阅",
+  "settingsUnlockConciergeTitle": "解锁城市礼宾服务",
   "settings_language_picker_note": "更改会立即生效。",
   "settings_regions_coming_subtitle": "主页枢纽和城市包即将推出。",
   "settings_regions_coming_title": "国家与城市",
+  "shareItineraryFooter": "与 Luxora 一起计划——您高情商的佛罗里达伴侣。",
+  "shareSubject": "我的{title}",
+  "@shareSubject": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "sponsorBadgeFeaturedPartner": "特色合作伙伴",
+  "sponsorBadgePartnerOffer": "合作伙伴优惠",
+  "sponsorBadgePromoted": "晋升",
+  "sponsorBadgeSponsored": "赞助",
+  "sponsorCtaBookNow": "立即预订",
+  "sponsorCtaCheckRates": "查看价格",
+  "sponsorCtaGetTickets": "获取门票",
+  "sponsorCtaViewOffer": "查看报价",
+  "sponsorCtaVisitWebsite": "访问网站",
+  "sponsorLuxoraRecommended": "卢克索拉推荐",
   "storyAppAsks": "该应用程序询问",
   "storyBulletAudience": "家庭、情侣、豪华旅行者和健康旅行者",
   "storyBulletLogisticsGap": "大多数旅行应用程序专注于物流，而不是体验设计",
@@ -432,16 +1084,349 @@
   "styleNoTraps": "避开游客陷阱",
   "styleSlowMornings": "慢节奏早晨",
   "styleWalkable": "尽量可步行",
+  "ticketAiInsightTitle": "卢克索拉推荐",
+  "ticketBetterOption": "Luxora 找到了更好的选择。",
+  "ticketCalculatorTitle": "潜在的节省",
+  "ticketConfidenceHigh": "高置信度",
+  "ticketConfidenceLimited": "限时",
+  "ticketConfidenceVerified": "已验证经销商",
+  "ticketDealsSectionTitle": "授权交易",
+  "ticketDiscountPrice": "卢克索拉价格",
+  "ticketEstimatedFamilySave": "预计家庭储蓄：{amount}。",
+  "@ticketEstimatedFamilySave": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "ticketExpires": "优惠截止日期：{date}",
+  "@ticketExpires": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "ticketFamilySave": "预计家庭储蓄：{amount}。",
+  "@ticketFamilySave": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "ticketFilterAll": "全部",
+  "ticketFilterAttractions": "景点",
+  "ticketFilterDining": "用餐体验",
+  "ticketFilterEntertainment": "娱乐",
+  "ticketFilterFamily": "家庭活动",
+  "ticketFilterLabel": "筛选",
+  "ticketFilterThemeParks": "主题公园",
+  "ticketFilterTours": "旅游",
+  "ticketFilterWaterParks": "水上乐园",
+  "ticketInsightDisneyPass": "根据您的行程，3 天华特迪士尼世界通票代替单日门票可为您的家人节省约 120 美元。",
+  "ticketInsightGeneric": "Luxora 将节省的费用与您行程中的停留点进行匹配 - 在登机口购买之前进行比较。",
+  "ticketInsightMiamiCulture": "文化在你的计划中停止——本周，Vizcaya 和 PAMM 合作伙伴的优惠可能会超过门禁价格。",
+  "ticketInsightMiamiEverglades": "您行程中的大沼泽地日——早上的汽船班次通常在周中更便宜。",
+  "ticketInsightMiamiWynwood": "温伍德 (Wynwood) 在您的路线上 — 一场带导游的艺术漫步之旅比步行摊位的价格更优惠。",
+  "ticketInsightSeaworldCombo": "您路线上的海洋世界 - Aquatica 组合通常胜过两个单独的门票。",
+  "ticketInsightUniversalCombo": "您的计划包括环球影城——对于大多数家庭来说，一张 2 个园区的门票比单独购买几天要好。",
+  "ticketItineraryMatchTitle": "行程储蓄支票",
+  "ticketNoDeals": "此过滤器中没有优惠 - 尝试其他类别。",
+  "ticketOfficialPrice": "官方的",
+  "ticketOverpaying": "您可能以门票价格多付了钱。",
+  "ticketRecommendedSavings": "建议节省",
+  "ticketSaveAmount": "节省{amount}",
+  "@ticketSaveAmount": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "ticketSaveAmountLabel": "储蓄",
+  "ticketSavePerTicket": "每张票您可以节省 {amount}。",
+  "@ticketSavePerTicket": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "ticketSavingsBadge": "节省 {percent}%",
+  "@ticketSavingsBadge": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "ticketSavingsBadgeLabel": "超值优惠",
+  "ticketSavingsSubtitle": "Luxora 提供授权经销商、捆绑销售和促销活动，让您感觉自己像一名奢侈品顾问，而不是一个优惠券网站。",
+  "ticketSavingsTitle": "智能门票节省",
+  "ticketSortClosest": "离我最近的",
+  "ticketSortFamilyFriendly": "适合家庭入住",
+  "ticketSortHighestSavings": "最高节省",
+  "ticketSortLabel": "排序方式",
+  "ticketSortLuxury": "奢华体验",
+  "ticketSortMostPopular": "最受欢迎",
+  "ticketSource": "来源：{source}",
+  "@ticketSource": {
+    "placeholders": {
+      "source": {
+        "type": "String"
+      }
+    }
+  },
+  "tripStoryBeatClosing": "卢克索拉塑造了那些时刻——你经历了它们。",
+  "tripStoryBeatMoods": "你是为了{moods}而来的。",
+  "@tripStoryBeatMoods": {
+    "placeholders": {
+      "moods": {
+        "type": "String"
+      }
+    }
+  },
+  "tripStoryBeatTitle": "本章：{title}。",
+  "@tripStoryBeatTitle": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "tripStoryHeading": "{title} — 你的佛罗里达故事",
+  "@tripStoryHeading": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "tripStoryTitle": "你的旅行故事",
   "tripsBadge": "收藏集",
+  "tripsDeleteBody": "这将从您保存的行程中删除“{title}”。此操作无法撤消。",
+  "@tripsDeleteBody": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "tripsDeleteTitle": "删除行程？",
+  "tripsDeleted": "行程已删除",
+  "tripsEmptyBody": "计划您的第一次旅行，它会出现在这里，供您随时重游。",
+  "tripsEmptyTitle": "尚未保存行程",
   "tripsFooter": "旅行封面来自心情目录 · Supabase 同步第 2 阶段",
   "tripsLiveWeather": "实时天气",
   "tripsNextUp": "接下来",
+  "tripsOpenStory": "你的故事",
   "tripsOpenTimeline": "打开完整的时间线",
+  "tripsPlanNew": "计划新的旅行",
   "tripsShare": "分享",
-  "shareItineraryFooter": "由 Luxora 规划——你善解人意的佛罗里达旅伴。",
-  "shareSubject": "我的{title}",
   "tripsSubtitle": "点按旅行查看实时快照：下一个时刻、天气、日落和行程。",
   "tripsSunsetWindow": "日落窗",
   "tripsTimelineSnapshot": "时间轴快照",
-  "tripsTitle": "已保存旅行"
+  "tripsTitle": "已保存旅行",
+  "vacationScoreSubtitle": "今天感觉像是{score}/100 的一天。",
+  "@vacationScoreSubtitle": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "vacationScoreTitle": "假期分数",
+  "visualShareImageButton": "分享图片卡",
+  "weatherAdjustDay": "根据天气调整我的一天",
+  "weatherAdviceDefault": "天空看起来很容易控制——按照你的计划进行，并在手边准备一层薄层。",
+  "weatherAdviceGreatSunset": "今晚的日落条件非常好——考虑一下屋顶晚餐或湖边散步。",
+  "weatherAdviceHighUv": "今天紫外线很高——带上防晒霜，避免中午长时间直接暴露在阳光下。",
+  "weatherAdviceLightJacket": "今晚带一件薄外套。",
+  "weatherAdviceOutdoorBefore": "在{time}之前计划户外活动。",
+  "@weatherAdviceOutdoorBefore": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherAdviceRainLater": "今天晚些时候，降雨风险会增加，因此请将室内体验移至下午。",
+  "weatherAdviceWindBeach": "今天，风可能会使海滩或乘船活动变得不太舒适。",
+  "weatherBestOutdoorWindow": "最佳户外窗户",
+  "weatherCloudCover": "云层覆盖",
+  "weatherComingSoon": "即将推出",
+  "weatherConciergeAdviceTitle": "卢克索拉 天气建议",
+  "weatherConciergeTapHint": "点击即可获取旅行感知预报",
+  "weatherConciergeTitle": "天气礼宾部",
+  "weatherConditionClear": "清除",
+  "weatherConditionCloudy": "多云",
+  "weatherConditionDrizzle": "细雨",
+  "weatherConditionFog": "多雾路段",
+  "weatherConditionPartlyCloudy": "多云",
+  "weatherConditionRain": "雨",
+  "weatherConditionSnow": "雪",
+  "weatherConditionThunder": "雷暴",
+  "weatherFeelsLike": "感觉就像{temp}",
+  "@weatherFeelsLike": {
+    "placeholders": {
+      "temp": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherHourlyTitle": "每小时展望",
+  "weatherHourlyUnavailable": "数据加载时将出现每小时预测。",
+  "weatherHumidity": "湿度",
+  "weatherImpactClear": "今天早上的天空看起来很适合你的户外计划。",
+  "weatherImpactHeat": "正午高温 — 在 {time} 之前计划户外散步。",
+  "@weatherImpactHeat": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherImpactIndoorFallback": "水疗中心或博物馆",
+  "weatherImpactMixed": "今天，{count} 个室外站点可能需要调整时间。",
+  "@weatherImpactMixed": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "weatherImpactNoPlanClear": "最好的室外窗户看起来是在炎热或阵雨形成之前的 {start}–{end}。",
+  "@weatherImpactNoPlanClear": {
+    "placeholders": {
+      "start": {
+        "type": "String"
+      },
+      "end": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherImpactNoPlanDefault": "天气看起来很稳定 - 当您准备好按顺序停靠时，请点击“计划我的一天”。",
+  "weatherImpactNoPlanRain": "雨是其中的一部分——首先用室内锚来度过你的一天。",
+  "weatherImpactRainLater": "{time} 之后降雨风险上升。考虑提前移动 {outdoorStop} 并保存 {indoorStop} 以供稍后使用。",
+  "@weatherImpactRainLater": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      },
+      "outdoorStop": {
+        "type": "String"
+      },
+      "indoorStop": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherIndoorBackup": "室内备份想法",
+  "weatherLiveRadar": "实时雷达",
+  "weatherMapOverlays": "地图叠加",
+  "weatherMiamiBeachMorning": "沙滩上有强烈的紫外线——涂防晒霜、戴帽子，中午之前的海滩时间。",
+  "weatherMiamiBoatWind": "风力增强——重新考虑乘船或游艇活动；屋顶用餐可能仍然有效。",
+  "weatherMiamiHeatAdvisory": "炎热建议条件——轻质织物、保湿和户外停留之间的遮阳休息。",
+  "weatherMiamiHumidityIndoor": "今天湿度高。早点去海滩或泳池，然后在最热的时候前往温伍德或布里克尔的室内餐厅和画廊。",
+  "weatherMiamiRainReroute": "前方有雨 — 将户外计划改为 {indoorSpot} 或画廊时间。",
+  "@weatherMiamiRainReroute": {
+    "placeholders": {
+      "indoorSpot": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherMiamiSunsetWaterfront": "日落看起来很强烈——海滨或屋顶可以看到东西向的景色。",
+  "weatherOutdoorAtRisk": "{count} 个室外站点可能会受到影响",
+  "@weatherOutdoorAtRisk": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "weatherOverlayCloud": "云层覆盖",
+  "weatherOverlayPrecip": "沉淀",
+  "weatherOverlayTemp": "温度",
+  "weatherOverlayWind": "风",
+  "weatherPackHat": "帽子",
+  "weatherPackLightJacket": "轻便夹克",
+  "weatherPackPoncho": "雨披",
+  "weatherPackShoes": "舒适的鞋子",
+  "weatherPackSunglasses": "太阳镜",
+  "weatherPackSunscreen": "防晒霜",
+  "weatherPackSwimwear": "泳装",
+  "weatherPackUmbrella": "伞",
+  "weatherPackWater": "水瓶",
+  "weatherPlanImpact": "对您的计划的影响",
+  "weatherRadarComingSoon": "实时雷达即将推出。",
+  "weatherRainNote": "{percent}% 几率下雨 — 带上薄薄的一层。",
+  "@weatherRainNote": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "weatherRainWindow": "可能会下雨",
+  "weatherStatRain": "雨",
+  "weatherSunrise": "日出{time}",
+  "@weatherSunrise": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherSunset": "日落{time}",
+  "@weatherSunset": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherSunsetRec": "日落推荐",
+  "weatherSunsetRecRooftop": "{time} 附近天空晴朗 — 屋顶晚餐或湖边散步可能会闪闪发光。",
+  "@weatherSunsetRecRooftop": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherToday": "现在在{place}",
+  "@weatherToday": {
+    "placeholders": {
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherUv": "紫外线指数",
+  "weatherVisibility": "能见度",
+  "weatherVisibilityMiles": "{miles} 英里",
+  "@weatherVisibilityMiles": {
+    "placeholders": {
+      "miles": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherWhatToBring": "今天要带什么",
+  "weatherWind": "风",
+  "weatherWindValue": "{dir}，速度为 {speed} 英里/小时",
+  "@weatherWindValue": {
+    "placeholders": {
+      "dir": {
+        "type": "String"
+      },
+      "speed": {
+        "type": "int"
+      }
+    }
+  }
 }

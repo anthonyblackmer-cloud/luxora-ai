@@ -31,34 +31,19 @@
   "catSpas": "스파",
   "catSprings": "스프링스",
   "catThemeParks": "테마파크",
-  "commonClose": "닫기",
   "commonCancel": "취소",
-  "commonDelete": "삭제",
-  "settingsStartOverSubtitle": "처음부터 새로운 여행을 시작하세요",
-  "tripsPlanNew": "새 여행 계획하기",
-  "tripsEmptyTitle": "아직 저장된 여행이 없습니다",
-  "tripsEmptyBody": "첫 여행을 계획하면 여기에 표시되어 언제든 다시 볼 수 있습니다.",
-  "tripsDeleteTitle": "여행을 삭제할까요?",
-  "tripsDeleteBody": "저장된 여행에서 “{title}”을(를) 삭제합니다. 되돌릴 수 없습니다.",
-  "@tripsDeleteBody": {
-    "placeholders": { "title": { "type": "String" } }
-  },
-  "tripsDeleted": "여행이 삭제되었습니다",
+  "commonClose": "닫다",
   "commonContinue": "계속하다",
+  "commonDelete": "삭제",
+  "commonLive": "살다",
   "commonNew": "새로운",
   "commonRoadmap": "로드맵",
-  "commonLive": "라이브",
   "commonSoon": "곧",
   "conciergeBrand": "LUXORA",
-  "conciergeInputHint": "여행을 통해 만들고 싶은 느낌을 설명하세요.",
-  "conciergeGreetingMorning": "좋은 아침이에요.",
-  "conciergeGreetingAfternoon": "좋은 오후예요.",
+  "conciergeGreetingAfternoon": "좋은 오후에요.",
   "conciergeGreetingEvening": "좋은 저녁이에요.",
-  "conciergeWelcomeWarm": "명소 목록이 아니라, 어떤 기분을 원하는지에 맞춰 플로리다를 설계해 드릴게요. 오늘은 무엇이 끌리세요?",
-  "conciergeRefineStyle": "내 스타일 다듬기",
-  "conciergeRecallReturning": "다시 오셨네요.",
-  "conciergeRecallStyle": "{prefs}을(를) 좋아하셨던 걸 기억해요.",
-  "conciergeRecallFeelLine": "그리고 이번 여행이 “{feel}” 느낌이길 원하셨죠.",
+  "conciergeGreetingMorning": "좋은 아침이에요.",
+  "conciergeInputHint": "여행을 통해 만들고 싶은 느낌을 설명하세요.",
   "conciergePromptAdventure": "모험 모드",
   "conciergePromptDisney": "디즈니 애프터 다크",
   "conciergePromptFamily": "가족의 마법",
@@ -68,6 +53,24 @@
   "conciergePromptSoftLuxury": "소프트 럭셔리 탈출",
   "conciergePromptWellness": "웰니스 재설정",
   "conciergeQuickPrompts": "빠른 프롬프트",
+  "conciergeRecallFeelLine": "그리고 당신은 이번 여행이 \"{feel}\"이라는 느낌을 받기를 원했습니다.",
+  "@conciergeRecallFeelLine": {
+    "placeholders": {
+      "feel": {
+        "type": "String"
+      }
+    }
+  },
+  "conciergeRecallReturning": "돌아온 것을 환영합니다.",
+  "conciergeRecallStyle": "당신이 {prefs}를 좋아했던 것으로 기억해요.",
+  "@conciergeRecallStyle": {
+    "placeholders": {
+      "prefs": {
+        "type": "String"
+      }
+    }
+  },
+  "conciergeRefineStyle": "내 스타일 다듬기",
   "conciergeRemembering": "이번 여행의 추억",
   "conciergeStyleMemory": "스타일 메모리",
   "conciergeTitle": "관리인",
@@ -79,53 +82,99 @@
       }
     }
   },
+  "conciergeVoiceHold": "길게 눌러 말하세요",
+  "conciergeVoiceSoon": "음성 컨시어지가 곧 출시됩니다. 지금은 순간을 탭하거나 원하는 느낌을 입력하세요.",
   "conciergeWelcome": "감성 지능이 뛰어난 플로리다의 동반자인 Luxora에 오신 것을 환영합니다.\n\n아래에서 프롬프트를 선택하거나 여행으로 만들고 싶은 느낌을 설명하세요.",
+  "conciergeWelcomeWarm": "저는 명소에 대한 체크리스트가 아니라 여러분이 느끼고 싶은 대로 플로리다를 형성하기 위해 왔습니다. 오늘 당신은 무엇을 갈망하고 있습니까?",
   "dark_mode": "다크 모드",
+  "dayFlowAfternoon": "오후",
+  "dayFlowEvening": "저녁",
+  "dayFlowMidday": "대낮",
+  "dayFlowMorning": "아침",
+  "dayFlowNight": "밤",
+  "dayFlowReasonAfternoonDowntime": "재충전을 위한 오후의 다운타임.",
+  "dayFlowReasonAfternoonGem": "군중에서 멀리 떨어진 숨겨진 보석.",
+  "dayFlowReasonEveningDining": "오늘의 식사 – 미식가가 선택하세요.",
+  "dayFlowReasonMiddayAdventure": "최대 에너지 시간 — 상쾌한 동안의 큰 모험.",
+  "dayFlowReasonMiddayCulture": "빛이 밝은 동안 관광.",
+  "dayFlowReasonMiddayIcon": "오늘의 시그니처 순간.",
+  "dayFlowReasonMorningCalm": "분위기를 조성하기 위한 부드러운 시작입니다.",
+  "dayFlowReasonMorningPool": "천천히 휴식을 취하세요. 하루가 시작되기 전에 풀사이드나 스파에서 휴식을 취하세요.",
+  "dayFlowReasonNightOut": "마지막 빛 - 밤 외출.",
+  "dayFlowSubtitle": "체크리스트가 아닌 당신이 느끼고 싶은 방식에 따라 하루를 정하세요.",
+  "dayFlowVibeAdventure": "모험심이 강한",
+  "dayFlowVibeCulture": "문화",
+  "dayFlowVibeFoodie": "미식가를 지향하는",
+  "dayFlowVibeNightlife": "밤문화",
+  "dayFlowVibePoolside": "풀사이드",
+  "detailAppleMaps": "애플 지도",
   "detailBestFor": "다음에 가장 적합",
   "detailBestTime": "가기 가장 좋은 시기",
   "detailCostRange": "비용 범위",
   "detailCrowd": "군중",
+  "detailDriveFromHub": "{hub}에서 {time} 운전",
+  "@detailDriveFromHub": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      },
+      "hub": {
+        "type": "String"
+      }
+    }
+  },
+  "detailDriveFromOrlando": "올랜도에서 {time} 운전",
+  "@detailDriveFromOrlando": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
   "detailDuration": "지속",
+  "detailGetDirections": "길찾기",
+  "detailGoogleMaps": "구글 지도",
+  "detailHomeBaseActive": "당신의 여행 본거지",
+  "detailHomeBaseClearedSnack": "본거지가 삭제되었습니다.",
+  "detailHomeBaseHint": "하루의 경로는 여기에서 시작하고 끝납니다.",
+  "detailHomeBaseSetSnack": "여행의 본거지로 설정",
   "detailInsiderTips": "내부자 팁",
   "detailLocation": "위치",
-  "detailGetDirections": "길찾기",
-  "detailParkMap": "파크 맵",
-  "detailViewOnMap": "지도에서 보기",
   "detailMapsError": "이 기기에서 지도를 열 수 없습니다.",
-  "detailGoogleMaps": "Google 지도",
-  "detailAppleMaps": "Apple 지도",
-  "detailOpenInMaps": "지도에서 열기",
-  "detailDriveFromOrlando": "올랜도에서 차로 {time}",
-  "@detailDriveFromOrlando": {
-    "placeholders": { "time": { "type": "String" } }
-  },
-  "detailSaveToItinerary": "일정에 저장",
-  "detailSaved": "저장됨",
-  "detailSavedSnack": "일정에 저장했습니다",
-  "detailRemovedSnack": "일정에서 삭제했습니다",
-  "detailSetHomeBase": "베이스로 설정",
-  "detailHomeBaseActive": "여행 베이스",
-  "detailHomeBaseHint": "하루 경로가 이곳에서 시작하고 끝납니다.",
-  "detailHomeBaseSetSnack": "여행 베이스로 설정했습니다",
-  "detailHomeBaseClearedSnack": "베이스를 해제했습니다",
+  "detailMenuComingSoon": "이 메뉴는 아직 큐레이팅 중입니다. 그동안 온라인으로 최신 메뉴와 가격을 확인하세요.",
+  "detailMenuDisclaimer": "엄선된 하이라이트 - 전체 메뉴와 가격은 행사장에 따라 다를 수 있습니다.",
   "detailMenuTitle": "메뉴 하이라이트",
-  "detailMenuDisclaimer": "대표 메뉴 일부입니다. 전체 메뉴와 가격은 매장에 따라 다를 수 있습니다.",
-  "detailMenuComingSoon": "이 메뉴는 아직 준비 중입니다. 그동안 최신 메뉴와 가격은 온라인에서 확인하세요.",
-  "detailViewMenuOnline": "온라인에서 메뉴 보기",
   "detailNearbyGems": "주변 보석",
+  "detailOpenInMaps": "지도에서 열기",
+  "detailParkMap": "공원 지도",
   "detailPractical": "실용적인 세부 사항",
   "detailPrice": "가격",
+  "detailRemovedSnack": "여행 일정에서 삭제되었습니다.",
   "detailReserve": "체험 예약",
   "detailReserveSoon": "예약 파트너가 곧 제공될 예정입니다.",
+  "detailSaveToItinerary": "여행 일정에 저장",
+  "detailSaved": "저장됨",
+  "detailSavedSnack": "여행 일정에 저장되었습니다",
+  "detailSetHomeBase": "본거지로 설정",
   "detailVibeMatch": "바이브 매치",
+  "detailViewMenuOnline": "온라인으로 메뉴 보기",
+  "detailViewOnMap": "지도에서 보기",
   "detailWhySpecial": "특별한 이유",
+  "discoverFilterAll": "모두",
+  "discoverFilterDestinations": "목적지",
+  "discoverFilterHotels": "호텔",
+  "discoverFilterRestaurants": "레스토랑",
+  "discoverFromHub": "{hub}에서",
+  "@discoverFromHub": {
+    "placeholders": {
+      "hub": {
+        "type": "String"
+      }
+    }
+  },
   "discoverFromOrlando": "올랜도에서",
   "discoverPopularInRadius": "해당 반경에서 인기 있음",
   "discoverSearchEmpty": "이 반경에는 일치하는 항목이 없습니다. 더 짧은 이름을 사용하거나 지도 또는 피드에서 거리 칩을 넓히거나 '해변', '디즈니' 또는 '봄'을 검색하세요.",
-  "discoverFilterAll": "전체",
-  "discoverFilterHotels": "호텔",
-  "discoverFilterRestaurants": "레스토랑",
-  "discoverFilterDestinations": "명소",
   "discoverSearchHint": "목적지 검색…",
   "discoverSearchScopeAll": "카탈로그에서 모든 플로리다 검색",
   "discoverSearchScopeRadius": "올랜도를 중심으로 {radius} 이내",
@@ -136,20 +185,41 @@
       }
     }
   },
+  "discoverSearchScopeRadiusHub": "{hub}의 {radius} 내",
+  "@discoverSearchScopeRadiusHub": {
+    "placeholders": {
+      "radius": {
+        "type": "String"
+      },
+      "hub": {
+        "type": "String"
+      }
+    }
+  },
   "discoverSearchTitle": "목적지 찾기",
   "discoverTrySearching": "검색해 보세요",
+  "featuredCityHomeSubtitle": "올랜도를 위한 유용한 파트너 옵션 - 명확하게 표시되어 있으며 AI가 선택할 때 결코 숨겨지지 않습니다.",
+  "featuredCityHomeTitle": "주요 파트너",
+  "featuredDiningSubtitle": "파트너 레스토랑 Luxora는 귀하의 유기농 보석 목록이 독립적으로 유지됨을 강조합니다.",
+  "featuredDiningTitle": "추천 다이닝",
+  "featuredExperiencesSubtitle": "기분에 맞는 추천 상품 — 항상 라벨이 지정되어 있으며 AI 순위로 위장되지 않습니다.",
+  "featuredExperiencesTitle": "주요 경험",
+  "featuredStaysSubtitle": "파트너 배치 — Luxora의 유기적 호텔 매치 점수와는 별개입니다.",
+  "featuredStaysTitle": "추천 숙박",
+  "featuredTicketPartnersSubtitle": "공인 파트너 제안 — 아래의 유기적 절감액과 비교해 보세요.",
+  "featuredTicketPartnersTitle": "주요 티켓 파트너",
   "feedBadge": "실시간 검색",
   "feedEmptyHint": "이 반경에는 피드 카드가 없습니다. 걸프 해안과 키스 하이라이트를 보려면 50마일 또는 All Florida를 시도해 보세요.",
+  "feedMoodAdventurous": "모험심이 강한",
+  "feedMoodAll": "모든 것",
+  "feedMoodCalm": "침착한",
+  "feedMoodFoodie": "미식가",
+  "feedMoodPampered": "애지중지",
+  "feedMoodPrompt": "어떤 느낌을 원하시나요?",
+  "feedMoodRomantic": "로맨틱",
+  "feedMoodSocial": "윙윙거리는 소리",
   "feedPillCreator": "크리에이터 추천",
   "feedPillLive": "실시간 업데이트",
-  "feedMoodPrompt": "어떤 기분을 원하세요?",
-  "feedMoodAll": "전체",
-  "feedMoodRomantic": "로맨틱",
-  "feedMoodCalm": "차분함",
-  "feedMoodAdventurous": "모험적",
-  "feedMoodPampered": "호사",
-  "feedMoodSocial": "활기찬",
-  "feedMoodFoodie": "미식",
   "feedPillNewOpenings": "새로운 오프닝",
   "feedPillTrending": "인기 급상승",
   "feedSubtitle": "현재 인기 있는 장소, 인기 명소, 새로운 오프닝, 크리에이터 추천, 시즌별 경로, 실시간 업데이트 등이 있습니다.",
@@ -159,11 +229,18 @@
   "gemInsiderTip": "내부자 팁",
   "gemLocalNote": "로컬 전용 메모",
   "gemLocalSecret": "로컬 비밀",
-  "gemsMatchedBadge": "내 취향",
-  "gemsMatchedNote": "내 취향에 맞는 {count}곳",
   "gemWhySpecial": "특별한 이유",
   "gemsBadge": "내부자 큐레이션",
   "gemsEmptyHint": "이 반경에는 아직 보석이 없습니다. 샘과 스페이스 코스트의 비밀을 보려면 50마일 이상으로 넓혀보세요.",
+  "gemsMatchedBadge": "당신의 스타일",
+  "gemsMatchedNote": "{count, plural, =1{1 gem matched to your style} other{{count}개의 보석이 스타일과 일치합니다}}",
+  "@gemsMatchedNote": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "gemsPillCrowd": "군중 정보",
   "gemsPillHidden": "숨겨진 장소",
   "gemsPillInsider": "내부자 팁",
@@ -171,6 +248,191 @@
   "gemsSearchHint": "숨겨진 보석과 목적지를 검색하세요…",
   "gemsSubtitle": "지역 주민들이 지키는 비밀 발견 — 이곳이 왜 특별한지, 언제 가야 하는지, 얼마나 붐비는지, 엽서에서는 찾을 수 없는 팁 등이 있습니다.",
   "gemsTitle": "숨겨진 보석",
+  "goldenHourKindBeach": "해변 일몰 창",
+  "goldenHourKindRooftop": "루프탑 골든아워",
+  "goldenHourKindScenic": "절경 촬영 타이밍",
+  "goldenHourLeaveBy": "{time}(차로 {minutes}분)까지 {place}로 출발 — 일몰 ~15분 전에 도착하세요.",
+  "@goldenHourLeaveBy": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      },
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "goldenHourTitle": "골든아워",
+  "helpCenterBody": "컨시어지 도움을 받으려면 support@luxora.ai로 이메일을 보내세요. 인앱 가이드가 곧 제공될 예정입니다.",
+  "helpCenterTitle": "도움말 센터",
+  "hotelAddHomeBase": "홈 베이스로 추가",
+  "hotelCheckRates": "요금 확인",
+  "hotelCompareDriveImpact": "영향력 증대",
+  "hotelCompareNearby": "주변 하이라이트",
+  "hotelComparePrice": "가격대",
+  "hotelCompareSelected": "{count}개 선택됨",
+  "@hotelCompareSelected": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "hotelCompareSubtitle": "나란히 컨시어지 보기 — 최대 3개 호텔.",
+  "hotelCompareTitle": "숙박 비교",
+  "hotelDiscoveryTitle": "올랜도를 위해 선별됨",
+  "hotelDistanceTitle": "주요 지점까지의 거리",
+  "hotelGetDirections": "길찾기",
+  "hotelHomeBaseActive": "홈 베이스 액티브",
+  "hotelHomeBaseBadge": "홈 베이스",
+  "hotelIntelBadge": "호텔 인텔리전스",
+  "hotelIntelSubtitle": "Luxora는 귀하가 원하는 여행을 기반으로 예약 그리드가 아닌 귀하의 하루를 형성하는 숙박 시설을 선택합니다.",
+  "hotelIntelTitle": "귀하의 본거지를 찾으십시오",
+  "hotelItineraryImpactBody": "허브에서 대략적인 주행 시간: {driveTime}. 여행 마찰 점수: {friction}/90(낮을수록 차분함).",
+  "@hotelItineraryImpactBody": {
+    "placeholders": {
+      "driveTime": {
+        "type": "String"
+      },
+      "friction": {
+        "type": "int"
+      }
+    }
+  },
+  "hotelItineraryImpactTitle": "이것이 당신의 하루를 어떻게 형성하는지",
+  "hotelLuxoraScore": "룩소라",
+  "hotelMatchAdults": "성인",
+  "hotelMatchAttractions": "목록에 있는 명소",
+  "hotelMatchAttractionsGeneral": "계획된 명소",
+  "hotelMatchBestForCouple": "테마파크의 혼란 없이 로맨스를 원하는 커플.",
+  "hotelMatchBestForFamily": "공원 이용권을 희생하지 않고 수영장 이용을 원하는 가족.",
+  "hotelMatchBestForGroup": "편안함, 접근성, 차분한 물류의 균형을 유지하는 그룹입니다.",
+  "hotelMatchBestForLabel": "가장 적합한 대상:",
+  "hotelMatchBudget": "예산 안락 지대",
+  "hotelMatchImpactDefault": "{time}쯤에 평균 운전을 유지하여 하루의 흐름을 편안하게 유지합니다.",
+  "@hotelMatchImpactDefault": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelMatchImpactDisney": "더 짧은 디즈니 운행 — 집 문에서 공원까지 약 {time} 정도 소요됩니다.",
+  "@hotelMatchImpactDisney": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelMatchImpactUniversal": "유니버설 익스프레스 특전이나 수상 택시 이용으로 하루의 시간을 절약할 수 있습니다.",
+  "hotelMatchImpactWalkable": "저녁 식사 장소까지 걸어가세요. 공원에서 긴 시간을 보낸 후 주차 스트레스가 줄어듭니다.",
+  "hotelMatchItineraryLabel": "여행일정:",
+  "hotelMatchKids": "어린이",
+  "hotelMatchLuxuryLevel": "원하는 럭셔리 수준",
+  "hotelMatchNearbyLabel": "가까운:",
+  "hotelMatchResultsTitle": "상위 3개 경기",
+  "hotelMatchTradeoffCarNeeded": "어디든 걸어 다닐 수 있는 기반이 아닌 자동차나 공유 차량을 이용하게 됩니다.",
+  "hotelMatchTradeoffDefault": "모든 숙박에는 장단점이 있습니다. Luxora는 우선 순위로 이것을 선택했습니다.",
+  "hotelMatchTradeoffLessFamily": "전용 가족 리조트보다 어린이 중심 편의 시설에 덜 중점을 둡니다.",
+  "hotelMatchTradeoffLessRomantic": "조용한 커플 휴양지보다 테마파크 에너지가 더 많습니다.",
+  "hotelMatchTradeoffLuxuryBudget": "프리미엄 리조트 가격 - 객실에 더 많은 예산을 책정하고 다른 곳에서는 더 적은 예산을 책정합니다.",
+  "hotelMatchTradeoffsLabel": "장단점:",
+  "hotelMatchTransport": "돌아다니기",
+  "hotelMatchTravelers": "여행자",
+  "hotelMatchWhyMulti": "귀하의 {attractions} 일정에 따라 {hotel}은 운전 시간을 줄이고 저녁 시간을 편안하게 유지합니다.",
+  "@hotelMatchWhyMulti": {
+    "placeholders": {
+      "attractions": {
+        "type": "String"
+      },
+      "hotel": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelMatchWhySingle": "{hotel}의 {neighborhood}이 이번 여행의 느낌에 딱 맞습니다.",
+  "@hotelMatchWhySingle": {
+    "placeholders": {
+      "hotel": {
+        "type": "String"
+      },
+      "neighborhood": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelMatchWhyTitle": "경기 점수 {score}",
+  "@hotelMatchWhyTitle": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "hotelMatchmakerCta": "AI 호텔 매치메이커",
+  "hotelMatchmakerRun": "나의 상위 3개 숙박 시설 찾기",
+  "hotelMatchmakerSubtitle": "여행 방법을 공유하세요. Luxora는 하루의 정박 장소를 추천합니다.",
+  "hotelMatchmakerTeaser": "Luxora에게 귀하의 여행 스타일을 알려주고 컨시어지가 선정한 3회의 숙박을 정직하게 교환하세요.",
+  "hotelMatchmakerTitle": "호텔 중매인",
+  "hotelNearbyDefault": "{neighborhood} 주변의 식사 및 체험.",
+  "@hotelNearbyDefault": {
+    "placeholders": {
+      "neighborhood": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelPriceBudget": "예산",
+  "hotelPriceLuxury": "사치",
+  "hotelPriceModerate": "보통의",
+  "hotelPriceUpscale": "고급",
+  "hotelReasonBetterGroup": "그룹 유형과 에너지 수준에 더 적합합니다.",
+  "hotelReasonCloseStops": "타임라인에서 예정된 정류장에 가깝습니다.",
+  "hotelReasonFitsBudget": "잘못된 리조트에 과도한 지출을 하지 않고도 {range} 편안한 지역에 적합합니다.",
+  "@hotelReasonFitsBudget": {
+    "placeholders": {
+      "range": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelReasonLowStress": "리조트 스타일의 평온함 - 물류가 줄어들고 휴가가 늘어납니다.",
+  "hotelReasonMatchesMood": "여행 기분과 속도에 딱 맞습니다.",
+  "hotelReasonNearbyDining": "편안한 저녁을 위한 강력한 인근 식사.",
+  "hotelReasonSavesDrive": "일반 허브에 비해 운전 시간이 절약됩니다. 중앙에서 약 {time} 정도 소요됩니다.",
+  "@hotelReasonSavesDrive": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelSave": "호텔 저장",
+  "hotelSaved": "저장됨",
+  "hotelScoreFamily": "가족",
+  "hotelScoreLuxury": "사치",
+  "hotelScoreRomance": "로맨스",
+  "hotelScoreWalkability": "걷다",
+  "hotelTagBudget": "예산 친화적",
+  "hotelTagCouples": "커플에게 가장 적합",
+  "hotelTagDisney": "디즈니에 가장 적합",
+  "hotelTagFamily": "가족 친화적",
+  "hotelTagLuxuryStaycation": "럭셔리 스테이케이션",
+  "hotelTagQuiet": "조용한 탈출",
+  "hotelTagResort": "리조트 느낌",
+  "hotelTagUniversal": "유니버설에 가장 적합",
+  "hotelTagWalkableDining": "걷기 좋은 식사",
+  "hotelTransportCar": "렌트카",
+  "hotelTransportRideshare": "승차 공유",
+  "hotelTransportShuttle": "리조트 셔틀",
+  "hotelTransportWalkable": "걷기 좋은 동네",
+  "hotelViewOnMap": "지도에서 보기",
+  "hotelVisitWebsite": "웹사이트 방문",
+  "hotelWhyRecommendTitle": "Luxora가 이것을 추천하는 이유",
   "itineraryBadge": "귀하의 타임라인",
   "itineraryDayTab": "일 {day} · {label}",
   "@itineraryDayTab": {
@@ -196,36 +458,17 @@
   "landingWhy": "우리가 이것을 구축하는 이유",
   "language": "언어",
   "light_mode": "라이트 모드",
-  "mapPlanDayTitle": "내 하루 계획하기",
-  "mapPlanDaySuggested": "여행 무드를 바탕으로 제안했어요 — 장소를 즐겨찾기해 나만의 일정으로 만드세요.",
-  "mapPlanDayEmpty": "목적지를 즐겨찾기(♥)하면 Luxora가 올랜도 허브에서 출발하는 최적 경로를 만듭니다. 운전은 적게, 감동은 크게.",
-  "mapPlanDaySummary": "{count}곳 · {miles} · 차로 {time}",
-  "@mapPlanDaySummary": {
-    "placeholders": {
-      "count": { "type": "int" },
-      "miles": { "type": "String" },
-      "time": { "type": "String" }
-    }
-  },
-  "mapPlanDayHomeBase": "{hotel}에서 출발",
-  "@mapPlanDayHomeBase": {
-    "placeholders": { "hotel": { "type": "String" } }
-  },
-  "mapCrowdLevelQuiet": "한산",
-  "mapCrowdLevelModerate": "보통",
-  "mapCrowdLevelBusy": "혼잡",
-  "mapCrowdLevelPacked": "매우 혼잡",
-  "mapCrowdAtStop": "혼잡도: {level}",
-  "@mapCrowdAtStop": {
-    "placeholders": { "level": { "type": "String" } }
-  },
-  "mapRerouteButton": "더 한산한 경유지로 경로 변경",
-  "mapRerouteApplied": "일정 조정 — {count}곳을 덜 붐비는 곳으로 바꿨습니다.",
-  "@mapRerouteApplied": {
-    "placeholders": { "count": { "type": "int" } }
-  },
-  "mapRerouteNone": "이 경로는 이미 여유로워 보입니다.",
-  "mapRerouteRainHint": "비 가능성 — 실내 대안으로 경로를 바꿔 보세요.",
+  "localSecretDisneySpringsParking": "가장 좋은 주차 장소는 주황색 차고입니다. 정문이 붐비지 않고 정박지 쪽을 따라 걸어가세요.",
+  "localSecretLakeEolaSunset": "하늘이 금빛으로 변하는 동안 원형극장 쪽에서 백조 사진을 찍으세요.",
+  "localSecretMiamiLittleHavanaDomino": "먼저 창가 카트에서 카페시토를 구입하세요. 코르타디토를 들고 있으면 사이드라인 벤치 단골 손님이 열립니다.",
+  "localSecretMiamiOceanDriveSunrise": "Lummus에서는 오전 7시에 동쪽을 향합니다. 브런치 군중이 도착하기 전에 아르데코 파스텔이 빛납니다.",
+  "localSecretMiamiPantherAlley": "창가에서 주문하고 시계 방향으로 골목을 걷습니다. 오전 8시 45분에 청록색 벽에 가장 좋은 벽화 조명이 비칩니다.",
+  "localSecretMiamiVizcayaMangrove": "메인 테라스 혼잡을 건너뛰고 동쪽 정원에서 들어가 맹그로브 산책로를 시계 반대 방향으로 걸어보세요.",
+  "localSecretMiamiWynwoodAlley": "팬더 커피(Panther Coffee) 뒤의 로딩 골목을 통과해 들어가세요. 현지인들은 메인 라인에 모인 군중 없이 벽화를 촬영합니다.",
+  "localSecretTitle": "로컬 비밀",
+  "localSecretWekiwaSprings": "오후 2시 이후에는 메인 산책로를 건너뛰세요. 북쪽 트레일 기점은 조용합니다.",
+  "localSecretWinterParkParkAvenue": "지역 주민들은 거리 표지판이 없는 서점 뒤의 골목 안뜰로 몸을 숨깁니다.",
+  "localSecretWorldFoodTrucks": "버거가 아닌 매일 캐치를 주문하십시오. 줄은 먼 창에서 더 빠르게 움직입니다.",
   "mapAiPowers": "AI 지도의 힘",
   "mapBadge": "AI 지도",
   "mapBookingTitle": "원활한 예약(파트너)",
@@ -243,6 +486,18 @@
   "mapCapSunsetTitle": "지금 최고의 일몰",
   "mapCapWeatherDesc": "해변, 옥상, 샘을 위한 비 백업 경로와 실시간 창문.",
   "mapCapWeatherTitle": "날씨 인식 제안",
+  "mapCrowdAtStop": "군중: {level}",
+  "@mapCrowdAtStop": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "mapCrowdLevelBusy": "바쁘다",
+  "mapCrowdLevelModerate": "보통의",
+  "mapCrowdLevelPacked": "포장됨",
+  "mapCrowdLevelQuiet": "조용한",
   "mapFutureCrowdDesc": "샘, 공원, 바이러스 옥상의 실시간 밀도 - 지금 당장 가치가 있나요?",
   "mapFutureCrowdTitle": "실시간 군중 열기",
   "mapFutureParkingDesc": "약속하기 전 마찰 점수 - 주차 대행, 차고 또는 차량 공유 최적의 장소.",
@@ -251,10 +506,109 @@
   "mapFutureRerouteTitle": "자발적인 경로 변경",
   "mapFutureTrafficDesc": "스트레스 가중치 라우팅 - 단지 몇 분이 아니라 드라이브의 느낌이 어떻게 될지.",
   "mapFutureTrafficTitle": "드라이브 마찰 점수",
+  "mapHotelIntelBannerBody": "호텔은 운전 시간, 하루 흐름, 식사 장소를 결정합니다. Luxora는 예약에 대한 압박 없이 선택을 도와드립니다.",
+  "mapHotelIntelBannerCta": "Hotel Intelligence 살펴보기",
+  "mapHotelIntelBannerTitle": "올바른 본거지를 선택하세요",
   "mapNavLayerSubtitle": "발견 그 이상 - 지금 당장 정차할 가치가 있는지에 대한 실시간 인텔리전스입니다.",
   "mapNavLayerTitle": "AI 탐색 레이어(다음)",
+  "mapPlanDayEmpty": "목적지를 북마크(♥)하면 Luxora는 올랜도 허브에서 가장 적은 운전으로 가장 기분 좋은 최적의 경로를 구축합니다.",
+  "mapPlanDayHomeBase": "{hotel}에서 출발",
+  "@mapPlanDayHomeBase": {
+    "placeholders": {
+      "hotel": {
+        "type": "String"
+      }
+    }
+  },
+  "mapPlanDaySuggested": "여행 기분에 따라 추천되는 장소를 즐겨찾기에 추가해 나만의 장소로 만들어 보세요.",
+  "mapPlanDaySummary": "{count} 정거장 · {miles} · {time} 운전",
+  "@mapPlanDaySummary": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "miles": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "mapPlanDayTitle": "나의 하루를 계획해보세요",
+  "mapRerouteApplied": "요일 조정 — {count} 정거장이 더 적은 군중으로 교체되었습니다.",
+  "@mapRerouteApplied": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapRerouteButton": "더 조용한 정류장으로 경로 변경",
+  "mapRerouteNone": "당신의 길은 이미 평온해 보입니다.",
+  "mapRerouteRainHint": "비가 올 가능성이 높습니다. 실내 백업을 위해 경로 재설정을 탭하세요.",
   "mapSubtitle": "선별된 하루를 위한 핀 — 금색 다이아몬드는 보석, 청록색 마커는 오늘의 타임라인, 금색 선은 기분 경로입니다.",
   "mapTitle": "귀하의 지능형 경로",
+  "miamiBeachBestTime": "가장 좋은 시간: {time}",
+  "@miamiBeachBestTime": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "miamiBeachCrowdScore": "군중",
+  "miamiBeachFamilyScore": "가족",
+  "miamiBeachIntelTitle": "비치 인텔리전스",
+  "miamiBeachParking": "주차: {level}",
+  "@miamiBeachParking": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "miamiBeachPhotoScore": "사진",
+  "miamiBeachRomanceScore": "로맨스",
+  "miamiBeachSunsetScore": "일몰",
+  "miamiMoodRouteStart": "{time}쯤에 시작하세요",
+  "@miamiMoodRouteStart": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "miamiMoodRoutesTitle": "마이애미 무드 루트",
+  "miamiNightlifeArrival": "최적의 도착 시간: {time}",
+  "@miamiNightlifeArrival": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "miamiNightlifeDressCode": "드레스 코드: {code}",
+  "@miamiNightlifeDressCode": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "miamiNightlifeReservation": "예약 권장",
+  "miamiNightlifeTitle": "나이트라이프 컨시어지",
+  "milesFromHub": "{hub}에서 {distance}",
+  "@milesFromHub": {
+    "placeholders": {
+      "distance": {
+        "type": "String"
+      },
+      "hub": {
+        "type": "String"
+      }
+    }
+  },
   "milesFromOrlando": "올랜도에서 {distance}",
   "@milesFromOrlando": {
     "placeholders": {
@@ -263,6 +617,18 @@
       }
     }
   },
+  "momentFamilyMemory": "가족의 기억",
+  "momentFeelRelaxed": "편안한 느낌",
+  "momentImpressSpouse": "배우자에게 감동을 주세요",
+  "momentLuxuryValue": "과소비 없는 럭셔리",
+  "momentPerfectSunset": "완벽한 일몰",
+  "momentPromptFamilyMemory": "나는 부모에게는 쉽고 아이들에게는 마법 같은 기억에 남는 가족의 순간을 원합니다.",
+  "momentPromptImpressSpouse": "오늘 밤 나는 로맨틱하고 예상치 못한 무언가로 배우자에게 깊은 인상을 주고 싶습니다.",
+  "momentPromptLuxuryValue": "나는 많은 돈을 들이지 않고도 특별함을 느낄 수 있는 럭셔리를 원한다.",
+  "momentPromptPerfectSunset": "나는 완벽한 플로리다의 일몰 순간을 원합니다. 우리는 어디에 있어야 하며 언제 떠나야 할까요?",
+  "momentPromptRelaxed": "앞으로 몇 시간 동안은 느리고, 아름답고, 사람이 붐비지 않고 완전한 편안함을 느끼고 싶습니다.",
+  "momentsSubtitle": "장소가 아닌 느낌을 찾으세요.",
+  "momentsTitle": "룩소라 순간",
   "moodAdventurous": "모험심이 강한",
   "moodFamily": "가족 유대감",
   "moodFoodie": "미식가 체험",
@@ -272,51 +638,52 @@
   "moodRomantic": "로맨틱",
   "moodSocial": "사회의",
   "moodWellness": "웰빙 휴양지",
+  "moreCardAboutSub": "우리가 Luxora를 구축하는 이유",
+  "moreCardCityPacksSub": "목적지 컨시어지 잠금 해제",
+  "moreCardFavoritesSub": "북마크한 목적지",
+  "moreCardGemsSub": "내부자 발견 현지인 경비",
+  "moreCardHelpSub": "가이드 및 컨시어지 지원",
+  "moreCardHotelsSub": "당신의 기분에 맞춰 지능적인 숙박을 제공합니다.",
+  "moreCardItinerarySub": "당신의 일상을 황금빛 탈출로",
+  "moreCardNotificationsSub": "여행 알림 및 컨시어지 업데이트",
+  "moreCardNotificationsTitle": "알림",
+  "moreCardPartnersSub": "주요 파트너 경험",
+  "moreCardProfileSub": "여행하는 사람은 어떤 느낌이어야 할까요?",
+  "moreCardProfileTitle": "여행 프로필",
+  "moreCardSettingsSub": "테마, 시티팩, 환경설정",
+  "moreCardTicketsSub": "공인 파트너 절감액 비교",
+  "moreCardWeatherSub": "일기예보를 고려한 요일 안내",
+  "morePageSubtitle": "여행 도구, 계정, 기본 설정 — 차분한 액세스를 위해 선별되었습니다.",
+  "morePageTitle": "더",
+  "moreSectionAccount": "계정",
+  "moreSectionApp": "앱",
+  "moreSectionTravelTools": "여행 도구",
   "navConcierge": "관리인",
+  "navDiscover": "발견하다",
   "navFeed": "밥을 먹이다",
   "navGems": "보석",
   "navMap": "지도",
+  "navMore": "더",
+  "navStays": "숙박",
+  "navTicketSavings": "저금",
   "navTimeline": "타임라인",
   "navTrips": "여행",
+  "notificationsComingSoon": "여행 알림은 향후 업데이트를 통해 제공될 예정입니다.",
+  "occasionAnniversary": "기념일",
+  "occasionDateNight": "데이트 밤",
+  "occasionFamily": "어린이 동반 가족",
+  "occasionGeneral": "그냥 탐색 중",
+  "occasionHoneymoon": "신흔 여행",
+  "occasionProposal": "프로포즈 여행",
+  "onboardAdventure": "모험과 야외 활동",
   "onboardBudget": "여행 예산(USD)",
+  "onboardCulture": "문화 및 관광",
   "onboardDestination": "목적지",
   "onboardFinish": "컨시어지를 만나보세요",
   "onboardFoodie": "미식가의 열정",
-  "onboardPoolside": "수영장과 휴식",
-  "onboardAdventure": "모험과 야외 활동",
-  "onboardCulture": "문화와 관광",
-  "dayFlowSubtitle": "할 일 목록이 아니라, 어떤 기분을 원하는지에 맞춰 짠 하루.",
-  "dayFlowMorning": "아침",
-  "dayFlowMidday": "정오",
-  "dayFlowAfternoon": "오후",
-  "dayFlowEvening": "저녁",
-  "dayFlowNight": "밤",
-  "dayFlowReasonMorningPool": "천천히 시작하세요 — 하루가 시작되기 전 수영장이나 스파에서.",
-  "dayFlowReasonMorningCalm": "하루의 분위기를 잡아주는 부드러운 시작.",
-  "dayFlowReasonMiddayAdventure": "에너지가 최고조인 시간 — 컨디션이 좋을 때 큰 모험을.",
-  "dayFlowReasonMiddayCulture": "햇살이 밝을 때 즐기는 관광.",
-  "dayFlowReasonMiddayIcon": "하루의 하이라이트.",
-  "dayFlowReasonAfternoonDowntime": "재충전을 위한 오후의 휴식.",
-  "dayFlowReasonAfternoonGem": "인파를 벗어난 숨은 명소.",
-  "dayFlowReasonEveningDining": "하루의 메인 식사 — 당신의 미식 선택.",
-  "dayFlowReasonNightOut": "마지막 빛 — 밤 나들이.",
-  "weatherToday": "지금 {place}",
-  "weatherSunset": "일몰 {time}",
-  "weatherRainNote": "강수 확률 {percent}% — 얇은 겉옷을 챙기세요.",
-  "weatherConditionClear": "맑음",
-  "weatherConditionPartlyCloudy": "부분적으로 흐림",
-  "weatherConditionCloudy": "흐림",
-  "weatherConditionFog": "안개",
-  "weatherConditionDrizzle": "이슬비",
-  "weatherConditionRain": "비",
-  "weatherConditionSnow": "눈",
-  "weatherConditionThunder": "뇌우",
-  "dayFlowVibeFoodie": "미식 중심",
-  "dayFlowVibeNightlife": "나이트라이프",
-  "dayFlowVibePoolside": "수영장",
-  "dayFlowVibeAdventure": "모험적인",
-  "dayFlowVibeCulture": "문화",
   "onboardNightlife": "밤문화에 대한 관심",
+  "onboardOccasionLabel": "어떤 행사인가요?",
+  "onboardPoolside": "풀사이드 및 다운타임",
   "onboardRegion": "지역",
   "onboardStep1Subtitle": "어디로 가시나요?",
   "onboardStep1Title": "꿈이 먼저 닿는 곳",
@@ -330,15 +697,156 @@
   "onboardStep5Title": "룩소라의 심장부",
   "onboardTravelers": "여행자",
   "onboardTripFeelHint": "일몰 저녁 식사, 느린 아침, 파트너와의 웃음…",
+  "partnerOffersTitle": "파트너 제안",
+  "paywallBenefitAvoidTrapsBody": "현지인들이 실제로 추천하는 체험을 찾아보세요.",
+  "paywallBenefitAvoidTrapsTitle": "관광객의 함정을 피하세요",
+  "paywallBenefitSaveMoneyBody": "티켓 절약, 현지 할인, 더 현명한 선택을 알아보세요.",
+  "paywallBenefitSaveMoneyTitle": "돈을 절약하세요",
+  "paywallBenefitSaveTimeBody": "연구와 계획에 소요되는 시간을 건너뛰세요.",
+  "paywallBenefitSaveTimeTitle": "시간 절약",
+  "paywallBenefitTravelSmarterBody": "날씨, 군중, 여행 스타일에 따라 추천을 받아보세요.",
+  "paywallBenefitTravelSmarterTitle": "더 스마트하게 여행하세요",
+  "paywallConciergePromise": "일회성 구매 · 개인 컨시어지 · 구독 없음",
+  "paywallContinueExploring": "계속 탐색",
+  "paywallCtaUnlock": "{cityName} 컨시어지 잠금 해제",
+  "@paywallCtaUnlock": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallEmotionalLine": "당신은 이미 휴가에 수천 달러를 지출하고 있습니다. 경험을 우연에 맡기지 마십시오.",
+  "paywallFeatureAiConcierge": "AI 컨시어지",
+  "paywallFeatureCrowdIntel": "군중 지능",
+  "paywallFeatureDining": "식사 추천",
+  "paywallFeatureGpsNav": "GPS 네비게이션",
+  "paywallFeatureHiddenGems": "숨겨진 보석",
+  "paywallFeatureHotelIntel": "호텔 인텔리전스",
+  "paywallFeatureItineraries": "맞춤형 여행 일정",
+  "paywallFeatureLocalSecrets": "지역 비밀",
+  "paywallFeatureTicketSavings": "스마트 티켓 절약",
+  "paywallFeatureUnlimitedPlanning": "무제한 도시 계획",
+  "paywallFeatureWeatherConcierge": "날씨 컨시어지",
+  "paywallFutureUpdatesIncluded": "향후 {cityName} 업데이트가 포함됨",
+  "@paywallFutureUpdatesIncluded": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallHeadlineAdventure": "대부분의 관광객이 한 번도 보지 못한 {cityName}을(를) 발견해 보세요.",
+  "@paywallHeadlineAdventure": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallHeadlineCouples": "완벽한 {cityName} 휴가가 여기서 시작됩니다.",
+  "@paywallHeadlineCouples": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallHeadlineFamily": "{cityName}에서 계획하는 시간을 줄이고 추억을 만드는 데 더 많은 시간을 투자하세요.",
+  "@paywallHeadlineFamily": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallHeadlineFoodie": "현지인처럼 {cityName}을 맛보세요.",
+  "@paywallHeadlineFoodie": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallHeadlineLuxury": "{cityName}을(를) 다르게 경험해 보세요.",
+  "@paywallHeadlineLuxury": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallHeadlineMiamiDefault": "마이애미를 다르게 경험해보세요",
+  "paywallHeadlineMiamiWeekend": "마이애미 주말을 낭비하지 마세요",
+  "paywallHeroEyebrow": "귀하의 개인 컨시어지",
+  "paywallHeroHeadline": "휴가를 낭비하지 마세요",
+  "paywallHeroSubheadline": "Luxora는 당신이 즐길 수 있도록 여행을 계획합니다.",
+  "paywallLessThanDinner": "휴가 저녁 식사 비용보다 저렴합니다.",
+  "paywallLifetimeAccess": "평생 {cityName} 액세스",
+  "@paywallLifetimeAccess": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallLockedConciergeRecs": "컨시어지 추천",
+  "paywallLockedDateNight": "로맨틱한 데이트, 야간 루트",
+  "paywallLockedFamilyPlans": "가족 스트레스 없는 계획",
+  "paywallLockedHiddenLuxury": "숨겨진 럭셔리 경험",
+  "paywallLockedHotelMatchmaker": "스마트 호텔 중매인",
+  "paywallLockedPreviewSubtitle": "잠금을 해제하여 여행에 맞는 경로와 비밀을 알아보세요.",
+  "paywallLockedPreviewTitle": "컨시어지 안에서 기다리기",
+  "paywallLockedVipSecrets": "VIP 지역 비밀",
+  "paywallLockedWeatherReroute": "날씨 인식 경로 변경",
+  "paywallLuxoraPriceLine": "{price} 일회성",
+  "@paywallLuxoraPriceLine": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallMostVacationsCost": "대부분의 {cityName} 휴가 비용은 {minUsd}~{maxUsd}+입니다.",
+  "@paywallMostVacationsCost": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      },
+      "minUsd": {
+        "type": "String"
+      },
+      "maxUsd": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallNoMonthlyFees": "월 수수료 없음",
+  "paywallNoSubscription": "구독 없음",
+  "paywallOneTimePurchase": "일회성 구매",
+  "paywallReview1": "\"계획 시간을 절약했습니다.\"",
+  "paywallReview2": "\"우리가 결코 발견하지 못했을 장소를 발견했습니다.\"",
+  "paywallReview3": "\"숨겨진 보석만으로도 가치가 있습니다.\"",
+  "paywallSocialProofTitle": "룩소라를 잠금 해제한 여행자",
+  "paywallUnlockCityConcierge": "{cityName} 컨시어지 잠금 해제",
+  "@paywallUnlockCityConcierge": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallWhatYouUnlock": "당신이 잠금 해제하는 것",
+  "paywallWhyTravelersUnlock": "여행자들이 Luxora를 잠금 해제하는 이유",
   "photoBy": "사진 제공:",
   "photoClose": "닫다",
   "photoOn": "~에",
   "photoViewDestination": "목적지 보기",
   "placeCatAdventure": "모험",
-  "placeCatHotel": "호텔",
   "placeCatBeach": "해변",
   "placeCatDining": "다이닝",
   "placeCatFamily": "가족",
+  "placeCatHotel": "호텔",
   "placeCatNature": "자연",
   "placeCatNightlife": "밤문화",
   "placeCatRomantic": "로맨틱",
@@ -349,9 +857,117 @@
   "radius50": "50마일",
   "radiusAllFlorida": "플로리다 전체",
   "radiusDesc100": "탬파베이, 데이토나, 더 깊은 만",
+  "radiusDesc100Miami": "에버글레이즈, 포트로더데일, 더 깊은 남부 플로리다",
   "radiusDesc25": "올랜도 코어 주변 당일 여행",
+  "radiusDesc25Miami": "사우스 비치, 브리켈 및 핵심 지역",
   "radiusDesc50": "스프링스, 해안 당일 여행, 스페이스 코스트",
+  "radiusDesc50Miami": "윈우드, 코코넛 그로브, 키 비스케인",
   "radiusDescAll": "키스, 마이애미, 주 전체 하이라이트",
+  "radiusDescAllMiami": "플로리다 키스 트레일과 주 전체 하이라이트",
+  "rightNowButton": "지금 당장 무엇을 해야 할까요?",
+  "rightNowEmpty": "아직 귀하의 반경에 좋은 순간이 없습니다. 몇 가지 즐겨찾기를 발견하거나 북마크에 추가하세요.",
+  "rightNowFamilyCalm": "낮잠 창 ​​진정 — {minutes}에서 가족이 쉽게 재설정할 수 있는 시간은 {place}분입니다.",
+  "@rightNowFamilyCalm": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowGoldenHour": "골든 아워가 다가오고 있습니다. 약 {minutes}분 후에 {place}(일몰까지 {crowd})까지 출발하세요.",
+  "@rightNowGoldenHour": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      },
+      "crowd": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowPerfectWeather": "{minutes}에서 {district}분 거리에 있습니다. 하늘이 정말 멋집니다. 군중이 여전히 {crowd} 있는 동안 {place}로 가세요.",
+  "@rightNowPerfectWeather": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "district": {
+        "type": "String"
+      },
+      "place": {
+        "type": "String"
+      },
+      "crowd": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowQuietGem": "조용한 시간 — {minutes}까지 {place}분(지금은 {crowd}).",
+  "@rightNowQuietGem": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      },
+      "crowd": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowRainyIndoor": "레이더에 비가 내림 — 아늑한 실내 선택까지 {minutes}분 소요: {place}.",
+  "@rightNowRainyIndoor": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowResultTitle": "지금 바로",
+  "rightNowRomantic": "데이트-밤 에너지 — 출퇴근 시간 전 {minutes}까지 {place}분.",
+  "@rightNowRomantic": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowScenicCoffee": "{minutes}에서 {district}분 거리에 있습니다. 날씨가 완벽합니다. {place}에서 커피를 마시고 군중이 도착하기 전에 {walkArea}를 산책하세요({crowd} 군중).",
+  "@rightNowScenicCoffee": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "district": {
+        "type": "String"
+      },
+      "place": {
+        "type": "String"
+      },
+      "walkArea": {
+        "type": "String"
+      },
+      "crowd": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowTapForDetails": "세부정보를 보려면 탭하세요.",
+  "savedFavoritesEmpty": "지도나 피드의 목적지를 북마크하세요. 여기에 표시됩니다.",
+  "savedFavoritesTitle": "저장된 즐겨찾기",
   "scopeDestinationsAll": "{count}개 목적지 · 플로리다 전체",
   "@scopeDestinationsAll": {
     "placeholders": {
@@ -371,10 +987,46 @@
       }
     }
   },
+  "scopeDestinationsRadiusHub": "{count}개의 목적지 · {hub}의 {radius} 이내",
+  "@scopeDestinationsRadiusHub": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "radius": {
+        "type": "String"
+      },
+      "hub": {
+        "type": "String"
+      }
+    }
+  },
   "settings": "설정",
+  "settingsStartOverSubtitle": "처음부터 새로운 여행을 시작해보세요",
+  "settingsUnlockConciergeSubtitle": "일회성 시티팩 — 구독이 아님",
+  "settingsUnlockConciergeTitle": "도시 컨시어지 잠금 해제",
   "settings_language_picker_note": "변경사항은 즉시 적용됩니다.",
   "settings_regions_coming_subtitle": "홈 허브와 시티 팩이 곧 출시됩니다.",
   "settings_regions_coming_title": "국가 및 도시",
+  "shareItineraryFooter": "감정적으로 지능적인 플로리다 동반자인 Luxora와 함께 계획하세요.",
+  "shareSubject": "내 {title}",
+  "@shareSubject": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "sponsorBadgeFeaturedPartner": "주요 파트너",
+  "sponsorBadgePartnerOffer": "파트너 제안",
+  "sponsorBadgePromoted": "승격됨",
+  "sponsorBadgeSponsored": "후원",
+  "sponsorCtaBookNow": "지금 예약하세요",
+  "sponsorCtaCheckRates": "요금 확인",
+  "sponsorCtaGetTickets": "티켓 받기",
+  "sponsorCtaViewOffer": "제안 보기",
+  "sponsorCtaVisitWebsite": "웹사이트 방문",
+  "sponsorLuxoraRecommended": "룩소라 추천",
   "storyAppAsks": "앱이 묻습니다.",
   "storyBulletAudience": "가족, 커플, 고급 여행자, 웰니스 여행자",
   "storyBulletLogisticsGap": "대부분의 여행 앱은 경험 디자인이 아닌 물류에 중점을 둡니다.",
@@ -432,16 +1084,349 @@
   "styleNoTraps": "관광객 함정 없음",
   "styleSlowMornings": "느린 아침",
   "styleWalkable": "가능하면 도보 가능",
+  "ticketAiInsightTitle": "룩소라 추천",
+  "ticketBetterOption": "Luxora는 더 나은 옵션을 찾았습니다.",
+  "ticketCalculatorTitle": "잠재적인 절감",
+  "ticketConfidenceHigh": "높은 신뢰도",
+  "ticketConfidenceLimited": "제한된 시간",
+  "ticketConfidenceVerified": "검증된 리셀러",
+  "ticketDealsSectionTitle": "승인된 거래",
+  "ticketDiscountPrice": "룩소라 가격",
+  "ticketEstimatedFamilySave": "예상 가족 절감액: {amount}.",
+  "@ticketEstimatedFamilySave": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "ticketExpires": "{date}까지 제공",
+  "@ticketExpires": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "ticketFamilySave": "예상 가족 절감액: {amount}.",
+  "@ticketFamilySave": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "ticketFilterAll": "모두",
+  "ticketFilterAttractions": "관광명소",
+  "ticketFilterDining": "식사 경험",
+  "ticketFilterEntertainment": "오락",
+  "ticketFilterFamily": "가족 활동",
+  "ticketFilterLabel": "필터",
+  "ticketFilterThemeParks": "테마파크",
+  "ticketFilterTours": "투어",
+  "ticketFilterWaterParks": "워터파크",
+  "ticketInsightDisneyPass": "여행 일정에 따라 1일 티켓 대신 월트 디즈니 월드 3일 패스를 선택하면 가족이 약 120달러를 절약할 수 있습니다.",
+  "ticketInsightGeneric": "Luxora는 여행 일정에 맞춰 할인된 가격을 제공합니다. 게이트에서 구매하기 전에 비교해 보세요.",
+  "ticketInsightMiamiCulture": "귀하의 계획에서 문화가 중단됩니다. Vizcaya 및 PAMM 파트너 제안은 이번 주에 게이트 가격보다 높을 수 있습니다.",
+  "ticketInsightMiamiEverglades": "여행 일정에 포함된 에버글레이즈 데이 — 아침 에어보트 슬롯은 종종 주중에 더 저렴하게 운영됩니다.",
+  "ticketInsightMiamiWynwood": "귀하의 경로에있는 Wynwood - 가이드 아트 워크가 워크업 부스 가격을 능가할 수 있습니다.",
+  "ticketInsightSeaworldCombo": "귀하의 경로에 있는 SeaWorld — Aquatica 콤보는 종종 두 개의 별도 입장권을 능가합니다.",
+  "ticketInsightUniversalCombo": "귀하의 계획에는 유니버설이 포함되어 있습니다. 대부분의 가족에게 2파크 티켓은 구매일보다 훨씬 빠릅니다.",
+  "ticketItineraryMatchTitle": "여정 절약 확인",
+  "ticketNoDeals": "이 필터에는 거래가 없습니다. 다른 카테고리를 시도해 보세요.",
+  "ticketOfficialPrice": "공식적인",
+  "ticketOverpaying": "게이트 가격을 초과 지불했을 수 있습니다.",
+  "ticketRecommendedSavings": "추천 할인 가능",
+  "ticketSaveAmount": "{amount} 절약",
+  "@ticketSaveAmount": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "ticketSaveAmountLabel": "저금",
+  "ticketSavePerTicket": "티켓당 {amount}를 절약할 수 있습니다.",
+  "@ticketSavePerTicket": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "ticketSavingsBadge": "{percent}% 절약",
+  "@ticketSavingsBadge": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "ticketSavingsBadgeLabel": "프리미엄 절약",
+  "ticketSavingsSubtitle": "Luxora는 공인 리셀러, 번들 및 프로모션을 제공하므로 귀하는 쿠폰 사이트가 아닌 고급 조언자처럼 느껴질 수 있습니다.",
+  "ticketSavingsTitle": "스마트 티켓 절약",
+  "ticketSortClosest": "나에게 가장 가까운",
+  "ticketSortFamilyFriendly": "가족 친화적",
+  "ticketSortHighestSavings": "최고의 절감 효과",
+  "ticketSortLabel": "정렬 기준",
+  "ticketSortLuxury": "럭셔리한 경험",
+  "ticketSortMostPopular": "가장 인기있는",
+  "ticketSource": "출처: {source}",
+  "@ticketSource": {
+    "placeholders": {
+      "source": {
+        "type": "String"
+      }
+    }
+  },
+  "tripStoryBeatClosing": "Luxora는 순간을 형성했습니다. 여러분은 그 순간을 살아냈습니다.",
+  "tripStoryBeatMoods": "당신은 {moods}을 위해 왔습니다.",
+  "@tripStoryBeatMoods": {
+    "placeholders": {
+      "moods": {
+        "type": "String"
+      }
+    }
+  },
+  "tripStoryBeatTitle": "이 장: {title}.",
+  "@tripStoryBeatTitle": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "tripStoryHeading": "{title} — 당신의 플로리다 이야기",
+  "@tripStoryHeading": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "tripStoryTitle": "당신의 여행 이야기",
   "tripsBadge": "컬렉션",
+  "tripsDeleteBody": "이렇게 하면 저장된 여행에서 “{title}”이(가) 제거됩니다. 이 작업은 취소할 수 없습니다.",
+  "@tripsDeleteBody": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "tripsDeleteTitle": "여행을 삭제하시겠습니까?",
+  "tripsDeleted": "여행이 삭제되었습니다.",
+  "tripsEmptyBody": "첫 번째 여행을 계획하면 여기에 표시되어 언제든지 다시 방문할 수 있습니다.",
+  "tripsEmptyTitle": "아직 저장된 여행이 없습니다.",
   "tripsFooter": "무드 카탈로그의 여행 커버 · Supabase 동기화 2단계",
   "tripsLiveWeather": "실시간 날씨",
   "tripsNextUp": "다음은",
+  "tripsOpenStory": "당신의 이야기",
   "tripsOpenTimeline": "전체 타임라인 열기",
-  "tripsShare": "공유",
-  "shareItineraryFooter": "감성 지능형 플로리다 동반자 Luxora와 함께 계획했어요.",
-  "shareSubject": "내 {title}",
+  "tripsPlanNew": "새로운 여행을 계획해보세요",
+  "tripsShare": "공유하다",
   "tripsSubtitle": "다음 순간, 날씨, 일몰, 타임라인 등 실시간 스냅샷을 보려면 여행을 탭하세요.",
   "tripsSunsetWindow": "일몰창",
   "tripsTimelineSnapshot": "타임라인 스냅샷",
-  "tripsTitle": "저장된 여행"
+  "tripsTitle": "저장된 여행",
+  "vacationScoreSubtitle": "오늘은 {score}/100 같은 날인 것 같아요.",
+  "@vacationScoreSubtitle": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "vacationScoreTitle": "휴가 점수",
+  "visualShareImageButton": "이미지 카드 공유",
+  "weatherAdjustDay": "날씨에 맞춰 하루를 조정하세요",
+  "weatherAdviceDefault": "하늘은 관리하기 쉬워 보입니다. 계획을 따르고 조명 레이어를 편리하게 유지하세요.",
+  "weatherAdviceGreatSunset": "오늘 밤 일몰이 아주 좋습니다. 옥상 저녁 식사나 호수 산책을 고려해 보세요.",
+  "weatherAdviceHighUv": "오늘은 자외선이 높습니다. 자외선 차단제를 준비하고 한낮에 장시간 직사광선 노출을 피하세요.",
+  "weatherAdviceLightJacket": "오늘 저녁에는 가벼운 재킷을 가져오세요.",
+  "weatherAdviceOutdoorBefore": "{time} 이전에 야외 활동을 계획하세요.",
+  "@weatherAdviceOutdoorBefore": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherAdviceRainLater": "오늘 늦게 비를 맞을 위험이 높아지므로 실내 체험은 오후로 옮기세요.",
+  "weatherAdviceWindBeach": "오늘은 바람 때문에 해변이나 보트 활동이 덜 편안해질 수 있습니다.",
+  "weatherBestOutdoorWindow": "최고의 야외 창문",
+  "weatherCloudCover": "구름 덮개",
+  "weatherComingSoon": "곧 출시 예정",
+  "weatherConciergeAdviceTitle": "룩소라 날씨 조언",
+  "weatherConciergeTapHint": "여행에 따른 예측을 보려면 탭하세요.",
+  "weatherConciergeTitle": "날씨 컨시어지",
+  "weatherConditionClear": "분명한",
+  "weatherConditionCloudy": "흐린",
+  "weatherConditionDrizzle": "이슬비",
+  "weatherConditionFog": "안개",
+  "weatherConditionPartlyCloudy": "약간 흐림",
+  "weatherConditionRain": "비",
+  "weatherConditionSnow": "눈",
+  "weatherConditionThunder": "뇌우",
+  "weatherFeelsLike": "{temp} 같은 느낌이에요",
+  "@weatherFeelsLike": {
+    "placeholders": {
+      "temp": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherHourlyTitle": "시간별 전망",
+  "weatherHourlyUnavailable": "데이터가 로드되면 시간별 예측이 표시됩니다.",
+  "weatherHumidity": "습기",
+  "weatherImpactClear": "오늘 아침에는 야외 활동을 계획하기 좋은 하늘이 보입니다.",
+  "weatherImpactHeat": "한낮의 무더위 — {time} 이전에 야외 산책을 계획하세요.",
+  "@weatherImpactHeat": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherImpactIndoorFallback": "스파나 박물관",
+  "weatherImpactMixed": "오늘 {count}개의 야외 정류장에 시간 조정이 필요할 수 있습니다.",
+  "@weatherImpactMixed": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "weatherImpactNoPlanClear": "가장 좋은 실외 창문은 열기나 소나기가 내리기 전의 {start}–{end}입니다.",
+  "@weatherImpactNoPlanClear": {
+    "placeholders": {
+      "start": {
+        "type": "String"
+      },
+      "end": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherImpactNoPlanDefault": "날씨가 꾸준해 보입니다. 순서대로 정지할 준비가 되면 나의 하루 계획을 탭하세요.",
+  "weatherImpactNoPlanRain": "비가 오고 있습니다. 먼저 실내 앵커로 하루를 시작하세요.",
+  "weatherImpactRainLater": "{time} 이후에는 비 위험이 높아집니다. {outdoorStop}을(를) 더 일찍 이동하고 나중을 위해 {indoorStop}을(를) 저장해 보세요.",
+  "@weatherImpactRainLater": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      },
+      "outdoorStop": {
+        "type": "String"
+      },
+      "indoorStop": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherIndoorBackup": "실내 백업 아이디어",
+  "weatherLiveRadar": "라이브 레이더",
+  "weatherMapOverlays": "지도 오버레이",
+  "weatherMiamiBeachMorning": "모래 위의 강한 자외선 - 자외선 차단제, 모자, 정오 이전 해변 시간.",
+  "weatherMiamiBoatWind": "바람이 강해지면 보트나 요트 활동을 재고해 보세요. 옥상 식사는 여전히 가능합니다.",
+  "weatherMiamiHeatAdvisory": "더위 주의보 조건 - 야외 활동 사이에 가벼운 옷감, 수분 공급 및 그늘 휴식 시간.",
+  "weatherMiamiHumidityIndoor": "오늘은 습도가 높습니다. 일찍 해변이나 수영장에 가보고 가장 더운 시간에는 Wynwood나 Brickell에 가서 실내 식사와 갤러리를 찾으세요.",
+  "weatherMiamiRainReroute": "비가 올 예정입니다. 야외 계획을 {indoorSpot} 또는 갤러리 시간으로 바꾸세요.",
+  "@weatherMiamiRainReroute": {
+    "placeholders": {
+      "indoorSpot": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherMiamiSunsetWaterfront": "일몰이 강하게 보입니다. 해안가나 옥상에서 동쪽에서 서쪽으로 바라볼 수 있습니다.",
+  "weatherOutdoorAtRisk": "{count}개의 야외 정류장이 영향을 받을 수 있음",
+  "@weatherOutdoorAtRisk": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "weatherOverlayCloud": "구름 덮개",
+  "weatherOverlayPrecip": "강수량",
+  "weatherOverlayTemp": "온도",
+  "weatherOverlayWind": "바람",
+  "weatherPackHat": "모자",
+  "weatherPackLightJacket": "가벼운 재킷",
+  "weatherPackPoncho": "판초",
+  "weatherPackShoes": "편안한 신발",
+  "weatherPackSunglasses": "색안경",
+  "weatherPackSunscreen": "자외선 차단제",
+  "weatherPackSwimwear": "수영복",
+  "weatherPackUmbrella": "우산",
+  "weatherPackWater": "물병",
+  "weatherPlanImpact": "귀하의 계획에 미치는 영향",
+  "weatherRadarComingSoon": "실시간 레이더가 곧 제공될 예정입니다.",
+  "weatherRainNote": "비 올 확률은 {percent}%입니다. 얇은 옷을 준비하세요.",
+  "@weatherRainNote": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "weatherRainWindow": "비 가능성 있음",
+  "weatherStatRain": "비",
+  "weatherSunrise": "일출 {time}",
+  "@weatherSunrise": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherSunset": "일몰 {time}",
+  "@weatherSunset": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherSunsetRec": "일몰 추천",
+  "weatherSunsetRecRooftop": "{time} 근처에는 하늘이 맑습니다. 옥상 저녁 식사나 호수 산책이 빛날 수 있습니다.",
+  "@weatherSunsetRecRooftop": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherToday": "지금은 {place}에 있어요",
+  "@weatherToday": {
+    "placeholders": {
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherUv": "자외선 지수",
+  "weatherVisibility": "시계",
+  "weatherVisibilityMiles": "{miles}마일",
+  "@weatherVisibilityMiles": {
+    "placeholders": {
+      "miles": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherWhatToBring": "오늘 가져갈 것",
+  "weatherWind": "바람",
+  "weatherWindValue": "{speed}mph로 {dir}",
+  "@weatherWindValue": {
+    "placeholders": {
+      "dir": {
+        "type": "String"
+      },
+      "speed": {
+        "type": "int"
+      }
+    }
+  }
 }

@@ -31,34 +31,19 @@
   "catSpas": "स्पा",
   "catSprings": "स्प्रिंग्स",
   "catThemeParks": "थीम पार्क",
-  "commonClose": "बंद करें",
-  "commonCancel": "रद्द करें",
-  "commonDelete": "हटाएँ",
-  "settingsStartOverSubtitle": "शुरुआत से एक नई यात्रा बनाएँ",
-  "tripsPlanNew": "नई यात्रा की योजना बनाएँ",
-  "tripsEmptyTitle": "अभी तक कोई सहेजी गई यात्रा नहीं",
-  "tripsEmptyBody": "अपनी पहली यात्रा की योजना बनाएँ और वह यहाँ दिखाई देगी, जब चाहें फिर से देखें।",
-  "tripsDeleteTitle": "यात्रा हटाएँ?",
-  "tripsDeleteBody": "यह “{title}” को आपकी सहेजी गई यात्राओं से हटा देगा। इसे पूर्ववत नहीं किया जा सकता।",
-  "@tripsDeleteBody": {
-    "placeholders": { "title": { "type": "String" } }
-  },
-  "tripsDeleted": "यात्रा हटाई गई",
+  "commonCancel": "रद्द करना",
+  "commonClose": "बंद करना",
   "commonContinue": "जारी रखना",
+  "commonDelete": "मिटाना",
+  "commonLive": "रहना",
   "commonNew": "नया",
   "commonRoadmap": "रोडमैप",
-  "commonLive": "लाइव",
   "commonSoon": "जल्द ही",
   "conciergeBrand": "LUXORA",
-  "conciergeInputHint": "उस भावना का वर्णन करें जो आप अपनी यात्रा में पैदा करना चाहते हैं…",
-  "conciergeGreetingMorning": "सुप्रभात।",
-  "conciergeGreetingAfternoon": "नमस्कार।",
+  "conciergeGreetingAfternoon": "शुभ दोपहर।",
   "conciergeGreetingEvening": "शुभ संध्या।",
-  "conciergeWelcomeWarm": "मैं फ्लोरिडा को आपकी पसंदीदा अनुभूति के अनुसार ढालने के लिए यहाँ हूँ — न कि स्थलों की सूची के अनुसार। आज आपका क्या मन है?",
-  "conciergeRefineStyle": "मेरी शैली निखारें",
-  "conciergeRecallReturning": "वापसी पर स्वागत है।",
-  "conciergeRecallStyle": "मुझे याद है आपको {prefs} पसंद है।",
-  "conciergeRecallFeelLine": "और आप चाहते थे कि यह यात्रा ऐसा महसूस कराए: “{feel}”।",
+  "conciergeGreetingMorning": "शुभ प्रभात।",
+  "conciergeInputHint": "उस भावना का वर्णन करें जो आप अपनी यात्रा में पैदा करना चाहते हैं…",
   "conciergePromptAdventure": "साहसिक मोड",
   "conciergePromptDisney": "डिज़्नी आफ्टर-डार्क",
   "conciergePromptFamily": "पारिवारिक जादू",
@@ -68,6 +53,24 @@
   "conciergePromptSoftLuxury": "नरम लक्जरी पलायन",
   "conciergePromptWellness": "कल्याण रीसेट",
   "conciergeQuickPrompts": "त्वरित संकेत",
+  "conciergeRecallFeelLine": "और आप चाहते थे कि यह यात्रा महसूस हो: \"{feel}\"।",
+  "@conciergeRecallFeelLine": {
+    "placeholders": {
+      "feel": {
+        "type": "String"
+      }
+    }
+  },
+  "conciergeRecallReturning": "वापसी पर स्वागत है।",
+  "conciergeRecallStyle": "मुझे याद है आपको {prefs} पसंद है।",
+  "@conciergeRecallStyle": {
+    "placeholders": {
+      "prefs": {
+        "type": "String"
+      }
+    }
+  },
+  "conciergeRefineStyle": "मेरी शैली को परिष्कृत करें",
   "conciergeRemembering": "इस यात्रा के लिए याद कर रहा हूँ",
   "conciergeStyleMemory": "शैली स्मृति",
   "conciergeTitle": "दरबान",
@@ -79,53 +82,99 @@
       }
     }
   },
+  "conciergeVoiceHold": "बोलने के लिए रुकें",
+  "conciergeVoiceSoon": "वॉयस कंसीयज जल्द ही आ रहा है - अभी के लिए, एक क्षण टैप करें या टाइप करें कि आप कैसा महसूस करना चाहते हैं।",
   "conciergeWelcome": "लक्सोरा में आपका स्वागत है - आपका भावनात्मक रूप से बुद्धिमान फ्लोरिडा साथी।\n\nनीचे एक संकेत चुनें, या उस भावना का वर्णन करें जिसे आप अपनी यात्रा में पैदा करना चाहते हैं।",
+  "conciergeWelcomeWarm": "मैं यहां फ्लोरिडा को आकार देने के लिए आया हूं कि आप कैसा महसूस करना चाहते हैं - दर्शनीय स्थलों की चेकलिस्ट नहीं। आज आप क्या चाह रहे हैं?",
   "dark_mode": "डार्क मोड",
+  "dayFlowAfternoon": "दोपहर",
+  "dayFlowEvening": "शाम",
+  "dayFlowMidday": "दोपहर",
+  "dayFlowMorning": "सुबह",
+  "dayFlowNight": "रात",
+  "dayFlowReasonAfternoonDowntime": "रिचार्ज करने के लिए दोपहर का डाउनटाइम।",
+  "dayFlowReasonAfternoonGem": "भीड़ से दूर एक छिपा हुआ रत्न।",
+  "dayFlowReasonEveningDining": "दिन का भोजन - आपका पसंदीदा भोजन।",
+  "dayFlowReasonMiddayAdventure": "चरम ऊर्जा घंटे - जब आप तरोताजा हों तो बड़ा रोमांच।",
+  "dayFlowReasonMiddayCulture": "रोशनी तेज होने पर दर्शनीय स्थलों की यात्रा करें।",
+  "dayFlowReasonMiddayIcon": "दिन का हस्ताक्षर क्षण.",
+  "dayFlowReasonMorningCalm": "माहौल सेट करने के लिए एक सौम्य शुरुआत.",
+  "dayFlowReasonMorningPool": "दिन शुरू होने से पहले धीरे-धीरे आराम करें - पूल के किनारे या स्पा में।",
+  "dayFlowReasonNightOut": "एक आखिरी चमक - एक रात बाहर।",
+  "dayFlowSubtitle": "आप कैसा महसूस करना चाहते हैं इसके आधार पर एक दिन तय होता है - कोई चेकलिस्ट नहीं।",
+  "dayFlowVibeAdventure": "साहसी",
+  "dayFlowVibeCulture": "संस्कृति",
+  "dayFlowVibeFoodie": "खाने के शौकीन",
+  "dayFlowVibeNightlife": "नाइटलाइफ़",
+  "dayFlowVibePoolside": "पूल",
+  "detailAppleMaps": "एप्पल मानचित्र",
   "detailBestFor": "के लिए सर्वोत्तम",
   "detailBestTime": "जाने का सर्वोत्तम समय",
   "detailCostRange": "लागत सीमा",
   "detailCrowd": "भीड़",
+  "detailDriveFromHub": "{time} {hub} से ड्राइव करें",
+  "@detailDriveFromHub": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      },
+      "hub": {
+        "type": "String"
+      }
+    }
+  },
+  "detailDriveFromOrlando": "ऑरलैंडो से {time} ड्राइव",
+  "@detailDriveFromOrlando": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
   "detailDuration": "अवधि",
+  "detailGetDirections": "दिशा - निर्देश प्राप्त करें",
+  "detailGoogleMaps": "गूगल मैप्स",
+  "detailHomeBaseActive": "आपकी यात्रा का घरेलू आधार",
+  "detailHomeBaseClearedSnack": "गृह आधार साफ़ हो गया",
+  "detailHomeBaseHint": "आपके दिन का मार्ग यहीं से शुरू और समाप्त होता है।",
+  "detailHomeBaseSetSnack": "अपनी यात्रा के घरेलू आधार के रूप में सेट करें",
   "detailInsiderTips": "अंदरूनी सूत्र युक्तियाँ",
   "detailLocation": "जगह",
-  "detailGetDirections": "दिशा-निर्देश पाएँ",
-  "detailParkMap": "पार्क मानचित्र",
-  "detailViewOnMap": "मानचित्र पर देखें",
-  "detailMapsError": "इस डिवाइस पर मानचित्र नहीं खोला जा सका।",
-  "detailGoogleMaps": "Google मानचित्र",
-  "detailAppleMaps": "Apple मानचित्र",
-  "detailOpenInMaps": "मानचित्र में खोलें",
-  "detailDriveFromOrlando": "ऑरलैंडो से {time} की ड्राइव",
-  "@detailDriveFromOrlando": {
-    "placeholders": { "time": { "type": "String" } }
-  },
-  "detailSaveToItinerary": "यात्रा-योजना में सहेजें",
-  "detailSaved": "सहेजा गया",
-  "detailSavedSnack": "आपकी यात्रा-योजना में सहेजा गया",
-  "detailRemovedSnack": "आपकी यात्रा-योजना से हटाया गया",
-  "detailSetHomeBase": "होम बेस सेट करें",
-  "detailHomeBaseActive": "आपकी यात्रा का होम बेस",
-  "detailHomeBaseHint": "आपके दिन का रूट यहीं से शुरू और खत्म होता है।",
-  "detailHomeBaseSetSnack": "आपकी यात्रा का होम बेस सेट किया गया",
-  "detailHomeBaseClearedSnack": "होम बेस हटाया गया",
-  "detailMenuTitle": "मेन्यू की झलकियाँ",
-  "detailMenuDisclaimer": "चुनिंदा व्यंजन — पूरा मेन्यू और कीमतें स्थान पर भिन्न हो सकती हैं।",
-  "detailMenuComingSoon": "हम अभी यह मेन्यू तैयार कर रहे हैं। तब तक नवीनतम मेन्यू और कीमतें ऑनलाइन देखें।",
-  "detailViewMenuOnline": "मेन्यू ऑनलाइन देखें",
+  "detailMapsError": "इस उपकरण पर मानचित्र नहीं खोले जा सके.",
+  "detailMenuComingSoon": "हम अभी भी इस मेनू को क्यूरेट कर रहे हैं। इस बीच नवीनतम मेनू और कीमतें ऑनलाइन देखें।",
+  "detailMenuDisclaimer": "चयनित हाइलाइट्स - आयोजन स्थल पर पूरा मेनू और कीमतें भिन्न हो सकती हैं।",
+  "detailMenuTitle": "मेनू हाइलाइट्स",
   "detailNearbyGems": "निकटवर्ती रत्न",
+  "detailOpenInMaps": "मानचित्रों में खोलें",
+  "detailParkMap": "पार्क का नक्शा",
   "detailPractical": "व्यावहारिक विवरण",
   "detailPrice": "कीमत",
+  "detailRemovedSnack": "आपके यात्रा कार्यक्रम से हटा दिया गया",
   "detailReserve": "अनुभव सुरक्षित रखें",
   "detailReserveSoon": "आरक्षण भागीदार जल्द ही आ रहे हैं।",
+  "detailSaveToItinerary": "यात्रा कार्यक्रम में सहेजें",
+  "detailSaved": "सहेजा गया",
+  "detailSavedSnack": "आपके यात्रा कार्यक्रम में सहेजा गया",
+  "detailSetHomeBase": "होम बेस के रूप में सेट करें",
   "detailVibeMatch": "वाइब मैच",
+  "detailViewMenuOnline": "मेनू ऑनलाइन देखें",
+  "detailViewOnMap": "मानचित्र पर देखें",
   "detailWhySpecial": "यह विशेष क्यों है?",
+  "discoverFilterAll": "सभी",
+  "discoverFilterDestinations": "स्थल",
+  "discoverFilterHotels": "होटल",
+  "discoverFilterRestaurants": "रेस्टोरेंट",
+  "discoverFromHub": "{hub} से",
+  "@discoverFromHub": {
+    "placeholders": {
+      "hub": {
+        "type": "String"
+      }
+    }
+  },
   "discoverFromOrlando": "ऑरलैंडो से",
   "discoverPopularInRadius": "आपके दायरे में लोकप्रिय",
   "discoverSearchEmpty": "इस दायरे में कोई मिलान नहीं - एक छोटा नाम आज़माएं, मानचित्र या फ़ीड पर अपनी दूरी चिप को चौड़ा करें, या \"समुद्र तट\", \"डिज़नी\", या \"स्प्रिंग्स\" खोजें।",
-  "discoverFilterAll": "सभी",
-  "discoverFilterHotels": "होटल",
-  "discoverFilterRestaurants": "रेस्तरां",
-  "discoverFilterDestinations": "गंतव्य",
   "discoverSearchHint": "गंतव्य खोजें…",
   "discoverSearchScopeAll": "कैटलॉग में संपूर्ण फ्लोरिडा खोजा जा रहा है",
   "discoverSearchScopeRadius": "ऑरलैंडो के {radius} के भीतर",
@@ -136,20 +185,41 @@
       }
     }
   },
+  "discoverSearchScopeRadiusHub": "{radius} के {hub} के भीतर",
+  "@discoverSearchScopeRadiusHub": {
+    "placeholders": {
+      "radius": {
+        "type": "String"
+      },
+      "hub": {
+        "type": "String"
+      }
+    }
+  },
   "discoverSearchTitle": "एक गंतव्य खोजें",
   "discoverTrySearching": "खोजने का प्रयास करें",
+  "featuredCityHomeSubtitle": "ऑरलैंडो के लिए सहायक भागीदार विकल्प - स्पष्ट रूप से चिह्नित, एआई चयन के अनुसार कभी छिपाए नहीं गए।",
+  "featuredCityHomeTitle": "विशेष भागीदार",
+  "featuredDiningSubtitle": "पार्टनर रेस्तरां लक्सोरा की मुख्य विशेषताएं - आपकी जैविक रत्न सूची स्वतंत्र रहती है।",
+  "featuredDiningTitle": "विशेष भोजन",
+  "featuredExperiencesSubtitle": "आपके मूड के लिए प्रचारित चयन - हमेशा लेबल किया गया, एआई रैंक के रूप में कभी नहीं छिपाया गया।",
+  "featuredExperiencesTitle": "विशेष रुप से प्रदर्शित अनुभव",
+  "featuredStaysSubtitle": "पार्टनर प्लेसमेंट - लक्सोरा के ऑर्गेनिक होटल मैच स्कोर से अलग।",
+  "featuredStaysTitle": "विशेष रुप से प्रदर्शित रहता है",
+  "featuredTicketPartnersSubtitle": "अधिकृत भागीदार ऑफ़र - नीचे दी गई जैविक बचत से तुलना करें।",
+  "featuredTicketPartnersTitle": "फ़ीचर्ड टिकट भागीदार",
   "feedBadge": "लाइव खोज",
   "feedEmptyHint": "इस दायरे में कोई फ़ीड कार्ड नहीं - खाड़ी तट और कीज़ हाइलाइट्स के लिए 50 मील या ऑल फ़्लोरिडा का प्रयास करें।",
+  "feedMoodAdventurous": "साहसी",
+  "feedMoodAll": "सब कुछ",
+  "feedMoodCalm": "शांत",
+  "feedMoodFoodie": "खाने का शौकीन",
+  "feedMoodPampered": "लाड़ प्यार",
+  "feedMoodPrompt": "आप कैसा महसूस करना चाहते हैं?",
+  "feedMoodRomantic": "प्रेम प्रसंगयुक्त",
+  "feedMoodSocial": "गूंज",
   "feedPillCreator": "निर्माता चुनता है",
   "feedPillLive": "लाइव अपडेट",
-  "feedMoodPrompt": "आप कैसा महसूस करना चाहते हैं?",
-  "feedMoodAll": "सब कुछ",
-  "feedMoodRomantic": "रोमांटिक",
-  "feedMoodCalm": "शांत",
-  "feedMoodAdventurous": "साहसिक",
-  "feedMoodPampered": "लाड़-प्यार",
-  "feedMoodSocial": "जीवंत",
-  "feedMoodFoodie": "खाने का शौक़",
   "feedPillNewOpenings": "नये उद्घाटन",
   "feedPillTrending": "रुझान",
   "feedSubtitle": "अभी क्या चल रहा है - ट्रेंडिंग स्पॉट, नए उद्घाटन, निर्माता की पसंद, मौसमी मार्ग और लाइव अपडेट।",
@@ -159,11 +229,18 @@
   "gemInsiderTip": "अंदरूनी सूत्र टिप",
   "gemLocalNote": "केवल स्थानीय नोट",
   "gemLocalSecret": "स्थानीय रहस्य",
-  "gemsMatchedBadge": "आपकी शैली",
-  "gemsMatchedNote": "{count} रत्न आपकी शैली से मेल खाते हैं",
   "gemWhySpecial": "यह खास क्यों है?",
   "gemsBadge": "इनसाइडर क्यूरेशन",
   "gemsEmptyHint": "इस दायरे में अभी तक कोई रत्न नहीं है - झरनों और अंतरिक्ष तट के रहस्यों के लिए इसे 50 मील या उससे अधिक तक बढ़ाया गया है।",
+  "gemsMatchedBadge": "आपकी शैली",
+  "gemsMatchedNote": "{count, plural, =1{1 gem matched to your style} other{{count} रत्न आपकी शैली से मेल खाते हैं}}",
+  "@gemsMatchedNote": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "gemsPillCrowd": "भीड़ बुद्धि",
   "gemsPillHidden": "छुपे हुए स्थान",
   "gemsPillInsider": "अंदरूनी सूत्र युक्तियाँ",
@@ -171,6 +248,191 @@
   "gemsSearchHint": "छिपे हुए रत्न और गंतव्य खोजें...",
   "gemsSubtitle": "गुप्त खोजों पर स्थानीय लोग नजर रखते हैं - यह विशेष क्यों है, कब जाना है, इसमें कितनी भीड़ होती है, और युक्तियाँ जो आपको पोस्टकार्ड पर नहीं मिलेंगी।",
   "gemsTitle": "छुपे हुए रत्न",
+  "goldenHourKindBeach": "समुद्रतट सूर्यास्त खिड़की",
+  "goldenHourKindRooftop": "छत पर सुनहरा घंटा",
+  "goldenHourKindScenic": "दर्शनीय फोटोग्राफी का समय",
+  "goldenHourLeaveBy": "{time} के लिए {minutes} ({place} मिनट की ड्राइव) से निकलें - सूर्यास्त से ~15 मिनट पहले पहुंचें।",
+  "@goldenHourLeaveBy": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      },
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "goldenHourTitle": "सुनहरे घंटे",
+  "helpCenterBody": "द्वारपाल सहायता के लिए support@luxora.ai पर ईमेल करें। इन-ऐप गाइड जल्द ही आ रहे हैं।",
+  "helpCenterTitle": "सहायता केंद्र",
+  "hotelAddHomeBase": "होम बेस के रूप में जोड़ें",
+  "hotelCheckRates": "दरें चेक कीजिए",
+  "hotelCompareDriveImpact": "ड्राइव प्रभाव",
+  "hotelCompareNearby": "आस-पास के मुख्य आकर्षण",
+  "hotelComparePrice": "मूल्य सीमा",
+  "hotelCompareSelected": "{count} चयनित",
+  "@hotelCompareSelected": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "hotelCompareSubtitle": "अगल-बगल द्वारपाल दृश्य - तीन होटलों तक।",
+  "hotelCompareTitle": "ठहरने की तुलना करें",
+  "hotelDiscoveryTitle": "ऑरलैंडो के लिए क्यूरेट किया गया",
+  "hotelDistanceTitle": "प्रमुख स्थानों से दूरी",
+  "hotelGetDirections": "दिशा - निर्देश प्राप्त करें",
+  "hotelHomeBaseActive": "होम बेस सक्रिय",
+  "hotelHomeBaseBadge": "घर आधार",
+  "hotelIntelBadge": "होटल इंटेलिजेंस",
+  "hotelIntelSubtitle": "आप जो यात्रा करना चाहते हैं, उसके आधार पर, लक्सोरा आपके दिनों को आकार देने वाले ठहरने का चयन करता है - बुकिंग ग्रिड नहीं।",
+  "hotelIntelTitle": "अपना घरेलू आधार खोजें",
+  "hotelItineraryImpactBody": "हब से रफ ड्राइव: {driveTime}। यात्रा घर्षण स्कोर: {friction}/90 (निचला भाग शांत होता है)।",
+  "@hotelItineraryImpactBody": {
+    "placeholders": {
+      "driveTime": {
+        "type": "String"
+      },
+      "friction": {
+        "type": "int"
+      }
+    }
+  },
+  "hotelItineraryImpactTitle": "यह आपके दिनों को कैसे आकार देता है",
+  "hotelLuxoraScore": "लक्सोरा",
+  "hotelMatchAdults": "वयस्कों",
+  "hotelMatchAttractions": "आपकी सूची में आकर्षण",
+  "hotelMatchAttractionsGeneral": "आपके नियोजित आकर्षण",
+  "hotelMatchBestForCouple": "जोड़े जो थीम-पार्क अराजकता के बिना रोमांस चाहते हैं।",
+  "hotelMatchBestForFamily": "वे परिवार जो पार्क तक पहुंच का त्याग किए बिना पूल में दिन गुजारना चाहते हैं।",
+  "hotelMatchBestForGroup": "समूह आराम, पहुंच और शांत रसद को संतुलित करते हैं।",
+  "hotelMatchBestForLabel": "इसके लिए सर्वोत्तम:",
+  "hotelMatchBudget": "बजट आराम क्षेत्र",
+  "hotelMatchImpactDefault": "{time} के आसपास औसत ड्राइव रखता है ताकि आपका दिन का प्रवाह आरामदायक रहे।",
+  "@hotelMatchImpactDefault": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelMatchImpactDisney": "छोटा डिज़्नी आपके दरवाजे से पार्कों तक लगभग {time} चलता है।",
+  "@hotelMatchImpactDisney": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelMatchImpactUniversal": "यूनिवर्सल एक्सप्रेस सुविधाएं या वॉटर-टैक्सी का उपयोग आपके दिन के घंटों को पुनः प्राप्त कर सकता है।",
+  "hotelMatchImpactWalkable": "रात के खाने के लिए पैदल चलें - पार्क में लंबे दिनों के बाद पार्किंग का तनाव कम होगा।",
+  "hotelMatchItineraryLabel": "यात्रा कार्यक्रम:",
+  "hotelMatchKids": "बच्चे",
+  "hotelMatchLuxuryLevel": "वांछित विलासिता स्तर",
+  "hotelMatchNearbyLabel": "आस-पास:",
+  "hotelMatchResultsTitle": "आपके शीर्ष 3 मैच",
+  "hotelMatchTradeoffCarNeeded": "आप कार या राइडशेयर पर भरोसा करेंगे - हर जगह पैदल चलने वाले आधार पर नहीं।",
+  "hotelMatchTradeoffDefault": "प्रत्येक प्रवास में समझौता होता है - लक्सोरा ने इसे पहले आपकी प्राथमिकताओं के लिए चुना।",
+  "hotelMatchTradeoffLessFamily": "समर्पित पारिवारिक रिसॉर्ट्स की तुलना में बच्चे-केंद्रित सुविधाओं पर कम ध्यान केंद्रित किया गया है।",
+  "hotelMatchTradeoffLessRomantic": "एक शांत युगल रिट्रीट की तुलना में अधिक थीम-पार्क ऊर्जा।",
+  "hotelMatchTradeoffLuxuryBudget": "प्रीमियम रिसॉर्ट मूल्य निर्धारण - कमरे के लिए बजट अधिक, अन्यत्र कम।",
+  "hotelMatchTradeoffsLabel": "ट्रेडऑफ़:",
+  "hotelMatchTransport": "चारों ओर से प्राप्त होना",
+  "hotelMatchTravelers": "यात्री",
+  "hotelMatchWhyMulti": "आपके {attractions} यात्रा कार्यक्रम के आधार पर, {hotel} ड्राइव का समय कम कर देता है और शाम को आसान रखता है।",
+  "@hotelMatchWhyMulti": {
+    "placeholders": {
+      "attractions": {
+        "type": "String"
+      },
+      "hotel": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelMatchWhySingle": "{hotel} में {neighborhood} उस तरह फिट बैठता है जैसा आप इस यात्रा को महसूस कराना चाहते हैं।",
+  "@hotelMatchWhySingle": {
+    "placeholders": {
+      "hotel": {
+        "type": "String"
+      },
+      "neighborhood": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelMatchWhyTitle": "मैच का स्कोर {score}",
+  "@hotelMatchWhyTitle": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "hotelMatchmakerCta": "एआई होटल मैचमेकर",
+  "hotelMatchmakerRun": "मेरे शीर्ष 3 प्रवास खोजें",
+  "hotelMatchmakerSubtitle": "साझा करें कि आप कैसे यात्रा करते हैं - लक्सोरा अनुशंसा करता है कि आप अपने दिन कहाँ बिताएँ।",
+  "hotelMatchmakerTeaser": "लक्सोरा को अपनी यात्रा शैली बताएं और ईमानदार ट्रेडऑफ़ के साथ दरबान द्वारा चुने गए तीन प्रवास प्राप्त करें।",
+  "hotelMatchmakerTitle": "होटल मैचमेकर",
+  "hotelNearbyDefault": "{neighborhood} के आसपास भोजन और अनुभव।",
+  "@hotelNearbyDefault": {
+    "placeholders": {
+      "neighborhood": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelPriceBudget": "बजट",
+  "hotelPriceLuxury": "विलासिता",
+  "hotelPriceModerate": "मध्यम",
+  "hotelPriceUpscale": "एक उच्च स्तरीय",
+  "hotelReasonBetterGroup": "आपके समूह प्रकार और ऊर्जा स्तर के लिए बेहतर अनुकूल।",
+  "hotelReasonCloseStops": "आपकी टाइमलाइन पर नियोजित स्टॉप के करीब।",
+  "hotelReasonFitsBudget": "गलत रिसॉर्ट पर अधिक खर्च किए बिना एक {range} आराम क्षेत्र में फिट बैठता है।",
+  "@hotelReasonFitsBudget": {
+    "placeholders": {
+      "range": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelReasonLowStress": "रिज़ॉर्ट-शैली की शांति - कम रसद, अधिक छुट्टियां।",
+  "hotelReasonMatchesMood": "आपकी यात्रा के मूड और गति से मेल खाता है।",
+  "hotelReasonNearbyDining": "सहज शाम के लिए पास में मजबूत भोजनालय।",
+  "hotelReasonSavesDrive": "सामान्य हब की तुलना में ड्राइव का समय बचाता है - केंद्र से लगभग {time}।",
+  "@hotelReasonSavesDrive": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelSave": "होटल बचाओ",
+  "hotelSaved": "सहेजा गया",
+  "hotelScoreFamily": "परिवार",
+  "hotelScoreLuxury": "विलासिता",
+  "hotelScoreRomance": "रोमांस",
+  "hotelScoreWalkability": "टहलना",
+  "hotelTagBudget": "बजट अनुकूल",
+  "hotelTagCouples": "जोड़ों के लिए सर्वोत्तम",
+  "hotelTagDisney": "डिज़्नी के लिए सर्वश्रेष्ठ",
+  "hotelTagFamily": "परिवार के अनुकूल",
+  "hotelTagLuxuryStaycation": "विलासितापूर्ण प्रवास",
+  "hotelTagQuiet": "शांत पलायन",
+  "hotelTagResort": "रिज़ॉर्ट का एहसास",
+  "hotelTagUniversal": "यूनिवर्सल के लिए सर्वश्रेष्ठ",
+  "hotelTagWalkableDining": "चलने योग्य भोजन",
+  "hotelTransportCar": "किराए की कार",
+  "hotelTransportRideshare": "कार",
+  "hotelTransportShuttle": "रिज़ॉर्ट शटल",
+  "hotelTransportWalkable": "चलने योग्य पड़ोस",
+  "hotelViewOnMap": "मानचित्र पर देखें",
+  "hotelVisitWebsite": "बेवसाइट देखना",
+  "hotelWhyRecommendTitle": "लक्सोरा इसकी अनुशंसा क्यों करता है?",
   "itineraryBadge": "तुम्हारी टाइमलाइन",
   "itineraryDayTab": "दिन {day} · {label}",
   "@itineraryDayTab": {
@@ -196,36 +458,17 @@
   "landingWhy": "हम इसका निर्माण क्यों कर रहे हैं?",
   "language": "भाषा",
   "light_mode": "लाइट मोड",
-  "mapPlanDayTitle": "मेरा दिन प्लान करें",
-  "mapPlanDaySuggested": "आपकी यात्रा के मूड के आधार पर सुझाया गया — इसे अपना बनाने के लिए स्थान बुकमार्क करें।",
-  "mapPlanDayEmpty": "गंतव्य बुकमार्क करें (♥) और Luxora आपके ऑरलैंडो हब से एक अनुकूलित रूट बनाएगा — कम ड्राइविंग, ज़्यादा एहसास।",
-  "mapPlanDaySummary": "{count} पड़ाव · {miles} · {time} ड्राइव",
-  "@mapPlanDaySummary": {
-    "placeholders": {
-      "count": { "type": "int" },
-      "miles": { "type": "String" },
-      "time": { "type": "String" }
-    }
-  },
-  "mapPlanDayHomeBase": "{hotel} से शुरू",
-  "@mapPlanDayHomeBase": {
-    "placeholders": { "hotel": { "type": "String" } }
-  },
-  "mapCrowdLevelQuiet": "शांत",
-  "mapCrowdLevelModerate": "मध्यम",
-  "mapCrowdLevelBusy": "भीड़",
-  "mapCrowdLevelPacked": "बहुत भीड़",
-  "mapCrowdAtStop": "भीड़: {level}",
-  "@mapCrowdAtStop": {
-    "placeholders": { "level": { "type": "String" } }
-  },
-  "mapRerouteButton": "शांत स्टॉप्स के लिए रूट बदलें",
-  "mapRerouteApplied": "दिन समायोजित — {count} स्टॉप कम भीड़ वाले स्थानों से बदले गए।",
-  "@mapRerouteApplied": {
-    "placeholders": { "count": { "type": "int" } }
-  },
-  "mapRerouteNone": "आपका रूट पहले से शांत लगता है।",
-  "mapRerouteRainHint": "बारिश की संभावना — इनडोर विकल्पों के लिए रूट बदलें।",
+  "localSecretDisneySpringsParking": "सबसे अच्छी पार्किंग नारंगी गैराज है - मरीना की ओर चलें, मुख्य प्रवेश द्वार की ओर नहीं।",
+  "localSecretLakeEolaSunset": "जैसे ही आकाश सुनहरा हो जाता है, हंस की तस्वीरों के लिए एम्फीथिएटर की ओर मुख करें।",
+  "localSecretMiamiLittleHavanaDomino": "पहले विंडो कार्ट पर कैफ़ेसिटो खरीदें - जब आप कॉर्टैडिटो पकड़ रहे हों तो साइडलाइन बेंच नियमित रूप से खुलते हैं।",
+  "localSecretMiamiOceanDriveSunrise": "लुम्मस पर सुबह 7 बजे पूर्व की ओर मुख करें - ब्रंच भीड़ के आने से पहले आर्ट डेको पेस्टल चमकते हैं।",
+  "localSecretMiamiPantherAlley": "खिड़की पर ऑर्डर करें, गली में दक्षिणावर्त चलें - सबसे अच्छा भित्ति प्रकाश सुबह 8:45 बजे फ़िरोज़ा दीवार से टकराता है।",
+  "localSecretMiamiVizcayaMangrove": "मुख्य छत की भीड़ को छोड़ें - पूर्वी बगीचे से प्रवेश करें और मैंग्रोव बोर्डवॉक पर वामावर्त चलें।",
+  "localSecretMiamiWynwoodAlley": "पैंथर कॉफ़ी के पीछे लोडिंग गली के माध्यम से बत्तख - स्थानीय लोग मुख्य लाइन की भीड़ के बिना भित्ति चित्र बनाते हैं।",
+  "localSecretTitle": "स्थानीय रहस्य",
+  "localSecretWekiwaSprings": "दोपहर 2 बजे के बाद मुख्य बोर्डवॉक छोड़ दें - उत्तरी ट्रेलहेड शांत रहता है।",
+  "localSecretWinterParkParkAvenue": "स्थानीय लोग किताबों की दुकान के पीछे गली के आंगन में छिप गए - सड़क का कोई संकेत नहीं।",
+  "localSecretWorldFoodTrucks": "दैनिक कैच का ऑर्डर करें, बर्गर का नहीं - दूर की खिड़की पर लाइन तेजी से चलती है।",
   "mapAiPowers": "एआई मानचित्र शक्तियाँ",
   "mapBadge": "एआई मानचित्र",
   "mapBookingTitle": "निर्बाध बुकिंग (साझेदार)",
@@ -243,6 +486,18 @@
   "mapCapSunsetTitle": "अभी सबसे अच्छा सूर्यास्त",
   "mapCapWeatherDesc": "समुद्र तटों, छतों और झरनों के लिए वर्षा बैकअप मार्ग और लाइव विंडो।",
   "mapCapWeatherTitle": "मौसम के प्रति जागरूक सुझाव",
+  "mapCrowdAtStop": "भीड़: {level}",
+  "@mapCrowdAtStop": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "mapCrowdLevelBusy": "व्यस्त",
+  "mapCrowdLevelModerate": "मध्यम",
+  "mapCrowdLevelPacked": "पैक्ड",
+  "mapCrowdLevelQuiet": "शांत",
   "mapFutureCrowdDesc": "झरनों, पार्कों और वायरल छतों पर वास्तविक समय घनत्व - अभी इसके लायक है?",
   "mapFutureCrowdTitle": "लाइव भीड़ गर्मी",
   "mapFutureParkingDesc": "आपके प्रतिबद्ध होने से पहले घर्षण स्कोर - वैलेट, गेराज, या राइडशेयर स्वीट स्पॉट।",
@@ -251,10 +506,109 @@
   "mapFutureRerouteTitle": "स्वतःस्फूर्त पुनः मार्ग",
   "mapFutureTrafficDesc": "तनाव-भारित रूटिंग - न केवल मिनट, बल्कि ड्राइव कैसा महसूस करेगी।",
   "mapFutureTrafficTitle": "ड्राइव घर्षण स्कोर",
+  "mapHotelIntelBannerBody": "आपके होटल का आकार, यात्रा का समय, दिन का प्रवाह और आप कहाँ खाते हैं। लक्सोरा आपको चुनने में मदद करता है - बुकिंग के दबाव के बिना।",
+  "mapHotelIntelBannerCta": "होटल इंटेलिजेंस का अन्वेषण करें",
+  "mapHotelIntelBannerTitle": "सही घरेलू आधार चुनें",
   "mapNavLayerSubtitle": "खोज से परे - इस समय रुकना उचित है या नहीं, इस पर लाइव इंटेलिजेंस।",
   "mapNavLayerTitle": "एआई नेविगेशन परत (अगला)",
+  "mapPlanDayEmpty": "गंतव्यों को बुकमार्क करें (♥) और लक्सोरा आपके ऑरलैंडो हब से एक अनुकूलित मार्ग बनाता है - सबसे कम ड्राइविंग, सबसे अधिक अहसास।",
+  "mapPlanDayHomeBase": "{hotel} से शुरू",
+  "@mapPlanDayHomeBase": {
+    "placeholders": {
+      "hotel": {
+        "type": "String"
+      }
+    }
+  },
+  "mapPlanDaySuggested": "आपकी यात्रा के मूड के अनुसार सुझाए गए स्थान - इसे अपना बनाने के लिए स्थानों को बुकमार्क करें।",
+  "mapPlanDaySummary": "{count} रुकती है · {miles} · {time} ड्राइव",
+  "@mapPlanDaySummary": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "miles": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "mapPlanDayTitle": "मेरे दिन की योजना बनाएं",
+  "mapRerouteApplied": "दिन समायोजित - हल्की भीड़ के लिए {count} स्टॉप की अदला-बदली की गई।",
+  "@mapRerouteApplied": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapRerouteButton": "शांत पड़ावों के लिए मार्ग पुनः बदलें",
+  "mapRerouteNone": "आपका मार्ग पहले से ही शांत दिखता है.",
+  "mapRerouteRainHint": "बारिश की संभावना - इनडोर बैकअप के लिए टैप का मार्ग बदलें।",
   "mapSubtitle": "आपके चयनित दिन के लिए पिन - सोने के हीरे रत्न हैं, सियान मार्कर आज की समयरेखा हैं, सोने की रेखा मूड मार्ग है।",
   "mapTitle": "आपका बुद्धिमान मार्ग",
+  "miamiBeachBestTime": "सर्वोत्तम समय: {time}",
+  "@miamiBeachBestTime": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "miamiBeachCrowdScore": "भीड़",
+  "miamiBeachFamilyScore": "परिवार",
+  "miamiBeachIntelTitle": "समुद्र तट खुफिया",
+  "miamiBeachParking": "पार्किंग: {level}",
+  "@miamiBeachParking": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "miamiBeachPhotoScore": "तस्वीर",
+  "miamiBeachRomanceScore": "रोमांस",
+  "miamiBeachSunsetScore": "सूर्यास्त",
+  "miamiMoodRouteStart": "{time} के आसपास प्रारंभ करें",
+  "@miamiMoodRouteStart": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "miamiMoodRoutesTitle": "मियामी मूड रूट",
+  "miamiNightlifeArrival": "सर्वोत्तम आगमन: {time}",
+  "@miamiNightlifeArrival": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "miamiNightlifeDressCode": "ड्रेस कोड: {code}",
+  "@miamiNightlifeDressCode": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "miamiNightlifeReservation": "आरक्षण की अनुशंसा की गई",
+  "miamiNightlifeTitle": "रात्रिजीवन दरबान",
+  "milesFromHub": "{distance} से {hub}",
+  "@milesFromHub": {
+    "placeholders": {
+      "distance": {
+        "type": "String"
+      },
+      "hub": {
+        "type": "String"
+      }
+    }
+  },
   "milesFromOrlando": "ऑरलैंडो से {distance}",
   "@milesFromOrlando": {
     "placeholders": {
@@ -263,6 +617,18 @@
       }
     }
   },
+  "momentFamilyMemory": "पारिवारिक स्मृति",
+  "momentFeelRelaxed": "आराम महसूस करें",
+  "momentImpressSpouse": "मेरे जीवनसाथी को प्रभावित करें",
+  "momentLuxuryValue": "अधिक खर्च किए बिना विलासिता",
+  "momentPerfectSunset": "उत्तम सूर्यास्त",
+  "momentPromptFamilyMemory": "मैं एक यादगार पारिवारिक पल चाहता हूं जो माता-पिता के लिए आसान हो और बच्चों के लिए जादुई हो।",
+  "momentPromptImpressSpouse": "मैं आज रात अपने जीवनसाथी को किसी रोमांटिक और अप्रत्याशित चीज़ से प्रभावित करना चाहता हूँ।",
+  "momentPromptLuxuryValue": "मैं ऐसी विलासिता चाहता हूं जो बहुत अधिक खर्च किए बिना विशेष लगे।",
+  "momentPromptPerfectSunset": "मैं फ़्लोरिडा में सूर्यास्त का सर्वोत्तम क्षण चाहता हूँ - हमें कहाँ होना चाहिए और हमें कब निकलना चाहिए?",
+  "momentPromptRelaxed": "मैं अगले कुछ घंटों के लिए पूरी तरह से आराम महसूस करना चाहता हूं - धीमा, सुंदर, कोई भीड़ नहीं।",
+  "momentsSubtitle": "एक भावना की खोज करें - एक जगह की नहीं।",
+  "momentsTitle": "लक्सोरा क्षण",
   "moodAdventurous": "साहसी",
   "moodFamily": "परिवार संबंध",
   "moodFoodie": "खाने का अनुभव",
@@ -272,51 +638,52 @@
   "moodRomantic": "प्रेम प्रसंगयुक्त",
   "moodSocial": "सामाजिक",
   "moodWellness": "कल्याण वापसी",
+  "moreCardAboutSub": "हम लक्ज़ोरा का निर्माण क्यों कर रहे हैं?",
+  "moreCardCityPacksSub": "गंतव्य दरबानों को अनलॉक करें",
+  "moreCardFavoritesSub": "आपके द्वारा बुकमार्क किए गए गंतव्य",
+  "moreCardGemsSub": "अंदरूनी सूत्रों की खोज, स्थानीय लोग पहरा देते हैं",
+  "moreCardHelpSub": "मार्गदर्शक और द्वारपाल सहायता",
+  "moreCardHotelsSub": "बुद्धिमान आपके मूड के अनुरूप रहता है",
+  "moreCardItinerarySub": "आपका दिन-ब-दिन सुनहरा पलायन",
+  "moreCardNotificationsSub": "यात्रा अलर्ट और द्वारपाल अद्यतन",
+  "moreCardNotificationsTitle": "सूचनाएं",
+  "moreCardPartnersSub": "विशेष साझेदार अनुभव",
+  "moreCardProfileSub": "कौन यात्रा करता है, उसे कैसा महसूस होना चाहिए",
+  "moreCardProfileTitle": "यात्रा प्रोफ़ाइल",
+  "moreCardSettingsSub": "थीम, शहर पैक और प्राथमिकताएँ",
+  "moreCardTicketsSub": "अधिकृत भागीदार बचत की तुलना करें",
+  "moreCardWeatherSub": "पूर्वानुमान-जागरूक दिन मार्गदर्शन",
+  "morePageSubtitle": "यात्रा उपकरण, खाता और प्राथमिकताएँ - शांत पहुँच के लिए क्यूरेट किया गया।",
+  "morePageTitle": "अधिक",
+  "moreSectionAccount": "खाता",
+  "moreSectionApp": "अनुप्रयोग",
+  "moreSectionTravelTools": "यात्रा उपकरण",
   "navConcierge": "दरबान",
+  "navDiscover": "खोज करना",
   "navFeed": "खिलाना",
   "navGems": "रत्न",
   "navMap": "मानचित्र",
+  "navMore": "अधिक",
+  "navStays": "रिहाइश",
+  "navTicketSavings": "बचत",
   "navTimeline": "समय",
   "navTrips": "ट्रिप्स",
+  "notificationsComingSoon": "यात्रा सूचनाएं भविष्य के अपडेट में आ रही हैं।",
+  "occasionAnniversary": "सालगिरह",
+  "occasionDateNight": "तिथि रात",
+  "occasionFamily": "बच्चों वाला परिवार",
+  "occasionGeneral": "बस तलाश कर रहा हूँ",
+  "occasionHoneymoon": "सुहाग रात",
+  "occasionProposal": "प्रस्ताव यात्रा",
+  "onboardAdventure": "साहसिक और आउटडोर",
   "onboardBudget": "यात्रा बजट (USD)",
+  "onboardCulture": "संस्कृति एवं दर्शनीय स्थल",
   "onboardDestination": "गंतव्य",
   "onboardFinish": "अपने द्वारपाल से मिलें",
   "onboardFoodie": "खाने का शौक",
-  "onboardPoolside": "पूल और आराम",
-  "onboardAdventure": "रोमांच और बाहरी गतिविधियाँ",
-  "onboardCulture": "संस्कृति और दर्शनीय स्थल",
-  "dayFlowSubtitle": "एक दिन जो इस पर आधारित है कि आप कैसा महसूस करना चाहते हैं — कोई चेकलिस्ट नहीं।",
-  "dayFlowMorning": "सुबह",
-  "dayFlowMidday": "दोपहर",
-  "dayFlowAfternoon": "अपराह्न",
-  "dayFlowEvening": "शाम",
-  "dayFlowNight": "रात",
-  "dayFlowReasonMorningPool": "धीरे शुरू करें — दिन शुरू होने से पहले पूल या स्पा में।",
-  "dayFlowReasonMorningCalm": "दिन का माहौल तय करने के लिए एक शांत शुरुआत।",
-  "dayFlowReasonMiddayAdventure": "सबसे ज़्यादा ऊर्जा वाले घंटे — तरोताज़ा रहते हुए बड़ा रोमांच।",
-  "dayFlowReasonMiddayCulture": "दिन की सबसे अच्छी रोशनी में दर्शनीय स्थल।",
-  "dayFlowReasonMiddayIcon": "दिन का सबसे ख़ास पल।",
-  "dayFlowReasonAfternoonDowntime": "तरोताज़ा होने के लिए दोपहर का आराम।",
-  "dayFlowReasonAfternoonGem": "भीड़ से दूर एक छिपा हुआ रत्न।",
-  "dayFlowReasonEveningDining": "दिन का मुख्य भोजन — आपकी पसंदीदा खाने की जगह।",
-  "dayFlowReasonNightOut": "एक आख़िरी चमक — रात की सैर।",
-  "weatherToday": "{place} में अभी",
-  "weatherSunset": "सूर्यास्त {time}",
-  "weatherRainNote": "{percent}% बारिश की संभावना — एक हल्की परत साथ रखें।",
-  "weatherConditionClear": "साफ़",
-  "weatherConditionPartlyCloudy": "आंशिक रूप से बादल",
-  "weatherConditionCloudy": "बादल",
-  "weatherConditionFog": "कोहरा",
-  "weatherConditionDrizzle": "बूंदाबांदी",
-  "weatherConditionRain": "बारिश",
-  "weatherConditionSnow": "बर्फ़",
-  "weatherConditionThunder": "आंधी-तूफ़ान",
-  "dayFlowVibeFoodie": "खाने का शौक़",
-  "dayFlowVibeNightlife": "नाइटलाइफ़",
-  "dayFlowVibePoolside": "पूल",
-  "dayFlowVibeAdventure": "साहसिक",
-  "dayFlowVibeCulture": "संस्कृति",
   "onboardNightlife": "रात्रिजीवन रुचि",
+  "onboardOccasionLabel": "मौका क्या है?",
+  "onboardPoolside": "पूलसाइड और डाउनटाइम",
   "onboardRegion": "क्षेत्र",
   "onboardStep1Subtitle": "आपकी मंज़िल किधर है?",
   "onboardStep1Title": "जहां सपने सबसे पहले उतरते हैं",
@@ -330,15 +697,156 @@
   "onboardStep5Title": "लक्सोरा का दिल",
   "onboardTravelers": "यात्री",
   "onboardTripFeelHint": "सूर्यास्त रात्रिभोज, धीमी सुबह, अपने साथी के साथ हँसी...",
+  "partnerOffersTitle": "पार्टनर ऑफर करता है",
+  "paywallBenefitAvoidTrapsBody": "ऐसे अनुभव ढूंढें जिनकी स्थानीय लोग वास्तव में अनुशंसा करते हैं।",
+  "paywallBenefitAvoidTrapsTitle": "पर्यटक जाल से बचें",
+  "paywallBenefitSaveMoneyBody": "टिकट बचत, स्थानीय सौदे और बेहतर विकल्पों की खोज करें।",
+  "paywallBenefitSaveMoneyTitle": "पैसे बचाएं",
+  "paywallBenefitSaveTimeBody": "अनुसंधान और योजना के घंटों को छोड़ें।",
+  "paywallBenefitSaveTimeTitle": "समय की बचत",
+  "paywallBenefitTravelSmarterBody": "मौसम, भीड़ और अपनी यात्रा शैली के आधार पर अनुशंसाएँ प्राप्त करें।",
+  "paywallBenefitTravelSmarterTitle": "बेहतर यात्रा करें",
+  "paywallConciergePromise": "एकमुश्त खरीदारी · व्यक्तिगत दरबान · कोई सदस्यता नहीं",
+  "paywallContinueExploring": "अन्वेषण जारी रखें",
+  "paywallCtaUnlock": "{cityName} द्वारपाल को अनलॉक करें",
+  "@paywallCtaUnlock": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallEmotionalLine": "आप पहले से ही अपनी छुट्टियों पर हजारों खर्च कर रहे हैं। अनुभव को संयोग पर मत छोड़ो।",
+  "paywallFeatureAiConcierge": "ऐ दरबान",
+  "paywallFeatureCrowdIntel": "भीड़ खुफिया",
+  "paywallFeatureDining": "भोजन संबंधी सिफ़ारिशें",
+  "paywallFeatureGpsNav": "जीपीएस नेविगेशन",
+  "paywallFeatureHiddenGems": "छुपे हुए रत्न",
+  "paywallFeatureHotelIntel": "होटल इंटेलिजेंस",
+  "paywallFeatureItineraries": "वैयक्तिकृत यात्रा कार्यक्रम",
+  "paywallFeatureLocalSecrets": "स्थानीय रहस्य",
+  "paywallFeatureTicketSavings": "स्मार्ट टिकट बचत",
+  "paywallFeatureUnlimitedPlanning": "असीमित शहर योजना",
+  "paywallFeatureWeatherConcierge": "मौसम द्वारपाल",
+  "paywallFutureUpdatesIncluded": "भविष्य के {cityName} अपडेट शामिल हैं",
+  "@paywallFutureUpdatesIncluded": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallHeadlineAdventure": "उस {cityName} की खोज करें जिसे अधिकांश पर्यटक कभी नहीं देख पाते।",
+  "@paywallHeadlineAdventure": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallHeadlineCouples": "आपकी संपूर्ण {cityName} छुट्टी यहीं से शुरू होती है।",
+  "@paywallHeadlineCouples": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallHeadlineFamily": "{cityName} में योजना बनाने में कम समय और यादें बनाने में अधिक समय व्यतीत करें।",
+  "@paywallHeadlineFamily": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallHeadlineFoodie": "स्थानीय अंदरूनी सूत्र की तरह {cityName} का स्वाद चखें।",
+  "@paywallHeadlineFoodie": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallHeadlineLuxury": "{cityName} को अलग तरह से अनुभव करें।",
+  "@paywallHeadlineLuxury": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallHeadlineMiamiDefault": "मियामी को अलग तरह से अनुभव करें",
+  "paywallHeadlineMiamiWeekend": "अपना मियामी सप्ताहांत बर्बाद मत करो",
+  "paywallHeroEyebrow": "आपका व्यक्तिगत द्वारपाल",
+  "paywallHeroHeadline": "अपनी छुट्टियाँ बर्बाद मत करो",
+  "paywallHeroSubheadline": "लक्सोरा यात्रा की योजना बनाता है ताकि आप इसका आनंद उठा सकें।",
+  "paywallLessThanDinner": "छुट्टियों के रात्रिभोज की लागत से भी कम।",
+  "paywallLifetimeAccess": "लाइफटाइम {cityName} एक्सेस",
+  "@paywallLifetimeAccess": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallLockedConciergeRecs": "दरबान सिफ़ारिशें",
+  "paywallLockedDateNight": "रोमांटिक तिथि रात्रि मार्ग",
+  "paywallLockedFamilyPlans": "पारिवारिक तनाव-मुक्त योजनाएँ",
+  "paywallLockedHiddenLuxury": "छिपे हुए विलासिता अनुभव",
+  "paywallLockedHotelMatchmaker": "स्मार्ट होटल मैचमेकर",
+  "paywallLockedPreviewSubtitle": "अपनी यात्रा के अनुरूप मार्गों और रहस्यों को उजागर करने के लिए अनलॉक करें।",
+  "paywallLockedPreviewTitle": "आपके दरबान के अंदर इंतज़ार कर रहा हूँ",
+  "paywallLockedVipSecrets": "वीआईपी स्थानीय रहस्य",
+  "paywallLockedWeatherReroute": "मौसम-जागरूक पुनर्निर्देशन",
+  "paywallLuxoraPriceLine": "{price} एक बार",
+  "@paywallLuxoraPriceLine": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallMostVacationsCost": "अधिकांश {cityName} छुट्टियों की लागत {minUsd}–{maxUsd}+ है",
+  "@paywallMostVacationsCost": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      },
+      "minUsd": {
+        "type": "String"
+      },
+      "maxUsd": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallNoMonthlyFees": "कोई मासिक शुल्क नहीं",
+  "paywallNoSubscription": "कोई सदस्यता नहीं",
+  "paywallOneTimePurchase": "एक बार खरीदे",
+  "paywallReview1": "\"हमें योजना बनाने में लगने वाले घंटों की बचत हुई।\"",
+  "paywallReview2": "\"ऐसी जगहें मिलीं जिन्हें हमने कभी नहीं खोजा होगा।\"",
+  "paywallReview3": "\"केवल छिपे हुए रत्नों के लिए ही यह इसके लायक है।\"",
+  "paywallSocialProofTitle": "वे यात्री जिन्होंने लक्सोरा को अनलॉक किया",
+  "paywallUnlockCityConcierge": "{cityName} द्वारपाल को अनलॉक करें",
+  "@paywallUnlockCityConcierge": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallWhatYouUnlock": "आप क्या अनलॉक करते हैं",
+  "paywallWhyTravelersUnlock": "यात्री लक्सोरा को अनलॉक क्यों करते हैं?",
   "photoBy": "द्वारा तसवीर",
   "photoClose": "बंद करना",
   "photoOn": "पर",
   "photoViewDestination": "गंतव्य देखें",
   "placeCatAdventure": "साहसिक काम",
-  "placeCatHotel": "होटल",
   "placeCatBeach": "समुद्र तट",
   "placeCatDining": "भोजन",
   "placeCatFamily": "परिवार",
+  "placeCatHotel": "होटल",
   "placeCatNature": "प्रकृति",
   "placeCatNightlife": "नाइटलाइफ़",
   "placeCatRomantic": "प्रेम प्रसंगयुक्त",
@@ -349,9 +857,117 @@
   "radius50": "50 मील",
   "radiusAllFlorida": "सारा फ्लोरिडा",
   "radiusDesc100": "टाम्पा खाड़ी, डेटोना, गहरी खाड़ी",
+  "radiusDesc100Miami": "एवरग्लेड्स, फोर्ट लॉडरडेल, गहरा दक्षिण फ्लोरिडा",
   "radiusDesc25": "ऑरलैंडो कोर के आसपास दिन की यात्राएँ",
+  "radiusDesc25Miami": "साउथ बीच, ब्रिकेल और मुख्य पड़ोस",
   "radiusDesc50": "झरने, तट दिवस यात्राएँ, अंतरिक्ष तट",
+  "radiusDesc50Miami": "विनवुड, कोकोनट ग्रोव, की बिस्केन",
   "radiusDescAll": "कीज़, मियामी, राज्यव्यापी मुख्य आकर्षण",
+  "radiusDescAllMiami": "फ़्लोरिडा कीज़ ट्रेल और राज्यव्यापी मुख्य आकर्षण",
+  "rightNowButton": "हमें अभी क्या करना चाहिए?",
+  "rightNowEmpty": "आपके दायरे में अभी तक कोई मजबूत क्षण नहीं है - कुछ पसंदीदा खोजें या बुकमार्क करें।",
+  "rightNowFamilyCalm": "झपकी-खिड़की शांत - {minutes} पर एक आसान पारिवारिक रीसेट के लिए {place} मिनट।",
+  "@rightNowFamilyCalm": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowGoldenHour": "स्वर्णिम समय आ रहा है - लगभग {minutes} मिनट में {place} (सूर्यास्त तक {crowd}) के लिए प्रस्थान करें।",
+  "@rightNowGoldenHour": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      },
+      "crowd": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowPerfectWeather": "आप {minutes} से {district} मिनट की दूरी पर हैं। आसमान बहुत अच्छा लग रहा है - {place} की ओर बढ़ें जबकि भीड़ अभी भी {crowd} ही है।",
+  "@rightNowPerfectWeather": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "district": {
+        "type": "String"
+      },
+      "place": {
+        "type": "String"
+      },
+      "crowd": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowQuietGem": "शांत खिड़की - {minutes} तक {place} मिनट (अभी {crowd})।",
+  "@rightNowQuietGem": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      },
+      "crowd": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowRainyIndoor": "रडार पर बारिश - आरामदायक इनडोर पिक के लिए {minutes} मिनट: {place}।",
+  "@rightNowRainyIndoor": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowResultTitle": "अभी",
+  "rightNowRomantic": "दिनांक-रात की ऊर्जा - भीड़ से पहले {minutes} तक {place} मिनट।",
+  "@rightNowRomantic": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowScenicCoffee": "आप {minutes} से {district} मिनट की दूरी पर हैं। मौसम उत्तम है - {place} पर कॉफ़ी लें, फिर भीड़ आने से पहले {walkArea} टहलें ({crowd} भीड़)।",
+  "@rightNowScenicCoffee": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "district": {
+        "type": "String"
+      },
+      "place": {
+        "type": "String"
+      },
+      "walkArea": {
+        "type": "String"
+      },
+      "crowd": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowTapForDetails": "विवरण के लिए टैप करें",
+  "savedFavoritesEmpty": "मानचित्र या फ़ीड पर गंतव्यों को बुकमार्क करें - वे यहां दिखाई देंगे।",
+  "savedFavoritesTitle": "पसंदीदा सहेजा गया",
   "scopeDestinationsAll": "{count} गंतव्य · सभी फ़्लोरिडा",
   "@scopeDestinationsAll": {
     "placeholders": {
@@ -371,10 +987,46 @@
       }
     }
   },
+  "scopeDestinationsRadiusHub": "{count} गंतव्य · {radius} के {hub} के भीतर",
+  "@scopeDestinationsRadiusHub": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "radius": {
+        "type": "String"
+      },
+      "hub": {
+        "type": "String"
+      }
+    }
+  },
   "settings": "सेटिंग्स",
+  "settingsStartOverSubtitle": "नए सिरे से एक नई यात्रा शुरू करें",
+  "settingsUnlockConciergeSubtitle": "एक बार का सिटी पैक - सदस्यता नहीं",
+  "settingsUnlockConciergeTitle": "शहर द्वारपाल को अनलॉक करें",
   "settings_language_picker_note": "परिवर्तन तुरंत लागू होते हैं.",
   "settings_regions_coming_subtitle": "होम हब और सिटी पैक - जल्द ही आ रहे हैं।",
   "settings_regions_coming_title": "देश और शहर",
+  "shareItineraryFooter": "लक्सोरा के साथ योजना बनाई गई - आपका भावनात्मक रूप से बुद्धिमान फ्लोरिडा साथी।",
+  "shareSubject": "मेरा {title}",
+  "@shareSubject": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "sponsorBadgeFeaturedPartner": "फ़ीचर्ड पार्टनर",
+  "sponsorBadgePartnerOffer": "पार्टनर ऑफर",
+  "sponsorBadgePromoted": "प्रचारित",
+  "sponsorBadgeSponsored": "प्रायोजित",
+  "sponsorCtaBookNow": "अभी बुक करें",
+  "sponsorCtaCheckRates": "दरें चेक कीजिए",
+  "sponsorCtaGetTickets": "टिकिट पाएं",
+  "sponsorCtaViewOffer": "ऑफर देखें",
+  "sponsorCtaVisitWebsite": "बेवसाइट देखना",
+  "sponsorLuxoraRecommended": "लक्सोरा अनुशंसित",
   "storyAppAsks": "ऐप पूछता है",
   "storyBulletAudience": "परिवार, जोड़े, लक्जरी यात्री, और कल्याण यात्री",
   "storyBulletLogisticsGap": "अधिकांश ट्रैवल ऐप्स लॉजिस्टिक्स पर ध्यान केंद्रित करते हैं - अनुभव डिजाइन पर नहीं",
@@ -432,16 +1084,349 @@
   "styleNoTraps": "कोई पर्यटक जाल नहीं",
   "styleSlowMornings": "धीमी सुबह",
   "styleWalkable": "जब संभव हो चलने योग्य",
+  "ticketAiInsightTitle": "लक्सोरा अनुशंसा",
+  "ticketBetterOption": "लक्सोरा को एक बेहतर विकल्प मिल गया।",
+  "ticketCalculatorTitle": "संभावित बचत",
+  "ticketConfidenceHigh": "उच्च आत्मविश्वास",
+  "ticketConfidenceLimited": "सीमित समय",
+  "ticketConfidenceVerified": "सत्यापित पुनर्विक्रेता",
+  "ticketDealsSectionTitle": "अधिकृत सौदे",
+  "ticketDiscountPrice": "लक्सोरा कीमत",
+  "ticketEstimatedFamilySave": "अनुमानित पारिवारिक बचत: {amount}.",
+  "@ticketEstimatedFamilySave": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "ticketExpires": "ऑफर {date} तक",
+  "@ticketExpires": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "ticketFamilySave": "अनुमानित पारिवारिक बचत: {amount}.",
+  "@ticketFamilySave": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "ticketFilterAll": "सभी",
+  "ticketFilterAttractions": "आकर्षण",
+  "ticketFilterDining": "भोजन के अनुभव",
+  "ticketFilterEntertainment": "मनोरंजन",
+  "ticketFilterFamily": "पारिवारिक गतिविधियाँ",
+  "ticketFilterLabel": "फ़िल्टर",
+  "ticketFilterThemeParks": "थीम पार्क",
+  "ticketFilterTours": "टूर्स",
+  "ticketFilterWaterParks": "जल पार्क",
+  "ticketInsightDisneyPass": "आपके यात्रा कार्यक्रम के आधार पर, एक दिन के टिकट के बजाय 3-दिवसीय वॉल्ट डिज़्नी वर्ल्ड पास आपके परिवार को लगभग 120 USD बचा सकता है।",
+  "ticketInsightGeneric": "लक्सोरा ने आपके यात्रा कार्यक्रम के स्टॉप से ​​​​बचत का मिलान किया - गेट पर खरीदने से पहले तुलना करें।",
+  "ticketInsightMiamiCulture": "संस्कृति आपकी योजना पर रुक जाती है - विजकाया और PAMM पार्टनर ऑफर इस सप्ताह गेट प्राइसिंग को मात दे सकते हैं।",
+  "ticketInsightMiamiEverglades": "आपके यात्रा कार्यक्रम में एवरग्लेड्स डे - सुबह के एयरबोट स्लॉट अक्सर सप्ताह के मध्य में सस्ते होते हैं।",
+  "ticketInsightMiamiWynwood": "आपके मार्ग पर Wynwood - एक निर्देशित आर्ट वॉक वॉक-अप बूथ मूल्य निर्धारण को मात दे सकता है।",
+  "ticketInsightSeaworldCombo": "आपके मार्ग पर सीवर्ल्ड - एक्वाटिका कॉम्बो अक्सर दो अलग-अलग प्रवेशों को मात देता है।",
+  "ticketInsightUniversalCombo": "आपकी योजना में यूनिवर्सल शामिल है - 2-पार्क टिकट अधिकांश परिवारों के लिए अलग-अलग दिनों की खरीदारी को मात देता है।",
+  "ticketItineraryMatchTitle": "यात्रा कार्यक्रम बचत जांच",
+  "ticketNoDeals": "इस फ़िल्टर में कोई डील नहीं - दूसरी श्रेणी आज़माएँ।",
+  "ticketOfficialPrice": "अधिकारी",
+  "ticketOverpaying": "हो सकता है कि आप गेट मूल्य पर अधिक भुगतान कर रहे हों।",
+  "ticketRecommendedSavings": "अनुशंसित बचत उपलब्ध है",
+  "ticketSaveAmount": "{amount} सहेजें",
+  "@ticketSaveAmount": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "ticketSaveAmountLabel": "बचत",
+  "ticketSavePerTicket": "आप प्रति टिकट {amount} बचा सकते हैं।",
+  "@ticketSavePerTicket": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "ticketSavingsBadge": "{percent}% बचाएं",
+  "@ticketSavingsBadge": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "ticketSavingsBadgeLabel": "प्रीमियम बचत",
+  "ticketSavingsSubtitle": "लक्सोरा अधिकृत पुनर्विक्रेताओं, बंडलों और प्रचारों को पेश करता है ताकि आप एक लक्जरी सलाहकार की तरह महसूस करें - कूपन साइट नहीं।",
+  "ticketSavingsTitle": "स्मार्ट टिकट बचत",
+  "ticketSortClosest": "मेरे सबसे करीब",
+  "ticketSortFamilyFriendly": "परिवार के अनुकूल",
+  "ticketSortHighestSavings": "सबसे ज्यादा बचत",
+  "ticketSortLabel": "इसके अनुसार क्रमबद्ध करें",
+  "ticketSortLuxury": "विलासितापूर्ण अनुभव",
+  "ticketSortMostPopular": "सबसे लोकप्रिय",
+  "ticketSource": "स्रोत: {source}",
+  "@ticketSource": {
+    "placeholders": {
+      "source": {
+        "type": "String"
+      }
+    }
+  },
+  "tripStoryBeatClosing": "लक्सोरा ने क्षणों को आकार दिया - आपने उन्हें जीया।",
+  "tripStoryBeatMoods": "आप मूड के लिए आए हैं।",
+  "@tripStoryBeatMoods": {
+    "placeholders": {
+      "moods": {
+        "type": "String"
+      }
+    }
+  },
+  "tripStoryBeatTitle": "यह अध्याय: {title}.",
+  "@tripStoryBeatTitle": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "tripStoryHeading": "{title} - आपकी फ़्लोरिडा कहानी",
+  "@tripStoryHeading": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "tripStoryTitle": "आपकी यात्रा की कहानी",
   "tripsBadge": "संग्रह",
+  "tripsDeleteBody": "यह आपकी सहेजी गई यात्राओं से \"{title}\" हटा देता है। इसे पूर्ववत नहीं किया जा सकता.",
+  "@tripsDeleteBody": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "tripsDeleteTitle": "यात्रा हटाएं?",
+  "tripsDeleted": "यात्रा हटा दी गई",
+  "tripsEmptyBody": "अपनी पहली यात्रा की योजना बनाएं और वह यहां दिखाई देगी, किसी भी समय दोबारा आने के लिए तैयार।",
+  "tripsEmptyTitle": "अभी तक कोई सहेजी गई यात्रा नहीं",
   "tripsFooter": "मूड कैटलॉग से यात्रा कवर · सुपाबेस सिंक चरण 2",
   "tripsLiveWeather": "लाइव मौसम",
   "tripsNextUp": "अगला",
+  "tripsOpenStory": "आपकी कहानी",
   "tripsOpenTimeline": "पूर्ण टाइमलाइन खोलें",
-  "tripsShare": "साझा करें",
-  "shareItineraryFooter": "Luxora के साथ नियोजित — आपका भावनात्मक रूप से समझदार फ्लोरिडा साथी।",
-  "shareSubject": "मेरी {title}",
+  "tripsPlanNew": "नई यात्रा की योजना बनाएं",
+  "tripsShare": "शेयर करना",
   "tripsSubtitle": "लाइव स्नैपशॉट के लिए यात्रा पर टैप करें - अगला पल, मौसम, सूर्यास्त और समयरेखा।",
   "tripsSunsetWindow": "सूर्यास्त खिड़की",
   "tripsTimelineSnapshot": "टाइमलाइन स्नैपशॉट",
-  "tripsTitle": "सहेजी गई यात्राएँ"
+  "tripsTitle": "सहेजी गई यात्राएँ",
+  "vacationScoreSubtitle": "आज का दिन {score}/100 जैसा लगता है।",
+  "@vacationScoreSubtitle": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "vacationScoreTitle": "अवकाश स्कोर",
+  "visualShareImageButton": "छवि कार्ड साझा करें",
+  "weatherAdjustDay": "मौसम के अनुसार मेरा दिन समायोजित करें",
+  "weatherAdviceDefault": "आसमान प्रबंधनीय दिखता है - अपनी योजना का पालन करें और एक हल्की परत अपने पास रखें।",
+  "weatherAdviceGreatSunset": "आज रात सूर्यास्त की शानदार स्थितियाँ - छत पर रात्रिभोज या झील की सैर पर विचार करें।",
+  "weatherAdviceHighUv": "आज उच्च यूवी - सनस्क्रीन लाएँ और दोपहर में लंबे समय तक सीधे धूप में रहने से बचें।",
+  "weatherAdviceLightJacket": "आज शाम एक हल्का जैकेट लेकर आएं।",
+  "weatherAdviceOutdoorBefore": "{time} से पहले बाहरी गतिविधियों की योजना बनाएं।",
+  "@weatherAdviceOutdoorBefore": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherAdviceRainLater": "आज बाद में बारिश का खतरा बढ़ जाता है, इसलिए इनडोर अनुभवों को दोपहर में स्थानांतरित करें।",
+  "weatherAdviceWindBeach": "हवा आज समुद्र तट या नाव गतिविधियों को कम आरामदायक बना सकती है।",
+  "weatherBestOutdoorWindow": "सर्वोत्तम बाहरी खिड़की",
+  "weatherCloudCover": "बादल मूंदना",
+  "weatherComingSoon": "जल्द आ रहा है",
+  "weatherConciergeAdviceTitle": "लक्सोरा मौसम सलाह",
+  "weatherConciergeTapHint": "यात्रा-जागरूक पूर्वानुमान के लिए टैप करें",
+  "weatherConciergeTitle": "मौसम द्वारपाल",
+  "weatherConditionClear": "स्पष्ट",
+  "weatherConditionCloudy": "बादलों से घिरा",
+  "weatherConditionDrizzle": "बूंदा बांदी",
+  "weatherConditionFog": "कोहरा",
+  "weatherConditionPartlyCloudy": "आंशिक रूप से बादल छाएंगे",
+  "weatherConditionRain": "बारिश",
+  "weatherConditionSnow": "बर्फ",
+  "weatherConditionThunder": "गरज के साथ वर्षा",
+  "weatherFeelsLike": "{temp} जैसा महसूस होता है",
+  "@weatherFeelsLike": {
+    "placeholders": {
+      "temp": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherHourlyTitle": "प्रति घंटा दृष्टिकोण",
+  "weatherHourlyUnavailable": "डेटा लोड होने पर प्रति घंटा पूर्वानुमान दिखाई देगा.",
+  "weatherHumidity": "नमी",
+  "weatherImpactClear": "आज सुबह आसमान आपकी बाहरी योजनाओं के लिए अनुकूल दिख रहा है।",
+  "weatherImpactHeat": "दोपहर में तेज़ गर्मी - {time} से पहले आउटडोर सैर की योजना बनाएं।",
+  "@weatherImpactHeat": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherImpactIndoorFallback": "एक स्पा या संग्रहालय",
+  "weatherImpactMixed": "{count} आउटडोर स्टॉप के लिए आज समय में बदलाव की आवश्यकता हो सकती है।",
+  "@weatherImpactMixed": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "weatherImpactNoPlanClear": "सबसे अच्छी बाहरी खिड़की गर्मी या वर्षा के निर्माण से पहले {start}-{end} जैसी दिखती है।",
+  "@weatherImpactNoPlanClear": {
+    "placeholders": {
+      "start": {
+        "type": "String"
+      },
+      "end": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherImpactNoPlanDefault": "मौसम स्थिर दिख रहा है - जब आप रुकने के क्रम के लिए तैयार हों तो मेरे दिन की योजना बनाएं पर टैप करें।",
+  "weatherImpactNoPlanRain": "बारिश मिश्रित है - पहले अपने दिन का निर्माण इनडोर एंकर के साथ करें।",
+  "weatherImpactRainLater": "{time} के बाद बारिश का खतरा बढ़ जाता है। {outdoorStop} को पहले ले जाने और बाद के लिए {indoorStop} को सहेजने पर विचार करें।",
+  "@weatherImpactRainLater": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      },
+      "outdoorStop": {
+        "type": "String"
+      },
+      "indoorStop": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherIndoorBackup": "इनडोर बैकअप विचार",
+  "weatherLiveRadar": "लाइव राडार",
+  "weatherMapOverlays": "मानचित्र ओवरले",
+  "weatherMiamiBeachMorning": "रेत पर तेज़ यूवी - सनस्क्रीन, टोपी और दोपहर से पहले समुद्र तट का समय।",
+  "weatherMiamiBoatWind": "हवा तेज़ है - नाव या नौका गतिविधियों पर पुनर्विचार करें; छत पर भोजन करना अभी भी काम कर सकता है।",
+  "weatherMiamiHeatAdvisory": "गर्मी संबंधी सलाह संबंधी स्थितियाँ - हल्के कपड़े, जलयोजन, और बाहरी पड़ावों के बीच छाया विराम।",
+  "weatherMiamiHumidityIndoor": "आज उच्च आर्द्रता. सबसे पहले समुद्र तट या पूल पर जाएँ, फिर सबसे गर्म घंटों के दौरान इनडोर भोजन और दीर्घाओं के लिए वेनवुड या ब्रिकेल पर जाएँ।",
+  "weatherMiamiRainReroute": "आगे बारिश की खिड़की - आउटडोर योजनाओं को {indoorSpot} या गैलरी समय के लिए बदलें।",
+  "@weatherMiamiRainReroute": {
+    "placeholders": {
+      "indoorSpot": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherMiamiSunsetWaterfront": "सूर्यास्त मजबूत दिखता है - पूर्व से पश्चिम दृश्य के साथ तट या छत।",
+  "weatherOutdoorAtRisk": "{count} आउटडोर स्टॉप प्रभावित हो सकते हैं",
+  "@weatherOutdoorAtRisk": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "weatherOverlayCloud": "बादल मूंदना",
+  "weatherOverlayPrecip": "वर्षण",
+  "weatherOverlayTemp": "तापमान",
+  "weatherOverlayWind": "हवा",
+  "weatherPackHat": "टोपी",
+  "weatherPackLightJacket": "हल्की जैकेट",
+  "weatherPackPoncho": "पोंचो",
+  "weatherPackShoes": "आरामदायक जूतें",
+  "weatherPackSunglasses": "धूप का चश्मा",
+  "weatherPackSunscreen": "सनस्क्रीन",
+  "weatherPackSwimwear": "तैराकी पोशाक",
+  "weatherPackUmbrella": "छाता",
+  "weatherPackWater": "पानी की बोतल",
+  "weatherPlanImpact": "आपकी योजना पर प्रभाव",
+  "weatherRadarComingSoon": "लाइव राडार जल्द ही आ रहा है।",
+  "weatherRainNote": "वर्षा की {percent}% संभावना - एक हल्की परत पैक करें।",
+  "@weatherRainNote": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "weatherRainWindow": "बारिश की संभावना",
+  "weatherStatRain": "बारिश",
+  "weatherSunrise": "सूर्योदय {time}",
+  "@weatherSunrise": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherSunset": "सूर्यास्त {time}",
+  "@weatherSunset": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherSunsetRec": "सूर्यास्त की सिफ़ारिश",
+  "weatherSunsetRecRooftop": "{time} के पास आसमान साफ़ हो सकता है - छत पर रात्रिभोज या झील की सैर चमक सकती है।",
+  "@weatherSunsetRecRooftop": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherToday": "अभी {place} में",
+  "@weatherToday": {
+    "placeholders": {
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherUv": "यूवी सूचकांक",
+  "weatherVisibility": "दृश्यता",
+  "weatherVisibilityMiles": "{miles} मील",
+  "@weatherVisibilityMiles": {
+    "placeholders": {
+      "miles": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherWhatToBring": "आज क्या लाना है",
+  "weatherWind": "हवा",
+  "weatherWindValue": "{dir} {speed} मील प्रति घंटे पर",
+  "@weatherWindValue": {
+    "placeholders": {
+      "dir": {
+        "type": "String"
+      },
+      "speed": {
+        "type": "int"
+      }
+    }
+  }
 }

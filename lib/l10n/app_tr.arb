@@ -31,34 +31,19 @@
   "catSpas": "Kaplıcalar",
   "catSprings": "Yaylar",
   "catThemeParks": "Tema parkları",
-  "commonClose": "Kapat",
-  "commonCancel": "İptal",
-  "commonDelete": "Sil",
-  "settingsStartOverSubtitle": "Sıfırdan yeni bir gezi başlatın",
-  "tripsPlanNew": "Yeni gezi planla",
-  "tripsEmptyTitle": "Henüz kayıtlı gezi yok",
-  "tripsEmptyBody": "İlk gezini planla; burada görünecek ve istediğin zaman geri dönebileceksin.",
-  "tripsDeleteTitle": "Gezi silinsin mi?",
-  "tripsDeleteBody": "Bu, “{title}” gezisini kayıtlı gezilerinden kaldırır. Geri alınamaz.",
-  "@tripsDeleteBody": {
-    "placeholders": { "title": { "type": "String" } }
-  },
-  "tripsDeleted": "Gezi silindi",
+  "commonCancel": "İptal etmek",
+  "commonClose": "Kapalı",
   "commonContinue": "Devam etmek",
+  "commonDelete": "Silmek",
+  "commonLive": "Canlı",
   "commonNew": "Yeni",
   "commonRoadmap": "Yol Haritası",
-  "commonLive": "Canlı",
   "commonSoon": "Yakında",
   "conciergeBrand": "LUXORA",
-  "conciergeInputHint": "Seyahatinizin yaratmasını istediğiniz duyguyu tanımlayın…",
-  "conciergeGreetingMorning": "Günaydın.",
-  "conciergeGreetingAfternoon": "İyi günler.",
+  "conciergeGreetingAfternoon": "Tünaydın.",
   "conciergeGreetingEvening": "İyi akşamlar.",
-  "conciergeWelcomeWarm": "Florida'yı gezilecek yerler listesine göre değil, nasıl hissetmek istediğinize göre şekillendirmek için buradayım. Bugün canınız ne istiyor?",
-  "conciergeRefineStyle": "Tarzımı İnceleyelim",
-  "conciergeRecallReturning": "Tekrar hoş geldin.",
-  "conciergeRecallStyle": "{prefs} sevdiğini hatırlıyorum.",
-  "conciergeRecallFeelLine": "Ve bu seyahatin şöyle hissettirmesini istemiştin: “{feel}”.",
+  "conciergeGreetingMorning": "Günaydın.",
+  "conciergeInputHint": "Seyahatinizin yaratmasını istediğiniz duyguyu tanımlayın…",
   "conciergePromptAdventure": "Macera modu",
   "conciergePromptDisney": "Disney karanlık sonrası",
   "conciergePromptFamily": "Aile büyüsü",
@@ -68,6 +53,24 @@
   "conciergePromptSoftLuxury": "Yumuşak lüks kaçış",
   "conciergePromptWellness": "Sağlık sıfırlama",
   "conciergeQuickPrompts": "Hızlı istemler",
+  "conciergeRecallFeelLine": "Ve bu yolculuğun şunu hissetmesini istediniz: \"{feel}\".",
+  "@conciergeRecallFeelLine": {
+    "placeholders": {
+      "feel": {
+        "type": "String"
+      }
+    }
+  },
+  "conciergeRecallReturning": "Tekrar hoşgeldiniz.",
+  "conciergeRecallStyle": "{prefs}'i sevdiğinizi hatırlıyorum.",
+  "@conciergeRecallStyle": {
+    "placeholders": {
+      "prefs": {
+        "type": "String"
+      }
+    }
+  },
+  "conciergeRefineStyle": "Stilimi Geliştir",
   "conciergeRemembering": "Bu geziyi hatırlamak",
   "conciergeStyleMemory": "Stil hafızası",
   "conciergeTitle": "Kapıcı",
@@ -79,53 +82,99 @@
       }
     }
   },
+  "conciergeVoiceHold": "Konuşmak için basılı tutun",
+  "conciergeVoiceSoon": "Sesli konsiyerj yakında geliyor; şimdilik bir dakikaya dokunun veya nasıl hissetmek istediğinizi yazın.",
   "conciergeWelcome": "Duygusal açıdan zeki Florida arkadaşınız Luxora'ya hoş geldiniz.\n\nAşağıdan bir bilgi istemi seçin veya seyahatinizin yaratmasını istediğiniz duyguyu tanımlayın.",
+  "conciergeWelcomeWarm": "Florida'yı nasıl hissetmek istediğinize göre şekillendirmek için buradayım; görülecek yerlerin bir kontrol listesi değil. Bugün neyi arzuluyorsun?",
   "dark_mode": "Karanlık mod",
+  "dayFlowAfternoon": "ÖĞLEDEN SONRA",
+  "dayFlowEvening": "AKŞAM",
+  "dayFlowMidday": "ÖĞLE",
+  "dayFlowMorning": "SABAH",
+  "dayFlowNight": "GECE",
+  "dayFlowReasonAfternoonDowntime": "Yeniden şarj olmak için öğleden sonra kesinti.",
+  "dayFlowReasonAfternoonGem": "Kalabalıktan uzakta gizli bir mücevher.",
+  "dayFlowReasonEveningDining": "Günün yemeği – yemek tutkunlarının seçimi.",
+  "dayFlowReasonMiddayAdventure": "Enerjinizin zirveye ulaştığı saatler — zindeyken geçireceğiniz büyük macera.",
+  "dayFlowReasonMiddayCulture": "Işık parlakken gezi.",
+  "dayFlowReasonMiddayIcon": "Günün imza anı.",
+  "dayFlowReasonMorningCalm": "Ortamı ayarlamak için yumuşak bir başlangıç.",
+  "dayFlowReasonMorningPool": "Gün başlamadan önce havuz kenarında veya spada yavaşça rahatlayın.",
+  "dayFlowReasonNightOut": "Son bir parıltı - dışarıda bir gece.",
+  "dayFlowSubtitle": "Bir kontrol listesi değil, nasıl hissetmek istediğinize göre şekillenen bir gün.",
+  "dayFlowVibeAdventure": "Maceracı",
+  "dayFlowVibeCulture": "Kültür",
+  "dayFlowVibeFoodie": "Foodie-ileri",
+  "dayFlowVibeNightlife": "Gece Hayatı",
+  "dayFlowVibePoolside": "Havuzbaşı",
+  "detailAppleMaps": "Apple Haritalar",
   "detailBestFor": "Şunun için en iyisi:",
   "detailBestTime": "Gitmek İçin En İyi Zaman",
   "detailCostRange": "Maliyet aralığı",
   "detailCrowd": "Kalabalık",
+  "detailDriveFromHub": "{hub}'dan {time} arabayla",
+  "@detailDriveFromHub": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      },
+      "hub": {
+        "type": "String"
+      }
+    }
+  },
+  "detailDriveFromOrlando": "Orlando'dan {time} arabayla",
+  "@detailDriveFromOrlando": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
   "detailDuration": "Süre",
+  "detailGetDirections": "Yol Tarifi Al",
+  "detailGoogleMaps": "Google Haritalar",
+  "detailHomeBaseActive": "Eve dönüş yolculuğunuzun üssü",
+  "detailHomeBaseClearedSnack": "Ana üs temizlendi",
+  "detailHomeBaseHint": "Gününüzün rotası burada başlıyor ve bitiyor.",
+  "detailHomeBaseSetSnack": "Eve dönüş üssünüz olarak ayarlayın",
   "detailInsiderTips": "İçeriden İpuçları",
   "detailLocation": "Konum",
-  "detailGetDirections": "Yol Tarifi Al",
-  "detailParkMap": "Park haritası",
-  "detailViewOnMap": "Haritada Gör",
-  "detailMapsError": "Bu cihazda harita açılamadı.",
-  "detailGoogleMaps": "Google Haritalar",
-  "detailAppleMaps": "Apple Haritalar",
-  "detailOpenInMaps": "Haritalarda aç",
-  "detailDriveFromOrlando": "Orlando’dan {time} sürüş",
-  "@detailDriveFromOrlando": {
-    "placeholders": { "time": { "type": "String" } }
-  },
-  "detailSaveToItinerary": "Gezi planına kaydet",
-  "detailSaved": "Kaydedildi",
-  "detailSavedSnack": "Gezi planına kaydedildi",
-  "detailRemovedSnack": "Gezi planından kaldırıldı",
-  "detailSetHomeBase": "Ana üs yap",
-  "detailHomeBaseActive": "Gezinizin ana üssü",
-  "detailHomeBaseHint": "Gününüzün rotası burada başlar ve burada biter.",
-  "detailHomeBaseSetSnack": "Gezinizin ana üssü olarak ayarlandı",
-  "detailHomeBaseClearedSnack": "Ana üs kaldırıldı",
-  "detailMenuTitle": "Menü öne çıkanlar",
-  "detailMenuDisclaimer": "Seçili öne çıkanlar — tam menü ve fiyatlar mekana göre değişebilir.",
-  "detailMenuComingSoon": "Bu menüyü hâlâ hazırlıyoruz. Bu arada güncel menü ve fiyatları çevrimiçi görüntüleyin.",
-  "detailViewMenuOnline": "Menüyü çevrimiçi görüntüle",
+  "detailMapsError": "Bu cihazda haritalar açılamadı.",
+  "detailMenuComingSoon": "Bu menüyü hâlâ hazırlıyoruz. Bu arada en son menüyü ve fiyatları çevrimiçi olarak görüntüleyin.",
+  "detailMenuDisclaimer": "Seçilen öne çıkanlar — tam menü ve fiyatlar mekana göre değişiklik gösterebilir.",
+  "detailMenuTitle": "Menüde öne çıkanlar",
   "detailNearbyGems": "Yakındaki Taşlar",
+  "detailOpenInMaps": "Haritalarda aç",
+  "detailParkMap": "Park haritası",
   "detailPractical": "Pratik Detaylar",
   "detailPrice": "Fiyat",
+  "detailRemovedSnack": "Seyahat planınızdan kaldırıldı",
   "detailReserve": "Rezerv Deneyimi",
   "detailReserveSoon": "Rezervasyon ortakları çok yakında.",
+  "detailSaveToItinerary": "Seyahat planına kaydet",
+  "detailSaved": "Kaydedildi",
+  "detailSavedSnack": "Seyahat programınıza kaydedildi",
+  "detailSetHomeBase": "Ana üs olarak ayarla",
   "detailVibeMatch": "Vibe Maçı",
+  "detailViewMenuOnline": "Menüyü çevrimiçi görüntüle",
+  "detailViewOnMap": "Haritada görüntüle",
   "detailWhySpecial": "Neden Özel?",
+  "discoverFilterAll": "Tüm",
+  "discoverFilterDestinations": "Destinasyonlar",
+  "discoverFilterHotels": "Oteller",
+  "discoverFilterRestaurants": "Restoranlar",
+  "discoverFromHub": "{hub}'dan",
+  "@discoverFromHub": {
+    "placeholders": {
+      "hub": {
+        "type": "String"
+      }
+    }
+  },
   "discoverFromOrlando": "Orlando'dan",
   "discoverPopularInRadius": "Çevrenizdeki popüler",
   "discoverSearchEmpty": "Bu yarıçapta eşleşme yok; daha kısa bir ad deneyin, Harita veya Akış'ta mesafe çipinizi genişletin veya \"plaj\", \"Disney\" veya \"yaylar\" şeklinde arama yapın.",
-  "discoverFilterAll": "Tümü",
-  "discoverFilterHotels": "Oteller",
-  "discoverFilterRestaurants": "Restoranlar",
-  "discoverFilterDestinations": "Yerler",
   "discoverSearchHint": "Hedefleri ara…",
   "discoverSearchScopeAll": "Katalogdaki tüm Florida'yı arama",
   "discoverSearchScopeRadius": "Orlando'nun {radius} dahilinde",
@@ -136,20 +185,41 @@
       }
     }
   },
+  "discoverSearchScopeRadiusHub": "{hub} bölgesinin {radius} dahilinde",
+  "@discoverSearchScopeRadiusHub": {
+    "placeholders": {
+      "radius": {
+        "type": "String"
+      },
+      "hub": {
+        "type": "String"
+      }
+    }
+  },
   "discoverSearchTitle": "Bir varış noktası bulun",
   "discoverTrySearching": "Aramayı deneyin",
+  "featuredCityHomeSubtitle": "Orlando için yararlı iş ortağı seçenekleri - açıkça işaretlenmiş, yapay zekanın seçtikleri gibi asla gizlenmemiştir.",
+  "featuredCityHomeTitle": "Öne Çıkan Ortaklar",
+  "featuredDiningSubtitle": "Luxora'nın öne çıkan ortak restoranları; organik mücevher listeniz bağımsız kalır.",
+  "featuredDiningTitle": "Öne Çıkan Yemek",
+  "featuredExperiencesSubtitle": "Ruh halinize göre öne çıkan seçimler - her zaman etiketlenir, asla AI sıralaması olarak gizlenmez.",
+  "featuredExperiencesTitle": "Öne Çıkan Deneyimler",
+  "featuredStaysSubtitle": "Ortak yerleşimleri Luxora'nın organik otel maç skorlarından ayrıdır.",
+  "featuredStaysTitle": "Öne Çıkan Konaklamalar",
+  "featuredTicketPartnersSubtitle": "Yetkili iş ortağı teklifleri - aşağıdaki organik tasarruflarla karşılaştırın.",
+  "featuredTicketPartnersTitle": "Öne Çıkan Bilet Ortakları",
   "feedBadge": "CANLI KEŞİF",
   "feedEmptyHint": "Bu çevrede yayın kartı yok; Körfez kıyısı ve Keys'in önemli noktaları için 50 mil veya Tüm Florida'yı deneyin.",
+  "feedMoodAdventurous": "Maceracı",
+  "feedMoodAll": "Her şey",
+  "feedMoodCalm": "Sakinlik",
+  "feedMoodFoodie": "Foodie",
+  "feedMoodPampered": "Şımartılmış",
+  "feedMoodPrompt": "NASIL HİSSETMEK İSTİYORSUNUZ?",
+  "feedMoodRomantic": "Romantik",
+  "feedMoodSocial": "Uğultu",
   "feedPillCreator": "İçerik oluşturucunun seçtikleri",
   "feedPillLive": "Canlı güncellemeler",
-  "feedMoodPrompt": "NASIL HİSSETMEK İSTİYORSUN?",
-  "feedMoodAll": "Her şey",
-  "feedMoodRomantic": "Romantik",
-  "feedMoodCalm": "Sakin",
-  "feedMoodAdventurous": "Maceracı",
-  "feedMoodPampered": "Şımartılmış",
-  "feedMoodSocial": "Hareketli",
-  "feedMoodFoodie": "Gurme",
   "feedPillNewOpenings": "Yeni açılışlar",
   "feedPillTrending": "Trend olan",
   "feedSubtitle": "Şu anda trend olan noktalar, yeni açılışlar, içerik oluşturucuların seçimleri, sezonluk rotalar ve canlı güncellemeler.",
@@ -159,11 +229,18 @@
   "gemInsiderTip": "İçeriden ipucu",
   "gemLocalNote": "Yalnızca yerel not",
   "gemLocalSecret": "YEREL GİZLİ",
-  "gemsMatchedBadge": "Senin tarzın",
-  "gemsMatchedNote": "Tarzına uygun {count} mücevher",
   "gemWhySpecial": "Neden özel?",
   "gemsBadge": "İÇERİDEN KÜRASYON",
   "gemsEmptyHint": "Bu yarıçapta henüz mücevher yok; pınarlar ve Uzay Sahili sırları için 50 mil veya ötesine kadar genişletin.",
+  "gemsMatchedBadge": "Senin tarzın",
+  "gemsMatchedNote": "{count, plural, =1{1 gem matched to your style} other{{count} mücevher stilinize uyuyor}}",
+  "@gemsMatchedNote": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "gemsPillCrowd": "Kalabalık istihbaratı",
   "gemsPillHidden": "Gizli yerler",
   "gemsPillInsider": "İçeriden ipuçları",
@@ -171,6 +248,191 @@
   "gemsSearchHint": "Gizli mücevherleri ve destinasyonları arayın…",
   "gemsSubtitle": "Yerel halkın koruduğu gizli keşifler; neden özel olduğu, ne zaman gidileceği, ne kadar kalabalık olduğu ve kartpostallarda bulamayacağınız ipuçları.",
   "gemsTitle": "Gizli Mücevher",
+  "goldenHourKindBeach": "Sahil gün batımı penceresi",
+  "goldenHourKindRooftop": "Çatıdaki altın saat",
+  "goldenHourKindScenic": "Manzara fotoğrafçılığı zamanlaması",
+  "goldenHourLeaveBy": "{minutes}'e gitmek için {time} kadar (arabayla {place} dakika) yola çıkın; gün batımından ~15 dakika önce varın.",
+  "@goldenHourLeaveBy": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      },
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "goldenHourTitle": "Altın saat",
+  "helpCenterBody": "Konsiyerj yardımı için support@luxora.ai adresine e-posta gönderin. Uygulama içi kılavuzlar yakında gelecek.",
+  "helpCenterTitle": "Yardım Merkezi",
+  "hotelAddHomeBase": "Ana Üs Olarak Ekle",
+  "hotelCheckRates": "Fiyatları Kontrol Et",
+  "hotelCompareDriveImpact": "Etkiyi artırın",
+  "hotelCompareNearby": "Yakındaki önemli noktalar",
+  "hotelComparePrice": "Fiyat aralığı",
+  "hotelCompareSelected": "{count} seçildi",
+  "@hotelCompareSelected": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "hotelCompareSubtitle": "Üç otele kadar yan yana konsiyerj görünümü.",
+  "hotelCompareTitle": "Konaklamaları Karşılaştır",
+  "hotelDiscoveryTitle": "Orlando için küratörlük yapıldı",
+  "hotelDistanceTitle": "Önemli noktalara uzaklık",
+  "hotelGetDirections": "Yol Tarifi Al",
+  "hotelHomeBaseActive": "Ev Üssü Aktif",
+  "hotelHomeBaseBadge": "ANA BAZ",
+  "hotelIntelBadge": "OTEL İSTİHBARATI",
+  "hotelIntelSubtitle": "Luxora, yapmak istediğiniz seyahate göre rezervasyon tablosunu değil, günlerinizi şekillendiren konaklamaları seçer.",
+  "hotelIntelTitle": "Ev Üssünüzü Bulun",
+  "hotelItineraryImpactBody": "Merkezden kaba sürüş: {driveTime}. Seyahat sürtünme puanı: {friction}/90 (düşükse daha sakindir).",
+  "@hotelItineraryImpactBody": {
+    "placeholders": {
+      "driveTime": {
+        "type": "String"
+      },
+      "friction": {
+        "type": "int"
+      }
+    }
+  },
+  "hotelItineraryImpactTitle": "Bu günlerinizi nasıl şekillendiriyor?",
+  "hotelLuxoraScore": "Luxora",
+  "hotelMatchAdults": "Yetişkinler",
+  "hotelMatchAttractions": "Listenizdeki gezilecek yerler",
+  "hotelMatchAttractionsGeneral": "planladığınız turistik yerler",
+  "hotelMatchBestForCouple": "Tema parkı kaosu olmadan romantizm isteyen çiftler.",
+  "hotelMatchBestForFamily": "Park erişiminden ödün vermeden havuz günleri isteyen aileler.",
+  "hotelMatchBestForGroup": "Konfor, erişim ve sakin lojistiği dengeleyen gruplar.",
+  "hotelMatchBestForLabel": "Şunun için en iyisi:",
+  "hotelMatchBudget": "Bütçe konfor bölgesi",
+  "hotelMatchImpactDefault": "Ortalama sürüşü {time} civarında tutar, böylece gün akışınız rahat kalır.",
+  "@hotelMatchImpactDefault": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelMatchImpactDisney": "Daha kısa Disney koşuları - kapınızdan parklara yaklaşık {time}.",
+  "@hotelMatchImpactDisney": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelMatchImpactUniversal": "Universal Express ayrıcalıkları veya su taksisi erişimi, gününüzün saatlerini geri kazanmanızı sağlayabilir.",
+  "hotelMatchImpactWalkable": "Akşam yemeğine yürüyerek gidin; parkta geçen uzun günlerin ardından park etme stresini azaltın.",
+  "hotelMatchItineraryLabel": "Seyahat programı:",
+  "hotelMatchKids": "Çocuklar",
+  "hotelMatchLuxuryLevel": "İstenilen lüks seviye",
+  "hotelMatchNearbyLabel": "Yakında:",
+  "hotelMatchResultsTitle": "İlk 3 maçınız",
+  "hotelMatchTradeoffCarNeeded": "Her yere yürüyerek gidebileceğiniz bir üs değil, bir arabaya veya araç paylaşımına güveneceksiniz.",
+  "hotelMatchTradeoffDefault": "Her konaklamanın ödünleşimleri vardır; Luxora öncelikle bunu önceliklerinize göre seçti.",
+  "hotelMatchTradeoffLessFamily": "Özel aile tatil yerlerine kıyasla çocuk merkezli olanaklara daha az odaklanılmıştır.",
+  "hotelMatchTradeoffLessRomantic": "Çiftlerin sessiz dinlenmesinden daha fazla tema parkı enerjisi.",
+  "hotelMatchTradeoffLuxuryBudget": "Premium tesis fiyatlandırması — oda için daha fazla bütçe, diğer yerler için daha az bütçe.",
+  "hotelMatchTradeoffsLabel": "Takaslar:",
+  "hotelMatchTransport": "Dolaşmak",
+  "hotelMatchTravelers": "Gezginler",
+  "hotelMatchWhyMulti": "{attractions}, {hotel} seyahat programınıza göre sürüş süresini kısaltır ve akşamları rahat geçirmenizi sağlar.",
+  "@hotelMatchWhyMulti": {
+    "placeholders": {
+      "attractions": {
+        "type": "String"
+      },
+      "hotel": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelMatchWhySingle": "{hotel}'deki {neighborhood} bu seyahatin nasıl hissettirmesini istediğinize uyuyor.",
+  "@hotelMatchWhySingle": {
+    "placeholders": {
+      "hotel": {
+        "type": "String"
+      },
+      "neighborhood": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelMatchWhyTitle": "Maç skoru {score}",
+  "@hotelMatchWhyTitle": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "hotelMatchmakerCta": "AI Otel Çöpçatanı",
+  "hotelMatchmakerRun": "İlk 3 Konaklamamı Bul",
+  "hotelMatchmakerSubtitle": "Nasıl seyahat ettiğinizi paylaşın — Luxora, günlerinizi nereye demirleyeceğinizi önerir.",
+  "hotelMatchmakerTeaser": "Luxora'ya seyahat tarzınızı söyleyin ve dürüst ödünlerle kapıcı tarafından seçilen üç konaklamaya sahip olun.",
+  "hotelMatchmakerTitle": "Otel Çöpçatanı",
+  "hotelNearbyDefault": "{neighborhood} çevresinde yemek ve deneyimler.",
+  "@hotelNearbyDefault": {
+    "placeholders": {
+      "neighborhood": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelPriceBudget": "Bütçe",
+  "hotelPriceLuxury": "Lüks",
+  "hotelPriceModerate": "Ilıman",
+  "hotelPriceUpscale": "Lüks",
+  "hotelReasonBetterGroup": "Grup türünüze ve enerji seviyenize daha uygun.",
+  "hotelReasonCloseStops": "Zaman çizelgenizdeki planlı duraklara yakın.",
+  "hotelReasonFitsBudget": "Yanlış tesise aşırı harcama yapmadan {range} konfor bölgesine uyar.",
+  "@hotelReasonFitsBudget": {
+    "placeholders": {
+      "range": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelReasonLowStress": "Tatil köyü tarzı sakinlik; daha az lojistik, daha fazla tatil.",
+  "hotelReasonMatchesMood": "Seyahat ruh halinize ve hızınıza uyum sağlar.",
+  "hotelReasonNearbyDining": "Zahmetsiz akşamlar için yakındaki güçlü yemek mekanları.",
+  "hotelReasonSavesDrive": "Genel bir merkeze kıyasla sürüş süresinden tasarruf sağlar; merkezden yaklaşık {time} uzaklıkta.",
+  "@hotelReasonSavesDrive": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelSave": "Oteli Kaydet",
+  "hotelSaved": "Kaydedildi",
+  "hotelScoreFamily": "Aile",
+  "hotelScoreLuxury": "Lüks",
+  "hotelScoreRomance": "romantik",
+  "hotelScoreWalkability": "Yürümek",
+  "hotelTagBudget": "Bütçe dostu",
+  "hotelTagCouples": "Çiftler için en iyisi",
+  "hotelTagDisney": "Disney için en iyisi",
+  "hotelTagFamily": "Aile dostu",
+  "hotelTagLuxuryStaycation": "Lüks konaklama",
+  "hotelTagQuiet": "Sessiz kaçış",
+  "hotelTagResort": "Tatil hissi",
+  "hotelTagUniversal": "Evrensel için en iyisi",
+  "hotelTagWalkableDining": "Yürünebilir yemek",
+  "hotelTransportCar": "Kiralık araba",
+  "hotelTransportRideshare": "Araç paylaşımı",
+  "hotelTransportShuttle": "Tesis servisi",
+  "hotelTransportWalkable": "Yürünebilir mahalle",
+  "hotelViewOnMap": "Haritada Görüntüle",
+  "hotelVisitWebsite": "Web Sitesini Ziyaret Edin",
+  "hotelWhyRecommendTitle": "Luxora Neden Bunu Öneriyor?",
   "itineraryBadge": "ZAMAN ÇİZELGİNİZ",
   "itineraryDayTab": "Gün {day} · {label}",
   "@itineraryDayTab": {
@@ -196,36 +458,17 @@
   "landingWhy": "Bunu neden inşa ediyoruz?",
   "language": "Dil",
   "light_mode": "Işık modu",
-  "mapPlanDayTitle": "Günümü planla",
-  "mapPlanDaySuggested": "Gezi ruh haline göre önerildi — kendine özel yapmak için yerleri işaretle.",
-  "mapPlanDayEmpty": "Destinasyonları işaretle (♥), Luxora Orlando üssünden optimize bir rota oluştursun — daha az sürüş, daha çok his.",
-  "mapPlanDaySummary": "{count} durak · {miles} · {time} sürüş",
-  "@mapPlanDaySummary": {
-    "placeholders": {
-      "count": { "type": "int" },
-      "miles": { "type": "String" },
-      "time": { "type": "String" }
-    }
-  },
-  "mapPlanDayHomeBase": "{hotel} noktasından başlıyor",
-  "@mapPlanDayHomeBase": {
-    "placeholders": { "hotel": { "type": "String" } }
-  },
-  "mapCrowdLevelQuiet": "Sakin",
-  "mapCrowdLevelModerate": "Orta",
-  "mapCrowdLevelBusy": "Kalabalık",
-  "mapCrowdLevelPacked": "Çok kalabalık",
-  "mapCrowdAtStop": "Kalabalık: {level}",
-  "@mapCrowdAtStop": {
-    "placeholders": { "level": { "type": "String" } }
-  },
-  "mapRerouteButton": "Daha sakin duraklar için yeniden rota",
-  "mapRerouteApplied": "Gün ayarlandı — {count} durak daha sakin yerlerle değiştirildi.",
-  "@mapRerouteApplied": {
-    "placeholders": { "count": { "type": "int" } }
-  },
-  "mapRerouteNone": "Rotanız zaten sakin görünüyor.",
-  "mapRerouteRainHint": "Yağmur olası — kapalı alternatifler için yeniden rota.",
+  "localSecretDisneySpringsParking": "En iyi park yeri turuncu garajdır; ana girişte değil, marina tarafında yürüyün.",
+  "localSecretLakeEolaSunset": "Gökyüzü altın rengine dönerken kuğu fotoğrafları için amfitiyatro tarafına dönün.",
+  "localSecretMiamiLittleHavanaDomino": "Önce vitrin arabasından cafecito satın alın; elinizde bir cortadito tuttuğunuzda yan sıradaki müdavimler açılıyor.",
+  "localSecretMiamiOceanDriveSunrise": "Sabah saat 7'de Lummus'ta doğuya dönün; brunch kalabalığı gelmeden önce art deco pastelleri parlıyor.",
+  "localSecretMiamiPantherAlley": "Pencereden sipariş verin, sokakta saat yönünde yürüyün; en iyi duvar ışığı turkuaz duvara sabah 8:45'te vurur.",
+  "localSecretMiamiVizcayaMangrove": "Ana teras acelesini atlayın - doğu bahçesinden girin ve mangrov tahta kaldırımında saat yönünün tersine yürüyün.",
+  "localSecretMiamiWynwoodAlley": "Panther Coffee'nin arkasındaki yükleme yolundan geçin; yerel halk, ana hat kalabalığı olmadan duvar resimleri çekiyor.",
+  "localSecretTitle": "Yerel sır",
+  "localSecretWekiwaSprings": "Öğleden sonra 2'den sonra ana tahta kaldırımı atlayın; kuzey patika başı sessiz kalır.",
+  "localSecretWinterParkParkAvenue": "Yerel halk kitapçının arkasındaki avluya sığınıyor; sokak tabelası yok.",
+  "localSecretWorldFoodTrucks": "Burger değil, günlük avı sipariş edin; kuyruk uzaktaki pencerede daha hızlı hareket eder.",
   "mapAiPowers": "Yapay zeka harita güçleri",
   "mapBadge": "Yapay Zeka HARİTASI",
   "mapBookingTitle": "Sorunsuz rezervasyon (iş ortakları)",
@@ -243,6 +486,18 @@
   "mapCapSunsetTitle": "Şu anki en iyi gün batımı",
   "mapCapWeatherDesc": "Yağmur yedekleme yolları ve plajlar, çatılar ve su kaynakları için canlı pencereler.",
   "mapCapWeatherTitle": "Hava durumuna duyarlı öneriler",
+  "mapCrowdAtStop": "Kalabalık: {level}",
+  "@mapCrowdAtStop": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "mapCrowdLevelBusy": "Meşgul",
+  "mapCrowdLevelModerate": "Ilıman",
+  "mapCrowdLevelPacked": "Paketlenmiş",
+  "mapCrowdLevelQuiet": "Sessizlik",
   "mapFutureCrowdDesc": "Kaynaklarda, parklarda ve viral çatılarda gerçek zamanlı yoğunluk; buna değer mi?",
   "mapFutureCrowdTitle": "Canlı kalabalık ısısı",
   "mapFutureParkingDesc": "Taahhüt etmeden önce sürtünme puanı - vale, garaj veya araç paylaşımı en iyi nokta.",
@@ -251,10 +506,109 @@
   "mapFutureRerouteTitle": "Kendiliğinden yeniden yönlendirme",
   "mapFutureTrafficDesc": "Stres ağırlıklı yönlendirme; yalnızca dakikalar değil, sürücünün nasıl hissedeceği.",
   "mapFutureTrafficTitle": "Sürtünme puanını artırın",
+  "mapHotelIntelBannerBody": "Oteliniz sürüş sürelerini, günün akışını ve nerede yemek yediğinizi şekillendirir. Luxora rezervasyon baskısı olmadan seçim yapmanıza yardımcı olur.",
+  "mapHotelIntelBannerCta": "Hotel Intelligence'ı keşfedin",
+  "mapHotelIntelBannerTitle": "Doğru ana üssü seçin",
   "mapNavLayerSubtitle": "Keşfin ötesinde - şu anda durmaya değip değmeyeceğine dair canlı istihbarat.",
   "mapNavLayerTitle": "Yapay zeka gezinme katmanı (sonraki)",
+  "mapPlanDayEmpty": "Destinasyonları işaretleyin (♥) ve Luxora, Orlando merkezinizden en az sürüş, en çok duygu ile optimize edilmiş bir rota oluşturur.",
+  "mapPlanDayHomeBase": "{hotel}'den başlıyor",
+  "@mapPlanDayHomeBase": {
+    "placeholders": {
+      "hotel": {
+        "type": "String"
+      }
+    }
+  },
+  "mapPlanDaySuggested": "Seyahat ruh halinizden önerilenler; yerleri kendinize ait hale getirmek için yer imlerine ekleyin.",
+  "mapPlanDaySummary": "{count} durak · {miles} · {time} sürüş",
+  "@mapPlanDaySummary": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "miles": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "mapPlanDayTitle": "Günümü planla",
+  "mapRerouteApplied": "Gün ayarlandı — Daha hafif kalabalıklar için {count} durak değiştirildi.",
+  "@mapRerouteApplied": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapRerouteButton": "Daha sakin duraklar için yeniden rota çizin",
+  "mapRerouteNone": "Rotanız zaten sakin görünüyor.",
+  "mapRerouteRainHint": "Yağmur muhtemel — iç mekan yedeklemeleri için yeniden yönlendirmeye dokunun.",
   "mapSubtitle": "Seçilmiş gününüz için Pinler - altın pırlantalar Mücevherlerdir, camgöbeği işaretleyiciler bugünün zaman çizelgesidir, altın çizgi ise ruh hali rotasıdır.",
   "mapTitle": "Akıllı rotanız",
+  "miamiBeachBestTime": "En iyi zaman: {time}",
+  "@miamiBeachBestTime": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "miamiBeachCrowdScore": "Kalabalık",
+  "miamiBeachFamilyScore": "Aile",
+  "miamiBeachIntelTitle": "Sahil İstihbaratı",
+  "miamiBeachParking": "Park yeri: {level}",
+  "@miamiBeachParking": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "miamiBeachPhotoScore": "Fotoğraf",
+  "miamiBeachRomanceScore": "romantik",
+  "miamiBeachSunsetScore": "Gün batımı",
+  "miamiMoodRouteStart": "{time} civarında başlayın",
+  "@miamiMoodRouteStart": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "miamiMoodRoutesTitle": "Miami Ruh Hali Rotaları",
+  "miamiNightlifeArrival": "En iyi varış: {time}",
+  "@miamiNightlifeArrival": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "miamiNightlifeDressCode": "Kıyafet kodu: {code}",
+  "@miamiNightlifeDressCode": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "miamiNightlifeReservation": "Rezervasyon önerilir",
+  "miamiNightlifeTitle": "Gece Hayatı Kapıcı",
+  "milesFromHub": "{hub}'dan {distance}",
+  "@milesFromHub": {
+    "placeholders": {
+      "distance": {
+        "type": "String"
+      },
+      "hub": {
+        "type": "String"
+      }
+    }
+  },
   "milesFromOrlando": "Orlando'dan {distance}",
   "@milesFromOrlando": {
     "placeholders": {
@@ -263,6 +617,18 @@
       }
     }
   },
+  "momentFamilyMemory": "Aile hafızası",
+  "momentFeelRelaxed": "Rahatlamış hissedin",
+  "momentImpressSpouse": "Eşimi etkilemek",
+  "momentLuxuryValue": "Aşırı harcama yapmadan lüks",
+  "momentPerfectSunset": "Mükemmel gün batımı",
+  "momentPromptFamilyMemory": "Ebeveynler için kolay, çocuklar için ise büyülü, unutulmaz bir aile anı istiyorum.",
+  "momentPromptImpressSpouse": "Bu gece eşimi romantik ve beklenmedik bir şeyle etkilemek istiyorum.",
+  "momentPromptLuxuryValue": "Bir servet harcamadan özel hissettiren lüks istiyorum.",
+  "momentPromptPerfectSunset": "Mükemmel Florida gün batımı anını istiyorum; nerede olmalıyız ve ne zaman yola çıkmalıyız?",
+  "momentPromptRelaxed": "Önümüzdeki birkaç saat boyunca tamamen rahatlamış hissetmek istiyorum; yavaş, güzel, kalabalıksız.",
+  "momentsSubtitle": "Bir yer değil, bir duygu arayın.",
+  "momentsTitle": "LUXORA ANLARI",
   "moodAdventurous": "Maceracı",
   "moodFamily": "Aile bağı",
   "moodFoodie": "Yemek deneyimi",
@@ -272,51 +638,52 @@
   "moodRomantic": "Romantik",
   "moodSocial": "Sosyal",
   "moodWellness": "Sağlıklı yaşam inzivası",
+  "moreCardAboutSub": "Neden Luxora'yı inşa ediyoruz?",
+  "moreCardCityPacksSub": "Hedef konsiyerjlerin kilidini açın",
+  "moreCardFavoritesSub": "Favorilerinize eklediğiniz hedefler",
+  "moreCardGemsSub": "İçeriden öğrenenlerin yerel korumayı keşfetmesi",
+  "moreCardHelpSub": "Rehberler ve konsiyerj desteği",
+  "moreCardHotelsSub": "Akıllı, ruh halinize uygun kalır",
+  "moreCardItinerarySub": "Günlük altın kaçışınız",
+  "moreCardNotificationsSub": "Seyahat uyarıları ve konsiyerj güncellemeleri",
+  "moreCardNotificationsTitle": "Bildirimler",
+  "moreCardPartnersSub": "Öne çıkan iş ortağı deneyimleri",
+  "moreCardProfileSub": "Kim seyahat eder, nasıl hissetmeli?",
+  "moreCardProfileTitle": "Seyahat profili",
+  "moreCardSettingsSub": "Tema, şehir paketleri ve tercihler",
+  "moreCardTicketsSub": "Yetkili iş ortağı tasarruflarını karşılaştırın",
+  "moreCardWeatherSub": "Tahmine duyarlı gün rehberliği",
+  "morePageSubtitle": "Seyahat araçları, hesap ve tercihler — sakin erişim için seçilmiştir.",
+  "morePageTitle": "Daha",
+  "moreSectionAccount": "HESAP",
+  "moreSectionApp": "UYGULAMA",
+  "moreSectionTravelTools": "SEYAHAT ARAÇLARI",
   "navConcierge": "Kapıcı",
+  "navDiscover": "Keşfetmek",
   "navFeed": "Beslemek",
   "navGems": "Taşlar",
   "navMap": "Harita",
+  "navMore": "Daha",
+  "navStays": "Konaklamalar",
+  "navTicketSavings": "Tasarruf",
   "navTimeline": "Zaman çizelgesi",
   "navTrips": "Geziler",
+  "notificationsComingSoon": "Gelecekteki bir güncellemeyle gezi bildirimleri gelecek.",
+  "occasionAnniversary": "Yıl dönümü",
+  "occasionDateNight": "Randevu gecesi",
+  "occasionFamily": "Çocuklu aile",
+  "occasionGeneral": "Sadece keşfediyorum",
+  "occasionHoneymoon": "Balayı",
+  "occasionProposal": "Teklif gezisi",
+  "onboardAdventure": "Macera ve açık hava",
   "onboardBudget": "Seyahat bütçesi (USD)",
+  "onboardCulture": "Kültür ve gezi",
   "onboardDestination": "Varış noktası",
   "onboardFinish": "Konsiyerjinizle tanışın",
   "onboardFoodie": "Yemek tutkusu",
-  "onboardPoolside": "Havuz ve dinlenme",
-  "onboardAdventure": "Macera ve doğa",
-  "onboardCulture": "Kültür ve gezi",
-  "dayFlowSubtitle": "Bir yapılacaklar listesi değil, nasıl hissetmek istediğinize göre şekillenen bir gün.",
-  "dayFlowMorning": "SABAH",
-  "dayFlowMidday": "ÖĞLE",
-  "dayFlowAfternoon": "ÖĞLEDEN SONRA",
-  "dayFlowEvening": "AKŞAM",
-  "dayFlowNight": "GECE",
-  "dayFlowReasonMorningPool": "Yavaşça başlayın — gün başlamadan havuz ya da spa.",
-  "dayFlowReasonMorningCalm": "Günün havasını belirleyen nazik bir başlangıç.",
-  "dayFlowReasonMiddayAdventure": "Enerjinin zirvede olduğu saatler — zindeyken büyük macera.",
-  "dayFlowReasonMiddayCulture": "Günün en parlak ışığında gezi.",
-  "dayFlowReasonMiddayIcon": "Günün öne çıkan anı.",
-  "dayFlowReasonAfternoonDowntime": "Enerji toplamak için öğleden sonra molası.",
-  "dayFlowReasonAfternoonGem": "Kalabalıktan uzak gizli bir cevher.",
-  "dayFlowReasonEveningDining": "Günün yemeği — gurme seçiminiz.",
-  "dayFlowReasonNightOut": "Son bir parıltı — bir gece çıkışı.",
-  "weatherToday": "Şu anda {place}",
-  "weatherSunset": "Gün batımı {time}",
-  "weatherRainNote": "%{percent} yağmur ihtimali — yanına ince bir şeyler al.",
-  "weatherConditionClear": "Açık",
-  "weatherConditionPartlyCloudy": "Parçalı bulutlu",
-  "weatherConditionCloudy": "Bulutlu",
-  "weatherConditionFog": "Sis",
-  "weatherConditionDrizzle": "Çiseleme",
-  "weatherConditionRain": "Yağmur",
-  "weatherConditionSnow": "Kar",
-  "weatherConditionThunder": "Gök gürültülü fırtına",
-  "dayFlowVibeFoodie": "Gurme odaklı",
-  "dayFlowVibeNightlife": "Gece hayatı",
-  "dayFlowVibePoolside": "Havuz",
-  "dayFlowVibeAdventure": "Maceracı",
-  "dayFlowVibeCulture": "Kültür",
   "onboardNightlife": "Gece hayatına ilgi",
+  "onboardOccasionLabel": "Durum nedir?",
+  "onboardPoolside": "Havuz başı ve dinlenme süresi",
   "onboardRegion": "Bölge",
   "onboardStep1Subtitle": "Nereye gidiyorsun?",
   "onboardStep1Title": "Hayallerin ilk indiği yer",
@@ -330,15 +697,156 @@
   "onboardStep5Title": "Luxora'nın kalbi",
   "onboardTravelers": "Gezginler",
   "onboardTripFeelHint": "Gün batımı akşam yemekleri, yavaş sabahlar, eşimle kahkahalar…",
+  "partnerOffersTitle": "İş ortağı teklifleri",
+  "paywallBenefitAvoidTrapsBody": "Yerel halkın gerçekten tavsiye ettiği deneyimleri bulun.",
+  "paywallBenefitAvoidTrapsTitle": "Turist Tuzaklarından Kaçının",
+  "paywallBenefitSaveMoneyBody": "Bilet tasarruflarını, yerel fırsatları ve daha akıllı seçenekleri keşfedin.",
+  "paywallBenefitSaveMoneyTitle": "Paradan Tasarruf Edin",
+  "paywallBenefitSaveTimeBody": "Saatlerce süren araştırma ve planlamayı atlayın.",
+  "paywallBenefitSaveTimeTitle": "Zamandan Tasarruf Edin",
+  "paywallBenefitTravelSmarterBody": "Hava durumuna, kalabalığa ve seyahat tarzınıza göre öneriler alın.",
+  "paywallBenefitTravelSmarterTitle": "Daha Akıllı Seyahat Edin",
+  "paywallConciergePromise": "Tek seferlik satın alma · Kişisel konsiyerj · Abonelik yok",
+  "paywallContinueExploring": "Keşfetmeye Devam Edin",
+  "paywallCtaUnlock": "{cityName} Konsiyerjinin kilidini açın",
+  "@paywallCtaUnlock": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallEmotionalLine": "Zaten tatilinize binlerce dolar harcıyorsunuz. Deneyimi şansa bırakmayın.",
+  "paywallFeatureAiConcierge": "Yapay Zeka Danışmanı",
+  "paywallFeatureCrowdIntel": "Kalabalık İstihbaratı",
+  "paywallFeatureDining": "Yemek Önerileri",
+  "paywallFeatureGpsNav": "GPS Navigasyonu",
+  "paywallFeatureHiddenGems": "Gizli Mücevher",
+  "paywallFeatureHotelIntel": "Otel İstihbaratı",
+  "paywallFeatureItineraries": "Kişiselleştirilmiş Seyahat Programları",
+  "paywallFeatureLocalSecrets": "Yerel Sırlar",
+  "paywallFeatureTicketSavings": "Akıllı Bilet Tasarrufu",
+  "paywallFeatureUnlimitedPlanning": "Sınırsız Şehir Planlama",
+  "paywallFeatureWeatherConcierge": "Hava Durumu Danışmanı",
+  "paywallFutureUpdatesIncluded": "Gelecekteki {cityName} Güncellemeleri Dahil Edildi",
+  "@paywallFutureUpdatesIncluded": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallHeadlineAdventure": "Çoğu turistin asla görmediği {cityName} şehrini keşfedin.",
+  "@paywallHeadlineAdventure": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallHeadlineCouples": "Mükemmel {cityName} kaçamağınız burada başlıyor.",
+  "@paywallHeadlineCouples": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallHeadlineFamily": "{cityName}'da planlamaya daha az, anılar biriktirmeye daha fazla zaman ayırın.",
+  "@paywallHeadlineFamily": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallHeadlineFoodie": "{cityName} şehrini yerel bir uzman gibi tadın.",
+  "@paywallHeadlineFoodie": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallHeadlineLuxury": "{cityName} şehrini farklı bir şekilde deneyimleyin.",
+  "@paywallHeadlineLuxury": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallHeadlineMiamiDefault": "MIAMI'Yİ FARKLI BİR ŞEKİLDE DENEYİMLEYİN",
+  "paywallHeadlineMiamiWeekend": "MIAMI HAFTASONUNUZU ziyan etmeyin",
+  "paywallHeroEyebrow": "KİŞİSEL CONCIERGE'İNİZ",
+  "paywallHeroHeadline": "TATİLİNİZİ BOŞA KAÇIRMAYIN",
+  "paywallHeroSubheadline": "Luxora geziyi sizin keyfini çıkarabilmeniz için planlar.",
+  "paywallLessThanDinner": "Bir tatil yemeğinin maliyetinden daha az.",
+  "paywallLifetimeAccess": "Ömür Boyu {cityName} Erişimi",
+  "@paywallLifetimeAccess": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallLockedConciergeRecs": "Konsiyerj Önerileri",
+  "paywallLockedDateNight": "Romantik Randevu Gecesi Rotaları",
+  "paywallLockedFamilyPlans": "Aile Stressiz Planları",
+  "paywallLockedHiddenLuxury": "Gizli Lüks Deneyimler",
+  "paywallLockedHotelMatchmaker": "Akıllı Otel Çöpçatanı",
+  "paywallLockedPreviewSubtitle": "Seyahatinize göre uyarlanmış rotaları ve sırları ortaya çıkarmak için kilidi açın.",
+  "paywallLockedPreviewTitle": "Kapıcınızın İçerisinde Bekliyorum",
+  "paywallLockedVipSecrets": "VIP yerel sırlar",
+  "paywallLockedWeatherReroute": "Hava Durumuna Duyarlı Yeniden Yönlendirme",
+  "paywallLuxoraPriceLine": "{price} Bir Kez",
+  "@paywallLuxoraPriceLine": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallMostVacationsCost": "Çoğu {cityName} tatilinin maliyeti {minUsd}–{maxUsd}+",
+  "@paywallMostVacationsCost": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      },
+      "minUsd": {
+        "type": "String"
+      },
+      "maxUsd": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallNoMonthlyFees": "Aylık Ücret Yok",
+  "paywallNoSubscription": "Abonelik Yok",
+  "paywallOneTimePurchase": "Tek Seferlik Satın Alma",
+  "paywallReview1": "\"Bizi saatlerce planlama yapmaktan kurtardı.\"",
+  "paywallReview2": "\"Asla keşfedemeyeceğimiz yerler bulduk.\"",
+  "paywallReview3": "\"Yalnızca gizli mücevherler için bile buna değer.\"",
+  "paywallSocialProofTitle": "Luxora'nın Kilidini Açan Gezginler",
+  "paywallUnlockCityConcierge": "{cityName} Konsiyerjinin kilidini açın",
+  "@paywallUnlockCityConcierge": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallWhatYouUnlock": "Neyin Kilidini Açarsınız",
+  "paywallWhyTravelersUnlock": "Neden Gezginler Luxora'nın Kilidini Açıyor?",
   "photoBy": "Fotoğraf:",
   "photoClose": "Kapalı",
   "photoOn": "Açık",
   "photoViewDestination": "Hedefi görüntüle",
   "placeCatAdventure": "Macera",
-  "placeCatHotel": "Otel",
   "placeCatBeach": "Sahil",
   "placeCatDining": "Yemek",
   "placeCatFamily": "Aile",
+  "placeCatHotel": "Otel",
   "placeCatNature": "Doğa",
   "placeCatNightlife": "Gece Hayatı",
   "placeCatRomantic": "Romantik",
@@ -349,9 +857,117 @@
   "radius50": "50 mil",
   "radiusAllFlorida": "Tüm Florida",
   "radiusDesc100": "Tampa Körfezi, Daytona, derin Körfez",
+  "radiusDesc100Miami": "Everglades, Fort Lauderdale, daha derin Güney Florida",
   "radiusDesc25": "Orlando çekirdeği çevresinde günlük geziler",
+  "radiusDesc25Miami": "South Beach, Brickell ve çekirdek mahalleler",
   "radiusDesc50": "Yaylar, sahil günübirlik geziler, Uzay Sahili",
+  "radiusDesc50Miami": "Wynwood, Coconut Grove, Key Biscayne",
   "radiusDescAll": "Keys, Miami, eyalet çapında öne çıkanlar",
+  "radiusDescAllMiami": "Florida Keys yolu ve eyalet çapında öne çıkanlar",
+  "rightNowButton": "Şu anda ne yapmalıyız?",
+  "rightNowEmpty": "Çevrenizde henüz güçlü bir an yok; genişletin, keşfedin veya birkaç favoriyi yer imlerine ekleyin.",
+  "rightNowFamilyCalm": "Şekerleme penceresi sakinliği — {minutes} konumunda ailece kolay bir sıfırlamaya {place} dakika kaldı.",
+  "@rightNowFamilyCalm": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowGoldenHour": "Altın saat yaklaşıyor — yaklaşık {minutes} dakika içinde {place} (gün batımına kadar {crowd}) için yola çıkın.",
+  "@rightNowGoldenHour": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      },
+      "crowd": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowPerfectWeather": "{minutes}'den {district} dakika uzaktasınız. Gökyüzü harika görünüyor; kalabalıklar hâlâ {crowd} iken {place}'e gidin.",
+  "@rightNowPerfectWeather": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "district": {
+        "type": "String"
+      },
+      "place": {
+        "type": "String"
+      },
+      "crowd": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowQuietGem": "Sessiz zaman aralığı — {minutes}'e {place} dakika (şu anda {crowd}).",
+  "@rightNowQuietGem": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      },
+      "crowd": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowRainyIndoor": "Radarda yağmur — Rahat bir iç mekan seçimine {minutes} dakika: {place}.",
+  "@rightNowRainyIndoor": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowResultTitle": "ŞU ANDA",
+  "rightNowRomantic": "Randevu gecesi enerjisi — aceleye gelmeden {minutes}'e {place} dakika.",
+  "@rightNowRomantic": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowScenicCoffee": "{minutes}'den {district} dakika uzaktasınız. Hava mükemmel; {place}'de kahve alın, ardından kalabalıklar ({crowd} kalabalıklar) gelmeden önce {walkArea} dolaşın.",
+  "@rightNowScenicCoffee": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "district": {
+        "type": "String"
+      },
+      "place": {
+        "type": "String"
+      },
+      "walkArea": {
+        "type": "String"
+      },
+      "crowd": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowTapForDetails": "Ayrıntılar için dokunun",
+  "savedFavoritesEmpty": "Hedefleri haritada veya yayında yer imlerine ekleyin; burada görünecekler.",
+  "savedFavoritesTitle": "Favoriler kaydedildi",
   "scopeDestinationsAll": "{count} varış noktası · tüm Florida",
   "@scopeDestinationsAll": {
     "placeholders": {
@@ -371,10 +987,46 @@
       }
     }
   },
+  "scopeDestinationsRadiusHub": "{hub} bölgesinin {radius} dahilindeki {count} hedef",
+  "@scopeDestinationsRadiusHub": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "radius": {
+        "type": "String"
+      },
+      "hub": {
+        "type": "String"
+      }
+    }
+  },
   "settings": "Ayarlar",
+  "settingsStartOverSubtitle": "Sıfırdan yeni bir yolculuğa başlayın",
+  "settingsUnlockConciergeSubtitle": "Tek seferlik şehir paketi – abonelik değil",
+  "settingsUnlockConciergeTitle": "Şehir kapıcısının kilidini açın",
   "settings_language_picker_note": "Değişiklikler hemen uygulanır.",
   "settings_regions_coming_subtitle": "Ana merkez ve şehir paketleri — çok yakında.",
   "settings_regions_coming_title": "Ülkeler ve şehirler",
+  "shareItineraryFooter": "Duygusal açıdan zeki Florida arkadaşınız Luxora ile planlandı.",
+  "shareSubject": "Benim {title}",
+  "@shareSubject": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "sponsorBadgeFeaturedPartner": "Öne Çıkan Ortak",
+  "sponsorBadgePartnerOffer": "İş Ortağı Teklifi",
+  "sponsorBadgePromoted": "Tanıtıldı",
+  "sponsorBadgeSponsored": "sponsorlu",
+  "sponsorCtaBookNow": "Şimdi Rezervasyon Yapın",
+  "sponsorCtaCheckRates": "Fiyatları Kontrol Et",
+  "sponsorCtaGetTickets": "Bilet Al",
+  "sponsorCtaViewOffer": "Teklifi Görüntüle",
+  "sponsorCtaVisitWebsite": "Web Sitesini Ziyaret Edin",
+  "sponsorLuxoraRecommended": "Luxora Tavsiye Edildi",
   "storyAppAsks": "Uygulama soruyor",
   "storyBulletAudience": "Aileler, çiftler, lüks gezginler ve sağlıklı yaşam gezginleri",
   "storyBulletLogisticsGap": "Çoğu seyahat uygulaması deneyim tasarımına değil lojistiğe odaklanır",
@@ -432,16 +1084,349 @@
   "styleNoTraps": "Turist tuzağı yok",
   "styleSlowMornings": "Yavaş sabahlar",
   "styleWalkable": "Mümkün olduğunda yürünebilir",
+  "ticketAiInsightTitle": "Luxora tavsiyesi",
+  "ticketBetterOption": "Luxora daha iyi bir seçenek buldu.",
+  "ticketCalculatorTitle": "Potansiyel tasarruf",
+  "ticketConfidenceHigh": "Yüksek güven",
+  "ticketConfidenceLimited": "Sınırlı süre",
+  "ticketConfidenceVerified": "Doğrulanmış satıcı",
+  "ticketDealsSectionTitle": "Yetkili anlaşmalar",
+  "ticketDiscountPrice": "Luxora fiyatı",
+  "ticketEstimatedFamilySave": "Tahmini aile tasarrufu: {amount}.",
+  "@ticketEstimatedFamilySave": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "ticketExpires": "{date} tarihine kadar teklif",
+  "@ticketExpires": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "ticketFamilySave": "Tahmini aile tasarrufu: {amount}.",
+  "@ticketFamilySave": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "ticketFilterAll": "Tüm",
+  "ticketFilterAttractions": "Gezilecek Yerler",
+  "ticketFilterDining": "Yemek deneyimleri",
+  "ticketFilterEntertainment": "Eğlence",
+  "ticketFilterFamily": "Aile aktiviteleri",
+  "ticketFilterLabel": "Filtre",
+  "ticketFilterThemeParks": "Tema parkları",
+  "ticketFilterTours": "Turlar",
+  "ticketFilterWaterParks": "Su parkları",
+  "ticketInsightDisneyPass": "Seyahat programınıza göre, tek günlük biletler yerine 3 günlük Walt Disney World pass bileti ailenize yaklaşık 120 USD tasarruf sağlayabilir.",
+  "ticketInsightGeneric": "Luxora, seyahat planınızdaki duraklarla tasarrufları eşleştirdi; kapıda satın almadan önce karşılaştırın.",
+  "ticketInsightMiamiCulture": "Planınızda kültür durakları — Vizcaya ve PAMM iş ortağı teklifleri bu hafta giriş fiyatlarını geçebilir.",
+  "ticketInsightMiamiEverglades": "Seyahat programınızdaki Everglades günü - sabah sürat teknesi slotları genellikle hafta ortasında daha ucuzdur.",
+  "ticketInsightMiamiWynwood": "Wynwood rotanızda - rehberli bir sanat yürüyüşü, standsız stand fiyatlandırmasından daha iyi olabilir.",
+  "ticketInsightSeaworldCombo": "Rotanızda SeaWorld — Aquatica kombinasyonu genellikle iki ayrı girişi geride bırakır.",
+  "ticketInsightUniversalCombo": "Planınız Universal'i içeriyor; 2 park bileti, çoğu aile için ayrı ayrı satın alma günlerinden daha iyi.",
+  "ticketItineraryMatchTitle": "Seyahat planı tasarruf kontrolü",
+  "ticketNoDeals": "Bu filtrede fırsat yok; başka bir kategori deneyin.",
+  "ticketOfficialPrice": "Resmi",
+  "ticketOverpaying": "Kapı fiyatında fazla ödeme yapıyor olabilirsiniz.",
+  "ticketRecommendedSavings": "Önerilen tasarruflar mevcut",
+  "ticketSaveAmount": "{amount} tasarruf edin",
+  "@ticketSaveAmount": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "ticketSaveAmountLabel": "Tasarruf",
+  "ticketSavePerTicket": "Bilet başına {amount} tasarruf edebilirsiniz.",
+  "@ticketSavePerTicket": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "ticketSavingsBadge": "%{percent} TASARRUF EDİN",
+  "@ticketSavingsBadge": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "ticketSavingsBadgeLabel": "PREMIUM TASARRUF",
+  "ticketSavingsSubtitle": "Luxora yetkili satıcıları, paketleri ve promosyonları öne çıkarır, böylece kendinizi bir kupon sitesi değil, lüks bir danışman gibi hissedersiniz.",
+  "ticketSavingsTitle": "Akıllı Bilet Tasarrufu",
+  "ticketSortClosest": "Bana en yakın",
+  "ticketSortFamilyFriendly": "Aile dostu",
+  "ticketSortHighestSavings": "En yüksek tasarruf",
+  "ticketSortLabel": "Göre sırala",
+  "ticketSortLuxury": "Lüks deneyimler",
+  "ticketSortMostPopular": "En popüler",
+  "ticketSource": "Kaynak: {source}",
+  "@ticketSource": {
+    "placeholders": {
+      "source": {
+        "type": "String"
+      }
+    }
+  },
+  "tripStoryBeatClosing": "Luxora anları şekillendirdi; siz onları yaşadınız.",
+  "tripStoryBeatMoods": "{moods} için geldin.",
+  "@tripStoryBeatMoods": {
+    "placeholders": {
+      "moods": {
+        "type": "String"
+      }
+    }
+  },
+  "tripStoryBeatTitle": "Bu bölüm: {title}.",
+  "@tripStoryBeatTitle": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "tripStoryHeading": "{title} — Florida hikayeniz",
+  "@tripStoryHeading": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "tripStoryTitle": "Seyahat hikayeniz",
   "tripsBadge": "KOLEKSİYONLAR",
+  "tripsDeleteBody": "Bu, “{title}” adlı geziyi kayıtlı gezilerinizden kaldırır. Bu geri alınamaz.",
+  "@tripsDeleteBody": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "tripsDeleteTitle": "Gezi silinsin mi?",
+  "tripsDeleted": "Gezi silindi",
+  "tripsEmptyBody": "İlk seyahatinizi planlayın ve istediğiniz zaman tekrar ziyaret etmeye hazır olarak burada görünsün.",
+  "tripsEmptyTitle": "Henüz kayıtlı gezi yok",
   "tripsFooter": "Ruh hali kataloğundan gezi kapakları · Supabase senkronizasyonu Aşama 2",
   "tripsLiveWeather": "Canlı hava durumu",
   "tripsNextUp": "Sonraki",
+  "tripsOpenStory": "Hikayeniz",
   "tripsOpenTimeline": "Tam zaman çizelgesini aç",
-  "tripsShare": "Paylaş",
-  "shareItineraryFooter": "Luxora ile planlandı — duygusal olarak zeki Florida arkadaşın.",
-  "shareSubject": "{title} gezim",
+  "tripsPlanNew": "Yeni bir gezi planlayın",
+  "tripsShare": "Paylaşmak",
   "tripsSubtitle": "Canlı bir anlık görüntü için bir geziye dokunun (bir sonraki an, hava durumu, gün batımı ve zaman çizelgesi).",
   "tripsSunsetWindow": "Gün batımı penceresi",
   "tripsTimelineSnapshot": "Zaman çizelgesi anlık görüntüsü",
-  "tripsTitle": "Kaydedilen geziler"
+  "tripsTitle": "Kaydedilen geziler",
+  "vacationScoreSubtitle": "Bugün {score}/100 gibi bir gün gibi geliyor.",
+  "@vacationScoreSubtitle": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "vacationScoreTitle": "Tatil puanı",
+  "visualShareImageButton": "Resim kartını paylaş",
+  "weatherAdjustDay": "Günümü Hava Durumuna Göre Ayarla",
+  "weatherAdviceDefault": "Gökyüzü idare edilebilir görünüyor; planınızı takip edin ve hafif bir katmanı elinizin altında bulundurun.",
+  "weatherAdviceGreatSunset": "Bu gece harika gün batımı koşulları; çatıda bir akşam yemeği veya gölde yürüyüş yapmayı düşünün.",
+  "weatherAdviceHighUv": "Bugün yüksek UV - güneş kremi getirin ve öğle vakti doğrudan güneşe uzun süre maruz kalmaktan kaçının.",
+  "weatherAdviceLightJacket": "Bu akşam hafif bir ceket getirin.",
+  "weatherAdviceOutdoorBefore": "Açık hava etkinliklerini {time} öncesinde planlayın.",
+  "@weatherAdviceOutdoorBefore": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherAdviceRainLater": "Yağmur riski bugün ilerleyen saatlerde artıyor, bu nedenle iç mekan deneyimlerini öğleden sonraya taşıyın.",
+  "weatherAdviceWindBeach": "Rüzgar bugün plaj veya tekne aktivitelerini daha az konforlu hale getirebilir.",
+  "weatherBestOutdoorWindow": "En iyi dış mekan penceresi",
+  "weatherCloudCover": "Bulut örtüsü",
+  "weatherComingSoon": "Yakında gelecek",
+  "weatherConciergeAdviceTitle": "Luxora Hava Durumu Tavsiyeleri",
+  "weatherConciergeTapHint": "Seyahate duyarlı tahmin için dokunun",
+  "weatherConciergeTitle": "Hava Durumu Danışmanı",
+  "weatherConditionClear": "Temizlemek",
+  "weatherConditionCloudy": "Bulutlu",
+  "weatherConditionDrizzle": "Çiseleyen yağmur",
+  "weatherConditionFog": "Sis",
+  "weatherConditionPartlyCloudy": "Parçalı bulutlu",
+  "weatherConditionRain": "Yağmur",
+  "weatherConditionSnow": "Kar",
+  "weatherConditionThunder": "gök gürültülü sağanak yağışlar",
+  "weatherFeelsLike": "{temp} gibi geliyor",
+  "@weatherFeelsLike": {
+    "placeholders": {
+      "temp": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherHourlyTitle": "Saatlik görünüm",
+  "weatherHourlyUnavailable": "Veriler yüklendiğinde saatlik tahmin görünecektir.",
+  "weatherHumidity": "Nem",
+  "weatherImpactClear": "Bu sabah açık hava planlarınız için gökyüzü dost canlısı görünüyor.",
+  "weatherImpactHeat": "Öğle vakti yüksek sıcaklık — {time} öncesinde açık havada yürüyüş yapmayı planlayın.",
+  "@weatherImpactHeat": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherImpactIndoorFallback": "spa veya müze",
+  "weatherImpactMixed": "{count} açık hava durağının bugün zamanlamada ayarlamalara ihtiyacı olabilir.",
+  "@weatherImpactMixed": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "weatherImpactNoPlanClear": "En iyi dış mekan penceresi, ısı veya duş oluşmadan önce {start}-{end} gibi görünür.",
+  "@weatherImpactNoPlanClear": {
+    "placeholders": {
+      "start": {
+        "type": "String"
+      },
+      "end": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherImpactNoPlanDefault": "Hava durumu sabit görünüyor; durakları sıralamaya hazır olduğunuzda Günümü Planla'ya dokunun.",
+  "weatherImpactNoPlanRain": "Yağmur da işin içinde; gününüzü öncelikle iç mekan çapalarıyla geçirin.",
+  "weatherImpactRainLater": "{time} sonrasında yağmur riski artıyor. {outdoorStop}'u daha erken taşımayı ve {indoorStop}'u sonraya kaydetmeyi düşünün.",
+  "@weatherImpactRainLater": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      },
+      "outdoorStop": {
+        "type": "String"
+      },
+      "indoorStop": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherIndoorBackup": "İç mekan yedekleme fikirleri",
+  "weatherLiveRadar": "Canlı Radar",
+  "weatherMapOverlays": "Harita katmanları",
+  "weatherMiamiBeachMorning": "Kumda güçlü UV - güneş kremi, şapka ve öğleden önce plaj zamanı.",
+  "weatherMiamiBoatWind": "Rüzgar yükseliyor; tekne veya yat faaliyetlerini yeniden değerlendirin; çatı katında yemek hala işe yarayabilir.",
+  "weatherMiamiHeatAdvisory": "Isı tavsiyesi koşulları - hafif kumaşlar, nem ve dış mekan durakları arasındaki gölge molaları.",
+  "weatherMiamiHumidityIndoor": "Bugün yüksek nem. Daha önce plaja veya havuza gidin, ardından en sıcak saatlerde kapalı mekanda yemek yemek ve galeriler için Wynwood veya Brickell'e gidin.",
+  "weatherMiamiRainReroute": "Önümüzdeki yağmur penceresi — dış mekan planlarını {indoorSpot} veya galeri zamanı ile değiştirin.",
+  "@weatherMiamiRainReroute": {
+    "placeholders": {
+      "indoorSpot": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherMiamiSunsetWaterfront": "Gün batımı güçlü görünüyor; doğudan batıya bakan sahil veya çatı katı.",
+  "weatherOutdoorAtRisk": "{count} açık hava durağı etkilenebilir",
+  "@weatherOutdoorAtRisk": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "weatherOverlayCloud": "Bulut örtüsü",
+  "weatherOverlayPrecip": "Yağış",
+  "weatherOverlayTemp": "Sıcaklık",
+  "weatherOverlayWind": "Rüzgâr",
+  "weatherPackHat": "Şapka",
+  "weatherPackLightJacket": "Hafif ceket",
+  "weatherPackPoncho": "Panço",
+  "weatherPackShoes": "Rahat ayakkabılar",
+  "weatherPackSunglasses": "Güneş gözlüğü",
+  "weatherPackSunscreen": "Güneş kremi",
+  "weatherPackSwimwear": "Mayo",
+  "weatherPackUmbrella": "Şemsiye",
+  "weatherPackWater": "Su şişesi",
+  "weatherPlanImpact": "Planınıza Etkisi",
+  "weatherRadarComingSoon": "Canlı radar çok yakında.",
+  "weatherRainNote": "Yağmur ihtimali %{percent}; üzerinize ince bir tabaka örtün.",
+  "@weatherRainNote": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "weatherRainWindow": "Yağmur muhtemel",
+  "weatherStatRain": "Yağmur",
+  "weatherSunrise": "Gündoğumu {time}",
+  "@weatherSunrise": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherSunset": "Gün batımı {time}",
+  "@weatherSunset": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherSunsetRec": "Gün batımı önerisi",
+  "weatherSunsetRecRooftop": "{time} yakınında gökyüzü açık; çatıda akşam yemeği veya gölde yürüyüş parlayabilir.",
+  "@weatherSunsetRecRooftop": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherToday": "Şu anda {place}'de",
+  "@weatherToday": {
+    "placeholders": {
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherUv": "UV indeksi",
+  "weatherVisibility": "Görünürlük",
+  "weatherVisibilityMiles": "{miles} mil",
+  "@weatherVisibilityMiles": {
+    "placeholders": {
+      "miles": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherWhatToBring": "Bugün Ne Getirmeli?",
+  "weatherWind": "Rüzgâr",
+  "weatherWindValue": "{dir}, {speed} mil/saatte",
+  "@weatherWindValue": {
+    "placeholders": {
+      "dir": {
+        "type": "String"
+      },
+      "speed": {
+        "type": "int"
+      }
+    }
+  }
 }

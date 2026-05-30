@@ -56,38 +56,296 @@ class AppLocalizationsDe extends AppLocalizations {
   String get commonClose => 'Schließen';
 
   @override
-  String get commonCancel => 'Abbrechen';
+  String get commonCancel => 'Stornieren';
 
   @override
   String get commonDelete => 'Löschen';
 
   @override
-  String get settingsStartOverSubtitle =>
-      'Starte eine neue Reise von Grund auf';
+  String get settingsStartOverSubtitle => 'Beginnen Sie eine völlig neue Reise';
 
   @override
-  String get navConcierge => 'Concierge';
+  String get navConcierge => 'Portier';
 
   @override
-  String get navTimeline => 'Zeitplan';
+  String get navDiscover => 'Entdecken';
 
   @override
   String get navMap => 'Karte';
 
   @override
+  String get navTrips => 'Reisen';
+
+  @override
+  String get navMore => 'Mehr';
+
+  @override
+  String get navTimeline => 'Zeitplan';
+
+  @override
   String get navGems => 'Geheimtipps';
 
   @override
-  String get navFeed => 'Feed';
+  String get navFeed => 'Füttern';
 
   @override
-  String get navTrips => 'Reisen';
+  String get navTicketSavings => 'Ersparnisse';
+
+  @override
+  String get navStays => 'Bleibt';
+
+  @override
+  String get morePageTitle => 'Mehr';
+
+  @override
+  String get morePageSubtitle =>
+      'Reisetools, Konto und Einstellungen – kuratiert für einen reibungslosen Zugriff.';
+
+  @override
+  String get moreSectionTravelTools => 'REISEWERKZEUGE';
+
+  @override
+  String get moreSectionAccount => 'KONTO';
+
+  @override
+  String get moreSectionApp => 'APP';
+
+  @override
+  String get moreCardHotelsSub => 'Intelligent bleibt Ihrer Stimmung angepasst';
+
+  @override
+  String get moreCardGemsSub =>
+      'Insider-Entdeckungen werden von Einheimischen bewacht';
+
+  @override
+  String get moreCardTicketsSub =>
+      'Vergleichen Sie die Ersparnisse autorisierter Partner';
+
+  @override
+  String get moreCardWeatherSub => 'Prognosebewusste Tagesführung';
+
+  @override
+  String get moreCardProfileTitle => 'Reiseprofil';
+
+  @override
+  String get moreCardProfileSub => 'Wer reist, wie soll es sich anfühlen';
+
+  @override
+  String get moreCardFavoritesSub =>
+      'Ziele, die Sie mit Ihren Lesezeichen versehen haben';
+
+  @override
+  String get moreCardNotificationsTitle => 'Benachrichtigungen';
+
+  @override
+  String get moreCardNotificationsSub => 'Reisewarnungen und Concierge-Updates';
+
+  @override
+  String get moreCardSettingsSub => 'Thema, Stadtpakete und Vorlieben';
+
+  @override
+  String get moreCardAboutSub => 'Warum wir Luxora bauen';
+
+  @override
+  String get moreCardHelpSub => 'Reiseführer und Concierge-Unterstützung';
+
+  @override
+  String get moreCardCityPacksSub => 'Schalten Sie Ziel-Concierges frei';
+
+  @override
+  String get moreCardPartnersSub => 'Empfohlene Partnererlebnisse';
+
+  @override
+  String get moreCardItinerarySub => 'Ihr täglicher goldener Zufluchtsort';
+
+  @override
+  String get savedFavoritesTitle => 'Gespeicherte Favoriten';
+
+  @override
+  String get savedFavoritesEmpty =>
+      'Setzen Sie Ziele auf der Karte oder im Feed als Lesezeichen – sie werden hier angezeigt.';
+
+  @override
+  String get helpCenterTitle => 'Hilfecenter';
+
+  @override
+  String get helpCenterBody =>
+      'Für Concierge-Hilfe senden Sie eine E-Mail an support@luxora.ai. In-App-Anleitungen sind bald verfügbar.';
+
+  @override
+  String get notificationsComingSoon =>
+      'Reisebenachrichtigungen folgen in einem zukünftigen Update.';
+
+  @override
+  String get partnerOffersTitle => 'Partnerangebote';
+
+  @override
+  String get ticketSavingsTitle => 'Smarte Ticketeinsparungen';
+
+  @override
+  String get ticketSavingsBadgeLabel => 'PREMIUM-SPARUNGEN';
+
+  @override
+  String get ticketSavingsSubtitle =>
+      'Luxora zeigt autorisierte Wiederverkäufer, Pakete und Werbeaktionen an, sodass Sie sich wie ein Luxusberater fühlen – und nicht wie eine Coupon-Website.';
+
+  @override
+  String ticketSavingsBadge(int percent) {
+    return 'SPAREN Sie $percent%';
+  }
+
+  @override
+  String get ticketOfficialPrice => 'Offiziell';
+
+  @override
+  String get ticketDiscountPrice => 'Luxora-Preis';
+
+  @override
+  String ticketSaveAmount(String amount) {
+    return 'Sparen Sie $amount';
+  }
+
+  @override
+  String get ticketSaveAmountLabel => 'Ersparnisse';
+
+  @override
+  String ticketSavePerTicket(String amount) {
+    return 'Sie könnten $amount pro Ticket sparen.';
+  }
+
+  @override
+  String ticketFamilySave(String amount) {
+    return 'Geschätzte Ersparnisse der Familie: $amount.';
+  }
+
+  @override
+  String ticketEstimatedFamilySave(String amount) {
+    return 'Geschätzte Ersparnisse der Familie: $amount.';
+  }
+
+  @override
+  String ticketSource(String source) {
+    return 'Quelle: $source';
+  }
+
+  @override
+  String ticketExpires(String date) {
+    return 'Angebot bis $date';
+  }
+
+  @override
+  String get ticketBetterOption => 'Luxora hat eine bessere Option gefunden.';
+
+  @override
+  String get ticketOverpaying =>
+      'Möglicherweise zahlen Sie zum Gate-Preis zu viel.';
+
+  @override
+  String get ticketRecommendedSavings => 'Empfohlene Ersparnisse verfügbar';
+
+  @override
+  String get ticketCalculatorTitle => 'Mögliche Einsparungen';
+
+  @override
+  String get ticketFilterLabel => 'Filter';
+
+  @override
+  String get ticketFilterAll => 'Alle';
+
+  @override
+  String get ticketFilterThemeParks => 'Themenparks';
+
+  @override
+  String get ticketFilterAttractions => 'Attraktionen';
+
+  @override
+  String get ticketFilterTours => 'Touren';
+
+  @override
+  String get ticketFilterDining => 'Kulinarische Erlebnisse';
+
+  @override
+  String get ticketFilterWaterParks => 'Wasserparks';
+
+  @override
+  String get ticketFilterFamily => 'Familienaktivitäten';
+
+  @override
+  String get ticketFilterEntertainment => 'Unterhaltung';
+
+  @override
+  String get ticketSortLabel => 'Sortieren nach';
+
+  @override
+  String get ticketSortHighestSavings => 'Höchste Einsparungen';
+
+  @override
+  String get ticketSortMostPopular => 'Am beliebtesten';
+
+  @override
+  String get ticketSortFamilyFriendly => 'Familienfreundlich';
+
+  @override
+  String get ticketSortLuxury => 'Luxuserlebnisse';
+
+  @override
+  String get ticketSortClosest => 'Mir am nächsten';
+
+  @override
+  String get ticketDealsSectionTitle => 'Autorisierte Angebote';
+
+  @override
+  String get ticketNoDeals =>
+      'Keine Angebote in diesem Filter – versuchen Sie es mit einer anderen Kategorie.';
+
+  @override
+  String get ticketConfidenceHigh => 'Hohes Selbstvertrauen';
+
+  @override
+  String get ticketConfidenceVerified => 'Verifizierter Wiederverkäufer';
+
+  @override
+  String get ticketConfidenceLimited => 'Begrenzte Zeit';
+
+  @override
+  String get ticketAiInsightTitle => 'Luxora-Empfehlung';
+
+  @override
+  String get ticketInsightDisneyPass =>
+      'Abhängig von Ihrer Reiseroute könnte Ihre Familie mit einem 3-Tages-Walt-Disney-World-Pass anstelle von Tagestickets etwa 120 USD sparen.';
+
+  @override
+  String get ticketInsightUniversalCombo =>
+      'Ihr Plan beinhaltet Universal – ein Ticket für 2 Parks ist für die meisten Familien besser als der Kauf einzelner Tage.';
+
+  @override
+  String get ticketInsightSeaworldCombo =>
+      'SeaWorld auf Ihrer Route – die Aquatica-Kombination ist oft besser als zwei separate Eintritte.';
+
+  @override
+  String get ticketInsightGeneric =>
+      'Luxora hat die Ersparnisse an die Stopps auf Ihrer Reiseroute angepasst – vergleichen Sie, bevor Sie am Gate kaufen.';
+
+  @override
+  String get ticketInsightMiamiCulture =>
+      'Kultur bleibt bei Ihrem Plan stehen – die Angebote von Vizcaya- und PAMM-Partnern könnten diese Woche die Gate-Preise übertreffen.';
+
+  @override
+  String get ticketInsightMiamiEverglades =>
+      'Everglades-Tag steht auf Ihrem Reiseplan – morgendliche Airboat-Slots sind unter der Woche oft günstiger.';
+
+  @override
+  String get ticketInsightMiamiWynwood =>
+      'Wynwood auf Ihrer Route – ein geführter Kunstspaziergang kann die Preise für begehbare Stände übertreffen.';
+
+  @override
+  String get ticketItineraryMatchTitle => 'Sparcheck für die Reiseroute';
 
   @override
   String get conciergeBrand => 'LUXORA';
 
   @override
-  String get conciergeTitle => 'Concierge';
+  String get conciergeTitle => 'Portier';
 
   @override
   String conciergeTripFeel(String feel) {
@@ -122,22 +380,22 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get conciergeWelcomeWarm =>
-      'Ich bin hier, um Florida danach zu gestalten, wie du dich fühlen willst – keine Liste von Sehenswürdigkeiten. Worauf hast du heute Lust?';
+      'Ich bin hier, um Florida so zu gestalten, wie Sie sich fühlen möchten – und nicht anhand einer Checkliste mit Sehenswürdigkeiten. Worauf hast du heute Lust?';
 
   @override
-  String get conciergeRefineStyle => 'Meinen Stil verfeinern';
+  String get conciergeRefineStyle => 'Verfeinere meinen Stil';
 
   @override
   String get conciergeRecallReturning => 'Willkommen zurück.';
 
   @override
   String conciergeRecallStyle(String prefs) {
-    return 'Ich weiß noch, dass du $prefs magst.';
+    return 'Ich erinnere mich, dass du $prefs magst.';
   }
 
   @override
   String conciergeRecallFeelLine(String feel) {
-    return 'Und diese Reise sollte sich so anfühlen: „$feel“.';
+    return 'Und Sie wollten, dass sich diese Reise anfühlt: „$feel“.';
   }
 
   @override
@@ -174,11 +432,21 @@ class AppLocalizationsDe extends AppLocalizations {
   String get discoverFromOrlando => 'Ab Orlando';
 
   @override
+  String discoverFromHub(String hub) {
+    return 'Von $hub';
+  }
+
+  @override
   String get discoverSearchScopeAll => 'Suche im gesamten Florida-Katalog';
 
   @override
   String discoverSearchScopeRadius(String radius) {
     return 'Innerhalb von $radius um Orlando';
+  }
+
+  @override
+  String discoverSearchScopeRadiusHub(String radius, String hub) {
+    return 'Innerhalb von $radius von $hub';
   }
 
   @override
@@ -195,7 +463,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get discoverFilterRestaurants => 'Restaurants';
 
   @override
-  String get discoverFilterDestinations => 'Ziele';
+  String get discoverFilterDestinations => 'Reiseziele';
 
   @override
   String get discoverPopularInRadius => 'Beliebt in deinem Radius';
@@ -209,18 +477,23 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
+  String scopeDestinationsRadiusHub(int count, String radius, String hub) {
+    return '$count Ziele · innerhalb von $radius von $hub';
+  }
+
+  @override
   String scopeDestinationsAll(int count) {
     return '$count Ziele · ganz Florida';
   }
 
   @override
-  String get radius25 => '25 mi';
+  String get radius25 => '25 Meilen';
 
   @override
-  String get radius50 => '50 mi';
+  String get radius50 => '50 Meilen';
 
   @override
-  String get radius100 => '100 mi';
+  String get radius100 => '100 Meilen';
 
   @override
   String get radiusAllFlorida => 'Ganz Florida';
@@ -236,6 +509,20 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get radiusDescAll => 'Keys, Miami und Highlights im ganzen Staat';
+
+  @override
+  String get radiusDesc25Miami => 'South Beach, Brickell und Kernviertel';
+
+  @override
+  String get radiusDesc50Miami => 'Wynwood, Coconut Grove, Key Biscayne';
+
+  @override
+  String get radiusDesc100Miami =>
+      'Everglades, Fort Lauderdale, tieferes Südflorida';
+
+  @override
+  String get radiusDescAllMiami =>
+      'Florida Keys Trail und landesweite Highlights';
 
   @override
   String get feedBadge => 'LIVE-ENTDECKUNG';
@@ -260,7 +547,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get feedPillLive => 'Live-Updates';
 
   @override
-  String get feedMoodPrompt => 'WIE WILLST DU DICH FÜHLEN?';
+  String get feedMoodPrompt => 'WIE MÖCHTEN SIE SICH FÜHLEN?';
 
   @override
   String get feedMoodAll => 'Alles';
@@ -278,10 +565,10 @@ class AppLocalizationsDe extends AppLocalizations {
   String get feedMoodPampered => 'Verwöhnt';
 
   @override
-  String get feedMoodSocial => 'Lebendig';
+  String get feedMoodSocial => 'Summen';
 
   @override
-  String get feedMoodFoodie => 'Genussvoll';
+  String get feedMoodFoodie => 'Feinschmecker';
 
   @override
   String get feedEmptyHint =>
@@ -324,7 +611,13 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String gemsMatchedNote(int count) {
-    return '$count Gems passen zu deinem Stil';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Edelsteine passen zu Ihrem Stil',
+      one: '1 gem matched to your style',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -353,24 +646,24 @@ class AppLocalizationsDe extends AppLocalizations {
       'Pins für deinen kuratierten Tag: goldene Diamanten sind Geheimtipps, cyanfarbene Marker markieren den heutigen Zeitplan, die goldene Linie ist die Stimmungsroute.';
 
   @override
-  String get mapPlanDayTitle => 'Meinen Tag planen';
+  String get mapPlanDayTitle => 'Plane meinen Tag';
 
   @override
   String get mapPlanDaySuggested =>
-      'Vorgeschlagen nach deiner Reisestimmung – markiere Orte, um ihn anzupassen.';
+      'Vorschläge aus Ihrer Reisestimmung – setzen Sie Lesezeichen für Orte, um sie zu Ihrem persönlichen Erlebnis zu machen.';
 
   @override
   String get mapPlanDayEmpty =>
-      'Markiere Ziele (♥) und Luxora erstellt eine optimierte Route ab deinem Orlando-Hub – weniger Fahrt, mehr Erlebnis.';
+      'Setzen Sie ein Lesezeichen für Ziele (♥) und Luxora erstellt eine optimierte Route von Ihrem Drehkreuz in Orlando aus – am wenigsten fahren, am meisten Gefühl.';
 
   @override
   String mapPlanDaySummary(int count, String miles, String time) {
-    return '$count Stopps · $miles · $time Fahrt';
+    return '$count stoppt · $miles · $time Fahrt';
   }
 
   @override
   String mapPlanDayHomeBase(String hotel) {
-    return 'Start ab $hotel';
+    return 'Ab $hotel';
   }
 
   @override
@@ -380,30 +673,255 @@ class AppLocalizationsDe extends AppLocalizations {
   String get mapCrowdLevelModerate => 'Mäßig';
 
   @override
-  String get mapCrowdLevelBusy => 'Voll';
+  String get mapCrowdLevelBusy => 'Beschäftigt';
 
   @override
-  String get mapCrowdLevelPacked => 'Sehr voll';
+  String get mapCrowdLevelPacked => 'Verpackt';
 
   @override
   String mapCrowdAtStop(String level) {
-    return 'Besucher: $level';
+    return 'Menschenmenge: $level';
   }
 
   @override
-  String get mapRerouteButton => 'Route für ruhigere Stopps anpassen';
+  String get mapRerouteButton => 'Umleitung für ruhigere Haltestellen';
 
   @override
   String mapRerouteApplied(int count) {
-    return 'Tag angepasst — $count Stopps für weniger Trubel getauscht.';
+    return 'Tagesbereinigt – $count Haltestellen wurden gegen weniger Andrang getauscht.';
   }
 
   @override
-  String get mapRerouteNone => 'Deine Route wirkt schon entspannt.';
+  String get mapRerouteNone => 'Ihre Route sieht bereits ruhig aus.';
 
   @override
   String get mapRerouteRainHint =>
-      'Regen wahrscheinlich — tippe auf Route anpassen für Indoor-Alternativen.';
+      'Es regnet wahrscheinlich – tippen Sie auf „Umleitung“ für Backups in Innenräumen.';
+
+  @override
+  String get rightNowButton => 'Was sollen wir jetzt tun?';
+
+  @override
+  String get rightNowEmpty =>
+      'Noch kein starker Moment in Ihrem Umkreis – erweitern Sie, entdecken Sie ein paar Favoriten oder setzen Sie ein Lesezeichen.';
+
+  @override
+  String get rightNowResultTitle => 'IM AUGENBLICK';
+
+  @override
+  String get rightNowTapForDetails => 'Für Details tippen';
+
+  @override
+  String rightNowScenicCoffee(
+    int minutes,
+    String district,
+    String place,
+    String walkArea,
+    String crowd,
+  ) {
+    return 'Sie sind $minutes Minuten von $district entfernt. Das Wetter ist perfekt – trinken Sie einen Kaffee bei $place und schlendern Sie dann durch $walkArea, bevor die Menschenmassen eintreffen ($crowd crowds).';
+  }
+
+  @override
+  String rightNowPerfectWeather(
+    int minutes,
+    String district,
+    String place,
+    String crowd,
+  ) {
+    return 'Sie sind $minutes Minuten von $district entfernt. Der Himmel sieht großartig aus – fahren Sie nach $place, während die Menschenmenge noch $crowd ist.';
+  }
+
+  @override
+  String rightNowGoldenHour(int minutes, String place, String crowd) {
+    return 'Die goldene Stunde steht vor der Tür – Abfahrt in etwa $minutes Minuten nach $place ($crowd bei Sonnenuntergang).';
+  }
+
+  @override
+  String rightNowRainyIndoor(int minutes, String place) {
+    return 'Regen auf dem Radar – $minutes Minuten bis zu einem gemütlichen Indoor-Pick: $place.';
+  }
+
+  @override
+  String rightNowFamilyCalm(int minutes, String place) {
+    return 'Ruhiges Nickerchenfenster – $minutes Minuten bis zu einem einfachen Familien-Reset am $place.';
+  }
+
+  @override
+  String rightNowRomantic(int minutes, String place) {
+    return 'Datum-Nacht-Energie – $minutes Minuten bis $place vor dem Ansturm.';
+  }
+
+  @override
+  String rightNowQuietGem(int minutes, String place, String crowd) {
+    return 'Ruhiges Fenster – $minutes Minuten bis $place ($crowd gerade).';
+  }
+
+  @override
+  String get goldenHourTitle => 'Goldene Stunde';
+
+  @override
+  String goldenHourLeaveBy(String time, int minutes, String place) {
+    return 'Abfahrt bis $time ($minutes min Fahrt) nach $place – Ankunft ca. 15 Minuten vor Sonnenuntergang.';
+  }
+
+  @override
+  String get goldenHourKindBeach => 'Fenster zum Sonnenuntergang am Strand';
+
+  @override
+  String get goldenHourKindRooftop => 'Goldene Stunde auf dem Dach';
+
+  @override
+  String get goldenHourKindScenic => 'Timing für szenische Fotografie';
+
+  @override
+  String get vacationScoreTitle => 'Urlaubsbewertung';
+
+  @override
+  String vacationScoreSubtitle(int score) {
+    return 'Heute fühlt es sich an wie ein $score/100-Tag.';
+  }
+
+  @override
+  String get onboardOccasionLabel => 'Was ist der Anlass?';
+
+  @override
+  String get occasionGeneral => 'Einfach erkunden';
+
+  @override
+  String get occasionAnniversary => 'Jubiläum';
+
+  @override
+  String get occasionHoneymoon => 'Flitterwochen';
+
+  @override
+  String get occasionDateNight => 'Date-Nacht';
+
+  @override
+  String get occasionProposal => 'Vorschlag Reise';
+
+  @override
+  String get occasionFamily => 'Familie mit Kindern';
+
+  @override
+  String get localSecretTitle => 'Lokales Geheimnis';
+
+  @override
+  String get localSecretWinterParkParkAvenue =>
+      'Einheimische flüchten in den Hinterhof hinter der Buchhandlung – kein Straßenschild.';
+
+  @override
+  String get localSecretWorldFoodTrucks =>
+      'Bestellen Sie den täglichen Fang, nicht den Burger – am anderen Fenster bewegt sich die Schlange schneller.';
+
+  @override
+  String get localSecretWekiwaSprings =>
+      'Verzichten Sie nach 14:00 Uhr auf die Hauptpromenade – am nördlichen Ausgangspunkt bleibt es ruhig.';
+
+  @override
+  String get localSecretDisneySpringsParking =>
+      'Der beste Parkplatz ist die orangefarbene Garage – gehen Sie zum Yachthafen und nicht zum Haupteingang.';
+
+  @override
+  String get localSecretLakeEolaSunset =>
+      'Schauen Sie auf die Seite des Amphitheaters, um Schwanenfotos zu machen, während der Himmel golden wird.';
+
+  @override
+  String get localSecretMiamiWynwoodAlley =>
+      'Gehen Sie durch die Ladegasse hinter Panther Coffee – die Einheimischen schießen Wandgemälde ohne die Menge an der Hauptschlange.';
+
+  @override
+  String get localSecretMiamiLittleHavanaDomino =>
+      'Kaufen Sie Cafecito zuerst am Fensterwagen – Stammtische an der Nebenbank öffnen sich, wenn Sie einen Cortadito in der Hand halten.';
+
+  @override
+  String get localSecretMiamiVizcayaMangrove =>
+      'Überspringen Sie den Andrang auf der Hauptterrasse – betreten Sie den Garten vom Ostgarten aus und laufen Sie den Mangrovensteg gegen den Uhrzeigersinn entlang.';
+
+  @override
+  String get localSecretMiamiOceanDriveSunrise =>
+      'Blicken Sie um 7 Uhr morgens auf Lummus nach Osten – Art-Deco-Pastelltöne leuchten, bevor die Brunch-Menge eintrifft.';
+
+  @override
+  String get localSecretMiamiPantherAlley =>
+      'Bestellen Sie am Fenster, gehen Sie im Uhrzeigersinn durch die Gasse – um 8:45 Uhr trifft das beste Wandlicht auf die türkisfarbene Wand.';
+
+  @override
+  String get momentsTitle => 'LUXORA-MOMENTE';
+
+  @override
+  String get momentsSubtitle =>
+      'Suche nach einem Gefühl – nicht nach einem Ort.';
+
+  @override
+  String get momentFeelRelaxed => 'Fühlen Sie sich entspannt';
+
+  @override
+  String get momentImpressSpouse => 'Beeindrucke meinen Ehepartner';
+
+  @override
+  String get momentPerfectSunset => 'Perfekter Sonnenuntergang';
+
+  @override
+  String get momentFamilyMemory => 'Familienerinnerung';
+
+  @override
+  String get momentLuxuryValue => 'Luxus, ohne zu viel auszugeben';
+
+  @override
+  String get momentPromptRelaxed =>
+      'Ich möchte mich in den nächsten Stunden völlig entspannt fühlen – langsam, schön, ohne Menschenmassen.';
+
+  @override
+  String get momentPromptImpressSpouse =>
+      'Ich möchte meinen Ehepartner heute Abend mit etwas Romantischem und Unerwartetem beeindrucken.';
+
+  @override
+  String get momentPromptPerfectSunset =>
+      'Ich möchte den perfekten Sonnenuntergangsmoment in Florida – wo sollten wir sein und wann sollten wir abreisen?';
+
+  @override
+  String get momentPromptFamilyMemory =>
+      'Ich möchte einen unvergesslichen Familienmoment haben, der für die Eltern angenehm und für die Kinder magisch ist.';
+
+  @override
+  String get momentPromptLuxuryValue =>
+      'Ich möchte Luxus, der sich besonders anfühlt, ohne ein Vermögen auszugeben.';
+
+  @override
+  String get visualShareImageButton => 'Bildkarte teilen';
+
+  @override
+  String get tripStoryTitle => 'Ihre Reisegeschichte';
+
+  @override
+  String tripStoryHeading(String title) {
+    return '$title – Ihre Florida-Geschichte';
+  }
+
+  @override
+  String tripStoryBeatMoods(String moods) {
+    return 'Du bist wegen $moods gekommen.';
+  }
+
+  @override
+  String tripStoryBeatTitle(String title) {
+    return 'Dieses Kapitel: $title.';
+  }
+
+  @override
+  String get tripStoryBeatClosing =>
+      'Luxora hat die Momente geprägt – Sie haben sie gelebt.';
+
+  @override
+  String get tripsOpenStory => 'Deine Geschichte';
+
+  @override
+  String get conciergeVoiceHold => 'Halten Sie gedrückt, um zu sprechen';
+
+  @override
+  String get conciergeVoiceSoon =>
+      'Voice Concierge ist bald verfügbar – tippen Sie zunächst kurz auf oder geben Sie ein, was Sie möchten.';
 
   @override
   String get mapAiPowers => 'KI-Kartenfunktionen';
@@ -536,21 +1054,21 @@ class AppLocalizationsDe extends AppLocalizations {
       'Reise-Cover aus dem Stimmungskatalog · Supabase-Sync Phase 2';
 
   @override
-  String get tripsPlanNew => 'Neue Reise planen';
+  String get tripsPlanNew => 'Planen Sie eine neue Reise';
 
   @override
   String get tripsEmptyTitle => 'Noch keine gespeicherten Reisen';
 
   @override
   String get tripsEmptyBody =>
-      'Plane deine erste Reise – sie erscheint hier und kann jederzeit wieder geöffnet werden.';
+      'Planen Sie Ihre erste Reise und sie wird hier angezeigt und kann jederzeit erneut besucht werden.';
 
   @override
   String get tripsDeleteTitle => 'Reise löschen?';
 
   @override
   String tripsDeleteBody(String title) {
-    return 'Dadurch wird „$title“ aus deinen gespeicherten Reisen entfernt. Das kann nicht rückgängig gemacht werden.';
+    return 'Dadurch wird „$title“ aus Ihren gespeicherten Reisen entfernt. Dies kann nicht rückgängig gemacht werden.';
   }
 
   @override
@@ -572,11 +1090,11 @@ class AppLocalizationsDe extends AppLocalizations {
   String get tripsOpenTimeline => 'Vollständige Zeitleiste öffnen';
 
   @override
-  String get tripsShare => 'Teilen';
+  String get tripsShare => 'Aktie';
 
   @override
   String get shareItineraryFooter =>
-      'Geplant mit Luxora – deinem emotional intelligenten Florida-Begleiter.';
+      'Geplant mit Luxora – Ihrem emotional intelligenten Florida-Begleiter.';
 
   @override
   String shareSubject(String title) {
@@ -638,73 +1156,78 @@ class AppLocalizationsDe extends AppLocalizations {
   String get detailLocation => 'Ort';
 
   @override
-  String get detailGetDirections => 'Route';
+  String get detailGetDirections => 'Wegbeschreibung abrufen';
 
   @override
-  String get detailParkMap => 'Parkplan';
+  String get detailParkMap => 'Parkkarte';
 
   @override
-  String get detailViewOnMap => 'Auf Karte anzeigen';
+  String get detailViewOnMap => 'Auf der Karte anzeigen';
 
   @override
   String get detailMapsError =>
-      'Karten konnten auf diesem Gerät nicht geöffnet werden.';
+      'Die Karten konnten auf diesem Gerät nicht geöffnet werden.';
 
   @override
   String get detailGoogleMaps => 'Google Maps';
 
   @override
-  String get detailAppleMaps => 'Apple Karten';
+  String get detailAppleMaps => 'Apple Maps';
 
   @override
   String get detailOpenInMaps => 'In Karten öffnen';
 
   @override
   String detailDriveFromOrlando(String time) {
-    return '$time Fahrt ab Orlando';
+    return '$time Fahrt von Orlando';
   }
 
   @override
-  String get detailSaveToItinerary => 'Zum Reiseplan hinzufügen';
+  String detailDriveFromHub(String time, String hub) {
+    return '$time Fahrt von $hub';
+  }
+
+  @override
+  String get detailSaveToItinerary => 'Im Reiseplan speichern';
 
   @override
   String get detailSaved => 'Gespeichert';
 
   @override
-  String get detailSavedSnack => 'Zu deinem Reiseplan hinzugefügt';
+  String get detailSavedSnack => 'In Ihrer Reiseroute gespeichert';
 
   @override
-  String get detailRemovedSnack => 'Aus deinem Reiseplan entfernt';
+  String get detailRemovedSnack => 'Aus Ihrer Reiseroute entfernt';
 
   @override
-  String get detailSetHomeBase => 'Als Basis festlegen';
+  String get detailSetHomeBase => 'Als Heimatbasis eingerichtet';
 
   @override
-  String get detailHomeBaseActive => 'Deine Reisebasis';
+  String get detailHomeBaseActive => 'Ihr Ausgangspunkt für die Heimreise';
 
   @override
-  String get detailHomeBaseHint =>
-      'Die Route deines Tages beginnt und endet hier.';
+  String get detailHomeBaseHint => 'Hier beginnt und endet Ihre Tagesroute.';
 
   @override
-  String get detailHomeBaseSetSnack => 'Als deine Reisebasis festgelegt';
+  String get detailHomeBaseSetSnack =>
+      'Als Ausgangspunkt für Ihre Heimreise festlegen';
 
   @override
-  String get detailHomeBaseClearedSnack => 'Basis entfernt';
+  String get detailHomeBaseClearedSnack => 'Heimatbasis geräumt';
 
   @override
   String get detailMenuTitle => 'Menü-Highlights';
 
   @override
   String get detailMenuDisclaimer =>
-      'Ausgewählte Highlights — vollständige Karte und Preise können vor Ort abweichen.';
+      'Ausgewählte Highlights – vollständige Speisekarte und Preise können je nach Veranstaltungsort variieren.';
 
   @override
   String get detailMenuComingSoon =>
-      'Wir kuratieren diese Karte noch. Sieh dir die aktuelle Karte und Preise vorerst online an.';
+      'Wir sind noch dabei, dieses Menü zu kuratieren. Sehen Sie sich in der Zwischenzeit die aktuelle Speisekarte und die Preise online an.';
 
   @override
-  String get detailViewMenuOnline => 'Speisekarte online ansehen';
+  String get detailViewMenuOnline => 'Menü online ansehen';
 
   @override
   String get photoClose => 'Schließen';
@@ -721,6 +1244,11 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String milesFromOrlando(String distance) {
     return '$distance von Orlando';
+  }
+
+  @override
+  String milesFromHub(String distance, String hub) {
+    return '$distance von $hub';
   }
 
   @override
@@ -954,17 +1482,17 @@ class AppLocalizationsDe extends AppLocalizations {
   String get onboardFoodie => 'Kulinarische Leidenschaft';
 
   @override
-  String get onboardPoolside => 'Pool & Entspannung';
+  String get onboardPoolside => 'Pool- und Ausfallzeiten';
 
   @override
-  String get onboardAdventure => 'Abenteuer & Natur';
+  String get onboardAdventure => 'Abenteuer & Outdoor';
 
   @override
   String get onboardCulture => 'Kultur & Sightseeing';
 
   @override
   String get dayFlowSubtitle =>
-      'Ein Tag, der sich danach richtet, wie du dich fühlen willst – keine Checkliste.';
+      'Ein Tag, der darauf ausgerichtet ist, wie Sie sich fühlen möchten – keine Checkliste.';
 
   @override
   String get dayFlowMorning => 'MORGEN';
@@ -983,40 +1511,40 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get dayFlowReasonMorningPool =>
-      'Lass es langsam angehen – Pool oder Spa, bevor der Tag beginnt.';
+      'Machen Sie es sich langsam gemütlich – am Pool oder im Spa, bevor der Tag beginnt.';
 
   @override
   String get dayFlowReasonMorningCalm =>
-      'Ein sanfter Start, der den Ton angibt.';
+      'Ein sanfter Anfang, um den Ton anzugeben.';
 
   @override
   String get dayFlowReasonMiddayAdventure =>
-      'Stunden voller Energie – das große Abenteuer, solange du frisch bist.';
+      'Spitzenenergiestunden – das große Abenteuer, während Sie frisch sind.';
 
   @override
-  String get dayFlowReasonMiddayCulture => 'Sightseeing im besten Tageslicht.';
+  String get dayFlowReasonMiddayCulture => 'Sightseeing bei hellem Licht.';
 
   @override
-  String get dayFlowReasonMiddayIcon => 'Der Höhepunkt des Tages.';
+  String get dayFlowReasonMiddayIcon => 'Der entscheidende Moment des Tages.';
 
   @override
   String get dayFlowReasonAfternoonDowntime =>
-      'Nachmittägliche Ruhe zum Auftanken.';
+      'Nachmittags Auszeit zum Aufladen.';
 
   @override
   String get dayFlowReasonAfternoonGem =>
-      'Ein verborgenes Juwel abseits der Menge.';
+      'Ein verstecktes Juwel abseits der Massen.';
 
   @override
   String get dayFlowReasonEveningDining =>
-      'Das Essen des Tages – deine Foodie-Wahl.';
+      'Die Mahlzeit des Tages – Ihre Wahl für Feinschmecker.';
 
   @override
-  String get dayFlowReasonNightOut => 'Ein letztes Leuchten – ein Abend aus.';
+  String get dayFlowReasonNightOut => 'Ein letzter Glanz – eine Nacht draußen.';
 
   @override
   String weatherToday(String place) {
-    return 'Gerade in $place';
+    return 'Im Moment in $place';
   }
 
   @override
@@ -1026,7 +1554,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String weatherRainNote(int percent) {
-    return '$percent% Regenwahrscheinlichkeit – nimm eine leichte Jacke mit.';
+    return '$percent% Regenwahrscheinlichkeit – packen Sie eine leichte Schicht ein.';
   }
 
   @override
@@ -1036,7 +1564,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get weatherConditionPartlyCloudy => 'Teilweise bewölkt';
 
   @override
-  String get weatherConditionCloudy => 'Bewölkt';
+  String get weatherConditionCloudy => 'Wolkig';
 
   @override
   String get weatherConditionFog => 'Nebel';
@@ -1054,13 +1582,590 @@ class AppLocalizationsDe extends AppLocalizations {
   String get weatherConditionThunder => 'Gewitter';
 
   @override
-  String get dayFlowVibeFoodie => 'Genussvoll';
+  String get weatherConciergeTitle => 'Wetter-Concierge';
+
+  @override
+  String get weatherConciergeTapHint =>
+      'Tippen Sie hier, um eine reisebezogene Vorhersage zu erhalten';
+
+  @override
+  String get weatherConciergeAdviceTitle => 'Luxora-Wettervorhersage';
+
+  @override
+  String weatherFeelsLike(String temp) {
+    return 'Fühlt sich an wie $temp';
+  }
+
+  @override
+  String get weatherHumidity => 'Luftfeuchtigkeit';
+
+  @override
+  String get weatherWind => 'Wind';
+
+  @override
+  String weatherWindValue(String dir, int speed) {
+    return '$dir bei $speed Meilen pro Stunde';
+  }
+
+  @override
+  String get weatherUv => 'UV-Index';
+
+  @override
+  String get weatherCloudCover => 'Wolkendecke';
+
+  @override
+  String get weatherVisibility => 'Sichtweite';
+
+  @override
+  String weatherVisibilityMiles(String miles) {
+    return '$miles Meilen';
+  }
+
+  @override
+  String weatherSunrise(String time) {
+    return 'Sonnenaufgang $time';
+  }
+
+  @override
+  String get weatherStatRain => 'Regen';
+
+  @override
+  String get weatherWhatToBring => 'Was Sie heute mitbringen sollten';
+
+  @override
+  String get weatherPlanImpact => 'Auswirkungen auf Ihren Plan';
+
+  @override
+  String get weatherHourlyTitle => 'Stündlicher Ausblick';
+
+  @override
+  String get weatherHourlyUnavailable =>
+      'Beim Laden der Daten wird eine stündliche Vorhersage angezeigt.';
+
+  @override
+  String get weatherLiveRadar => 'Live-Radar';
+
+  @override
+  String get weatherRadarComingSoon => 'Live-Radar kommt bald.';
+
+  @override
+  String get weatherMapOverlays => 'Kartenüberlagerungen';
+
+  @override
+  String get weatherOverlayPrecip => 'Fällung';
+
+  @override
+  String get weatherOverlayTemp => 'Temperatur';
+
+  @override
+  String get weatherOverlayWind => 'Wind';
+
+  @override
+  String get weatherOverlayCloud => 'Wolkendecke';
+
+  @override
+  String get weatherComingSoon => 'Kommt bald';
+
+  @override
+  String get weatherAdjustDay => 'Passen Sie meinen Tag an das Wetter an';
+
+  @override
+  String get weatherBestOutdoorWindow => 'Bestes Außenfenster';
+
+  @override
+  String get weatherRainWindow => 'Regen wahrscheinlich';
+
+  @override
+  String get weatherSunsetRec => 'Empfehlung für den Sonnenuntergang';
+
+  @override
+  String weatherOutdoorAtRisk(int count) {
+    return '$count Haltestellen im Freien können betroffen sein';
+  }
+
+  @override
+  String get weatherIndoorBackup => 'Backup-Ideen für den Innenbereich';
+
+  @override
+  String get weatherAdviceLightJacket =>
+      'Bringen Sie heute Abend eine leichte Jacke mit.';
+
+  @override
+  String weatherAdviceOutdoorBefore(String time) {
+    return 'Planen Sie Outdoor-Aktivitäten vor $time.';
+  }
+
+  @override
+  String get weatherAdviceHighUv =>
+      'Heute hohe UV-Strahlung – bringen Sie Sonnenschutzmittel mit und vermeiden Sie längere direkte Sonneneinstrahlung am Mittag.';
+
+  @override
+  String get weatherAdviceRainLater =>
+      'Das Regenrisiko nimmt heute später zu, also verlegen Sie Indoor-Erlebnisse auf den Nachmittag.';
+
+  @override
+  String get weatherAdviceWindBeach =>
+      'Der Wind könnte Strand- oder Bootsaktivitäten heute weniger angenehm machen.';
+
+  @override
+  String get weatherAdviceGreatSunset =>
+      'Tolle Sonnenuntergangsbedingungen heute Abend – denken Sie über ein Abendessen auf dem Dach oder einen Spaziergang am See nach.';
+
+  @override
+  String get weatherAdviceDefault =>
+      'Der Himmel scheint überschaubar zu sein – befolgen Sie Ihren Plan und halten Sie eine leichte Schicht bereit.';
+
+  @override
+  String weatherSunsetRecRooftop(String time) {
+    return 'Der Himmel ist gegen $time klar – ein Abendessen auf dem Dach oder ein Spaziergang am See könnten glänzen.';
+  }
+
+  @override
+  String get weatherPackSunscreen => 'Sonnenschutz';
+
+  @override
+  String get weatherPackSunglasses => 'Sonnenbrille';
+
+  @override
+  String get weatherPackUmbrella => 'Regenschirm';
+
+  @override
+  String get weatherPackLightJacket => 'Leichte Jacke';
+
+  @override
+  String get weatherPackShoes => 'Bequeme Schuhe';
+
+  @override
+  String get weatherPackWater => 'Wasserflasche';
+
+  @override
+  String get weatherPackHat => 'Hut';
+
+  @override
+  String get weatherPackPoncho => 'Poncho';
+
+  @override
+  String get weatherPackSwimwear => 'Bademode';
+
+  @override
+  String weatherImpactRainLater(
+    String time,
+    String outdoorStop,
+    String indoorStop,
+  ) {
+    return 'Das Regenrisiko steigt nach $time. Erwägen Sie, $outdoorStop früher zu verschieben und $indoorStop für später aufzubewahren.';
+  }
+
+  @override
+  String weatherImpactHeat(String time) {
+    return 'Hohe Mittagshitze – planen Sie Spaziergänge im Freien vor $time.';
+  }
+
+  @override
+  String get weatherImpactClear =>
+      'Der Himmel sieht für Ihre Outdoor-Pläne heute Morgen freundlich aus.';
+
+  @override
+  String weatherImpactMixed(int count) {
+    return 'Bei $count Outdoor-Stopps sind heute möglicherweise zeitliche Anpassungen erforderlich.';
+  }
+
+  @override
+  String get weatherImpactNoPlanRain =>
+      'Regen ist mit von der Partie – bauen Sie Ihren Tag zunächst mit Indoor-Ankern auf.';
+
+  @override
+  String weatherImpactNoPlanClear(String start, String end) {
+    return 'Das beste Außenfenster sieht wie $start–$end aus, bevor Hitze oder Schauer entstehen.';
+  }
+
+  @override
+  String get weatherImpactNoPlanDefault =>
+      'Das Wetter sieht stabil aus – tippen Sie auf „Planen Sie meinen Tag“, wenn Sie bereit sind, Stopps zu planen.';
+
+  @override
+  String get weatherImpactIndoorFallback => 'ein Spa oder ein Museum';
+
+  @override
+  String get hotelIntelBadge => 'HOTELINTELLIGENZ';
+
+  @override
+  String get hotelIntelTitle => 'Finden Sie Ihre Heimatbasis';
+
+  @override
+  String get hotelIntelSubtitle =>
+      'Basierend auf der Reise, die Sie unternehmen möchten, wählt Luxora Aufenthalte aus, die Ihre Tage prägen – und nicht nach einem Buchungsraster.';
+
+  @override
+  String get hotelDiscoveryTitle => 'Kuratiert für Orlando';
+
+  @override
+  String get hotelMatchmakerTeaser =>
+      'Teilen Sie Luxora Ihren Reisestil mit und sichern Sie sich drei vom Concierge ausgewählte Aufenthalte mit ehrlichen Kompromissen.';
+
+  @override
+  String get hotelMatchmakerCta => 'KI-Hotel-Matchmaker';
+
+  @override
+  String get hotelMatchmakerTitle => 'Hotel-Matchmaker';
+
+  @override
+  String get hotelMatchmakerSubtitle =>
+      'Teilen Sie mit, wie Sie reisen – Luxora empfiehlt Ihnen, wo Sie Ihre Tage verbringen können.';
+
+  @override
+  String get hotelMatchmakerRun => 'Finden Sie meine Top 3 Aufenthalte';
+
+  @override
+  String get hotelMatchBudget => 'Budget-Komfortzone';
+
+  @override
+  String get hotelMatchTravelers => 'Reisende';
+
+  @override
+  String get hotelMatchAdults => 'Erwachsene';
+
+  @override
+  String get hotelMatchKids => 'Kinder';
+
+  @override
+  String get hotelMatchAttractions => 'Sehenswürdigkeiten auf Ihrer Liste';
+
+  @override
+  String get hotelMatchLuxuryLevel => 'Gewünschtes Luxusniveau';
+
+  @override
+  String get hotelMatchTransport => 'Sich fortbewegen';
+
+  @override
+  String get hotelTransportCar => 'Mietwagen';
+
+  @override
+  String get hotelTransportRideshare => 'Mitfahrgelegenheit';
+
+  @override
+  String get hotelTransportShuttle => 'Resort-Shuttle';
+
+  @override
+  String get hotelTransportWalkable => 'Fußgängerfreundliche Nachbarschaft';
+
+  @override
+  String get hotelMatchResultsTitle => 'Deine Top 3 Spiele';
+
+  @override
+  String hotelMatchWhyTitle(int score) {
+    return 'Spielergebnis $score';
+  }
+
+  @override
+  String get hotelMatchBestForLabel => 'Am besten für:';
+
+  @override
+  String get hotelMatchItineraryLabel => 'Route:';
+
+  @override
+  String get hotelMatchTradeoffsLabel => 'Kompromisse:';
+
+  @override
+  String get hotelMatchNearbyLabel => 'Nahe:';
+
+  @override
+  String get hotelLuxoraScore => 'Luxora';
+
+  @override
+  String get hotelHomeBaseBadge => 'HEIMATBASIS';
+
+  @override
+  String get hotelScoreLuxury => 'Luxus';
+
+  @override
+  String get hotelScoreFamily => 'Familie';
+
+  @override
+  String get hotelScoreRomance => 'Romantik';
+
+  @override
+  String get hotelScoreWalkability => 'Gehen';
+
+  @override
+  String get hotelWhyRecommendTitle => 'Warum Luxora dies empfiehlt';
+
+  @override
+  String get hotelItineraryImpactTitle => 'Wie das Ihre Tage prägt';
+
+  @override
+  String hotelItineraryImpactBody(String driveTime, int friction) {
+    return 'Raue Fahrt vom Hub: $driveTime. Fahrreibungswert: $friction/90 (niedriger ist ruhiger).';
+  }
+
+  @override
+  String get hotelAddHomeBase => 'Als Heimatbasis hinzufügen';
+
+  @override
+  String get hotelHomeBaseActive => 'Heimatbasis aktiv';
+
+  @override
+  String get hotelViewOnMap => 'Auf der Karte anzeigen';
+
+  @override
+  String get hotelGetDirections => 'Wegbeschreibung abrufen';
+
+  @override
+  String get hotelCheckRates => 'Überprüfen Sie die Preise';
+
+  @override
+  String get hotelVisitWebsite => 'Besuchen Sie die Website';
+
+  @override
+  String get hotelSave => 'Hotel speichern';
+
+  @override
+  String get hotelSaved => 'Gespeichert';
+
+  @override
+  String get hotelDistanceTitle => 'Entfernung zu wichtigen Stellen';
+
+  @override
+  String get hotelCompareTitle => 'Vergleichen Sie Aufenthalte';
+
+  @override
+  String get hotelCompareSubtitle =>
+      'Concierge-Ansicht nebeneinander – bis zu drei Hotels.';
+
+  @override
+  String hotelCompareSelected(int count) {
+    return '$count ausgewählt';
+  }
+
+  @override
+  String get hotelComparePrice => 'Preisklasse';
+
+  @override
+  String get hotelCompareDriveImpact => 'Antriebswirkung';
+
+  @override
+  String get hotelCompareNearby => 'Highlights in der Nähe';
+
+  @override
+  String get hotelPriceBudget => 'Budget';
+
+  @override
+  String get hotelPriceModerate => 'Mäßig';
+
+  @override
+  String get hotelPriceUpscale => 'Gehoben';
+
+  @override
+  String get hotelPriceLuxury => 'Luxus';
+
+  @override
+  String get hotelTagCouples => 'Am besten für Paare';
+
+  @override
+  String get hotelTagDisney => 'Am besten für Disney';
+
+  @override
+  String get hotelTagUniversal => 'Am besten für Universal';
+
+  @override
+  String get hotelTagLuxuryStaycation => 'Luxuriöser Aufenthalt';
+
+  @override
+  String get hotelTagFamily => 'Familienfreundlich';
+
+  @override
+  String get hotelTagQuiet => 'Ruhige Flucht';
+
+  @override
+  String get hotelTagWalkableDining => 'Begehbares Essen';
+
+  @override
+  String get hotelTagResort => 'Resort-Feeling';
+
+  @override
+  String get hotelTagBudget => 'Budgetfreundlich';
+
+  @override
+  String get hotelReasonMatchesMood =>
+      'Passend zu Ihrer Reisestimmung und Ihrem Reisetempo.';
+
+  @override
+  String get hotelReasonCloseStops =>
+      'In der Nähe geplanter Stopps auf Ihrer Zeitleiste.';
+
+  @override
+  String hotelReasonSavesDrive(String time) {
+    return 'Spart Fahrzeit im Vergleich zu einem generischen Hub – etwa $time vom Zentrum.';
+  }
+
+  @override
+  String hotelReasonFitsBudget(String range) {
+    return 'Passt in eine Komfortzone von $range, ohne zu viel für das falsche Resort auszugeben.';
+  }
+
+  @override
+  String get hotelReasonBetterGroup =>
+      'Besser geeignet für Ihren Gruppentyp und Ihr Energieniveau.';
+
+  @override
+  String get hotelReasonNearbyDining =>
+      'Gutes Restaurant in der Nähe für entspannte Abende.';
+
+  @override
+  String get hotelReasonLowStress =>
+      'Ruhe im Resort-Stil – weniger Logistik, mehr Urlaub.';
+
+  @override
+  String get hotelMatchAttractionsGeneral => 'Ihre geplanten Attraktionen';
+
+  @override
+  String hotelMatchWhyMulti(String attractions, String hotel) {
+    return 'Basierend auf Ihrer $attractions-Reiseroute reduziert $hotel die Fahrzeit und sorgt für entspannte Abende.';
+  }
+
+  @override
+  String hotelMatchWhySingle(String hotel, String neighborhood) {
+    return '$hotel in $neighborhood entspricht genau dem, wie sich diese Reise anfühlen soll.';
+  }
+
+  @override
+  String get hotelMatchBestForFamily =>
+      'Familien, die Tage am Pool verbringen möchten, ohne auf den Zugang zum Park verzichten zu müssen.';
+
+  @override
+  String get hotelMatchBestForCouple =>
+      'Paare, die Romantik ohne Chaos im Freizeitpark wollen.';
+
+  @override
+  String get hotelMatchBestForGroup =>
+      'Gruppen, die Komfort, Zugang und ruhige Logistik in Einklang bringen.';
+
+  @override
+  String hotelMatchImpactDisney(String time) {
+    return 'Kürzere Disney-Fahrten – etwa $time bis zu den Parks von Ihrer Haustür aus.';
+  }
+
+  @override
+  String get hotelMatchImpactUniversal =>
+      'Dank der Universal-Express-Vergünstigungen oder des Wassertaxi-Zugangs können Sie Stunden Ihres Tages einsparen.';
+
+  @override
+  String get hotelMatchImpactWalkable =>
+      'Gehen Sie zu Fuß zum Abendessen – weniger Parkstress nach langen Parktagen.';
+
+  @override
+  String hotelMatchImpactDefault(String time) {
+    return 'Hält durchschnittliche Fahrten um $time aufrecht, sodass Ihr Tagesablauf entspannt bleibt.';
+  }
+
+  @override
+  String get hotelMatchTradeoffLuxuryBudget =>
+      'Premium-Resort-Preise – Budget mehr für das Zimmer, weniger anderswo.';
+
+  @override
+  String get hotelMatchTradeoffCarNeeded =>
+      'Sie sind auf ein Auto oder eine Mitfahrgelegenheit angewiesen – nicht auf eine Basis, von der aus Sie alles zu Fuß erreichen können.';
+
+  @override
+  String get hotelMatchTradeoffLessFamily =>
+      'Weniger auf kinderorientierte Annehmlichkeiten ausgerichtet als spezielle Familienresorts.';
+
+  @override
+  String get hotelMatchTradeoffLessRomantic =>
+      'Mehr Freizeitpark-Energie als ein ruhiger Rückzugsort für Paare.';
+
+  @override
+  String get hotelMatchTradeoffDefault =>
+      'Jeder Aufenthalt hat Kompromisse – Luxora hat dies als erstes für Sie ausgewählt.';
+
+  @override
+  String hotelNearbyDefault(String neighborhood) {
+    return 'Essen und Erlebnisse rund um $neighborhood.';
+  }
+
+  @override
+  String get mapHotelIntelBannerTitle => 'Wählen Sie die richtige Heimatbasis';
+
+  @override
+  String get mapHotelIntelBannerBody =>
+      'Ihr Hotel bestimmt die Fahrzeiten, den Tagesablauf und den Ort, an dem Sie essen. Luxora hilft Ihnen bei der Auswahl – ohne Buchungsdruck.';
+
+  @override
+  String get mapHotelIntelBannerCta => 'Entdecken Sie Hotel Intelligence';
+
+  @override
+  String get sponsorLuxoraRecommended => 'Luxora empfohlen';
+
+  @override
+  String get sponsorBadgeFeaturedPartner => 'Empfohlener Partner';
+
+  @override
+  String get sponsorBadgeSponsored => 'Gesponsert';
+
+  @override
+  String get sponsorBadgePromoted => 'Gefördert';
+
+  @override
+  String get sponsorBadgePartnerOffer => 'Partnerangebot';
+
+  @override
+  String get sponsorCtaVisitWebsite => 'Besuchen Sie die Website';
+
+  @override
+  String get sponsorCtaBookNow => 'Buchen Sie jetzt';
+
+  @override
+  String get sponsorCtaCheckRates => 'Überprüfen Sie die Preise';
+
+  @override
+  String get sponsorCtaGetTickets => 'Holen Sie sich Tickets';
+
+  @override
+  String get sponsorCtaViewOffer => 'Angebot ansehen';
+
+  @override
+  String get featuredStaysTitle => 'Empfohlene Aufenthalte';
+
+  @override
+  String get featuredStaysSubtitle =>
+      'Partnerplatzierungen – getrennt von den organischen Hotel-Match-Scores von Luxora.';
+
+  @override
+  String get featuredExperiencesTitle => 'Besondere Erlebnisse';
+
+  @override
+  String get featuredExperiencesSubtitle =>
+      'Beworbene Tipps für Ihre Stimmung – immer beschriftet, nie als KI-Rang getarnt.';
+
+  @override
+  String get featuredDiningTitle => 'Empfohlenes Essen';
+
+  @override
+  String get featuredDiningSubtitle =>
+      'Highlights der Partnerrestaurants von Luxora – Ihre Bio-Juwelenliste bleibt unabhängig.';
+
+  @override
+  String get featuredTicketPartnersTitle => 'Empfohlene Ticketpartner';
+
+  @override
+  String get featuredTicketPartnersSubtitle =>
+      'Angebote von autorisierten Partnern – vergleichen Sie unten mit den organischen Ersparnissen.';
+
+  @override
+  String get featuredCityHomeTitle => 'Empfohlene Partner';
+
+  @override
+  String get featuredCityHomeSubtitle =>
+      'Hilfreiche Partneroptionen für Orlando – klar gekennzeichnet, niemals als KI-Auswahl ausgeblendet.';
+
+  @override
+  String get dayFlowVibeFoodie => 'Feinschmecker-vorwärts';
 
   @override
   String get dayFlowVibeNightlife => 'Nachtleben';
 
   @override
-  String get dayFlowVibePoolside => 'Pool';
+  String get dayFlowVibePoolside => 'Am Pool';
 
   @override
   String get dayFlowVibeAdventure => 'Abenteuerlich';
@@ -1206,4 +2311,297 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get styleFamilyEasy => 'Familienfreundliche Logistik';
+
+  @override
+  String get paywallHeroEyebrow => 'IHR PERSÖNLICHER CONCIERGE';
+
+  @override
+  String get paywallHeroHeadline => 'VERGEBEN SIE IHREN URLAUB NICHT';
+
+  @override
+  String get paywallHeroSubheadline =>
+      'Luxora plant die Reise, damit Sie sie genießen können.';
+
+  @override
+  String get paywallEmotionalLine =>
+      'Sie geben bereits Tausende für Ihren Urlaub aus. Überlassen Sie das Erlebnis nicht dem Zufall.';
+
+  @override
+  String paywallHeadlineCouples(String cityName) {
+    return 'Ihr perfekter Kurzurlaub in $cityName beginnt hier.';
+  }
+
+  @override
+  String paywallHeadlineFamily(String cityName) {
+    return 'Verbringen Sie weniger Zeit mit der Planung und mehr Zeit mit dem Sammeln von Erinnerungen in $cityName.';
+  }
+
+  @override
+  String paywallHeadlineLuxury(String cityName) {
+    return 'Erleben Sie $cityName anders.';
+  }
+
+  @override
+  String paywallHeadlineAdventure(String cityName) {
+    return 'Entdecken Sie die Stadt $cityName, die die meisten Touristen nie sehen.';
+  }
+
+  @override
+  String paywallHeadlineFoodie(String cityName) {
+    return 'Probieren Sie $cityName wie ein lokaler Insider.';
+  }
+
+  @override
+  String get paywallWhatYouUnlock => 'Was Sie freischalten';
+
+  @override
+  String get paywallFeatureAiConcierge => 'KI-Concierge';
+
+  @override
+  String get paywallFeatureItineraries => 'Personalisierte Reiserouten';
+
+  @override
+  String get paywallFeatureHiddenGems => 'Versteckte Juwelen';
+
+  @override
+  String get paywallFeatureHotelIntel => 'Hotelintelligenz';
+
+  @override
+  String get paywallFeatureTicketSavings => 'Smarte Ticketeinsparungen';
+
+  @override
+  String get paywallFeatureWeatherConcierge => 'Wetter-Concierge';
+
+  @override
+  String get paywallFeatureCrowdIntel => 'Crowd Intelligence';
+
+  @override
+  String get paywallFeatureGpsNav => 'GPS-Navigation';
+
+  @override
+  String get paywallFeatureLocalSecrets => 'Lokale Geheimnisse';
+
+  @override
+  String get paywallFeatureDining => 'Speiseempfehlungen';
+
+  @override
+  String get paywallFeatureUnlimitedPlanning => 'Grenzenlose Stadtplanung';
+
+  @override
+  String get paywallWhyTravelersUnlock => 'Warum Reisende Luxora freischalten';
+
+  @override
+  String get paywallBenefitSaveTimeTitle => 'Sparen Sie Zeit';
+
+  @override
+  String get paywallBenefitSaveTimeBody =>
+      'Sparen Sie stundenlange Recherche und Planung.';
+
+  @override
+  String get paywallBenefitSaveMoneyTitle => 'Sparen Sie Geld';
+
+  @override
+  String get paywallBenefitSaveMoneyBody =>
+      'Entdecken Sie Ticketeinsparungen, lokale Angebote und intelligentere Entscheidungen.';
+
+  @override
+  String get paywallBenefitAvoidTrapsTitle => 'Vermeiden Sie Touristenfallen';
+
+  @override
+  String get paywallBenefitAvoidTrapsBody =>
+      'Finden Sie Erlebnisse, die Einheimische tatsächlich empfehlen.';
+
+  @override
+  String get paywallBenefitTravelSmarterTitle => 'Intelligenter reisen';
+
+  @override
+  String get paywallBenefitTravelSmarterBody =>
+      'Erhalten Sie Empfehlungen basierend auf Wetter, Menschenmenge und Ihrem Reisestil.';
+
+  @override
+  String get paywallLockedPreviewTitle => 'Warten in Ihrem Concierge';
+
+  @override
+  String get paywallLockedPreviewSubtitle =>
+      'Entsperren Sie die Karte, um Routen und Geheimnisse zu enthüllen, die auf Ihre Reise zugeschnitten sind.';
+
+  @override
+  String get paywallLockedDateNight => 'Romantische Date-Night-Routen';
+
+  @override
+  String get paywallLockedHiddenLuxury => 'Versteckte Luxuserlebnisse';
+
+  @override
+  String get paywallLockedVipSecrets => 'VIP-Lokalgeheimnisse';
+
+  @override
+  String get paywallLockedConciergeRecs => 'Concierge-Empfehlungen';
+
+  @override
+  String get paywallLockedFamilyPlans => 'Stressfreie Familienpläne';
+
+  @override
+  String get paywallLockedWeatherReroute => 'Wetterabhängige Umleitung';
+
+  @override
+  String get paywallLockedHotelMatchmaker => 'Smarter Hotel-Matchmaker';
+
+  @override
+  String paywallUnlockCityConcierge(String cityName) {
+    return 'Schalten Sie den $cityName-Concierge frei';
+  }
+
+  @override
+  String get paywallOneTimePurchase => 'Einmaliger Kauf';
+
+  @override
+  String get paywallNoSubscription => 'Kein Abonnement';
+
+  @override
+  String get paywallNoMonthlyFees => 'Keine monatlichen Gebühren';
+
+  @override
+  String paywallLifetimeAccess(String cityName) {
+    return 'Lebenslanger Zugriff auf $cityName';
+  }
+
+  @override
+  String paywallFutureUpdatesIncluded(String cityName) {
+    return 'Zukünftige $cityName-Updates enthalten';
+  }
+
+  @override
+  String paywallMostVacationsCost(
+    String cityName,
+    String minUsd,
+    String maxUsd,
+  ) {
+    return 'Die meisten $cityName-Urlaube kosten $minUsd–$maxUsd+';
+  }
+
+  @override
+  String paywallLuxoraPriceLine(String price) {
+    return '$price Einmalig';
+  }
+
+  @override
+  String get paywallLessThanDinner =>
+      'Weniger als die Kosten für ein Urlaubsessen.';
+
+  @override
+  String get paywallSocialProofTitle =>
+      'Reisende, die Luxora freigeschaltet haben';
+
+  @override
+  String get paywallReview1 => '„Hat uns stundenlange Planung erspart.“';
+
+  @override
+  String get paywallReview2 => '„Orte gefunden, die wir nie entdeckt hätten.“';
+
+  @override
+  String get paywallReview3 =>
+      '„Allein wegen der verborgenen Schätze lohnt es sich.“';
+
+  @override
+  String paywallCtaUnlock(String cityName) {
+    return 'Schalten Sie den $cityName-Concierge frei';
+  }
+
+  @override
+  String get paywallContinueExploring => 'Erkunden Sie weiter';
+
+  @override
+  String get paywallConciergePromise =>
+      'Einmaliger Kauf · Persönlicher Concierge · Kein Abonnement';
+
+  @override
+  String get settingsUnlockConciergeTitle => 'Stadt-Concierge freischalten';
+
+  @override
+  String get settingsUnlockConciergeSubtitle =>
+      'Einmaliges City-Paket – kein Abonnement';
+
+  @override
+  String get weatherMiamiHumidityIndoor =>
+      'Heute hohe Luftfeuchtigkeit. Gehen Sie früher an den Strand oder in den Pool und genießen Sie dann in den heißesten Stunden in Wynwood oder Brickell Innenrestaurants und Galerien.';
+
+  @override
+  String get weatherMiamiHeatAdvisory =>
+      'Empfohlene Bedingungen für die Hitze: leichte Stoffe, Flüssigkeitszufuhr und Pausen im Schatten zwischen Aufenthalten im Freien.';
+
+  @override
+  String get weatherMiamiBeachMorning =>
+      'Starke UV-Strahlung im Sand – Sonnencreme, Hut und Strandzeit vor Mittag.';
+
+  @override
+  String get weatherMiamiBoatWind =>
+      'Der Wind ist stärker – überdenken Sie die Boots- oder Yachtaktivitäten. Das Essen auf dem Dach funktioniert möglicherweise immer noch.';
+
+  @override
+  String weatherMiamiRainReroute(String indoorSpot) {
+    return 'Regenwetter steht bevor – tauschen Sie Outdoor-Pläne gegen $indoorSpot oder Galeriezeit ein.';
+  }
+
+  @override
+  String get weatherMiamiSunsetWaterfront =>
+      'Der Sonnenuntergang sieht stark aus – direkt am Wasser oder auf dem Dach mit Blick von Ost nach West.';
+
+  @override
+  String get miamiBeachIntelTitle => 'Strandintelligenz';
+
+  @override
+  String miamiBeachBestTime(String time) {
+    return 'Beste Zeit: $time';
+  }
+
+  @override
+  String get miamiBeachFamilyScore => 'Familie';
+
+  @override
+  String get miamiBeachCrowdScore => 'Menge';
+
+  @override
+  String get miamiBeachPhotoScore => 'Foto';
+
+  @override
+  String get miamiBeachRomanceScore => 'Romantik';
+
+  @override
+  String get miamiBeachSunsetScore => 'Sonnenuntergang';
+
+  @override
+  String miamiBeachParking(String level) {
+    return 'Parkdeck';
+  }
+
+  @override
+  String get miamiNightlifeTitle => 'Nachtleben-Concierge';
+
+  @override
+  String miamiNightlifeDressCode(String code) {
+    return 'Kleiderordnung: $code';
+  }
+
+  @override
+  String miamiNightlifeArrival(String time) {
+    return 'Beste Ankunftszeit: $time';
+  }
+
+  @override
+  String get miamiNightlifeReservation => 'Reservierung empfohlen';
+
+  @override
+  String get miamiMoodRoutesTitle => 'Miami Mood Routes';
+
+  @override
+  String miamiMoodRouteStart(String time) {
+    return 'Beginnen Sie etwa um $time';
+  }
+
+  @override
+  String get paywallHeadlineMiamiDefault => 'ERLEBEN SIE MIAMI ANDERS';
+
+  @override
+  String get paywallHeadlineMiamiWeekend =>
+      'Verschwenden Sie nicht Ihr Miami-Wochenende';
 }

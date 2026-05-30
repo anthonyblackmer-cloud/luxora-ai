@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_helpers.dart';
+import 'package:luxora_ai/services/partner_sponsorship_service.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
+import 'package:luxora_ai/widgets/attraction_detail_sheet.dart';
 import 'package:luxora_ai/widgets/lux_background.dart';
 import 'package:luxora_ai/widgets/lux_button.dart';
+import 'package:luxora_ai/widgets/partner_sponsor_badge.dart';
 
 class LandingScreen extends StatelessWidget {
   const LandingScreen({super.key});
@@ -110,7 +113,7 @@ class LandingScreen extends StatelessWidget {
                         label: l.landingTalk,
                         outline: true,
                         icon: Icons.auto_awesome_rounded,
-                        onPressed: () => context.go('/concierge'),
+                        onPressed: () => context.go('/discover'),
                       ),
                       const SizedBox(height: 12),
                       LuxButton(
@@ -154,6 +157,20 @@ class LandingScreen extends StatelessWidget {
                       Text(
                         l.landingRegionTitle,
                         style: Theme.of(context).textTheme.titleLarge,
+                      ),
+                      const SizedBox(height: 16),
+                      FeaturedPartnerSection(
+                        title: l.featuredCityHomeTitle,
+                        subtitle: l.featuredCityHomeSubtitle,
+                        items: PartnerSponsorshipService.featuredForCityHome(),
+                        onItemTap: (item) {
+                          if (item.place == null) return;
+                          showAttractionDetailSheet(context, place: item.place!);
+                        },
+                        onCtaTap: (item) =>
+                            PartnerSponsorshipService.openSponsorCta(
+                          item.sponsorship,
+                        ),
                       ),
                       const SizedBox(height: 16),
                       Wrap(

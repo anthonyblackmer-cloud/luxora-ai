@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:luxora_ai/models/trip_occasion.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -42,6 +43,7 @@ class TripProfileStorage {
         'discoveryStyle': p.discoveryStyle.name,
         'tripFeel': p.tripFeel,
         'moods': p.moods.map((m) => m.name).toList(),
+        'occasion': p.occasion.name,
       };
 
   TripProfile _decode(Map<String, dynamic> m) {
@@ -72,6 +74,8 @@ class TripProfileStorage {
       moods: (m['moods'] as List<dynamic>? ?? [])
           .map((e) => TripMood.values.byName(e as String))
           .toList(),
+      occasion: TripOccasion.values
+          .byName(m['occasion'] as String? ?? 'general'),
     );
   }
 }

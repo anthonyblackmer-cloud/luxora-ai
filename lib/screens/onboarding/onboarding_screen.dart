@@ -1,12 +1,15 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:luxora_ai/l10n/app_localizations.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_helpers.dart';
 import 'package:luxora_ai/data/saved_trips.dart';
+import 'package:luxora_ai/models/trip_occasion.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
 import 'package:luxora_ai/services/saved_trips_store.dart';
 import 'package:luxora_ai/services/trip_feel_interpreter.dart';
+import 'package:luxora_ai/services/trip_occasion_interpreter.dart';
 import 'package:luxora_ai/services/trip_profile_store.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
@@ -32,7 +35,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Future<void> _finish() async {
     // Let the typed "trip feel" actually reshape the dials/moods that drive
     // the Day Flow and recommendations.
-    final enriched = TripFeelInterpreter.enrich(_profile);
+    final enriched = TripOccasionInterpreter.apply(
+      TripFeelInterpreter.enrich(_profile),
+    );
     await TripProfileStore.instance.save(enriched);
     await SavedTripsStore.instance.add(
       SavedTripSummary.fromProfile(
@@ -73,7 +78,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     if (context.canPop()) {
                       context.pop();
                     } else {
-                      context.go('/concierge');
+                      context.go('/discover');
                     }
                   },
                 ),
@@ -252,6 +257,32 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   setState(() => _profile = _profile.copyWith(tripFeel: v)),
             ),
             const SizedBox(height: 16),
+            Text(
+              l.onboardOccasionLabel,
+              style: const TextStyle(
+                fontWeight: FontWeight.w600,
+                fontSize: 14,
+                color: LuxColors.cream,
+              ),
+            ),
+            const SizedBox(height: 10),
+            Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: [
+                for (final o in TripOccasion.values)
+                  FilterChip(
+                    selected: _profile.occasion == o,
+                    label: Text(_occasionLabel(l, o)),
+                    onSelected: (_) => setState(
+                      () => _profile = _profile.copyWith(occasion: o),
+                    ),
+                    selectedColor: LuxColors.gold.withValues(alpha: 0.2),
+                    checkmarkColor: LuxColors.gold,
+                  ),
+              ],
+            ),
+            const SizedBox(height: 16),
             Wrap(
               spacing: 8,
               runSpacing: 8,
@@ -338,4 +369,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       ),
     );
   }
+
+  String _occasionLabel(AppLocalizations l, TripOccasion o) => switch (o) {
+        TripOccasion.general => l.occasionGeneral,
+        TripOccasion.coupleAnniversary => l.occasionAnniversary,
+        TripOccasion.coupleHoneymoon => l.occasionHoneymoon,
+        TripOccasion.coupleDateNight => l.occasionDateNight,
+        TripOccasion.coupleProposal => l.occasionProposal,
+        TripOccasion.familyWithKids => l.occasionFamily,
+      };
 }

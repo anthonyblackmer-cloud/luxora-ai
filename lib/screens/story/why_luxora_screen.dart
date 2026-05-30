@@ -174,7 +174,7 @@ class WhyLuxoraScreen extends StatelessWidget {
               label: l.landingTalk,
               outline: true,
               icon: Icons.chat_bubble_rounded,
-              onPressed: () => context.go('/concierge'),
+              onPressed: () => context.go('/discover'),
             ),
           ],
         ),

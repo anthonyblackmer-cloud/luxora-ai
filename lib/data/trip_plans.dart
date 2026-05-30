@@ -76,5 +76,21 @@ const sampleGoldenEscapePlan = TripPlan(
         ),
       ],
     ),
+    TripDay(
+      dayNumber: 3,
+      label: 'Theme park wonder',
+      items: [
+        TripItem(
+          id: '7',
+          time: '8:30 AM',
+          title: 'Magic Kingdom — castle day',
+          emotionalLine:
+              'The park opens like a storybook — you chose wonder over rushing.',
+          location: 'Lake Buena Vista',
+          category: 'Theme parks',
+          placeId: 'place-magic-kingdom',
+        ),
+      ],
+    ),
   ],
 );

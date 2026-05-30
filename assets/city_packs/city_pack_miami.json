@@ -1,0 +1,82 @@
+{
+  "cityId": "miami",
+  "cityName": "Miami",
+  "stateId": "florida",
+  "description": "Art deco beaches, Wynwood walls, and Brickell skyline energy.",
+  "mapCenterLat": 25.7617,
+  "mapCenterLng": -80.1918,
+  "hubLabel": "Miami, FL",
+  "supportedCategories": [
+    "hotel",
+    "dining",
+    "beach",
+    "nightlife",
+    "wellness",
+    "adventure"
+  ],
+  "featuredExperiences": [],
+  "featuredHotels": [],
+  "featuredRestaurants": [],
+  "featuredTicketDeals": [],
+  "featuredHotelIntel": [],
+  "defaultRadiusMiles": 25,
+  "maxRadiusMiles": 75,
+  "districts": [
+    {
+      "districtId": "miami-south-beach",
+      "cityId": "miami",
+      "districtName": "South Beach",
+      "districtType": "beach",
+      "description": "Ocean Drive, art deco, and sunrise swims.",
+      "mapBounds": {
+        "north": 25.82,
+        "south": 25.76,
+        "east": -80.12,
+        "west": -80.14
+      }
+    },
+    {
+      "districtId": "miami-wynwood",
+      "cityId": "miami",
+      "districtName": "Wynwood",
+      "districtType": "arts",
+      "description": "Murals, galleries, and late-night tacos.",
+      "mapBounds": {
+        "north": 25.81,
+        "south": 25.79,
+        "east": -80.19,
+        "west": -80.21
+      }
+    },
+    {
+      "districtId": "miami-brickell",
+      "cityId": "miami",
+      "districtName": "Brickell",
+      "districtType": "downtown",
+      "description": "Luxury towers and bayfront dining.",
+      "mapBounds": {
+        "north": 25.77,
+        "south": 25.75,
+        "east": -80.18,
+        "west": -80.2
+      }
+    },
+    {
+      "districtId": "miami-coconut-grove",
+      "cityId": "miami",
+      "districtName": "Coconut Grove",
+      "districtType": "suburban",
+      "description": "Banyan shade and sailboat calm.",
+      "mapBounds": {
+        "north": 25.74,
+        "south": 25.72,
+        "east": -80.23,
+        "west": -80.25
+      }
+    }
+  ],
+  "experiences": [],
+  "feedItemPlaceIds": {},
+  "gemPlaceIds": {},
+  "itineraryMomentPlaceIds": {}
+}

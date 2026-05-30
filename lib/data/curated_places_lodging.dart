@@ -130,6 +130,48 @@ const curatedPlacesLodging = <LuxPlace>[
     moodTags: ['family', 'relaxing', 'wellness'],
     sortOrder: 107,
   ),
+  LuxPlace(
+    id: 'hotel-almanac-winter-park',
+    slug: 'the-alfond-inn-winter-park',
+    title: 'The Alfond Inn',
+    category: LuxPlaceCategory.hotel,
+    unsplashPhotoId: _Photo.courtyard,
+    location: '300 E New England Ave, Winter Park, FL',
+    latitude: 28.5998,
+    longitude: -81.3485,
+    description:
+        'Boutique art hotel on Winter Park\'s cultural corridor — walkable Park Avenue dining and gallery calm.',
+    moodTags: ['romantic', 'luxury', 'hidden', 'culture'],
+    sortOrder: 108,
+  ),
+  LuxPlace(
+    id: 'hotel-lake-nona-wave',
+    slug: 'the-wave-hotel-lake-nona',
+    title: 'The Wave Hotel at Lake Nona',
+    category: LuxPlaceCategory.hotel,
+    unsplashPhotoId: _Photo.rooftop,
+    location: '6500 Southpoint Blvd, Orlando, FL',
+    latitude: 28.3645,
+    longitude: -81.2488,
+    description:
+        'Sculptural modern luxury in Lake Nona — rooftop pool, art-forward design, and a quieter Orlando pace.',
+    moodTags: ['luxury', 'wellness', 'romantic', 'trending'],
+    sortOrder: 109,
+  ),
+  LuxPlace(
+    id: 'hotel-idrive-clarion',
+    slug: 'clarion-hotel-international-drive',
+    title: 'Clarion Hotel International Drive',
+    category: LuxPlaceCategory.hotel,
+    unsplashPhotoId: _Photo.dining,
+    location: '8444 International Dr, Orlando, FL',
+    latitude: 28.4412,
+    longitude: -81.4705,
+    description:
+        'Value base on I-Drive — walk to dining and a short drive to Universal without resort pricing.',
+    moodTags: ['family', 'foodie'],
+    sortOrder: 110,
+  ),
 
   // ═══ Notable restaurants ═══
   LuxPlace(

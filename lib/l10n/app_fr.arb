@@ -31,34 +31,19 @@
   "catSpas": "Spas",
   "catSprings": "Sources",
   "catThemeParks": "Parcs à thème",
-  "commonClose": "Fermer",
   "commonCancel": "Annuler",
-  "commonDelete": "Supprimer",
-  "settingsStartOverSubtitle": "Commencez un nouveau voyage à zéro",
-  "tripsPlanNew": "Planifier un nouveau voyage",
-  "tripsEmptyTitle": "Aucun voyage enregistré",
-  "tripsEmptyBody": "Planifiez votre premier voyage et il apparaîtra ici, prêt à être repris à tout moment.",
-  "tripsDeleteTitle": "Supprimer le voyage ?",
-  "tripsDeleteBody": "Cela retire « {title} » de vos voyages enregistrés. Action irréversible.",
-  "@tripsDeleteBody": {
-    "placeholders": { "title": { "type": "String" } }
-  },
-  "tripsDeleted": "Voyage supprimé",
+  "commonClose": "Fermer",
   "commonContinue": "Continuer",
+  "commonDelete": "Supprimer",
+  "commonLive": "En direct",
   "commonNew": "Nouveau",
   "commonRoadmap": "Feuille de route",
-  "commonLive": "En direct",
   "commonSoon": "Bientôt",
   "conciergeBrand": "LUXORA",
-  "conciergeInputHint": "Décrivez l’émotion que vous voulez créer pendant votre voyage…",
-  "conciergeGreetingMorning": "Bonjour.",
   "conciergeGreetingAfternoon": "Bon après-midi.",
-  "conciergeGreetingEvening": "Bonsoir.",
-  "conciergeWelcomeWarm": "Je suis là pour façonner la Floride selon ce que vous voulez ressentir, pas une liste de sites. De quoi avez-vous envie aujourd’hui ?",
-  "conciergeRefineStyle": "Affiner mon style",
-  "conciergeRecallReturning": "Bon retour.",
-  "conciergeRecallStyle": "Je me souviens que vous aimez {prefs}.",
-  "conciergeRecallFeelLine": "Et vous vouliez que ce voyage évoque : « {feel} ».",
+  "conciergeGreetingEvening": "Bonne soirée.",
+  "conciergeGreetingMorning": "Bonjour.",
+  "conciergeInputHint": "Décrivez l’émotion que vous voulez créer pendant votre voyage…",
   "conciergePromptAdventure": "Mode aventure",
   "conciergePromptDisney": "Disney après la nuit",
   "conciergePromptFamily": "Magie en famille",
@@ -68,6 +53,24 @@
   "conciergePromptSoftLuxury": "Évasion luxe tout en douceur",
   "conciergePromptWellness": "Pause bien-être",
   "conciergeQuickPrompts": "Suggestions rapides",
+  "conciergeRecallFeelLine": "Et vous vouliez que ce voyage ressente : « {feel} ».",
+  "@conciergeRecallFeelLine": {
+    "placeholders": {
+      "feel": {
+        "type": "String"
+      }
+    }
+  },
+  "conciergeRecallReturning": "Content de te revoir.",
+  "conciergeRecallStyle": "Je me souviens que tu aimais {prefs}.",
+  "@conciergeRecallStyle": {
+    "placeholders": {
+      "prefs": {
+        "type": "String"
+      }
+    }
+  },
+  "conciergeRefineStyle": "Affiner mon style",
   "conciergeRemembering": "Mémorisé pour ce voyage",
   "conciergeStyleMemory": "Mémoire de style",
   "conciergeTitle": "Concierge",
@@ -79,53 +82,99 @@
       }
     }
   },
+  "conciergeVoiceHold": "Attends pour parler",
+  "conciergeVoiceSoon": "Le concierge vocal sera bientôt disponible : pour l'instant, appuyez sur un instant ou saisissez ce que vous souhaitez ressentir.",
   "conciergeWelcome": "Bienvenue sur Luxora, votre compagnon floridien émotionnellement intelligent.\n\nChoisissez une suggestion ci-dessous ou décrivez l’émotion que vous voulez créer pendant votre voyage.",
+  "conciergeWelcomeWarm": "Je suis ici pour façonner la Floride en fonction de ce que vous souhaitez ressentir – et non d'une liste de sites touristiques. De quoi as-tu envie aujourd’hui ?",
   "dark_mode": "Mode sombre",
+  "dayFlowAfternoon": "APRÈS-MIDI",
+  "dayFlowEvening": "SOIRÉE",
+  "dayFlowMidday": "MIDI",
+  "dayFlowMorning": "MATIN",
+  "dayFlowNight": "NUIT",
+  "dayFlowReasonAfternoonDowntime": "Temps d'arrêt l'après-midi pour recharger.",
+  "dayFlowReasonAfternoonGem": "Un joyau caché loin de la foule.",
+  "dayFlowReasonEveningDining": "Le repas du jour – votre choix gourmand.",
+  "dayFlowReasonMiddayAdventure": "Heures de pointe d'énergie : la grande aventure pendant que vous êtes frais.",
+  "dayFlowReasonMiddayCulture": "Faire du tourisme pendant que la lumière est vive.",
+  "dayFlowReasonMiddayIcon": "Le moment signature de la journée.",
+  "dayFlowReasonMorningCalm": "Un début en douceur pour donner le ton.",
+  "dayFlowReasonMorningPool": "Installez-vous lentement au bord de la piscine ou au spa avant le début de la journée.",
+  "dayFlowReasonNightOut": "Une dernière lueur – une soirée.",
+  "dayFlowSubtitle": "Une journée façonnée autour de ce que vous voulez ressentir – pas d’une liste de contrôle.",
+  "dayFlowVibeAdventure": "Aventureux",
+  "dayFlowVibeCulture": "Culture",
+  "dayFlowVibeFoodie": "Avant-gardiste",
+  "dayFlowVibeNightlife": "Vie nocturne",
+  "dayFlowVibePoolside": "Au bord de la piscine",
+  "detailAppleMaps": "Cartes Apple",
   "detailBestFor": "Idéal pour",
   "detailBestTime": "Meilleur moment pour y aller",
   "detailCostRange": "Fourchette de prix",
   "detailCrowd": "Affluence",
+  "detailDriveFromHub": "{time} en voiture depuis {hub}",
+  "@detailDriveFromHub": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      },
+      "hub": {
+        "type": "String"
+      }
+    }
+  },
+  "detailDriveFromOrlando": "{time} en voiture depuis Orlando",
+  "@detailDriveFromOrlando": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
   "detailDuration": "Durée",
+  "detailGetDirections": "Obtenir un itinéraire",
+  "detailGoogleMaps": "Google Cartes",
+  "detailHomeBaseActive": "Votre point de départ pour votre voyage",
+  "detailHomeBaseClearedSnack": "Base d'attache dégagée",
+  "detailHomeBaseHint": "L’itinéraire de votre journée commence et se termine ici.",
+  "detailHomeBaseSetSnack": "Définir comme base de départ de votre voyage",
   "detailInsiderTips": "Conseils d’initiés",
   "detailLocation": "Lieu",
-  "detailGetDirections": "Itinéraire",
-  "detailParkMap": "Plan du parc",
-  "detailViewOnMap": "Voir sur la carte",
-  "detailMapsError": "Impossible d’ouvrir la carte sur cet appareil.",
-  "detailGoogleMaps": "Google Maps",
-  "detailAppleMaps": "Plans (Apple)",
-  "detailOpenInMaps": "Ouvrir dans une carte",
-  "detailDriveFromOrlando": "{time} de route depuis Orlando",
-  "@detailDriveFromOrlando": {
-    "placeholders": { "time": { "type": "String" } }
-  },
-  "detailSaveToItinerary": "Ajouter à l’itinéraire",
-  "detailSaved": "Enregistré",
-  "detailSavedSnack": "Ajouté à votre itinéraire",
-  "detailRemovedSnack": "Retiré de votre itinéraire",
-  "detailSetHomeBase": "Définir comme camp de base",
-  "detailHomeBaseActive": "Votre camp de base",
-  "detailHomeBaseHint": "L’itinéraire de votre journée commence et se termine ici.",
-  "detailHomeBaseSetSnack": "Défini comme camp de base de votre voyage",
-  "detailHomeBaseClearedSnack": "Camp de base supprimé",
-  "detailMenuTitle": "Sélection du menu",
-  "detailMenuDisclaimer": "Sélection — le menu complet et les prix peuvent varier sur place.",
-  "detailMenuComingSoon": "Nous préparons encore ce menu. En attendant, consultez le menu et les prix à jour en ligne.",
-  "detailViewMenuOnline": "Voir le menu en ligne",
+  "detailMapsError": "Impossible d'ouvrir les cartes sur cet appareil.",
+  "detailMenuComingSoon": "Nous sommes toujours en train de préparer ce menu. En attendant, consultez le dernier menu et les prix en ligne.",
+  "detailMenuDisclaimer": "Points forts sélectionnés – le menu complet et les prix peuvent varier selon le lieu.",
+  "detailMenuTitle": "Points forts du menu",
   "detailNearbyGems": "Pépites à proximité",
+  "detailOpenInMaps": "Ouvrir dans les cartes",
+  "detailParkMap": "Plan du parc",
   "detailPractical": "Détails pratiques",
   "detailPrice": "Prix",
+  "detailRemovedSnack": "Supprimé de votre itinéraire",
   "detailReserve": "Réserver l’expérience",
   "detailReserveSoon": "Partenaires de réservation bientôt disponibles.",
+  "detailSaveToItinerary": "Enregistrer dans l'itinéraire",
+  "detailSaved": "Enregistré",
+  "detailSavedSnack": "Enregistré dans votre itinéraire",
+  "detailSetHomeBase": "Définir comme port d'attache",
   "detailVibeMatch": "Match d'ambiance",
+  "detailViewMenuOnline": "Voir le menu en ligne",
+  "detailViewOnMap": "Voir sur la carte",
   "detailWhySpecial": "Pourquoi c’est spécial",
+  "discoverFilterAll": "Tous",
+  "discoverFilterDestinations": "Destinations",
+  "discoverFilterHotels": "Hôtels",
+  "discoverFilterRestaurants": "Restaurants",
+  "discoverFromHub": "Depuis {hub}",
+  "@discoverFromHub": {
+    "placeholders": {
+      "hub": {
+        "type": "String"
+      }
+    }
+  },
   "discoverFromOrlando": "Depuis Orlando",
   "discoverPopularInRadius": "Populaire dans votre rayon",
   "discoverSearchEmpty": "Aucun résultat dans ce rayon : essayez un nom plus court, élargissez la distance sur Carte ou Fil, ou cherchez “plage”, “Disney” ou “sources”.",
-  "discoverFilterAll": "Tout",
-  "discoverFilterHotels": "Hôtels",
-  "discoverFilterRestaurants": "Restaurants",
-  "discoverFilterDestinations": "Destinations",
   "discoverSearchHint": "Rechercher des destinations…",
   "discoverSearchScopeAll": "Recherche dans tout le catalogue de Floride",
   "discoverSearchScopeRadius": "À moins de {radius} d’Orlando",
@@ -136,20 +185,41 @@
       }
     }
   },
+  "discoverSearchScopeRadiusHub": "Dans {radius} de {hub}",
+  "@discoverSearchScopeRadiusHub": {
+    "placeholders": {
+      "radius": {
+        "type": "String"
+      },
+      "hub": {
+        "type": "String"
+      }
+    }
+  },
   "discoverSearchTitle": "Trouver une destination",
   "discoverTrySearching": "Essayez une recherche",
+  "featuredCityHomeSubtitle": "Options de partenaires utiles pour Orlando – clairement indiquées, jamais cachées lors des choix de l’IA.",
+  "featuredCityHomeTitle": "Partenaires en vedette",
+  "featuredDiningSubtitle": "Restaurants partenaires Points forts de Luxora — votre liste de joyaux bio reste indépendante.",
+  "featuredDiningTitle": "Restauration en vedette",
+  "featuredExperiencesSubtitle": "Des choix sponsorisés en fonction de votre humeur – toujours étiquetés, jamais déguisés en rang IA.",
+  "featuredExperiencesTitle": "Expériences en vedette",
+  "featuredStaysSubtitle": "Placements de partenaires — distincts des scores de correspondance organiques des hôtels de Luxora.",
+  "featuredStaysTitle": "Séjours en vedette",
+  "featuredTicketPartnersSubtitle": "Offres des partenaires autorisés – comparez avec les économies organiques ci-dessous.",
+  "featuredTicketPartnersTitle": "Partenaires de billets en vedette",
   "feedBadge": "DÉCOUVERTE EN DIRECT",
   "feedEmptyHint": "Aucune carte dans ce rayon : essayez 50 mi ou Toute la Floride pour la côte du Golfe et les Keys.",
+  "feedMoodAdventurous": "Aventureux",
+  "feedMoodAll": "Tout",
+  "feedMoodCalm": "Calme",
+  "feedMoodFoodie": "Fin gourmet",
+  "feedMoodPampered": "Choyé",
+  "feedMoodPrompt": "COMMENT VOULEZ-VOUS VOUS SENTIR ?",
+  "feedMoodRomantic": "Romantique",
+  "feedMoodSocial": "Bourdonnement",
   "feedPillCreator": "Choix de créateurs",
   "feedPillLive": "Mises à jour en direct",
-  "feedMoodPrompt": "QUE VOULEZ-VOUS RESSENTIR ?",
-  "feedMoodAll": "Tout",
-  "feedMoodRomantic": "Romantique",
-  "feedMoodCalm": "Calme",
-  "feedMoodAdventurous": "Aventureux",
-  "feedMoodPampered": "Choyé",
-  "feedMoodSocial": "Animé",
-  "feedMoodFoodie": "Gourmand",
   "feedPillNewOpenings": "Nouvelles ouvertures",
   "feedPillTrending": "Tendance",
   "feedSubtitle": "Ce qui bouge maintenant : lieux tendance, nouvelles ouvertures, choix de créateurs, itinéraires saisonniers et mises à jour en direct.",
@@ -159,11 +229,18 @@
   "gemInsiderTip": "Conseil d’initié",
   "gemLocalNote": "Note réservée aux locaux",
   "gemLocalSecret": "SECRET LOCAL",
-  "gemsMatchedBadge": "Votre style",
-  "gemsMatchedNote": "{count} pépites correspondent à votre style",
   "gemWhySpecial": "Pourquoi c’est spécial",
   "gemsBadge": "SÉLECTION D’INITIÉS",
   "gemsEmptyHint": "Pas encore de pépites dans ce rayon : élargissez à 50 mi ou plus pour les sources et les secrets de la Space Coast.",
+  "gemsMatchedBadge": "Votre style",
+  "gemsMatchedNote": "{count, plural, =1{1 gem matched to your style} other{{count} gemmes correspondent à votre style}}",
+  "@gemsMatchedNote": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "gemsPillCrowd": "Infos affluence",
   "gemsPillHidden": "Lieux cachés",
   "gemsPillInsider": "Conseils d’initiés",
@@ -171,6 +248,191 @@
   "gemsSearchHint": "Rechercher des pépites cachées et destinations…",
   "gemsSubtitle": "Découvertes secrètes que les locaux protègent : pourquoi c’est spécial, quand y aller, l’affluence et les conseils introuvables sur une carte postale.",
   "gemsTitle": "Pépites cachées",
+  "goldenHourKindBeach": "Fenêtre coucher de soleil sur la plage",
+  "goldenHourKindRooftop": "Heure dorée sur les toits",
+  "goldenHourKindScenic": "Calendrier de photographie panoramique",
+  "goldenHourLeaveBy": "Partez avant {time} ({minutes} min de route) pour {place} : arrivez environ 15 minutes avant le coucher du soleil.",
+  "@goldenHourLeaveBy": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      },
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "goldenHourTitle": "Heure d'or",
+  "helpCenterBody": "Envoyez un e-mail à support@luxora.ai pour obtenir de l'aide du concierge. Des guides intégrés à l'application seront bientôt disponibles.",
+  "helpCenterTitle": "Centre d'aide",
+  "hotelAddHomeBase": "Ajouter comme base d'attache",
+  "hotelCheckRates": "Vérifier les tarifs",
+  "hotelCompareDriveImpact": "Stimuler l'impact",
+  "hotelCompareNearby": "Points forts à proximité",
+  "hotelComparePrice": "Gamme de prix",
+  "hotelCompareSelected": "{count} sélectionnés",
+  "@hotelCompareSelected": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "hotelCompareSubtitle": "Vue du concierge côte à côte : jusqu'à trois hôtels.",
+  "hotelCompareTitle": "Comparez les séjours",
+  "hotelDiscoveryTitle": "Organisé pour Orlando",
+  "hotelDistanceTitle": "Distance aux points clés",
+  "hotelGetDirections": "Obtenir un itinéraire",
+  "hotelHomeBaseActive": "Base d'attache active",
+  "hotelHomeBaseBadge": "BASE D'ACCUEIL",
+  "hotelIntelBadge": "INTELLIGENCE HÔTELIÈRE",
+  "hotelIntelSubtitle": "En fonction du voyage que vous souhaitez réaliser, Luxora sélectionne des séjours qui façonnent vos journées, et non une grille de réservation.",
+  "hotelIntelTitle": "Trouvez votre port d'attache",
+  "hotelItineraryImpactBody": "Disque approximatif depuis le hub : {driveTime}. Score de friction de voyage : {friction}/90 (le plus bas est plus calme).",
+  "@hotelItineraryImpactBody": {
+    "placeholders": {
+      "driveTime": {
+        "type": "String"
+      },
+      "friction": {
+        "type": "int"
+      }
+    }
+  },
+  "hotelItineraryImpactTitle": "Comment cela façonne vos journées",
+  "hotelLuxoraScore": "Louxor",
+  "hotelMatchAdults": "Adultes",
+  "hotelMatchAttractions": "Attractions sur votre liste",
+  "hotelMatchAttractionsGeneral": "vos attractions prévues",
+  "hotelMatchBestForCouple": "Les couples qui veulent de la romance sans le chaos des parcs à thème.",
+  "hotelMatchBestForFamily": "Les familles qui veulent des journées à la piscine sans sacrifier l'accès au parc.",
+  "hotelMatchBestForGroup": "Groupes conciliant confort, accès et calme logistique.",
+  "hotelMatchBestForLabel": "Idéal pour :",
+  "hotelMatchBudget": "Zone de confort budgétaire",
+  "hotelMatchImpactDefault": "Maintient les trajets moyens autour de {time} afin que votre flux quotidien reste détendu.",
+  "@hotelMatchImpactDefault": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelMatchImpactDisney": "Des courses Disney plus courtes : environ {time} pour rejoindre les parcs depuis votre porte.",
+  "@hotelMatchImpactDisney": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelMatchImpactUniversal": "Les avantages Universal Express ou l’accès aux bateaux-taxis peuvent récupérer des heures de votre journée.",
+  "hotelMatchImpactWalkable": "Marchez jusqu'au dîner : moins de stress lié au stationnement après de longues journées au parc.",
+  "hotelMatchItineraryLabel": "Itinéraire:",
+  "hotelMatchKids": "Enfants",
+  "hotelMatchLuxuryLevel": "Niveau de luxe souhaité",
+  "hotelMatchNearbyLabel": "Proche:",
+  "hotelMatchResultsTitle": "Vos 3 meilleurs matchs",
+  "hotelMatchTradeoffCarNeeded": "Vous compterez sur une voiture ou un covoiturage, pas sur une base accessible à pied partout.",
+  "hotelMatchTradeoffDefault": "Chaque séjour comporte des compromis - Luxora a d'abord choisi cela comme priorité.",
+  "hotelMatchTradeoffLessFamily": "Moins axé sur les équipements destinés aux enfants que sur les complexes familiaux dédiés.",
+  "hotelMatchTradeoffLessRomantic": "Plus d'énergie dans un parc à thème qu'une retraite tranquille en couple.",
+  "hotelMatchTradeoffLuxuryBudget": "Tarifs de villégiature haut de gamme : prévoyez plus pour la chambre, moins ailleurs.",
+  "hotelMatchTradeoffsLabel": "Compromis :",
+  "hotelMatchTransport": "Se déplacer",
+  "hotelMatchTravelers": "Voyageurs",
+  "hotelMatchWhyMulti": "En fonction de votre itinéraire {attractions}, {hotel} réduit le temps de trajet et facilite les soirées.",
+  "@hotelMatchWhyMulti": {
+    "placeholders": {
+      "attractions": {
+        "type": "String"
+      },
+      "hotel": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelMatchWhySingle": "{hotel} dans {neighborhood} correspond à ce que vous souhaitez ressentir lors de ce voyage.",
+  "@hotelMatchWhySingle": {
+    "placeholders": {
+      "hotel": {
+        "type": "String"
+      },
+      "neighborhood": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelMatchWhyTitle": "Score du match {score}",
+  "@hotelMatchWhyTitle": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "hotelMatchmakerCta": "Entremetteur d’hôtels IA",
+  "hotelMatchmakerRun": "Trouvez mes 3 meilleurs séjours",
+  "hotelMatchmakerSubtitle": "Partagez comment vous voyagez – Luxora vous recommande où ancrer vos journées.",
+  "hotelMatchmakerTeaser": "Dites à Luxora votre style de voyage et bénéficiez de trois séjours sélectionnés par le concierge avec des compromis honnêtes.",
+  "hotelMatchmakerTitle": "Entremetteur d’hôtel",
+  "hotelNearbyDefault": "Dîners et expériences autour de {neighborhood}.",
+  "@hotelNearbyDefault": {
+    "placeholders": {
+      "neighborhood": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelPriceBudget": "Budget",
+  "hotelPriceLuxury": "Luxe",
+  "hotelPriceModerate": "Modéré",
+  "hotelPriceUpscale": "Haut de gamme",
+  "hotelReasonBetterGroup": "Mieux adapté à votre type de groupe et à votre niveau d’énergie.",
+  "hotelReasonCloseStops": "Proche des arrêts prévus sur votre timeline.",
+  "hotelReasonFitsBudget": "S'adapte à une zone de confort de {range} sans dépenser trop pour une mauvaise station.",
+  "@hotelReasonFitsBudget": {
+    "placeholders": {
+      "range": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelReasonLowStress": "Calme de style resort : moins de logistique, plus de vacances.",
+  "hotelReasonMatchesMood": "Correspond à votre humeur et à votre rythme de voyage.",
+  "hotelReasonNearbyDining": "Restauration solide à proximité pour des soirées sans effort.",
+  "hotelReasonSavesDrive": "Permet d'économiser du temps de trajet par rapport à un hub générique : environ {time} depuis le centre.",
+  "@hotelReasonSavesDrive": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelSave": "Sauvegarder l’hôtel",
+  "hotelSaved": "Enregistré",
+  "hotelScoreFamily": "Famille",
+  "hotelScoreLuxury": "Luxe",
+  "hotelScoreRomance": "Romance",
+  "hotelScoreWalkability": "Marcher",
+  "hotelTagBudget": "Économique",
+  "hotelTagCouples": "Idéal pour les couples",
+  "hotelTagDisney": "Idéal pour Disney",
+  "hotelTagFamily": "Familial",
+  "hotelTagLuxuryStaycation": "Séjour de luxe",
+  "hotelTagQuiet": "Évasion tranquille",
+  "hotelTagResort": "Ambiance de villégiature",
+  "hotelTagUniversal": "Idéal pour universel",
+  "hotelTagWalkableDining": "Restauration accessible à pied",
+  "hotelTransportCar": "Voiture de location",
+  "hotelTransportRideshare": "Covoiturage",
+  "hotelTransportShuttle": "Navette station",
+  "hotelTransportWalkable": "Quartier accessible à pied",
+  "hotelViewOnMap": "Afficher sur la carte",
+  "hotelVisitWebsite": "Visitez le site Web",
+  "hotelWhyRecommendTitle": "Pourquoi Luxora le recommande",
   "itineraryBadge": "VOTRE PROGRAMME",
   "itineraryDayTab": "Jour {day} · {label}",
   "@itineraryDayTab": {
@@ -196,36 +458,17 @@
   "landingWhy": "Pourquoi nous construisons cela",
   "language": "Langue",
   "light_mode": "Mode clair",
-  "mapPlanDayTitle": "Planifier ma journée",
-  "mapPlanDaySuggested": "Suggéré selon l’ambiance de votre voyage — ajoutez des lieux pour le personnaliser.",
-  "mapPlanDayEmpty": "Ajoutez des destinations (♥) et Luxora crée un itinéraire optimisé depuis votre base d’Orlando : moins de route, plus d’émotion.",
-  "mapPlanDaySummary": "{count} arrêts · {miles} · {time} de route",
-  "@mapPlanDaySummary": {
-    "placeholders": {
-      "count": { "type": "int" },
-      "miles": { "type": "String" },
-      "time": { "type": "String" }
-    }
-  },
-  "mapPlanDayHomeBase": "Départ depuis {hotel}",
-  "@mapPlanDayHomeBase": {
-    "placeholders": { "hotel": { "type": "String" } }
-  },
-  "mapCrowdLevelQuiet": "Calme",
-  "mapCrowdLevelModerate": "Modéré",
-  "mapCrowdLevelBusy": "Animé",
-  "mapCrowdLevelPacked": "Très animé",
-  "mapCrowdAtStop": "Affluence : {level}",
-  "@mapCrowdAtStop": {
-    "placeholders": { "level": { "type": "String" } }
-  },
-  "mapRerouteButton": "Réorienter vers des arrêts plus calmes",
-  "mapRerouteApplied": "Journée ajustée — {count} arrêts échangés pour moins de foule.",
-  "@mapRerouteApplied": {
-    "placeholders": { "count": { "type": "int" } }
-  },
-  "mapRerouteNone": "Votre itinéraire semble déjà serein.",
-  "mapRerouteRainHint": "Pluie probable — touchez pour réorienter vers des options couvertes.",
+  "localSecretDisneySpringsParking": "Le meilleur parking est le garage orange – marchez du côté de la marina, pas du côté de l’entrée principale.",
+  "localSecretLakeEolaSunset": "Faites face au côté amphithéâtre pour prendre des photos de cygnes alors que le ciel devient doré.",
+  "localSecretMiamiLittleHavanaDomino": "Achetez d'abord un cafécito au chariot de la fenêtre - les habitués du banc secondaire s'ouvrent lorsque vous tenez un cortadito.",
+  "localSecretMiamiOceanDriveSunrise": "Faites face à l’est à 7 heures du matin sur Lummus – les pastels art déco brillent avant l’arrivée de la foule du brunch.",
+  "localSecretMiamiPantherAlley": "Commandez à la fenêtre, parcourez l'allée dans le sens des aiguilles d'une montre – la meilleure lumière murale frappe le mur turquoise à 8h45.",
+  "localSecretMiamiVizcayaMangrove": "Évitez la ruée sur la terrasse principale : entrez par le jardin est et parcourez la promenade de la mangrove dans le sens inverse des aiguilles d'une montre.",
+  "localSecretMiamiWynwoodAlley": "Parcourez l'allée de chargement derrière Panther Coffee - les habitants réalisent des peintures murales sans la foule principale.",
+  "localSecretTitle": "Secret local",
+  "localSecretWekiwaSprings": "Évitez la promenade principale après 14 heures : le début du sentier nord reste calme.",
+  "localSecretWinterParkParkAvenue": "Les habitants se dirigent vers la cour de la ruelle derrière la librairie – aucun panneau de signalisation.",
+  "localSecretWorldFoodTrucks": "Commandez la prise quotidienne, pas le hamburger : la file d'attente se déplace plus rapidement à la fenêtre la plus éloignée.",
   "mapAiPowers": "Pouvoirs de la carte IA",
   "mapBadge": "CARTE IA",
   "mapBookingTitle": "Réservation fluide (partenaires)",
@@ -243,6 +486,18 @@
   "mapCapSunsetTitle": "Meilleur coucher de soleil maintenant",
   "mapCapWeatherDesc": "Plans de repli en cas de pluie et créneaux en direct pour plages, rooftops et sources.",
   "mapCapWeatherTitle": "Suggestions météo-intelligentes",
+  "mapCrowdAtStop": "Foule : {level}",
+  "@mapCrowdAtStop": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "mapCrowdLevelBusy": "Occupé",
+  "mapCrowdLevelModerate": "Modéré",
+  "mapCrowdLevelPacked": "Emballé",
+  "mapCrowdLevelQuiet": "Calme",
   "mapFutureCrowdDesc": "Densité en temps réel aux sources, parcs et rooftops viraux : est-ce que ça vaut le coup maintenant ?",
   "mapFutureCrowdTitle": "Chaleur d’affluence en direct",
   "mapFutureParkingDesc": "Score de friction avant de vous engager : voiturier, parking ou meilleur point de dépose.",
@@ -251,10 +506,109 @@
   "mapFutureRerouteTitle": "Réacheminement spontané",
   "mapFutureTrafficDesc": "Itinéraires pondérés par le stress : pas seulement les minutes, mais le ressenti du trajet.",
   "mapFutureTrafficTitle": "Score de friction de conduite",
+  "mapHotelIntelBannerBody": "Votre hôtel détermine les temps de trajet, le déroulement de la journée et l'endroit où vous mangez. Luxora vous aide à choisir, sans pression de réservation.",
+  "mapHotelIntelBannerCta": "Explorez l’intelligence hôtelière",
+  "mapHotelIntelBannerTitle": "Choisissez le bon port d'attache",
   "mapNavLayerSubtitle": "Au-delà de la découverte : une intelligence en direct pour savoir si un arrêt vaut le coup maintenant.",
   "mapNavLayerTitle": "Couche de navigation IA (prochaine)",
+  "mapPlanDayEmpty": "Ajoutez des destinations (♥) et Luxora crée un itinéraire optimisé à partir de votre hub d'Orlando : moins de conduite, plus de sensations.",
+  "mapPlanDayHomeBase": "À partir de {hotel}",
+  "@mapPlanDayHomeBase": {
+    "placeholders": {
+      "hotel": {
+        "type": "String"
+      }
+    }
+  },
+  "mapPlanDaySuggested": "Suggéré en fonction de votre humeur de voyage : ajoutez des lieux à vos favoris pour en faire le vôtre.",
+  "mapPlanDaySummary": "{count} arrêts · {miles} · {time} trajet",
+  "@mapPlanDaySummary": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "miles": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "mapPlanDayTitle": "Planifier ma journée",
+  "mapRerouteApplied": "Jour ajusté – {count} arrêts remplacés par des foules plus légères.",
+  "@mapRerouteApplied": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapRerouteButton": "Réacheminer vers des arrêts plus calmes",
+  "mapRerouteNone": "Votre itinéraire s'annonce déjà calme.",
+  "mapRerouteRainHint": "Pluie probable – appuyez sur Rediriger pour les sauvegardes en intérieur.",
   "mapSubtitle": "Repères pour votre journée sur mesure : les diamants dorés sont des Pépites, les marqueurs cyan indiquent le programme du jour et la ligne dorée suit l’ambiance.",
   "mapTitle": "Votre itinéraire intelligent",
+  "miamiBeachBestTime": "Meilleur moment : {time}",
+  "@miamiBeachBestTime": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "miamiBeachCrowdScore": "Foule",
+  "miamiBeachFamilyScore": "Famille",
+  "miamiBeachIntelTitle": "Renseignements sur la plage",
+  "miamiBeachParking": "Stationnement : {level}",
+  "@miamiBeachParking": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "miamiBeachPhotoScore": "Photo",
+  "miamiBeachRomanceScore": "Romance",
+  "miamiBeachSunsetScore": "Coucher de soleil",
+  "miamiMoodRouteStart": "Commencez vers {time}",
+  "@miamiMoodRouteStart": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "miamiMoodRoutesTitle": "Itinéraires d'ambiance à Miami",
+  "miamiNightlifeArrival": "Meilleure arrivée : {time}",
+  "@miamiNightlifeArrival": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "miamiNightlifeDressCode": "Code vestimentaire : {code}",
+  "@miamiNightlifeDressCode": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "miamiNightlifeReservation": "Réservation conseillée",
+  "miamiNightlifeTitle": "Conciergerie Vie Nocturne",
+  "milesFromHub": "{distance} de {hub}",
+  "@milesFromHub": {
+    "placeholders": {
+      "distance": {
+        "type": "String"
+      },
+      "hub": {
+        "type": "String"
+      }
+    }
+  },
   "milesFromOrlando": "{distance} depuis Orlando",
   "@milesFromOrlando": {
     "placeholders": {
@@ -263,6 +617,18 @@
       }
     }
   },
+  "momentFamilyMemory": "Mémoire de famille",
+  "momentFeelRelaxed": "Sentez-vous détendu",
+  "momentImpressSpouse": "Impressionner mon conjoint",
+  "momentLuxuryValue": "Le luxe sans dépenses excessives",
+  "momentPerfectSunset": "Coucher de soleil parfait",
+  "momentPromptFamilyMemory": "Je veux un moment familial mémorable, facile pour les parents et magique pour les enfants.",
+  "momentPromptImpressSpouse": "Je veux impressionner mon conjoint avec quelque chose de romantique et d'inattendu ce soir.",
+  "momentPromptLuxuryValue": "Je veux un luxe spécial sans dépenser une fortune.",
+  "momentPromptPerfectSunset": "Je veux le moment parfait du coucher de soleil en Floride : où devrions-nous être et quand devrions-nous partir ?",
+  "momentPromptRelaxed": "Je veux me sentir complètement détendu pendant les prochaines heures – lent, beau, pas de foule.",
+  "momentsSubtitle": "Recherchez un sentiment – ​​pas un lieu.",
+  "momentsTitle": "MOMENTS LUXORA",
   "moodAdventurous": "Aventureux",
   "moodFamily": "Lien familial",
   "moodFoodie": "Expérience gourmande",
@@ -270,53 +636,54 @@
   "moodNature": "Axé nature",
   "moodRelaxing": "Relaxant",
   "moodRomantic": "Romantique",
-  "moodSocial": "Social",
+  "moodSocial": "Sociale",
   "moodWellness": "Retraite bien-être",
+  "moreCardAboutSub": "Pourquoi nous construisons Luxora",
+  "moreCardCityPacksSub": "Débloquez les concierges de destination",
+  "moreCardFavoritesSub": "Destinations que vous avez mises en favoris",
+  "moreCardGemsSub": "Les locaux gardent les découvertes d'initiés",
+  "moreCardHelpSub": "Guides et conciergerie",
+  "moreCardHotelsSub": "Des séjours intelligents adaptés à votre humeur",
+  "moreCardItinerarySub": "Votre évasion dorée au quotidien",
+  "moreCardNotificationsSub": "Alertes de voyage et mises à jour du concierge",
+  "moreCardNotificationsTitle": "Notifications",
+  "moreCardPartnersSub": "Expériences partenaires en vedette",
+  "moreCardProfileSub": "Qui voyage, comment ça devrait se sentir",
+  "moreCardProfileTitle": "Profil de voyage",
+  "moreCardSettingsSub": "Thèmes, packs de villes et préférences",
+  "moreCardTicketsSub": "Comparez les économies des partenaires autorisés",
+  "moreCardWeatherSub": "Guidage journalier basé sur les prévisions",
+  "morePageSubtitle": "Outils de voyage, compte et préférences — organisés pour un accès aisé.",
+  "morePageTitle": "Plus",
+  "moreSectionAccount": "COMPTE",
+  "moreSectionApp": "APPLICATION",
+  "moreSectionTravelTools": "OUTILS DE VOYAGE",
   "navConcierge": "Concierge",
+  "navDiscover": "Découvrir",
   "navFeed": "Fil",
   "navGems": "Pépites",
   "navMap": "Carte",
+  "navMore": "Plus",
+  "navStays": "Séjours",
+  "navTicketSavings": "Économies",
   "navTimeline": "Programme",
   "navTrips": "Voyages",
+  "notificationsComingSoon": "Les notifications de voyage arriveront dans une prochaine mise à jour.",
+  "occasionAnniversary": "Anniversaire",
+  "occasionDateNight": "Soirée de rendez-vous",
+  "occasionFamily": "Famille avec enfants",
+  "occasionGeneral": "Je viens d'explorer",
+  "occasionHoneymoon": "Lune de miel",
+  "occasionProposal": "Voyage de proposition",
+  "onboardAdventure": "Aventure et plein air",
   "onboardBudget": "Budget du voyage (USD)",
+  "onboardCulture": "Culture et tourisme",
   "onboardDestination": "Destination",
   "onboardFinish": "Rencontrez votre concierge",
   "onboardFoodie": "Passion gastronomique",
-  "onboardPoolside": "Piscine et détente",
-  "onboardAdventure": "Aventure et plein air",
-  "onboardCulture": "Culture et visites",
-  "dayFlowSubtitle": "Une journée pensée selon ce que vous voulez ressentir, pas une liste de tâches.",
-  "dayFlowMorning": "MATIN",
-  "dayFlowMidday": "MIDI",
-  "dayFlowAfternoon": "APRÈS-MIDI",
-  "dayFlowEvening": "SOIRÉE",
-  "dayFlowNight": "NUIT",
-  "dayFlowReasonMorningPool": "Démarrez en douceur : piscine ou spa avant le début de la journée.",
-  "dayFlowReasonMorningCalm": "Un début tout en douceur pour donner le ton.",
-  "dayFlowReasonMiddayAdventure": "Heures de pleine énergie : la grande aventure tant que vous êtes en forme.",
-  "dayFlowReasonMiddayCulture": "Visites à la plus belle lumière du jour.",
-  "dayFlowReasonMiddayIcon": "Le moment phare de la journée.",
-  "dayFlowReasonAfternoonDowntime": "Un temps calme l'après-midi pour recharger.",
-  "dayFlowReasonAfternoonGem": "Une pépite cachée loin de la foule.",
-  "dayFlowReasonEveningDining": "Le repas du jour : votre choix gourmand.",
-  "dayFlowReasonNightOut": "Une dernière étincelle : une sortie nocturne.",
-  "weatherToday": "En ce moment à {place}",
-  "weatherSunset": "Coucher du soleil {time}",
-  "weatherRainNote": "{percent}% de risque de pluie — prévoyez une petite laine.",
-  "weatherConditionClear": "Dégagé",
-  "weatherConditionPartlyCloudy": "Partiellement nuageux",
-  "weatherConditionCloudy": "Nuageux",
-  "weatherConditionFog": "Brouillard",
-  "weatherConditionDrizzle": "Bruine",
-  "weatherConditionRain": "Pluie",
-  "weatherConditionSnow": "Neige",
-  "weatherConditionThunder": "Orages",
-  "dayFlowVibeFoodie": "Gourmand",
-  "dayFlowVibeNightlife": "Vie nocturne",
-  "dayFlowVibePoolside": "Piscine",
-  "dayFlowVibeAdventure": "Aventureux",
-  "dayFlowVibeCulture": "Culture",
   "onboardNightlife": "Intérêt pour la vie nocturne",
+  "onboardOccasionLabel": "Quelle est l'occasion ?",
+  "onboardPoolside": "Au bord de la piscine et temps d'arrêt",
   "onboardRegion": "Région",
   "onboardStep1Subtitle": "Où allez-vous ?",
   "onboardStep1Title": "Là où les rêves atterrissent d’abord",
@@ -330,28 +697,277 @@
   "onboardStep5Title": "Le cœur de Luxora",
   "onboardTravelers": "Voyageurs",
   "onboardTripFeelHint": "Dîners au coucher du soleil, matinées lentes, rires avec mon partenaire…",
+  "partnerOffersTitle": "Offres partenaires",
+  "paywallBenefitAvoidTrapsBody": "Trouvez des expériences que les locaux recommandent réellement.",
+  "paywallBenefitAvoidTrapsTitle": "Évitez les pièges à touristes",
+  "paywallBenefitSaveMoneyBody": "Découvrez des réductions sur les billets, des offres locales et des choix plus intelligents.",
+  "paywallBenefitSaveMoneyTitle": "Économisez de l'argent",
+  "paywallBenefitSaveTimeBody": "Évitez les heures de recherche et de planification.",
+  "paywallBenefitSaveTimeTitle": "Gagnez du temps",
+  "paywallBenefitTravelSmarterBody": "Obtenez des recommandations basées sur la météo, la foule et votre style de voyage.",
+  "paywallBenefitTravelSmarterTitle": "Voyagez plus intelligemment",
+  "paywallConciergePromise": "Achat unique · Conciergerie personnelle · Pas d'abonnement",
+  "paywallContinueExploring": "Continuer à explorer",
+  "paywallCtaUnlock": "Débloquez le concierge {cityName}",
+  "@paywallCtaUnlock": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallEmotionalLine": "Vous dépensez déjà des milliers de dollars en vacances. Ne laissez pas l'expérience au hasard.",
+  "paywallFeatureAiConcierge": "Conciergerie IA",
+  "paywallFeatureCrowdIntel": "Intelligence des foules",
+  "paywallFeatureDining": "Recommandations de restauration",
+  "paywallFeatureGpsNav": "Navigation GPS",
+  "paywallFeatureHiddenGems": "Joyaux cachés",
+  "paywallFeatureHotelIntel": "Intelligence hôtelière",
+  "paywallFeatureItineraries": "Itinéraires personnalisés",
+  "paywallFeatureLocalSecrets": "Secrets locaux",
+  "paywallFeatureTicketSavings": "Économies intelligentes sur les billets",
+  "paywallFeatureUnlimitedPlanning": "Urbanisme illimité",
+  "paywallFeatureWeatherConcierge": "Conciergerie Météo",
+  "paywallFutureUpdatesIncluded": "Futures mises à jour de {cityName} incluses",
+  "@paywallFutureUpdatesIncluded": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallHeadlineAdventure": "Découvrez la {cityName} que la plupart des touristes ne voient jamais.",
+  "@paywallHeadlineAdventure": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallHeadlineCouples": "Votre escapade parfaite à {cityName} commence ici.",
+  "@paywallHeadlineCouples": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallHeadlineFamily": "Passez moins de temps à planifier et plus de temps à créer des souvenirs à {cityName}.",
+  "@paywallHeadlineFamily": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallHeadlineFoodie": "Goûtez à {cityName} comme un initié local.",
+  "@paywallHeadlineFoodie": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallHeadlineLuxury": "Découvrez {cityName} différemment.",
+  "@paywallHeadlineLuxury": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallHeadlineMiamiDefault": "VIVRE MIAMI DIFFÉREMMENT",
+  "paywallHeadlineMiamiWeekend": "NE PERDEZ PAS VOTRE WEEK-END À MIAMI",
+  "paywallHeroEyebrow": "VOTRE CONCIERGE PERSONNEL",
+  "paywallHeroHeadline": "NE GÂCHEZ PAS VOS VACANCES",
+  "paywallHeroSubheadline": "Luxora planifie le voyage pour que vous puissiez en profiter.",
+  "paywallLessThanDinner": "Moins que le prix d'un dîner de vacances.",
+  "paywallLifetimeAccess": "Accès à vie à {cityName}",
+  "@paywallLifetimeAccess": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallLockedConciergeRecs": "Recommandations du concierge",
+  "paywallLockedDateNight": "Itinéraires romantiques pour un rendez-vous nocturne",
+  "paywallLockedFamilyPlans": "Plans familiaux sans stress",
+  "paywallLockedHiddenLuxury": "Expériences de luxe cachées",
+  "paywallLockedHotelMatchmaker": "Entremetteur d’hôtels intelligents",
+  "paywallLockedPreviewSubtitle": "Débloquez pour révéler des itinéraires et des secrets adaptés à votre voyage.",
+  "paywallLockedPreviewTitle": "Attendre à l'intérieur de votre concierge",
+  "paywallLockedVipSecrets": "Secrets locaux VIP",
+  "paywallLockedWeatherReroute": "Réacheminement en fonction des conditions météorologiques",
+  "paywallLuxoraPriceLine": "{price} Une fois",
+  "@paywallLuxoraPriceLine": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallMostVacationsCost": "La plupart des vacances à {cityName} coûtent {minUsd}–{maxUsd}+",
+  "@paywallMostVacationsCost": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      },
+      "minUsd": {
+        "type": "String"
+      },
+      "maxUsd": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallNoMonthlyFees": "Pas de frais mensuels",
+  "paywallNoSubscription": "Aucun abonnement",
+  "paywallOneTimePurchase": "Achat unique",
+  "paywallReview1": "\"Nous avons économisé des heures de planification.\"",
+  "paywallReview2": "\"J'ai trouvé des endroits que nous n'aurions jamais découverts.\"",
+  "paywallReview3": "\"Ça vaut le coup rien que pour les joyaux cachés.\"",
+  "paywallSocialProofTitle": "Les voyageurs qui ont débloqué Luxora",
+  "paywallUnlockCityConcierge": "Débloquez le concierge {cityName}",
+  "@paywallUnlockCityConcierge": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallWhatYouUnlock": "Ce que vous débloquez",
+  "paywallWhyTravelersUnlock": "Pourquoi les voyageurs débloquent Luxora",
   "photoBy": "Photo par",
   "photoClose": "Fermer",
   "photoOn": "sur",
   "photoViewDestination": "Voir la destination",
   "placeCatAdventure": "Aventure",
-  "placeCatHotel": "Hôtel",
   "placeCatBeach": "Plage",
   "placeCatDining": "Restaurant",
   "placeCatFamily": "Famille",
+  "placeCatHotel": "Hôtel",
   "placeCatNature": "Nature",
   "placeCatNightlife": "Vie nocturne",
   "placeCatRomantic": "Romantique",
   "placeCatSprings": "Sources",
   "placeCatWellness": "Bien-être",
-  "radius100": "100 mi",
-  "radius25": "25 mi",
-  "radius50": "50 mi",
+  "radius100": "100 milles",
+  "radius25": "25 km",
+  "radius50": "50 milles",
   "radiusAllFlorida": "Toute la Floride",
   "radiusDesc100": "Tampa Bay, Daytona, Golfe plus lointain",
+  "radiusDesc100Miami": "Everglades, Fort Lauderdale, plus profond du sud de la Floride",
   "radiusDesc25": "Excursions à la journée autour du cœur d’Orlando",
+  "radiusDesc25Miami": "South Beach, Brickell et les quartiers centraux",
   "radiusDesc50": "Sources, escapades côte, Space Coast",
+  "radiusDesc50Miami": "Wynwood, Coconut Grove, Key Biscayne",
   "radiusDescAll": "Keys, Miami et temps forts de l’État",
+  "radiusDescAllMiami": "Sentier des Florida Keys et points forts de l'État",
+  "rightNowButton": "Que devrions-nous faire maintenant ?",
+  "rightNowEmpty": "Pas encore de moment fort dans votre rayon – élargissez votre découverte ou ajoutez quelques favoris à vos favoris.",
+  "rightNowFamilyCalm": "Calme de la fenêtre de sieste – {minutes} minutes pour une réinitialisation familiale facile à {place}.",
+  "@rightNowFamilyCalm": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowGoldenHour": "L'heure dorée approche : partez dans environ {minutes} minutes pour {place} ({crowd} au coucher du soleil).",
+  "@rightNowGoldenHour": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      },
+      "crowd": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowPerfectWeather": "Vous êtes à {minutes} minutes de {district}. Le ciel est superbe : dirigez-vous vers {place} alors que les foules sont encore {crowd}.",
+  "@rightNowPerfectWeather": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "district": {
+        "type": "String"
+      },
+      "place": {
+        "type": "String"
+      },
+      "crowd": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowQuietGem": "Fenêtre silencieuse : {minutes} minutes avant {place} ({crowd} en ce moment).",
+  "@rightNowQuietGem": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      },
+      "crowd": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowRainyIndoor": "Pluie sur le radar – {minutes} minutes jusqu'à un choix confortable à l'intérieur : {place}.",
+  "@rightNowRainyIndoor": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowResultTitle": "TOUT DE SUITE",
+  "rightNowRomantic": "Énergie du soir – {minutes} minutes à {place} avant le rush.",
+  "@rightNowRomantic": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowScenicCoffee": "Vous êtes à {minutes} minutes de {district}. Le temps est parfait : prenez un café à {place}, puis promenez-vous dans {walkArea} avant l'arrivée des foules ({crowd} foules).",
+  "@rightNowScenicCoffee": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "district": {
+        "type": "String"
+      },
+      "place": {
+        "type": "String"
+      },
+      "walkArea": {
+        "type": "String"
+      },
+      "crowd": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowTapForDetails": "Appuyez pour plus de détails",
+  "savedFavoritesEmpty": "Ajoutez des destinations à vos favoris sur la carte ou le flux : elles apparaîtront ici.",
+  "savedFavoritesTitle": "Favoris enregistrés",
   "scopeDestinationsAll": "{count} destinations · toute la Floride",
   "@scopeDestinationsAll": {
     "placeholders": {
@@ -371,10 +987,46 @@
       }
     }
   },
+  "scopeDestinationsRadiusHub": "{count} destinations · dans un rayon de {radius} autour de {hub}",
+  "@scopeDestinationsRadiusHub": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "radius": {
+        "type": "String"
+      },
+      "hub": {
+        "type": "String"
+      }
+    }
+  },
   "settings": "Paramètres",
+  "settingsStartOverSubtitle": "Commencez un nouveau voyage à partir de zéro",
+  "settingsUnlockConciergeSubtitle": "Pack ville unique — pas un abonnement",
+  "settingsUnlockConciergeTitle": "Débloquez le concierge de la ville",
   "settings_language_picker_note": "Les changements s’appliquent immédiatement.",
   "settings_regions_coming_subtitle": "Hub de départ et packs de villes, bientôt disponibles.",
   "settings_regions_coming_title": "Pays et villes",
+  "shareItineraryFooter": "Prévu avec Luxora, votre compagnon de Floride émotionnellement intelligent.",
+  "shareSubject": "Mon {title}",
+  "@shareSubject": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "sponsorBadgeFeaturedPartner": "Partenaire en vedette",
+  "sponsorBadgePartnerOffer": "Offre partenaire",
+  "sponsorBadgePromoted": "Promu",
+  "sponsorBadgeSponsored": "Sponsorisé",
+  "sponsorCtaBookNow": "Réservez maintenant",
+  "sponsorCtaCheckRates": "Vérifier les tarifs",
+  "sponsorCtaGetTickets": "Obtenez des billets",
+  "sponsorCtaViewOffer": "Voir l'offre",
+  "sponsorCtaVisitWebsite": "Visitez le site Web",
+  "sponsorLuxoraRecommended": "Louxora recommandé",
   "storyAppAsks": "L'application demande",
   "storyBulletAudience": "Familles, couples, voyageurs de luxe et voyageurs bien-être",
   "storyBulletLogisticsGap": "La plupart des applications de voyage se concentrent sur la logistique et non sur la conception d'expériences",
@@ -432,16 +1084,349 @@
   "styleNoTraps": "Pas de pièges à touristes",
   "styleSlowMornings": "Matinées lentes",
   "styleWalkable": "À pied si possible",
+  "ticketAiInsightTitle": "Recommandation Louxora",
+  "ticketBetterOption": "Luxora a trouvé une meilleure option.",
+  "ticketCalculatorTitle": "Économies potentielles",
+  "ticketConfidenceHigh": "Confiance élevée",
+  "ticketConfidenceLimited": "Durée limitée",
+  "ticketConfidenceVerified": "Revendeur vérifié",
+  "ticketDealsSectionTitle": "Offres autorisées",
+  "ticketDiscountPrice": "Prix ​​​​de Louxora",
+  "ticketEstimatedFamilySave": "Économies familiales estimées : {amount}.",
+  "@ticketEstimatedFamilySave": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "ticketExpires": "Offre jusqu'au {date}",
+  "@ticketExpires": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "ticketFamilySave": "Économies familiales estimées : {amount}.",
+  "@ticketFamilySave": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "ticketFilterAll": "Tous",
+  "ticketFilterAttractions": "Attractions",
+  "ticketFilterDining": "Expériences culinaires",
+  "ticketFilterEntertainment": "Divertissement",
+  "ticketFilterFamily": "Activités familiales",
+  "ticketFilterLabel": "Filtre",
+  "ticketFilterThemeParks": "Parcs à thème",
+  "ticketFilterTours": "Visites",
+  "ticketFilterWaterParks": "Parcs aquatiques",
+  "ticketInsightDisneyPass": "En fonction de votre itinéraire, un pass Walt Disney World de 3 jours au lieu de billets d'une journée pourrait permettre à votre famille d'économiser environ 120 USD.",
+  "ticketInsightGeneric": "Luxora a assorti les économies aux arrêts de votre itinéraire - comparez avant d'acheter à la porte.",
+  "ticketInsightMiamiCulture": "La culture s'arrête sur votre forfait – Les offres des partenaires Vizcaya et PAMM pourraient battre les prix d'entrée cette semaine.",
+  "ticketInsightMiamiEverglades": "Journée dans les Everglades sur votre itinéraire : les créneaux horaires des hydroglisseurs du matin sont souvent moins chers en milieu de semaine.",
+  "ticketInsightMiamiWynwood": "Wynwood sur votre itinéraire : une promenade artistique guidée peut battre le prix d'un stand sans rendez-vous.",
+  "ticketInsightSeaworldCombo": "SeaWorld sur votre itinéraire — le combo Aquatica bat souvent deux entrées distinctes.",
+  "ticketInsightUniversalCombo": "Votre forfait inclut Universal – un billet pour 2 parcs vaut mieux acheter des jours séparément pour la plupart des familles.",
+  "ticketItineraryMatchTitle": "Chèque d'épargne itinéraire",
+  "ticketNoDeals": "Aucune offre dans ce filtre – essayez une autre catégorie.",
+  "ticketOfficialPrice": "Officiel",
+  "ticketOverpaying": "Vous payez peut-être trop cher au prix d'entrée.",
+  "ticketRecommendedSavings": "Économies recommandées disponibles",
+  "ticketSaveAmount": "Économisez {amount}",
+  "@ticketSaveAmount": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "ticketSaveAmountLabel": "Économies",
+  "ticketSavePerTicket": "Vous pourriez économiser {amount} par billet.",
+  "@ticketSavePerTicket": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "ticketSavingsBadge": "ÉCONOMISEZ {percent} %",
+  "@ticketSavingsBadge": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "ticketSavingsBadgeLabel": "ÉCONOMIES DE PRIMES",
+  "ticketSavingsSubtitle": "Luxora présente des revendeurs agréés, des offres groupées et des promotions afin que vous vous sentiez comme un conseiller en luxe et non comme un site de coupons.",
+  "ticketSavingsTitle": "Économies intelligentes sur les billets",
+  "ticketSortClosest": "Le plus proche de moi",
+  "ticketSortFamilyFriendly": "Familial",
+  "ticketSortHighestSavings": "Économies les plus élevées",
+  "ticketSortLabel": "Trier par",
+  "ticketSortLuxury": "Expériences de luxe",
+  "ticketSortMostPopular": "Le plus populaire",
+  "ticketSource": "Source : {source}",
+  "@ticketSource": {
+    "placeholders": {
+      "source": {
+        "type": "String"
+      }
+    }
+  },
+  "tripStoryBeatClosing": "Luxora a façonné les moments – vous les avez vécus.",
+  "tripStoryBeatMoods": "Vous êtes venu pour {moods}.",
+  "@tripStoryBeatMoods": {
+    "placeholders": {
+      "moods": {
+        "type": "String"
+      }
+    }
+  },
+  "tripStoryBeatTitle": "Ce chapitre : {title}.",
+  "@tripStoryBeatTitle": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "tripStoryHeading": "{title} — votre histoire en Floride",
+  "@tripStoryHeading": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "tripStoryTitle": "Le récit de votre voyage",
   "tripsBadge": "COLLECTIONS",
+  "tripsDeleteBody": "Cela supprime « {title} » de vos voyages enregistrés. Cela ne peut pas être annulé.",
+  "@tripsDeleteBody": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "tripsDeleteTitle": "Supprimer le voyage ?",
+  "tripsDeleted": "Voyage supprimé",
+  "tripsEmptyBody": "Planifiez votre premier voyage et il apparaîtra ici, prêt à être revisité à tout moment.",
+  "tripsEmptyTitle": "Aucun voyage enregistré pour l'instant",
   "tripsFooter": "Couvertures de voyage du catalogue d’ambiances · synchronisation Supabase Phase 2",
   "tripsLiveWeather": "Météo en direct",
   "tripsNextUp": "Ensuite",
+  "tripsOpenStory": "Votre histoire",
   "tripsOpenTimeline": "Ouvrir la chronologie complète",
+  "tripsPlanNew": "Planifier un nouveau voyage",
   "tripsShare": "Partager",
-  "shareItineraryFooter": "Conçu avec Luxora, votre compagnon de Floride émotionnellement intelligent.",
-  "shareSubject": "Mon {title}",
   "tripsSubtitle": "Touchez un voyage pour un aperçu en direct : prochain moment, météo, coucher de soleil et programme.",
   "tripsSunsetWindow": "Fenêtre coucher de soleil",
   "tripsTimelineSnapshot": "Instantané de la chronologie",
-  "tripsTitle": "Voyages enregistrés"
+  "tripsTitle": "Voyages enregistrés",
+  "vacationScoreSubtitle": "Aujourd’hui, c’est comme une journée de type {score}/100.",
+  "@vacationScoreSubtitle": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "vacationScoreTitle": "Score de vacances",
+  "visualShareImageButton": "Partager la fiche image",
+  "weatherAdjustDay": "Ajuster ma journée en fonction de la météo",
+  "weatherAdviceDefault": "Le ciel semble gérable – suivez votre plan et gardez une couche légère à portée de main.",
+  "weatherAdviceGreatSunset": "Excellentes conditions de coucher de soleil ce soir – envisagez un dîner sur le toit ou une promenade sur le lac.",
+  "weatherAdviceHighUv": "UV élevés aujourd’hui – apportez de la crème solaire et évitez une longue exposition directe au soleil à midi.",
+  "weatherAdviceLightJacket": "Apportez une veste légère ce soir.",
+  "weatherAdviceOutdoorBefore": "Planifiez des activités de plein air avant {time}.",
+  "@weatherAdviceOutdoorBefore": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherAdviceRainLater": "Le risque de pluie augmente plus tard dans la journée, alors déplacez les expériences en intérieur vers l'après-midi.",
+  "weatherAdviceWindBeach": "Le vent peut rendre les activités sur la plage ou en bateau moins confortables aujourd'hui.",
+  "weatherBestOutdoorWindow": "Meilleure fenêtre extérieure",
+  "weatherCloudCover": "Couverture nuageuse",
+  "weatherComingSoon": "À venir",
+  "weatherConciergeAdviceTitle": "Conseils météo à Louxora",
+  "weatherConciergeTapHint": "Appuyez pour obtenir des prévisions adaptées aux voyages",
+  "weatherConciergeTitle": "Conciergerie Météo",
+  "weatherConditionClear": "Clair",
+  "weatherConditionCloudy": "Nuageux",
+  "weatherConditionDrizzle": "Bruine",
+  "weatherConditionFog": "Brouillard",
+  "weatherConditionPartlyCloudy": "Partiellement nuageux",
+  "weatherConditionRain": "Pluie",
+  "weatherConditionSnow": "Neige",
+  "weatherConditionThunder": "Orages",
+  "weatherFeelsLike": "On dirait {temp}",
+  "@weatherFeelsLike": {
+    "placeholders": {
+      "temp": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherHourlyTitle": "Perspectives horaires",
+  "weatherHourlyUnavailable": "Les prévisions horaires apparaîtront lors du chargement des données.",
+  "weatherHumidity": "Humidité",
+  "weatherImpactClear": "Le ciel semble convivial pour vos projets extérieurs ce matin.",
+  "weatherImpactHeat": "Chaleur élevée à midi : planifiez des promenades en plein air avant {time}.",
+  "@weatherImpactHeat": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherImpactIndoorFallback": "un spa ou un musée",
+  "weatherImpactMixed": "{count} arrêts extérieurs nécessiteront peut-être des ajustements de timing aujourd'hui.",
+  "@weatherImpactMixed": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "weatherImpactNoPlanClear": "La meilleure fenêtre extérieure ressemble à {start}–{end} avant que la chaleur ou les douches ne s'accumulent.",
+  "@weatherImpactNoPlanClear": {
+    "placeholders": {
+      "start": {
+        "type": "String"
+      },
+      "end": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherImpactNoPlanDefault": "La météo semble stable : appuyez sur Planifier ma journée lorsque vous êtes prêt à séquencer les arrêts.",
+  "weatherImpactNoPlanRain": "La pluie est de la partie – construisez d’abord votre journée avec des ancrages intérieurs.",
+  "weatherImpactRainLater": "Le risque de pluie augmente après {time}. Pensez à déplacer {outdoorStop} plus tôt et à enregistrer {indoorStop} pour plus tard.",
+  "@weatherImpactRainLater": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      },
+      "outdoorStop": {
+        "type": "String"
+      },
+      "indoorStop": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherIndoorBackup": "Idées de sauvegarde en intérieur",
+  "weatherLiveRadar": "Radar en direct",
+  "weatherMapOverlays": "Superpositions de cartes",
+  "weatherMiamiBeachMorning": "Forts UV sur le sable – crème solaire, chapeau et plage avant midi.",
+  "weatherMiamiBoatWind": "Le vent est élevé – reconsidérez les activités en bateau ou en yacht ; les repas sur le toit peuvent toujours fonctionner.",
+  "weatherMiamiHeatAdvisory": "Conditions d'avertissement de chaleur : tissus légers, hydratation et pauses ombragées entre les arrêts extérieurs.",
+  "weatherMiamiHumidityIndoor": "Forte humidité aujourd'hui. Allez à la plage ou à la piscine plus tôt, puis à Wynwood ou Brickell pour des repas à l'intérieur et des galeries pendant les heures les plus chaudes.",
+  "weatherMiamiRainReroute": "Fenêtre de pluie à venir : échangez vos plans extérieurs contre {indoorSpot} ou du temps dans la galerie.",
+  "@weatherMiamiRainReroute": {
+    "placeholders": {
+      "indoorSpot": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherMiamiSunsetWaterfront": "Le coucher du soleil semble fort – au bord de l’eau ou sur un toit avec une vue d’est en ouest.",
+  "weatherOutdoorAtRisk": "{count} arrêts extérieurs peuvent être affectés",
+  "@weatherOutdoorAtRisk": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "weatherOverlayCloud": "Couverture nuageuse",
+  "weatherOverlayPrecip": "Précipitation",
+  "weatherOverlayTemp": "Température",
+  "weatherOverlayWind": "Vent",
+  "weatherPackHat": "Chapeau",
+  "weatherPackLightJacket": "Veste légère",
+  "weatherPackPoncho": "Poncho",
+  "weatherPackShoes": "Chaussures confortables",
+  "weatherPackSunglasses": "Lunettes de soleil",
+  "weatherPackSunscreen": "Crème solaire",
+  "weatherPackSwimwear": "Maillots de bain",
+  "weatherPackUmbrella": "Parapluie",
+  "weatherPackWater": "Bouteille d'eau",
+  "weatherPlanImpact": "Impact sur votre régime",
+  "weatherRadarComingSoon": "Radar en direct à venir.",
+  "weatherRainNote": "{percent} % de probabilité de pluie – emportez une couche légère.",
+  "@weatherRainNote": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "weatherRainWindow": "Pluie probable",
+  "weatherStatRain": "Pluie",
+  "weatherSunrise": "Lever du soleil {time}",
+  "@weatherSunrise": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherSunset": "Coucher du soleil {time}",
+  "@weatherSunset": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherSunsetRec": "Recommandation au coucher du soleil",
+  "weatherSunsetRecRooftop": "Ciel dégagé près de {time} : un dîner sur le toit ou une promenade sur le lac pourraient briller.",
+  "@weatherSunsetRecRooftop": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherToday": "En ce moment à {place}",
+  "@weatherToday": {
+    "placeholders": {
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherUv": "Indice UV",
+  "weatherVisibility": "Visibilité",
+  "weatherVisibilityMiles": "{miles} mi",
+  "@weatherVisibilityMiles": {
+    "placeholders": {
+      "miles": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherWhatToBring": "Quoi apporter aujourd'hui",
+  "weatherWind": "Vent",
+  "weatherWindValue": "{dir} à {speed} mph",
+  "@weatherWindValue": {
+    "placeholders": {
+      "dir": {
+        "type": "String"
+      },
+      "speed": {
+        "type": "int"
+      }
+    }
+  }
 }

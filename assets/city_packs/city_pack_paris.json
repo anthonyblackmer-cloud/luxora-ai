@@ -1,0 +1,55 @@
+{
+  "cityId": "paris",
+  "cityName": "Paris",
+  "stateId": "ile-de-france",
+  "description": "Left Bank strolls, museum mornings, and candlelit arrondissements.",
+  "mapCenterLat": 48.8566,
+  "mapCenterLng": 2.3522,
+  "hubLabel": "Paris, France",
+  "supportedCategories": [
+    "hotel",
+    "dining",
+    "romantic",
+    "culture",
+    "nightlife"
+  ],
+  "featuredExperiences": [],
+  "featuredHotels": [],
+  "featuredRestaurants": [],
+  "featuredTicketDeals": [],
+  "featuredHotelIntel": [],
+  "defaultRadiusMiles": 10,
+  "maxRadiusMiles": 30,
+  "districts": [
+    {
+      "districtId": "paris-marais",
+      "cityId": "paris",
+      "districtName": "Le Marais",
+      "districtType": "arts",
+      "description": "Cobblestones, galleries, and falafel lanes.",
+      "mapBounds": {
+        "north": 48.86,
+        "south": 48.85,
+        "east": 2.37,
+        "west": 2.35
+      }
+    },
+    {
+      "districtId": "paris-saint-germain",
+      "cityId": "paris",
+      "districtName": "Saint-Germain",
+      "districtType": "downtown",
+      "description": "Café culture and literary calm.",
+      "mapBounds": {
+        "north": 48.86,
+        "south": 48.84,
+        "east": 2.34,
+        "west": 2.32
+      }
+    }
+  ],
+  "experiences": [],
+  "feedItemPlaceIds": {},
+  "gemPlaceIds": {},
+  "itineraryMomentPlaceIds": {}
+}

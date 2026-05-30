@@ -1,6 +1,9 @@
 import 'package:latlong2/latlong.dart';
 import 'package:luxora_ai/models/lux_place.dart';
+import 'package:luxora_ai/models/trip_occasion.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
+import 'package:luxora_ai/services/city_pack_registry.dart';
+import 'package:luxora_ai/services/trip_occasion_interpreter.dart';
 import 'package:luxora_ai/util/place_distance.dart';
 
 /// Time-of-day segments a day flows through. The planner fills each segment
@@ -74,16 +77,20 @@ enum DayInterest { foodie, nightlife, poolside, adventure, culture }
 abstract final class DayFlowPlanner {
   static const int _highThreshold = 60;
 
+  /// Builds a day plan from trip profile and place pool.
+  /// Trust rule: never boost stops by sponsor tier — mood, distance, and fit only.
   static DayFlow plan({
     required TripProfile? profile,
     required List<LuxPlace> pool,
     LuxPlace? homeBase,
     Set<String> savedIds = const {},
   }) {
-    final p = profile ?? const TripProfile();
+    final p = TripOccasionInterpreter.apply(profile ?? const TripProfile());
     final start = homeBase != null
         ? LatLng(homeBase.latitude, homeBase.longitude)
-        : PlaceDistance.orlandoCenter;
+        : PlaceDistance.hubCenter;
+
+    final isMiami = CityPackRegistry.instance.active.cityId == 'miami';
 
     final used = <String>{if (homeBase != null) homeBase.id};
     final blocks = <DayBlock>[];
@@ -141,9 +148,20 @@ abstract final class DayFlowPlanner {
       add(
         DayPhase.morning,
         pick(
-          const [LuxPlaceCategory.wellness, LuxPlaceCategory.beach,
-              LuxPlaceCategory.springs],
-          tags: const ['pool', 'spa', 'wellness', 'relaxing', 'beach'],
+          isMiami
+              ? const [
+                  LuxPlaceCategory.beach,
+                  LuxPlaceCategory.wellness,
+                  LuxPlaceCategory.nature,
+                ]
+              : const [
+                  LuxPlaceCategory.wellness,
+                  LuxPlaceCategory.beach,
+                  LuxPlaceCategory.springs,
+                ],
+          tags: isMiami
+              ? const ['beach', 'pool', 'spa', 'wellness', 'relaxing']
+              : const ['pool', 'spa', 'wellness', 'relaxing', 'beach'],
         ),
         DayBlockReason.morningPool,
       );
@@ -152,9 +170,22 @@ abstract final class DayFlowPlanner {
       add(
         DayPhase.morning,
         pick(
-          const [LuxPlaceCategory.springs, LuxPlaceCategory.nature,
-              LuxPlaceCategory.beach, LuxPlaceCategory.wellness],
-          tags: const ['springs', 'nature', 'relaxing', 'scenic'],
+          isMiami
+              ? const [
+                  LuxPlaceCategory.beach,
+                  LuxPlaceCategory.nature,
+                  LuxPlaceCategory.wellness,
+                  LuxPlaceCategory.adventure,
+                ]
+              : const [
+                  LuxPlaceCategory.springs,
+                  LuxPlaceCategory.nature,
+                  LuxPlaceCategory.beach,
+                  LuxPlaceCategory.wellness,
+                ],
+          tags: isMiami
+              ? const ['beach', 'nature', 'relaxing', 'scenic', 'sunrise']
+              : const ['springs', 'nature', 'relaxing', 'scenic'],
         ),
         DayBlockReason.morningCalm,
       );
@@ -167,9 +198,21 @@ abstract final class DayFlowPlanner {
       add(
         DayPhase.midday,
         pick(
-          const [LuxPlaceCategory.adventure, LuxPlaceCategory.springs,
-              LuxPlaceCategory.beach, LuxPlaceCategory.nature],
-          tags: const ['adventure', 'water', 'springs', 'thrill', 'outdoors'],
+          isMiami
+              ? const [
+                  LuxPlaceCategory.adventure,
+                  LuxPlaceCategory.beach,
+                  LuxPlaceCategory.nature,
+                ]
+              : const [
+                  LuxPlaceCategory.adventure,
+                  LuxPlaceCategory.springs,
+                  LuxPlaceCategory.beach,
+                  LuxPlaceCategory.nature,
+                ],
+          tags: isMiami
+              ? const ['adventure', 'water', 'culture', 'outdoors', 'arts']
+              : const ['adventure', 'water', 'springs', 'thrill', 'outdoors'],
         ),
         DayBlockReason.middayAdventure,
       );
@@ -188,9 +231,19 @@ abstract final class DayFlowPlanner {
       add(
         DayPhase.midday,
         pick(
-          const [LuxPlaceCategory.family, LuxPlaceCategory.adventure,
-              LuxPlaceCategory.nature, LuxPlaceCategory.beach],
-          tags: const ['iconic', 'trending', 'family'],
+          isMiami
+              ? const [
+                  LuxPlaceCategory.adventure,
+                  LuxPlaceCategory.family,
+                  LuxPlaceCategory.beach,
+                ]
+              : const [
+                  LuxPlaceCategory.family,
+                  LuxPlaceCategory.adventure,
+                  LuxPlaceCategory.nature,
+                  LuxPlaceCategory.beach,
+                ],
+          tags: const ['iconic', 'trending', 'family', 'culture'],
         ),
         DayBlockReason.middayIcon,
       );
@@ -204,8 +257,19 @@ abstract final class DayFlowPlanner {
       add(
         DayPhase.afternoon,
         pick(
-          const [LuxPlaceCategory.wellness, LuxPlaceCategory.beach,
-              LuxPlaceCategory.springs, LuxPlaceCategory.nature],
+          isMiami
+              ? const [
+                  LuxPlaceCategory.beach,
+                  LuxPlaceCategory.wellness,
+                  LuxPlaceCategory.nature,
+                  LuxPlaceCategory.adventure,
+                ]
+              : const [
+                  LuxPlaceCategory.wellness,
+                  LuxPlaceCategory.beach,
+                  LuxPlaceCategory.springs,
+                  LuxPlaceCategory.nature,
+                ],
           tags: const ['relaxing', 'pool', 'spa', 'beach', 'hidden', 'scenic'],
         ),
         gemReason ? DayBlockReason.afternoonGem : DayBlockReason.afternoonDowntime,
@@ -230,7 +294,8 @@ abstract final class DayFlowPlanner {
       PacePreference.balanced => 35,
       PacePreference.slow => 55,
     };
-    if (p.nightlifeInterest >= nightThreshold) {
+    if (p.nightlifeInterest >= nightThreshold &&
+        !(p.occasion.isFamily || p.kids > 0)) {
       add(
         DayPhase.night,
         pick(

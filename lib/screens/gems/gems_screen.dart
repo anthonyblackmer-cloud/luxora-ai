@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:luxora_ai/data/curated_places_catalog.dart';
 import 'package:luxora_ai/l10n/catalog_localizer.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
+import 'package:luxora_ai/data/city_content_catalog.dart';
 import 'package:luxora_ai/data/gem_discoveries.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
+import 'package:luxora_ai/services/city_pack_registry.dart';
 import 'package:luxora_ai/services/discover_radius_controller.dart';
+import 'package:luxora_ai/services/partner_sponsorship_service.dart';
 import 'package:luxora_ai/services/places_repository.dart';
 import 'package:luxora_ai/services/trip_profile_store.dart';
 import 'package:luxora_ai/services/unsplash_download_tracker.dart';
@@ -15,6 +17,7 @@ import 'package:luxora_ai/widgets/discover_radius_selector.dart';
 import 'package:luxora_ai/widgets/discover_scope_banner.dart';
 import 'package:luxora_ai/widgets/lux_place_image.dart';
 import 'package:luxora_ai/widgets/affiliate_hint.dart';
+import 'package:luxora_ai/widgets/partner_sponsor_badge.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
 
 /// Curated secret discoveries — insider knowledge, not trending social content.
@@ -24,8 +27,9 @@ class GemsScreen extends StatelessWidget {
   List<HiddenGem> _gemsForRadius() {
     final radius = DiscoverRadiusController.instance.radius;
     final repo = PlacesRepository.instance;
-    return hiddenGemsCatalog.where((gem) {
-      final placeId = kGemPlaceIds[gem.id];
+    final gemMap = CityPackRegistry.instance.gemPlaceIds;
+    return CityContentCatalog.hiddenGemsForActive().where((gem) {
+      final placeId = gemMap[gem.id];
       if (placeId == null) {
         return true;
       }
@@ -81,8 +85,9 @@ class GemsScreen extends StatelessWidget {
       return [for (final g in gems) (gem: g, matched: false)];
     }
     final repo = PlacesRepository.instance;
+    final gemMap = CityPackRegistry.instance.gemPlaceIds;
     bool isMatch(HiddenGem g) {
-      final place = repo.byId(kGemPlaceIds[g.id]);
+      final place = repo.byId(gemMap[g.id]);
       if (place == null) return false;
       return place.moodTags.any((t) => tags.contains(t.toLowerCase()));
     }
@@ -189,6 +194,20 @@ class GemsScreen extends StatelessWidget {
                   const DiscoverRadiusSelector(),
                   const SizedBox(height: 12),
                   const DiscoverScopeBanner(),
+                  FeaturedPartnerSection(
+                    title: l.featuredDiningTitle,
+                    subtitle: l.featuredDiningSubtitle,
+                    items: PartnerSponsorshipService.featuredDining(),
+                    onItemTap: (item) {
+                      if (item.place == null) return;
+                      showAttractionDetailSheet(context, place: item.place!);
+                    },
+                    onCtaTap: (item) =>
+                        PartnerSponsorshipService.openSponsorCta(
+                      item.sponsorship,
+                    ),
+                  ),
+                  const SizedBox(height: 16),
                   if (rankedGems.isEmpty) ...[
                     const SizedBox(height: 16),
                     Text(
@@ -208,8 +227,9 @@ class GemsScreen extends StatelessWidget {
           final entry = rankedGems[i - 1];
           final gem = entry.gem;
           final gl = context.l10n;
+          final gemMap = CityPackRegistry.instance.gemPlaceIds;
           final place =
-              PlacesRepository.instance.byId(kGemPlaceIds[gem.id]);
+              PlacesRepository.instance.byId(gemMap[gem.id]);
           return Padding(
             padding: const EdgeInsets.only(bottom: 16),
             child: GlassCard(

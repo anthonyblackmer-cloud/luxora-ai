@@ -9,6 +9,7 @@ import 'package:luxora_ai/widgets/attraction_detail_sheet.dart';
 import 'package:luxora_ai/widgets/lux_place_image.dart';
 import 'package:luxora_ai/widgets/unsplash_attribution.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
+import 'package:luxora_ai/widgets/ticket_savings_itinerary_banner.dart';
 
 class ItineraryScreen extends StatelessWidget {
   const ItineraryScreen({super.key});
@@ -46,6 +47,7 @@ class ItineraryScreen extends StatelessWidget {
                     style: const TextStyle(color: LuxColors.stone400, height: 1.4),
                   ),
                   const SizedBox(height: 16),
+                  const TicketSavingsItineraryBanner(),
                   DecoratedBox(
                     decoration: BoxDecoration(
                       color: Colors.white.withValues(alpha: 0.04),

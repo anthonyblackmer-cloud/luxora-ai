@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:luxora_ai/models/partner_sponsorship.dart';
 
 /// Curated secret discoveries — local insider knowledge, not trending content.
 class HiddenGem {
@@ -12,6 +13,7 @@ class HiddenGem {
     required this.insiderTip,
     required this.localOnlyNote,
     required this.gradient,
+    this.sponsorship,
   });
 
   final String id;
@@ -23,6 +25,7 @@ class HiddenGem {
   final String insiderTip;
   final String localOnlyNote;
   final List<Color> gradient;
+  final PartnerSponsorship? sponsorship;
 }
 
 const hiddenGemsCatalog = [

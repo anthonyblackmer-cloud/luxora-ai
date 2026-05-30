@@ -11,6 +11,7 @@ import 'package:luxora_ai/widgets/attraction_detail_sheet.dart';
 import 'package:luxora_ai/widgets/lux_place_image.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
 import 'package:luxora_ai/widgets/lux_button.dart';
+import 'package:luxora_ai/widgets/visual_itinerary_share_card.dart';
 
 class TripsScreen extends StatelessWidget {
   const TripsScreen({super.key});
@@ -390,10 +391,30 @@ class _TripCardState extends State<_TripCard> {
                       value: catalogText(context, trip.timelineSnapshot!),
                     ),
                   const SizedBox(height: 12),
+                  VisualItineraryShareCard(
+                    title: catalogText(context, trip.title),
+                    subtitle: catalogText(context, trip.dateRange),
+                    lines: [
+                      if (trip.timelineSnapshot != null)
+                        catalogText(context, trip.timelineSnapshot!),
+                      catalogText(context, trip.statusLine),
+                      if (trip.sunsetWindow != null)
+                        catalogText(context, trip.sunsetWindow!),
+                    ],
+                  ),
+                  const SizedBox(height: 12),
                   Row(
                     children: [
                       TextButton.icon(
-                        onPressed: () => context.go('/itinerary'),
+                        onPressed: () => context.push('/trip-story', extra: trip),
+                        icon: const Icon(Icons.auto_stories_rounded, size: 18),
+                        label: Text(l.tripsOpenStory),
+                        style: TextButton.styleFrom(
+                          foregroundColor: LuxColors.gold,
+                        ),
+                      ),
+                      TextButton.icon(
+                        onPressed: () => context.push('/itinerary'),
                         icon: const Icon(Icons.arrow_forward_rounded, size: 18),
                         label: Text(l.tripsOpenTimeline),
                         style: TextButton.styleFrom(

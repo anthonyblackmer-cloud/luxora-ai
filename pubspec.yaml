@@ -52,3 +52,4 @@ flutter:
     - assets/unsplash/curated.json
     - assets/images/founder.png
     - assets/places/osm_places.json
+    - assets/city_packs/

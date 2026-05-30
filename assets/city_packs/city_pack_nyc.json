@@ -1,0 +1,55 @@
+{
+  "cityId": "nyc",
+  "cityName": "New York City",
+  "stateId": "new-york",
+  "description": "Five boroughs of culture, cuisine, and iconic skyline moments.",
+  "mapCenterLat": 40.7128,
+  "mapCenterLng": -74.006,
+  "hubLabel": "New York, NY",
+  "supportedCategories": [
+    "hotel",
+    "dining",
+    "nightlife",
+    "culture",
+    "adventure"
+  ],
+  "featuredExperiences": [],
+  "featuredHotels": [],
+  "featuredRestaurants": [],
+  "featuredTicketDeals": [],
+  "featuredHotelIntel": [],
+  "defaultRadiusMiles": 15,
+  "maxRadiusMiles": 40,
+  "districts": [
+    {
+      "districtId": "nyc-midtown",
+      "cityId": "nyc",
+      "districtName": "Midtown",
+      "districtType": "downtown",
+      "description": "Theater, museums, and classic Manhattan energy.",
+      "mapBounds": {
+        "north": 40.77,
+        "south": 40.74,
+        "east": -73.96,
+        "west": -73.99
+      }
+    },
+    {
+      "districtId": "nyc-soho",
+      "cityId": "nyc",
+      "districtName": "SoHo",
+      "districtType": "arts",
+      "description": "Cast-iron streets and boutique dining.",
+      "mapBounds": {
+        "north": 40.73,
+        "south": 40.72,
+        "east": -73.99,
+        "west": -74.01
+      }
+    }
+  ],
+  "experiences": [],
+  "feedItemPlaceIds": {},
+  "gemPlaceIds": {},
+  "itineraryMomentPlaceIds": {}
+}

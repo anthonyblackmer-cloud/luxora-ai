@@ -1,3 +1,5 @@
+import 'package:luxora_ai/models/trip_occasion.dart';
+
 enum TripMood {
   romantic,
   relaxing,
@@ -37,6 +39,7 @@ class TripProfile {
     this.discoveryStyle = DiscoveryStyle.balanced,
     this.tripFeel = '',
     this.moods = const [TripMood.luxurious, TripMood.relaxing],
+    this.occasion = TripOccasion.general,
   });
 
   final String destination;
@@ -73,6 +76,9 @@ class TripProfile {
   final String tripFeel;
   final List<TripMood> moods;
 
+  /// Anniversary, honeymoon, family, etc. — drives couple/family engines.
+  final TripOccasion occasion;
+
   TripProfile copyWith({
     String? destination,
     String? region,
@@ -93,6 +99,7 @@ class TripProfile {
     DiscoveryStyle? discoveryStyle,
     String? tripFeel,
     List<TripMood>? moods,
+    TripOccasion? occasion,
   }) {
     return TripProfile(
       destination: destination ?? this.destination,
@@ -115,6 +122,7 @@ class TripProfile {
       discoveryStyle: discoveryStyle ?? this.discoveryStyle,
       tripFeel: tripFeel ?? this.tripFeel,
       moods: moods ?? this.moods,
+      occasion: occasion ?? this.occasion,
     );
   }
 }

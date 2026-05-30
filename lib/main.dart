@@ -8,6 +8,9 @@ import 'package:luxora_ai/l10n/app_localizations.dart';
 
 import 'package:luxora_ai/router/app_router.dart';
 
+import 'package:luxora_ai/services/city_pack_entitlement_store.dart';
+import 'package:luxora_ai/services/city_pack_registry.dart';
+
 import 'package:luxora_ai/services/discover_radius_controller.dart';
 
 import 'package:luxora_ai/services/home_base_store.dart';
@@ -37,6 +40,10 @@ Future<void> main() async {
   await GoogleFonts.pendingFonts([GoogleFonts.notoColorEmoji()]);
 
   await UnsplashPhotoRegistry.instance.ensureLoaded();
+
+  await CityPackRegistry.instance.load();
+
+  await CityPackEntitlementStore.instance.load();
 
   await DiscoverRadiusController.instance.load();
 

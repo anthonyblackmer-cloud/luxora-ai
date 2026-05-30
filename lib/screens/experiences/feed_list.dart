@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:luxora_ai/data/curated_places_catalog.dart';
 import 'package:luxora_ai/l10n/app_localizations.dart';
 import 'package:luxora_ai/l10n/catalog_localizer.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/data/feed_items.dart';
 import 'package:luxora_ai/models/lux_place.dart';
+import 'package:luxora_ai/services/city_pack_registry.dart';
 import 'package:luxora_ai/services/discover_radius_controller.dart';
+import 'package:luxora_ai/models/sponsorship_extensions.dart';
+import 'package:luxora_ai/services/partner_sponsorship_service.dart';
 import 'package:luxora_ai/services/places_repository.dart';
 import 'package:luxora_ai/services/unsplash_download_tracker.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
@@ -15,6 +17,7 @@ import 'package:luxora_ai/widgets/discover_radius_selector.dart';
 import 'package:luxora_ai/widgets/discover_scope_banner.dart';
 import 'package:luxora_ai/widgets/lux_place_image.dart';
 import 'package:luxora_ai/widgets/affiliate_hint.dart';
+import 'package:luxora_ai/widgets/partner_sponsor_badge.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
 
 /// Emotional entry points for the discovery feed — "how do you want to feel?"
@@ -79,11 +82,12 @@ class _FeedListState extends State<FeedList> {
         builder: (context, _) {
           final radius = DiscoverRadiusController.instance.radius;
           final allFeed = PlacesRepository.instance.feedWithinRadius(radius);
+          final feedMap = CityPackRegistry.instance.feedItemPlaceIds;
           final feed = _mood == FeedMood.all
               ? allFeed
               : allFeed.where((item) {
                   final place = PlacesRepository.instance
-                      .byId(kFeedItemPlaceIds[item.id]);
+                      .byId(feedMap[item.id]);
                   return place != null && _mood.matches(place);
                 }).toList();
           final l = context.l10n;
@@ -191,6 +195,20 @@ class _FeedListState extends State<FeedList> {
                   const DiscoverRadiusSelector(),
                   const SizedBox(height: 12),
                   const DiscoverScopeBanner(),
+                  FeaturedPartnerSection(
+                    title: l.featuredExperiencesTitle,
+                    subtitle: l.featuredExperiencesSubtitle,
+                    items: PartnerSponsorshipService.featuredExperiences(),
+                    onItemTap: (item) {
+                      if (item.place == null) return;
+                      showAttractionDetailSheet(context, place: item.place!);
+                    },
+                    onCtaTap: (item) =>
+                        PartnerSponsorshipService.openSponsorCta(
+                      item.sponsorship,
+                    ),
+                  ),
+                  const SizedBox(height: 16),
                   if (feed.isEmpty) ...[
                     const SizedBox(height: 16),
                     Text(
@@ -208,7 +226,7 @@ class _FeedListState extends State<FeedList> {
           }
 
           final item = feed[i - 1];
-          final placeId = kFeedItemPlaceIds[item.id];
+          final placeId = feedMap[item.id];
           final place = PlacesRepository.instance.byId(placeId);
           return Padding(
             padding: const EdgeInsets.only(bottom: 16),
@@ -245,15 +263,30 @@ class _FeedListState extends State<FeedList> {
                     place: place,
                     presentation: LuxImagePresentation.feedHero,
                     fallbackGradient: item.gradient,
-                    overlayChild: Align(
-                      alignment: Alignment.topLeft,
-                      child: Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: _FeedBadge(
-                          label: catalogText(context, item.kindLabel),
-                          live: item.isLive,
+                    overlayChild: Stack(
+                      children: [
+                        Align(
+                          alignment: Alignment.topLeft,
+                          child: Padding(
+                            padding: const EdgeInsets.all(10),
+                            child: _FeedBadge(
+                              label: catalogText(context, item.kindLabel),
+                              live: item.isLive,
+                            ),
+                          ),
                         ),
-                      ),
+                        if (item.activeSponsorship != null)
+                          Align(
+                            alignment: Alignment.topRight,
+                            child: Padding(
+                              padding: const EdgeInsets.all(10),
+                              child: PartnerSponsorBadge(
+                                sponsorship: item.activeSponsorship!,
+                                compact: true,
+                              ),
+                            ),
+                          ),
+                      ],
                     ),
                   ),
                   Padding(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:luxora_ai/data/local_secrets_registry.dart';
 import 'package:luxora_ai/l10n/app_localizations.dart';
 import 'package:luxora_ai/l10n/catalog_localizer.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
@@ -9,10 +10,12 @@ import 'package:luxora_ai/models/lux_place.dart';
 import 'package:luxora_ai/services/attraction_detail_repository.dart';
 import 'package:luxora_ai/services/home_base_store.dart';
 import 'package:luxora_ai/services/map_launcher.dart';
+import 'package:luxora_ai/services/miami_concierge_service.dart';
 import 'package:luxora_ai/services/places_repository.dart';
 import 'package:luxora_ai/services/saved_places_storage.dart';
 import 'package:luxora_ai/util/place_distance.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
+import 'package:luxora_ai/widgets/miami/miami_concierge_cards.dart';
 import 'package:luxora_ai/widgets/lux_place_image.dart';
 import 'package:luxora_ai/widgets/lux_button.dart';
 import 'package:luxora_ai/widgets/settings/luxora_premium_sheet_shell.dart';
@@ -118,6 +121,16 @@ class _AttractionDetailSheet extends StatelessWidget {
                   place: place,
                   officialMapUrl: detail.officialMapUrl,
                 ),
+                if (MiamiBeachIntelligenceService.forPlace(place.id)
+                    case final beachIntel?) ...[
+                  const SizedBox(height: 12),
+                  MiamiBeachIntelCard(intel: beachIntel),
+                ],
+                if (MiamiNightlifeService.forPlace(place.id)
+                    case final nightlife?) ...[
+                  const SizedBox(height: 12),
+                  MiamiNightlifeCard(venue: nightlife),
+                ],
                 if (place.category == LuxPlaceCategory.hotel) ...[
                   const SizedBox(height: 12),
                   _HomeBaseButton(place: place),
@@ -135,6 +148,11 @@ class _AttractionDetailSheet extends StatelessWidget {
                   title: l.detailInsiderTips,
                   body: catalogText(context, detail.insiderTips),
                 ),
+                if (_localSecret(l, place) case final secret?)
+                  _SectionCard(
+                    title: l.localSecretTitle,
+                    body: secret,
+                  ),
                 if (detail.menu.isNotEmpty) ...[
                   const SizedBox(height: 12),
                   _MenuCard(items: detail.menu),
@@ -501,7 +519,7 @@ class _LocationCard extends StatelessWidget {
                 Flexible(
                   child: Text(
                     '${PlaceDistance.milesLabel(miles)} · '
-                    '${l.detailDriveFromOrlando(driveTime)}',
+                    '${l.detailDriveFromActiveHub(driveTime)}',
                     style: const TextStyle(
                       fontSize: 12.5,
                       color: LuxColors.stone400,
@@ -1044,4 +1062,17 @@ class _NearbyGems extends StatelessWidget {
       ],
     );
   }
+}
+
+String? _localSecret(AppLocalizations l, LuxPlace place) {
+  final key = LocalSecretsRegistry.l10nKeyFor(place);
+  if (key == null) return null;
+  return switch (key) {
+    'localSecretWinterParkParkAvenue' => l.localSecretWinterParkParkAvenue,
+    'localSecretWorldFoodTrucks' => l.localSecretWorldFoodTrucks,
+    'localSecretWekiwaSprings' => l.localSecretWekiwaSprings,
+    'localSecretDisneySpringsParking' => l.localSecretDisneySpringsParking,
+    'localSecretLakeEolaSunset' => l.localSecretLakeEolaSunset,
+    _ => null,
+  };
 }

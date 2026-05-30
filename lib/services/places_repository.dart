@@ -1,11 +1,13 @@
+import 'package:luxora_ai/data/city_content_catalog.dart';
 import 'package:luxora_ai/data/curated_places_catalog.dart';
 import 'package:luxora_ai/data/feed_items.dart';
+import 'package:luxora_ai/data/miami/miami_content.dart';
 import 'package:luxora_ai/models/discover_radius.dart';
 import 'package:luxora_ai/models/lux_place.dart';
+import 'package:luxora_ai/services/city_pack_registry.dart';
 import 'package:luxora_ai/services/places_asset_repository.dart';
 import 'package:luxora_ai/services/places_remote_repository.dart';
 import 'package:luxora_ai/util/place_distance.dart';
-
 /// Resolves curated place media. Local catalog + optional Supabase overlay.
 class PlacesRepository {
   PlacesRepository._();
@@ -21,11 +23,17 @@ class PlacesRepository {
     }
     _initialized = true;
     _loadLocal();
-    // Bundled OpenStreetMap import (keyless, offline). Curated entries are
-    // loaded first and take precedence on any id collision.
-    final osm = await PlacesAssetRepository.loadOsmPlaces();
-    if (osm.isNotEmpty) {
-      _mergePlaces(osm, overwrite: false);
+    _mergePackExperiences();
+    final osmPath = CityPackRegistry.instance.active.osmAssetPath;
+    if (osmPath != null && osmPath.isNotEmpty) {
+      final osm = await PlacesAssetRepository.loadOsmPlaces(assetPath: osmPath);
+      if (osm.isNotEmpty) {
+        final packId = CityPackRegistry.instance.active.cityId;
+        _mergePlaces(
+          osm.map((p) => _tagCityPack(p, packId)).toList(),
+          overwrite: false,
+        );
+      }
     }
     final remote = await PlacesRemoteRepository.tryFetchPlaces();
     if (remote != null && remote.isNotEmpty) {
@@ -37,9 +45,69 @@ class PlacesRepository {
     _byId.clear();
     _bySlug.clear();
     for (final p in curatedPlacesCatalog) {
+      final tagged = p.cityPackId == null
+          ? LuxPlace(
+              id: p.id,
+              slug: p.slug,
+              title: p.title,
+              category: p.category,
+              unsplashPhotoId: p.unsplashPhotoId,
+              location: p.location,
+              latitude: p.latitude,
+              longitude: p.longitude,
+              description: p.description,
+              storagePath: p.storagePath,
+              moodTags: p.moodTags,
+              aspectRole: p.aspectRole,
+              sortOrder: p.sortOrder,
+              isActive: p.isActive,
+              website: p.website,
+              source: p.source,
+              sponsorship: p.sponsorship,
+              cityPackId: 'orlando',
+            )
+          : p;
+      _byId[tagged.id] = tagged;
+      _bySlug[tagged.slug] = tagged;
+    }
+    for (final p in MiamiContent.places) {
       _byId[p.id] = p;
       _bySlug[p.slug] = p;
     }
+  }
+
+  void _mergePackExperiences() {
+    for (final pack in CityPackRegistry.instance.allCities) {
+      for (final exp in pack.experiences) {
+        final place = exp.toLuxPlace();
+        _byId[place.id] = place;
+        _bySlug[place.slug] = place;
+      }
+    }
+  }
+
+  LuxPlace _tagCityPack(LuxPlace place, String packId) {
+    if (place.cityPackId != null) return place;
+    return LuxPlace(
+      id: place.id,
+      slug: place.slug,
+      title: place.title,
+      category: place.category,
+      unsplashPhotoId: place.unsplashPhotoId,
+      location: place.location,
+      latitude: place.latitude,
+      longitude: place.longitude,
+      description: place.description,
+      storagePath: place.storagePath,
+      moodTags: place.moodTags,
+      aspectRole: place.aspectRole,
+      sortOrder: place.sortOrder,
+      isActive: place.isActive,
+      website: place.website,
+      source: place.source,
+      sponsorship: place.sponsorship,
+      cityPackId: packId,
+    );
   }
 
   void _mergePlaces(List<LuxPlace> incoming, {bool overwrite = true}) {
@@ -78,17 +146,20 @@ class PlacesRepository {
     if (place.moodTags.contains('trip-cover')) {
       return false;
     }
+    if (!CityPackRegistry.instance.placeBelongsToActivePack(place.cityPackId)) {
+      return false;
+    }
     if (radius.isUnlimited) {
       return true;
     }
-    return PlaceDistance.milesFromOrlandoHub(place) <= radius.miles;
+    return PlaceDistance.milesFromHub(place) <= radius.miles;
   }
 
   List<LuxPlace> placesWithinRadius(DiscoverRadius radius) {
     return mappablePlaces.where((p) => isDiscoverable(p, radius)).toList()
       ..sort(
-        (a, b) => PlaceDistance.milesFromOrlandoHub(a)
-            .compareTo(PlaceDistance.milesFromOrlandoHub(b)),
+        (a, b) =>
+            PlaceDistance.milesFromHub(a).compareTo(PlaceDistance.milesFromHub(b)),
       );
   }
 
@@ -110,13 +181,14 @@ class PlacesRepository {
   }
 
   List<LuxPlace> gemsWithinRadius(DiscoverRadius radius) {
-    final ids = kGemPlaceIds.values.toSet();
+    final ids = CityPackRegistry.instance.gemPlaceIds.values.toSet();
     return placesWithinRadius(radius).where((p) => ids.contains(p.id)).toList();
   }
 
   List<FeedItem> feedWithinRadius(DiscoverRadius radius) {
-    return discoveryFeed.where((item) {
-      final placeId = kFeedItemPlaceIds[item.id];
+    final feedMap = CityPackRegistry.instance.feedItemPlaceIds;
+    return CityContentCatalog.discoveryFeedForActive().where((item) {
+      final placeId = feedMap[item.id];
       if (placeId == null) {
         return true;
       }
@@ -168,8 +240,8 @@ class PlacesRepository {
       if (byScore != 0) {
         return byScore;
       }
-      return PlaceDistance.milesFromOrlandoHub(a.place)
-          .compareTo(PlaceDistance.milesFromOrlandoHub(b.place));
+      return PlaceDistance.milesFromHub(a.place)
+          .compareTo(PlaceDistance.milesFromHub(b.place));
     });
 
     return scored.take(limit).map((e) => e.place).toList();

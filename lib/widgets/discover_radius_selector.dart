@@ -30,7 +30,7 @@ class DiscoverRadiusSelector extends StatelessWidget {
                   ),
                   const SizedBox(width: 6),
                   Text(
-                    l.discoverFromOrlando,
+                    l.discoverFromActiveHub(),
                     style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w700,

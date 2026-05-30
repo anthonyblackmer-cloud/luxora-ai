@@ -156,5 +156,74 @@ class AttractionDetailRepository {
         'place-winter-park-courtyard',
       ],
     ),
+    'place-miami-vizcaya': AttractionDetail(
+      placeId: 'place-miami-vizcaya',
+      title: 'Vizcaya Museum & Gardens',
+      emotionalHook:
+          'Gilded rooms open onto Biscayne Bay — Miami\'s most romantic time capsule.',
+      whySpecial:
+          'James Deering\'s 1916 villa blends European grandeur with subtropical gardens that feel impossibly private for a city this loud. Stone terraces frame the bay; mangrove edges whisper; and every corridor rewards slow pacing.',
+      bestTimeToGo:
+          'Arrive 90 minutes before sunset Wed–Fri for garden light. Weekends after 11 AM fill quickly near the main terrace.',
+      insiderTips:
+          'Book online to skip the ticket line. Walk the mangrove boardwalk counter-clockwise at golden hour.',
+      practicalDetails: AttractionPracticalDetails(
+        typicalDuration: '2–3 hours',
+        costRange: '\$\$',
+        bestFor: ['Romantic', 'Culture', 'Photography', 'History'],
+      ),
+      vibeMatch: ['Romantic', 'Hidden luxury', 'Culture-heavy', 'Golden hour'],
+      nearbyGemPlaceIds: [
+        'dining-miami-mandolin',
+        'place-miami-bayside-harbor',
+        'place-miami-little-havana',
+      ],
+    ),
+    'place-miami-wynwood-walls': AttractionDetail(
+      placeId: 'place-miami-wynwood-walls',
+      title: 'Wynwood Walls',
+      emotionalHook:
+          'Color at building scale — Miami\'s open-air gallery where every wall is a canvas.',
+      whySpecial:
+          'Murals rotate; photo angles change by the hour; and the neighborhood pulses with coffee, tacos, and gallery hops.',
+      bestTimeToGo:
+          'Weekday 10 AM–2 PM for softer crowds. Saturday afternoons are social and energetic.',
+      insiderTips:
+          'Start at Panther Coffee, walk counter-clockwise through the Walls, then lunch in the Design District.',
+      practicalDetails: AttractionPracticalDetails(
+        typicalDuration: '90–150 min',
+        costRange: '\$\$',
+        bestFor: ['Arts', 'Photography', 'Foodie', 'Walkable'],
+      ),
+      vibeMatch: ['Aesthetic dining', 'Trending', 'Culture-heavy', 'Creator energy'],
+      nearbyGemPlaceIds: [
+        'place-miami-panther-coffee',
+        'place-miami-design-district',
+        'dining-miami-komodo',
+      ],
+    ),
+    'place-miami-little-havana': AttractionDetail(
+      placeId: 'place-miami-little-havana',
+      title: 'Calle Ocho · Little Havana',
+      emotionalHook:
+          'Cafecito steam, domino slap, and cigar smoke — Cuba\'s heartbeat in Miami.',
+      whySpecial:
+          'Living culture, not a themed street — bakeries, domino parks, and stories on every block.',
+      bestTimeToGo:
+          'Weekday 9–11 AM for domino park energy and shorter lines at Versailles.',
+      insiderTips:
+          'Walk Calle Ocho west to east. Order a cortadito at the window before sit-down lunch.',
+      practicalDetails: AttractionPracticalDetails(
+        typicalDuration: '2–3 hours',
+        costRange: '\$',
+        bestFor: ['Culture', 'Foodie', 'Local', 'Family'],
+      ),
+      vibeMatch: ['Local insider', 'Foodie', 'Culture-heavy', 'Walkable'],
+      nearbyGemPlaceIds: [
+        'dining-miami-versailles',
+        'place-miami-vizcaya',
+        'place-miami-design-district',
+      ],
+    ),
   };
 }

@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
+import 'package:http/http.dart' as http;
 import 'package:luxora_ai/models/lux_place.dart';
 
 /// Loads the bundled OpenStreetMap places asset
@@ -12,25 +13,54 @@ import 'package:luxora_ai/models/lux_place.dart';
 class PlacesAssetRepository {
   const PlacesAssetRepository._();
 
-  static const _assetPath = 'assets/places/osm_places.json';
+  static const _defaultAssetPath = 'assets/places/osm_places.json';
 
-  static Future<List<LuxPlace>> loadOsmPlaces() async {
+  static final Map<String, List<LuxPlace>> _cache = {};
+
+  static Future<List<LuxPlace>> loadOsmPlaces({
+    String assetPath = _defaultAssetPath,
+  }) async {
+    if (_cache.containsKey(assetPath)) return _cache[assetPath]!;
+
     try {
-      final raw = await rootBundle.loadString(_assetPath);
+      final raw = await _loadRawJson(assetPath);
       if (raw.trim().isEmpty) return const [];
       final decoded = jsonDecode(raw);
       if (decoded is! List) return const [];
-      return decoded
+      final places = decoded
           .whereType<Map<String, dynamic>>()
           .map(LuxPlace.fromSupabaseRow)
           .whereType<LuxPlace>()
           .toList();
-    } on FlutterError {
-      // Asset not declared / not present yet — fine before first import.
+      _cache[assetPath] = places;
+      return places;
+    } catch (e) {
+      if (kDebugMode) {
+        debugPrint(
+          'PlacesAssetRepository: OSM bundle unavailable ($e). '
+          'Curated catalog still works${kIsWeb ? ' — on web, stop and re-run flutter run if this persists after hot restart' : ''}.',
+        );
+      }
       return const [];
-    } catch (e, st) {
-      debugPrint('PlacesAssetRepository: $e\n$st');
-      return const [];
+    }
+  }
+
+  /// [rootBundle] is preferred; on Flutter Web after hot restart the bundle
+  /// fetch can fail even though the dev server still serves the file at
+  /// `assets/assets/places/osm_places.json` (the doubled prefix is normal).
+  static Future<String> _loadRawJson(String assetPath) async {
+    try {
+      return await rootBundle.loadString(assetPath);
+    } catch (_) {
+      if (!kIsWeb) rethrow;
+      final url = Uri.base.resolve('assets/$assetPath');
+      final res = await http
+          .get(url)
+          .timeout(const Duration(seconds: 15));
+      if (res.statusCode != 200) {
+        throw StateError('HTTP ${res.statusCode} for $url');
+      }
+      return res.body;
     }
   }
 }

@@ -10,8 +10,8 @@ import 'package:luxora_ai/services/concierge_session_memory.dart';
 import 'package:luxora_ai/services/trip_profile_storage.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
+import 'package:luxora_ai/widgets/luxora_moment_chips.dart';
 import 'package:luxora_ai/widgets/settings/luxora_premium_sheet_shell.dart';
-import 'package:luxora_ai/widgets/settings/luxora_settings_sheet.dart';
 
 class ConciergeScreen extends StatefulWidget {
   const ConciergeScreen({super.key});
@@ -296,17 +296,6 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
                     ],
                   ),
                 ),
-                IconButton(
-                  tooltip: l.settings,
-                  onPressed: () => LuxoraSettingsSheet.show(context),
-                  icon: Icon(
-                    Icons.settings_outlined,
-                    color: LuxColors.gold.withValues(alpha: 0.9),
-                  ),
-                  style: IconButton.styleFrom(
-                    backgroundColor: Colors.white.withValues(alpha: 0.06),
-                  ),
-                ),
               ],
             ),
             const SizedBox(height: 14),
@@ -324,6 +313,44 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
                   fontSize: 15,
                   height: 1.42,
                   color: LuxColors.stone300.withValues(alpha: 0.96),
+                ),
+              ),
+            ),
+            const SizedBox(height: 14),
+            LuxoraMomentChips(onMomentSelected: _send),
+            const SizedBox(height: 12),
+            GestureDetector(
+              onLongPress: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(l.conciergeVoiceSoon),
+                    behavior: SnackBarBehavior.floating,
+                  ),
+                );
+              },
+              child: Container(
+                width: double.infinity,
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(
+                    color: LuxColors.gold.withValues(alpha: 0.25),
+                  ),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.mic_rounded,
+                        size: 18, color: LuxColors.gold.withValues(alpha: 0.9)),
+                    const SizedBox(width: 8),
+                    Text(
+                      l.conciergeVoiceHold,
+                      style: const TextStyle(
+                        fontSize: 13,
+                        color: LuxColors.stone400,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),

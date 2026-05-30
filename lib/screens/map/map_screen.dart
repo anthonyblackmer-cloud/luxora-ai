@@ -4,25 +4,34 @@ import 'package:luxora_ai/l10n/catalog_localizer.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_helpers.dart';
 import 'package:luxora_ai/models/lux_place.dart';
-import 'package:luxora_ai/data/orlando_hub.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
+import 'package:luxora_ai/services/city_pack_registry.dart';
+import 'package:luxora_ai/util/place_distance.dart';
 import 'package:luxora_ai/services/crowd_prediction_service.dart';
 import 'package:luxora_ai/services/day_flow_planner.dart';
 import 'package:luxora_ai/services/day_flow_rerouter.dart';
 import 'package:luxora_ai/services/discover_radius_controller.dart';
-import 'package:luxora_ai/services/weather_service.dart';
-import 'package:luxora_ai/services/home_base_store.dart';
 import 'package:luxora_ai/services/places_repository.dart';
+import 'package:luxora_ai/services/home_base_store.dart';
+import 'package:luxora_ai/services/partner_sponsorship_service.dart';
 import 'package:luxora_ai/services/saved_places_storage.dart';
 import 'package:luxora_ai/services/trip_profile_store.dart';
+import 'package:luxora_ai/services/weather_service.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/widgets/attraction_detail_sheet.dart';
 import 'package:luxora_ai/widgets/destination_search_sheet.dart';
 import 'package:luxora_ai/widgets/discover_radius_selector.dart';
 import 'package:luxora_ai/widgets/discover_scope_banner.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
+import 'package:luxora_ai/widgets/miami/miami_concierge_cards.dart';
 import 'package:luxora_ai/widgets/lux_florida_map.dart';
+import 'package:luxora_ai/widgets/golden_hour_card.dart';
+import 'package:luxora_ai/widgets/hotel_intel_map_banner.dart';
+import 'package:luxora_ai/widgets/right_now_panel.dart';
+import 'package:luxora_ai/widgets/vacation_score_badge.dart';
 import 'package:luxora_ai/widgets/weather_card.dart';
+import 'package:luxora_ai/widgets/weather_concierge_sheet.dart';
+import 'package:latlong2/latlong.dart';
 
 class MapScreen extends StatelessWidget {
   const MapScreen({super.key});
@@ -111,7 +120,21 @@ class MapScreen extends StatelessWidget {
           const DiscoverRadiusSelector(),
           const SizedBox(height: 12),
           const DiscoverScopeBanner(),
+          if (CityPackRegistry.instance.active.cityId == 'miami') ...[
+            const SizedBox(height: 14),
+            MiamiMoodRoutesPanel(
+              onRouteSelected: (route) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(route.title),
+                    behavior: SnackBarBehavior.floating,
+                  ),
+                );
+              },
+            ),
+          ],
           const SizedBox(height: 14),
+          if (homeBase == null) const HotelIntelMapBanner(),
           _MapRoutePlanner(
             key: ValueKey(
               '${profile?.hashCode}-${savedIds.join(',')}-$homeBaseId-${radius.name}',
@@ -125,11 +148,13 @@ class MapScreen extends StatelessWidget {
             savedIds: savedIds,
             gemIds: gemIds,
             radiusMiles: radiusMiles,
-            weatherLat: homeBase?.latitude ?? OrlandoHub.latitude,
-            weatherLng: homeBase?.longitude ?? OrlandoHub.longitude,
+            weatherLat: homeBase?.latitude ??
+                CityPackRegistry.instance.hubCenter.latitude,
+            weatherLng: homeBase?.longitude ??
+                CityPackRegistry.instance.hubCenter.longitude,
             weatherLabel: homeBase != null
                 ? catalogText(context, homeBase.title)
-                : OrlandoHub.name,
+                : CityPackRegistry.instance.hubLabel.split(',').first,
             onPlaceTap: (place) => _showPlace(context, place),
           ),
           const SizedBox(height: 20),
@@ -359,7 +384,7 @@ class _MapRoutePlanner extends StatefulWidget {
 
 class _MapRoutePlannerState extends State<_MapRoutePlanner> {
   late DayFlow _flow;
-  bool _rainLikely = false;
+  LuxWeather? _weather;
   String? _rerouteMessage;
 
   @override
@@ -388,8 +413,14 @@ class _MapRoutePlannerState extends State<_MapRoutePlanner> {
       widget.weatherLng,
     );
     if (!mounted) return;
-    setState(() => _rainLikely = weather?.rainLikely ?? false);
+    setState(() => _weather = weather);
   }
+
+  bool get _rainLikely => _weather?.rainLikely ?? false;
+
+  LatLng get _origin => widget.homeBase != null
+      ? LatLng(widget.homeBase!.latitude, widget.homeBase!.longitude)
+      : PlaceDistance.orlandoCenter;
 
   List<String> get _routeIds => _flow.isEmpty
       ? widget.fallbackRouteIds
@@ -420,11 +451,32 @@ class _MapRoutePlannerState extends State<_MapRoutePlanner> {
     });
   }
 
+  void _openWeatherConcierge() {
+    final weather = _weather;
+    if (weather == null) return;
+    showWeatherConciergeSheet(
+      context,
+      weather: weather,
+      placeLabel: widget.weatherLabel,
+      flow: _flow,
+      pool: widget.pool,
+      onAdjustDay: _flow.isEmpty ? null : _reroute,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
+        RightNowPanel(
+          pool: widget.pool,
+          origin: _origin,
+          profile: widget.profile,
+          weatherLat: widget.weatherLat,
+          weatherLng: widget.weatherLng,
+          onPlaceTap: widget.onPlaceTap,
+        ),
         AspectRatio(
           aspectRatio: 16 / 10,
           child: GlassCard(
@@ -434,6 +486,7 @@ class _MapRoutePlannerState extends State<_MapRoutePlanner> {
               places: _mapPlacesWithFlow,
               routePlaceIds: _routeIds,
               gemPlaceIds: widget.gemIds,
+              sponsoredPlaceIds: PartnerSponsorshipService.sponsoredMapPlaceIds(),
               radiusMiles: widget.radiusMiles,
               onPlaceTap: widget.onPlaceTap,
             ),
@@ -444,6 +497,21 @@ class _MapRoutePlannerState extends State<_MapRoutePlanner> {
           latitude: widget.weatherLat,
           longitude: widget.weatherLng,
           placeLabel: widget.weatherLabel,
+          weather: _weather,
+          onTap: _weather == null ? null : _openWeatherConcierge,
+        ),
+        GoldenHourCard(
+          weather: _weather,
+          origin: _origin,
+          pool: widget.pool,
+          profile: widget.profile,
+          onPlaceTap: widget.onPlaceTap,
+        ),
+        VacationScoreBadge(
+          weather: _weather,
+          flow: _flow,
+          profile: widget.profile,
+          bookmarkCount: widget.savedIds.length,
         ),
         _PlanMyDay(
           flow: _flow,

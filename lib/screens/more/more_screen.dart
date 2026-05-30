@@ -1,0 +1,291 @@
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
+import 'package:luxora_ai/services/paywall_service.dart';
+import 'package:luxora_ai/services/weather_concierge_launcher.dart';
+import 'package:luxora_ai/settings/luxora_language_catalog.dart';
+import 'package:luxora_ai/state/luxora_app_state.dart';
+import 'package:luxora_ai/theme/lux_theme.dart';
+import 'package:luxora_ai/widgets/more/luxora_more_grid_tile.dart';
+import 'package:luxora_ai/widgets/settings/luxora_language_picker_sheet.dart';
+import 'package:luxora_ai/widgets/settings/luxora_settings_sheet.dart';
+
+/// Secondary destinations — Discipline-style premium grid + grouped lists.
+class MoreScreen extends StatelessWidget {
+  const MoreScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final l = context.l10n;
+    final theme = Theme.of(context);
+    final tokens = luxThemeTokensOf(context);
+    final appState = LuxoraAppState.of(context);
+
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          stops: const [0.0, 0.38, 0.72, 1.0],
+          colors: [
+            tokens.bg,
+            Color.lerp(tokens.bg, LuxColors.gold, 0.04)!,
+            Color.lerp(tokens.bg, LuxColors.gold, 0.02)!,
+            tokens.bgSecondary.withValues(alpha: 0.94),
+          ],
+        ),
+      ),
+      child: SafeArea(
+        child: CustomScrollView(
+          physics: const BouncingScrollPhysics(
+            parent: AlwaysScrollableScrollPhysics(),
+          ),
+          slivers: [
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(22, 12, 22, 8),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      l.morePageTitle,
+                      style: theme.textTheme.headlineSmall?.copyWith(
+                        fontWeight: FontWeight.w900,
+                        letterSpacing: -0.42,
+                        height: 1.02,
+                        color: LuxColors.cream,
+                      ),
+                    ),
+                    const SizedBox(height: 6),
+                    Text(
+                      l.morePageSubtitle,
+                      style: theme.textTheme.titleSmall?.copyWith(
+                        color: LuxColors.stone400,
+                        fontWeight: FontWeight.w600,
+                        height: 1.25,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(22, 16, 22, 8),
+                child: Text(
+                  l.moreSectionTravelTools,
+                  style: TextStyle(
+                    fontSize: 11,
+                    fontWeight: FontWeight.w800,
+                    letterSpacing: 2.2,
+                    color: LuxColors.gold.withValues(alpha: 0.85),
+                  ),
+                ),
+              ),
+            ),
+            SliverPadding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              sliver: SliverGrid(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 14,
+                  crossAxisSpacing: 14,
+                  childAspectRatio: 0.88,
+                ),
+                delegate: SliverChildListDelegate.fixed([
+                  LuxoraMoreGridTile(
+                    animationIndex: 0,
+                    featured: true,
+                    icon: Icons.hotel_rounded,
+                    title: l.navStays,
+                    subtitle: l.moreCardHotelsSub,
+                    onTap: () => context.push('/stays'),
+                  ),
+                  LuxoraMoreGridTile(
+                    animationIndex: 1,
+                    featured: true,
+                    icon: Icons.diamond_rounded,
+                    title: l.navGems,
+                    subtitle: l.moreCardGemsSub,
+                    onTap: () => context.push('/gems'),
+                  ),
+                  LuxoraMoreGridTile(
+                    animationIndex: 2,
+                    icon: Icons.confirmation_number_rounded,
+                    title: l.ticketSavingsTitle,
+                    subtitle: l.moreCardTicketsSub,
+                    onTap: () => context.push('/ticket-savings'),
+                  ),
+                  LuxoraMoreGridTile(
+                    animationIndex: 3,
+                    icon: Icons.wb_sunny_rounded,
+                    title: l.weatherConciergeTitle,
+                    subtitle: l.moreCardWeatherSub,
+                    onTap: () => WeatherConciergeLauncher.open(context),
+                  ),
+                ]),
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(22, 28, 22, 10),
+                child: Text(
+                  l.moreSectionAccount,
+                  style: TextStyle(
+                    fontSize: 11,
+                    fontWeight: FontWeight.w800,
+                    letterSpacing: 2.2,
+                    color: LuxColors.gold.withValues(alpha: 0.85),
+                  ),
+                ),
+              ),
+            ),
+            SliverPadding(
+              padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+              sliver: SliverList(
+                delegate: SliverChildListDelegate.fixed([
+                  LuxoraMoreListTile(
+                    icon: Icons.person_outline_rounded,
+                    title: l.moreCardProfileTitle,
+                    subtitle: l.moreCardProfileSub,
+                    onTap: () => context.push('/onboarding'),
+                  ),
+                  const SizedBox(height: 10),
+                  LuxoraMoreListTile(
+                    icon: Icons.favorite_border_rounded,
+                    title: l.savedFavoritesTitle,
+                    subtitle: l.moreCardFavoritesSub,
+                    onTap: () => context.push('/saved-favorites'),
+                  ),
+                  const SizedBox(height: 10),
+                  LuxoraMoreListTile(
+                    icon: Icons.notifications_none_rounded,
+                    title: l.moreCardNotificationsTitle,
+                    subtitle: l.moreCardNotificationsSub,
+                    onTap: () => _showNotifications(context),
+                  ),
+                ]),
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(22, 28, 22, 10),
+                child: Text(
+                  l.moreSectionApp,
+                  style: TextStyle(
+                    fontSize: 11,
+                    fontWeight: FontWeight.w800,
+                    letterSpacing: 2.2,
+                    color: LuxColors.gold.withValues(alpha: 0.85),
+                  ),
+                ),
+              ),
+            ),
+            SliverPadding(
+              padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+              sliver: SliverList(
+                delegate: SliverChildListDelegate.fixed([
+                  LuxoraMoreListTile(
+                    icon: Icons.grid_view_rounded,
+                    title: l.settings,
+                    subtitle: l.moreCardSettingsSub,
+                    onTap: () => LuxoraSettingsSheet.show(context),
+                  ),
+                  const SizedBox(height: 10),
+                  LuxoraMoreListTile(
+                    icon: Icons.language_rounded,
+                    title: l.language,
+                    subtitle: LuxoraLanguageCatalog.displayName(appState.locale),
+                    onTap: () => LuxoraLanguagePickerSheet.show(context),
+                  ),
+                  const SizedBox(height: 10),
+                  LuxoraMoreListTile(
+                    icon: Icons.auto_stories_outlined,
+                    title: l.storyTitle,
+                    subtitle: l.moreCardAboutSub,
+                    onTap: () => context.push('/story'),
+                  ),
+                  const SizedBox(height: 10),
+                  LuxoraMoreListTile(
+                    icon: Icons.help_outline_rounded,
+                    title: l.helpCenterTitle,
+                    subtitle: l.moreCardHelpSub,
+                    onTap: () => _showHelp(context),
+                  ),
+                  const SizedBox(height: 10),
+                  LuxoraMoreListTile(
+                    icon: Icons.diamond_outlined,
+                    title: l.settingsUnlockConciergeTitle,
+                    subtitle: l.moreCardCityPacksSub,
+                    onTap: () => PaywallService.showPaywall(context),
+                  ),
+                  const SizedBox(height: 10),
+                  LuxoraMoreListTile(
+                    icon: Icons.handshake_outlined,
+                    title: l.partnerOffersTitle,
+                    subtitle: l.moreCardPartnersSub,
+                    onTap: () => context.push('/partner-offers'),
+                  ),
+                  const SizedBox(height: 10),
+                  LuxoraMoreListTile(
+                    icon: Icons.view_timeline_rounded,
+                    title: l.navTimeline,
+                    subtitle: l.moreCardItinerarySub,
+                    onTap: () => context.push('/itinerary'),
+                  ),
+                ]),
+              ),
+            ),
+            const SliverToBoxAdapter(child: SizedBox(height: 32)),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _showNotifications(BuildContext context) {
+    showDialog<void>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        backgroundColor: luxThemeTokensOf(context).bgSecondary,
+        title: Text(
+          context.l10n.moreCardNotificationsTitle,
+          style: const TextStyle(color: LuxColors.cream),
+        ),
+        content: Text(
+          context.l10n.notificationsComingSoon,
+          style: const TextStyle(color: LuxColors.stone400),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx),
+            child: Text(context.l10n.commonClose),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _showHelp(BuildContext context) {
+    showDialog<void>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        backgroundColor: luxThemeTokensOf(context).bgSecondary,
+        title: Text(
+          context.l10n.helpCenterTitle,
+          style: const TextStyle(color: LuxColors.cream),
+        ),
+        content: Text(
+          context.l10n.helpCenterBody,
+          style: const TextStyle(color: LuxColors.stone400, height: 1.4),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx),
+            child: Text(context.l10n.commonClose),
+          ),
+        ],
+      ),
+    );
+  }
+}

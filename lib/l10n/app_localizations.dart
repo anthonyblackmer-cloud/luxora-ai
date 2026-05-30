@@ -232,17 +232,35 @@ abstract class AppLocalizations {
   /// **'Concierge'**
   String get navConcierge;
 
-  /// No description provided for @navTimeline.
+  /// No description provided for @navDiscover.
   ///
   /// In en, this message translates to:
-  /// **'Timeline'**
-  String get navTimeline;
+  /// **'Discover'**
+  String get navDiscover;
 
   /// No description provided for @navMap.
   ///
   /// In en, this message translates to:
   /// **'Map'**
   String get navMap;
+
+  /// No description provided for @navTrips.
+  ///
+  /// In en, this message translates to:
+  /// **'Trips'**
+  String get navTrips;
+
+  /// No description provided for @navMore.
+  ///
+  /// In en, this message translates to:
+  /// **'More'**
+  String get navMore;
+
+  /// No description provided for @navTimeline.
+  ///
+  /// In en, this message translates to:
+  /// **'Timeline'**
+  String get navTimeline;
 
   /// No description provided for @navGems.
   ///
@@ -256,11 +274,449 @@ abstract class AppLocalizations {
   /// **'Feed'**
   String get navFeed;
 
-  /// No description provided for @navTrips.
+  /// No description provided for @navTicketSavings.
   ///
   /// In en, this message translates to:
-  /// **'Trips'**
-  String get navTrips;
+  /// **'Savings'**
+  String get navTicketSavings;
+
+  /// No description provided for @navStays.
+  ///
+  /// In en, this message translates to:
+  /// **'Stays'**
+  String get navStays;
+
+  /// No description provided for @morePageTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'More'**
+  String get morePageTitle;
+
+  /// No description provided for @morePageSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Travel tools, account, and preferences — curated for calm access.'**
+  String get morePageSubtitle;
+
+  /// No description provided for @moreSectionTravelTools.
+  ///
+  /// In en, this message translates to:
+  /// **'TRAVEL TOOLS'**
+  String get moreSectionTravelTools;
+
+  /// No description provided for @moreSectionAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'ACCOUNT'**
+  String get moreSectionAccount;
+
+  /// No description provided for @moreSectionApp.
+  ///
+  /// In en, this message translates to:
+  /// **'APP'**
+  String get moreSectionApp;
+
+  /// No description provided for @moreCardHotelsSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Intelligent stays matched to your mood'**
+  String get moreCardHotelsSub;
+
+  /// No description provided for @moreCardGemsSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Insider discoveries locals guard'**
+  String get moreCardGemsSub;
+
+  /// No description provided for @moreCardTicketsSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Compare authorized partner savings'**
+  String get moreCardTicketsSub;
+
+  /// No description provided for @moreCardWeatherSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Forecast-aware day guidance'**
+  String get moreCardWeatherSub;
+
+  /// No description provided for @moreCardProfileTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Trip profile'**
+  String get moreCardProfileTitle;
+
+  /// No description provided for @moreCardProfileSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Who travels, how it should feel'**
+  String get moreCardProfileSub;
+
+  /// No description provided for @moreCardFavoritesSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Destinations you\'ve bookmarked'**
+  String get moreCardFavoritesSub;
+
+  /// No description provided for @moreCardNotificationsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get moreCardNotificationsTitle;
+
+  /// No description provided for @moreCardNotificationsSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Trip alerts and concierge updates'**
+  String get moreCardNotificationsSub;
+
+  /// No description provided for @moreCardSettingsSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme, city packs, and preferences'**
+  String get moreCardSettingsSub;
+
+  /// No description provided for @moreCardAboutSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Why we\'re building Luxora'**
+  String get moreCardAboutSub;
+
+  /// No description provided for @moreCardHelpSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Guides and concierge support'**
+  String get moreCardHelpSub;
+
+  /// No description provided for @moreCardCityPacksSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock destination concierges'**
+  String get moreCardCityPacksSub;
+
+  /// No description provided for @moreCardPartnersSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Featured partner experiences'**
+  String get moreCardPartnersSub;
+
+  /// No description provided for @moreCardItinerarySub.
+  ///
+  /// In en, this message translates to:
+  /// **'Your day-by-day golden escape'**
+  String get moreCardItinerarySub;
+
+  /// No description provided for @savedFavoritesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved favorites'**
+  String get savedFavoritesTitle;
+
+  /// No description provided for @savedFavoritesEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Bookmark destinations on the map or feed — they\'ll appear here.'**
+  String get savedFavoritesEmpty;
+
+  /// No description provided for @helpCenterTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Help Center'**
+  String get helpCenterTitle;
+
+  /// No description provided for @helpCenterBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Email support@luxora.ai for concierge help. In-app guides are coming soon.'**
+  String get helpCenterBody;
+
+  /// No description provided for @notificationsComingSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Trip notifications are coming in a future update.'**
+  String get notificationsComingSoon;
+
+  /// No description provided for @partnerOffersTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Partner offers'**
+  String get partnerOffersTitle;
+
+  /// No description provided for @ticketSavingsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Smart Ticket Savings'**
+  String get ticketSavingsTitle;
+
+  /// No description provided for @ticketSavingsBadgeLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'PREMIUM SAVINGS'**
+  String get ticketSavingsBadgeLabel;
+
+  /// No description provided for @ticketSavingsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Luxora surfaces authorized resellers, bundles, and promotions so you feel like a luxury advisor — not a coupon site.'**
+  String get ticketSavingsSubtitle;
+
+  /// No description provided for @ticketSavingsBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'SAVE {percent}%'**
+  String ticketSavingsBadge(int percent);
+
+  /// No description provided for @ticketOfficialPrice.
+  ///
+  /// In en, this message translates to:
+  /// **'Official'**
+  String get ticketOfficialPrice;
+
+  /// No description provided for @ticketDiscountPrice.
+  ///
+  /// In en, this message translates to:
+  /// **'Luxora price'**
+  String get ticketDiscountPrice;
+
+  /// No description provided for @ticketSaveAmount.
+  ///
+  /// In en, this message translates to:
+  /// **'Save {amount}'**
+  String ticketSaveAmount(String amount);
+
+  /// No description provided for @ticketSaveAmountLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Savings'**
+  String get ticketSaveAmountLabel;
+
+  /// No description provided for @ticketSavePerTicket.
+  ///
+  /// In en, this message translates to:
+  /// **'You could save {amount} per ticket.'**
+  String ticketSavePerTicket(String amount);
+
+  /// No description provided for @ticketFamilySave.
+  ///
+  /// In en, this message translates to:
+  /// **'Estimated family savings: {amount}.'**
+  String ticketFamilySave(String amount);
+
+  /// No description provided for @ticketEstimatedFamilySave.
+  ///
+  /// In en, this message translates to:
+  /// **'Estimated family savings: {amount}.'**
+  String ticketEstimatedFamilySave(String amount);
+
+  /// No description provided for @ticketSource.
+  ///
+  /// In en, this message translates to:
+  /// **'Source: {source}'**
+  String ticketSource(String source);
+
+  /// No description provided for @ticketExpires.
+  ///
+  /// In en, this message translates to:
+  /// **'Offer through {date}'**
+  String ticketExpires(String date);
+
+  /// No description provided for @ticketBetterOption.
+  ///
+  /// In en, this message translates to:
+  /// **'Luxora found a better option.'**
+  String get ticketBetterOption;
+
+  /// No description provided for @ticketOverpaying.
+  ///
+  /// In en, this message translates to:
+  /// **'You may be overpaying at gate price.'**
+  String get ticketOverpaying;
+
+  /// No description provided for @ticketRecommendedSavings.
+  ///
+  /// In en, this message translates to:
+  /// **'Recommended savings available'**
+  String get ticketRecommendedSavings;
+
+  /// No description provided for @ticketCalculatorTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Potential savings'**
+  String get ticketCalculatorTitle;
+
+  /// No description provided for @ticketFilterLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter'**
+  String get ticketFilterLabel;
+
+  /// No description provided for @ticketFilterAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get ticketFilterAll;
+
+  /// No description provided for @ticketFilterThemeParks.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme parks'**
+  String get ticketFilterThemeParks;
+
+  /// No description provided for @ticketFilterAttractions.
+  ///
+  /// In en, this message translates to:
+  /// **'Attractions'**
+  String get ticketFilterAttractions;
+
+  /// No description provided for @ticketFilterTours.
+  ///
+  /// In en, this message translates to:
+  /// **'Tours'**
+  String get ticketFilterTours;
+
+  /// No description provided for @ticketFilterDining.
+  ///
+  /// In en, this message translates to:
+  /// **'Dining experiences'**
+  String get ticketFilterDining;
+
+  /// No description provided for @ticketFilterWaterParks.
+  ///
+  /// In en, this message translates to:
+  /// **'Water parks'**
+  String get ticketFilterWaterParks;
+
+  /// No description provided for @ticketFilterFamily.
+  ///
+  /// In en, this message translates to:
+  /// **'Family activities'**
+  String get ticketFilterFamily;
+
+  /// No description provided for @ticketFilterEntertainment.
+  ///
+  /// In en, this message translates to:
+  /// **'Entertainment'**
+  String get ticketFilterEntertainment;
+
+  /// No description provided for @ticketSortLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Sort by'**
+  String get ticketSortLabel;
+
+  /// No description provided for @ticketSortHighestSavings.
+  ///
+  /// In en, this message translates to:
+  /// **'Highest savings'**
+  String get ticketSortHighestSavings;
+
+  /// No description provided for @ticketSortMostPopular.
+  ///
+  /// In en, this message translates to:
+  /// **'Most popular'**
+  String get ticketSortMostPopular;
+
+  /// No description provided for @ticketSortFamilyFriendly.
+  ///
+  /// In en, this message translates to:
+  /// **'Family friendly'**
+  String get ticketSortFamilyFriendly;
+
+  /// No description provided for @ticketSortLuxury.
+  ///
+  /// In en, this message translates to:
+  /// **'Luxury experiences'**
+  String get ticketSortLuxury;
+
+  /// No description provided for @ticketSortClosest.
+  ///
+  /// In en, this message translates to:
+  /// **'Closest to me'**
+  String get ticketSortClosest;
+
+  /// No description provided for @ticketDealsSectionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Authorized deals'**
+  String get ticketDealsSectionTitle;
+
+  /// No description provided for @ticketNoDeals.
+  ///
+  /// In en, this message translates to:
+  /// **'No deals in this filter — try another category.'**
+  String get ticketNoDeals;
+
+  /// No description provided for @ticketConfidenceHigh.
+  ///
+  /// In en, this message translates to:
+  /// **'High confidence'**
+  String get ticketConfidenceHigh;
+
+  /// No description provided for @ticketConfidenceVerified.
+  ///
+  /// In en, this message translates to:
+  /// **'Verified reseller'**
+  String get ticketConfidenceVerified;
+
+  /// No description provided for @ticketConfidenceLimited.
+  ///
+  /// In en, this message translates to:
+  /// **'Limited time'**
+  String get ticketConfidenceLimited;
+
+  /// No description provided for @ticketAiInsightTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Luxora recommendation'**
+  String get ticketAiInsightTitle;
+
+  /// No description provided for @ticketInsightDisneyPass.
+  ///
+  /// In en, this message translates to:
+  /// **'Based on your itinerary, a 3-day Walt Disney World pass instead of single-day tickets could save your family approximately 120 USD.'**
+  String get ticketInsightDisneyPass;
+
+  /// No description provided for @ticketInsightUniversalCombo.
+  ///
+  /// In en, this message translates to:
+  /// **'Your plan includes Universal — a 2-park ticket beats buying days separately for most families.'**
+  String get ticketInsightUniversalCombo;
+
+  /// No description provided for @ticketInsightSeaworldCombo.
+  ///
+  /// In en, this message translates to:
+  /// **'SeaWorld on your route — the Aquatica combo often beats two separate admissions.'**
+  String get ticketInsightSeaworldCombo;
+
+  /// No description provided for @ticketInsightGeneric.
+  ///
+  /// In en, this message translates to:
+  /// **'Luxora matched savings to stops on your itinerary — compare before you buy at the gate.'**
+  String get ticketInsightGeneric;
+
+  /// No description provided for @ticketInsightMiamiCulture.
+  ///
+  /// In en, this message translates to:
+  /// **'Culture stops on your plan — Vizcaya and PAMM partner offers may beat gate pricing this week.'**
+  String get ticketInsightMiamiCulture;
+
+  /// No description provided for @ticketInsightMiamiEverglades.
+  ///
+  /// In en, this message translates to:
+  /// **'Everglades day on your itinerary — morning airboat slots often run cheaper mid-week.'**
+  String get ticketInsightMiamiEverglades;
+
+  /// No description provided for @ticketInsightMiamiWynwood.
+  ///
+  /// In en, this message translates to:
+  /// **'Wynwood on your route — a guided art walk can beat walk-up booth pricing.'**
+  String get ticketInsightMiamiWynwood;
+
+  /// No description provided for @ticketItineraryMatchTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Itinerary savings check'**
+  String get ticketItineraryMatchTitle;
 
   /// No description provided for @conciergeBrand.
   ///
@@ -424,6 +880,12 @@ abstract class AppLocalizations {
   /// **'From Orlando'**
   String get discoverFromOrlando;
 
+  /// No description provided for @discoverFromHub.
+  ///
+  /// In en, this message translates to:
+  /// **'From {hub}'**
+  String discoverFromHub(String hub);
+
   /// No description provided for @discoverSearchScopeAll.
   ///
   /// In en, this message translates to:
@@ -435,6 +897,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Within {radius} of Orlando'**
   String discoverSearchScopeRadius(String radius);
+
+  /// No description provided for @discoverSearchScopeRadiusHub.
+  ///
+  /// In en, this message translates to:
+  /// **'Within {radius} of {hub}'**
+  String discoverSearchScopeRadiusHub(String radius, String hub);
 
   /// No description provided for @discoverSearchEmpty.
   ///
@@ -483,6 +951,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{count} destinations · within {radius} of Orlando'**
   String scopeDestinationsRadius(int count, String radius);
+
+  /// No description provided for @scopeDestinationsRadiusHub.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} destinations · within {radius} of {hub}'**
+  String scopeDestinationsRadiusHub(int count, String radius, String hub);
 
   /// No description provided for @scopeDestinationsAll.
   ///
@@ -537,6 +1011,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Keys, Miami, statewide highlights'**
   String get radiusDescAll;
+
+  /// No description provided for @radiusDesc25Miami.
+  ///
+  /// In en, this message translates to:
+  /// **'South Beach, Brickell, and core neighborhoods'**
+  String get radiusDesc25Miami;
+
+  /// No description provided for @radiusDesc50Miami.
+  ///
+  /// In en, this message translates to:
+  /// **'Wynwood, Coconut Grove, Key Biscayne'**
+  String get radiusDesc50Miami;
+
+  /// No description provided for @radiusDesc100Miami.
+  ///
+  /// In en, this message translates to:
+  /// **'Everglades, Fort Lauderdale, deeper South Florida'**
+  String get radiusDesc100Miami;
+
+  /// No description provided for @radiusDescAllMiami.
+  ///
+  /// In en, this message translates to:
+  /// **'Florida Keys trail and statewide highlights'**
+  String get radiusDescAllMiami;
 
   /// No description provided for @feedBadge.
   ///
@@ -837,6 +1335,359 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Rain likely — tap reroute for indoor backups.'**
   String get mapRerouteRainHint;
+
+  /// No description provided for @rightNowButton.
+  ///
+  /// In en, this message translates to:
+  /// **'What should we do right now?'**
+  String get rightNowButton;
+
+  /// No description provided for @rightNowEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No strong moment in your radius yet — widen discover or bookmark a few favorites.'**
+  String get rightNowEmpty;
+
+  /// No description provided for @rightNowResultTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'RIGHT NOW'**
+  String get rightNowResultTitle;
+
+  /// No description provided for @rightNowTapForDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap for details'**
+  String get rightNowTapForDetails;
+
+  /// No description provided for @rightNowScenicCoffee.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'re {minutes} minutes from {district}. The weather is perfect — grab coffee at {place}, then stroll {walkArea} before crowds arrive ({crowd} crowds).'**
+  String rightNowScenicCoffee(
+    int minutes,
+    String district,
+    String place,
+    String walkArea,
+    String crowd,
+  );
+
+  /// No description provided for @rightNowPerfectWeather.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'re {minutes} minutes from {district}. Skies look great — head to {place} while crowds are still {crowd}.'**
+  String rightNowPerfectWeather(
+    int minutes,
+    String district,
+    String place,
+    String crowd,
+  );
+
+  /// No description provided for @rightNowGoldenHour.
+  ///
+  /// In en, this message translates to:
+  /// **'Golden hour is coming — leave in about {minutes} minutes for {place} ({crowd} by sunset).'**
+  String rightNowGoldenHour(int minutes, String place, String crowd);
+
+  /// No description provided for @rightNowRainyIndoor.
+  ///
+  /// In en, this message translates to:
+  /// **'Rain on the radar — {minutes} minutes to a cozy indoor pick: {place}.'**
+  String rightNowRainyIndoor(int minutes, String place);
+
+  /// No description provided for @rightNowFamilyCalm.
+  ///
+  /// In en, this message translates to:
+  /// **'Nap-window calm — {minutes} minutes to an easy family reset at {place}.'**
+  String rightNowFamilyCalm(int minutes, String place);
+
+  /// No description provided for @rightNowRomantic.
+  ///
+  /// In en, this message translates to:
+  /// **'Date-night energy — {minutes} minutes to {place} before the rush.'**
+  String rightNowRomantic(int minutes, String place);
+
+  /// No description provided for @rightNowQuietGem.
+  ///
+  /// In en, this message translates to:
+  /// **'Quiet window — {minutes} minutes to {place} ({crowd} right now).'**
+  String rightNowQuietGem(int minutes, String place, String crowd);
+
+  /// No description provided for @goldenHourTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Golden hour'**
+  String get goldenHourTitle;
+
+  /// No description provided for @goldenHourLeaveBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Leave by {time} ({minutes} min drive) for {place} — arrive ~15 minutes before sunset.'**
+  String goldenHourLeaveBy(String time, int minutes, String place);
+
+  /// No description provided for @goldenHourKindBeach.
+  ///
+  /// In en, this message translates to:
+  /// **'Beach sunset window'**
+  String get goldenHourKindBeach;
+
+  /// No description provided for @goldenHourKindRooftop.
+  ///
+  /// In en, this message translates to:
+  /// **'Rooftop golden hour'**
+  String get goldenHourKindRooftop;
+
+  /// No description provided for @goldenHourKindScenic.
+  ///
+  /// In en, this message translates to:
+  /// **'Scenic photography timing'**
+  String get goldenHourKindScenic;
+
+  /// No description provided for @vacationScoreTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Vacation score'**
+  String get vacationScoreTitle;
+
+  /// No description provided for @vacationScoreSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Today feels like a {score}/100 kind of day.'**
+  String vacationScoreSubtitle(int score);
+
+  /// No description provided for @onboardOccasionLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'What\'s the occasion?'**
+  String get onboardOccasionLabel;
+
+  /// No description provided for @occasionGeneral.
+  ///
+  /// In en, this message translates to:
+  /// **'Just exploring'**
+  String get occasionGeneral;
+
+  /// No description provided for @occasionAnniversary.
+  ///
+  /// In en, this message translates to:
+  /// **'Anniversary'**
+  String get occasionAnniversary;
+
+  /// No description provided for @occasionHoneymoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Honeymoon'**
+  String get occasionHoneymoon;
+
+  /// No description provided for @occasionDateNight.
+  ///
+  /// In en, this message translates to:
+  /// **'Date night'**
+  String get occasionDateNight;
+
+  /// No description provided for @occasionProposal.
+  ///
+  /// In en, this message translates to:
+  /// **'Proposal trip'**
+  String get occasionProposal;
+
+  /// No description provided for @occasionFamily.
+  ///
+  /// In en, this message translates to:
+  /// **'Family with kids'**
+  String get occasionFamily;
+
+  /// No description provided for @localSecretTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Local secret'**
+  String get localSecretTitle;
+
+  /// No description provided for @localSecretWinterParkParkAvenue.
+  ///
+  /// In en, this message translates to:
+  /// **'Locals duck into the alley courtyard behind the bookstore — no street sign.'**
+  String get localSecretWinterParkParkAvenue;
+
+  /// No description provided for @localSecretWorldFoodTrucks.
+  ///
+  /// In en, this message translates to:
+  /// **'Order the daily catch, not the burger — the line moves faster at the far window.'**
+  String get localSecretWorldFoodTrucks;
+
+  /// No description provided for @localSecretWekiwaSprings.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip the main boardwalk after 2 PM — north trailhead stays quiet.'**
+  String get localSecretWekiwaSprings;
+
+  /// No description provided for @localSecretDisneySpringsParking.
+  ///
+  /// In en, this message translates to:
+  /// **'Best parking is the orange garage — walk the marina side, not the main entrance rush.'**
+  String get localSecretDisneySpringsParking;
+
+  /// No description provided for @localSecretLakeEolaSunset.
+  ///
+  /// In en, this message translates to:
+  /// **'Face the amphitheater side for swan photos as the sky turns gold.'**
+  String get localSecretLakeEolaSunset;
+
+  /// No description provided for @localSecretMiamiWynwoodAlley.
+  ///
+  /// In en, this message translates to:
+  /// **'Duck through the loading alley behind Panther Coffee — locals shoot murals without the main-line crowd.'**
+  String get localSecretMiamiWynwoodAlley;
+
+  /// No description provided for @localSecretMiamiLittleHavanaDomino.
+  ///
+  /// In en, this message translates to:
+  /// **'Buy cafecito at the window cart first — sideline bench regulars open up when you\'re holding a cortadito.'**
+  String get localSecretMiamiLittleHavanaDomino;
+
+  /// No description provided for @localSecretMiamiVizcayaMangrove.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip the main terrace rush — enter from the east garden and walk the mangrove boardwalk counter-clockwise.'**
+  String get localSecretMiamiVizcayaMangrove;
+
+  /// No description provided for @localSecretMiamiOceanDriveSunrise.
+  ///
+  /// In en, this message translates to:
+  /// **'Face east at 7 AM on Lummus — art deco pastels glow before the brunch crowd arrives.'**
+  String get localSecretMiamiOceanDriveSunrise;
+
+  /// No description provided for @localSecretMiamiPantherAlley.
+  ///
+  /// In en, this message translates to:
+  /// **'Order at the window, walk the alley clockwise — best mural light hits the turquoise wall at 8:45 AM.'**
+  String get localSecretMiamiPantherAlley;
+
+  /// No description provided for @momentsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'LUXORA MOMENTS'**
+  String get momentsTitle;
+
+  /// No description provided for @momentsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Search for a feeling — not a place.'**
+  String get momentsSubtitle;
+
+  /// No description provided for @momentFeelRelaxed.
+  ///
+  /// In en, this message translates to:
+  /// **'Feel relaxed'**
+  String get momentFeelRelaxed;
+
+  /// No description provided for @momentImpressSpouse.
+  ///
+  /// In en, this message translates to:
+  /// **'Impress my spouse'**
+  String get momentImpressSpouse;
+
+  /// No description provided for @momentPerfectSunset.
+  ///
+  /// In en, this message translates to:
+  /// **'Perfect sunset'**
+  String get momentPerfectSunset;
+
+  /// No description provided for @momentFamilyMemory.
+  ///
+  /// In en, this message translates to:
+  /// **'Family memory'**
+  String get momentFamilyMemory;
+
+  /// No description provided for @momentLuxuryValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Luxury without overspending'**
+  String get momentLuxuryValue;
+
+  /// No description provided for @momentPromptRelaxed.
+  ///
+  /// In en, this message translates to:
+  /// **'I want to feel completely relaxed for the next few hours — slow, beautiful, no crowds.'**
+  String get momentPromptRelaxed;
+
+  /// No description provided for @momentPromptImpressSpouse.
+  ///
+  /// In en, this message translates to:
+  /// **'I want to impress my spouse with something romantic and unexpected tonight.'**
+  String get momentPromptImpressSpouse;
+
+  /// No description provided for @momentPromptPerfectSunset.
+  ///
+  /// In en, this message translates to:
+  /// **'I want the perfect Florida sunset moment — where should we be and when should we leave?'**
+  String get momentPromptPerfectSunset;
+
+  /// No description provided for @momentPromptFamilyMemory.
+  ///
+  /// In en, this message translates to:
+  /// **'I want a memorable family moment that\'s easy on parents and magical for kids.'**
+  String get momentPromptFamilyMemory;
+
+  /// No description provided for @momentPromptLuxuryValue.
+  ///
+  /// In en, this message translates to:
+  /// **'I want luxury that feels special without spending a fortune.'**
+  String get momentPromptLuxuryValue;
+
+  /// No description provided for @visualShareImageButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Share image card'**
+  String get visualShareImageButton;
+
+  /// No description provided for @tripStoryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your trip story'**
+  String get tripStoryTitle;
+
+  /// No description provided for @tripStoryHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'{title} — your Florida story'**
+  String tripStoryHeading(String title);
+
+  /// No description provided for @tripStoryBeatMoods.
+  ///
+  /// In en, this message translates to:
+  /// **'You came for {moods}.'**
+  String tripStoryBeatMoods(String moods);
+
+  /// No description provided for @tripStoryBeatTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'This chapter: {title}.'**
+  String tripStoryBeatTitle(String title);
+
+  /// No description provided for @tripStoryBeatClosing.
+  ///
+  /// In en, this message translates to:
+  /// **'Luxora shaped the moments — you lived them.'**
+  String get tripStoryBeatClosing;
+
+  /// No description provided for @tripsOpenStory.
+  ///
+  /// In en, this message translates to:
+  /// **'Your story'**
+  String get tripsOpenStory;
+
+  /// No description provided for @conciergeVoiceHold.
+  ///
+  /// In en, this message translates to:
+  /// **'Hold to speak'**
+  String get conciergeVoiceHold;
+
+  /// No description provided for @conciergeVoiceSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Voice concierge is coming soon — for now, tap a moment or type how you want to feel.'**
+  String get conciergeVoiceSoon;
 
   /// No description provided for @mapAiPowers.
   ///
@@ -1300,6 +2151,12 @@ abstract class AppLocalizations {
   /// **'{time} drive from Orlando'**
   String detailDriveFromOrlando(String time);
 
+  /// No description provided for @detailDriveFromHub.
+  ///
+  /// In en, this message translates to:
+  /// **'{time} drive from {hub}'**
+  String detailDriveFromHub(String time, String hub);
+
   /// No description provided for @detailSaveToItinerary.
   ///
   /// In en, this message translates to:
@@ -1407,6 +2264,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{distance} from Orlando'**
   String milesFromOrlando(String distance);
+
+  /// No description provided for @milesFromHub.
+  ///
+  /// In en, this message translates to:
+  /// **'{distance} from {hub}'**
+  String milesFromHub(String distance, String hub);
 
   /// No description provided for @landingBadge.
   ///
@@ -2014,6 +2877,1000 @@ abstract class AppLocalizations {
   /// **'Thunderstorms'**
   String get weatherConditionThunder;
 
+  /// No description provided for @weatherConciergeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Weather Concierge'**
+  String get weatherConciergeTitle;
+
+  /// No description provided for @weatherConciergeTapHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap for travel-aware forecast'**
+  String get weatherConciergeTapHint;
+
+  /// No description provided for @weatherConciergeAdviceTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Luxora Weather Advice'**
+  String get weatherConciergeAdviceTitle;
+
+  /// No description provided for @weatherFeelsLike.
+  ///
+  /// In en, this message translates to:
+  /// **'Feels like {temp}'**
+  String weatherFeelsLike(String temp);
+
+  /// No description provided for @weatherHumidity.
+  ///
+  /// In en, this message translates to:
+  /// **'Humidity'**
+  String get weatherHumidity;
+
+  /// No description provided for @weatherWind.
+  ///
+  /// In en, this message translates to:
+  /// **'Wind'**
+  String get weatherWind;
+
+  /// No description provided for @weatherWindValue.
+  ///
+  /// In en, this message translates to:
+  /// **'{dir} at {speed} mph'**
+  String weatherWindValue(String dir, int speed);
+
+  /// No description provided for @weatherUv.
+  ///
+  /// In en, this message translates to:
+  /// **'UV index'**
+  String get weatherUv;
+
+  /// No description provided for @weatherCloudCover.
+  ///
+  /// In en, this message translates to:
+  /// **'Cloud cover'**
+  String get weatherCloudCover;
+
+  /// No description provided for @weatherVisibility.
+  ///
+  /// In en, this message translates to:
+  /// **'Visibility'**
+  String get weatherVisibility;
+
+  /// No description provided for @weatherVisibilityMiles.
+  ///
+  /// In en, this message translates to:
+  /// **'{miles} mi'**
+  String weatherVisibilityMiles(String miles);
+
+  /// No description provided for @weatherSunrise.
+  ///
+  /// In en, this message translates to:
+  /// **'Sunrise {time}'**
+  String weatherSunrise(String time);
+
+  /// No description provided for @weatherStatRain.
+  ///
+  /// In en, this message translates to:
+  /// **'Rain'**
+  String get weatherStatRain;
+
+  /// No description provided for @weatherWhatToBring.
+  ///
+  /// In en, this message translates to:
+  /// **'What to Bring Today'**
+  String get weatherWhatToBring;
+
+  /// No description provided for @weatherPlanImpact.
+  ///
+  /// In en, this message translates to:
+  /// **'Impact on Your Plan'**
+  String get weatherPlanImpact;
+
+  /// No description provided for @weatherHourlyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Hourly outlook'**
+  String get weatherHourlyTitle;
+
+  /// No description provided for @weatherHourlyUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Hourly forecast will appear when data loads.'**
+  String get weatherHourlyUnavailable;
+
+  /// No description provided for @weatherLiveRadar.
+  ///
+  /// In en, this message translates to:
+  /// **'Live Radar'**
+  String get weatherLiveRadar;
+
+  /// No description provided for @weatherRadarComingSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Live radar coming soon.'**
+  String get weatherRadarComingSoon;
+
+  /// No description provided for @weatherMapOverlays.
+  ///
+  /// In en, this message translates to:
+  /// **'Map overlays'**
+  String get weatherMapOverlays;
+
+  /// No description provided for @weatherOverlayPrecip.
+  ///
+  /// In en, this message translates to:
+  /// **'Precipitation'**
+  String get weatherOverlayPrecip;
+
+  /// No description provided for @weatherOverlayTemp.
+  ///
+  /// In en, this message translates to:
+  /// **'Temperature'**
+  String get weatherOverlayTemp;
+
+  /// No description provided for @weatherOverlayWind.
+  ///
+  /// In en, this message translates to:
+  /// **'Wind'**
+  String get weatherOverlayWind;
+
+  /// No description provided for @weatherOverlayCloud.
+  ///
+  /// In en, this message translates to:
+  /// **'Cloud cover'**
+  String get weatherOverlayCloud;
+
+  /// No description provided for @weatherComingSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Coming soon'**
+  String get weatherComingSoon;
+
+  /// No description provided for @weatherAdjustDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Adjust My Day for Weather'**
+  String get weatherAdjustDay;
+
+  /// No description provided for @weatherBestOutdoorWindow.
+  ///
+  /// In en, this message translates to:
+  /// **'Best outdoor window'**
+  String get weatherBestOutdoorWindow;
+
+  /// No description provided for @weatherRainWindow.
+  ///
+  /// In en, this message translates to:
+  /// **'Rain likely'**
+  String get weatherRainWindow;
+
+  /// No description provided for @weatherSunsetRec.
+  ///
+  /// In en, this message translates to:
+  /// **'Sunset recommendation'**
+  String get weatherSunsetRec;
+
+  /// No description provided for @weatherOutdoorAtRisk.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} outdoor stops may be affected'**
+  String weatherOutdoorAtRisk(int count);
+
+  /// No description provided for @weatherIndoorBackup.
+  ///
+  /// In en, this message translates to:
+  /// **'Indoor backup ideas'**
+  String get weatherIndoorBackup;
+
+  /// No description provided for @weatherAdviceLightJacket.
+  ///
+  /// In en, this message translates to:
+  /// **'Bring a light jacket this evening.'**
+  String get weatherAdviceLightJacket;
+
+  /// No description provided for @weatherAdviceOutdoorBefore.
+  ///
+  /// In en, this message translates to:
+  /// **'Plan outdoor activities before {time}.'**
+  String weatherAdviceOutdoorBefore(String time);
+
+  /// No description provided for @weatherAdviceHighUv.
+  ///
+  /// In en, this message translates to:
+  /// **'High UV today — bring sunscreen and avoid long direct sun exposure midday.'**
+  String get weatherAdviceHighUv;
+
+  /// No description provided for @weatherAdviceRainLater.
+  ///
+  /// In en, this message translates to:
+  /// **'Rain risk increases later today, so move indoor experiences to the afternoon.'**
+  String get weatherAdviceRainLater;
+
+  /// No description provided for @weatherAdviceWindBeach.
+  ///
+  /// In en, this message translates to:
+  /// **'Wind may make beach or boat activities less comfortable today.'**
+  String get weatherAdviceWindBeach;
+
+  /// No description provided for @weatherAdviceGreatSunset.
+  ///
+  /// In en, this message translates to:
+  /// **'Great sunset conditions tonight — consider a rooftop dinner or lake walk.'**
+  String get weatherAdviceGreatSunset;
+
+  /// No description provided for @weatherAdviceDefault.
+  ///
+  /// In en, this message translates to:
+  /// **'Skies look manageable — follow your plan and keep a light layer handy.'**
+  String get weatherAdviceDefault;
+
+  /// No description provided for @weatherSunsetRecRooftop.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear skies near {time} — rooftop dinner or a lake walk could shine.'**
+  String weatherSunsetRecRooftop(String time);
+
+  /// No description provided for @weatherPackSunscreen.
+  ///
+  /// In en, this message translates to:
+  /// **'Sunscreen'**
+  String get weatherPackSunscreen;
+
+  /// No description provided for @weatherPackSunglasses.
+  ///
+  /// In en, this message translates to:
+  /// **'Sunglasses'**
+  String get weatherPackSunglasses;
+
+  /// No description provided for @weatherPackUmbrella.
+  ///
+  /// In en, this message translates to:
+  /// **'Umbrella'**
+  String get weatherPackUmbrella;
+
+  /// No description provided for @weatherPackLightJacket.
+  ///
+  /// In en, this message translates to:
+  /// **'Light jacket'**
+  String get weatherPackLightJacket;
+
+  /// No description provided for @weatherPackShoes.
+  ///
+  /// In en, this message translates to:
+  /// **'Comfortable shoes'**
+  String get weatherPackShoes;
+
+  /// No description provided for @weatherPackWater.
+  ///
+  /// In en, this message translates to:
+  /// **'Water bottle'**
+  String get weatherPackWater;
+
+  /// No description provided for @weatherPackHat.
+  ///
+  /// In en, this message translates to:
+  /// **'Hat'**
+  String get weatherPackHat;
+
+  /// No description provided for @weatherPackPoncho.
+  ///
+  /// In en, this message translates to:
+  /// **'Poncho'**
+  String get weatherPackPoncho;
+
+  /// No description provided for @weatherPackSwimwear.
+  ///
+  /// In en, this message translates to:
+  /// **'Swimwear'**
+  String get weatherPackSwimwear;
+
+  /// No description provided for @weatherImpactRainLater.
+  ///
+  /// In en, this message translates to:
+  /// **'Rain risk rises after {time}. Consider moving {outdoorStop} earlier and saving {indoorStop} for later.'**
+  String weatherImpactRainLater(
+    String time,
+    String outdoorStop,
+    String indoorStop,
+  );
+
+  /// No description provided for @weatherImpactHeat.
+  ///
+  /// In en, this message translates to:
+  /// **'High heat midday — plan outdoor walks before {time}.'**
+  String weatherImpactHeat(String time);
+
+  /// No description provided for @weatherImpactClear.
+  ///
+  /// In en, this message translates to:
+  /// **'Skies look friendly for your outdoor plans this morning.'**
+  String get weatherImpactClear;
+
+  /// No description provided for @weatherImpactMixed.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} outdoor stops may need timing tweaks today.'**
+  String weatherImpactMixed(int count);
+
+  /// No description provided for @weatherImpactNoPlanRain.
+  ///
+  /// In en, this message translates to:
+  /// **'Rain is in the mix — build your day with indoor anchors first.'**
+  String get weatherImpactNoPlanRain;
+
+  /// No description provided for @weatherImpactNoPlanClear.
+  ///
+  /// In en, this message translates to:
+  /// **'Best outdoor window looks like {start}–{end} before heat or showers build.'**
+  String weatherImpactNoPlanClear(String start, String end);
+
+  /// No description provided for @weatherImpactNoPlanDefault.
+  ///
+  /// In en, this message translates to:
+  /// **'Weather looks steady — tap Plan My Day when you\'re ready to sequence stops.'**
+  String get weatherImpactNoPlanDefault;
+
+  /// No description provided for @weatherImpactIndoorFallback.
+  ///
+  /// In en, this message translates to:
+  /// **'a spa or museum'**
+  String get weatherImpactIndoorFallback;
+
+  /// No description provided for @hotelIntelBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'HOTEL INTELLIGENCE'**
+  String get hotelIntelBadge;
+
+  /// No description provided for @hotelIntelTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Find Your Home Base'**
+  String get hotelIntelTitle;
+
+  /// No description provided for @hotelIntelSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Based on the trip you want to have, Luxora selects stays that shape your days — not a booking grid.'**
+  String get hotelIntelSubtitle;
+
+  /// No description provided for @hotelDiscoveryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Curated for Orlando'**
+  String get hotelDiscoveryTitle;
+
+  /// No description provided for @hotelMatchmakerTeaser.
+  ///
+  /// In en, this message translates to:
+  /// **'Tell Luxora your trip style and get three concierge-picked stays with honest tradeoffs.'**
+  String get hotelMatchmakerTeaser;
+
+  /// No description provided for @hotelMatchmakerCta.
+  ///
+  /// In en, this message translates to:
+  /// **'AI Hotel Matchmaker'**
+  String get hotelMatchmakerCta;
+
+  /// No description provided for @hotelMatchmakerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Hotel Matchmaker'**
+  String get hotelMatchmakerTitle;
+
+  /// No description provided for @hotelMatchmakerSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Share how you travel — Luxora recommends where to anchor your days.'**
+  String get hotelMatchmakerSubtitle;
+
+  /// No description provided for @hotelMatchmakerRun.
+  ///
+  /// In en, this message translates to:
+  /// **'Find My Top 3 Stays'**
+  String get hotelMatchmakerRun;
+
+  /// No description provided for @hotelMatchBudget.
+  ///
+  /// In en, this message translates to:
+  /// **'Budget comfort zone'**
+  String get hotelMatchBudget;
+
+  /// No description provided for @hotelMatchTravelers.
+  ///
+  /// In en, this message translates to:
+  /// **'Travelers'**
+  String get hotelMatchTravelers;
+
+  /// No description provided for @hotelMatchAdults.
+  ///
+  /// In en, this message translates to:
+  /// **'Adults'**
+  String get hotelMatchAdults;
+
+  /// No description provided for @hotelMatchKids.
+  ///
+  /// In en, this message translates to:
+  /// **'Kids'**
+  String get hotelMatchKids;
+
+  /// No description provided for @hotelMatchAttractions.
+  ///
+  /// In en, this message translates to:
+  /// **'Attractions on your list'**
+  String get hotelMatchAttractions;
+
+  /// No description provided for @hotelMatchLuxuryLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'Desired luxury level'**
+  String get hotelMatchLuxuryLevel;
+
+  /// No description provided for @hotelMatchTransport.
+  ///
+  /// In en, this message translates to:
+  /// **'Getting around'**
+  String get hotelMatchTransport;
+
+  /// No description provided for @hotelTransportCar.
+  ///
+  /// In en, this message translates to:
+  /// **'Rental car'**
+  String get hotelTransportCar;
+
+  /// No description provided for @hotelTransportRideshare.
+  ///
+  /// In en, this message translates to:
+  /// **'Rideshare'**
+  String get hotelTransportRideshare;
+
+  /// No description provided for @hotelTransportShuttle.
+  ///
+  /// In en, this message translates to:
+  /// **'Resort shuttle'**
+  String get hotelTransportShuttle;
+
+  /// No description provided for @hotelTransportWalkable.
+  ///
+  /// In en, this message translates to:
+  /// **'Walkable neighborhood'**
+  String get hotelTransportWalkable;
+
+  /// No description provided for @hotelMatchResultsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your top 3 matches'**
+  String get hotelMatchResultsTitle;
+
+  /// No description provided for @hotelMatchWhyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Match score {score}'**
+  String hotelMatchWhyTitle(int score);
+
+  /// No description provided for @hotelMatchBestForLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Best for:'**
+  String get hotelMatchBestForLabel;
+
+  /// No description provided for @hotelMatchItineraryLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Itinerary:'**
+  String get hotelMatchItineraryLabel;
+
+  /// No description provided for @hotelMatchTradeoffsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Tradeoffs:'**
+  String get hotelMatchTradeoffsLabel;
+
+  /// No description provided for @hotelMatchNearbyLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Nearby:'**
+  String get hotelMatchNearbyLabel;
+
+  /// No description provided for @hotelLuxoraScore.
+  ///
+  /// In en, this message translates to:
+  /// **'Luxora'**
+  String get hotelLuxoraScore;
+
+  /// No description provided for @hotelHomeBaseBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'HOME BASE'**
+  String get hotelHomeBaseBadge;
+
+  /// No description provided for @hotelScoreLuxury.
+  ///
+  /// In en, this message translates to:
+  /// **'Luxury'**
+  String get hotelScoreLuxury;
+
+  /// No description provided for @hotelScoreFamily.
+  ///
+  /// In en, this message translates to:
+  /// **'Family'**
+  String get hotelScoreFamily;
+
+  /// No description provided for @hotelScoreRomance.
+  ///
+  /// In en, this message translates to:
+  /// **'Romance'**
+  String get hotelScoreRomance;
+
+  /// No description provided for @hotelScoreWalkability.
+  ///
+  /// In en, this message translates to:
+  /// **'Walk'**
+  String get hotelScoreWalkability;
+
+  /// No description provided for @hotelWhyRecommendTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Why Luxora Recommends This'**
+  String get hotelWhyRecommendTitle;
+
+  /// No description provided for @hotelItineraryImpactTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'How this shapes your days'**
+  String get hotelItineraryImpactTitle;
+
+  /// No description provided for @hotelItineraryImpactBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Rough drive from hub: {driveTime}. Travel friction score: {friction}/90 (lower is calmer).'**
+  String hotelItineraryImpactBody(String driveTime, int friction);
+
+  /// No description provided for @hotelAddHomeBase.
+  ///
+  /// In en, this message translates to:
+  /// **'Add as Home Base'**
+  String get hotelAddHomeBase;
+
+  /// No description provided for @hotelHomeBaseActive.
+  ///
+  /// In en, this message translates to:
+  /// **'Home Base Active'**
+  String get hotelHomeBaseActive;
+
+  /// No description provided for @hotelViewOnMap.
+  ///
+  /// In en, this message translates to:
+  /// **'View on Map'**
+  String get hotelViewOnMap;
+
+  /// No description provided for @hotelGetDirections.
+  ///
+  /// In en, this message translates to:
+  /// **'Get Directions'**
+  String get hotelGetDirections;
+
+  /// No description provided for @hotelCheckRates.
+  ///
+  /// In en, this message translates to:
+  /// **'Check Rates'**
+  String get hotelCheckRates;
+
+  /// No description provided for @hotelVisitWebsite.
+  ///
+  /// In en, this message translates to:
+  /// **'Visit Website'**
+  String get hotelVisitWebsite;
+
+  /// No description provided for @hotelSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save Hotel'**
+  String get hotelSave;
+
+  /// No description provided for @hotelSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved'**
+  String get hotelSaved;
+
+  /// No description provided for @hotelDistanceTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Distance to key spots'**
+  String get hotelDistanceTitle;
+
+  /// No description provided for @hotelCompareTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Compare Stays'**
+  String get hotelCompareTitle;
+
+  /// No description provided for @hotelCompareSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Side-by-side concierge view — up to three hotels.'**
+  String get hotelCompareSubtitle;
+
+  /// No description provided for @hotelCompareSelected.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} selected'**
+  String hotelCompareSelected(int count);
+
+  /// No description provided for @hotelComparePrice.
+  ///
+  /// In en, this message translates to:
+  /// **'Price range'**
+  String get hotelComparePrice;
+
+  /// No description provided for @hotelCompareDriveImpact.
+  ///
+  /// In en, this message translates to:
+  /// **'Drive impact'**
+  String get hotelCompareDriveImpact;
+
+  /// No description provided for @hotelCompareNearby.
+  ///
+  /// In en, this message translates to:
+  /// **'Nearby highlights'**
+  String get hotelCompareNearby;
+
+  /// No description provided for @hotelPriceBudget.
+  ///
+  /// In en, this message translates to:
+  /// **'Budget'**
+  String get hotelPriceBudget;
+
+  /// No description provided for @hotelPriceModerate.
+  ///
+  /// In en, this message translates to:
+  /// **'Moderate'**
+  String get hotelPriceModerate;
+
+  /// No description provided for @hotelPriceUpscale.
+  ///
+  /// In en, this message translates to:
+  /// **'Upscale'**
+  String get hotelPriceUpscale;
+
+  /// No description provided for @hotelPriceLuxury.
+  ///
+  /// In en, this message translates to:
+  /// **'Luxury'**
+  String get hotelPriceLuxury;
+
+  /// No description provided for @hotelTagCouples.
+  ///
+  /// In en, this message translates to:
+  /// **'Best for couples'**
+  String get hotelTagCouples;
+
+  /// No description provided for @hotelTagDisney.
+  ///
+  /// In en, this message translates to:
+  /// **'Best for Disney'**
+  String get hotelTagDisney;
+
+  /// No description provided for @hotelTagUniversal.
+  ///
+  /// In en, this message translates to:
+  /// **'Best for Universal'**
+  String get hotelTagUniversal;
+
+  /// No description provided for @hotelTagLuxuryStaycation.
+  ///
+  /// In en, this message translates to:
+  /// **'Luxury staycation'**
+  String get hotelTagLuxuryStaycation;
+
+  /// No description provided for @hotelTagFamily.
+  ///
+  /// In en, this message translates to:
+  /// **'Family friendly'**
+  String get hotelTagFamily;
+
+  /// No description provided for @hotelTagQuiet.
+  ///
+  /// In en, this message translates to:
+  /// **'Quiet escape'**
+  String get hotelTagQuiet;
+
+  /// No description provided for @hotelTagWalkableDining.
+  ///
+  /// In en, this message translates to:
+  /// **'Walkable dining'**
+  String get hotelTagWalkableDining;
+
+  /// No description provided for @hotelTagResort.
+  ///
+  /// In en, this message translates to:
+  /// **'Resort feel'**
+  String get hotelTagResort;
+
+  /// No description provided for @hotelTagBudget.
+  ///
+  /// In en, this message translates to:
+  /// **'Budget friendly'**
+  String get hotelTagBudget;
+
+  /// No description provided for @hotelReasonMatchesMood.
+  ///
+  /// In en, this message translates to:
+  /// **'Matches your trip mood and pace.'**
+  String get hotelReasonMatchesMood;
+
+  /// No description provided for @hotelReasonCloseStops.
+  ///
+  /// In en, this message translates to:
+  /// **'Close to planned stops on your timeline.'**
+  String get hotelReasonCloseStops;
+
+  /// No description provided for @hotelReasonSavesDrive.
+  ///
+  /// In en, this message translates to:
+  /// **'Saves drive time vs. a generic hub — about {time} from center.'**
+  String hotelReasonSavesDrive(String time);
+
+  /// No description provided for @hotelReasonFitsBudget.
+  ///
+  /// In en, this message translates to:
+  /// **'Fits a {range} comfort zone without overspending on the wrong resort.'**
+  String hotelReasonFitsBudget(String range);
+
+  /// No description provided for @hotelReasonBetterGroup.
+  ///
+  /// In en, this message translates to:
+  /// **'Better suited to your group type and energy level.'**
+  String get hotelReasonBetterGroup;
+
+  /// No description provided for @hotelReasonNearbyDining.
+  ///
+  /// In en, this message translates to:
+  /// **'Strong nearby dining for effortless evenings.'**
+  String get hotelReasonNearbyDining;
+
+  /// No description provided for @hotelReasonLowStress.
+  ///
+  /// In en, this message translates to:
+  /// **'Resort-style calm — less logistics, more vacation.'**
+  String get hotelReasonLowStress;
+
+  /// No description provided for @hotelMatchAttractionsGeneral.
+  ///
+  /// In en, this message translates to:
+  /// **'your planned attractions'**
+  String get hotelMatchAttractionsGeneral;
+
+  /// No description provided for @hotelMatchWhyMulti.
+  ///
+  /// In en, this message translates to:
+  /// **'Based on your {attractions} itinerary, {hotel} reduces drive time and keeps evenings easy.'**
+  String hotelMatchWhyMulti(String attractions, String hotel);
+
+  /// No description provided for @hotelMatchWhySingle.
+  ///
+  /// In en, this message translates to:
+  /// **'{hotel} in {neighborhood} fits how you want this trip to feel.'**
+  String hotelMatchWhySingle(String hotel, String neighborhood);
+
+  /// No description provided for @hotelMatchBestForFamily.
+  ///
+  /// In en, this message translates to:
+  /// **'Families who want pool days without sacrificing park access.'**
+  String get hotelMatchBestForFamily;
+
+  /// No description provided for @hotelMatchBestForCouple.
+  ///
+  /// In en, this message translates to:
+  /// **'Couples who want romance without theme-park chaos.'**
+  String get hotelMatchBestForCouple;
+
+  /// No description provided for @hotelMatchBestForGroup.
+  ///
+  /// In en, this message translates to:
+  /// **'Groups balancing comfort, access, and calm logistics.'**
+  String get hotelMatchBestForGroup;
+
+  /// No description provided for @hotelMatchImpactDisney.
+  ///
+  /// In en, this message translates to:
+  /// **'Shorter Disney runs — about {time} to the parks from your door.'**
+  String hotelMatchImpactDisney(String time);
+
+  /// No description provided for @hotelMatchImpactUniversal.
+  ///
+  /// In en, this message translates to:
+  /// **'Universal Express perks or water-taxi access can reclaim hours from your day.'**
+  String get hotelMatchImpactUniversal;
+
+  /// No description provided for @hotelMatchImpactWalkable.
+  ///
+  /// In en, this message translates to:
+  /// **'Walk to dinner — less parking stress after long park days.'**
+  String get hotelMatchImpactWalkable;
+
+  /// No description provided for @hotelMatchImpactDefault.
+  ///
+  /// In en, this message translates to:
+  /// **'Keeps average drives around {time} so your day flow stays relaxed.'**
+  String hotelMatchImpactDefault(String time);
+
+  /// No description provided for @hotelMatchTradeoffLuxuryBudget.
+  ///
+  /// In en, this message translates to:
+  /// **'Premium resort pricing — budget more for the room, less elsewhere.'**
+  String get hotelMatchTradeoffLuxuryBudget;
+
+  /// No description provided for @hotelMatchTradeoffCarNeeded.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'ll rely on a car or rideshare — not a walk-everywhere base.'**
+  String get hotelMatchTradeoffCarNeeded;
+
+  /// No description provided for @hotelMatchTradeoffLessFamily.
+  ///
+  /// In en, this message translates to:
+  /// **'Less focused on kid-centric amenities than dedicated family resorts.'**
+  String get hotelMatchTradeoffLessFamily;
+
+  /// No description provided for @hotelMatchTradeoffLessRomantic.
+  ///
+  /// In en, this message translates to:
+  /// **'More theme-park energy than a quiet couples retreat.'**
+  String get hotelMatchTradeoffLessRomantic;
+
+  /// No description provided for @hotelMatchTradeoffDefault.
+  ///
+  /// In en, this message translates to:
+  /// **'Every stay has tradeoffs — Luxora picked this for your priorities first.'**
+  String get hotelMatchTradeoffDefault;
+
+  /// No description provided for @hotelNearbyDefault.
+  ///
+  /// In en, this message translates to:
+  /// **'Dining and experiences around {neighborhood}.'**
+  String hotelNearbyDefault(String neighborhood);
+
+  /// No description provided for @mapHotelIntelBannerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose the right home base'**
+  String get mapHotelIntelBannerTitle;
+
+  /// No description provided for @mapHotelIntelBannerBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Your hotel shapes drive times, day flow, and where you eat. Luxora helps you pick — without booking pressure.'**
+  String get mapHotelIntelBannerBody;
+
+  /// No description provided for @mapHotelIntelBannerCta.
+  ///
+  /// In en, this message translates to:
+  /// **'Explore Hotel Intelligence'**
+  String get mapHotelIntelBannerCta;
+
+  /// No description provided for @sponsorLuxoraRecommended.
+  ///
+  /// In en, this message translates to:
+  /// **'Luxora Recommended'**
+  String get sponsorLuxoraRecommended;
+
+  /// No description provided for @sponsorBadgeFeaturedPartner.
+  ///
+  /// In en, this message translates to:
+  /// **'Featured Partner'**
+  String get sponsorBadgeFeaturedPartner;
+
+  /// No description provided for @sponsorBadgeSponsored.
+  ///
+  /// In en, this message translates to:
+  /// **'Sponsored'**
+  String get sponsorBadgeSponsored;
+
+  /// No description provided for @sponsorBadgePromoted.
+  ///
+  /// In en, this message translates to:
+  /// **'Promoted'**
+  String get sponsorBadgePromoted;
+
+  /// No description provided for @sponsorBadgePartnerOffer.
+  ///
+  /// In en, this message translates to:
+  /// **'Partner Offer'**
+  String get sponsorBadgePartnerOffer;
+
+  /// No description provided for @sponsorCtaVisitWebsite.
+  ///
+  /// In en, this message translates to:
+  /// **'Visit Website'**
+  String get sponsorCtaVisitWebsite;
+
+  /// No description provided for @sponsorCtaBookNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Book Now'**
+  String get sponsorCtaBookNow;
+
+  /// No description provided for @sponsorCtaCheckRates.
+  ///
+  /// In en, this message translates to:
+  /// **'Check Rates'**
+  String get sponsorCtaCheckRates;
+
+  /// No description provided for @sponsorCtaGetTickets.
+  ///
+  /// In en, this message translates to:
+  /// **'Get Tickets'**
+  String get sponsorCtaGetTickets;
+
+  /// No description provided for @sponsorCtaViewOffer.
+  ///
+  /// In en, this message translates to:
+  /// **'View Offer'**
+  String get sponsorCtaViewOffer;
+
+  /// No description provided for @featuredStaysTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Featured Stays'**
+  String get featuredStaysTitle;
+
+  /// No description provided for @featuredStaysSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Partner placements — separate from Luxora\'s organic hotel match scores.'**
+  String get featuredStaysSubtitle;
+
+  /// No description provided for @featuredExperiencesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Featured Experiences'**
+  String get featuredExperiencesTitle;
+
+  /// No description provided for @featuredExperiencesSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Promoted picks for your mood — always labeled, never disguised as AI rank.'**
+  String get featuredExperiencesSubtitle;
+
+  /// No description provided for @featuredDiningTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Featured Dining'**
+  String get featuredDiningTitle;
+
+  /// No description provided for @featuredDiningSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Partner restaurants Luxora highlights — your organic gem list stays independent.'**
+  String get featuredDiningSubtitle;
+
+  /// No description provided for @featuredTicketPartnersTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Featured Ticket Partners'**
+  String get featuredTicketPartnersTitle;
+
+  /// No description provided for @featuredTicketPartnersSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Authorized partner offers — compare with organic savings below.'**
+  String get featuredTicketPartnersSubtitle;
+
+  /// No description provided for @featuredCityHomeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Featured Partners'**
+  String get featuredCityHomeTitle;
+
+  /// No description provided for @featuredCityHomeSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Helpful partner options for Orlando — clearly marked, never hidden as AI picks.'**
+  String get featuredCityHomeSubtitle;
+
   /// No description provided for @dayFlowVibeFoodie.
   ///
   /// In en, this message translates to:
@@ -2319,6 +4176,484 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Family-easy logistics'**
   String get styleFamilyEasy;
+
+  /// No description provided for @paywallHeroEyebrow.
+  ///
+  /// In en, this message translates to:
+  /// **'YOUR PERSONAL CONCIERGE'**
+  String get paywallHeroEyebrow;
+
+  /// No description provided for @paywallHeroHeadline.
+  ///
+  /// In en, this message translates to:
+  /// **'DON\'T WASTE YOUR VACATION'**
+  String get paywallHeroHeadline;
+
+  /// No description provided for @paywallHeroSubheadline.
+  ///
+  /// In en, this message translates to:
+  /// **'Luxora plans the trip so you can enjoy it.'**
+  String get paywallHeroSubheadline;
+
+  /// No description provided for @paywallEmotionalLine.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'re already spending thousands on your vacation. Don\'t leave the experience to chance.'**
+  String get paywallEmotionalLine;
+
+  /// No description provided for @paywallHeadlineCouples.
+  ///
+  /// In en, this message translates to:
+  /// **'Your perfect {cityName} getaway starts here.'**
+  String paywallHeadlineCouples(String cityName);
+
+  /// No description provided for @paywallHeadlineFamily.
+  ///
+  /// In en, this message translates to:
+  /// **'Spend less time planning and more time making memories in {cityName}.'**
+  String paywallHeadlineFamily(String cityName);
+
+  /// No description provided for @paywallHeadlineLuxury.
+  ///
+  /// In en, this message translates to:
+  /// **'Experience {cityName} differently.'**
+  String paywallHeadlineLuxury(String cityName);
+
+  /// No description provided for @paywallHeadlineAdventure.
+  ///
+  /// In en, this message translates to:
+  /// **'Discover the {cityName} most tourists never see.'**
+  String paywallHeadlineAdventure(String cityName);
+
+  /// No description provided for @paywallHeadlineFoodie.
+  ///
+  /// In en, this message translates to:
+  /// **'Taste {cityName} like a local insider.'**
+  String paywallHeadlineFoodie(String cityName);
+
+  /// No description provided for @paywallWhatYouUnlock.
+  ///
+  /// In en, this message translates to:
+  /// **'What You Unlock'**
+  String get paywallWhatYouUnlock;
+
+  /// No description provided for @paywallFeatureAiConcierge.
+  ///
+  /// In en, this message translates to:
+  /// **'AI Concierge'**
+  String get paywallFeatureAiConcierge;
+
+  /// No description provided for @paywallFeatureItineraries.
+  ///
+  /// In en, this message translates to:
+  /// **'Personalized Itineraries'**
+  String get paywallFeatureItineraries;
+
+  /// No description provided for @paywallFeatureHiddenGems.
+  ///
+  /// In en, this message translates to:
+  /// **'Hidden Gems'**
+  String get paywallFeatureHiddenGems;
+
+  /// No description provided for @paywallFeatureHotelIntel.
+  ///
+  /// In en, this message translates to:
+  /// **'Hotel Intelligence'**
+  String get paywallFeatureHotelIntel;
+
+  /// No description provided for @paywallFeatureTicketSavings.
+  ///
+  /// In en, this message translates to:
+  /// **'Smart Ticket Savings'**
+  String get paywallFeatureTicketSavings;
+
+  /// No description provided for @paywallFeatureWeatherConcierge.
+  ///
+  /// In en, this message translates to:
+  /// **'Weather Concierge'**
+  String get paywallFeatureWeatherConcierge;
+
+  /// No description provided for @paywallFeatureCrowdIntel.
+  ///
+  /// In en, this message translates to:
+  /// **'Crowd Intelligence'**
+  String get paywallFeatureCrowdIntel;
+
+  /// No description provided for @paywallFeatureGpsNav.
+  ///
+  /// In en, this message translates to:
+  /// **'GPS Navigation'**
+  String get paywallFeatureGpsNav;
+
+  /// No description provided for @paywallFeatureLocalSecrets.
+  ///
+  /// In en, this message translates to:
+  /// **'Local Secrets'**
+  String get paywallFeatureLocalSecrets;
+
+  /// No description provided for @paywallFeatureDining.
+  ///
+  /// In en, this message translates to:
+  /// **'Dining Recommendations'**
+  String get paywallFeatureDining;
+
+  /// No description provided for @paywallFeatureUnlimitedPlanning.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlimited City Planning'**
+  String get paywallFeatureUnlimitedPlanning;
+
+  /// No description provided for @paywallWhyTravelersUnlock.
+  ///
+  /// In en, this message translates to:
+  /// **'Why Travelers Unlock Luxora'**
+  String get paywallWhyTravelersUnlock;
+
+  /// No description provided for @paywallBenefitSaveTimeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Save Time'**
+  String get paywallBenefitSaveTimeTitle;
+
+  /// No description provided for @paywallBenefitSaveTimeBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip hours of research and planning.'**
+  String get paywallBenefitSaveTimeBody;
+
+  /// No description provided for @paywallBenefitSaveMoneyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Save Money'**
+  String get paywallBenefitSaveMoneyTitle;
+
+  /// No description provided for @paywallBenefitSaveMoneyBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Discover ticket savings, local deals, and smarter choices.'**
+  String get paywallBenefitSaveMoneyBody;
+
+  /// No description provided for @paywallBenefitAvoidTrapsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Avoid Tourist Traps'**
+  String get paywallBenefitAvoidTrapsTitle;
+
+  /// No description provided for @paywallBenefitAvoidTrapsBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Find experiences locals actually recommend.'**
+  String get paywallBenefitAvoidTrapsBody;
+
+  /// No description provided for @paywallBenefitTravelSmarterTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Travel Smarter'**
+  String get paywallBenefitTravelSmarterTitle;
+
+  /// No description provided for @paywallBenefitTravelSmarterBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Get recommendations based on weather, crowds, and your trip style.'**
+  String get paywallBenefitTravelSmarterBody;
+
+  /// No description provided for @paywallLockedPreviewTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Waiting Inside Your Concierge'**
+  String get paywallLockedPreviewTitle;
+
+  /// No description provided for @paywallLockedPreviewSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock to reveal routes and secrets tailored to your trip.'**
+  String get paywallLockedPreviewSubtitle;
+
+  /// No description provided for @paywallLockedDateNight.
+  ///
+  /// In en, this message translates to:
+  /// **'Romantic Date Night Routes'**
+  String get paywallLockedDateNight;
+
+  /// No description provided for @paywallLockedHiddenLuxury.
+  ///
+  /// In en, this message translates to:
+  /// **'Hidden Luxury Experiences'**
+  String get paywallLockedHiddenLuxury;
+
+  /// No description provided for @paywallLockedVipSecrets.
+  ///
+  /// In en, this message translates to:
+  /// **'VIP Local Secrets'**
+  String get paywallLockedVipSecrets;
+
+  /// No description provided for @paywallLockedConciergeRecs.
+  ///
+  /// In en, this message translates to:
+  /// **'Concierge Recommendations'**
+  String get paywallLockedConciergeRecs;
+
+  /// No description provided for @paywallLockedFamilyPlans.
+  ///
+  /// In en, this message translates to:
+  /// **'Family Stress-Free Plans'**
+  String get paywallLockedFamilyPlans;
+
+  /// No description provided for @paywallLockedWeatherReroute.
+  ///
+  /// In en, this message translates to:
+  /// **'Weather-Aware Rerouting'**
+  String get paywallLockedWeatherReroute;
+
+  /// No description provided for @paywallLockedHotelMatchmaker.
+  ///
+  /// In en, this message translates to:
+  /// **'Smart Hotel Matchmaker'**
+  String get paywallLockedHotelMatchmaker;
+
+  /// No description provided for @paywallUnlockCityConcierge.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock {cityName} Concierge'**
+  String paywallUnlockCityConcierge(String cityName);
+
+  /// No description provided for @paywallOneTimePurchase.
+  ///
+  /// In en, this message translates to:
+  /// **'One-Time Purchase'**
+  String get paywallOneTimePurchase;
+
+  /// No description provided for @paywallNoSubscription.
+  ///
+  /// In en, this message translates to:
+  /// **'No Subscription'**
+  String get paywallNoSubscription;
+
+  /// No description provided for @paywallNoMonthlyFees.
+  ///
+  /// In en, this message translates to:
+  /// **'No Monthly Fees'**
+  String get paywallNoMonthlyFees;
+
+  /// No description provided for @paywallLifetimeAccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Lifetime {cityName} Access'**
+  String paywallLifetimeAccess(String cityName);
+
+  /// No description provided for @paywallFutureUpdatesIncluded.
+  ///
+  /// In en, this message translates to:
+  /// **'Future {cityName} Updates Included'**
+  String paywallFutureUpdatesIncluded(String cityName);
+
+  /// No description provided for @paywallMostVacationsCost.
+  ///
+  /// In en, this message translates to:
+  /// **'Most {cityName} vacations cost {minUsd}–{maxUsd}+'**
+  String paywallMostVacationsCost(
+    String cityName,
+    String minUsd,
+    String maxUsd,
+  );
+
+  /// No description provided for @paywallLuxoraPriceLine.
+  ///
+  /// In en, this message translates to:
+  /// **'{price} One Time'**
+  String paywallLuxoraPriceLine(String price);
+
+  /// No description provided for @paywallLessThanDinner.
+  ///
+  /// In en, this message translates to:
+  /// **'Less than the cost of a vacation dinner.'**
+  String get paywallLessThanDinner;
+
+  /// No description provided for @paywallSocialProofTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Travelers Who Unlocked Luxora'**
+  String get paywallSocialProofTitle;
+
+  /// No description provided for @paywallReview1.
+  ///
+  /// In en, this message translates to:
+  /// **'\"Saved us hours of planning.\"'**
+  String get paywallReview1;
+
+  /// No description provided for @paywallReview2.
+  ///
+  /// In en, this message translates to:
+  /// **'\"Found places we never would have discovered.\"'**
+  String get paywallReview2;
+
+  /// No description provided for @paywallReview3.
+  ///
+  /// In en, this message translates to:
+  /// **'\"Worth it for the hidden gems alone.\"'**
+  String get paywallReview3;
+
+  /// No description provided for @paywallCtaUnlock.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock {cityName} Concierge'**
+  String paywallCtaUnlock(String cityName);
+
+  /// No description provided for @paywallContinueExploring.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue Exploring'**
+  String get paywallContinueExploring;
+
+  /// No description provided for @paywallConciergePromise.
+  ///
+  /// In en, this message translates to:
+  /// **'One-time purchase · Personal concierge · No subscription'**
+  String get paywallConciergePromise;
+
+  /// No description provided for @settingsUnlockConciergeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock city concierge'**
+  String get settingsUnlockConciergeTitle;
+
+  /// No description provided for @settingsUnlockConciergeSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'One-time city pack — not a subscription'**
+  String get settingsUnlockConciergeSubtitle;
+
+  /// No description provided for @weatherMiamiHumidityIndoor.
+  ///
+  /// In en, this message translates to:
+  /// **'High humidity today. Hit the beach or pool earlier, then Wynwood or Brickell for indoor dining and galleries during the hottest hours.'**
+  String get weatherMiamiHumidityIndoor;
+
+  /// No description provided for @weatherMiamiHeatAdvisory.
+  ///
+  /// In en, this message translates to:
+  /// **'Heat advisory conditions — light fabrics, hydration, and shade breaks between outdoor stops.'**
+  String get weatherMiamiHeatAdvisory;
+
+  /// No description provided for @weatherMiamiBeachMorning.
+  ///
+  /// In en, this message translates to:
+  /// **'Strong UV on the sand — sunscreen, hat, and beach time before midday.'**
+  String get weatherMiamiBeachMorning;
+
+  /// No description provided for @weatherMiamiBoatWind.
+  ///
+  /// In en, this message translates to:
+  /// **'Wind is elevated — reconsider boat or yacht activities; rooftop dining may still work.'**
+  String get weatherMiamiBoatWind;
+
+  /// No description provided for @weatherMiamiRainReroute.
+  ///
+  /// In en, this message translates to:
+  /// **'Rain window ahead — swap outdoor plans for {indoorSpot} or gallery time.'**
+  String weatherMiamiRainReroute(String indoorSpot);
+
+  /// No description provided for @weatherMiamiSunsetWaterfront.
+  ///
+  /// In en, this message translates to:
+  /// **'Sunset looks strong — waterfront or rooftop with an east-to-west view.'**
+  String get weatherMiamiSunsetWaterfront;
+
+  /// No description provided for @miamiBeachIntelTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Beach Intelligence'**
+  String get miamiBeachIntelTitle;
+
+  /// No description provided for @miamiBeachBestTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Best time: {time}'**
+  String miamiBeachBestTime(String time);
+
+  /// No description provided for @miamiBeachFamilyScore.
+  ///
+  /// In en, this message translates to:
+  /// **'Family'**
+  String get miamiBeachFamilyScore;
+
+  /// No description provided for @miamiBeachCrowdScore.
+  ///
+  /// In en, this message translates to:
+  /// **'Crowd'**
+  String get miamiBeachCrowdScore;
+
+  /// No description provided for @miamiBeachPhotoScore.
+  ///
+  /// In en, this message translates to:
+  /// **'Photo'**
+  String get miamiBeachPhotoScore;
+
+  /// No description provided for @miamiBeachRomanceScore.
+  ///
+  /// In en, this message translates to:
+  /// **'Romance'**
+  String get miamiBeachRomanceScore;
+
+  /// No description provided for @miamiBeachSunsetScore.
+  ///
+  /// In en, this message translates to:
+  /// **'Sunset'**
+  String get miamiBeachSunsetScore;
+
+  /// No description provided for @miamiBeachParking.
+  ///
+  /// In en, this message translates to:
+  /// **'Parking: {level}'**
+  String miamiBeachParking(String level);
+
+  /// No description provided for @miamiNightlifeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Nightlife Concierge'**
+  String get miamiNightlifeTitle;
+
+  /// No description provided for @miamiNightlifeDressCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Dress code: {code}'**
+  String miamiNightlifeDressCode(String code);
+
+  /// No description provided for @miamiNightlifeArrival.
+  ///
+  /// In en, this message translates to:
+  /// **'Best arrival: {time}'**
+  String miamiNightlifeArrival(String time);
+
+  /// No description provided for @miamiNightlifeReservation.
+  ///
+  /// In en, this message translates to:
+  /// **'Reservation recommended'**
+  String get miamiNightlifeReservation;
+
+  /// No description provided for @miamiMoodRoutesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Miami Mood Routes'**
+  String get miamiMoodRoutesTitle;
+
+  /// No description provided for @miamiMoodRouteStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Start around {time}'**
+  String miamiMoodRouteStart(String time);
+
+  /// No description provided for @paywallHeadlineMiamiDefault.
+  ///
+  /// In en, this message translates to:
+  /// **'EXPERIENCE MIAMI DIFFERENTLY'**
+  String get paywallHeadlineMiamiDefault;
+
+  /// No description provided for @paywallHeadlineMiamiWeekend.
+  ///
+  /// In en, this message translates to:
+  /// **'DON\'T WASTE YOUR MIAMI WEEKEND'**
+  String get paywallHeadlineMiamiWeekend;
 }
 
 class _AppLocalizationsDelegate

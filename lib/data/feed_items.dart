@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:luxora_ai/models/partner_sponsorship.dart';
 
 enum FeedItemKind {
   trending,
@@ -20,6 +21,7 @@ class FeedItem {
     required this.socialProof,
     required this.gradient,
     this.isLive = false,
+    this.sponsorship,
   });
 
   final String id;
@@ -31,6 +33,7 @@ class FeedItem {
   final String socialProof;
   final List<Color> gradient;
   final bool isLive;
+  final PartnerSponsorship? sponsorship;
 
   String get kindLabel => switch (kind) {
         FeedItemKind.trending => 'Trending now',

@@ -1,20 +1,26 @@
 import 'package:latlong2/latlong.dart';
-import 'package:luxora_ai/data/orlando_hub.dart';
 import 'package:luxora_ai/models/lux_place.dart';
+import 'package:luxora_ai/services/city_pack_registry.dart';
 
 const _distance = Distance();
 
-/// Great-circle distance helpers from the Orlando hub.
+/// Great-circle distance helpers from the active city pack hub.
 abstract final class PlaceDistance {
-  static LatLng get orlandoCenter =>
-      const LatLng(OrlandoHub.latitude, OrlandoHub.longitude);
+  /// Active city pack map center (replaces hard-coded Orlando).
+  static LatLng get hubCenter => CityPackRegistry.instance.hubCenter;
 
-  static double milesFromOrlandoHub(LuxPlace place) {
+  /// Legacy alias — same as [hubCenter].
+  static LatLng get orlandoCenter => hubCenter;
+
+  static double milesFromHub(LuxPlace place) {
     return milesBetween(
-      orlandoCenter,
+      hubCenter,
       LatLng(place.latitude, place.longitude),
     );
   }
+
+  /// Legacy alias.
+  static double milesFromOrlandoHub(LuxPlace place) => milesFromHub(place);
 
   static double milesBetween(LatLng from, LatLng to) {
     return _distance.as(LengthUnit.Mile, from, to);
@@ -30,12 +36,13 @@ abstract final class PlaceDistance {
     return '${miles.round()} mi';
   }
 
-  /// Rough driving-time estimate from the Orlando hub, assuming a blended
-  /// 45 mph Florida average (highway + surface streets). This is an estimate
-  /// for planning context, not a routed ETA.
-  static String driveTimeFromOrlandoLabel(LuxPlace place) {
-    return driveTimeLabel(milesFromOrlandoHub(place));
+  static String driveTimeFromHubLabel(LuxPlace place) {
+    return driveTimeLabel(milesFromHub(place));
   }
+
+  /// Legacy alias.
+  static String driveTimeFromOrlandoLabel(LuxPlace place) =>
+      driveTimeFromHubLabel(place);
 
   static String driveTimeLabel(double miles) {
     const avgMph = 45.0;

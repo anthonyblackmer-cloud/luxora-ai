@@ -31,34 +31,19 @@
   "catSpas": "Спа",
   "catSprings": "Пружины",
   "catThemeParks": "Тематические парки",
-  "commonClose": "Закрыть",
   "commonCancel": "Отмена",
-  "commonDelete": "Удалить",
-  "settingsStartOverSubtitle": "Начните новое путешествие с нуля",
-  "tripsPlanNew": "Запланировать новое путешествие",
-  "tripsEmptyTitle": "Пока нет сохранённых путешествий",
-  "tripsEmptyBody": "Запланируйте первое путешествие — оно появится здесь, и к нему можно будет вернуться в любой момент.",
-  "tripsDeleteTitle": "Удалить путешествие?",
-  "tripsDeleteBody": "Это удалит «{title}» из сохранённых путешествий. Действие необратимо.",
-  "@tripsDeleteBody": {
-    "placeholders": { "title": { "type": "String" } }
-  },
-  "tripsDeleted": "Путешествие удалено",
+  "commonClose": "Закрывать",
   "commonContinue": "Продолжать",
+  "commonDelete": "Удалить",
+  "commonLive": "Жить",
   "commonNew": "Новый",
   "commonRoadmap": "Дорожная карта",
-  "commonLive": "В эфире",
   "commonSoon": "Скоро",
   "conciergeBrand": "LUXORA",
-  "conciergeInputHint": "Опишите ощущение, которое вы хотите, чтобы ваша поездка вызвала…",
-  "conciergeGreetingMorning": "Доброе утро.",
   "conciergeGreetingAfternoon": "Добрый день.",
   "conciergeGreetingEvening": "Добрый вечер.",
-  "conciergeWelcomeWarm": "Я здесь, чтобы выстроить Флориду вокруг того, что вы хотите почувствовать, а не вокруг списка достопримечательностей. Чего вам хочется сегодня?",
-  "conciergeRefineStyle": "Уточнить мой стиль",
-  "conciergeRecallReturning": "С возвращением.",
-  "conciergeRecallStyle": "Я помню, что вам нравится {prefs}.",
-  "conciergeRecallFeelLine": "И вы хотели, чтобы поездка ощущалась так: «{feel}».",
+  "conciergeGreetingMorning": "Доброе утро.",
+  "conciergeInputHint": "Опишите ощущение, которое вы хотите, чтобы ваша поездка вызвала…",
   "conciergePromptAdventure": "Режим приключений",
   "conciergePromptDisney": "Дисней после наступления темноты",
   "conciergePromptFamily": "Семейная магия",
@@ -68,6 +53,24 @@
   "conciergePromptSoftLuxury": "Мягкий роскошный побег",
   "conciergePromptWellness": "Оздоровительный сброс",
   "conciergeQuickPrompts": "Быстрые подсказки",
+  "conciergeRecallFeelLine": "И вы хотели, чтобы эта поездка вызывала ощущение: «{feel}».",
+  "@conciergeRecallFeelLine": {
+    "placeholders": {
+      "feel": {
+        "type": "String"
+      }
+    }
+  },
+  "conciergeRecallReturning": "Добро пожаловать.",
+  "conciergeRecallStyle": "Я помню, тебе нравится {prefs}.",
+  "@conciergeRecallStyle": {
+    "placeholders": {
+      "prefs": {
+        "type": "String"
+      }
+    }
+  },
+  "conciergeRefineStyle": "Уточнить мой стиль",
   "conciergeRemembering": "Вспоминая об этой поездке",
   "conciergeStyleMemory": "Память стиля",
   "conciergeTitle": "Консьерж",
@@ -79,53 +82,99 @@
       }
     }
   },
+  "conciergeVoiceHold": "Удерживайте, чтобы говорить",
+  "conciergeVoiceSoon": "Скоро появится голосовой консьерж — а пока коснитесь момента или введите, что вы хотите чувствовать.",
   "conciergeWelcome": "Добро пожаловать в Луксору — вашего эмоционально умного компаньона из Флориды.\n\nВыберите подсказку ниже или опишите ощущение, которое вы хотите, чтобы ваша поездка вызвала.",
+  "conciergeWelcomeWarm": "Я здесь для того, чтобы сформировать Флориду так, как вы хотите себя чувствовать, а не просто список достопримечательностей. Чего вы жаждете сегодня?",
   "dark_mode": "Темный режим",
+  "dayFlowAfternoon": "ПОЛДЕНЬ",
+  "dayFlowEvening": "ВЕЧЕР",
+  "dayFlowMidday": "ПОЛДЕНЬ",
+  "dayFlowMorning": "УТРО",
+  "dayFlowNight": "НОЧЬ",
+  "dayFlowReasonAfternoonDowntime": "Послеобеденное время для подзарядки.",
+  "dayFlowReasonAfternoonGem": "Скрытая жемчужина вдали от толпы.",
+  "dayFlowReasonEveningDining": "Еда дня — ваш выбор гурмана.",
+  "dayFlowReasonMiddayAdventure": "Часы пиковой энергии — большое приключение, пока вы свежи.",
+  "dayFlowReasonMiddayCulture": "Осмотр достопримечательностей при ярком свете.",
+  "dayFlowReasonMiddayIcon": "Фирменный момент дня.",
+  "dayFlowReasonMorningCalm": "Мягкое начало, задающее тон.",
+  "dayFlowReasonMorningPool": "Расслабьтесь медленно — у бассейна или в спа-салоне до начала дня.",
+  "dayFlowReasonNightOut": "Последнее сияние — вечеринка.",
+  "dayFlowSubtitle": "День, основанный на том, как вы хотите себя чувствовать, а не на контрольном списке.",
+  "dayFlowVibeAdventure": "авантюрный",
+  "dayFlowVibeCulture": "Культура",
+  "dayFlowVibeFoodie": "Гурманин-форвард",
+  "dayFlowVibeNightlife": "Ночная жизнь",
+  "dayFlowVibePoolside": "У бассейна",
+  "detailAppleMaps": "Apple Карты",
   "detailBestFor": "Лучшее для",
   "detailBestTime": "Лучшее время для поездки",
   "detailCostRange": "Диапазон стоимости",
   "detailCrowd": "Толпа",
+  "detailDriveFromHub": "{time} ехать из {hub}",
+  "@detailDriveFromHub": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      },
+      "hub": {
+        "type": "String"
+      }
+    }
+  },
+  "detailDriveFromOrlando": "{time} поездка из Орландо",
+  "@detailDriveFromOrlando": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
   "detailDuration": "Продолжительность",
+  "detailGetDirections": "Проложить маршрут",
+  "detailGoogleMaps": "Карты Google",
+  "detailHomeBaseActive": "База вашего путешествия",
+  "detailHomeBaseClearedSnack": "База очищена",
+  "detailHomeBaseHint": "Маршрут вашего дня начинается и заканчивается здесь.",
+  "detailHomeBaseSetSnack": "Установить в качестве базы для поездки",
   "detailInsiderTips": "Советы для инсайдеров",
   "detailLocation": "Расположение",
-  "detailGetDirections": "Маршрут",
-  "detailParkMap": "Карта парка",
-  "detailViewOnMap": "Показать на карте",
   "detailMapsError": "Не удалось открыть карты на этом устройстве.",
-  "detailGoogleMaps": "Google Карты",
-  "detailAppleMaps": "Apple Карты",
-  "detailOpenInMaps": "Открыть в картах",
-  "detailDriveFromOrlando": "{time} на машине от Орландо",
-  "@detailDriveFromOrlando": {
-    "placeholders": { "time": { "type": "String" } }
-  },
-  "detailSaveToItinerary": "Добавить в маршрут",
-  "detailSaved": "Сохранено",
-  "detailSavedSnack": "Добавлено в ваш маршрут",
-  "detailRemovedSnack": "Удалено из вашего маршрута",
-  "detailSetHomeBase": "Сделать базой",
-  "detailHomeBaseActive": "База вашей поездки",
-  "detailHomeBaseHint": "Маршрут дня начинается и заканчивается здесь.",
-  "detailHomeBaseSetSnack": "Установлено как база вашей поездки",
-  "detailHomeBaseClearedSnack": "База сброшена",
-  "detailMenuTitle": "Хиты меню",
-  "detailMenuDisclaimer": "Избранные позиции — полное меню и цены могут отличаться в заведении.",
-  "detailMenuComingSoon": "Мы ещё составляем это меню. А пока посмотрите актуальное меню и цены онлайн.",
-  "detailViewMenuOnline": "Посмотреть меню онлайн",
+  "detailMenuComingSoon": "Мы все еще курируем это меню. Тем временем смотрите последнее меню и цены онлайн.",
+  "detailMenuDisclaimer": "Избранное — полное меню и цены могут различаться в зависимости от заведения.",
+  "detailMenuTitle": "Основные моменты меню",
   "detailNearbyGems": "Близлежащие драгоценные камни",
+  "detailOpenInMaps": "Открыть в картах",
+  "detailParkMap": "Карта парка",
   "detailPractical": "Практические детали",
   "detailPrice": "Цена",
+  "detailRemovedSnack": "Удалено из вашего маршрута",
   "detailReserve": "Зарезервировать опыт",
   "detailReserveSoon": "Скоро появятся партнеры по бронированию.",
+  "detailSaveToItinerary": "Сохранить в маршрут",
+  "detailSaved": "Сохранено",
+  "detailSavedSnack": "Сохранено в вашем маршруте.",
+  "detailSetHomeBase": "Установить в качестве домашней базы",
   "detailVibeMatch": "Вибрационный матч",
+  "detailViewMenuOnline": "Посмотреть меню онлайн",
+  "detailViewOnMap": "Посмотреть на карте",
   "detailWhySpecial": "Почему это особенное",
+  "discoverFilterAll": "Все",
+  "discoverFilterDestinations": "Направления",
+  "discoverFilterHotels": "Отели",
+  "discoverFilterRestaurants": "Рестораны",
+  "discoverFromHub": "Из {hub}",
+  "@discoverFromHub": {
+    "placeholders": {
+      "hub": {
+        "type": "String"
+      }
+    }
+  },
   "discoverFromOrlando": "Из Орландо",
   "discoverPopularInRadius": "Популярно в вашем радиусе",
   "discoverSearchEmpty": "В этом радиусе нет совпадений — попробуйте более короткое имя, увеличьте метку расстояния на карте или в ленте или выполните поиск по словам «пляж», «Дисней» или «источники».",
-  "discoverFilterAll": "Все",
-  "discoverFilterHotels": "Отели",
-  "discoverFilterRestaurants": "Рестораны",
-  "discoverFilterDestinations": "Места",
   "discoverSearchHint": "Поиск направлений…",
   "discoverSearchScopeAll": "Поиск по всей Флориде в каталоге.",
   "discoverSearchScopeRadius": "В пределах {radius} от Орландо",
@@ -136,20 +185,41 @@
       }
     }
   },
+  "discoverSearchScopeRadiusHub": "В пределах {radius} от {hub}",
+  "@discoverSearchScopeRadiusHub": {
+    "placeholders": {
+      "radius": {
+        "type": "String"
+      },
+      "hub": {
+        "type": "String"
+      }
+    }
+  },
   "discoverSearchTitle": "Найти пункт назначения",
   "discoverTrySearching": "Попробуйте поискать",
+  "featuredCityHomeSubtitle": "Полезные варианты партнеров для Орландо — четко обозначены и никогда не скрываются от выбора ИИ.",
+  "featuredCityHomeTitle": "Рекомендуемые партнеры",
+  "featuredDiningSubtitle": "Рестораны-партнеры Luxora подчеркивают: ваш список органических драгоценных камней остается независимым.",
+  "featuredDiningTitle": "Рекомендуемые рестораны",
+  "featuredExperiencesSubtitle": "Продвигаемые варианты под ваше настроение — всегда помечены, а не замаскированы под ранг ИИ.",
+  "featuredExperiencesTitle": "Рекомендуемые впечатления",
+  "featuredStaysSubtitle": "Размещение партнеров — отдельно от результатов органических матчей отелей Luxora.",
+  "featuredStaysTitle": "Рекомендуемые пребывания",
+  "featuredTicketPartnersSubtitle": "Предложения авторизованных партнеров — сравните с органической экономией ниже.",
+  "featuredTicketPartnersTitle": "Рекомендуемые партнеры по продаже билетов",
   "feedBadge": "ЖИВОЕ ОТКРЫТИЕ",
   "feedEmptyHint": "В этом радиусе нет карточек с фидами — попробуйте 50 миль или всю Флориду, чтобы увидеть побережье Мексиканского залива и основные моменты Киса.",
+  "feedMoodAdventurous": "авантюрный",
+  "feedMoodAll": "Все",
+  "feedMoodCalm": "Спокойствие",
+  "feedMoodFoodie": "Гурман",
+  "feedMoodPampered": "Избалованный",
+  "feedMoodPrompt": "КАК ВЫ ХОТИТЕ ЧУВСТВОВАТЬ?",
+  "feedMoodRomantic": "Романтический",
+  "feedMoodSocial": "Жужжание",
   "feedPillCreator": "Выбор автора",
   "feedPillLive": "Живые обновления",
-  "feedMoodPrompt": "ЧТО ВЫ ХОТИТЕ ПОЧУВСТВОВАТЬ?",
-  "feedMoodAll": "Всё",
-  "feedMoodRomantic": "Романтика",
-  "feedMoodCalm": "Спокойствие",
-  "feedMoodAdventurous": "Приключения",
-  "feedMoodPampered": "Нега",
-  "feedMoodSocial": "Оживлённо",
-  "feedMoodFoodie": "Гастрономия",
   "feedPillNewOpenings": "Новые открытия",
   "feedPillTrending": "Тенденции",
   "feedSubtitle": "Что происходит сейчас — популярные места, новые вакансии, выбор авторов, сезонные маршруты и постоянные обновления.",
@@ -159,11 +229,18 @@
   "gemInsiderTip": "Инсайдерский совет",
   "gemLocalNote": "Примечание только для местных пользователей",
   "gemLocalSecret": "МЕСТНАЯ СЕКРЕТА",
-  "gemsMatchedBadge": "Ваш стиль",
-  "gemsMatchedNote": "{count} жемчужин в вашем стиле",
   "gemWhySpecial": "Почему это особенное",
   "gemsBadge": "ИНСАЙДЕРСКОЕ КУРИРОВАНИЕ",
   "gemsEmptyHint": "В этом радиусе пока нет драгоценных камней — расширите его до 50 миль или дальше, чтобы увидеть источники и секреты Космического побережья.",
+  "gemsMatchedBadge": "Ваш стиль",
+  "gemsMatchedNote": "{count, plural, =1{1 gem matched to your style} other{{count} драгоценных камней соответствуют вашему стилю}}",
+  "@gemsMatchedNote": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "gemsPillCrowd": "Информация о толпе",
   "gemsPillHidden": "Скрытые места",
   "gemsPillInsider": "Советы инсайдера",
@@ -171,6 +248,191 @@
   "gemsSearchHint": "Ищите скрытые сокровища и направления…",
   "gemsSubtitle": "Тайные открытия, которые охраняют местные жители — почему это особенное, когда идти, насколько здесь многолюдно и советы, которые вы не найдете на открытке.",
   "gemsTitle": "Скрытые сокровища",
+  "goldenHourKindBeach": "Окно заката на пляже",
+  "goldenHourKindRooftop": "Золотой час на крыше",
+  "goldenHourKindScenic": "Время для живописной фотосъемки",
+  "goldenHourLeaveBy": "Выезжайте в {time} ({minutes} мин езды) в {place} — прибудьте примерно за 15 минут до заката.",
+  "@goldenHourLeaveBy": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      },
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "goldenHourTitle": "Золотой час",
+  "helpCenterBody": "Отправьте электронное письмо по адресу support@luxora.ai, чтобы получить помощь консьержа. Скоро появятся встроенные в приложение руководства.",
+  "helpCenterTitle": "Справочный центр",
+  "hotelAddHomeBase": "Добавить в качестве домашней базы",
+  "hotelCheckRates": "Проверить тарифы",
+  "hotelCompareDriveImpact": "Увеличьте влияние",
+  "hotelCompareNearby": "Достопримечательности поблизости",
+  "hotelComparePrice": "Ценовой диапазон",
+  "hotelCompareSelected": "{count} выбрано",
+  "@hotelCompareSelected": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "hotelCompareSubtitle": "Бок о бок консьержа — до трех отелей.",
+  "hotelCompareTitle": "Сравнить проживание",
+  "hotelDiscoveryTitle": "Куратор для Орландо",
+  "hotelDistanceTitle": "Расстояние до ключевых точек",
+  "hotelGetDirections": "Проложить маршрут",
+  "hotelHomeBaseActive": "Домашняя база активна",
+  "hotelHomeBaseBadge": "ДОМАШНЯЯ БАЗА",
+  "hotelIntelBadge": "ОТЕЛЬ ИНТЕЛЛЕКТ",
+  "hotelIntelSubtitle": "В зависимости от поездки, которую вы хотите совершить, Luxora подбирает варианты проживания, которые формируют ваш день, а не сетку бронирования.",
+  "hotelIntelTitle": "Найдите свою домашнюю базу",
+  "hotelItineraryImpactBody": "Неровный выезд из хаба: {driveTime}. Оценка трения при движении: {friction}/90 (чем ниже, тем спокойнее).",
+  "@hotelItineraryImpactBody": {
+    "placeholders": {
+      "driveTime": {
+        "type": "String"
+      },
+      "friction": {
+        "type": "int"
+      }
+    }
+  },
+  "hotelItineraryImpactTitle": "Как это формирует ваши дни",
+  "hotelLuxoraScore": "Луксора",
+  "hotelMatchAdults": "Взрослые",
+  "hotelMatchAttractions": "Достопримечательности в вашем списке",
+  "hotelMatchAttractionsGeneral": "ваши запланированные достопримечательности",
+  "hotelMatchBestForCouple": "Пары, которым нужна романтика без хаоса в тематических парках.",
+  "hotelMatchBestForFamily": "Семьи, которые хотят провести дни у бассейна, не жертвуя при этом доступом в парк.",
+  "hotelMatchBestForGroup": "Группы, сочетающие комфорт, доступ и спокойную логистику.",
+  "hotelMatchBestForLabel": "Лучше всего для:",
+  "hotelMatchBudget": "Бюджетная зона комфорта",
+  "hotelMatchImpactDefault": "Среднее количество поездок сохраняется примерно в {time}, поэтому ваш дневной поток остается спокойным.",
+  "@hotelMatchImpactDefault": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelMatchImpactDisney": "Более короткие пробеги Диснея — примерно {time} до парков от вашей двери.",
+  "@hotelMatchImpactDisney": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelMatchImpactUniversal": "Льготы Universal Express или доступ к водному такси могут сэкономить часы вашего дня.",
+  "hotelMatchImpactWalkable": "Ходите на ужин пешком — меньше стресса при парковке после долгих дней в парке.",
+  "hotelMatchItineraryLabel": "Маршрут:",
+  "hotelMatchKids": "Дети",
+  "hotelMatchLuxuryLevel": "Желаемый уровень роскоши",
+  "hotelMatchNearbyLabel": "Рядом:",
+  "hotelMatchResultsTitle": "Ваши лучшие 3 матча",
+  "hotelMatchTradeoffCarNeeded": "Вы будете полагаться на автомобиль или компанию, а не на вездеходную базу.",
+  "hotelMatchTradeoffDefault": "У каждого пребывания есть свои компромиссы — Луксора выбрала это в первую очередь для своих приоритетов.",
+  "hotelMatchTradeoffLessFamily": "Меньше внимания уделяется удобствам, ориентированным на детей, чем специализированным семейным курортам.",
+  "hotelMatchTradeoffLessRomantic": "Больше энергии в тематическом парке, чем в тихом уединении для пар.",
+  "hotelMatchTradeoffLuxuryBudget": "Курортные цены премиум-класса — тратьте больше на номер, меньше на другое место.",
+  "hotelMatchTradeoffsLabel": "Компромиссы:",
+  "hotelMatchTransport": "Передвижение",
+  "hotelMatchTravelers": "Путешественники",
+  "hotelMatchWhyMulti": "Учитывая ваш маршрут {attractions}, {hotel} сокращает время в пути и делает вечера легкими.",
+  "@hotelMatchWhyMulti": {
+    "placeholders": {
+      "attractions": {
+        "type": "String"
+      },
+      "hotel": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelMatchWhySingle": "{hotel} в {neighborhood} соответствует вашим ожиданиям от этой поездки.",
+  "@hotelMatchWhySingle": {
+    "placeholders": {
+      "hotel": {
+        "type": "String"
+      },
+      "neighborhood": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelMatchWhyTitle": "Счет матча {score}",
+  "@hotelMatchWhyTitle": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "hotelMatchmakerCta": "AI Отель Сваха",
+  "hotelMatchmakerRun": "Найдите мои 3 лучших варианта проживания",
+  "hotelMatchmakerSubtitle": "Расскажите, как вы путешествуете: Луксора рекомендует, где лучше провести свой день.",
+  "hotelMatchmakerTeaser": "Расскажите Луксоре о своем стиле поездки и получите три пребывания, выбранных консьержем, с честными компромиссами.",
+  "hotelMatchmakerTitle": "Отель Сваха",
+  "hotelNearbyDefault": "Рестораны и впечатления от {neighborhood}.",
+  "@hotelNearbyDefault": {
+    "placeholders": {
+      "neighborhood": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelPriceBudget": "Бюджет",
+  "hotelPriceLuxury": "Роскошь",
+  "hotelPriceModerate": "Умеренный",
+  "hotelPriceUpscale": "высококлассный",
+  "hotelReasonBetterGroup": "Лучше подходит для вашего типа группы и уровня энергии.",
+  "hotelReasonCloseStops": "Рядом с запланированными остановками на вашей временной шкале.",
+  "hotelReasonFitsBudget": "Соответствует зоне комфорта {range}, не переплачивая при выборе не того курорта.",
+  "@hotelReasonFitsBudget": {
+    "placeholders": {
+      "range": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelReasonLowStress": "Курортное спокойствие — меньше логистики, больше отдыха.",
+  "hotelReasonMatchesMood": "Соответствует настроению и темпу вашего путешествия.",
+  "hotelReasonNearbyDining": "Хороший ресторан неподалеку для непринужденных вечеров.",
+  "hotelReasonSavesDrive": "Экономит время в пути по сравнению с обычным хабом — примерно {time} от центра.",
+  "@hotelReasonSavesDrive": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "hotelSave": "Сохранить отель",
+  "hotelSaved": "Сохранено",
+  "hotelScoreFamily": "Семья",
+  "hotelScoreLuxury": "Роскошь",
+  "hotelScoreRomance": "Романтика",
+  "hotelScoreWalkability": "Ходить",
+  "hotelTagBudget": "Бюджетно",
+  "hotelTagCouples": "Лучшее для пар",
+  "hotelTagDisney": "Лучшее для Диснея",
+  "hotelTagFamily": "Для семейного отдыха",
+  "hotelTagLuxuryStaycation": "Роскошный отдых",
+  "hotelTagQuiet": "Тихий побег",
+  "hotelTagResort": "Курортная атмосфера",
+  "hotelTagUniversal": "Лучшее для универсального",
+  "hotelTagWalkableDining": "Прогулочная столовая",
+  "hotelTransportCar": "Прокат автомобилей",
+  "hotelTransportRideshare": "Райдшеринг",
+  "hotelTransportShuttle": "Трансфер до курорта",
+  "hotelTransportWalkable": "Пешеходный район",
+  "hotelViewOnMap": "Посмотреть на карте",
+  "hotelVisitWebsite": "Посетите веб-сайт",
+  "hotelWhyRecommendTitle": "Почему Луксора рекомендует это",
   "itineraryBadge": "ВАША ГРАФИКА",
   "itineraryDayTab": "День {day} · {label}",
   "@itineraryDayTab": {
@@ -196,36 +458,17 @@
   "landingWhy": "Почему мы это создаем",
   "language": "Язык",
   "light_mode": "Светлый режим",
-  "mapPlanDayTitle": "Спланировать мой день",
-  "mapPlanDaySuggested": "Предложено по настроению вашей поездки — добавьте места в закладки, чтобы настроить.",
-  "mapPlanDayEmpty": "Добавьте места в закладки (♥), и Luxora построит оптимальный маршрут от вашего хаба в Орландо — меньше дороги, больше впечатлений.",
-  "mapPlanDaySummary": "{count} остановок · {miles} · {time} в пути",
-  "@mapPlanDaySummary": {
-    "placeholders": {
-      "count": { "type": "int" },
-      "miles": { "type": "String" },
-      "time": { "type": "String" }
-    }
-  },
-  "mapPlanDayHomeBase": "Старт от {hotel}",
-  "@mapPlanDayHomeBase": {
-    "placeholders": { "hotel": { "type": "String" } }
-  },
-  "mapCrowdLevelQuiet": "Спокойно",
-  "mapCrowdLevelModerate": "Умеренно",
-  "mapCrowdLevelBusy": "Многолюдно",
-  "mapCrowdLevelPacked": "Очень многолюдно",
-  "mapCrowdAtStop": "Загруженность: {level}",
-  "@mapCrowdAtStop": {
-    "placeholders": { "level": { "type": "String" } }
-  },
-  "mapRerouteButton": "Перестроить маршрут на более спокойные точки",
-  "mapRerouteApplied": "День скорректирован — {count} остановок заменены на менее людные.",
-  "@mapRerouteApplied": {
-    "placeholders": { "count": { "type": "int" } }
-  },
-  "mapRerouteNone": "Ваш маршрут уже выглядит спокойным.",
-  "mapRerouteRainHint": "Вероятен дождь — нажмите, чтобы выбрать крытые альтернативы.",
+  "localSecretDisneySpringsParking": "Лучшая парковка — оранжевый гараж — идите со стороны пристани, а не к главному входу.",
+  "localSecretLakeEolaSunset": "Повернитесь лицом к амфитеатру и сделайте фотографии лебедей, пока небо становится золотым.",
+  "localSecretMiamiLittleHavanaDomino": "Сначала купите cafecito в тележке у окна — завсегдатаи боковой скамейки открываются, когда вы держите кортадито.",
+  "localSecretMiamiOceanDriveSunrise": "В 7 утра повернитесь на восток на Ламмус — пастельные тона в стиле ар-деко сияют еще до того, как прибудет толпа бранча.",
+  "localSecretMiamiPantherAlley": "Сделайте заказ у окна, пройдите по переулку по часовой стрелке — лучший свет фрески падает на бирюзовую стену в 8:45 утра.",
+  "localSecretMiamiVizcayaMangrove": "Пропустите спешку по главной террасе — войдите из восточного сада и пройдите по набережной, заросшей мангровыми деревьями, против часовой стрелки.",
+  "localSecretMiamiWynwoodAlley": "Пройдите через погрузочную аллею за Panther Coffee — местные жители снимают фрески без толпы посетителей.",
+  "localSecretTitle": "Местная тайна",
+  "localSecretWekiwaSprings": "Пропустите главный променад после 14:00 — в начале северной тропы будет тихо.",
+  "localSecretWinterParkParkAvenue": "Местные жители ныряют в переулок за книжным магазином — уличного указателя нет.",
+  "localSecretWorldFoodTrucks": "Заказывайте ежедневный улов, а не гамбургер — у дальнего окна очередь движется быстрее.",
   "mapAiPowers": "Силы карты ИИ",
   "mapBadge": "ИИ КАРТА",
   "mapBookingTitle": "Бесшовное бронирование (партнеры)",
@@ -243,6 +486,18 @@
   "mapCapSunsetTitle": "Лучший закат прямо сейчас",
   "mapCapWeatherDesc": "Резервные маршруты от дождя и живые окна для пляжей, крыш и источников.",
   "mapCapWeatherTitle": "Предложения с учетом погоды",
+  "mapCrowdAtStop": "Толпа: {level}",
+  "@mapCrowdAtStop": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "mapCrowdLevelBusy": "Занятый",
+  "mapCrowdLevelModerate": "Умеренный",
+  "mapCrowdLevelPacked": "упакованный",
+  "mapCrowdLevelQuiet": "Тихий",
   "mapFutureCrowdDesc": "Плотность источников, парков и вирусных крыш в реальном времени — стоит ли оно того прямо сейчас?",
   "mapFutureCrowdTitle": "Живая толпа, жара",
   "mapFutureParkingDesc": "Оценка трения перед совершением сделки — золотая середина для парковщика, гаража или совместного использования автомобилей.",
@@ -251,10 +506,109 @@
   "mapFutureRerouteTitle": "Спонтанное перенаправление",
   "mapFutureTrafficDesc": "Маршрутизация с учетом стресса — не просто минуты, а то, как будет ощущаться поездка.",
   "mapFutureTrafficTitle": "Оценка трения привода",
+  "mapHotelIntelBannerBody": "Ваш отель определяет время поездки, дневной поток и то, где вы едите. Luxora поможет вам сделать выбор без давления на бронирование.",
+  "mapHotelIntelBannerCta": "Изучите информацию об отеле",
+  "mapHotelIntelBannerTitle": "Выберите правильную базу",
   "mapNavLayerSubtitle": "Помимо открытий — живая информация о том, стоит ли останавливаться прямо сейчас.",
   "mapNavLayerTitle": "Слой навигации AI (следующий)",
+  "mapPlanDayEmpty": "Добавьте пункты назначения в закладки (♥), и Луксора построит оптимизированный маршрут из вашего узла в Орландо — минимум поездок, максимум ощущений.",
+  "mapPlanDayHomeBase": "Начиная с {hotel}",
+  "@mapPlanDayHomeBase": {
+    "placeholders": {
+      "hotel": {
+        "type": "String"
+      }
+    }
+  },
+  "mapPlanDaySuggested": "Настроение, предложенное в поездке: добавьте места в закладки, чтобы они стали вашими.",
+  "mapPlanDaySummary": "Остановок: {count} · {miles} · поездка {time}",
+  "@mapPlanDaySummary": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "miles": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "mapPlanDayTitle": "Планирую свой день",
+  "mapRerouteApplied": "День скорректирован: {count} остановок заменено на меньшее количество людей.",
+  "@mapRerouteApplied": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapRerouteButton": "Измените маршрут на более спокойные остановки",
+  "mapRerouteNone": "Ваш маршрут уже выглядит спокойным.",
+  "mapRerouteRainHint": "Вероятен дождь — нажмите «Перенаправление» для резервных копий в помещении.",
   "mapSubtitle": "Булавки для выбранного вами дня: золотые ромбы — это драгоценные камни, голубые маркеры — это шкала сегодняшнего дня, золотая линия — это маршрут настроения.",
   "mapTitle": "Ваш разумный маршрут",
+  "miamiBeachBestTime": "Лучшее время: {time}",
+  "@miamiBeachBestTime": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "miamiBeachCrowdScore": "Толпа",
+  "miamiBeachFamilyScore": "Семья",
+  "miamiBeachIntelTitle": "Пляжная разведка",
+  "miamiBeachParking": "Парковка: {level}",
+  "@miamiBeachParking": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "miamiBeachPhotoScore": "Фото",
+  "miamiBeachRomanceScore": "Романтика",
+  "miamiBeachSunsetScore": "Закат",
+  "miamiMoodRouteStart": "Начало около {time}",
+  "@miamiMoodRouteStart": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "miamiMoodRoutesTitle": "Маршруты настроения Майами",
+  "miamiNightlifeArrival": "Лучшее прибытие: {time}",
+  "@miamiNightlifeArrival": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "miamiNightlifeDressCode": "Дресс-код: {code}",
+  "@miamiNightlifeDressCode": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "miamiNightlifeReservation": "Рекомендуется бронирование",
+  "miamiNightlifeTitle": "Ночная жизнь Консьерж",
+  "milesFromHub": "{distance} от {hub}",
+  "@milesFromHub": {
+    "placeholders": {
+      "distance": {
+        "type": "String"
+      },
+      "hub": {
+        "type": "String"
+      }
+    }
+  },
   "milesFromOrlando": "{distance} от Орландо",
   "@milesFromOrlando": {
     "placeholders": {
@@ -263,6 +617,18 @@
       }
     }
   },
+  "momentFamilyMemory": "Семейная память",
+  "momentFeelRelaxed": "Почувствуйте себя расслабленным",
+  "momentImpressSpouse": "Произвести впечатление на мою супругу",
+  "momentLuxuryValue": "Роскошь без переплаты",
+  "momentPerfectSunset": "Идеальный закат",
+  "momentPromptFamilyMemory": "Я хочу незабываемый семейный момент, который будет легким для родителей и волшебным для детей.",
+  "momentPromptImpressSpouse": "Сегодня вечером я хочу произвести впечатление на своего супруга чем-то романтичным и неожиданным.",
+  "momentPromptLuxuryValue": "Я хочу роскошь, которая кажется особенной, не тратя при этом целое состояние.",
+  "momentPromptPerfectSunset": "Мне нужен идеальный момент заката во Флориде — где нам быть и когда нам уходить?",
+  "momentPromptRelaxed": "Я хочу чувствовать себя полностью расслабленным в течение следующих нескольких часов — медленно, красиво, без толпы.",
+  "momentsSubtitle": "Ищите чувство, а не место.",
+  "momentsTitle": "ЛУКСОРА МОМЕНТЫ",
   "moodAdventurous": "авантюрный",
   "moodFamily": "Семейные связи",
   "moodFoodie": "Опыт гурмана",
@@ -272,51 +638,52 @@
   "moodRomantic": "Романтический",
   "moodSocial": "Социальные",
   "moodWellness": "Оздоровительный отдых",
+  "moreCardAboutSub": "Почему мы строим Луксору",
+  "moreCardCityPacksSub": "Разблокируйте консьержей пункта назначения",
+  "moreCardFavoritesSub": "Направления, которые вы добавили в закладки",
+  "moreCardGemsSub": "Инсайдерские открытия местные жители охраняют",
+  "moreCardHelpSub": "Гиды и консьерж-поддержка",
+  "moreCardHotelsSub": "Интеллектуальное пребывание в соответствии с вашим настроением",
+  "moreCardItinerarySub": "Ваш золотой побег изо дня в день",
+  "moreCardNotificationsSub": "Оповещения о поездках и обновления консьержа",
+  "moreCardNotificationsTitle": "Уведомления",
+  "moreCardPartnersSub": "Рекомендуемый опыт партнеров",
+  "moreCardProfileSub": "Кто путешествует, как это должно быть",
+  "moreCardProfileTitle": "Профиль поездки",
+  "moreCardSettingsSub": "Тема, городские пакеты и предпочтения",
+  "moreCardTicketsSub": "Сравните сбережения авторизованных партнеров",
+  "moreCardWeatherSub": "Руководство на день с учетом прогноза",
+  "morePageSubtitle": "Инструменты для путешествий, учетная запись и предпочтения — созданы для обеспечения беспрепятственного доступа.",
+  "morePageTitle": "Более",
+  "moreSectionAccount": "СЧЕТ",
+  "moreSectionApp": "ПРИЛОЖЕНИЕ",
+  "moreSectionTravelTools": "ИНСТРУМЕНТЫ ДЛЯ ПУТЕШЕСТВИЯ",
   "navConcierge": "Консьерж",
+  "navDiscover": "Обнаружить",
   "navFeed": "Кормить",
   "navGems": "Драгоценные камни",
   "navMap": "Карта",
+  "navMore": "Более",
+  "navStays": "Остается",
+  "navTicketSavings": "Экономия",
   "navTimeline": "Хронология",
   "navTrips": "Путешествия",
+  "notificationsComingSoon": "Уведомления о поездках появятся в будущем обновлении.",
+  "occasionAnniversary": "Годовщина",
+  "occasionDateNight": "Ночное свидание",
+  "occasionFamily": "Семья с детьми",
+  "occasionGeneral": "Просто изучаю",
+  "occasionHoneymoon": "Медовый месяц",
+  "occasionProposal": "Предложение поездки",
+  "onboardAdventure": "Приключения и отдых на природе",
   "onboardBudget": "Бюджет поездки (долл. США)",
+  "onboardCulture": "Культура и достопримечательности",
   "onboardDestination": "Место назначения",
   "onboardFinish": "Познакомьтесь с вашим консьержем",
   "onboardFoodie": "Гурманская страсть",
-  "onboardPoolside": "Бассейн и отдых",
-  "onboardAdventure": "Приключения и природа",
-  "onboardCulture": "Культура и осмотр",
-  "dayFlowSubtitle": "День, выстроенный вокруг того, что вы хотите почувствовать, а не список дел.",
-  "dayFlowMorning": "УТРО",
-  "dayFlowMidday": "ПОЛДЕНЬ",
-  "dayFlowAfternoon": "ДЕНЬ",
-  "dayFlowEvening": "ВЕЧЕР",
-  "dayFlowNight": "НОЧЬ",
-  "dayFlowReasonMorningPool": "Начните не спеша — бассейн или спа до начала дня.",
-  "dayFlowReasonMorningCalm": "Спокойное начало, чтобы задать тон.",
-  "dayFlowReasonMiddayAdventure": "Часы пиковой энергии — главное приключение, пока вы полны сил.",
-  "dayFlowReasonMiddayCulture": "Осмотр достопримечательностей при лучшем дневном свете.",
-  "dayFlowReasonMiddayIcon": "Главный момент дня.",
-  "dayFlowReasonAfternoonDowntime": "Дневной отдых, чтобы восстановить силы.",
-  "dayFlowReasonAfternoonGem": "Скрытая жемчужина вдали от толп.",
-  "dayFlowReasonEveningDining": "Главная трапеза дня — ваш гастрономический выбор.",
-  "dayFlowReasonNightOut": "Последний штрих — вечерний выход.",
-  "weatherToday": "Сейчас в {place}",
-  "weatherSunset": "Закат {time}",
-  "weatherRainNote": "{percent}% вероятность дождя — возьмите лёгкую куртку.",
-  "weatherConditionClear": "Ясно",
-  "weatherConditionPartlyCloudy": "Переменная облачность",
-  "weatherConditionCloudy": "Облачно",
-  "weatherConditionFog": "Туман",
-  "weatherConditionDrizzle": "Морось",
-  "weatherConditionRain": "Дождь",
-  "weatherConditionSnow": "Снег",
-  "weatherConditionThunder": "Грозы",
-  "dayFlowVibeFoodie": "Гастрономия",
-  "dayFlowVibeNightlife": "Ночная жизнь",
-  "dayFlowVibePoolside": "Бассейн",
-  "dayFlowVibeAdventure": "Приключения",
-  "dayFlowVibeCulture": "Культура",
   "onboardNightlife": "Интерес к ночной жизни",
+  "onboardOccasionLabel": "Какой случай?",
+  "onboardPoolside": "У бассейна и время простоя",
   "onboardRegion": "Область",
   "onboardStep1Subtitle": "Куда вы направляетесь?",
   "onboardStep1Title": "Где мечты приземляются в первую очередь",
@@ -330,15 +697,156 @@
   "onboardStep5Title": "Сердце Луксоры",
   "onboardTravelers": "Путешественники",
   "onboardTripFeelHint": "Ужины на закате, медленное утро, смех с моим партнером…",
+  "partnerOffersTitle": "Партнерские предложения",
+  "paywallBenefitAvoidTrapsBody": "Найдите впечатления, которые действительно рекомендуют местные жители.",
+  "paywallBenefitAvoidTrapsTitle": "Избегайте туристических ловушек",
+  "paywallBenefitSaveMoneyBody": "Откройте для себя экономию на билетах, местные предложения и более разумный выбор.",
+  "paywallBenefitSaveMoneyTitle": "Экономьте деньги",
+  "paywallBenefitSaveTimeBody": "Пропустите часы исследований и планирования.",
+  "paywallBenefitSaveTimeTitle": "Экономьте время",
+  "paywallBenefitTravelSmarterBody": "Получайте рекомендации с учетом погоды, количества людей и стиля вашей поездки.",
+  "paywallBenefitTravelSmarterTitle": "Путешествуйте разумнее",
+  "paywallConciergePromise": "Разовая покупка · Личный консьерж · Без подписки",
+  "paywallContinueExploring": "Продолжить исследование",
+  "paywallCtaUnlock": "Разблокируйте консьержа {cityName}",
+  "@paywallCtaUnlock": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallEmotionalLine": "Вы уже тратите тысячи на отпуск. Не оставляйте этот опыт на волю случая.",
+  "paywallFeatureAiConcierge": "ИИ-консьерж",
+  "paywallFeatureCrowdIntel": "Интеллект толпы",
+  "paywallFeatureDining": "Рекомендации по питанию",
+  "paywallFeatureGpsNav": "GPS-навигация",
+  "paywallFeatureHiddenGems": "Скрытые сокровища",
+  "paywallFeatureHotelIntel": "Отель Интеллект",
+  "paywallFeatureItineraries": "Персонализированные маршруты",
+  "paywallFeatureLocalSecrets": "Местные тайны",
+  "paywallFeatureTicketSavings": "Умная экономия на билетах",
+  "paywallFeatureUnlimitedPlanning": "Неограниченное городское планирование",
+  "paywallFeatureWeatherConcierge": "Погода Консьерж",
+  "paywallFutureUpdatesIncluded": "Будущие обновления для города {cityName} включены",
+  "@paywallFutureUpdatesIncluded": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallHeadlineAdventure": "Откройте для себя {cityName}, который большинство туристов никогда не видят.",
+  "@paywallHeadlineAdventure": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallHeadlineCouples": "Ваш идеальный отдых в {cityName} начинается здесь.",
+  "@paywallHeadlineCouples": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallHeadlineFamily": "Тратьте меньше времени на планирование и больше времени на воспоминания о городе {cityName}.",
+  "@paywallHeadlineFamily": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallHeadlineFoodie": "Попробуйте {cityName} как местный инсайдер.",
+  "@paywallHeadlineFoodie": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallHeadlineLuxury": "Откройте для себя {cityName} по-другому.",
+  "@paywallHeadlineLuxury": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallHeadlineMiamiDefault": "ОПЫТ МАЙАМИ ПО-РАЗНОМУ",
+  "paywallHeadlineMiamiWeekend": "НЕ ПОТЕРЯЙТЕ СВОИ ВЫХОДНЫЕ В МАЙАМИ",
+  "paywallHeroEyebrow": "ВАШ ЛИЧНЫЙ КОНСЬЕРЖ",
+  "paywallHeroHeadline": "НЕ ПОТЕРЯЙТЕ СВОЙ ОТПУСК",
+  "paywallHeroSubheadline": "Луксора планирует поездку так, чтобы вы получили от нее удовольствие.",
+  "paywallLessThanDinner": "Меньше, чем стоимость праздничного ужина.",
+  "paywallLifetimeAccess": "Пожизненный доступ к городу {cityName}",
+  "@paywallLifetimeAccess": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallLockedConciergeRecs": "Рекомендации консьержа",
+  "paywallLockedDateNight": "Романтические маршруты для свиданий и ночных свиданий",
+  "paywallLockedFamilyPlans": "Семейные планы без стресса",
+  "paywallLockedHiddenLuxury": "Скрытые роскошные впечатления",
+  "paywallLockedHotelMatchmaker": "Смарт Отель Сваха",
+  "paywallLockedPreviewSubtitle": "Разблокируйте, чтобы открыть маршруты и секреты, адаптированные к вашему путешествию.",
+  "paywallLockedPreviewTitle": "Ожидание внутри вашего консьержа",
+  "paywallLockedVipSecrets": "VIP-местные секреты",
+  "paywallLockedWeatherReroute": "Изменение маршрута с учетом погоды",
+  "paywallLuxoraPriceLine": "{price} Один раз",
+  "@paywallLuxoraPriceLine": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallMostVacationsCost": "Большинство отпусков в городе {cityName} стоят {minUsd}–{maxUsd}+.",
+  "@paywallMostVacationsCost": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      },
+      "minUsd": {
+        "type": "String"
+      },
+      "maxUsd": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallNoMonthlyFees": "Никаких ежемесячных платежей",
+  "paywallNoSubscription": "Нет подписки",
+  "paywallOneTimePurchase": "Разовая покупка",
+  "paywallReview1": "«Сэкономили нам часы планирования».",
+  "paywallReview2": "«Нашли места, которые мы никогда бы не открыли».",
+  "paywallReview3": "«Одни только скрытые драгоценные камни того стоят».",
+  "paywallSocialProofTitle": "Путешественники, открывшие Луксору",
+  "paywallUnlockCityConcierge": "Разблокируйте консьержа {cityName}",
+  "@paywallUnlockCityConcierge": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallWhatYouUnlock": "Что вы открываете",
+  "paywallWhyTravelersUnlock": "Почему путешественники открывают Луксору",
   "photoBy": "Фото автора",
   "photoClose": "Закрывать",
   "photoOn": "на",
   "photoViewDestination": "Посмотреть пункт назначения",
   "placeCatAdventure": "Приключение",
-  "placeCatHotel": "Отель",
   "placeCatBeach": "Пляж",
   "placeCatDining": "Столовая",
   "placeCatFamily": "Семья",
+  "placeCatHotel": "Отель",
   "placeCatNature": "Природа",
   "placeCatNightlife": "Ночная жизнь",
   "placeCatRomantic": "Романтический",
@@ -349,9 +857,117 @@
   "radius50": "50 миль",
   "radiusAllFlorida": "Вся Флорида",
   "radiusDesc100": "Тампа-Бэй, Дейтона, более глубокий залив",
+  "radiusDesc100Miami": "Эверглейдс, Форт-Лодердейл, глубокая Южная Флорида",
   "radiusDesc25": "Однодневные поездки по центру Орландо",
+  "radiusDesc25Miami": "Саут-Бич, Брикелл и основные районы",
   "radiusDesc50": "Спрингс, однодневные поездки на побережье, Космическое побережье",
+  "radiusDesc50Miami": "Винвуд, Коконат Гроув, Ки-Бискейн",
   "radiusDescAll": "Кис, Майами, достопримечательности штата",
+  "radiusDescAllMiami": "Тропа Флорида-Кис и достопримечательности штата",
+  "rightNowButton": "Что нам следует делать прямо сейчас?",
+  "rightNowEmpty": "В вашем радиусе пока нет сильных моментов — расширьте список избранных или добавьте в закладки несколько избранных.",
+  "rightNowFamilyCalm": "Спокойствие перед сном — {minutes} минут до легкой семейной перезагрузки в {place}.",
+  "@rightNowFamilyCalm": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowGoldenHour": "Наступает золотой час — выезжайте примерно через {minutes} минут до {place} ({crowd} до заката).",
+  "@rightNowGoldenHour": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      },
+      "crowd": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowPerfectWeather": "Вы в {minutes} минутах от {district}. Небо выглядит великолепно — отправляйтесь в {place}, пока толпа еще {crowd}.",
+  "@rightNowPerfectWeather": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "district": {
+        "type": "String"
+      },
+      "place": {
+        "type": "String"
+      },
+      "crowd": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowQuietGem": "Тихое окно — {minutes} минут до {place} ({crowd} прямо сейчас).",
+  "@rightNowQuietGem": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      },
+      "crowd": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowRainyIndoor": "Дождь на радаре — {minutes} минут до уютного места в помещении: {place}.",
+  "@rightNowRainyIndoor": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowResultTitle": "ПРЯМО СЕЙЧАС",
+  "rightNowRomantic": "Энергия свидания и вечера — {minutes} минут до {place} до спешки.",
+  "@rightNowRomantic": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowScenicCoffee": "Вы в {minutes} минутах от {district}. Погода идеальная: выпейте кофе в {place}, а затем прогуляйтесь по {walkArea}, пока не собралось много людей (толп {crowd}).",
+  "@rightNowScenicCoffee": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "district": {
+        "type": "String"
+      },
+      "place": {
+        "type": "String"
+      },
+      "walkArea": {
+        "type": "String"
+      },
+      "crowd": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowTapForDetails": "Нажмите, чтобы узнать подробности",
+  "savedFavoritesEmpty": "Добавьте пункты назначения в закладки на карте или в ленте — они появятся здесь.",
+  "savedFavoritesTitle": "Сохраненные избранные",
   "scopeDestinationsAll": "{count} направлений · вся Флорида",
   "@scopeDestinationsAll": {
     "placeholders": {
@@ -371,10 +987,46 @@
       }
     }
   },
+  "scopeDestinationsRadiusHub": "Направления: {count} · в пределах {radius} от {hub}",
+  "@scopeDestinationsRadiusHub": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "radius": {
+        "type": "String"
+      },
+      "hub": {
+        "type": "String"
+      }
+    }
+  },
   "settings": "Настройки",
+  "settingsStartOverSubtitle": "Начните новое путешествие с нуля",
+  "settingsUnlockConciergeSubtitle": "Одноразовый городской пакет — не подписка",
+  "settingsUnlockConciergeTitle": "Разблокировать городского консьержа",
   "settings_language_picker_note": "Изменения вступают в силу немедленно.",
   "settings_regions_coming_subtitle": "Домашний хаб и городские пакеты — скоро.",
   "settings_regions_coming_title": "Страны и города",
+  "shareItineraryFooter": "Спланировано с Луксорой — вашим эмоционально умным компаньоном из Флориды.",
+  "shareSubject": "Мой {title}",
+  "@shareSubject": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "sponsorBadgeFeaturedPartner": "Рекомендуемый партнер",
+  "sponsorBadgePartnerOffer": "Партнерское предложение",
+  "sponsorBadgePromoted": "Продвинутый",
+  "sponsorBadgeSponsored": "Спонсор",
+  "sponsorCtaBookNow": "Забронируйте сейчас",
+  "sponsorCtaCheckRates": "Проверить тарифы",
+  "sponsorCtaGetTickets": "Получить билеты",
+  "sponsorCtaViewOffer": "Посмотреть предложение",
+  "sponsorCtaVisitWebsite": "Посетите веб-сайт",
+  "sponsorLuxoraRecommended": "Луксора Рекомендуем",
   "storyAppAsks": "Приложение спрашивает",
   "storyBulletAudience": "Семьи, пары, роскошные путешественники и велнес-путешественники",
   "storyBulletLogisticsGap": "Большинство туристических приложений ориентированы на логистику, а не на дизайн впечатлений.",
@@ -432,16 +1084,349 @@
   "styleNoTraps": "Никаких туристических ловушек",
   "styleSlowMornings": "Медленное утро",
   "styleWalkable": "Проходимость, когда это возможно",
+  "ticketAiInsightTitle": "Луксора рекомендация",
+  "ticketBetterOption": "Луксора нашла лучший вариант.",
+  "ticketCalculatorTitle": "Потенциальная экономия",
+  "ticketConfidenceHigh": "Высокая уверенность",
+  "ticketConfidenceLimited": "Ограниченное время",
+  "ticketConfidenceVerified": "Проверенный реселлер",
+  "ticketDealsSectionTitle": "Авторизованные сделки",
+  "ticketDiscountPrice": "Цена Луксоры",
+  "ticketEstimatedFamilySave": "Предполагаемая семейная экономия: {amount}.",
+  "@ticketEstimatedFamilySave": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "ticketExpires": "Предложение до {date}",
+  "@ticketExpires": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "ticketFamilySave": "Предполагаемая семейная экономия: {amount}.",
+  "@ticketFamilySave": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "ticketFilterAll": "Все",
+  "ticketFilterAttractions": "Достопримечательности",
+  "ticketFilterDining": "Обеденный опыт",
+  "ticketFilterEntertainment": "Развлечение",
+  "ticketFilterFamily": "Семейные мероприятия",
+  "ticketFilterLabel": "Фильтр",
+  "ticketFilterThemeParks": "Тематические парки",
+  "ticketFilterTours": "Туры",
+  "ticketFilterWaterParks": "Аквапарки",
+  "ticketInsightDisneyPass": "В зависимости от вашего маршрута трехдневный пропуск в Мир Уолта Диснея вместо однодневных билетов может сэкономить вашей семье примерно 120 долларов США.",
+  "ticketInsightGeneric": "Луксора сопоставила экономию с остановками вашего маршрута — сравните, прежде чем покупать у ворот.",
+  "ticketInsightMiamiCulture": "Культура не входит в ваш план — предложения партнеров Vizcaya и ПАММ могут превзойти цены на ворота на этой неделе.",
+  "ticketInsightMiamiEverglades": "День Эверглейдс в вашем маршруте — утренние места на аэроглиссере часто стоят дешевле в середине недели.",
+  "ticketInsightMiamiWynwood": "Винвуд на вашем маршруте — художественная прогулка с гидом может обойтись дешевле, чем в кабинке без лифта.",
+  "ticketInsightSeaworldCombo": "SeaWorld на вашем маршруте — комбинация Aquatica часто превосходит два отдельных входа.",
+  "ticketInsightUniversalCombo": "Ваш план включает в себя Universal — для большинства семей билет на 2 парка лучше, чем покупка дней по отдельности.",
+  "ticketItineraryMatchTitle": "Проверка экономии на маршруте",
+  "ticketNoDeals": "В этом фильтре нет предложений — попробуйте другую категорию.",
+  "ticketOfficialPrice": "Официальный",
+  "ticketOverpaying": "Возможно, вы переплачиваете по цене ворот.",
+  "ticketRecommendedSavings": "Доступна рекомендуемая экономия",
+  "ticketSaveAmount": "Сэкономьте {amount}",
+  "@ticketSaveAmount": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "ticketSaveAmountLabel": "Экономия",
+  "ticketSavePerTicket": "Вы можете сэкономить {amount} на билете.",
+  "@ticketSavePerTicket": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "ticketSavingsBadge": "СЭКОНОМЬТЕ {percent} %",
+  "@ticketSavingsBadge": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "ticketSavingsBadgeLabel": "ПРЕМИУМ-ЭКОНОМИЯ",
+  "ticketSavingsSubtitle": "Luxora предлагает авторизованных реселлеров, пакеты и рекламные акции, чтобы вы чувствовали себя консультантом по роскоши, а не сайтом купонов.",
+  "ticketSavingsTitle": "Умная экономия на билетах",
+  "ticketSortClosest": "Самый близкий ко мне",
+  "ticketSortFamilyFriendly": "Для семейного отдыха",
+  "ticketSortHighestSavings": "Максимальная экономия",
+  "ticketSortLabel": "Сортировать по",
+  "ticketSortLuxury": "Роскошные впечатления",
+  "ticketSortMostPopular": "Самый популярный",
+  "ticketSource": "Источник: {source}",
+  "@ticketSource": {
+    "placeholders": {
+      "source": {
+        "type": "String"
+      }
+    }
+  },
+  "tripStoryBeatClosing": "Луксора формировала моменты — вы их проживали.",
+  "tripStoryBeatMoods": "Вы пришли за {moods}.",
+  "@tripStoryBeatMoods": {
+    "placeholders": {
+      "moods": {
+        "type": "String"
+      }
+    }
+  },
+  "tripStoryBeatTitle": "Эта глава: {title}.",
+  "@tripStoryBeatTitle": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "tripStoryHeading": "{title} — ваша история о Флориде",
+  "@tripStoryHeading": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "tripStoryTitle": "История вашей поездки",
   "tripsBadge": "КОЛЛЕКЦИИ",
+  "tripsDeleteBody": "Это приведет к удалению «{title}» из ваших сохраненных поездок. Это невозможно отменить.",
+  "@tripsDeleteBody": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "tripsDeleteTitle": "Удалить поездку?",
+  "tripsDeleted": "Поездка удалена",
+  "tripsEmptyBody": "Спланируйте свою первую поездку, и она появится здесь, и вы сможете вернуться к ней в любое время.",
+  "tripsEmptyTitle": "Сохраненных поездок пока нет.",
   "tripsFooter": "Обложки поездок из каталога настроений · Supabase sync Phase 2",
   "tripsLiveWeather": "Живая погода",
   "tripsNextUp": "Дальше",
+  "tripsOpenStory": "Ваша история",
   "tripsOpenTimeline": "Открыть полную хронологию",
-  "tripsShare": "Поделиться",
-  "shareItineraryFooter": "Спланировано с Luxora — вашим эмоционально интеллектуальным спутником по Флориде.",
-  "shareSubject": "Моя поездка: {title}",
+  "tripsPlanNew": "Планируйте новую поездку",
+  "tripsShare": "Делиться",
   "tripsSubtitle": "Коснитесь поездки, чтобы просмотреть ее снимок в реальном времени — следующий момент, погоду, закат и временную шкалу.",
   "tripsSunsetWindow": "Окно заката",
   "tripsTimelineSnapshot": "Снимок временной шкалы",
-  "tripsTitle": "Сохраненные поездки"
+  "tripsTitle": "Сохраненные поездки",
+  "vacationScoreSubtitle": "Сегодняшний день похож на {score}/100.",
+  "@vacationScoreSubtitle": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "vacationScoreTitle": "Оценка отпуска",
+  "visualShareImageButton": "Поделиться карточкой изображения",
+  "weatherAdjustDay": "Настройте свой день в зависимости от погоды",
+  "weatherAdviceDefault": "Небо выглядит управляемым — следуйте своему плану и держите под рукой легкий слой.",
+  "weatherAdviceGreatSunset": "Сегодня вечером отличные условия на закате — подумайте об ужине на крыше или прогулке по озеру.",
+  "weatherAdviceHighUv": "Сегодня высокий уровень ультрафиолета — возьмите с собой солнцезащитный крем и избегайте длительного пребывания под прямыми солнечными лучами в полдень.",
+  "weatherAdviceLightJacket": "Возьмите с собой легкую куртку этим вечером.",
+  "weatherAdviceOutdoorBefore": "Запланируйте мероприятия на свежем воздухе до {time}.",
+  "@weatherAdviceOutdoorBefore": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherAdviceRainLater": "Риск дождя сегодня увеличится, поэтому перенесите мероприятия в помещении на вторую половину дня.",
+  "weatherAdviceWindBeach": "Сегодня ветер может сделать отдых на пляже или на лодке менее комфортным.",
+  "weatherBestOutdoorWindow": "Лучшее наружное окно",
+  "weatherCloudCover": "Облачность",
+  "weatherComingSoon": "Вскоре",
+  "weatherConciergeAdviceTitle": "Прогноз погоды в Луксоре",
+  "weatherConciergeTapHint": "Нажмите, чтобы просмотреть прогноз с учетом путешествий",
+  "weatherConciergeTitle": "Погода Консьерж",
+  "weatherConditionClear": "Прозрачный",
+  "weatherConditionCloudy": "Облачно",
+  "weatherConditionDrizzle": "Морось",
+  "weatherConditionFog": "Туман",
+  "weatherConditionPartlyCloudy": "Переменная облачность",
+  "weatherConditionRain": "Дождь",
+  "weatherConditionSnow": "Снег",
+  "weatherConditionThunder": "Грозы",
+  "weatherFeelsLike": "По ощущениям {temp}",
+  "@weatherFeelsLike": {
+    "placeholders": {
+      "temp": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherHourlyTitle": "Почасовой прогноз",
+  "weatherHourlyUnavailable": "Почасовой прогноз появится при загрузке данных.",
+  "weatherHumidity": "Влажность",
+  "weatherImpactClear": "Этим утром небо выглядит дружелюбным для ваших планов на свежем воздухе.",
+  "weatherImpactHeat": "В полдень сильная жара — планируйте прогулки на свежем воздухе до {time}.",
+  "@weatherImpactHeat": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherImpactIndoorFallback": "спа или музей",
+  "weatherImpactMixed": "Сегодня может потребоваться корректировка времени для остановок на открытом воздухе ({count}).",
+  "@weatherImpactMixed": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "weatherImpactNoPlanClear": "Лучшее наружное окно выглядит так: {start}–{end} до наступления жары или дождя.",
+  "@weatherImpactNoPlanClear": {
+    "placeholders": {
+      "start": {
+        "type": "String"
+      },
+      "end": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherImpactNoPlanDefault": "Погода выглядит стабильной — нажмите «Спланировать день», когда будете готовы сделать последовательные остановки.",
+  "weatherImpactNoPlanRain": "Идет дождь — сначала постройте свой день с помощью внутренних якорей.",
+  "weatherImpactRainLater": "Риск дождя возрастает через {time}. Рассмотрите возможность перемещения {outdoorStop} раньше и сохранения {indoorStop} на более позднее время.",
+  "@weatherImpactRainLater": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      },
+      "outdoorStop": {
+        "type": "String"
+      },
+      "indoorStop": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherIndoorBackup": "Идеи резервного копирования внутри помещения",
+  "weatherLiveRadar": "Живой радар",
+  "weatherMapOverlays": "Наложения карт",
+  "weatherMiamiBeachMorning": "Сильный ультрафиолет на песке — солнцезащитный крем, шляпа и пляж до полудня.",
+  "weatherMiamiBoatWind": "Ветер сильный — пересмотрите занятия на лодке или яхте; Ресторан на крыше все еще может работать.",
+  "weatherMiamiHeatAdvisory": "Рекомендуемые условия жары — легкие ткани, увлажнение и перерывы в тени между остановками на открытом воздухе.",
+  "weatherMiamiHumidityIndoor": "Сегодня высокая влажность. Сходите на пляж или в бассейн раньше, а затем в Уинвуд или Брикелл, чтобы пообедать в помещении и в галереях в самые жаркие часы.",
+  "weatherMiamiRainReroute": "Впереди дождливое окно — поменяйте планы на открытом воздухе на {indoorSpot} или время галереи.",
+  "@weatherMiamiRainReroute": {
+    "placeholders": {
+      "indoorSpot": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherMiamiSunsetWaterfront": "Закат выглядит сильным — на набережной или на крыше с видом с востока на запад.",
+  "weatherOutdoorAtRisk": "Это может повлиять на остановки на открытом воздухе: {count}.",
+  "@weatherOutdoorAtRisk": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "weatherOverlayCloud": "Облачность",
+  "weatherOverlayPrecip": "Осадки",
+  "weatherOverlayTemp": "Температура",
+  "weatherOverlayWind": "Ветер",
+  "weatherPackHat": "Шляпа",
+  "weatherPackLightJacket": "Легкая куртка",
+  "weatherPackPoncho": "Пончо",
+  "weatherPackShoes": "Удобная обувь",
+  "weatherPackSunglasses": "Солнцезащитные очки",
+  "weatherPackSunscreen": "солнцезащитный крем",
+  "weatherPackSwimwear": "Купальники",
+  "weatherPackUmbrella": "Зонтик",
+  "weatherPackWater": "Бутылка с водой",
+  "weatherPlanImpact": "Влияние на ваш план",
+  "weatherRadarComingSoon": "Живой радар скоро появится.",
+  "weatherRainNote": "{percent}% вероятность дождя — упакуйте легкий слой.",
+  "@weatherRainNote": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "weatherRainWindow": "Вероятен дождь",
+  "weatherStatRain": "Дождь",
+  "weatherSunrise": "Восход солнца {time}",
+  "@weatherSunrise": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherSunset": "Закат {time}",
+  "@weatherSunset": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherSunsetRec": "Рекомендация заката",
+  "weatherSunsetRecRooftop": "Рядом с {time} ясное небо. Возможно, вам удастся поужинать на крыше или прогуляться по озеру.",
+  "@weatherSunsetRecRooftop": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherToday": "Прямо сейчас в {place}",
+  "@weatherToday": {
+    "placeholders": {
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherUv": "УФ-индекс",
+  "weatherVisibility": "Видимость",
+  "weatherVisibilityMiles": "{miles} миль",
+  "@weatherVisibilityMiles": {
+    "placeholders": {
+      "miles": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherWhatToBring": "Что взять с собой сегодня",
+  "weatherWind": "Ветер",
+  "weatherWindValue": "{dir} со скоростью {speed} миль/ч",
+  "@weatherWindValue": {
+    "placeholders": {
+      "dir": {
+        "type": "String"
+      },
+      "speed": {
+        "type": "int"
+      }
+    }
+  }
 }

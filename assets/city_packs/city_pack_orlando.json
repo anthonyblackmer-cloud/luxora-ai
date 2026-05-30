@@ -1,0 +1,100 @@
+{
+  "cityId": "orlando",
+  "cityName": "Orlando",
+  "stateId": "florida",
+  "description": "Theme parks, springs, rooftop dining, and concierge-calibrated neighborhoods — Luxora's founding city pack.",
+  "heroImageUrl": "xEaAoizNFV8",
+  "mapCenterLat": 28.5383,
+  "mapCenterLng": -81.3792,
+  "hubLabel": "Orlando, FL",
+  "supportedCategories": [
+    "hotel",
+    "dining",
+    "family",
+    "nature",
+    "springs",
+    "nightlife",
+    "wellness",
+    "adventure",
+    "beach"
+  ],
+  "featuredExperiences": [],
+  "featuredHotels": [],
+  "featuredRestaurants": [],
+  "featuredTicketDeals": [],
+  "featuredHotelIntel": [],
+  "defaultRadiusMiles": 50,
+  "maxRadiusMiles": 100,
+  "osmAssetPath": "assets/places/osm_places.json",
+  "districts": [
+    {
+      "districtId": "orlando-disney",
+      "cityId": "orlando",
+      "districtName": "Disney Area",
+      "districtType": "themePark",
+      "description": "Lake Buena Vista & Disney Springs corridor.",
+      "mapBounds": {
+        "north": 28.42,
+        "south": 28.34,
+        "east": -81.5,
+        "west": -81.62
+      }
+    },
+    {
+      "districtId": "orlando-universal",
+      "cityId": "orlando",
+      "districtName": "Universal Area",
+      "districtType": "themePark",
+      "description": "Universal Blvd & CityWalk energy.",
+      "mapBounds": {
+        "north": 28.49,
+        "south": 28.45,
+        "east": -81.45,
+        "west": -81.48
+      }
+    },
+    {
+      "districtId": "orlando-winter-park",
+      "cityId": "orlando",
+      "districtName": "Winter Park",
+      "districtType": "arts",
+      "description": "Park Avenue culture & rooftop dining.",
+      "mapBounds": {
+        "north": 28.61,
+        "south": 28.58,
+        "east": -81.34,
+        "west": -81.36
+      }
+    },
+    {
+      "districtId": "orlando-lake-nona",
+      "cityId": "orlando",
+      "districtName": "Lake Nona",
+      "districtType": "suburban",
+      "description": "Modern luxury & medical city calm.",
+      "mapBounds": {
+        "north": 28.38,
+        "south": 28.34,
+        "east": -81.22,
+        "west": -81.28
+      }
+    },
+    {
+      "districtId": "orlando-idrive",
+      "cityId": "orlando",
+      "districtName": "International Drive",
+      "districtType": "resort",
+      "description": "I-Drive dining, value hotels, convention corridor.",
+      "mapBounds": {
+        "north": 28.46,
+        "south": 28.42,
+        "east": -81.46,
+        "west": -81.48
+      }
+    }
+  ],
+  "experiences": [],
+  "feedItemPlaceIds": {},
+  "gemPlaceIds": {},
+  "itineraryMomentPlaceIds": {}
+}
