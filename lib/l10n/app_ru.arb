@@ -1585,6 +1585,35 @@
   },
   "orlandoThemeParksPromptNotNow": "Не сейчас",
   "conciergeThinking": "Luxora думает…",
+  "conciergeItinerarySynced": "Я добавила это в вашу хронологию — откройте Timeline или Карту.",
+  "conciergeTicketsFoundIntro": "Я нашла авторизованные предложения на билеты — нажмите «Купить билеты» в Timeline для прямых ссылок.",
+  "conciergeTicketDealLine": "• {title}: {price} через {source} (экономия {savings})",
+  "@conciergeTicketDealLine": {
+    "placeholders": {
+      "title": { "type": "String" },
+      "price": { "type": "String" },
+      "source": { "type": "String" },
+      "savings": { "type": "String" }
+    }
+  },
+  "conciergeTicketsTimelineHint": "У каждой подходящей остановки в Timeline есть кнопка «Купить билеты» со ссылкой реселлера.",
+  "itineraryBookTickets": "Купить билеты · Экономия {amount}",
+  "@itineraryBookTickets": {
+    "placeholders": {
+      "amount": { "type": "String" }
+    }
+  },
+  "itineraryOpenTicketDeal": "Купить билеты",
+  "conciergeTripSaved": "Сохранила «{title}» в Поездки — откройте вкладку Trips в любое время.",
+  "@conciergeTripSaved": { "placeholders": { "title": { "type": "String" } } },
+  "conciergeTripSavedWithStops": "Сохранила «{title}» с {count} впечатлениями на timeline.",
+  "@conciergeTripSavedWithStops": { "placeholders": { "title": { "type": "String" }, "count": { "type": "int" } } },
+  "conciergeSavedTripsIntro": "У вас {count} сохранённых поездок:",
+  "@conciergeSavedTripsIntro": { "placeholders": { "count": { "type": "int" } } },
+  "conciergeSavedTripLine": "• {title} ({dates}) — {status}",
+  "@conciergeSavedTripLine": { "placeholders": { "title": { "type": "String" }, "dates": { "type": "String" }, "status": { "type": "String" } } },
+  "conciergeSavedTripsEmpty": "Сохранённых поездок пока нет — попросите спланировать маршрут, затем «сохрани мою поездку».",
+  "conciergeSavedTripsHint": "Откройте вкладку Trips для карточек, шаринга и дат.",
   "conciergeAiError": "Не удалось связаться с Luxora. Проверьте подключение и попробуйте снова.",
   "conciergeAiNotConfigured": "Luxora's live concierge isn't wired up on this build yet — Supabase URL and anon key need to be baked into the app, and the edge function deployed. Map and itinerary still work; see docs/CONCIERGE_AI.md for setup.",
   "conciergeVoiceListening": "Luxora слушает…",

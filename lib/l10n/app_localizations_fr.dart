@@ -1199,6 +1199,64 @@ class AppLocalizationsFr extends AppLocalizations {
   String get conciergeThinking => 'Luxora réfléchit…';
 
   @override
+  String get conciergeItinerarySynced =>
+      'C\'est ajouté à ta timeline — ouvre Timeline ou Carte pour voir ta journée.';
+
+  @override
+  String get conciergeTicketsFoundIntro =>
+      'J\'ai trouvé des offres autorisées pour ton voyage — touche Réserver des billets sur la Timeline pour les liens directs.';
+
+  @override
+  String conciergeTicketDealLine(
+    String title,
+    String price,
+    String source,
+    String savings,
+  ) {
+    return '• $title : $price via $source (économie $savings)';
+  }
+
+  @override
+  String get conciergeTicketsTimelineHint =>
+      'Chaque étape correspondante sur la Timeline a un bouton Réserver des billets avec le lien revendeur.';
+
+  @override
+  String itineraryBookTickets(String amount) {
+    return 'Réserver · Économise $amount';
+  }
+
+  @override
+  String get itineraryOpenTicketDeal => 'Réserver des billets';
+
+  @override
+  String conciergeTripSaved(String title) {
+    return 'J\'ai enregistré « $title » dans Voyages — ouvre l\'onglet Trips quand tu veux.';
+  }
+
+  @override
+  String conciergeTripSavedWithStops(String title, int count) {
+    return 'J\'ai enregistré « $title » avec $count expériences sur ta timeline.';
+  }
+
+  @override
+  String conciergeSavedTripsIntro(int count) {
+    return 'Tu as $count voyage(s) enregistré(s) :';
+  }
+
+  @override
+  String conciergeSavedTripLine(String title, String dates, String status) {
+    return '• $title ($dates) — $status';
+  }
+
+  @override
+  String get conciergeSavedTripsEmpty =>
+      'Tu n\'as pas encore de voyages enregistrés — demande-moi un plan, puis « enregistre mon voyage ».';
+
+  @override
+  String get conciergeSavedTripsHint =>
+      'Ouvre l\'onglet Trips pour voir les cartes, partager ou modifier les dates.';
+
+  @override
   String get conciergeAiError =>
       'Impossible de joindre Luxora. Vérifiez votre connexion et réessayez.';
 

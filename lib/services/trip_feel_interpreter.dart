@@ -101,6 +101,24 @@ abstract final class TripFeelInterpreter {
       moods: moods.toList(),
     );
   }
+
+  /// Applies the same keyword rules to any natural-language request (Concierge
+  /// chat, voice, etc.) so the Day Flow reshapes immediately.
+  static TripProfile enrichFromText(TripProfile profile, String text) {
+    final lower = text.toLowerCase().trim();
+    if (lower.isEmpty) return profile;
+    final boosted = enrich(
+      profile.copyWith(tripFeel: '$lower ${profile.tripFeel}'.trim()),
+    );
+    return profile.copyWith(
+      foodieInterest: boosted.foodieInterest,
+      nightlifeInterest: boosted.nightlifeInterest,
+      poolsideInterest: boosted.poolsideInterest,
+      adventureInterest: boosted.adventureInterest,
+      cultureInterest: boosted.cultureInterest,
+      moods: boosted.moods,
+    );
+  }
 }
 
 class _FeelRule {

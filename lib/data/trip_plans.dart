@@ -1,8 +1,14 @@
 import 'package:luxora_ai/models/trip_plan.dart';
+import 'package:luxora_ai/services/active_trip_plan_store.dart';
 import 'package:luxora_ai/services/city_pack_registry.dart';
 
 TripPlan samplePlanForActiveCity() {
-  if (CityPackRegistry.instance.active.cityId == 'miami') {
+  final cityId = CityPackRegistry.instance.active.cityId;
+  final stored = ActiveTripPlanStore.instance.planFor(cityId);
+  if (stored != null && stored.days.any((d) => d.items.isNotEmpty)) {
+    return stored;
+  }
+  if (cityId == 'miami') {
     return sampleMiamiEscapePlan;
   }
   return sampleGoldenEscapePlan;

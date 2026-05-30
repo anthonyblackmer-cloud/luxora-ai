@@ -1585,6 +1585,35 @@
   },
   "orlandoThemeParksPromptNotNow": "Pas maintenant",
   "conciergeThinking": "Luxora réfléchit…",
+  "conciergeItinerarySynced": "C'est ajouté à ta timeline — ouvre Timeline ou Carte pour voir ta journée.",
+  "conciergeTicketsFoundIntro": "J'ai trouvé des offres autorisées pour ton voyage — touche Réserver des billets sur la Timeline pour les liens directs.",
+  "conciergeTicketDealLine": "• {title} : {price} via {source} (économie {savings})",
+  "@conciergeTicketDealLine": {
+    "placeholders": {
+      "title": { "type": "String" },
+      "price": { "type": "String" },
+      "source": { "type": "String" },
+      "savings": { "type": "String" }
+    }
+  },
+  "conciergeTicketsTimelineHint": "Chaque étape correspondante sur la Timeline a un bouton Réserver des billets avec le lien revendeur.",
+  "itineraryBookTickets": "Réserver · Économise {amount}",
+  "@itineraryBookTickets": {
+    "placeholders": {
+      "amount": { "type": "String" }
+    }
+  },
+  "itineraryOpenTicketDeal": "Réserver des billets",
+  "conciergeTripSaved": "J'ai enregistré « {title} » dans Voyages — ouvre l'onglet Trips quand tu veux.",
+  "@conciergeTripSaved": { "placeholders": { "title": { "type": "String" } } },
+  "conciergeTripSavedWithStops": "J'ai enregistré « {title} » avec {count} expériences sur ta timeline.",
+  "@conciergeTripSavedWithStops": { "placeholders": { "title": { "type": "String" }, "count": { "type": "int" } } },
+  "conciergeSavedTripsIntro": "Tu as {count} voyage(s) enregistré(s) :",
+  "@conciergeSavedTripsIntro": { "placeholders": { "count": { "type": "int" } } },
+  "conciergeSavedTripLine": "• {title} ({dates}) — {status}",
+  "@conciergeSavedTripLine": { "placeholders": { "title": { "type": "String" }, "dates": { "type": "String" }, "status": { "type": "String" } } },
+  "conciergeSavedTripsEmpty": "Tu n'as pas encore de voyages enregistrés — demande-moi un plan, puis « enregistre mon voyage ».",
+  "conciergeSavedTripsHint": "Ouvre l'onglet Trips pour voir les cartes, partager ou modifier les dates.",
   "conciergeAiError": "Impossible de joindre Luxora. Vérifiez votre connexion et réessayez.",
   "conciergeAiNotConfigured": "Luxora's live concierge isn't wired up on this build yet — Supabase URL and anon key need to be baked into the app, and the edge function deployed. Map and itinerary still work; see docs/CONCIERGE_AI.md for setup.",
   "conciergeVoiceListening": "Luxora écoute…",

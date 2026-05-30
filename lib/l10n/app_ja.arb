@@ -1585,6 +1585,35 @@
   },
   "orlandoThemeParksPromptNotNow": "後で",
   "conciergeThinking": "Luxoraが考えています…",
+  "conciergeItinerarySynced": "タイムラインに反映しました — マップまたはタイムラインで一日を確認できます。",
+  "conciergeTicketsFoundIntro": "認定チケット割引を見つけました — タイムラインの「チケット予約」をタップしてリンクを開いてください。",
+  "conciergeTicketDealLine": "• {title}: {price}（{source}、{savings}お得）",
+  "@conciergeTicketDealLine": {
+    "placeholders": {
+      "title": { "type": "String" },
+      "price": { "type": "String" },
+      "source": { "type": "String" },
+      "savings": { "type": "String" }
+    }
+  },
+  "conciergeTicketsTimelineHint": "該当する各スポットのタイムラインに、販売元リンク付きの「チケット予約」ボタンが表示されます。",
+  "itineraryBookTickets": "チケット予約 · {amount}お得",
+  "@itineraryBookTickets": {
+    "placeholders": {
+      "amount": { "type": "String" }
+    }
+  },
+  "itineraryOpenTicketDeal": "チケット予約",
+  "conciergeTripSaved": "「{title}」を旅行に保存しました — Tripsタブからいつでも開けます。",
+  "@conciergeTripSaved": { "placeholders": { "title": { "type": "String" } } },
+  "conciergeTripSavedWithStops": "「{title}」をタイムラインの{count}件の体験付きで保存しました。",
+  "@conciergeTripSavedWithStops": { "placeholders": { "title": { "type": "String" }, "count": { "type": "int" } } },
+  "conciergeSavedTripsIntro": "保存済みの旅行が{count}件あります：",
+  "@conciergeSavedTripsIntro": { "placeholders": { "count": { "type": "int" } } },
+  "conciergeSavedTripLine": "• {title}（{dates}）— {status}",
+  "@conciergeSavedTripLine": { "placeholders": { "title": { "type": "String" }, "dates": { "type": "String" }, "status": { "type": "String" } } },
+  "conciergeSavedTripsEmpty": "保存された旅行はまだありません — プランを頼んでから「旅行を保存して」と言ってください。",
+  "conciergeSavedTripsHint": "Tripsタブでカードの表示、共有、日付の編集ができます。",
   "conciergeAiError": "Luxoraに接続できませんでした。接続を確認してもう一度お試しください。",
   "conciergeAiNotConfigured": "Luxora's live concierge isn't wired up on this build yet — Supabase URL and anon key need to be baked into the app, and the edge function deployed. Map and itinerary still work; see docs/CONCIERGE_AI.md for setup.",
   "conciergeVoiceListening": "Luxoraが聞いています…",

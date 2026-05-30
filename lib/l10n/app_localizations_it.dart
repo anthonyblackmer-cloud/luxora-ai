@@ -1198,6 +1198,64 @@ class AppLocalizationsIt extends AppLocalizations {
   String get conciergeThinking => 'Luxora sta pensando…';
 
   @override
+  String get conciergeItinerarySynced =>
+      'L\'ho aggiunto alla tua timeline — apri Timeline o Mappa per vedere la giornata.';
+
+  @override
+  String get conciergeTicketsFoundIntro =>
+      'Ho trovato offerte autorizzate per il tuo viaggio — tocca Prenota biglietti nella Timeline per i link diretti.';
+
+  @override
+  String conciergeTicketDealLine(
+    String title,
+    String price,
+    String source,
+    String savings,
+  ) {
+    return '• $title: $price via $source (risparmio $savings)';
+  }
+
+  @override
+  String get conciergeTicketsTimelineHint =>
+      'Ogni tappa corrispondente nella Timeline ha un pulsante Prenota biglietti con il link del rivenditore.';
+
+  @override
+  String itineraryBookTickets(String amount) {
+    return 'Prenota biglietti · Risparmia $amount';
+  }
+
+  @override
+  String get itineraryOpenTicketDeal => 'Prenota biglietti';
+
+  @override
+  String conciergeTripSaved(String title) {
+    return 'Ho salvato “$title” in Viaggi — apri la scheda Trips quando vuoi.';
+  }
+
+  @override
+  String conciergeTripSavedWithStops(String title, int count) {
+    return 'Ho salvato “$title” con $count esperienze sulla timeline.';
+  }
+
+  @override
+  String conciergeSavedTripsIntro(int count) {
+    return 'Hai $count viaggio/i salvato/i:';
+  }
+
+  @override
+  String conciergeSavedTripLine(String title, String dates, String status) {
+    return '• $title ($dates) — $status';
+  }
+
+  @override
+  String get conciergeSavedTripsEmpty =>
+      'Non hai ancora viaggi salvati — chiedimi di pianificare qualcosa, poi di “salva il mio viaggio”.';
+
+  @override
+  String get conciergeSavedTripsHint =>
+      'Apri la scheda Trips per vedere le card, condividere o modificare le date.';
+
+  @override
   String get conciergeAiError =>
       'Non riesco a raggiungere Luxora. Controlla la connessione e riprova.';
 

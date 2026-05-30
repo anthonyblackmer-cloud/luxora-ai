@@ -1585,6 +1585,35 @@
   },
   "orlandoThemeParksPromptNotNow": "अभी नहीं",
   "conciergeThinking": "Luxora सोच रहा है…",
+  "conciergeItinerarySynced": "मैंने इसे आपकी टाइमलाइन में जोड़ दिया है — मानचित्र या टाइमलाइन खोलें।",
+  "conciergeTicketsFoundIntro": "मैंने आपकी यात्रा के लिए अधिकृत टिकट ऑफ़र खोजे — सीधे लिंक के लिए टाइमलाइन पर टिकट बुक करें टैप करें।",
+  "conciergeTicketDealLine": "• {title}: {price} ({source} से, {savings} बचत)",
+  "@conciergeTicketDealLine": {
+    "placeholders": {
+      "title": { "type": "String" },
+      "price": { "type": "String" },
+      "source": { "type": "String" },
+      "savings": { "type": "String" }
+    }
+  },
+  "conciergeTicketsTimelineHint": "टाइमलाइन पर हर मेल खाते स्टॉप पर रीसेलर लिंक वाला टिकट बुक करें बटन है।",
+  "itineraryBookTickets": "टिकट बुक करें · {amount} बचत",
+  "@itineraryBookTickets": {
+    "placeholders": {
+      "amount": { "type": "String" }
+    }
+  },
+  "itineraryOpenTicketDeal": "टिकट बुक करें",
+  "conciergeTripSaved": "“{title}” आपकी यात्राओं में सहेजा — Trips टैब कभी भी खोलें।",
+  "@conciergeTripSaved": { "placeholders": { "title": { "type": "String" } } },
+  "conciergeTripSavedWithStops": "“{title}” को टाइमलाइन पर {count} अनुभवों के साथ सहेजा।",
+  "@conciergeTripSavedWithStops": { "placeholders": { "title": { "type": "String" }, "count": { "type": "int" } } },
+  "conciergeSavedTripsIntro": "आपकी {count} सहेजी गई यात्रा(एँ):",
+  "@conciergeSavedTripsIntro": { "placeholders": { "count": { "type": "int" } } },
+  "conciergeSavedTripLine": "• {title} ({dates}) — {status}",
+  "@conciergeSavedTripLine": { "placeholders": { "title": { "type": "String" }, "dates": { "type": "String" }, "status": { "type": "String" } } },
+  "conciergeSavedTripsEmpty": "अभी कोई सहेजी यात्रा नहीं — पहले योजना बनवाएँ, फिर “मेरी यात्रा सहेजो” कहें।",
+  "conciergeSavedTripsHint": "कार्ड, शेयर या तारीखें बदलने के लिए Trips टैब खोलें।",
   "conciergeAiError": "Luxora तक नहीं पहुँच सका। कनेक्शन जाँचें और फिर कोशिश करें।",
   "conciergeAiNotConfigured": "Luxora's live concierge isn't wired up on this build yet — Supabase URL and anon key need to be baked into the app, and the edge function deployed. Map and itinerary still work; see docs/CONCIERGE_AI.md for setup.",
   "conciergeVoiceListening": "Luxora सुन रही है…",

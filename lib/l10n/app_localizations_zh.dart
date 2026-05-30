@@ -1149,6 +1149,59 @@ class AppLocalizationsZh extends AppLocalizations {
   String get conciergeThinking => 'Luxora 正在思考…';
 
   @override
+  String get conciergeItinerarySynced => '已写入您的时间线 — 打开时间线或地图查看当日行程。';
+
+  @override
+  String get conciergeTicketsFoundIntro => '我找到了授权票务优惠 — 在时间线点击「预订门票」即可打开链接。';
+
+  @override
+  String conciergeTicketDealLine(
+    String title,
+    String price,
+    String source,
+    String savings,
+  ) {
+    return '• $title：$price（$source，省 $savings）';
+  }
+
+  @override
+  String get conciergeTicketsTimelineHint => '时间线上每个匹配的站点现在都有带经销商链接的「预订门票」按钮。';
+
+  @override
+  String itineraryBookTickets(String amount) {
+    return '预订门票 · 省 $amount';
+  }
+
+  @override
+  String get itineraryOpenTicketDeal => '预订门票';
+
+  @override
+  String conciergeTripSaved(String title) {
+    return '已将“$title”保存到行程 — 随时打开 Trips 标签查看。';
+  }
+
+  @override
+  String conciergeTripSavedWithStops(String title, int count) {
+    return '已将“$title”保存，时间线上有 $count 个体验。';
+  }
+
+  @override
+  String conciergeSavedTripsIntro(int count) {
+    return '您有 $count 个已保存行程：';
+  }
+
+  @override
+  String conciergeSavedTripLine(String title, String dates, String status) {
+    return '• $title（$dates）— $status';
+  }
+
+  @override
+  String get conciergeSavedTripsEmpty => '还没有保存的行程 — 让我先帮您规划，然后说“保存我的行程”。';
+
+  @override
+  String get conciergeSavedTripsHint => '打开 Trips 标签查看卡片、分享或编辑日期。';
+
+  @override
   String get conciergeAiError => '无法连接 Luxora。请检查网络后重试。';
 
   @override

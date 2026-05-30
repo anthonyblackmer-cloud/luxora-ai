@@ -3,13 +3,17 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:luxora_ai/data/concierge_prompts.dart';
 import 'package:luxora_ai/l10n/app_localizations.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_helpers.dart';
 import 'package:luxora_ai/models/concierge/concierge_trip_context.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
 import 'package:luxora_ai/services/concierge_ai_service.dart';
 import 'package:luxora_ai/services/concierge_context_builder.dart';
+import 'package:luxora_ai/services/concierge_itinerary_sync.dart';
 import 'package:luxora_ai/services/concierge_session_memory.dart';
+import 'package:luxora_ai/services/concierge_ticket_sync.dart';
+import 'package:luxora_ai/services/concierge_trip_save_sync.dart';
 import 'package:luxora_ai/services/concierge_voice_service.dart';
 import 'package:luxora_ai/services/trip_profile_storage.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
@@ -330,9 +334,68 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
       );
       _apiHistory.add(ConciergeChatMessage(role: 'assistant', content: reply));
       if (!mounted) return;
+      final skipItinerary =
+          ConciergeTripSaveSync.shouldSkipItineraryRebuild(trimmed);
+      final sync = skipItinerary
+          ? null
+          : await ConciergeItinerarySync.applyAfterChat(
+              userMessage: trimmed,
+              profile: _profile,
+            );
+      if (!mounted) return;
+      var ticketDeals = sync?.attachedDeals ?? const [];
+      if (ticketDeals.isEmpty && ConciergeTicketSync.wantsTicketHelp(trimmed)) {
+        final cityId = (_profile?.cityId.isNotEmpty ?? false)
+            ? _profile!.cityId
+            : 'orlando';
+        ticketDeals = await ConciergeTicketSync.enrichActivePlanWithDeals(
+          userMessage: trimmed,
+          cityId: cityId,
+          profile: _profile,
+        );
+      }
+      ConciergeTripSaveResult? saveResult;
+      if (ConciergeTripSaveSync.wantsSaveTrip(trimmed)) {
+        saveResult = await ConciergeTripSaveSync.saveCurrentTrip(
+          profile: sync?.profile ?? _profile,
+          plan: sync?.plan,
+          localeName: locale,
+          l: l,
+        );
+      }
+      String? savedTripsSummary;
+      if (ConciergeTripSaveSync.wantsListSavedTrips(trimmed)) {
+        savedTripsSummary = await ConciergeTripSaveSync.listSavedTripsSummary(
+          l: l,
+          cityId: _profile?.cityId,
+        );
+      }
+      if (!mounted) return;
       setState(() {
         _isThinking = false;
         _messages.add((user: false, text: reply));
+        if (sync != null) {
+          _profile = sync.profile;
+          _tripFeel = sync.profile.tripFeel;
+          _messages.add((user: false, text: l.conciergeItinerarySynced));
+        }
+        if (saveResult != null) {
+          _messages.add((user: false, text: saveResult.chatMessage));
+        }
+        if (savedTripsSummary != null) {
+          _messages.add((user: false, text: savedTripsSummary));
+        }
+        if (ticketDeals.isNotEmpty &&
+            ConciergeTicketSync.wantsTicketHelp(trimmed)) {
+          _messages.add((
+            user: false,
+            text: ConciergeTicketSync.chatSummary(
+              l,
+              ticketDeals,
+              profile: _profile,
+            ),
+          ));
+        }
       });
       if (fromVoice) unawaited(_speakLuxora(reply));
     } on ConciergeAiException catch (e) {
@@ -466,440 +529,445 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
       child: Padding(
         padding: const EdgeInsets.fromLTRB(16, 14, 16, 10),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        l.conciergeBrand,
-                        style: TextStyle(
-                          fontSize: 11,
-                          fontWeight: FontWeight.w700,
-                          letterSpacing: 3,
-                          color: t.accent.withValues(alpha: 0.85),
-                        ),
-                      ),
-                      Text(
-                        l.conciergeTitle,
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                      if (_tripFeel != null && _tripFeel!.isNotEmpty) ...[
-                        const SizedBox(height: 4),
-                        Text(
-                          l.conciergeTripFeel(_tripFeel!),
-                          style: TextStyle(
-                            color: t.textMuted,
-                            fontSize: 13,
-                          ),
-                        ),
-                      ],
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 14),
-            Container(
-              width: double.infinity,
-              padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
-              decoration: BoxDecoration(
-                color: t.panelFill,
-                borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: t.borderSubtle),
-              ),
-              child: Text(
-                '${_greeting(l)} ${l.conciergeWelcomeWarm}',
-                style: TextStyle(
-                  fontSize: 15,
-                  height: 1.42,
-                  color: t.textMuted.withValues(alpha: 0.96),
-                ),
-              ),
-            ),
-            const SizedBox(height: 14),
-            LuxoraMomentChips(onMomentSelected: _send),
-            const SizedBox(height: 12),
-            Row(
-              children: [
-                Expanded(
-                  child: Listener(
-                    behavior: HitTestBehavior.opaque,
-                    onPointerDown: (_) => _onVoicePointerDown(l),
-                    onPointerUp: (_) => _onVoicePointerRelease(),
-                    onPointerCancel: (_) => _onVoicePointerRelease(),
-                    child: AnimatedContainer(
-                      duration: const Duration(milliseconds: 180),
-                      padding: const EdgeInsets.symmetric(vertical: 10),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                        color: (_voiceListening ||
-                                _voiceProcessing ||
-                                _luxoraSpeaking)
-                            ? t.accent.withValues(alpha: 0.12)
-                            : null,
-                        border: Border.all(
-                          color: (_voiceListening ||
-                                  _voiceProcessing ||
-                                  _luxoraSpeaking)
-                              ? t.accent.withValues(alpha: 0.55)
-                              : t.accent.withValues(alpha: 0.25),
-                        ),
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              if (_voiceProcessing)
-                                SizedBox(
-                                  width: 16,
-                                  height: 16,
-                                  child: CircularProgressIndicator(
-                                    strokeWidth: 2,
-                                    color: t.accent.withValues(alpha: 0.9),
-                                  ),
-                                )
-                              else
-                                Icon(
-                                  _voiceListening
-                                      ? Icons.graphic_eq_rounded
-                                      : _luxoraSpeaking
-                                          ? Icons.volume_up_rounded
-                                          : Icons.mic_rounded,
-                                  size: 18,
-                                  color: t.accent.withValues(alpha: 0.9),
-                                ),
-                              const SizedBox(width: 8),
-                              Text(
-                                _voiceProcessing
-                                    ? l.conciergeVoiceProcessing
-                                    : _voiceListening
-                                        ? l.conciergeVoiceListening
-                                        : _luxoraSpeaking
-                                            ? l.conciergeVoiceSpeaking
-                                            : l.conciergeVoiceHold,
-                                style: TextStyle(
-                                  fontSize: 13,
-                                  color: t.textMuted,
-                                ),
-                              ),
-                            ],
-                          ),
-                          if (_voiceListening && !_voiceProcessing) ...[
-                            const SizedBox(height: 4),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 12),
-                              child: Text(
-                                _voicePartial.isEmpty
-                                    ? l.conciergeVoiceRelease
-                                    : _voicePartial,
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  height: 1.3,
-                                  color: _voicePartial.isEmpty
-                                      ? t.textMuted.withValues(alpha: 0.8)
-                                      : t.textPrimary,
-                                ),
-                              ),
-                            ),
-                            if (_voicePartial.isNotEmpty) ...[
-                              const SizedBox(height: 6),
-                              TextButton(
-                                onPressed: _voiceFinishing
-                                    ? null
-                                    : () => unawaited(_finishVoiceInput()),
-                                child: Text(l.conciergeVoiceSend),
-                              ),
-                            ],
-                          ],
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 10),
-                IconButton(
-                  tooltip: l.conciergeVoiceSettingsTitle,
-                  onPressed: () => ConciergeVoiceSettingsSheet.show(context),
-                  style: IconButton.styleFrom(
-                    backgroundColor: t.panelFill,
-                    foregroundColor: t.accent,
-                    side: BorderSide(color: t.accent.withValues(alpha: 0.25)),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
-                  icon: const Icon(Icons.record_voice_over_rounded),
-                ),
-              ],
-            ),
-            const SizedBox(height: 16),
-            Text(
-              l.conciergeQuickPrompts,
-              style: TextStyle(
-                fontSize: 11,
-                fontWeight: FontWeight.w700,
-                letterSpacing: 0.5,
-                color: t.textMuted.withValues(alpha: 0.9),
-              ),
-            ),
-            const SizedBox(height: 10),
-            SizedBox(
-              height: 122,
-              child: IgnorePointer(
-                ignoring: _isThinking,
-                child: Opacity(
-                  opacity: _isThinking ? 0.45 : 1,
-                  child: ListView.separated(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: primaryPrompts.length,
-                    separatorBuilder: (_, index) => const SizedBox(width: 10),
-                    itemBuilder: (context, i) {
-                      final chip = primaryPrompts[i];
-                      return SizedBox(
-                        width: 176,
-                        child: Material(
-                          color: Colors.transparent,
-                          child: InkWell(
-                            onTap: () => _send(chip.prompt),
-                            borderRadius: BorderRadius.circular(16),
-                            child: Container(
-                              padding: const EdgeInsets.all(12),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(16),
-                                gradient: LinearGradient(
-                                  colors: [
-                                    t.accent.withValues(alpha: 0.15),
-                                    t.panelFill,
-                                  ],
-                                  begin: Alignment.topLeft,
-                                  end: Alignment.bottomRight,
-                                ),
-                                border: Border.all(
-                                  color: t.accent.withValues(alpha: 0.35),
-                                ),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: t.accent.withValues(alpha: 0.07),
-                                    blurRadius: 14,
-                                  ),
-                                ],
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Icon(
-                                    switch (i) {
-                                      0 => Icons.favorite_rounded,
-                                      1 => Icons.spa_rounded,
-                                      2 => Icons.family_restroom_rounded,
-                                      _ => Icons.explore_rounded,
-                                    },
-                                    color: t.accent.withValues(alpha: 0.95),
-                                    size: 20,
-                                  ),
-                                  Text(
-                                    chip.label,
-                                    style: const TextStyle(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w700,
-                                      height: 1.2,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(height: 12),
-            Row(
-              children: [
-                Expanded(
-                  child: OutlinedButton.icon(
-                    onPressed: () => _showStyleRefineSheet(l),
-                    icon: const Icon(Icons.tune_rounded, size: 18),
-                    label: Text(l.conciergeRefineStyle),
-                    style: OutlinedButton.styleFrom(
-                      foregroundColor: t.textPrimary,
-                      side: BorderSide(
-                        color: LuxColors.gemAccent.withValues(alpha: 0.42),
-                      ),
-                      padding: const EdgeInsets.symmetric(vertical: 12),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(14),
-                      ),
-                      backgroundColor: t.panelFill,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            if (activeStylePreview.isNotEmpty) ...[
-              const SizedBox(height: 8),
-              Wrap(
-                spacing: 6,
-                runSpacing: 6,
-                children: [
-                  for (final s in activeStylePreview)
-                    InputChip(
-                      label: Text(localizeStylePref(l, s)),
-                      onDeleted: () => _removeStylePref(s),
-                      labelStyle: const TextStyle(fontSize: 11),
-                      deleteIcon: const Icon(Icons.close, size: 14),
-                      backgroundColor: LuxColors.gemSurface.withValues(alpha: 0.86),
-                      side: BorderSide(
-                        color: LuxColors.gemAccent.withValues(alpha: 0.35),
-                      ),
-                    ),
-                  if (_stylePrefs.length > activeStylePreview.length)
-                    Chip(
-                      label: Text('+${_stylePrefs.length - activeStylePreview.length}'),
-                      backgroundColor: t.panelFill,
-                    ),
-                ],
-              ),
-            ],
-            const SizedBox(height: 10),
             Expanded(
               child: GlassCard(
                 padding: const EdgeInsets.fromLTRB(12, 10, 12, 10),
-                child: Column(
+                child: ListView(
+                  controller: _scrollController,
+                  keyboardDismissBehavior:
+                      ScrollViewKeyboardDismissBehavior.onDrag,
+                  padding: const EdgeInsets.only(bottom: 8),
                   children: [
-                    Expanded(
-                      child: ListView.builder(
-                        controller: _scrollController,
-                        padding: const EdgeInsets.only(bottom: 8),
-                        itemCount: _messages.length + (_isThinking ? 1 : 0),
-                        itemBuilder: (context, i) {
-                          if (_isThinking && i == _messages.length) {
-                            return Align(
-                              alignment: Alignment.centerLeft,
-                              child: Container(
-                                margin: const EdgeInsets.only(bottom: 10),
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 14,
-                                  vertical: 10,
-                                ),
-                                decoration: BoxDecoration(
-                                  color: t.panelFill,
-                                  borderRadius: BorderRadius.circular(16),
-                                ),
-                                child: Text(
-                                  l.conciergeThinking,
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    fontStyle: FontStyle.italic,
-                                    color: t.textMuted,
-                                  ),
-                                ),
-                              ),
-                            );
-                          }
-                          final m = _messages[i];
-                          return Align(
-                            alignment: m.user
-                                ? Alignment.centerRight
-                                : Alignment.centerLeft,
-                            child: Container(
-                              margin: const EdgeInsets.only(bottom: 10),
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 14,
-                                vertical: 10,
-                              ),
-                              constraints: BoxConstraints(
-                                maxWidth:
-                                    MediaQuery.sizeOf(context).width * 0.78,
-                              ),
-                              decoration: BoxDecoration(
-                                color: m.user
-                                    ? t.accent.withValues(alpha: 0.18)
-                                    : t.panelFill,
-                                borderRadius: BorderRadius.circular(16),
-                              ),
-                              child: Text(
-                                m.text,
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  height: 1.4,
-                                  color: m.user
-                                      ? t.textPrimary
-                                      : t.textMuted,
-                                ),
-                              ),
+                    ..._buildIntroSection(
+                      l,
+                      t,
+                      primaryPrompts,
+                      activeStylePreview,
+                    ),
+                    for (var i = 0; i < _messages.length; i++)
+                      _buildMessageBubble(context, t, _messages[i]),
+                    if (_isThinking)
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Container(
+                          margin: const EdgeInsets.only(bottom: 10),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 14,
+                            vertical: 10,
+                          ),
+                          decoration: BoxDecoration(
+                            color: t.panelFill,
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                          child: Text(
+                            l.conciergeThinking,
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontStyle: FontStyle.italic,
+                              color: t.textMuted,
                             ),
-                          );
-                        },
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    TextField(
-                      controller: _controller,
-                      style: TextStyle(
-                        color: t.textPrimary,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                      ),
-                      decoration: InputDecoration(
-                        hintText: l.conciergeInputHint,
-                        hintStyle: TextStyle(
-                          color: t.textMuted.withValues(alpha: 0.72),
-                          fontSize: 16,
-                        ),
-                        filled: true,
-                        fillColor: t.panelFill,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(26),
-                          borderSide: BorderSide(
-                            color: t.accent.withValues(alpha: 0.2),
                           ),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(26),
-                          borderSide: BorderSide(
-                            color: t.accent.withValues(alpha: 0.22),
-                          ),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(26),
-                          borderSide: BorderSide(
-                            color: t.accent.withValues(alpha: 0.55),
-                            width: 1.2,
-                          ),
-                        ),
-                        suffixIcon: IconButton(
-                          icon: Icon(
-                            Icons.send_rounded,
-                            color: _isThinking
-                                ? t.textMuted.withValues(alpha: 0.4)
-                                : t.accent,
-                          ),
-                          onPressed: _isThinking
-                              ? null
-                              : () => _send(_controller.text),
                         ),
                       ),
-                      onSubmitted: _isThinking ? null : _send,
-                    ),
                   ],
                 ),
               ),
             ),
+            const SizedBox(height: 8),
+            TextField(
+              controller: _controller,
+              style: TextStyle(
+                color: t.textPrimary,
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+              ),
+              decoration: InputDecoration(
+                hintText: l.conciergeInputHint,
+                hintStyle: TextStyle(
+                  color: t.textMuted.withValues(alpha: 0.72),
+                  fontSize: 16,
+                ),
+                filled: true,
+                fillColor: t.panelFill,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(26),
+                  borderSide: BorderSide(
+                    color: t.accent.withValues(alpha: 0.2),
+                  ),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(26),
+                  borderSide: BorderSide(
+                    color: t.accent.withValues(alpha: 0.22),
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(26),
+                  borderSide: BorderSide(
+                    color: t.accent.withValues(alpha: 0.55),
+                    width: 1.2,
+                  ),
+                ),
+                suffixIcon: IconButton(
+                  icon: Icon(
+                    Icons.send_rounded,
+                    color: _isThinking
+                        ? t.textMuted.withValues(alpha: 0.4)
+                        : t.accent,
+                  ),
+                  onPressed:
+                      _isThinking ? null : () => _send(_controller.text),
+                ),
+              ),
+              onSubmitted: _isThinking ? null : _send,
+            ),
           ],
+        ),
+      ),
+    );
+  }
+
+  List<Widget> _buildIntroSection(
+    AppLocalizations l,
+    LuxThemeTokens t,
+    List<ConciergePromptChip> primaryPrompts,
+    List<String> activeStylePreview,
+  ) {
+    return [
+      Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  l.conciergeBrand,
+                  style: TextStyle(
+                    fontSize: 11,
+                    fontWeight: FontWeight.w700,
+                    letterSpacing: 3,
+                    color: t.accent.withValues(alpha: 0.85),
+                  ),
+                ),
+                Text(
+                  l.conciergeTitle,
+                  style: Theme.of(context).textTheme.headlineSmall,
+                ),
+                if (_tripFeel != null && _tripFeel!.isNotEmpty) ...[
+                  const SizedBox(height: 4),
+                  Text(
+                    l.conciergeTripFeel(_tripFeel!),
+                    style: TextStyle(
+                      color: t.textMuted,
+                      fontSize: 13,
+                    ),
+                  ),
+                ],
+              ],
+            ),
+          ),
+        ],
+      ),
+      const SizedBox(height: 14),
+      Container(
+        width: double.infinity,
+        padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
+        decoration: BoxDecoration(
+          color: t.panelFill,
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(color: t.borderSubtle),
+        ),
+        child: Text(
+          '${_greeting(l)} ${l.conciergeWelcomeWarm}',
+          style: TextStyle(
+            fontSize: 15,
+            height: 1.42,
+            color: t.textMuted.withValues(alpha: 0.96),
+          ),
+        ),
+      ),
+      const SizedBox(height: 14),
+      LuxoraMomentChips(onMomentSelected: _send),
+      const SizedBox(height: 12),
+      Row(
+        children: [
+          Expanded(
+            child: Listener(
+              behavior: HitTestBehavior.opaque,
+              onPointerDown: (_) => _onVoicePointerDown(l),
+              onPointerUp: (_) => _onVoicePointerRelease(),
+              onPointerCancel: (_) => _onVoicePointerRelease(),
+              child: AnimatedContainer(
+                duration: const Duration(milliseconds: 180),
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  color: (_voiceListening ||
+                          _voiceProcessing ||
+                          _luxoraSpeaking)
+                      ? t.accent.withValues(alpha: 0.12)
+                      : null,
+                  border: Border.all(
+                    color: (_voiceListening ||
+                            _voiceProcessing ||
+                            _luxoraSpeaking)
+                        ? t.accent.withValues(alpha: 0.55)
+                        : t.accent.withValues(alpha: 0.25),
+                  ),
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        if (_voiceProcessing)
+                          SizedBox(
+                            width: 16,
+                            height: 16,
+                            child: CircularProgressIndicator(
+                              strokeWidth: 2,
+                              color: t.accent.withValues(alpha: 0.9),
+                            ),
+                          )
+                        else
+                          Icon(
+                            _voiceListening
+                                ? Icons.graphic_eq_rounded
+                                : _luxoraSpeaking
+                                    ? Icons.volume_up_rounded
+                                    : Icons.mic_rounded,
+                            size: 18,
+                            color: t.accent.withValues(alpha: 0.9),
+                          ),
+                        const SizedBox(width: 8),
+                        Text(
+                          _voiceProcessing
+                              ? l.conciergeVoiceProcessing
+                              : _voiceListening
+                                  ? l.conciergeVoiceListening
+                                  : _luxoraSpeaking
+                                      ? l.conciergeVoiceSpeaking
+                                      : l.conciergeVoiceHold,
+                          style: TextStyle(
+                            fontSize: 13,
+                            color: t.textMuted,
+                          ),
+                        ),
+                      ],
+                    ),
+                    if (_voiceListening && !_voiceProcessing) ...[
+                      const SizedBox(height: 4),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 12),
+                        child: Text(
+                          _voicePartial.isEmpty
+                              ? l.conciergeVoiceRelease
+                              : _voicePartial,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 12,
+                            height: 1.3,
+                            color: _voicePartial.isEmpty
+                                ? t.textMuted.withValues(alpha: 0.8)
+                                : t.textPrimary,
+                          ),
+                        ),
+                      ),
+                      if (_voicePartial.isNotEmpty) ...[
+                        const SizedBox(height: 6),
+                        TextButton(
+                          onPressed: _voiceFinishing
+                              ? null
+                              : () => unawaited(_finishVoiceInput()),
+                          child: Text(l.conciergeVoiceSend),
+                        ),
+                      ],
+                    ],
+                  ],
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(width: 10),
+          IconButton(
+            tooltip: l.conciergeVoiceSettingsTitle,
+            onPressed: () => ConciergeVoiceSettingsSheet.show(context),
+            style: IconButton.styleFrom(
+              backgroundColor: t.panelFill,
+              foregroundColor: t.accent,
+              side: BorderSide(color: t.accent.withValues(alpha: 0.25)),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+            ),
+            icon: const Icon(Icons.record_voice_over_rounded),
+          ),
+        ],
+      ),
+      const SizedBox(height: 16),
+      Text(
+        l.conciergeQuickPrompts,
+        style: TextStyle(
+          fontSize: 11,
+          fontWeight: FontWeight.w700,
+          letterSpacing: 0.5,
+          color: t.textMuted.withValues(alpha: 0.9),
+        ),
+      ),
+      const SizedBox(height: 10),
+      SizedBox(
+        height: 122,
+        child: IgnorePointer(
+          ignoring: _isThinking,
+          child: Opacity(
+            opacity: _isThinking ? 0.45 : 1,
+            child: ListView.separated(
+              scrollDirection: Axis.horizontal,
+              itemCount: primaryPrompts.length,
+              separatorBuilder: (_, index) => const SizedBox(width: 10),
+              itemBuilder: (context, i) {
+                final chip = primaryPrompts[i];
+                return SizedBox(
+                  width: 176,
+                  child: Material(
+                    color: Colors.transparent,
+                    child: InkWell(
+                      onTap: () => _send(chip.prompt),
+                      borderRadius: BorderRadius.circular(16),
+                      child: Container(
+                        padding: const EdgeInsets.all(12),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(16),
+                          gradient: LinearGradient(
+                            colors: [
+                              t.accent.withValues(alpha: 0.15),
+                              t.panelFill,
+                            ],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                          ),
+                          border: Border.all(
+                            color: t.accent.withValues(alpha: 0.35),
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: t.accent.withValues(alpha: 0.07),
+                              blurRadius: 14,
+                            ),
+                          ],
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Icon(
+                              switch (i) {
+                                0 => Icons.favorite_rounded,
+                                1 => Icons.spa_rounded,
+                                2 => Icons.family_restroom_rounded,
+                                _ => Icons.explore_rounded,
+                              },
+                              color: t.accent.withValues(alpha: 0.95),
+                              size: 20,
+                            ),
+                            Text(
+                              chip.label,
+                              style: const TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w700,
+                                height: 1.2,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+        ),
+      ),
+      const SizedBox(height: 12),
+      OutlinedButton.icon(
+        onPressed: () => _showStyleRefineSheet(l),
+        icon: const Icon(Icons.tune_rounded, size: 18),
+        label: Text(l.conciergeRefineStyle),
+        style: OutlinedButton.styleFrom(
+          foregroundColor: t.textPrimary,
+          side: BorderSide(
+            color: LuxColors.gemAccent.withValues(alpha: 0.42),
+          ),
+          padding: const EdgeInsets.symmetric(vertical: 12),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(14),
+          ),
+          backgroundColor: t.panelFill,
+        ),
+      ),
+      if (activeStylePreview.isNotEmpty) ...[
+        const SizedBox(height: 8),
+        Wrap(
+          spacing: 6,
+          runSpacing: 6,
+          children: [
+            for (final s in activeStylePreview)
+              InputChip(
+                label: Text(localizeStylePref(l, s)),
+                onDeleted: () => _removeStylePref(s),
+                labelStyle: const TextStyle(fontSize: 11),
+                deleteIcon: const Icon(Icons.close, size: 14),
+                backgroundColor: LuxColors.gemSurface.withValues(alpha: 0.86),
+                side: BorderSide(
+                  color: LuxColors.gemAccent.withValues(alpha: 0.35),
+                ),
+              ),
+            if (_stylePrefs.length > activeStylePreview.length)
+              Chip(
+                label: Text('+${_stylePrefs.length - activeStylePreview.length}'),
+                backgroundColor: t.panelFill,
+              ),
+          ],
+        ),
+      ],
+      const SizedBox(height: 16),
+    ];
+  }
+
+  Widget _buildMessageBubble(
+    BuildContext context,
+    LuxThemeTokens t,
+    ({bool user, String text}) message,
+  ) {
+    return Align(
+      alignment: message.user ? Alignment.centerRight : Alignment.centerLeft,
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 10),
+        padding: const EdgeInsets.symmetric(
+          horizontal: 14,
+          vertical: 10,
+        ),
+        constraints: BoxConstraints(
+          maxWidth: MediaQuery.sizeOf(context).width * 0.78,
+        ),
+        decoration: BoxDecoration(
+          color: message.user
+              ? t.accent.withValues(alpha: 0.18)
+              : t.panelFill,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Text(
+          message.text,
+          style: TextStyle(
+            fontSize: 14,
+            height: 1.4,
+            color: message.user ? t.textPrimary : t.textMuted,
+          ),
         ),
       ),
     );

@@ -3,6 +3,7 @@ import 'package:luxora_ai/data/trip_plans.dart';
 import 'package:luxora_ai/l10n/catalog_localizer.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/models/trip_plan.dart';
+import 'package:luxora_ai/services/active_trip_plan_store.dart';
 import 'package:luxora_ai/services/city_pack_registry.dart';
 import 'package:luxora_ai/services/places_repository.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
@@ -12,6 +13,7 @@ import 'package:luxora_ai/widgets/lux_secondary_app_bar.dart';
 import 'package:luxora_ai/widgets/unsplash_attribution.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
 import 'package:luxora_ai/widgets/ticket_savings_itinerary_banner.dart';
+import 'package:luxora_ai/widgets/trip_item_ticket_link.dart';
 
 class ItineraryScreen extends StatelessWidget {
   const ItineraryScreen({super.key});
@@ -26,7 +28,10 @@ class ItineraryScreen extends StatelessWidget {
       body: SafeArea(
         top: false,
         child: ListenableBuilder(
-          listenable: CityPackRegistry.instance,
+          listenable: Listenable.merge([
+            CityPackRegistry.instance,
+            ActiveTripPlanStore.instance,
+          ]),
           builder: (context, _) {
             final plan = samplePlanForActiveCity();
             final tokens = luxThemeTokensOf(context);
@@ -203,6 +208,7 @@ class _ItineraryDayView extends StatelessWidget {
                           color: tokens.textMuted.withValues(alpha: 0.85),
                         ),
                       ),
+                      TripItemTicketLink(item: item),
                       if (thumbPlace?.unsplashPhoto case final photo?) ...[
                         const SizedBox(height: 10),
                         UnsplashAttribution(

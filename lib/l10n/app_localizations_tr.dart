@@ -1189,6 +1189,64 @@ class AppLocalizationsTr extends AppLocalizations {
   String get conciergeThinking => 'Luxora düşünüyor…';
 
   @override
+  String get conciergeItinerarySynced =>
+      'Zaman çizelgenize ekledim — gününüzü görmek için Timeline veya Harita\'yı açın.';
+
+  @override
+  String get conciergeTicketsFoundIntro =>
+      'Yetkili bilet fırsatları buldum — doğrudan bağlantılar için Timeline\'da Bilet al\'a dokunun.';
+
+  @override
+  String conciergeTicketDealLine(
+    String title,
+    String price,
+    String source,
+    String savings,
+  ) {
+    return '• $title: $price ($source üzerinden, $savings tasarruf)';
+  }
+
+  @override
+  String get conciergeTicketsTimelineHint =>
+      'Timeline\'daki her eşleşen durakta bayi bağlantılı Bilet al düğmesi var.';
+
+  @override
+  String itineraryBookTickets(String amount) {
+    return 'Bilet al · $amount tasarruf';
+  }
+
+  @override
+  String get itineraryOpenTicketDeal => 'Bilet al';
+
+  @override
+  String conciergeTripSaved(String title) {
+    return '“$title” Geziler\'e kaydedildi — Trips sekmesini istediğiniz zaman açın.';
+  }
+
+  @override
+  String conciergeTripSavedWithStops(String title, int count) {
+    return '“$title”, timeline\'da $count deneyimle kaydedildi.';
+  }
+
+  @override
+  String conciergeSavedTripsIntro(int count) {
+    return '$count kayıtlı gezi(zi)niz var:';
+  }
+
+  @override
+  String conciergeSavedTripLine(String title, String dates, String status) {
+    return '• $title ($dates) — $status';
+  }
+
+  @override
+  String get conciergeSavedTripsEmpty =>
+      'Henüz kayıtlı gezi yok — önce plan isteyin, sonra “gezimi kaydet” deyin.';
+
+  @override
+  String get conciergeSavedTripsHint =>
+      'Kartları görmek, paylaşmak veya tarihleri düzenlemek için Trips sekmesini açın.';
+
+  @override
   String get conciergeAiError =>
       'Luxora\'ya ulaşılamadı. Bağlantınızı kontrol edip tekrar deneyin.';
 

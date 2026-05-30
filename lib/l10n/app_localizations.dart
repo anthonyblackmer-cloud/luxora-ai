@@ -2169,6 +2169,83 @@ abstract class AppLocalizations {
   /// **'Luxora is thinking…'**
   String get conciergeThinking;
 
+  /// No description provided for @conciergeItinerarySynced.
+  ///
+  /// In en, this message translates to:
+  /// **'I\'ve built that into your timeline — open Timeline or Map to see your day.'**
+  String get conciergeItinerarySynced;
+
+  /// No description provided for @conciergeTicketsFoundIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'I found authorized ticket deals for your trip — tap Book tickets on Timeline for direct links:'**
+  String get conciergeTicketsFoundIntro;
+
+  /// No description provided for @conciergeTicketDealLine.
+  ///
+  /// In en, this message translates to:
+  /// **'• {title}: {price} via {source} (save {savings})'**
+  String conciergeTicketDealLine(
+    String title,
+    String price,
+    String source,
+    String savings,
+  );
+
+  /// No description provided for @conciergeTicketsTimelineHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Each matching stop on Timeline now has a Book tickets button with the reseller link.'**
+  String get conciergeTicketsTimelineHint;
+
+  /// No description provided for @itineraryBookTickets.
+  ///
+  /// In en, this message translates to:
+  /// **'Book tickets · Save {amount}'**
+  String itineraryBookTickets(String amount);
+
+  /// No description provided for @itineraryOpenTicketDeal.
+  ///
+  /// In en, this message translates to:
+  /// **'Book tickets'**
+  String get itineraryOpenTicketDeal;
+
+  /// No description provided for @conciergeTripSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved “{title}” to your Trips — open the Trips tab anytime to revisit it.'**
+  String conciergeTripSaved(String title);
+
+  /// No description provided for @conciergeTripSavedWithStops.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved “{title}” with {count} experiences on your timeline.'**
+  String conciergeTripSavedWithStops(String title, int count);
+
+  /// No description provided for @conciergeSavedTripsIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'You have {count} saved trip(s):'**
+  String conciergeSavedTripsIntro(int count);
+
+  /// No description provided for @conciergeSavedTripLine.
+  ///
+  /// In en, this message translates to:
+  /// **'• {title} ({dates}) — {status}'**
+  String conciergeSavedTripLine(String title, String dates, String status);
+
+  /// No description provided for @conciergeSavedTripsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'You don\'t have any saved trips yet — ask me to plan something, then say “save my trip.”'**
+  String get conciergeSavedTripsEmpty;
+
+  /// No description provided for @conciergeSavedTripsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Open the Trips tab to view cards, share, or edit dates.'**
+  String get conciergeSavedTripsHint;
+
   /// No description provided for @conciergeAiError.
   ///
   /// In en, this message translates to:

@@ -31,6 +31,7 @@ class TripItem {
     required this.location,
     required this.category,
     this.placeId,
+    this.ticketDealId,
   });
 
   final String id;
@@ -40,4 +41,22 @@ class TripItem {
   final String location;
   final String category;
   final String? placeId;
+
+  /// Smart Ticket Savings deal attached by Concierge — opens reseller link.
+  final String? ticketDealId;
+
+  TripItem copyWith({
+    String? ticketDealId,
+  }) {
+    return TripItem(
+      id: id,
+      time: time,
+      title: title,
+      emotionalLine: emotionalLine,
+      location: location,
+      category: category,
+      placeId: placeId,
+      ticketDealId: ticketDealId ?? this.ticketDealId,
+    );
+  }
 }

@@ -1167,6 +1167,63 @@ class AppLocalizationsJa extends AppLocalizations {
   String get conciergeThinking => 'Luxoraが考えています…';
 
   @override
+  String get conciergeItinerarySynced =>
+      'タイムラインに反映しました — マップまたはタイムラインで一日を確認できます。';
+
+  @override
+  String get conciergeTicketsFoundIntro =>
+      '認定チケット割引を見つけました — タイムラインの「チケット予約」をタップしてリンクを開いてください。';
+
+  @override
+  String conciergeTicketDealLine(
+    String title,
+    String price,
+    String source,
+    String savings,
+  ) {
+    return '• $title: $price（$source、$savingsお得）';
+  }
+
+  @override
+  String get conciergeTicketsTimelineHint =>
+      '該当する各スポットのタイムラインに、販売元リンク付きの「チケット予約」ボタンが表示されます。';
+
+  @override
+  String itineraryBookTickets(String amount) {
+    return 'チケット予約 · $amountお得';
+  }
+
+  @override
+  String get itineraryOpenTicketDeal => 'チケット予約';
+
+  @override
+  String conciergeTripSaved(String title) {
+    return '「$title」を旅行に保存しました — Tripsタブからいつでも開けます。';
+  }
+
+  @override
+  String conciergeTripSavedWithStops(String title, int count) {
+    return '「$title」をタイムラインの$count件の体験付きで保存しました。';
+  }
+
+  @override
+  String conciergeSavedTripsIntro(int count) {
+    return '保存済みの旅行が$count件あります：';
+  }
+
+  @override
+  String conciergeSavedTripLine(String title, String dates, String status) {
+    return '• $title（$dates）— $status';
+  }
+
+  @override
+  String get conciergeSavedTripsEmpty =>
+      '保存された旅行はまだありません — プランを頼んでから「旅行を保存して」と言ってください。';
+
+  @override
+  String get conciergeSavedTripsHint => 'Tripsタブでカードの表示、共有、日付の編集ができます。';
+
+  @override
   String get conciergeAiError => 'Luxoraに接続できませんでした。接続を確認してもう一度お試しください。';
 
   @override

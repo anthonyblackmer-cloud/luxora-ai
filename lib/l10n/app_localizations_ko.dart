@@ -1170,6 +1170,63 @@ class AppLocalizationsKo extends AppLocalizations {
   String get conciergeThinking => 'Luxora가 생각 중…';
 
   @override
+  String get conciergeItinerarySynced =>
+      '타임라인에 반영했습니다 — 지도 또는 타임라인에서 하루 일정을 확인하세요.';
+
+  @override
+  String get conciergeTicketsFoundIntro =>
+      '인증된 티켓 할인을 찾았습니다 — 타임라인에서 티켓 예약을 눌러 링크를 여세요.';
+
+  @override
+  String conciergeTicketDealLine(
+    String title,
+    String price,
+    String source,
+    String savings,
+  ) {
+    return '• $title: $price ($source, $savings 절약)';
+  }
+
+  @override
+  String get conciergeTicketsTimelineHint =>
+      '일치하는 각 일정에 리셀러 링크가 있는 티켓 예약 버튼이 표시됩니다.';
+
+  @override
+  String itineraryBookTickets(String amount) {
+    return '티켓 예약 · $amount 절약';
+  }
+
+  @override
+  String get itineraryOpenTicketDeal => '티켓 예약';
+
+  @override
+  String conciergeTripSaved(String title) {
+    return '“$title”을(를) 여행에 저장했습니다 — Trips 탭에서 언제든 열 수 있습니다.';
+  }
+
+  @override
+  String conciergeTripSavedWithStops(String title, int count) {
+    return '“$title”을(를) 타임라인 $count개 체험과 함께 저장했습니다.';
+  }
+
+  @override
+  String conciergeSavedTripsIntro(int count) {
+    return '저장된 여행 $count개:';
+  }
+
+  @override
+  String conciergeSavedTripLine(String title, String dates, String status) {
+    return '• $title ($dates) — $status';
+  }
+
+  @override
+  String get conciergeSavedTripsEmpty =>
+      '저장된 여행이 없습니다 — 일정을 짜 달라고 한 뒤 “내 여행 저장해”라고 말해 주세요.';
+
+  @override
+  String get conciergeSavedTripsHint => 'Trips 탭에서 카드 보기, 공유, 날짜 수정이 가능합니다.';
+
+  @override
   String get conciergeAiError => 'Luxora에 연결할 수 없습니다. 연결을 확인하고 다시 시도하세요.';
 
   @override

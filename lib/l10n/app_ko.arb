@@ -1585,6 +1585,35 @@
   },
   "orlandoThemeParksPromptNotNow": "나중에",
   "conciergeThinking": "Luxora가 생각 중…",
+  "conciergeItinerarySynced": "타임라인에 반영했습니다 — 지도 또는 타임라인에서 하루 일정을 확인하세요.",
+  "conciergeTicketsFoundIntro": "인증된 티켓 할인을 찾았습니다 — 타임라인에서 티켓 예약을 눌러 링크를 여세요.",
+  "conciergeTicketDealLine": "• {title}: {price} ({source}, {savings} 절약)",
+  "@conciergeTicketDealLine": {
+    "placeholders": {
+      "title": { "type": "String" },
+      "price": { "type": "String" },
+      "source": { "type": "String" },
+      "savings": { "type": "String" }
+    }
+  },
+  "conciergeTicketsTimelineHint": "일치하는 각 일정에 리셀러 링크가 있는 티켓 예약 버튼이 표시됩니다.",
+  "itineraryBookTickets": "티켓 예약 · {amount} 절약",
+  "@itineraryBookTickets": {
+    "placeholders": {
+      "amount": { "type": "String" }
+    }
+  },
+  "itineraryOpenTicketDeal": "티켓 예약",
+  "conciergeTripSaved": "“{title}”을(를) 여행에 저장했습니다 — Trips 탭에서 언제든 열 수 있습니다.",
+  "@conciergeTripSaved": { "placeholders": { "title": { "type": "String" } } },
+  "conciergeTripSavedWithStops": "“{title}”을(를) 타임라인 {count}개 체험과 함께 저장했습니다.",
+  "@conciergeTripSavedWithStops": { "placeholders": { "title": { "type": "String" }, "count": { "type": "int" } } },
+  "conciergeSavedTripsIntro": "저장된 여행 {count}개:",
+  "@conciergeSavedTripsIntro": { "placeholders": { "count": { "type": "int" } } },
+  "conciergeSavedTripLine": "• {title} ({dates}) — {status}",
+  "@conciergeSavedTripLine": { "placeholders": { "title": { "type": "String" }, "dates": { "type": "String" }, "status": { "type": "String" } } },
+  "conciergeSavedTripsEmpty": "저장된 여행이 없습니다 — 일정을 짜 달라고 한 뒤 “내 여행 저장해”라고 말해 주세요.",
+  "conciergeSavedTripsHint": "Trips 탭에서 카드 보기, 공유, 날짜 수정이 가능합니다.",
   "conciergeAiError": "Luxora에 연결할 수 없습니다. 연결을 확인하고 다시 시도하세요.",
   "conciergeAiNotConfigured": "Luxora's live concierge isn't wired up on this build yet — Supabase URL and anon key need to be baked into the app, and the edge function deployed. Map and itinerary still work; see docs/CONCIERGE_AI.md for setup.",
   "conciergeVoiceListening": "Luxora가 듣고 있습니다…",

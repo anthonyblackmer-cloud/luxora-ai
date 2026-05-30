@@ -13,6 +13,8 @@ class ConciergeTripContext {
     this.kids,
     this.occasion,
     this.places = const [],
+    this.ticketDeals = const [],
+    this.savedTrips = const [],
   });
 
   final String cityId;
@@ -27,6 +29,8 @@ class ConciergeTripContext {
   final int? kids;
   final String? occasion;
   final List<ConciergePlaceHint> places;
+  final List<ConciergeTicketDealHint> ticketDeals;
+  final List<ConciergeSavedTripHint> savedTrips;
 
   Map<String, dynamic> toJson() => {
         'cityId': cityId,
@@ -43,6 +47,10 @@ class ConciergeTripContext {
         if (occasion != null) 'occasion': occasion,
         if (places.isNotEmpty)
           'places': places.map((p) => p.toJson()).toList(),
+        if (ticketDeals.isNotEmpty)
+          'ticketDeals': ticketDeals.map((d) => d.toJson()).toList(),
+        if (savedTrips.isNotEmpty)
+          'savedTrips': savedTrips.map((t) => t.toJson()).toList(),
       };
 }
 
@@ -67,6 +75,51 @@ class ConciergePlaceHint {
         'category': category,
         'location': location,
         if (moodTags.isNotEmpty) 'moodTags': moodTags,
+      };
+}
+
+class ConciergeTicketDealHint {
+  const ConciergeTicketDealHint({
+    required this.id,
+    required this.title,
+    required this.discountPriceUsd,
+    required this.savingsUsd,
+    required this.sourceName,
+    this.placeId,
+  });
+
+  final String id;
+  final String title;
+  final int discountPriceUsd;
+  final int savingsUsd;
+  final String sourceName;
+  final String? placeId;
+
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'title': title,
+        'discountPriceUsd': discountPriceUsd,
+        'savingsUsd': savingsUsd,
+        'sourceName': sourceName,
+        if (placeId != null) 'placeId': placeId,
+      };
+}
+
+class ConciergeSavedTripHint {
+  const ConciergeSavedTripHint({
+    required this.title,
+    required this.dateRange,
+    required this.status,
+  });
+
+  final String title;
+  final String dateRange;
+  final String status;
+
+  Map<String, dynamic> toJson() => {
+        'title': title,
+        'dateRange': dateRange,
+        'status': status,
       };
 }
 

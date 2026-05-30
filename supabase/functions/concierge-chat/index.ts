@@ -33,6 +33,23 @@ type TripContext = {
   kids?: number;
   occasion?: string;
   places?: PlaceHint[];
+  ticketDeals?: TicketDealHint[];
+  savedTrips?: SavedTripHint[];
+};
+
+type SavedTripHint = {
+  title: string;
+  dateRange: string;
+  status: string;
+};
+
+type TicketDealHint = {
+  id: string;
+  title: string;
+  discountPriceUsd: number;
+  savingsUsd: number;
+  sourceName: string;
+  placeId?: string;
 };
 
 function buildSystemPrompt(ctx: TripContext): string {
@@ -40,8 +57,13 @@ function buildSystemPrompt(ctx: TripContext): string {
     "You are Luxora — an emotionally intelligent luxury travel concierge.",
     "You plan trips around how the traveler wants to FEEL, not checklist tourism.",
     "Be warm, specific, and concise (2–4 short paragraphs max unless they ask for detail).",
+    "When the traveler describes what they want, suggest a sequenced day using curated places — the app automatically builds their Map day flow and Timeline from your recommendations.",
+    "Do not paste a full hour-by-hour schedule in chat; summarize the feel and highlights, then note that their timeline is updated in the app.",
     "Recommend only from the curated place list when suggesting venues; cite place titles naturally.",
-    "Never invent theme park ticket prices — suggest Ticket Savings in the app for deals.",
+    "When the traveler asks to save their trip, confirm it is saved to the Trips tab — the app handles persistence automatically.",
+    "When they ask about saved trips, summarize from savedTrips in context and point them to the Trips tab.",
+    "When the traveler asks about tickets, deals, or best prices, recommend specific offers from the ticketDeals list — the app attaches authorized reseller links to matching Timeline stops automatically.",
+    "Never invent ticket prices or reseller URLs — use only ticketDeals figures and sourceName values from context.",
     "If theme parks come up and they may not have the add-on, mention Gems and non-park magic too.",
     "",
     `Active destination: ${ctx.cityName}, ${ctx.region} (pack: ${ctx.cityId}).`,
@@ -70,6 +92,20 @@ function buildSystemPrompt(ctx: TripContext): string {
     for (const p of ctx.places.slice(0, 18)) {
       const tags = p.moodTags?.length ? ` [${p.moodTags.join(", ")}]` : "";
       lines.push(`- ${p.title} (${p.category}, ${p.location})${tags}`);
+    }
+  }
+  if (ctx.ticketDeals?.length) {
+    lines.push("", "Authorized ticket deals (app adds links to Timeline):");
+    for (const d of ctx.ticketDeals.slice(0, 10)) {
+      lines.push(
+        `- ${d.title}: $${d.discountPriceUsd} via ${d.sourceName} (save ~$${d.savingsUsd})`,
+      );
+    }
+  }
+  if (ctx.savedTrips?.length) {
+    lines.push("", "Traveler's saved trips (Trips tab):");
+    for (const t of ctx.savedTrips.slice(0, 6)) {
+      lines.push(`- ${t.title} (${t.dateRange}) — ${t.status}`);
     }
   }
 

@@ -1188,6 +1188,64 @@ class AppLocalizationsHi extends AppLocalizations {
   String get conciergeThinking => 'Luxora सोच रहा है…';
 
   @override
+  String get conciergeItinerarySynced =>
+      'मैंने इसे आपकी टाइमलाइन में जोड़ दिया है — मानचित्र या टाइमलाइन खोलें।';
+
+  @override
+  String get conciergeTicketsFoundIntro =>
+      'मैंने आपकी यात्रा के लिए अधिकृत टिकट ऑफ़र खोजे — सीधे लिंक के लिए टाइमलाइन पर टिकट बुक करें टैप करें।';
+
+  @override
+  String conciergeTicketDealLine(
+    String title,
+    String price,
+    String source,
+    String savings,
+  ) {
+    return '• $title: $price ($source से, $savings बचत)';
+  }
+
+  @override
+  String get conciergeTicketsTimelineHint =>
+      'टाइमलाइन पर हर मेल खाते स्टॉप पर रीसेलर लिंक वाला टिकट बुक करें बटन है।';
+
+  @override
+  String itineraryBookTickets(String amount) {
+    return 'टिकट बुक करें · $amount बचत';
+  }
+
+  @override
+  String get itineraryOpenTicketDeal => 'टिकट बुक करें';
+
+  @override
+  String conciergeTripSaved(String title) {
+    return '“$title” आपकी यात्राओं में सहेजा — Trips टैब कभी भी खोलें।';
+  }
+
+  @override
+  String conciergeTripSavedWithStops(String title, int count) {
+    return '“$title” को टाइमलाइन पर $count अनुभवों के साथ सहेजा।';
+  }
+
+  @override
+  String conciergeSavedTripsIntro(int count) {
+    return 'आपकी $count सहेजी गई यात्रा(एँ):';
+  }
+
+  @override
+  String conciergeSavedTripLine(String title, String dates, String status) {
+    return '• $title ($dates) — $status';
+  }
+
+  @override
+  String get conciergeSavedTripsEmpty =>
+      'अभी कोई सहेजी यात्रा नहीं — पहले योजना बनवाएँ, फिर “मेरी यात्रा सहेजो” कहें।';
+
+  @override
+  String get conciergeSavedTripsHint =>
+      'कार्ड, शेयर या तारीखें बदलने के लिए Trips टैब खोलें।';
+
+  @override
   String get conciergeAiError =>
       'Luxora तक नहीं पहुँच सका। कनेक्शन जाँचें और फिर कोशिश करें।';
 

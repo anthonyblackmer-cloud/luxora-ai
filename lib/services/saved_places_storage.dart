@@ -24,6 +24,16 @@ class SavedPlacesStorage {
 
   bool isSaved(String placeId) => savedIds.value.contains(placeId);
 
+  /// Adds [placeId] when not already saved.
+  Future<void> save(String placeId) async {
+    await load();
+    if (savedIds.value.contains(placeId)) return;
+    final next = Set<String>.from(savedIds.value)..add(placeId);
+    savedIds.value = next;
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setStringList(_key, next.toList());
+  }
+
   /// Toggles saved state and returns the new state (`true` = now saved).
   Future<bool> toggle(String placeId) async {
     await load();

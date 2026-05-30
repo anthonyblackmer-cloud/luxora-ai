@@ -510,6 +510,54 @@
   "conciergeVoicePresetDeF": "German · Female",
   "conciergeVoicePresetDeM": "German · Male",
   "conciergeThinking": "Luxora is thinking…",
+  "conciergeItinerarySynced": "I've built that into your timeline — open Timeline or Map to see your day.",
+  "conciergeTicketsFoundIntro": "I found authorized ticket deals for your trip — tap Book tickets on Timeline for direct links:",
+  "conciergeTicketDealLine": "• {title}: {price} via {source} (save {savings})",
+  "@conciergeTicketDealLine": {
+    "placeholders": {
+      "title": { "type": "String" },
+      "price": { "type": "String" },
+      "source": { "type": "String" },
+      "savings": { "type": "String" }
+    }
+  },
+  "conciergeTicketsTimelineHint": "Each matching stop on Timeline now has a Book tickets button with the reseller link.",
+  "itineraryBookTickets": "Book tickets · Save {amount}",
+  "@itineraryBookTickets": {
+    "placeholders": {
+      "amount": { "type": "String" }
+    }
+  },
+  "itineraryOpenTicketDeal": "Book tickets",
+  "conciergeTripSaved": "Saved “{title}” to your Trips — open the Trips tab anytime to revisit it.",
+  "@conciergeTripSaved": {
+    "placeholders": {
+      "title": { "type": "String" }
+    }
+  },
+  "conciergeTripSavedWithStops": "Saved “{title}” with {count} experiences on your timeline.",
+  "@conciergeTripSavedWithStops": {
+    "placeholders": {
+      "title": { "type": "String" },
+      "count": { "type": "int" }
+    }
+  },
+  "conciergeSavedTripsIntro": "You have {count} saved trip(s):",
+  "@conciergeSavedTripsIntro": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "conciergeSavedTripLine": "• {title} ({dates}) — {status}",
+  "@conciergeSavedTripLine": {
+    "placeholders": {
+      "title": { "type": "String" },
+      "dates": { "type": "String" },
+      "status": { "type": "String" }
+    }
+  },
+  "conciergeSavedTripsEmpty": "You don't have any saved trips yet — ask me to plan something, then say “save my trip.”",
+  "conciergeSavedTripsHint": "Open the Trips tab to view cards, share, or edit dates.",
   "conciergeAiError": "I couldn't reach Luxora right now. Check your connection and try again.",
   "conciergeAiErrorVoice": "Sorry — I couldn't connect to Luxora's concierge just now.",
   "conciergeAiNotConfigured": "Luxora's live concierge isn't wired up on this build yet — Supabase URL and anon key need to be baked into the app, and the edge function deployed. Map and itinerary still work; see docs/CONCIERGE_AI.md for setup.",

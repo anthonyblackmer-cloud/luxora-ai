@@ -7,8 +7,9 @@ import 'package:luxora_ai/services/day_flow_planner.dart';
 import 'package:luxora_ai/services/weather_concierge_advisor.dart';
 import 'package:luxora_ai/services/weather_service.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
+import 'package:luxora_ai/util/share_precache_urls.dart';
+import 'package:luxora_ai/util/weather_share_content.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
-import 'package:luxora_ai/widgets/luxora_branded_share_card.dart';
 import 'package:luxora_ai/widgets/visual_share_icon_button.dart';
 import 'package:luxora_ai/widgets/lux_button.dart';
 import 'package:luxora_ai/widgets/settings/luxora_premium_sheet_shell.dart';
@@ -90,35 +91,24 @@ class WeatherConciergeSheet extends StatelessWidget {
       headerTrailing: VisualShareIconButton(
         subject: l.weatherToday(placeLabel),
         fileName: 'luxora_weather.png',
+        shareWidth: 420,
+        loadNetworkAssets: true,
+        precacheNetworkUrls: sharePrecacheUrlsForPlace(
+          latitude: latitude,
+          longitude: longitude,
+        ),
         color: LuxColors.gold,
         background: LuxColors.gold.withValues(alpha: 0.12),
-        cardBuilder: (ctx) {
-          final shareL = ctx.l10n;
-          final temp = useF
-              ? '${weather.temperatureF.round()}°F'
-              : '${((weather.temperatureF - 32) * 5 / 9).round()}°C';
-          final condition = weatherConditionLabel(shareL, weather.condition);
-          var subtitle = '$temp · $condition';
-          if (weather.feelsLikeF != null) {
-            final feels = useF
-                ? '${weather.feelsLikeF!.round()}°F'
-                : '${((weather.feelsLikeF! - 32) * 5 / 9).round()}°C';
-            subtitle = '$subtitle · ${shareL.weatherFeelsLike(feels)}';
-          }
-          final lines = <String>[...insight.adviceLines];
-          if (insight.packing.isNotEmpty) {
-            final packing = insight.packing
-                .take(4)
-                .map((item) => WeatherConciergeAdvisor.packLabel(shareL, item))
-                .join(' · ');
-            lines.add('${shareL.weatherWhatToBring}: $packing');
-          }
-          return LuxoraBrandedShareCard(
-            title: shareL.weatherToday(placeLabel),
-            subtitle: subtitle,
-            lines: lines,
-          );
-        },
+        cardBuilder: (ctx) => buildWeatherConciergeShareCard(
+          ctx,
+          weather: weather,
+          placeLabel: placeLabel,
+          latitude: latitude,
+          longitude: longitude,
+          insight: insight,
+          useFahrenheit: useF,
+          locale: locale,
+        ),
       ),
       footer: Padding(
         padding: const EdgeInsets.fromLTRB(20, 0, 20, 16),

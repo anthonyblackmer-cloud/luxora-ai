@@ -1,8 +1,10 @@
 import 'package:luxora_ai/data/paywall_catalog.dart';
+import 'package:luxora_ai/data/ticket_deals_resolver.dart';
 import 'package:luxora_ai/models/concierge/concierge_trip_context.dart';
 import 'package:luxora_ai/models/discover_radius.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
 import 'package:luxora_ai/services/city_pack_registry.dart';
+import 'package:luxora_ai/services/concierge_trip_save_sync.dart';
 import 'package:luxora_ai/services/discover_radius_controller.dart';
 import 'package:luxora_ai/services/places_repository.dart';
 
@@ -45,6 +47,29 @@ abstract final class ConciergeContextBuilder {
       );
     }).toList();
 
+    final ticketDeals = TicketDealsResolver.allDealsForActive()
+      ..sort((a, b) => b.savingsUsd.compareTo(a.savingsUsd));
+    final dealHints = ticketDeals.take(10).map((deal) {
+      return ConciergeTicketDealHint(
+        id: deal.id,
+        title: deal.title,
+        discountPriceUsd: deal.discountPriceUsd,
+        savingsUsd: deal.savingsUsd,
+        sourceName: deal.sourceName,
+        placeId: deal.placeId,
+      );
+    }).toList();
+
+    final savedTripHints = ConciergeTripSaveSync.savedTripsForContext(
+      cityId: offer.cityId,
+    ).map((trip) {
+      return ConciergeSavedTripHint(
+        title: trip['title']!,
+        dateRange: trip['dateRange']!,
+        status: trip['status']!,
+      );
+    }).toList();
+
     return ConciergeTripContext(
       cityId: offer.cityId,
       cityName: offer.cityName,
@@ -58,6 +83,8 @@ abstract final class ConciergeContextBuilder {
       kids: p.kids,
       occasion: p.occasion.name,
       places: places,
+      ticketDeals: dealHints,
+      savedTrips: savedTripHints,
     );
   }
 }
