@@ -687,7 +687,7 @@ class AppLocalizationsIt extends AppLocalizations {
       'Spille per la tua giornata curata: i diamanti d\'oro sono gemme, i pennarelli ciano sono la sequenza temporale di oggi, la linea d\'oro è il percorso dell\'umore.';
 
   @override
-  String get mapPlanDayTitle => 'Pianifica la mia giornata';
+  String get mapPlanDayTitle => 'L\'agenda di oggi';
 
   @override
   String get mapPlanDaySuggested =>
@@ -705,6 +705,11 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String mapPlanDayHomeBase(String hotel) {
     return 'A partire da $hotel';
+  }
+
+  @override
+  String shareDayLegDrive(String time, String miles) {
+    return '$time di guida · $miles dalla tappa precedente';
   }
 
   @override

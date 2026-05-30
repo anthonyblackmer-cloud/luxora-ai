@@ -658,7 +658,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get mapSubtitle => '为你精选一天的标记：金色菱形是秘境，青色标记是今日行程，金线是情绪路线。';
 
   @override
-  String get mapPlanDayTitle => '计划我的一天';
+  String get mapPlanDayTitle => '今日行程';
 
   @override
   String get mapPlanDaySuggested => '根据您的旅行心情推荐 - 为地点添加书签，使其成为您的旅行心情。';
@@ -675,6 +675,11 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String mapPlanDayHomeBase(String hotel) {
     return '从$hotel出发';
+  }
+
+  @override
+  String shareDayLegDrive(String time, String miles) {
+    return '距上一站 $miles · 驾车 $time';
   }
 
   @override

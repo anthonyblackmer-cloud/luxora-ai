@@ -684,7 +684,7 @@ class AppLocalizationsRu extends AppLocalizations {
       'Булавки для выбранного вами дня: золотые ромбы — это драгоценные камни, голубые маркеры — это шкала сегодняшнего дня, золотая линия — это маршрут настроения.';
 
   @override
-  String get mapPlanDayTitle => 'Планирую свой день';
+  String get mapPlanDayTitle => 'План на сегодня';
 
   @override
   String get mapPlanDaySuggested =>
@@ -702,6 +702,11 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String mapPlanDayHomeBase(String hotel) {
     return 'Начиная с $hotel';
+  }
+
+  @override
+  String shareDayLegDrive(String time, String miles) {
+    return '$time в пути · $miles от предыдущей остановки';
   }
 
   @override

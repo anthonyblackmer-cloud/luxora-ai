@@ -538,7 +538,7 @@
       }
     }
   },
-  "mapPlanDayTitle": "Planeje meu dia",
+  "mapPlanDayTitle": "A agenda de hoje",
   "mapRerouteApplied": "Dia ajustado — {count} paradas trocadas por multidões mais leves.",
   "@mapRerouteApplied": {
     "placeholders": {
@@ -1630,5 +1630,6 @@
   "tripsEditDates": "Datas da viagem",
   "tripsSaveDates": "Salvar datas",
   "tripsDatesUpdated": "Datas atualizadas",
-  "tripsDatesFlexible": "Datas flexíveis"
+  "tripsDatesFlexible": "Datas flexíveis",
+  "shareDayLegDrive": "{time} de viagem · {miles} da parada anterior"
 }

@@ -681,7 +681,7 @@ class AppLocalizationsTr extends AppLocalizations {
       'Seçilmiş gününüz için Pinler - altın pırlantalar Mücevherlerdir, camgöbeği işaretleyiciler bugünün zaman çizelgesidir, altın çizgi ise ruh hali rotasıdır.';
 
   @override
-  String get mapPlanDayTitle => 'Günümü planla';
+  String get mapPlanDayTitle => 'Bugünün ajandası';
 
   @override
   String get mapPlanDaySuggested =>
@@ -699,6 +699,11 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String mapPlanDayHomeBase(String hotel) {
     return '$hotel\'den başlıyor';
+  }
+
+  @override
+  String shareDayLegDrive(String time, String miles) {
+    return 'Önceki duraktan $miles · $time sürüş';
   }
 
   @override

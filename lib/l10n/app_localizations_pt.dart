@@ -684,7 +684,7 @@ class AppLocalizationsPt extends AppLocalizations {
       'Pins para o seu dia selecionado – diamantes dourados são joias, marcadores ciano são a linha do tempo de hoje, linha dourada é a rota do humor.';
 
   @override
-  String get mapPlanDayTitle => 'Planeje meu dia';
+  String get mapPlanDayTitle => 'A agenda de hoje';
 
   @override
   String get mapPlanDaySuggested =>
@@ -702,6 +702,11 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String mapPlanDayHomeBase(String hotel) {
     return 'A partir de $hotel';
+  }
+
+  @override
+  String shareDayLegDrive(String time, String miles) {
+    return '$time de viagem · $miles da parada anterior';
   }
 
   @override

@@ -538,7 +538,7 @@
       }
     }
   },
-  "mapPlanDayTitle": "Plane meinen Tag",
+  "mapPlanDayTitle": "Die Agenda für heute",
   "mapRerouteApplied": "Tagesbereinigt – {count} Haltestellen wurden gegen weniger Andrang getauscht.",
   "@mapRerouteApplied": {
     "placeholders": {
@@ -1630,5 +1630,6 @@
   "tripsEditDates": "Reisedaten",
   "tripsSaveDates": "Daten speichern",
   "tripsDatesUpdated": "Reisedaten aktualisiert",
-  "tripsDatesFlexible": "Flexible Daten"
+  "tripsDatesFlexible": "Flexible Daten",
+  "shareDayLegDrive": "{time} Fahrt · {miles} vom vorherigen Stopp"
 }

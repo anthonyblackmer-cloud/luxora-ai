@@ -6,9 +6,9 @@ import 'package:luxora_ai/l10n/luxora_l10n_helpers.dart';
 import 'package:luxora_ai/models/lux_place.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
 import 'package:luxora_ai/services/city_pack_registry.dart';
+import 'package:luxora_ai/util/day_flow_share_content.dart';
 import 'package:luxora_ai/util/day_flow_labels.dart';
 import 'package:luxora_ai/util/place_distance.dart';
-import 'package:luxora_ai/widgets/luxora_branded_share_card.dart';
 import 'package:luxora_ai/widgets/visual_share_icon_button.dart';
 import 'package:luxora_ai/services/crowd_prediction_service.dart';
 import 'package:luxora_ai/services/drive_friction_service.dart';
@@ -461,28 +461,11 @@ class _PlanMyDay extends StatelessWidget {
               if (hasFlow)
                 VisualShareIconButton(
                   subject: l.mapPlanDayTitle,
-                  fileName: 'luxora_day_plan.png',
+                  fileName: 'luxora_day_agenda.png',
+                  shareWidth: 420,
                   color: LuxColors.gold,
                   background: LuxColors.gold.withValues(alpha: 0.12),
-                  cardBuilder: (ctx) {
-                    final shareL = ctx.l10n;
-                    final chips = [
-                      for (final e in flow.emphases) dayFlowVibeLabel(shareL, e),
-                    ];
-                    final subtitle = l.mapPlanDaySummary(
-                      flow.stopCount,
-                      flow.milesLabel,
-                      flow.driveTimeLabel,
-                    );
-                    return LuxoraBrandedShareCard(
-                      title: l.mapPlanDayTitle,
-                      subtitle: flow.homeBase == null
-                          ? subtitle
-                          : '$subtitle · ${l.mapPlanDayHomeBase(catalogText(ctx, flow.homeBase!.title))}',
-                      chips: chips,
-                      lines: dayFlowShareLines(ctx, flow),
-                    );
-                  },
+                  cardBuilder: (ctx) => buildDayAgendaShareCard(ctx, flow),
                 ),
             ],
           ),

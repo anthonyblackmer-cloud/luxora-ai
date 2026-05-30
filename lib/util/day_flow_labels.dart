@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:luxora_ai/l10n/app_localizations.dart';
-import 'package:luxora_ai/l10n/catalog_localizer.dart';
-import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/services/day_flow_planner.dart';
 
 IconData dayFlowPhaseIcon(DayPhase phase) => switch (phase) {
@@ -41,13 +39,3 @@ String dayFlowVibeLabel(AppLocalizations l, DayInterest interest) =>
       DayInterest.adventure => l.dayFlowVibeAdventure,
       DayInterest.culture => l.dayFlowVibeCulture,
     };
-
-List<String> dayFlowShareLines(BuildContext context, DayFlow flow) {
-  final l = context.l10n;
-  return [
-    for (final block in flow.blocks)
-      '${dayFlowPhaseLabel(l, block.phase)} · '
-      '${catalogText(context, block.place.title)} — '
-      '${dayFlowReasonLabel(l, block.reason)}',
-  ];
-}

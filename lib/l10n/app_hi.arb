@@ -538,7 +538,7 @@
       }
     }
   },
-  "mapPlanDayTitle": "मेरे दिन की योजना बनाएं",
+  "mapPlanDayTitle": "आज का एजेंडा",
   "mapRerouteApplied": "दिन समायोजित - हल्की भीड़ के लिए {count} स्टॉप की अदला-बदली की गई।",
   "@mapRerouteApplied": {
     "placeholders": {
@@ -1630,5 +1630,6 @@
   "tripsEditDates": "यात्रा की तारीखें",
   "tripsSaveDates": "तारीखें सहेजें",
   "tripsDatesUpdated": "तारीखें अपडेट हो गईं",
-  "tripsDatesFlexible": "लचीली तारीखें"
+  "tripsDatesFlexible": "लचीली तारीखें",
+  "shareDayLegDrive": "पिछले स्टॉप से {miles} · {time} की ड्राइव"
 }

@@ -1315,7 +1315,7 @@ abstract class AppLocalizations {
   /// No description provided for @mapPlanDayTitle.
   ///
   /// In en, this message translates to:
-  /// **'Plan my day'**
+  /// **'Today\'s agenda'**
   String get mapPlanDayTitle;
 
   /// No description provided for @mapPlanDaySuggested.
@@ -1341,6 +1341,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Starting from {hotel}'**
   String mapPlanDayHomeBase(String hotel);
+
+  /// No description provided for @shareDayLegDrive.
+  ///
+  /// In en, this message translates to:
+  /// **'{time} drive · {miles} from previous stop'**
+  String shareDayLegDrive(String time, String miles);
 
   /// No description provided for @mapCrowdLevelQuiet.
   ///

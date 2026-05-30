@@ -538,7 +538,7 @@
       }
     }
   },
-  "mapPlanDayTitle": "计划我的一天",
+  "mapPlanDayTitle": "今日行程",
   "mapRerouteApplied": "日数调整 — {count} 个停靠站更换为人流量较少的站点。",
   "@mapRerouteApplied": {
     "placeholders": {
@@ -1630,5 +1630,6 @@
   "tripsEditDates": "行程日期",
   "tripsSaveDates": "保存日期",
   "tripsDatesUpdated": "日期已更新",
-  "tripsDatesFlexible": "日期待定"
+  "tripsDatesFlexible": "日期待定",
+  "shareDayLegDrive": "距上一站 {miles} · 驾车 {time}"
 }

@@ -538,7 +538,7 @@
       }
     }
   },
-  "mapPlanDayTitle": "Günümü planla",
+  "mapPlanDayTitle": "Bugünün ajandası",
   "mapRerouteApplied": "Gün ayarlandı — Daha hafif kalabalıklar için {count} durak değiştirildi.",
   "@mapRerouteApplied": {
     "placeholders": {
@@ -1630,5 +1630,6 @@
   "tripsEditDates": "Gezi tarihleri",
   "tripsSaveDates": "Tarihleri kaydet",
   "tripsDatesUpdated": "Tarihler güncellendi",
-  "tripsDatesFlexible": "Esnek tarihler"
+  "tripsDatesFlexible": "Esnek tarihler",
+  "shareDayLegDrive": "Önceki duraktan {miles} · {time} sürüş"
 }

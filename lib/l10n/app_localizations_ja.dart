@@ -666,7 +666,7 @@ class AppLocalizationsJa extends AppLocalizations {
       '厳選した 1 日のピン — ゴールドのダイヤモンドは宝石、シアンのマーカーは今日のタイムライン、ゴールドのラインはムードルートです。';
 
   @override
-  String get mapPlanDayTitle => '一日の計画を立てる';
+  String get mapPlanDayTitle => '今日の予定';
 
   @override
   String get mapPlanDaySuggested => '旅の気分に合わせておすすめの場所をブックマークして自分だけの場所にしましょう。';
@@ -683,6 +683,11 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String mapPlanDayHomeBase(String hotel) {
     return '$hotelから出発';
+  }
+
+  @override
+  String shareDayLegDrive(String time, String miles) {
+    return '前の停留所から $miles · 車で $time';
   }
 
   @override

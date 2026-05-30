@@ -679,7 +679,7 @@ class AppLocalizationsHi extends AppLocalizations {
       'आपके चयनित दिन के लिए पिन - सोने के हीरे रत्न हैं, सियान मार्कर आज की समयरेखा हैं, सोने की रेखा मूड मार्ग है।';
 
   @override
-  String get mapPlanDayTitle => 'मेरे दिन की योजना बनाएं';
+  String get mapPlanDayTitle => 'आज का एजेंडा';
 
   @override
   String get mapPlanDaySuggested =>
@@ -697,6 +697,11 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String mapPlanDayHomeBase(String hotel) {
     return '$hotel से शुरू';
+  }
+
+  @override
+  String shareDayLegDrive(String time, String miles) {
+    return 'पिछले स्टॉप से $miles · $time की ड्राइव';
   }
 
   @override

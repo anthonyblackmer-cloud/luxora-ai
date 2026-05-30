@@ -688,7 +688,7 @@ class AppLocalizationsFr extends AppLocalizations {
       'Repères pour votre journée sur mesure : les diamants dorés sont des Pépites, les marqueurs cyan indiquent le programme du jour et la ligne dorée suit l’ambiance.';
 
   @override
-  String get mapPlanDayTitle => 'Planifier ma journée';
+  String get mapPlanDayTitle => 'L\'agenda du jour';
 
   @override
   String get mapPlanDaySuggested =>
@@ -706,6 +706,11 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String mapPlanDayHomeBase(String hotel) {
     return 'À partir de $hotel';
+  }
+
+  @override
+  String shareDayLegDrive(String time, String miles) {
+    return '$time de route · $miles depuis l’arrêt précédent';
   }
 
   @override

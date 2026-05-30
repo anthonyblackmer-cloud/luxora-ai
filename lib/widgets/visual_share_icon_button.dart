@@ -10,6 +10,7 @@ class VisualShareIconButton extends StatelessWidget {
     required this.subject,
     required this.cardBuilder,
     this.fileName = 'luxora_share.png',
+    this.shareWidth = 400,
     this.iconSize = 20,
     this.color,
     this.background,
@@ -18,6 +19,7 @@ class VisualShareIconButton extends StatelessWidget {
   final String subject;
   final Widget Function(BuildContext context) cardBuilder;
   final String fileName;
+  final double shareWidth;
   final double iconSize;
   final Color? color;
   final Color? background;
@@ -27,6 +29,7 @@ class VisualShareIconButton extends StatelessWidget {
       context,
       subject: subject,
       fileName: fileName,
+      width: shareWidth,
       child: cardBuilder(context),
     );
   }

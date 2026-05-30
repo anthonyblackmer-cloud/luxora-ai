@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
+import 'package:luxora_ai/widgets/luxora_share_section.dart';
 
 /// Branded Luxora card layout for PNG sharing (trips, day plans, destinations).
 class LuxoraBrandedShareCard extends StatelessWidget {
@@ -10,6 +11,7 @@ class LuxoraBrandedShareCard extends StatelessWidget {
     required this.subtitle,
     this.lines = const [],
     this.chips = const [],
+    this.sections = const [],
     this.footer,
   });
 
@@ -17,6 +19,7 @@ class LuxoraBrandedShareCard extends StatelessWidget {
   final String subtitle;
   final List<String> lines;
   final List<String> chips;
+  final List<LuxoraShareSection> sections;
   final String? footer;
 
   @override
@@ -63,6 +66,7 @@ class LuxoraBrandedShareCard extends StatelessWidget {
             subtitle,
             style: const TextStyle(
               fontSize: 13,
+              height: 1.35,
               color: LuxColors.stone400,
             ),
           ),
@@ -96,6 +100,64 @@ class LuxoraBrandedShareCard extends StatelessWidget {
                   ),
               ],
             ),
+          ],
+          if (sections.isNotEmpty) ...[
+            const SizedBox(height: 16),
+            for (final section in sections) ...[
+              if (section.heading != null)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 4),
+                  child: Text(
+                    section.heading!,
+                    style: TextStyle(
+                      fontSize: 10,
+                      fontWeight: FontWeight.w800,
+                      letterSpacing: 1.2,
+                      color: LuxColors.gold.withValues(alpha: 0.9),
+                    ),
+                  ),
+                ),
+              if (section.body != null)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 4),
+                  child: Text(
+                    section.body!,
+                    style: const TextStyle(
+                      fontSize: 14,
+                      height: 1.35,
+                      fontWeight: FontWeight.w600,
+                      color: LuxColors.cream,
+                    ),
+                  ),
+                ),
+              for (final line in section.lines)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 4, left: 2),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '· ',
+                        style: TextStyle(
+                          color: LuxColors.stone500.withValues(alpha: 0.95),
+                          fontSize: 12,
+                        ),
+                      ),
+                      Expanded(
+                        child: Text(
+                          line,
+                          style: TextStyle(
+                            fontSize: 12,
+                            height: 1.35,
+                            color: LuxColors.stone400.withValues(alpha: 0.98),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              const SizedBox(height: 10),
+            ],
           ],
           if (lines.isNotEmpty) ...[
             const SizedBox(height: 16),

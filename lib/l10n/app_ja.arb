@@ -538,7 +538,7 @@
       }
     }
   },
-  "mapPlanDayTitle": "一日の計画を立てる",
+  "mapPlanDayTitle": "今日の予定",
   "mapRerouteApplied": "日を調整 — {count} か所の停留所を混雑が少ないものに交換しました。",
   "@mapRerouteApplied": {
     "placeholders": {
@@ -1630,5 +1630,6 @@
   "tripsEditDates": "旅行の日程",
   "tripsSaveDates": "日程を保存",
   "tripsDatesUpdated": "日程を更新しました",
-  "tripsDatesFlexible": "日程は未定"
+  "tripsDatesFlexible": "日程は未定",
+  "shareDayLegDrive": "前の停留所から {miles} · 車で {time}"
 }

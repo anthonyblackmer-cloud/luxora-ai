@@ -538,7 +538,7 @@
       }
     }
   },
-  "mapPlanDayTitle": "나의 하루를 계획해보세요",
+  "mapPlanDayTitle": "오늘의 일정",
   "mapRerouteApplied": "요일 조정 — {count} 정거장이 더 적은 군중으로 교체되었습니다.",
   "@mapRerouteApplied": {
     "placeholders": {
@@ -1630,5 +1630,6 @@
   "tripsEditDates": "여행 날짜",
   "tripsSaveDates": "날짜 저장",
   "tripsDatesUpdated": "날짜가 업데이트되었습니다",
-  "tripsDatesFlexible": "날짜 미정"
+  "tripsDatesFlexible": "날짜 미정",
+  "shareDayLegDrive": "이전 정거장에서 {miles} · {time} 운전"
 }

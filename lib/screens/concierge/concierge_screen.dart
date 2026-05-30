@@ -36,6 +36,8 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
   List<String> _stylePrefs = [];
   bool _isThinking = false;
   bool _voiceListening = false;
+  bool _voiceStarting = false;
+  bool _voiceReleaseQueued = false;
   bool _voiceFinishing = false;
   String _voicePartial = '';
   final _voice = ConciergeVoiceService.instance;
@@ -129,7 +131,14 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
   }
 
   Future<void> _startVoiceInput(AppLocalizations l) async {
-    if (_isThinking || _voiceListening) return;
+    if (_isThinking ||
+        _voiceListening ||
+        _voiceStarting ||
+        _voiceFinishing) {
+      return;
+    }
+    _voiceStarting = true;
+    _voiceReleaseQueued = false;
     setState(() {
       _voiceListening = true;
       _voicePartial = '';
@@ -142,6 +151,7 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
         setState(() => _voicePartial = partial);
       },
     );
+    _voiceStarting = false;
     if (!mounted) return;
     if (!started) {
       setState(() {
@@ -156,11 +166,15 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
       );
       return;
     }
+    if (_voiceReleaseQueued) {
+      unawaited(_finishVoiceInput());
+    }
   }
 
   Future<void> _finishVoiceInput() async {
     if (!_voiceListening || _voiceFinishing) return;
     _voiceFinishing = true;
+    _voiceReleaseQueued = false;
     final heard = _voicePartial.trim();
     try {
       final text =
@@ -179,7 +193,8 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
         );
         return;
       }
-      await _send(text);
+      HapticFeedback.lightImpact();
+      await _send(text, fromVoice: true);
     } finally {
       _voiceFinishing = false;
     }
@@ -201,17 +216,26 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
   }
 
   void _onVoicePointerDown(AppLocalizations l) {
-    if (_isThinking || _voiceListening || _voiceFinishing) return;
+    if (_isThinking ||
+        _voiceListening ||
+        _voiceStarting ||
+        _voiceFinishing) {
+      return;
+    }
     _startVoiceInput(l);
   }
 
   void _onVoicePointerRelease() {
+    if (_voiceStarting) {
+      _voiceReleaseQueued = true;
+      return;
+    }
     if (!_voiceListening) return;
     // iOS often fires cancel instead of up; always submit on release.
     unawaited(_finishVoiceInput());
   }
 
-  Future<void> _send(String text) async {
+  Future<void> _send(String text, {bool fromVoice = false}) async {
     final trimmed = text.trim();
     if (trimmed.isEmpty || _isThinking) return;
     _dismissKeyboard();
@@ -228,13 +252,12 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
 
     if (!ConciergeAiService.isConfigured) {
       if (!mounted) return;
+      final offline = AppLocalizations.of(context).conciergeAiNotConfigured;
       setState(() {
         _isThinking = false;
-        _messages.add((
-          user: false,
-          text: AppLocalizations.of(context).conciergeAiNotConfigured,
-        ));
+        _messages.add((user: false, text: offline));
       });
+      if (fromVoice) unawaited(_speakLuxora(offline));
       _scrollToEnd();
       return;
     }
@@ -266,16 +289,16 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
         _apiHistory.removeLast();
         _messages.add((user: false, text: e.message));
       });
+      if (fromVoice) unawaited(_speakLuxora(e.message));
     } catch (_) {
       if (!mounted) return;
+      final err = AppLocalizations.of(context).conciergeAiError;
       setState(() {
         _isThinking = false;
         _apiHistory.removeLast();
-        _messages.add((
-          user: false,
-          text: AppLocalizations.of(context).conciergeAiError,
-        ));
+        _messages.add((user: false, text: err));
       });
+      if (fromVoice) unawaited(_speakLuxora(err));
     }
     _scrollToEnd();
   }

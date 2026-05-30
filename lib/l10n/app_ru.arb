@@ -538,7 +538,7 @@
       }
     }
   },
-  "mapPlanDayTitle": "Планирую свой день",
+  "mapPlanDayTitle": "План на сегодня",
   "mapRerouteApplied": "День скорректирован: {count} остановок заменено на меньшее количество людей.",
   "@mapRerouteApplied": {
     "placeholders": {
@@ -1630,5 +1630,6 @@
   "tripsEditDates": "Даты поездки",
   "tripsSaveDates": "Сохранить даты",
   "tripsDatesUpdated": "Даты обновлены",
-  "tripsDatesFlexible": "Гибкие даты"
+  "tripsDatesFlexible": "Гибкие даты",
+  "shareDayLegDrive": "{time} в пути · {miles} от предыдущей остановки"
 }

@@ -16,6 +16,20 @@ class _DeviceVoice {
   final String? identifier;
 }
 
+/// Picks the best transcript from partial/final STT callbacks and UI fallback.
+String mergeVoiceTranscripts({
+  String finalText = '',
+  String partialText = '',
+  String latestText = '',
+  String fallback = '',
+}) {
+  for (final candidate in [finalText, latestText, partialText, fallback]) {
+    final trimmed = candidate.trim();
+    if (trimmed.isNotEmpty) return trimmed;
+  }
+  return '';
+}
+
 /// On-device voice in/out for the Concierge tab (TTS replies + hold-to-speak).
 class ConciergeVoiceService {
   ConciergeVoiceService._();
@@ -31,6 +45,8 @@ class ConciergeVoiceService {
   bool _sttAvailable = false;
   bool _listening = false;
   String _lastHeard = '';
+  String _lastPartial = '';
+  String _lastFinal = '';
   List<_DeviceVoice> _deviceVoices = const [];
 
   bool get isListening => _listening;
@@ -110,48 +126,62 @@ class ConciergeVoiceService {
 
     await stopSpeaking();
     final locale = await _resolveSttLocale(languageCode);
+    _resetTranscript();
     _listening = true;
-    _lastHeard = '';
 
     final started = await _stt.listen(
       onResult: (result) {
-        _lastHeard = result.recognizedWords;
-        onPartial(_lastHeard);
+        final words = result.recognizedWords.trim();
+        if (words.isEmpty) return;
+
+        _lastHeard = words;
+        if (result.finalResult) {
+          _lastFinal = words;
+        } else {
+          _lastPartial = words;
+        }
+        onPartial(words);
       },
       listenOptions: SpeechListenOptions(
         localeId: locale,
         listenMode: ListenMode.dictation,
         partialResults: true,
-        cancelOnError: true,
+        cancelOnError: false,
         listenFor: const Duration(seconds: 60),
-        pauseFor: const Duration(seconds: 3),
+        pauseFor: const Duration(seconds: 4),
       ),
     );
 
     if (!started) {
       _listening = false;
+      _resetTranscript();
     }
     return started;
   }
 
   Future<String?> stopListeningAndTakeResult({String fallback = ''}) async {
-    final snapshot = _lastHeard.trim();
     final backup = fallback.trim();
 
     if (_stt.isListening) {
       await _stt.stop();
-    } else if (_listening && snapshot.isEmpty && backup.isEmpty) {
+    } else if (_listening && _lastFinal.isEmpty && _lastHeard.isEmpty && backup.isEmpty) {
       await _stt.cancel();
     }
 
-    // iOS often delivers the final transcript just after stop().
-    await Future<void>.delayed(const Duration(milliseconds: 650));
+    // iOS often delivers the final transcript shortly after stop().
+    for (var i = 0; i < 10; i++) {
+      if (_lastFinal.trim().isNotEmpty) break;
+      await Future<void>.delayed(const Duration(milliseconds: 120));
+    }
 
     _listening = false;
-    final words = _lastHeard.trim().isNotEmpty
-        ? _lastHeard.trim()
-        : (snapshot.isNotEmpty ? snapshot : backup);
-    _lastHeard = '';
+    final words = mergeVoiceTranscripts(
+      finalText: _lastFinal,
+      partialText: _lastPartial,
+      latestText: _lastHeard,
+      fallback: backup,
+    );
+    _resetTranscript();
     return words.isEmpty ? null : words;
   }
 
@@ -160,12 +190,18 @@ class ConciergeVoiceService {
       await _stt.cancel();
     }
     _listening = false;
-    _lastHeard = '';
+    _resetTranscript();
   }
 
   void dispose() {
     _tts.stop();
     _stt.stop();
+  }
+
+  void _resetTranscript() {
+    _lastHeard = '';
+    _lastPartial = '';
+    _lastFinal = '';
   }
 
   Future<void> _applyVoice({required String languageCode}) async {

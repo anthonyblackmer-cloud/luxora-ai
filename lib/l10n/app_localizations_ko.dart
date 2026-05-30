@@ -665,7 +665,7 @@ class AppLocalizationsKo extends AppLocalizations {
       '선별된 하루를 위한 핀 — 금색 다이아몬드는 보석, 청록색 마커는 오늘의 타임라인, 금색 선은 기분 경로입니다.';
 
   @override
-  String get mapPlanDayTitle => '나의 하루를 계획해보세요';
+  String get mapPlanDayTitle => '오늘의 일정';
 
   @override
   String get mapPlanDaySuggested =>
@@ -683,6 +683,11 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String mapPlanDayHomeBase(String hotel) {
     return '$hotel에서 출발';
+  }
+
+  @override
+  String shareDayLegDrive(String time, String miles) {
+    return '이전 정거장에서 $miles · $time 운전';
   }
 
   @override

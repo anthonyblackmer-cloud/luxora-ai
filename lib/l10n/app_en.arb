@@ -264,7 +264,7 @@
   "mapBadge": "AI MAP",
   "mapTitle": "Your intelligent route",
   "mapSubtitle": "Pins for your curated day — gold diamonds are Gems, cyan markers are today’s timeline, gold line is the mood route.",
-  "mapPlanDayTitle": "Plan my day",
+  "mapPlanDayTitle": "Today's agenda",
   "mapPlanDaySuggested": "Suggested from your trip mood — bookmark places to make it yours.",
   "mapPlanDayEmpty": "Bookmark destinations (♥) and Luxora builds an optimized route from your Orlando hub — least driving, most feeling.",
   "mapPlanDaySummary": "{count} stops · {miles} · {time} drive",
@@ -278,6 +278,13 @@
   "mapPlanDayHomeBase": "Starting from {hotel}",
   "@mapPlanDayHomeBase": {
     "placeholders": { "hotel": { "type": "String" } }
+  },
+  "shareDayLegDrive": "{time} drive · {miles} from previous stop",
+  "@shareDayLegDrive": {
+    "placeholders": {
+      "time": { "type": "String" },
+      "miles": { "type": "String" }
+    }
   },
   "mapCrowdLevelQuiet": "Quiet",
   "mapCrowdLevelModerate": "Moderate",

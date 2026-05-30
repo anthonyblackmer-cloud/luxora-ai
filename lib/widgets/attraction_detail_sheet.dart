@@ -20,7 +20,7 @@ import 'package:luxora_ai/widgets/florida_keys/keys_concierge_cards.dart';
 import 'package:luxora_ai/widgets/miami/miami_concierge_cards.dart';
 import 'package:luxora_ai/widgets/lux_place_image.dart';
 import 'package:luxora_ai/widgets/travel_stop_intel_card.dart';
-import 'package:luxora_ai/widgets/luxora_branded_share_card.dart';
+import 'package:luxora_ai/util/destination_share_content.dart';
 import 'package:luxora_ai/widgets/visual_share_icon_button.dart';
 import 'package:luxora_ai/widgets/lux_button.dart';
 import 'package:luxora_ai/widgets/settings/luxora_premium_sheet_shell.dart';
@@ -90,27 +90,14 @@ class _AttractionDetailSheet extends StatelessWidget {
                 VisualShareIconButton(
                   subject: catalogText(context, detail.title),
                   fileName: 'luxora_destination.png',
+                  shareWidth: 420,
                   color: LuxColors.gold,
                   background: LuxColors.gold.withValues(alpha: 0.12),
-                  cardBuilder: (ctx) {
-                    final lines = <String>[
-                      catalogText(ctx, detail.emotionalHook),
-                      catalogText(ctx, detail.whySpecial),
-                      catalogText(ctx, detail.bestTimeToGo),
-                    ];
-                    if (detail.insiderTips.trim().isNotEmpty) {
-                      lines.add(catalogText(ctx, detail.insiderTips));
-                    }
-                    return LuxoraBrandedShareCard(
-                      title: catalogText(ctx, detail.title),
-                      subtitle: catalogText(ctx, place.location),
-                      chips: detail.vibeMatch
-                          .take(4)
-                          .map((tag) => catalogText(ctx, tag))
-                          .toList(),
-                      lines: lines,
-                    );
-                  },
+                  cardBuilder: (ctx) => buildDestinationShareCard(
+                    ctx,
+                    place: place,
+                    detail: detail,
+                  ),
                 ),
                 const SizedBox(width: 4),
                 _SaveButton(place: place),
