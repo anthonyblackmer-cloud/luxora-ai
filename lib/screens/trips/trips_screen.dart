@@ -61,6 +61,7 @@ class TripsScreen extends StatelessWidget {
                 LuxButton(
                   label: l.commonNew,
                   icon: Icons.add_rounded,
+                  fullWidth: false,
                   onPressed: () => context.push('/onboarding'),
                 ),
               ],
