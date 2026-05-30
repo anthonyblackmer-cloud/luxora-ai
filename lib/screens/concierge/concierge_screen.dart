@@ -18,6 +18,7 @@ import 'package:luxora_ai/services/concierge_trip_save_sync.dart';
 import 'package:luxora_ai/services/concierge_voice_service.dart';
 import 'package:luxora_ai/services/trip_profile_storage.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
+import 'package:luxora_ai/util/concierge_agenda_chat_format.dart';
 import 'package:luxora_ai/util/concierge_ai_user_message.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
 import 'package:luxora_ai/widgets/concierge/concierge_voice_settings_sheet.dart';
@@ -372,19 +373,38 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
         );
       }
       if (!mounted) return;
+      final wantsAgendaDetail =
+          ConciergeAgendaChatFormat.wantsAgendaDetailInChat(trimmed);
+      var displayReply = reply;
+      if (sync != null) {
+        if (wantsAgendaDetail) {
+          final agendaText =
+              ConciergeAgendaChatFormat.formatAgendaForChat(sync.plan);
+          if (agendaText.isNotEmpty) {
+            displayReply = '$reply\n\n$agendaText';
+          }
+        } else {
+          displayReply = ConciergeAgendaChatFormat.condenseAssistantReply(
+            reply,
+            fallback: l.conciergeItinerarySynced,
+          );
+        }
+      }
+      if (!mounted) return;
       setState(() {
         _isThinking = false;
-        _messages.add((user: false, text: reply));
+        _messages.add((user: false, text: displayReply));
         if (sync != null) {
           _profile = sync.profile;
           _tripFeel = sync.profile.tripFeel;
-          _messages.add((user: false, text: l.conciergeItinerarySynced));
           final agendaDealsChat = ConciergeTicketSync.agendaSavingsChat(
             l,
             sync.plan,
             profile: sync.profile,
           );
-          if (agendaDealsChat.isNotEmpty) {
+          final showDealsInChat = wantsAgendaDetail ||
+              ConciergeTicketSync.wantsTicketHelp(trimmed);
+          if (showDealsInChat && agendaDealsChat.isNotEmpty) {
             _messages.add((user: false, text: agendaDealsChat));
           }
           WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -399,7 +419,7 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
                 ),
               ),
             );
-            if (agendaDealsChat.isNotEmpty) {
+            if (!showDealsInChat && agendaDealsChat.isNotEmpty) {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Text(l.conciergeAgendaDealsSnack),
@@ -431,7 +451,7 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
           ));
         }
       });
-      if (fromVoice) unawaited(_speakLuxora(reply));
+      if (fromVoice) unawaited(_speakLuxora(displayReply));
     } on ConciergeAiException catch (e) {
       if (!mounted) return;
       final msg = conciergeAiUserMessage(l, e);
