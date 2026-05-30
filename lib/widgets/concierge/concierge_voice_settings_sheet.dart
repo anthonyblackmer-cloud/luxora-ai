@@ -47,12 +47,24 @@ class _ConciergeVoiceSettingsSheetState extends State<ConciergeVoiceSettingsShee
   Future<void> _preview(AppLocalizations l) async {
     if (_previewing) return;
     setState(() => _previewing = true);
-    final locale = Localizations.localeOf(context).languageCode;
-    await ConciergeVoiceService.instance.previewVoice(
-      sample: l.conciergeVoicePreviewSample,
-      languageCode: locale,
-    );
-    if (mounted) setState(() => _previewing = false);
+    try {
+      final locale = Localizations.localeOf(context).languageCode;
+      final ok = await ConciergeVoiceService.instance.previewVoice(
+        sample: l.conciergeVoicePreviewSample,
+        languageCode: locale,
+      );
+      if (!mounted) return;
+      if (!ok) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(l.conciergeVoicePreviewFailed),
+            behavior: SnackBarBehavior.floating,
+          ),
+        );
+      }
+    } finally {
+      if (mounted) setState(() => _previewing = false);
+    }
   }
 
   @override

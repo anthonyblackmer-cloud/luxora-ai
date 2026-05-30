@@ -129,6 +129,10 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
 
   Future<void> _startVoiceInput(AppLocalizations l) async {
     if (_isThinking || _voiceListening) return;
+    setState(() {
+      _voiceListening = true;
+      _voicePartial = '';
+    });
     final locale = Localizations.localeOf(context).languageCode;
     final started = await _voice.startListening(
       languageCode: locale,
@@ -139,31 +143,39 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
     );
     if (!mounted) return;
     if (!started) {
+      setState(() {
+        _voiceListening = false;
+        _voicePartial = '';
+      });
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(l.conciergeVoiceUnavailable),
+          content: Text(l.conciergeVoiceSoon),
           behavior: SnackBarBehavior.floating,
         ),
       );
       return;
     }
-    setState(() {
-      _voiceListening = true;
-      _voicePartial = '';
-    });
   }
 
   Future<void> _finishVoiceInput() async {
     if (!_voiceListening) return;
-    final text = await _voice.stopListeningAndTakeResult();
+    final heard = _voicePartial.trim();
+    final text = (await _voice.stopListeningAndTakeResult()) ?? heard;
     if (!mounted) return;
     setState(() {
       _voiceListening = false;
       _voicePartial = '';
     });
-    if (text != null && text.trim().isNotEmpty) {
-      await _send(text);
+    if (text.trim().isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(AppLocalizations.of(context).conciergeVoiceNoSpeech),
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
+      return;
     }
+    await _send(text);
   }
 
   Future<void> _cancelVoiceInput() async {
@@ -411,10 +423,13 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
             Row(
               children: [
                 Expanded(
-                  child: GestureDetector(
-                    onLongPressStart: (_) => _startVoiceInput(l),
-                    onLongPressEnd: (_) => _finishVoiceInput(),
-                    onLongPressCancel: _cancelVoiceInput,
+                  child: Listener(
+                    onPointerDown: (_) {
+                      if (_isThinking || _voiceListening) return;
+                      _startVoiceInput(l);
+                    },
+                    onPointerUp: (_) => _finishVoiceInput(),
+                    onPointerCancel: (_) => _cancelVoiceInput(),
                     child: AnimatedContainer(
                       duration: const Duration(milliseconds: 180),
                       padding: const EdgeInsets.symmetric(vertical: 10),

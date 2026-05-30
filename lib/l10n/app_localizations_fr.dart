@@ -993,6 +993,14 @@ class AppLocalizationsFr extends AppLocalizations {
   String get conciergeVoiceRelease => 'Relâchez pour envoyer';
 
   @override
+  String get conciergeVoiceNoSpeech =>
+      'Je n\'ai pas compris — maintenez, parlez, puis relâchez.';
+
+  @override
+  String get conciergeVoicePreviewFailed =>
+      'Impossible de lire l\'aperçu. Vérifiez le volume et réessayez.';
+
+  @override
   String get conciergeVoiceUnavailable =>
       'La voix n\'est pas disponible sur cet appareil.';
 

@@ -1616,5 +1616,7 @@
   "conciergeVoicePresetFrF": "フランス · 女性",
   "conciergeVoicePresetFrM": "フランス · 男性",
   "conciergeVoicePresetDeF": "ドイツ · 女性",
-  "conciergeVoicePresetDeM": "ドイツ · 男性"
+  "conciergeVoicePresetDeM": "ドイツ · 男性",
+  "conciergeVoiceNoSpeech": "聞き取れませんでした。押したまま話してから離してください。",
+  "conciergeVoicePreviewFailed": "プレビューを再生できませんでした。音量を確認して再度お試しください。"
 }

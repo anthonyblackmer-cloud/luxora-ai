@@ -967,6 +967,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String get conciergeVoiceRelease => '놓으면 전송';
 
   @override
+  String get conciergeVoiceNoSpeech => '잘 못 들었어요 — 누른 채로 말한 뒤 놓아 주세요.';
+
+  @override
+  String get conciergeVoicePreviewFailed =>
+      '미리듣기를 재생하지 못했습니다. 볼륨을 확인하고 다시 시도해 주세요.';
+
+  @override
   String get conciergeVoiceUnavailable => '이 기기에서는 음성을 사용할 수 없습니다.';
 
   @override

@@ -433,6 +433,8 @@
   "conciergeVoiceSoon": "Allow microphone access so Luxora can hear you.",
   "conciergeVoiceListening": "Luxora is listening…",
   "conciergeVoiceRelease": "Release to send",
+  "conciergeVoiceNoSpeech": "I didn't catch that — hold the button, speak, then release.",
+  "conciergeVoicePreviewFailed": "Couldn't play a preview. Check your volume and try again.",
   "conciergeVoiceUnavailable": "Voice isn't available on this device.",
   "conciergeVoiceSettingsTitle": "Luxora voice",
   "conciergeVoiceSettingsSubtitle": "Choose how Luxora sounds when she speaks — accent, tone, and pace. Uses your device's built-in voices.",

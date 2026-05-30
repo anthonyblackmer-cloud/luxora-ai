@@ -1616,5 +1616,7 @@
   "conciergeVoicePresetFrF": "Fransız · Kadın",
   "conciergeVoicePresetFrM": "Fransız · Erkek",
   "conciergeVoicePresetDeF": "Alman · Kadın",
-  "conciergeVoicePresetDeM": "Alman · Erkek"
+  "conciergeVoicePresetDeM": "Alman · Erkek",
+  "conciergeVoiceNoSpeech": "Duymadım — basılı tut, konuş, bırak.",
+  "conciergeVoicePreviewFailed": "Önizleme oynatılamadı. Sesi kontrol edip tekrar deneyin."
 }

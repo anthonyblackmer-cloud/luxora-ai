@@ -949,6 +949,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String get conciergeVoiceRelease => '松开发送';
 
   @override
+  String get conciergeVoiceNoSpeech => '没听清——按住说话，说完再松开。';
+
+  @override
+  String get conciergeVoicePreviewFailed => '无法播放预览。请检查音量后重试。';
+
+  @override
   String get conciergeVoiceUnavailable => '此设备不支持语音。';
 
   @override

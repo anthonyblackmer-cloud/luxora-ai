@@ -1616,5 +1616,7 @@
   "conciergeVoicePresetFrF": "फ़्रेंच · महिला",
   "conciergeVoicePresetFrM": "फ़्रेंच · पुरुष",
   "conciergeVoicePresetDeF": "जर्मन · महिला",
-  "conciergeVoicePresetDeM": "जर्मन · पुरुष"
+  "conciergeVoicePresetDeM": "जर्मन · पुरुष",
+  "conciergeVoiceNoSpeech": "सुनाई नहीं दिया — दबाकर रखें, बोलें, फिर छोड़ें।",
+  "conciergeVoicePreviewFailed": "पूर्वावलोकन नहीं चला। वॉल्यूम जाँचें और फिर कोशिश करें।"
 }

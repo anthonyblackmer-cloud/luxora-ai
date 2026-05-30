@@ -984,6 +984,14 @@ class AppLocalizationsHi extends AppLocalizations {
   String get conciergeVoiceRelease => 'भेजने के लिए छोड़ें';
 
   @override
+  String get conciergeVoiceNoSpeech =>
+      'सुनाई नहीं दिया — दबाकर रखें, बोलें, फिर छोड़ें।';
+
+  @override
+  String get conciergeVoicePreviewFailed =>
+      'पूर्वावलोकन नहीं चला। वॉल्यूम जाँचें और फिर कोशिश करें।';
+
+  @override
   String get conciergeVoiceUnavailable => 'इस डिवाइस पर आवाज़ उपलब्ध नहीं है।';
 
   @override

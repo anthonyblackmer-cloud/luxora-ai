@@ -1616,5 +1616,7 @@
   "conciergeVoicePresetFrF": "Французский · Женский",
   "conciergeVoicePresetFrM": "Французский · Мужской",
   "conciergeVoicePresetDeF": "Немецкий · Женский",
-  "conciergeVoicePresetDeM": "Немецкий · Мужской"
+  "conciergeVoicePresetDeM": "Немецкий · Мужской",
+  "conciergeVoiceNoSpeech": "Не расслышала — удерживайте, говорите и отпустите.",
+  "conciergeVoicePreviewFailed": "Не удалось воспроизвести. Проверьте громкость и попробуйте снова."
 }

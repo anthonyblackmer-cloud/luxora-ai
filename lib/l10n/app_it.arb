@@ -1616,5 +1616,7 @@
   "conciergeVoicePresetFrF": "Francese · Femminile",
   "conciergeVoicePresetFrM": "Francese · Maschile",
   "conciergeVoicePresetDeF": "Tedesca · Femminile",
-  "conciergeVoicePresetDeM": "Tedesco · Maschile"
+  "conciergeVoicePresetDeM": "Tedesco · Maschile",
+  "conciergeVoiceNoSpeech": "Non ho capito — tieni premuto, parla e rilascia.",
+  "conciergeVoicePreviewFailed": "Anteprima non riprodotta. Controlla il volume e riprova."
 }

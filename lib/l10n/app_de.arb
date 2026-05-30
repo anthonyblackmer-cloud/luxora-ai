@@ -1616,5 +1616,7 @@
   "conciergeVoicePresetFrF": "Französisch · Weiblich",
   "conciergeVoicePresetFrM": "Französisch · Männlich",
   "conciergeVoicePresetDeF": "Deutsch · Weiblich",
-  "conciergeVoicePresetDeM": "Deutsch · Männlich"
+  "conciergeVoicePresetDeM": "Deutsch · Männlich",
+  "conciergeVoiceNoSpeech": "Das habe ich nicht verstanden — halten, sprechen, loslassen.",
+  "conciergeVoicePreviewFailed": "Vorschau fehlgeschlagen. Lautstärke prüfen und erneut versuchen."
 }

@@ -990,6 +990,14 @@ class AppLocalizationsRu extends AppLocalizations {
   String get conciergeVoiceRelease => 'Отпустите, чтобы отправить';
 
   @override
+  String get conciergeVoiceNoSpeech =>
+      'Не расслышала — удерживайте, говорите и отпустите.';
+
+  @override
+  String get conciergeVoicePreviewFailed =>
+      'Не удалось воспроизвести. Проверьте громкость и попробуйте снова.';
+
+  @override
   String get conciergeVoiceUnavailable =>
       'Голос недоступен на этом устройстве.';
 

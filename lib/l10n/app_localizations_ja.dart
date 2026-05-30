@@ -964,6 +964,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get conciergeVoiceRelease => '離して送信';
 
   @override
+  String get conciergeVoiceNoSpeech => '聞き取れませんでした。押したまま話してから離してください。';
+
+  @override
+  String get conciergeVoicePreviewFailed =>
+      'プレビューを再生できませんでした。音量を確認して再度お試しください。';
+
+  @override
   String get conciergeVoiceUnavailable => 'このデバイスでは音声を利用できません。';
 
   @override

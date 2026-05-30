@@ -1797,6 +1797,18 @@ abstract class AppLocalizations {
   /// **'Release to send'**
   String get conciergeVoiceRelease;
 
+  /// No description provided for @conciergeVoiceNoSpeech.
+  ///
+  /// In en, this message translates to:
+  /// **'I didn\'t catch that — hold the button, speak, then release.'**
+  String get conciergeVoiceNoSpeech;
+
+  /// No description provided for @conciergeVoicePreviewFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t play a preview. Check your volume and try again.'**
+  String get conciergeVoicePreviewFailed;
+
   /// No description provided for @conciergeVoiceUnavailable.
   ///
   /// In en, this message translates to:

@@ -22,11 +22,13 @@ void main() {
   ];
 
   final translations = _translations();
+  final extraKeys = _voiceFixKeys();
   for (final locale in locales) {
     final path = 'lib/l10n/app_$locale.arb';
     final map =
         jsonDecode(File(path).readAsStringSync()) as Map<String, dynamic>;
     map.addAll(translations[locale]!);
+    map.addAll(extraKeys[locale]!);
     File(path).writeAsStringSync(
       '${const JsonEncoder.withIndent('  ').convert(map)}\n',
     );
@@ -493,4 +495,73 @@ Map<String, dynamic> _zh() => {
       'conciergeVoicePresetFrM': '法语 · 男声',
       'conciergeVoicePresetDeF': '德语 · 女声',
       'conciergeVoicePresetDeM': '德语 · 男声',
+    };
+
+Map<String, Map<String, dynamic>> _voiceFixKeys() => {
+      'de': {
+        'conciergeVoiceNoSpeech':
+            'Das habe ich nicht verstanden — halten, sprechen, loslassen.',
+        'conciergeVoicePreviewFailed':
+            'Vorschau fehlgeschlagen. Lautstärke prüfen und erneut versuchen.',
+      },
+      'es': {
+        'conciergeVoiceNoSpeech':
+            'No te entendí — mantén pulsado, habla y suelta.',
+        'conciergeVoicePreviewFailed':
+            'No se pudo reproducir la vista previa. Revisa el volumen e inténtalo de nuevo.',
+      },
+      'fr': {
+        'conciergeVoiceNoSpeech':
+            'Je n\'ai pas compris — maintenez, parlez, puis relâchez.',
+        'conciergeVoicePreviewFailed':
+            'Impossible de lire l\'aperçu. Vérifiez le volume et réessayez.',
+      },
+      'it': {
+        'conciergeVoiceNoSpeech':
+            'Non ho capito — tieni premuto, parla e rilascia.',
+        'conciergeVoicePreviewFailed':
+            'Anteprima non riprodotta. Controlla il volume e riprova.',
+      },
+      'pt': {
+        'conciergeVoiceNoSpeech':
+            'Não entendi — segure, fale e solte.',
+        'conciergeVoicePreviewFailed':
+            'Não foi possível reproduzir a prévia. Verifique o volume e tente de novo.',
+      },
+      'ru': {
+        'conciergeVoiceNoSpeech':
+            'Не расслышала — удерживайте, говорите и отпустите.',
+        'conciergeVoicePreviewFailed':
+            'Не удалось воспроизвести. Проверьте громкость и попробуйте снова.',
+      },
+      'hi': {
+        'conciergeVoiceNoSpeech':
+            'सुनाई नहीं दिया — दबाकर रखें, बोलें, फिर छोड़ें।',
+        'conciergeVoicePreviewFailed':
+            'पूर्वावलोकन नहीं चला। वॉल्यूम जाँचें और फिर कोशिश करें।',
+      },
+      'tr': {
+        'conciergeVoiceNoSpeech':
+            'Duymadım — basılı tut, konuş, bırak.',
+        'conciergeVoicePreviewFailed':
+            'Önizleme oynatılamadı. Sesi kontrol edip tekrar deneyin.',
+      },
+      'ja': {
+        'conciergeVoiceNoSpeech':
+            '聞き取れませんでした。押したまま話してから離してください。',
+        'conciergeVoicePreviewFailed':
+            'プレビューを再生できませんでした。音量を確認して再度お試しください。',
+      },
+      'ko': {
+        'conciergeVoiceNoSpeech':
+            '잘 못 들었어요 — 누른 채로 말한 뒤 놓아 주세요.',
+        'conciergeVoicePreviewFailed':
+            '미리듣기를 재생하지 못했습니다. 볼륨을 확인하고 다시 시도해 주세요.',
+      },
+      'zh': {
+        'conciergeVoiceNoSpeech':
+            '没听清——按住说话，说完再松开。',
+        'conciergeVoicePreviewFailed':
+            '无法播放预览。请检查音量后重试。',
+      },
     };

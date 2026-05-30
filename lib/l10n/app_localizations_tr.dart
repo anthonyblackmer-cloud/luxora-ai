@@ -986,6 +986,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get conciergeVoiceRelease => 'Göndermek için bırakın';
 
   @override
+  String get conciergeVoiceNoSpeech => 'Duymadım — basılı tut, konuş, bırak.';
+
+  @override
+  String get conciergeVoicePreviewFailed =>
+      'Önizleme oynatılamadı. Sesi kontrol edip tekrar deneyin.';
+
+  @override
   String get conciergeVoiceUnavailable => 'Ses bu cihazda kullanılamıyor.';
 
   @override

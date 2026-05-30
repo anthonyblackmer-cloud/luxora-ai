@@ -981,6 +981,14 @@ class AppLocalizationsEn extends AppLocalizations {
   String get conciergeVoiceRelease => 'Release to send';
 
   @override
+  String get conciergeVoiceNoSpeech =>
+      'I didn\'t catch that — hold the button, speak, then release.';
+
+  @override
+  String get conciergeVoicePreviewFailed =>
+      'Couldn\'t play a preview. Check your volume and try again.';
+
+  @override
   String get conciergeVoiceUnavailable =>
       'Voice isn\'t available on this device.';
 

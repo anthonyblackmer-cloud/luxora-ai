@@ -1616,5 +1616,7 @@
   "conciergeVoicePresetFrF": "Française · Féminine",
   "conciergeVoicePresetFrM": "Français · Masculin",
   "conciergeVoicePresetDeF": "Allemande · Féminine",
-  "conciergeVoicePresetDeM": "Allemand · Masculin"
+  "conciergeVoicePresetDeM": "Allemand · Masculin",
+  "conciergeVoiceNoSpeech": "Je n'ai pas compris — maintenez, parlez, puis relâchez.",
+  "conciergeVoicePreviewFailed": "Impossible de lire l'aperçu. Vérifiez le volume et réessayez."
 }

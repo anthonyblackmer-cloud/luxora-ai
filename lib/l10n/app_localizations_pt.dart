@@ -989,6 +989,13 @@ class AppLocalizationsPt extends AppLocalizations {
   String get conciergeVoiceRelease => 'Solte para enviar';
 
   @override
+  String get conciergeVoiceNoSpeech => 'Não entendi — segure, fale e solte.';
+
+  @override
+  String get conciergeVoicePreviewFailed =>
+      'Não foi possível reproduzir a prévia. Verifique o volume e tente de novo.';
+
+  @override
   String get conciergeVoiceUnavailable =>
       'A voz não está disponível neste dispositivo.';
 

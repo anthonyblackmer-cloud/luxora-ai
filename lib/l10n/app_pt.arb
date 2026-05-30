@@ -1616,5 +1616,7 @@
   "conciergeVoicePresetFrF": "Francesa · Feminina",
   "conciergeVoicePresetFrM": "Francês · Masculino",
   "conciergeVoicePresetDeF": "Alemã · Feminina",
-  "conciergeVoicePresetDeM": "Alemão · Masculino"
+  "conciergeVoicePresetDeM": "Alemão · Masculino",
+  "conciergeVoiceNoSpeech": "Não entendi — segure, fale e solte.",
+  "conciergeVoicePreviewFailed": "Não foi possível reproduzir a prévia. Verifique o volume e tente de novo."
 }

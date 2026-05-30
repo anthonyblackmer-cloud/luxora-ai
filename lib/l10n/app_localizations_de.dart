@@ -986,6 +986,14 @@ class AppLocalizationsDe extends AppLocalizations {
   String get conciergeVoiceRelease => 'Loslassen zum Senden';
 
   @override
+  String get conciergeVoiceNoSpeech =>
+      'Das habe ich nicht verstanden — halten, sprechen, loslassen.';
+
+  @override
+  String get conciergeVoicePreviewFailed =>
+      'Vorschau fehlgeschlagen. Lautstärke prüfen und erneut versuchen.';
+
+  @override
   String get conciergeVoiceUnavailable =>
       'Spracheingabe ist auf diesem Gerät nicht verfügbar.';
 

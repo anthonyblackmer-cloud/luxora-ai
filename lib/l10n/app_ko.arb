@@ -1616,5 +1616,7 @@
   "conciergeVoicePresetFrF": "프랑스 · 여성",
   "conciergeVoicePresetFrM": "프랑스 · 남성",
   "conciergeVoicePresetDeF": "독일 · 여성",
-  "conciergeVoicePresetDeM": "독일 · 남성"
+  "conciergeVoicePresetDeM": "독일 · 남성",
+  "conciergeVoiceNoSpeech": "잘 못 들었어요 — 누른 채로 말한 뒤 놓아 주세요.",
+  "conciergeVoicePreviewFailed": "미리듣기를 재생하지 못했습니다. 볼륨을 확인하고 다시 시도해 주세요."
 }
