@@ -2,12 +2,19 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-/// A single RainViewer radar frame (10-minute steps, ~2 hours history).
+/// A single RainViewer radar frame (10-minute steps).
 class RainViewerFrame {
-  const RainViewerFrame({required this.time, required this.path});
+  const RainViewerFrame({
+    required this.time,
+    required this.path,
+    this.isForecast = false,
+  });
 
   final DateTime time;
   final String path;
+
+  /// True for RainViewer nowcast tiles (short-range future, when available).
+  final bool isForecast;
 }
 
 /// Cached RainViewer manifest for live precipitation / Doppler-style radar tiles.
@@ -53,17 +60,27 @@ class RainViewerService {
 
       final radar = json['radar'] as Map<String, dynamic>?;
       final past = radar?['past'] as List<dynamic>? ?? const [];
+      final nowcast = radar?['nowcast'] as List<dynamic>? ?? const [];
+
+      List<RainViewerFrame> parseFrames(List<dynamic> raw, {required bool forecast}) {
+        return [
+          for (final item in raw)
+            if (item is Map<String, dynamic>)
+              RainViewerFrame(
+                time: DateTime.fromMillisecondsSinceEpoch(
+                  ((item['time'] as num?) ?? 0).toInt() * 1000,
+                  isUtc: true,
+                ).toLocal(),
+                path: item['path'] as String? ?? '',
+                isForecast: forecast,
+              ),
+        ].where((f) => f.path.isNotEmpty).toList();
+      }
+
       _frames = [
-        for (final raw in past)
-          if (raw is Map<String, dynamic>)
-            RainViewerFrame(
-              time: DateTime.fromMillisecondsSinceEpoch(
-                ((raw['time'] as num?) ?? 0).toInt() * 1000,
-                isUtc: true,
-              ).toLocal(),
-              path: raw['path'] as String? ?? '',
-            ),
-      ].where((f) => f.path.isNotEmpty).toList();
+        ...parseFrames(past, forecast: false),
+        ...parseFrames(nowcast, forecast: true),
+      ];
 
       _loadedAt = DateTime.now();
       return _frames;

@@ -10,7 +10,10 @@ import 'package:luxora_ai/services/map_launcher.dart';
 import 'package:luxora_ai/services/saved_places_storage.dart';
 import 'package:luxora_ai/services/trip_profile_store.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
+import 'package:luxora_ai/util/hotel_share_content.dart';
+import 'package:luxora_ai/util/share_precache_urls.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
+import 'package:luxora_ai/widgets/visual_share_icon_button.dart';
 import 'package:luxora_ai/models/sponsorship_extensions.dart';
 import 'package:luxora_ai/widgets/partner_sponsor_badge.dart';
 import 'package:luxora_ai/widgets/lux_button.dart';
@@ -94,7 +97,26 @@ class HotelDetailSheet extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(12, 10, 8, 2),
             child: Row(
               children: [
-                const SizedBox(width: 76),
+                VisualShareIconButton(
+                  subject: hotel.name,
+                  fileName: 'luxora_stay.png',
+                  shareWidth: 420,
+                  loadNetworkAssets: true,
+                  precacheNetworkUrls: sharePrecacheUrlsForPlace(
+                    latitude: place.latitude,
+                    longitude: place.longitude,
+                  ),
+                  color: LuxColors.gold,
+                  background: LuxColors.gold.withValues(alpha: 0.12),
+                  cardBuilder: (ctx) => buildHotelShareCard(
+                    ctx,
+                    hotel: hotel,
+                    place: place,
+                    profile: TripProfileStore.instance.profile.value,
+                    flow: flow,
+                    matchInput: matchInput,
+                  ),
+                ),
                 Expanded(
                   child: Center(
                     child: Container(

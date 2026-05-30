@@ -745,6 +745,45 @@ class AppLocalizationsJa extends AppLocalizations {
       '雨が降る可能性があります。屋内バックアップの場合は「ルート変更」をタップしてください。';
 
   @override
+  String get dayFlowSwapTitle => 'この停留所を変更';
+
+  @override
+  String dayFlowSwapSubtitle(String current) {
+    return 'Tell Luxora what you\'d rather do instead of $current.';
+  }
+
+  @override
+  String get dayFlowSwapTemplate => 'もっとこんな感じを考えていました…';
+
+  @override
+  String get dayFlowSwapHint =>
+      'e.g. a quiet park this morning, or seafood for dinner';
+
+  @override
+  String get dayFlowSwapApply => '今日の予定を更新';
+
+  @override
+  String get dayFlowSwapViewPlace => 'View current stop';
+
+  @override
+  String dayFlowSwapSuccess(String newStop, String phase) {
+    return 'Updated — $newStop is now your $phase stop.';
+  }
+
+  @override
+  String get dayFlowSwapNoMatch =>
+      'Couldn\'t find a match nearby — try being more specific.';
+
+  @override
+  String get dayFlowSwapTapToChange => 'Change this stop';
+
+  @override
+  String get dayFlowSwapHoldSpeak => '長押しで話す';
+
+  @override
+  String get dayFlowSwapListening => '聞いています…';
+
+  @override
   String get rightNowButton => '私たちは今何をすべきでしょうか？';
 
   @override
@@ -969,6 +1008,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String get conciergeVoiceRelease => '離して送信';
 
   @override
+  String get conciergeVoiceSend => 'Luxoraに送信';
+
+  @override
+  String get conciergeVoiceProcessing => 'Luxoraに送信中…';
+
+  @override
   String get conciergeVoiceNoSpeech => '聞き取れませんでした。押したまま話してから離してください。';
 
   @override
@@ -1005,7 +1050,31 @@ class AppLocalizationsJa extends AppLocalizations {
       'こんにちは — Luxoraです。この旅をどう感じたいか教えてください。';
 
   @override
-  String get conciergeVoiceDeviceNote => '利用できる声は端末の言語パックによって異なります。';
+  String get conciergeVoiceDeviceNote =>
+      'Download more voices in iPhone Settings → Accessibility → Spoken Content → Voices. Return here and tap Refresh.';
+
+  @override
+  String get conciergeVoiceDeviceSection => 'Voices on this iPhone';
+
+  @override
+  String get conciergeVoiceDeviceSectionHint =>
+      'Includes voices you downloaded — tap one to use it for Luxora.';
+
+  @override
+  String get conciergeVoiceRefreshList => 'Refresh voice list';
+
+  @override
+  String get conciergeVoiceShowAllLanguages => 'Show all languages';
+
+  @override
+  String get conciergeVoiceOpenSettings => 'Open iPhone voice settings';
+
+  @override
+  String get conciergeVoiceNoDeviceVoices =>
+      'No voices found — download packs in Settings, then refresh.';
+
+  @override
+  String get conciergeVoicePresetSection => 'クイック選択';
 
   @override
   String get conciergeVoiceRegionRecommended => 'おすすめ';
@@ -1856,6 +1925,53 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get weatherRadarTapToExpand => 'タップして全画面表示';
+
+  @override
+  String get weatherRadarNow => '現在';
+
+  @override
+  String weatherRadarMinutesAgo(int minutes) {
+    return '$minutes分前';
+  }
+
+  @override
+  String weatherRadarMinutesAhead(int minutes) {
+    return '+$minutes分';
+  }
+
+  @override
+  String get weatherRadarStepBack => 'Earlier frame';
+
+  @override
+  String get weatherRadarStepForward => 'Later frame';
+
+  @override
+  String get weatherRadarJumpNow => 'Now';
+
+  @override
+  String get weatherRadarJump1h => '−1 hr';
+
+  @override
+  String get weatherRadarJump2h => '−2 hr';
+
+  @override
+  String get weatherRadarJump30m => '+30 min';
+
+  @override
+  String get weatherRadarSpeedSlow => 'Slow';
+
+  @override
+  String get weatherRadarSpeedNormal => 'Normal';
+
+  @override
+  String get weatherRadarSpeedFast => 'Fast';
+
+  @override
+  String get weatherRadarLoopNote =>
+      'Radar loop: past ~2 hours in 10‑minute steps, plus short-range nowcast when available — not a 4‑hour forecast.';
+
+  @override
+  String get shareMapPreviewCaption => '地図プレビュー · ライブ案内はLuxoraで開く';
 
   @override
   String get weatherMapOverlays => '地図オーバーレイ';

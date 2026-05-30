@@ -39,6 +39,7 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
   bool _voiceStarting = false;
   bool _voiceReleaseQueued = false;
   bool _voiceFinishing = false;
+  bool _voiceProcessing = false;
   String _voicePartial = '';
   final _voice = ConciergeVoiceService.instance;
 
@@ -150,6 +151,12 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
         if (!mounted) return;
         setState(() => _voicePartial = partial);
       },
+      onSessionEnded: () {
+        if (!mounted || _voiceFinishing) return;
+        if (_voiceListening || _voicePartial.trim().isNotEmpty) {
+          unawaited(_finishVoiceInput());
+        }
+      },
     );
     _voiceStarting = false;
     if (!mounted) return;
@@ -172,16 +179,26 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
   }
 
   Future<void> _finishVoiceInput() async {
-    if (!_voiceListening || _voiceFinishing) return;
+    if (_voiceFinishing) return;
+    if (!_voiceListening && _voicePartial.trim().isEmpty) return;
+
     _voiceFinishing = true;
     _voiceReleaseQueued = false;
     final heard = _voicePartial.trim();
+
+    if (mounted) {
+      setState(() {
+        _voiceListening = false;
+        _voiceProcessing = heard.isNotEmpty;
+      });
+    }
+
     try {
       final text =
           (await _voice.stopListeningAndTakeResult(fallback: heard)) ?? heard;
       if (!mounted) return;
       setState(() {
-        _voiceListening = false;
+        _voiceProcessing = false;
         _voicePartial = '';
       });
       if (text.trim().isEmpty) {
@@ -197,6 +214,9 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
       await _send(text, fromVoice: true);
     } finally {
       _voiceFinishing = false;
+      if (mounted && _voiceProcessing) {
+        setState(() => _voiceProcessing = false);
+      }
     }
   }
 
@@ -219,7 +239,8 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
     if (_isThinking ||
         _voiceListening ||
         _voiceStarting ||
-        _voiceFinishing) {
+        _voiceFinishing ||
+        _voiceProcessing) {
       return;
     }
     _startVoiceInput(l);
@@ -238,6 +259,9 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
   Future<void> _send(String text, {bool fromVoice = false}) async {
     final trimmed = text.trim();
     if (trimmed.isEmpty || _isThinking) return;
+    if (!fromVoice) {
+      HapticFeedback.selectionClick();
+    }
     _dismissKeyboard();
     final inferred = ConciergeSessionMemory.preferenceFromUserMessage(trimmed);
     if (inferred != null) {
@@ -479,11 +503,11 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
                       padding: const EdgeInsets.symmetric(vertical: 10),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
-                        color: _voiceListening
+                        color: (_voiceListening || _voiceProcessing)
                             ? t.accent.withValues(alpha: 0.12)
                             : null,
                         border: Border.all(
-                          color: _voiceListening
+                          color: (_voiceListening || _voiceProcessing)
                               ? t.accent.withValues(alpha: 0.55)
                               : t.accent.withValues(alpha: 0.25),
                         ),
@@ -494,18 +518,30 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(
-                                _voiceListening
-                                    ? Icons.graphic_eq_rounded
-                                    : Icons.mic_rounded,
-                                size: 18,
-                                color: t.accent.withValues(alpha: 0.9),
-                              ),
+                              if (_voiceProcessing)
+                                SizedBox(
+                                  width: 16,
+                                  height: 16,
+                                  child: CircularProgressIndicator(
+                                    strokeWidth: 2,
+                                    color: t.accent.withValues(alpha: 0.9),
+                                  ),
+                                )
+                              else
+                                Icon(
+                                  _voiceListening
+                                      ? Icons.graphic_eq_rounded
+                                      : Icons.mic_rounded,
+                                  size: 18,
+                                  color: t.accent.withValues(alpha: 0.9),
+                                ),
                               const SizedBox(width: 8),
                               Text(
-                                _voiceListening
-                                    ? l.conciergeVoiceListening
-                                    : l.conciergeVoiceHold,
+                                _voiceProcessing
+                                    ? l.conciergeVoiceProcessing
+                                    : _voiceListening
+                                        ? l.conciergeVoiceListening
+                                        : l.conciergeVoiceHold,
                                 style: TextStyle(
                                   fontSize: 13,
                                   color: t.textMuted,
@@ -513,10 +549,11 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
                               ),
                             ],
                           ),
-                          if (_voiceListening) ...[
+                          if (_voiceListening && !_voiceProcessing) ...[
                             const SizedBox(height: 4),
                             Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 12),
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 12),
                               child: Text(
                                 _voicePartial.isEmpty
                                     ? l.conciergeVoiceRelease
@@ -531,6 +568,15 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
                                 ),
                               ),
                             ),
+                            if (_voicePartial.isNotEmpty) ...[
+                              const SizedBox(height: 6),
+                              TextButton(
+                                onPressed: _voiceFinishing
+                                    ? null
+                                    : () => unawaited(_finishVoiceInput()),
+                                child: Text(l.conciergeVoiceSend),
+                              ),
+                            ],
                           ],
                         ],
                       ),
@@ -566,67 +612,76 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
             const SizedBox(height: 10),
             SizedBox(
               height: 122,
-              child: ListView.separated(
-                scrollDirection: Axis.horizontal,
-                itemCount: primaryPrompts.length,
-                separatorBuilder: (_, index) => const SizedBox(width: 10),
-                itemBuilder: (context, i) {
-                  final chip = primaryPrompts[i];
-                  return SizedBox(
-                    width: 176,
-                    child: InkWell(
-                      onTap: () => _send(chip.prompt),
-                      borderRadius: BorderRadius.circular(16),
-                      child: Container(
-                        padding: const EdgeInsets.all(12),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(16),
-                          gradient: LinearGradient(
-                            colors: [
-                              t.accent.withValues(alpha: 0.15),
-                              t.panelFill,
-                            ],
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                          ),
-                          border: Border.all(
-                            color: t.accent.withValues(alpha: 0.35),
-                          ),
-                          boxShadow: [
-                            BoxShadow(
-                              color: t.accent.withValues(alpha: 0.07),
-                              blurRadius: 14,
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Icon(
-                              switch (i) {
-                                0 => Icons.favorite_rounded,
-                                1 => Icons.spa_rounded,
-                                2 => Icons.family_restroom_rounded,
-                                _ => Icons.explore_rounded,
-                              },
-                              color: t.accent.withValues(alpha: 0.95),
-                              size: 20,
-                            ),
-                            Text(
-                              chip.label,
-                              style: const TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w700,
-                                height: 1.2,
+              child: IgnorePointer(
+                ignoring: _isThinking,
+                child: Opacity(
+                  opacity: _isThinking ? 0.45 : 1,
+                  child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: primaryPrompts.length,
+                    separatorBuilder: (_, index) => const SizedBox(width: 10),
+                    itemBuilder: (context, i) {
+                      final chip = primaryPrompts[i];
+                      return SizedBox(
+                        width: 176,
+                        child: Material(
+                          color: Colors.transparent,
+                          child: InkWell(
+                            onTap: () => _send(chip.prompt),
+                            borderRadius: BorderRadius.circular(16),
+                            child: Container(
+                              padding: const EdgeInsets.all(12),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(16),
+                                gradient: LinearGradient(
+                                  colors: [
+                                    t.accent.withValues(alpha: 0.15),
+                                    t.panelFill,
+                                  ],
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomRight,
+                                ),
+                                border: Border.all(
+                                  color: t.accent.withValues(alpha: 0.35),
+                                ),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: t.accent.withValues(alpha: 0.07),
+                                    blurRadius: 14,
+                                  ),
+                                ],
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Icon(
+                                    switch (i) {
+                                      0 => Icons.favorite_rounded,
+                                      1 => Icons.spa_rounded,
+                                      2 => Icons.family_restroom_rounded,
+                                      _ => Icons.explore_rounded,
+                                    },
+                                    color: t.accent.withValues(alpha: 0.95),
+                                    size: 20,
+                                  ),
+                                  Text(
+                                    chip.label,
+                                    style: const TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w700,
+                                      height: 1.2,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
-                          ],
+                          ),
                         ),
-                      ),
-                    ),
-                  );
-                },
+                      );
+                    },
+                  ),
+                ),
               ),
             ),
             const SizedBox(height: 12),
@@ -683,10 +738,10 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
                 padding: const EdgeInsets.fromLTRB(12, 10, 12, 10),
                 child: Column(
                   children: [
-                    SizedBox(
-                      height: 132,
+                    Expanded(
                       child: ListView.builder(
                         controller: _scrollController,
+                        padding: const EdgeInsets.only(bottom: 8),
                         itemCount: _messages.length + (_isThinking ? 1 : 0),
                         itemBuilder: (context, i) {
                           if (_isThinking && i == _messages.length) {
@@ -749,7 +804,7 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
                         },
                       ),
                     ),
-                    const Spacer(),
+                    const SizedBox(height: 8),
                     TextField(
                       controller: _controller,
                       style: TextStyle(

@@ -761,6 +761,45 @@ class AppLocalizationsTr extends AppLocalizations {
       'Yağmur muhtemel — iç mekan yedeklemeleri için yeniden yönlendirmeye dokunun.';
 
   @override
+  String get dayFlowSwapTitle => 'Bu durağı değiştir';
+
+  @override
+  String dayFlowSwapSubtitle(String current) {
+    return 'Tell Luxora what you\'d rather do instead of $current.';
+  }
+
+  @override
+  String get dayFlowSwapTemplate => 'Daha çok şöyle bir şey düşünmüştüm…';
+
+  @override
+  String get dayFlowSwapHint =>
+      'e.g. a quiet park this morning, or seafood for dinner';
+
+  @override
+  String get dayFlowSwapApply => 'Günümü güncelle';
+
+  @override
+  String get dayFlowSwapViewPlace => 'View current stop';
+
+  @override
+  String dayFlowSwapSuccess(String newStop, String phase) {
+    return 'Updated — $newStop is now your $phase stop.';
+  }
+
+  @override
+  String get dayFlowSwapNoMatch =>
+      'Couldn\'t find a match nearby — try being more specific.';
+
+  @override
+  String get dayFlowSwapTapToChange => 'Change this stop';
+
+  @override
+  String get dayFlowSwapHoldSpeak => 'Konuşmak için basılı tut';
+
+  @override
+  String get dayFlowSwapListening => 'Dinliyor…';
+
+  @override
   String get rightNowButton => 'Şu anda ne yapmalıyız?';
 
   @override
@@ -991,6 +1030,12 @@ class AppLocalizationsTr extends AppLocalizations {
   String get conciergeVoiceRelease => 'Göndermek için bırakın';
 
   @override
+  String get conciergeVoiceSend => 'Luxora\'ya gönder';
+
+  @override
+  String get conciergeVoiceProcessing => 'Luxora\'ya gönderiliyor…';
+
+  @override
   String get conciergeVoiceNoSpeech => 'Duymadım — basılı tut, konuş, bırak.';
 
   @override
@@ -1028,7 +1073,30 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get conciergeVoiceDeviceNote =>
-      'Mevcut sesler cihazınızdaki dil paketlerine bağlıdır.';
+      'Download more voices in iPhone Settings → Accessibility → Spoken Content → Voices. Return here and tap Refresh.';
+
+  @override
+  String get conciergeVoiceDeviceSection => 'Voices on this iPhone';
+
+  @override
+  String get conciergeVoiceDeviceSectionHint =>
+      'Includes voices you downloaded — tap one to use it for Luxora.';
+
+  @override
+  String get conciergeVoiceRefreshList => 'Refresh voice list';
+
+  @override
+  String get conciergeVoiceShowAllLanguages => 'Show all languages';
+
+  @override
+  String get conciergeVoiceOpenSettings => 'Open iPhone voice settings';
+
+  @override
+  String get conciergeVoiceNoDeviceVoices =>
+      'No voices found — download packs in Settings, then refresh.';
+
+  @override
+  String get conciergeVoicePresetSection => 'Hızlı profiller';
 
   @override
   String get conciergeVoiceRegionRecommended => 'Önerilen';
@@ -1916,6 +1984,54 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get weatherRadarTapToExpand => 'Tam ekran için dokunun';
+
+  @override
+  String get weatherRadarNow => 'Şimdi';
+
+  @override
+  String weatherRadarMinutesAgo(int minutes) {
+    return '$minutes dk önce';
+  }
+
+  @override
+  String weatherRadarMinutesAhead(int minutes) {
+    return '+$minutes dk';
+  }
+
+  @override
+  String get weatherRadarStepBack => 'Earlier frame';
+
+  @override
+  String get weatherRadarStepForward => 'Later frame';
+
+  @override
+  String get weatherRadarJumpNow => 'Now';
+
+  @override
+  String get weatherRadarJump1h => '−1 hr';
+
+  @override
+  String get weatherRadarJump2h => '−2 hr';
+
+  @override
+  String get weatherRadarJump30m => '+30 min';
+
+  @override
+  String get weatherRadarSpeedSlow => 'Slow';
+
+  @override
+  String get weatherRadarSpeedNormal => 'Normal';
+
+  @override
+  String get weatherRadarSpeedFast => 'Fast';
+
+  @override
+  String get weatherRadarLoopNote =>
+      'Radar loop: past ~2 hours in 10‑minute steps, plus short-range nowcast when available — not a 4‑hour forecast.';
+
+  @override
+  String get shareMapPreviewCaption =>
+      'Harita önizlemesi · canlı yol tarifi için Luxora’da aç';
 
   @override
   String get weatherMapOverlays => 'Harita katmanları';

@@ -764,6 +764,45 @@ class AppLocalizationsPt extends AppLocalizations {
       'Provavelmente chuva – toque em redirecionar para backups internos.';
 
   @override
+  String get dayFlowSwapTitle => 'Mudar esta parada';
+
+  @override
+  String dayFlowSwapSubtitle(String current) {
+    return 'Diga ao Luxora o que prefere em vez de $current.';
+  }
+
+  @override
+  String get dayFlowSwapTemplate => 'Estava pensando em algo como…';
+
+  @override
+  String get dayFlowSwapHint =>
+      'e.g. a quiet park this morning, or seafood for dinner';
+
+  @override
+  String get dayFlowSwapApply => 'Atualizar meu dia';
+
+  @override
+  String get dayFlowSwapViewPlace => 'Ver parada atual';
+
+  @override
+  String dayFlowSwapSuccess(String newStop, String phase) {
+    return 'Updated — $newStop is now your $phase stop.';
+  }
+
+  @override
+  String get dayFlowSwapNoMatch =>
+      'Couldn\'t find a match nearby — try being more specific.';
+
+  @override
+  String get dayFlowSwapTapToChange => 'Change this stop';
+
+  @override
+  String get dayFlowSwapHoldSpeak => 'Segure para falar';
+
+  @override
+  String get dayFlowSwapListening => 'Ouvindo…';
+
+  @override
   String get rightNowButton => 'O que devemos fazer agora?';
 
   @override
@@ -994,6 +1033,12 @@ class AppLocalizationsPt extends AppLocalizations {
   String get conciergeVoiceRelease => 'Solte para enviar';
 
   @override
+  String get conciergeVoiceSend => 'Enviar para Luxora';
+
+  @override
+  String get conciergeVoiceProcessing => 'Enviando para Luxora…';
+
+  @override
   String get conciergeVoiceNoSpeech => 'Não entendi — segure, fale e solte.';
 
   @override
@@ -1032,7 +1077,30 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get conciergeVoiceDeviceNote =>
-      'As vozes disponíveis dependem dos pacotes de idioma do dispositivo.';
+      'Download more voices in iPhone Settings → Accessibility → Spoken Content → Voices. Return here and tap Refresh.';
+
+  @override
+  String get conciergeVoiceDeviceSection => 'Vozes neste iPhone';
+
+  @override
+  String get conciergeVoiceDeviceSectionHint =>
+      'Includes voices you downloaded — tap one to use it for Luxora.';
+
+  @override
+  String get conciergeVoiceRefreshList => 'Atualizar lista de vozes';
+
+  @override
+  String get conciergeVoiceShowAllLanguages => 'Show all languages';
+
+  @override
+  String get conciergeVoiceOpenSettings => 'Open iPhone voice settings';
+
+  @override
+  String get conciergeVoiceNoDeviceVoices =>
+      'No voices found — download packs in Settings, then refresh.';
+
+  @override
+  String get conciergeVoicePresetSection => 'Personas rápidas';
 
   @override
   String get conciergeVoiceRegionRecommended => 'Recomendado';
@@ -1923,6 +1991,54 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get weatherRadarTapToExpand => 'Toque para tela cheia';
+
+  @override
+  String get weatherRadarNow => 'Agora';
+
+  @override
+  String weatherRadarMinutesAgo(int minutes) {
+    return 'há $minutes min';
+  }
+
+  @override
+  String weatherRadarMinutesAhead(int minutes) {
+    return '+$minutes min';
+  }
+
+  @override
+  String get weatherRadarStepBack => 'Earlier frame';
+
+  @override
+  String get weatherRadarStepForward => 'Later frame';
+
+  @override
+  String get weatherRadarJumpNow => 'Now';
+
+  @override
+  String get weatherRadarJump1h => '−1 hr';
+
+  @override
+  String get weatherRadarJump2h => '−2 hr';
+
+  @override
+  String get weatherRadarJump30m => '+30 min';
+
+  @override
+  String get weatherRadarSpeedSlow => 'Slow';
+
+  @override
+  String get weatherRadarSpeedNormal => 'Normal';
+
+  @override
+  String get weatherRadarSpeedFast => 'Fast';
+
+  @override
+  String get weatherRadarLoopNote =>
+      'Radar loop: past ~2 hours in 10‑minute steps, plus short-range nowcast when available — not a 4‑hour forecast.';
+
+  @override
+  String get shareMapPreviewCaption =>
+      'Prévia do mapa · abrir no Luxora para rotas ao vivo';
 
   @override
   String get weatherMapOverlays => 'Sobreposições de mapas';

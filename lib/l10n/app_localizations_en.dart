@@ -756,6 +756,45 @@ class AppLocalizationsEn extends AppLocalizations {
       'Rain likely — tap reroute for indoor backups.';
 
   @override
+  String get dayFlowSwapTitle => 'Change this stop';
+
+  @override
+  String dayFlowSwapSubtitle(String current) {
+    return 'Tell Luxora what you\'d rather do instead of $current.';
+  }
+
+  @override
+  String get dayFlowSwapTemplate => 'I was thinking something more like…';
+
+  @override
+  String get dayFlowSwapHint =>
+      'e.g. a quiet park this morning, or seafood for dinner';
+
+  @override
+  String get dayFlowSwapApply => 'Update my day';
+
+  @override
+  String get dayFlowSwapViewPlace => 'View current stop';
+
+  @override
+  String dayFlowSwapSuccess(String newStop, String phase) {
+    return 'Updated — $newStop is now your $phase stop.';
+  }
+
+  @override
+  String get dayFlowSwapNoMatch =>
+      'Couldn\'t find a match nearby — try being more specific.';
+
+  @override
+  String get dayFlowSwapTapToChange => 'Change this stop';
+
+  @override
+  String get dayFlowSwapHoldSpeak => 'Hold to speak';
+
+  @override
+  String get dayFlowSwapListening => 'Listening…';
+
+  @override
   String get rightNowButton => 'What should we do right now?';
 
   @override
@@ -986,6 +1025,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get conciergeVoiceRelease => 'Release to send';
 
   @override
+  String get conciergeVoiceSend => 'Send to Luxora';
+
+  @override
+  String get conciergeVoiceProcessing => 'Sending to Luxora…';
+
+  @override
   String get conciergeVoiceNoSpeech =>
       'I didn\'t catch that — hold the button, speak, then release.';
 
@@ -1025,7 +1070,30 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get conciergeVoiceDeviceNote =>
-      'Available voices depend on your iPhone or Android language packs.';
+      'Download more voices in iPhone Settings → Accessibility → Spoken Content → Voices. Return here and tap Refresh.';
+
+  @override
+  String get conciergeVoiceDeviceSection => 'Voices on this iPhone';
+
+  @override
+  String get conciergeVoiceDeviceSectionHint =>
+      'Includes voices you downloaded — tap one to use it for Luxora.';
+
+  @override
+  String get conciergeVoiceRefreshList => 'Refresh voice list';
+
+  @override
+  String get conciergeVoiceShowAllLanguages => 'Show all languages';
+
+  @override
+  String get conciergeVoiceOpenSettings => 'Open iPhone voice settings';
+
+  @override
+  String get conciergeVoiceNoDeviceVoices =>
+      'No voices found — download packs in Settings, then refresh.';
+
+  @override
+  String get conciergeVoicePresetSection => 'Quick personas';
 
   @override
   String get conciergeVoiceRegionRecommended => 'Recommended';
@@ -1908,6 +1976,54 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get weatherRadarTapToExpand => 'Tap for full screen';
+
+  @override
+  String get weatherRadarNow => 'Now';
+
+  @override
+  String weatherRadarMinutesAgo(int minutes) {
+    return '$minutes min ago';
+  }
+
+  @override
+  String weatherRadarMinutesAhead(int minutes) {
+    return '+$minutes min';
+  }
+
+  @override
+  String get weatherRadarStepBack => 'Earlier frame';
+
+  @override
+  String get weatherRadarStepForward => 'Later frame';
+
+  @override
+  String get weatherRadarJumpNow => 'Now';
+
+  @override
+  String get weatherRadarJump1h => '−1 hr';
+
+  @override
+  String get weatherRadarJump2h => '−2 hr';
+
+  @override
+  String get weatherRadarJump30m => '+30 min';
+
+  @override
+  String get weatherRadarSpeedSlow => 'Slow';
+
+  @override
+  String get weatherRadarSpeedNormal => 'Normal';
+
+  @override
+  String get weatherRadarSpeedFast => 'Fast';
+
+  @override
+  String get weatherRadarLoopNote =>
+      'Radar loop: past ~2 hours in 10‑minute steps, plus short-range nowcast when available — not a 4‑hour forecast.';
+
+  @override
+  String get shareMapPreviewCaption =>
+      'Map preview · open in Luxora for live directions';
 
   @override
   String get weatherMapOverlays => 'Map overlays';

@@ -8,6 +8,7 @@ import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/services/rainviewer_service.dart';
 import 'package:luxora_ai/services/weather_grid_service.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
+import 'package:luxora_ai/util/weather_radar_labels.dart';
 import 'package:luxora_ai/widgets/lux_background.dart';
 import 'package:luxora_ai/widgets/lux_secondary_app_bar.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -65,6 +66,7 @@ class _WeatherMapPanelState extends State<WeatherMapPanel> {
   int _radarIndex = 0;
   bool _radarLoading = true;
   bool _playing = true;
+  int _playIntervalMs = 650;
   Timer? _playTimer;
 
   List<WeatherGridCell> _gridCells = const [];
@@ -124,7 +126,7 @@ class _WeatherMapPanelState extends State<WeatherMapPanel> {
   void _restartAnimation() {
     _playTimer?.cancel();
     if (!_playing || _radarFrames.length < 2 || !_showsRadar) return;
-    _playTimer = Timer.periodic(const Duration(milliseconds: 650), (_) {
+    _playTimer = Timer.periodic(Duration(milliseconds: _playIntervalMs), (_) {
       if (!mounted || _radarFrames.isEmpty) return;
       setState(() {
         _radarIndex = (_radarIndex + 1) % _radarFrames.length;
@@ -146,6 +148,29 @@ class _WeatherMapPanelState extends State<WeatherMapPanel> {
 
   void _togglePlay() {
     setState(() => _playing = !_playing);
+    _restartAnimation();
+  }
+
+  void _stepRadar(int delta) {
+    if (_radarFrames.isEmpty) return;
+    setState(() {
+      _playing = false;
+      _radarIndex = (_radarIndex + delta).clamp(0, _radarFrames.length - 1);
+    });
+    _restartAnimation();
+  }
+
+  void _setPlayInterval(int milliseconds) {
+    setState(() => _playIntervalMs = milliseconds);
+    _restartAnimation();
+  }
+
+  void _jumpToOffset(Duration offsetFromNow) {
+    if (_radarFrames.isEmpty) return;
+    setState(() {
+      _playing = false;
+      _radarIndex = closestRadarFrameIndex(_radarFrames, offsetFromNow);
+    });
     _restartAnimation();
   }
 
@@ -378,6 +403,34 @@ class _WeatherMapPanelState extends State<WeatherMapPanel> {
               endColor: const Color(0xFFEF4444),
             ),
           ),
+        if (_showsRadar && _radarFrames.length > 1)
+          Padding(
+            padding: const EdgeInsets.only(top: 10),
+            child: _RadarTimelineControls(
+              frameLabel: weatherRadarFrameLabel(l, _activeRadarFrame!),
+              frameIndex: _radarIndex,
+              frameCount: _radarFrames.length,
+              playing: _playing,
+              playIntervalMs: _playIntervalMs,
+              hasForecast: _radarFrames.any((f) => f.isForecast),
+              onScrub: (index) {
+                setState(() {
+                  _radarIndex = index;
+                  _playing = false;
+                });
+                _restartAnimation();
+              },
+              onTogglePlay: _togglePlay,
+              onStepBack: () => _stepRadar(-1),
+              onStepForward: () => _stepRadar(1),
+              onSpeed: _setPlayInterval,
+              onJumpNow: () => _jumpToOffset(Duration.zero),
+              onJumpBack1h: () => _jumpToOffset(const Duration(hours: -1)),
+              onJumpBack2h: () => _jumpToOffset(const Duration(hours: -2)),
+              onJumpAhead30m: () => _jumpToOffset(const Duration(minutes: 30)),
+              loopNote: l.weatherRadarLoopNote,
+            ),
+          ),
       ],
     );
   }
@@ -534,6 +587,183 @@ class _OverlayChip extends StatelessWidget {
         color: selected ? tokens.accent : tokens.borderSubtle,
       ),
       showCheckmark: false,
+    );
+  }
+}
+
+class _RadarTimelineControls extends StatelessWidget {
+  const _RadarTimelineControls({
+    required this.frameLabel,
+    required this.frameIndex,
+    required this.frameCount,
+    required this.playing,
+    required this.playIntervalMs,
+    required this.hasForecast,
+    required this.onScrub,
+    required this.onTogglePlay,
+    required this.onStepBack,
+    required this.onStepForward,
+    required this.onSpeed,
+    required this.onJumpNow,
+    required this.onJumpBack1h,
+    required this.onJumpBack2h,
+    required this.onJumpAhead30m,
+    required this.loopNote,
+  });
+
+  final String frameLabel;
+  final int frameIndex;
+  final int frameCount;
+  final bool playing;
+  final int playIntervalMs;
+  final bool hasForecast;
+  final ValueChanged<int> onScrub;
+  final VoidCallback onTogglePlay;
+  final VoidCallback onStepBack;
+  final VoidCallback onStepForward;
+  final ValueChanged<int> onSpeed;
+  final VoidCallback onJumpNow;
+  final VoidCallback onJumpBack1h;
+  final VoidCallback onJumpBack2h;
+  final VoidCallback onJumpAhead30m;
+  final String loopNote;
+
+  @override
+  Widget build(BuildContext context) {
+    final l = context.l10n;
+    final tokens = luxThemeTokensOf(context);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(
+          frameLabel,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 13,
+            fontWeight: FontWeight.w700,
+            color: tokens.textPrimary,
+          ),
+        ),
+        Slider(
+          value: frameIndex.toDouble(),
+          min: 0,
+          max: (frameCount - 1).toDouble(),
+          onChanged: (v) => onScrub(v.round()),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            IconButton(
+              tooltip: l.weatherRadarStepBack,
+              onPressed: onStepBack,
+              icon: const Icon(Icons.skip_previous_rounded),
+            ),
+            IconButton(
+              tooltip: playing ? l.weatherRadarPause : l.weatherRadarPlay,
+              onPressed: onTogglePlay,
+              icon: Icon(
+                playing ? Icons.pause_rounded : Icons.play_arrow_rounded,
+              ),
+            ),
+            IconButton(
+              tooltip: l.weatherRadarStepForward,
+              onPressed: onStepForward,
+              icon: const Icon(Icons.skip_next_rounded),
+            ),
+          ],
+        ),
+        Wrap(
+          spacing: 6,
+          runSpacing: 6,
+          alignment: WrapAlignment.center,
+          children: [
+            _JumpChip(label: l.weatherRadarJump2h, onTap: onJumpBack2h),
+            _JumpChip(label: l.weatherRadarJump1h, onTap: onJumpBack1h),
+            _JumpChip(label: l.weatherRadarJumpNow, onTap: onJumpNow),
+            if (hasForecast)
+              _JumpChip(label: l.weatherRadarJump30m, onTap: onJumpAhead30m),
+          ],
+        ),
+        const SizedBox(height: 8),
+        Wrap(
+          spacing: 6,
+          runSpacing: 6,
+          alignment: WrapAlignment.center,
+          children: [
+            _SpeedChip(
+              label: l.weatherRadarSpeedSlow,
+              selected: playIntervalMs >= 950,
+              onTap: () => onSpeed(1000),
+            ),
+            _SpeedChip(
+              label: l.weatherRadarSpeedNormal,
+              selected: playIntervalMs > 450 && playIntervalMs < 950,
+              onTap: () => onSpeed(650),
+            ),
+            _SpeedChip(
+              label: l.weatherRadarSpeedFast,
+              selected: playIntervalMs <= 450,
+              onTap: () => onSpeed(350),
+            ),
+          ],
+        ),
+        const SizedBox(height: 6),
+        Text(
+          loopNote,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 10,
+            height: 1.35,
+            color: tokens.textMuted,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _JumpChip extends StatelessWidget {
+  const _JumpChip({required this.label, required this.onTap});
+
+  final String label;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final tokens = luxThemeTokensOf(context);
+    return ActionChip(
+      label: Text(label, style: const TextStyle(fontSize: 11)),
+      onPressed: onTap,
+      backgroundColor: tokens.panelFill,
+      side: BorderSide(color: tokens.borderSubtle),
+    );
+  }
+}
+
+class _SpeedChip extends StatelessWidget {
+  const _SpeedChip({
+    required this.label,
+    required this.selected,
+    required this.onTap,
+  });
+
+  final String label;
+  final bool selected;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final tokens = luxThemeTokensOf(context);
+    return FilterChip(
+      label: Text(label, style: const TextStyle(fontSize: 11)),
+      selected: selected,
+      onSelected: (_) => onTap(),
+      selectedColor: tokens.accent.withValues(alpha: 0.25),
+      checkmarkColor: tokens.accent,
+      backgroundColor: tokens.panelFill,
+      side: BorderSide(
+        color: selected ? tokens.accent : tokens.borderSubtle,
+      ),
     );
   }
 }

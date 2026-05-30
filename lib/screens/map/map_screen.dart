@@ -24,6 +24,7 @@ import 'package:luxora_ai/services/trip_profile_store.dart';
 import 'package:luxora_ai/services/weather_service.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/widgets/attraction_detail_sheet.dart';
+import 'package:luxora_ai/widgets/day_flow_swap_sheet.dart';
 import 'package:luxora_ai/widgets/destination_search_sheet.dart';
 import 'package:luxora_ai/widgets/discover_radius_selector.dart';
 import 'package:luxora_ai/widgets/discover_scope_banner.dart';
@@ -353,6 +354,24 @@ class _MapRoutePlannerState extends State<_MapRoutePlanner> {
     );
   }
 
+  void _swapStop(int blockIndex) {
+    showDayFlowSwapSheet(
+      context,
+      flow: _flow,
+      blockIndex: blockIndex,
+      pool: widget.pool,
+      profile: widget.profile,
+      savedIds: widget.savedIds,
+      onApply: (flow, message) {
+        setState(() {
+          _flow = flow;
+          _rerouteMessage = message;
+        });
+      },
+      onViewPlace: widget.onPlaceTap,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -411,6 +430,7 @@ class _MapRoutePlannerState extends State<_MapRoutePlanner> {
           rainLikely: _rainLikely,
           rerouteMessage: _rerouteMessage,
           onReroute: _flow.isEmpty ? null : _reroute,
+          onChangeStop: _flow.isEmpty ? null : _swapStop,
           onTapStop: widget.onPlaceTap,
         ),
       ],
@@ -428,12 +448,14 @@ class _PlanMyDay extends StatelessWidget {
     this.rainLikely = false,
     this.rerouteMessage,
     this.onReroute,
+    this.onChangeStop,
   });
 
   final DayFlow flow;
   final bool rainLikely;
   final String? rerouteMessage;
   final VoidCallback? onReroute;
+  final void Function(int blockIndex)? onChangeStop;
   final void Function(LuxPlace place) onTapStop;
 
   @override
@@ -619,7 +641,10 @@ class _PlanMyDay extends StatelessWidget {
                         flow.blocks[index - 1].place.longitude,
                       ),
                 isLast: index == flow.blocks.length - 1,
-                onTap: () => onTapStop(block.place),
+                onTap: onChangeStop != null
+                    ? () => onChangeStop!(index)
+                    : () => onTapStop(block.place),
+                onViewPlace: () => onTapStop(block.place),
               ),
           ],
         ],
@@ -634,12 +659,14 @@ class _DayFlowRow extends StatelessWidget {
     required this.legOrigin,
     required this.isLast,
     required this.onTap,
+    required this.onViewPlace,
   });
 
   final DayBlock block;
   final LatLng legOrigin;
   final bool isLast;
   final VoidCallback onTap;
+  final VoidCallback onViewPlace;
 
   @override
   Widget build(BuildContext context) {
@@ -743,13 +770,34 @@ class _DayFlowRow extends StatelessWidget {
                 ),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 4),
-              child: Icon(
-                Icons.chevron_right_rounded,
-                size: 18,
-                color: LuxColors.stone500,
-              ),
+            const SizedBox(width: 8),
+            Column(
+              children: [
+                IconButton(
+                  tooltip: l.dayFlowSwapTapToChange,
+                  onPressed: onTap,
+                  icon: Icon(
+                    Icons.edit_note_rounded,
+                    size: 20,
+                    color: LuxColors.gold.withValues(alpha: 0.85),
+                  ),
+                  visualDensity: VisualDensity.compact,
+                  padding: EdgeInsets.zero,
+                  constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
+                ),
+                IconButton(
+                  tooltip: l.dayFlowSwapViewPlace,
+                  onPressed: onViewPlace,
+                  icon: Icon(
+                    Icons.open_in_new_rounded,
+                    size: 18,
+                    color: LuxColors.stone500.withValues(alpha: 0.9),
+                  ),
+                  visualDensity: VisualDensity.compact,
+                  padding: EdgeInsets.zero,
+                  constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
+                ),
+              ],
             ),
           ],
         ),

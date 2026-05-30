@@ -9,6 +9,7 @@ class LuxoraBrandedShareCard extends StatelessWidget {
     super.key,
     required this.title,
     required this.subtitle,
+    this.header,
     this.lines = const [],
     this.chips = const [],
     this.sections = const [],
@@ -17,6 +18,7 @@ class LuxoraBrandedShareCard extends StatelessWidget {
 
   final String title;
   final String subtitle;
+  final Widget? header;
   final List<String> lines;
   final List<String> chips;
   final List<LuxoraShareSection> sections;
@@ -42,6 +44,10 @@ class LuxoraBrandedShareCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
+          if (header != null) ...[
+            header!,
+            const SizedBox(height: 14),
+          ],
           Text(
             'LUXORA',
             style: TextStyle(

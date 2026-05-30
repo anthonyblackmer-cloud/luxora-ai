@@ -744,6 +744,45 @@ class AppLocalizationsKo extends AppLocalizations {
   String get mapRerouteRainHint => '비가 올 가능성이 높습니다. 실내 백업을 위해 경로 재설정을 탭하세요.';
 
   @override
+  String get dayFlowSwapTitle => '이 정거장 변경';
+
+  @override
+  String dayFlowSwapSubtitle(String current) {
+    return 'Tell Luxora what you\'d rather do instead of $current.';
+  }
+
+  @override
+  String get dayFlowSwapTemplate => '저는 이런 느낌을 생각했어요…';
+
+  @override
+  String get dayFlowSwapHint =>
+      'e.g. a quiet park this morning, or seafood for dinner';
+
+  @override
+  String get dayFlowSwapApply => '오늘 일정 업데이트';
+
+  @override
+  String get dayFlowSwapViewPlace => 'View current stop';
+
+  @override
+  String dayFlowSwapSuccess(String newStop, String phase) {
+    return 'Updated — $newStop is now your $phase stop.';
+  }
+
+  @override
+  String get dayFlowSwapNoMatch =>
+      'Couldn\'t find a match nearby — try being more specific.';
+
+  @override
+  String get dayFlowSwapTapToChange => 'Change this stop';
+
+  @override
+  String get dayFlowSwapHoldSpeak => '길게 눌러 말하기';
+
+  @override
+  String get dayFlowSwapListening => '듣는 중…';
+
+  @override
   String get rightNowButton => '지금 당장 무엇을 해야 할까요?';
 
   @override
@@ -972,6 +1011,12 @@ class AppLocalizationsKo extends AppLocalizations {
   String get conciergeVoiceRelease => '놓으면 전송';
 
   @override
+  String get conciergeVoiceSend => 'Luxora에 보내기';
+
+  @override
+  String get conciergeVoiceProcessing => 'Luxora에 보내는 중…';
+
+  @override
   String get conciergeVoiceNoSpeech => '잘 못 들었어요 — 누른 채로 말한 뒤 놓아 주세요.';
 
   @override
@@ -1008,7 +1053,31 @@ class AppLocalizationsKo extends AppLocalizations {
       '안녕하세요 — Luxora입니다. 이 여행을 어떻게 느끼고 싶은지 알려주세요.';
 
   @override
-  String get conciergeVoiceDeviceNote => '사용 가능한 음성은 기기의 언어 팩에 따라 다릅니다.';
+  String get conciergeVoiceDeviceNote =>
+      'Download more voices in iPhone Settings → Accessibility → Spoken Content → Voices. Return here and tap Refresh.';
+
+  @override
+  String get conciergeVoiceDeviceSection => 'Voices on this iPhone';
+
+  @override
+  String get conciergeVoiceDeviceSectionHint =>
+      'Includes voices you downloaded — tap one to use it for Luxora.';
+
+  @override
+  String get conciergeVoiceRefreshList => 'Refresh voice list';
+
+  @override
+  String get conciergeVoiceShowAllLanguages => 'Show all languages';
+
+  @override
+  String get conciergeVoiceOpenSettings => 'Open iPhone voice settings';
+
+  @override
+  String get conciergeVoiceNoDeviceVoices =>
+      'No voices found — download packs in Settings, then refresh.';
+
+  @override
+  String get conciergeVoicePresetSection => '빠른 선택';
 
   @override
   String get conciergeVoiceRegionRecommended => '추천';
@@ -1858,6 +1927,53 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get weatherRadarTapToExpand => '탭하여 전체 화면';
+
+  @override
+  String get weatherRadarNow => '지금';
+
+  @override
+  String weatherRadarMinutesAgo(int minutes) {
+    return '$minutes분 전';
+  }
+
+  @override
+  String weatherRadarMinutesAhead(int minutes) {
+    return '+$minutes분';
+  }
+
+  @override
+  String get weatherRadarStepBack => 'Earlier frame';
+
+  @override
+  String get weatherRadarStepForward => 'Later frame';
+
+  @override
+  String get weatherRadarJumpNow => 'Now';
+
+  @override
+  String get weatherRadarJump1h => '−1 hr';
+
+  @override
+  String get weatherRadarJump2h => '−2 hr';
+
+  @override
+  String get weatherRadarJump30m => '+30 min';
+
+  @override
+  String get weatherRadarSpeedSlow => 'Slow';
+
+  @override
+  String get weatherRadarSpeedNormal => 'Normal';
+
+  @override
+  String get weatherRadarSpeedFast => 'Fast';
+
+  @override
+  String get weatherRadarLoopNote =>
+      'Radar loop: past ~2 hours in 10‑minute steps, plus short-range nowcast when available — not a 4‑hour forecast.';
+
+  @override
+  String get shareMapPreviewCaption => '지도 미리보기 · Luxora에서 실시간 길 안내';
 
   @override
   String get weatherMapOverlays => '지도 오버레이';

@@ -21,6 +21,7 @@ import 'package:luxora_ai/widgets/miami/miami_concierge_cards.dart';
 import 'package:luxora_ai/widgets/lux_place_image.dart';
 import 'package:luxora_ai/widgets/travel_stop_intel_card.dart';
 import 'package:luxora_ai/util/destination_share_content.dart';
+import 'package:luxora_ai/util/share_precache_urls.dart';
 import 'package:luxora_ai/widgets/visual_share_icon_button.dart';
 import 'package:luxora_ai/widgets/lux_button.dart';
 import 'package:luxora_ai/widgets/settings/luxora_premium_sheet_shell.dart';
@@ -91,6 +92,11 @@ class _AttractionDetailSheet extends StatelessWidget {
                   subject: catalogText(context, detail.title),
                   fileName: 'luxora_destination.png',
                   shareWidth: 420,
+                  loadNetworkAssets: true,
+                  precacheNetworkUrls: sharePrecacheUrlsForPlace(
+                    latitude: place.latitude,
+                    longitude: place.longitude,
+                  ),
                   color: LuxColors.gold,
                   background: LuxColors.gold.withValues(alpha: 0.12),
                   cardBuilder: (ctx) => buildDestinationShareCard(

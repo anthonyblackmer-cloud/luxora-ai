@@ -10,6 +10,7 @@ import 'package:luxora_ai/services/crowd_prediction_service.dart';
 import 'package:luxora_ai/services/drive_friction_service.dart';
 import 'package:luxora_ai/services/parking_difficulty_service.dart';
 import 'package:luxora_ai/util/place_distance.dart';
+import 'package:luxora_ai/util/share_hero_media.dart';
 import 'package:luxora_ai/widgets/luxora_branded_share_card.dart';
 import 'package:luxora_ai/widgets/luxora_share_section.dart';
 
@@ -126,6 +127,7 @@ Widget buildDestinationShareCard(
   return LuxoraBrandedShareCard(
     title: catalogText(context, detail.title),
     subtitle: catalogText(context, place.location),
+    header: ShareHeroMedia(place: place),
     chips: detail.vibeMatch.map((tag) => catalogText(context, tag)).toList(),
     sections: destinationShareSections(
       context,

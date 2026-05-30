@@ -1438,6 +1438,72 @@ abstract class AppLocalizations {
   /// **'Rain likely — tap reroute for indoor backups.'**
   String get mapRerouteRainHint;
 
+  /// No description provided for @dayFlowSwapTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Change this stop'**
+  String get dayFlowSwapTitle;
+
+  /// No description provided for @dayFlowSwapSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Tell Luxora what you\'d rather do instead of {current}.'**
+  String dayFlowSwapSubtitle(String current);
+
+  /// No description provided for @dayFlowSwapTemplate.
+  ///
+  /// In en, this message translates to:
+  /// **'I was thinking something more like…'**
+  String get dayFlowSwapTemplate;
+
+  /// No description provided for @dayFlowSwapHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. a quiet park this morning, or seafood for dinner'**
+  String get dayFlowSwapHint;
+
+  /// No description provided for @dayFlowSwapApply.
+  ///
+  /// In en, this message translates to:
+  /// **'Update my day'**
+  String get dayFlowSwapApply;
+
+  /// No description provided for @dayFlowSwapViewPlace.
+  ///
+  /// In en, this message translates to:
+  /// **'View current stop'**
+  String get dayFlowSwapViewPlace;
+
+  /// No description provided for @dayFlowSwapSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Updated — {newStop} is now your {phase} stop.'**
+  String dayFlowSwapSuccess(String newStop, String phase);
+
+  /// No description provided for @dayFlowSwapNoMatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t find a match nearby — try being more specific.'**
+  String get dayFlowSwapNoMatch;
+
+  /// No description provided for @dayFlowSwapTapToChange.
+  ///
+  /// In en, this message translates to:
+  /// **'Change this stop'**
+  String get dayFlowSwapTapToChange;
+
+  /// No description provided for @dayFlowSwapHoldSpeak.
+  ///
+  /// In en, this message translates to:
+  /// **'Hold to speak'**
+  String get dayFlowSwapHoldSpeak;
+
+  /// No description provided for @dayFlowSwapListening.
+  ///
+  /// In en, this message translates to:
+  /// **'Listening…'**
+  String get dayFlowSwapListening;
+
   /// No description provided for @rightNowButton.
   ///
   /// In en, this message translates to:
@@ -1803,6 +1869,18 @@ abstract class AppLocalizations {
   /// **'Release to send'**
   String get conciergeVoiceRelease;
 
+  /// No description provided for @conciergeVoiceSend.
+  ///
+  /// In en, this message translates to:
+  /// **'Send to Luxora'**
+  String get conciergeVoiceSend;
+
+  /// No description provided for @conciergeVoiceProcessing.
+  ///
+  /// In en, this message translates to:
+  /// **'Sending to Luxora…'**
+  String get conciergeVoiceProcessing;
+
   /// No description provided for @conciergeVoiceNoSpeech.
   ///
   /// In en, this message translates to:
@@ -1872,8 +1950,50 @@ abstract class AppLocalizations {
   /// No description provided for @conciergeVoiceDeviceNote.
   ///
   /// In en, this message translates to:
-  /// **'Available voices depend on your iPhone or Android language packs.'**
+  /// **'Download more voices in iPhone Settings → Accessibility → Spoken Content → Voices. Return here and tap Refresh.'**
   String get conciergeVoiceDeviceNote;
+
+  /// No description provided for @conciergeVoiceDeviceSection.
+  ///
+  /// In en, this message translates to:
+  /// **'Voices on this iPhone'**
+  String get conciergeVoiceDeviceSection;
+
+  /// No description provided for @conciergeVoiceDeviceSectionHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Includes voices you downloaded — tap one to use it for Luxora.'**
+  String get conciergeVoiceDeviceSectionHint;
+
+  /// No description provided for @conciergeVoiceRefreshList.
+  ///
+  /// In en, this message translates to:
+  /// **'Refresh voice list'**
+  String get conciergeVoiceRefreshList;
+
+  /// No description provided for @conciergeVoiceShowAllLanguages.
+  ///
+  /// In en, this message translates to:
+  /// **'Show all languages'**
+  String get conciergeVoiceShowAllLanguages;
+
+  /// No description provided for @conciergeVoiceOpenSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Open iPhone voice settings'**
+  String get conciergeVoiceOpenSettings;
+
+  /// No description provided for @conciergeVoiceNoDeviceVoices.
+  ///
+  /// In en, this message translates to:
+  /// **'No voices found — download packs in Settings, then refresh.'**
+  String get conciergeVoiceNoDeviceVoices;
+
+  /// No description provided for @conciergeVoicePresetSection.
+  ///
+  /// In en, this message translates to:
+  /// **'Quick personas'**
+  String get conciergeVoicePresetSection;
 
   /// No description provided for @conciergeVoiceRegionRecommended.
   ///
@@ -3476,6 +3596,90 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Tap for full screen'**
   String get weatherRadarTapToExpand;
+
+  /// No description provided for @weatherRadarNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Now'**
+  String get weatherRadarNow;
+
+  /// No description provided for @weatherRadarMinutesAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'{minutes} min ago'**
+  String weatherRadarMinutesAgo(int minutes);
+
+  /// No description provided for @weatherRadarMinutesAhead.
+  ///
+  /// In en, this message translates to:
+  /// **'+{minutes} min'**
+  String weatherRadarMinutesAhead(int minutes);
+
+  /// No description provided for @weatherRadarStepBack.
+  ///
+  /// In en, this message translates to:
+  /// **'Earlier frame'**
+  String get weatherRadarStepBack;
+
+  /// No description provided for @weatherRadarStepForward.
+  ///
+  /// In en, this message translates to:
+  /// **'Later frame'**
+  String get weatherRadarStepForward;
+
+  /// No description provided for @weatherRadarJumpNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Now'**
+  String get weatherRadarJumpNow;
+
+  /// No description provided for @weatherRadarJump1h.
+  ///
+  /// In en, this message translates to:
+  /// **'−1 hr'**
+  String get weatherRadarJump1h;
+
+  /// No description provided for @weatherRadarJump2h.
+  ///
+  /// In en, this message translates to:
+  /// **'−2 hr'**
+  String get weatherRadarJump2h;
+
+  /// No description provided for @weatherRadarJump30m.
+  ///
+  /// In en, this message translates to:
+  /// **'+30 min'**
+  String get weatherRadarJump30m;
+
+  /// No description provided for @weatherRadarSpeedSlow.
+  ///
+  /// In en, this message translates to:
+  /// **'Slow'**
+  String get weatherRadarSpeedSlow;
+
+  /// No description provided for @weatherRadarSpeedNormal.
+  ///
+  /// In en, this message translates to:
+  /// **'Normal'**
+  String get weatherRadarSpeedNormal;
+
+  /// No description provided for @weatherRadarSpeedFast.
+  ///
+  /// In en, this message translates to:
+  /// **'Fast'**
+  String get weatherRadarSpeedFast;
+
+  /// No description provided for @weatherRadarLoopNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Radar loop: past ~2 hours in 10‑minute steps, plus short-range nowcast when available — not a 4‑hour forecast.'**
+  String get weatherRadarLoopNote;
+
+  /// No description provided for @shareMapPreviewCaption.
+  ///
+  /// In en, this message translates to:
+  /// **'Map preview · open in Luxora for live directions'**
+  String get shareMapPreviewCaption;
 
   /// No description provided for @weatherMapOverlays.
   ///

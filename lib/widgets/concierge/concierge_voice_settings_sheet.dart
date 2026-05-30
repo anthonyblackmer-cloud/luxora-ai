@@ -1,9 +1,12 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:luxora_ai/l10n/app_localizations.dart';
+import 'package:luxora_ai/models/concierge/concierge_device_voice.dart';
 import 'package:luxora_ai/models/concierge/concierge_voice_preset.dart';
 import 'package:luxora_ai/services/concierge_voice_service.dart';
 import 'package:luxora_ai/services/concierge_voice_settings_store.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
+import 'package:luxora_ai/util/device_voice_settings_launcher.dart';
 import 'package:luxora_ai/widgets/settings/luxora_premium_sheet_shell.dart';
 
 class ConciergeVoiceSettingsSheet extends StatefulWidget {
@@ -36,12 +39,32 @@ class ConciergeVoiceSettingsSheet extends StatefulWidget {
 
 class _ConciergeVoiceSettingsSheetState extends State<ConciergeVoiceSettingsSheet> {
   final _settings = ConciergeVoiceSettingsStore.instance;
+  final _voice = ConciergeVoiceService.instance;
   bool _previewing = false;
+  bool _refreshing = false;
+  bool _showAllLanguages = false;
+  List<ConciergeDeviceVoice> _deviceVoices = const [];
 
   @override
   void initState() {
     super.initState();
     _settings.load();
+    WidgetsBinding.instance.addPostFrameCallback((_) => _refreshVoices());
+  }
+
+  Future<void> _refreshVoices() async {
+    if (_refreshing) return;
+    setState(() => _refreshing = true);
+    try {
+      final locale = Localizations.localeOf(context).languageCode;
+      final voices = await _voice.refreshDeviceVoices(
+        languageCode: locale,
+        includeAllLanguages: _showAllLanguages,
+      );
+      if (mounted) setState(() => _deviceVoices = voices);
+    } finally {
+      if (mounted) setState(() => _refreshing = false);
+    }
   }
 
   Future<void> _preview(AppLocalizations l) async {
@@ -49,7 +72,7 @@ class _ConciergeVoiceSettingsSheetState extends State<ConciergeVoiceSettingsShee
     setState(() => _previewing = true);
     try {
       final locale = Localizations.localeOf(context).languageCode;
-      final ok = await ConciergeVoiceService.instance.previewVoice(
+      final ok = await _voice.previewVoice(
         sample: l.conciergeVoicePreviewSample,
         languageCode: locale,
       );
@@ -125,25 +148,118 @@ class _ConciergeVoiceSettingsSheetState extends State<ConciergeVoiceSettingsShee
                   onSelectionChanged: (values) =>
                       _settings.setSpeechRate(values.first),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 22),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        l.conciergeVoiceDeviceSection,
+                        style: TextStyle(
+                          fontSize: 11,
+                          fontWeight: FontWeight.w800,
+                          letterSpacing: 1.4,
+                          color: t.textMuted.withValues(alpha: 0.9),
+                        ),
+                      ),
+                    ),
+                    TextButton.icon(
+                      onPressed: _refreshing ? null : _refreshVoices,
+                      icon: _refreshing
+                          ? SizedBox(
+                              width: 14,
+                              height: 14,
+                              child: CircularProgressIndicator(
+                                strokeWidth: 2,
+                                color: t.accent,
+                              ),
+                            )
+                          : Icon(Icons.refresh_rounded, size: 16, color: t.accent),
+                      label: Text(l.conciergeVoiceRefreshList),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  l.conciergeVoiceDeviceSectionHint,
+                  style: TextStyle(
+                    fontSize: 12,
+                    height: 1.35,
+                    color: t.textMuted,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                SwitchListTile(
+                  contentPadding: EdgeInsets.zero,
+                  title: Text(
+                    l.conciergeVoiceShowAllLanguages,
+                    style: TextStyle(fontSize: 13, color: t.textPrimary),
+                  ),
+                  value: _showAllLanguages,
+                  onChanged: (v) {
+                    setState(() => _showAllLanguages = v);
+                    _refreshVoices();
+                  },
+                ),
+                if (_deviceVoices.isEmpty)
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    child: Text(
+                      l.conciergeVoiceNoDeviceVoices,
+                      style: TextStyle(
+                        fontSize: 12,
+                        height: 1.35,
+                        color: t.textMuted,
+                      ),
+                    ),
+                  )
+                else
+                  for (final voice in _deviceVoices)
+                    _VoicePresetTile(
+                      label: voice.displayLabel(qualityHint: voice.qualityHint),
+                      subtitle: voice.locale,
+                      selected: _settings.deviceVoiceKey == voice.storageKey,
+                      onTap: () => _settings.setDeviceVoice(voice.storageKey),
+                    ),
+                if (!kIsWeb &&
+                    (defaultTargetPlatform == TargetPlatform.iOS ||
+                        defaultTargetPlatform == TargetPlatform.android)) ...[
+                  const SizedBox(height: 4),
+                  TextButton.icon(
+                    onPressed: openDeviceVoiceSettings,
+                    icon: Icon(Icons.settings_outlined, size: 16, color: t.accent),
+                    label: Text(l.conciergeVoiceOpenSettings),
+                  ),
+                ],
+                const SizedBox(height: 16),
+                Text(
+                  l.conciergeVoicePresetSection,
+                  style: TextStyle(
+                    fontSize: 11,
+                    fontWeight: FontWeight.w800,
+                    letterSpacing: 1.4,
+                    color: t.textMuted.withValues(alpha: 0.9),
+                  ),
+                ),
+                const SizedBox(height: 8),
                 for (final entry in grouped.entries) ...[
                   Text(
                     entry.key,
                     style: TextStyle(
-                      fontSize: 11,
-                      fontWeight: FontWeight.w800,
-                      letterSpacing: 1.4,
-                      color: t.textMuted.withValues(alpha: 0.9),
+                      fontSize: 10,
+                      fontWeight: FontWeight.w700,
+                      letterSpacing: 1.2,
+                      color: t.textMuted.withValues(alpha: 0.75),
                     ),
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 6),
                   for (final preset in entry.value)
                     _VoicePresetTile(
                       label: preset.label(l),
-                      selected: _settings.presetId == preset.id,
+                      selected: !_settings.usesCustomDeviceVoice &&
+                          _settings.presetId == preset.id,
                       onTap: () => _settings.setPreset(preset.id),
                     ),
-                  const SizedBox(height: 12),
+                  const SizedBox(height: 10),
                 ],
                 OutlinedButton.icon(
                   onPressed: _previewing ? null : () => _preview(l),
@@ -190,9 +306,11 @@ class _VoicePresetTile extends StatelessWidget {
     required this.label,
     required this.selected,
     required this.onTap,
+    this.subtitle,
   });
 
   final String label;
+  final String? subtitle;
   final bool selected;
   final VoidCallback onTap;
 
@@ -223,12 +341,27 @@ class _VoicePresetTile extends StatelessWidget {
             child: Row(
               children: [
                 Expanded(
-                  child: Text(
-                    label,
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: selected ? t.textPrimary : t.textMuted,
-                    ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        label,
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          color: selected ? t.textPrimary : t.textMuted,
+                        ),
+                      ),
+                      if (subtitle != null) ...[
+                        const SizedBox(height: 2),
+                        Text(
+                          subtitle!,
+                          style: TextStyle(
+                            fontSize: 11,
+                            color: t.textMuted.withValues(alpha: 0.85),
+                          ),
+                        ),
+                      ],
+                    ],
                   ),
                 ),
                 if (selected)

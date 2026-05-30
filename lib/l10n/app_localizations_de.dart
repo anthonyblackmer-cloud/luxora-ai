@@ -760,6 +760,45 @@ class AppLocalizationsDe extends AppLocalizations {
       'Es regnet wahrscheinlich – tippen Sie auf „Umleitung“ für Backups in Innenräumen.';
 
   @override
+  String get dayFlowSwapTitle => 'Stopp ändern';
+
+  @override
+  String dayFlowSwapSubtitle(String current) {
+    return 'Sagen Sie Luxora, was Sie statt $current lieber machen würden.';
+  }
+
+  @override
+  String get dayFlowSwapTemplate => 'Ich dachte eher an etwas wie…';
+
+  @override
+  String get dayFlowSwapHint =>
+      'e.g. a quiet park this morning, or seafood for dinner';
+
+  @override
+  String get dayFlowSwapApply => 'Tag aktualisieren';
+
+  @override
+  String get dayFlowSwapViewPlace => 'Aktuellen Stopp ansehen';
+
+  @override
+  String dayFlowSwapSuccess(String newStop, String phase) {
+    return 'Updated — $newStop is now your $phase stop.';
+  }
+
+  @override
+  String get dayFlowSwapNoMatch =>
+      'Couldn\'t find a match nearby — try being more specific.';
+
+  @override
+  String get dayFlowSwapTapToChange => 'Change this stop';
+
+  @override
+  String get dayFlowSwapHoldSpeak => 'Gedrückt halten zum Sprechen';
+
+  @override
+  String get dayFlowSwapListening => 'Hört zu…';
+
+  @override
   String get rightNowButton => 'Was sollen wir jetzt tun?';
 
   @override
@@ -991,6 +1030,12 @@ class AppLocalizationsDe extends AppLocalizations {
   String get conciergeVoiceRelease => 'Loslassen zum Senden';
 
   @override
+  String get conciergeVoiceSend => 'An Luxora senden';
+
+  @override
+  String get conciergeVoiceProcessing => 'Wird an Luxora gesendet…';
+
+  @override
   String get conciergeVoiceNoSpeech =>
       'Das habe ich nicht verstanden — halten, sprechen, loslassen.';
 
@@ -1030,7 +1075,30 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get conciergeVoiceDeviceNote =>
-      'Verfügbare Stimmen hängen von den Sprachpaketen auf Ihrem Gerät ab.';
+      'Download more voices in iPhone Settings → Accessibility → Spoken Content → Voices. Return here and tap Refresh.';
+
+  @override
+  String get conciergeVoiceDeviceSection => 'Stimmen auf diesem iPhone';
+
+  @override
+  String get conciergeVoiceDeviceSectionHint =>
+      'Includes voices you downloaded — tap one to use it for Luxora.';
+
+  @override
+  String get conciergeVoiceRefreshList => 'Stimmenliste aktualisieren';
+
+  @override
+  String get conciergeVoiceShowAllLanguages => 'Show all languages';
+
+  @override
+  String get conciergeVoiceOpenSettings => 'Open iPhone voice settings';
+
+  @override
+  String get conciergeVoiceNoDeviceVoices =>
+      'No voices found — download packs in Settings, then refresh.';
+
+  @override
+  String get conciergeVoicePresetSection => 'Schnellauswahl';
 
   @override
   String get conciergeVoiceRegionRecommended => 'Empfohlen';
@@ -1921,6 +1989,54 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get weatherRadarTapToExpand => 'Tippen für Vollbild';
+
+  @override
+  String get weatherRadarNow => 'Jetzt';
+
+  @override
+  String weatherRadarMinutesAgo(int minutes) {
+    return 'vor $minutes Min.';
+  }
+
+  @override
+  String weatherRadarMinutesAhead(int minutes) {
+    return '+$minutes Min.';
+  }
+
+  @override
+  String get weatherRadarStepBack => 'Früher';
+
+  @override
+  String get weatherRadarStepForward => 'Später';
+
+  @override
+  String get weatherRadarJumpNow => 'Jetzt';
+
+  @override
+  String get weatherRadarJump1h => '−1 Std.';
+
+  @override
+  String get weatherRadarJump2h => '−2 Std.';
+
+  @override
+  String get weatherRadarJump30m => '+30 Min.';
+
+  @override
+  String get weatherRadarSpeedSlow => 'Langsam';
+
+  @override
+  String get weatherRadarSpeedNormal => 'Normal';
+
+  @override
+  String get weatherRadarSpeedFast => 'Schnell';
+
+  @override
+  String get weatherRadarLoopNote =>
+      'Radar loop: past ~2 hours in 10‑minute steps, plus short-range nowcast when available — not a 4‑hour forecast.';
+
+  @override
+  String get shareMapPreviewCaption =>
+      'Kartenvorschau · in Luxora für Live-Navigation öffnen';
 
   @override
   String get weatherMapOverlays => 'Kartenüberlagerungen';

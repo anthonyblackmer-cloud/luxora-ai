@@ -759,6 +759,45 @@ class AppLocalizationsHi extends AppLocalizations {
       'बारिश की संभावना - इनडोर बैकअप के लिए टैप का मार्ग बदलें।';
 
   @override
+  String get dayFlowSwapTitle => 'यह स्टॉप बदलें';
+
+  @override
+  String dayFlowSwapSubtitle(String current) {
+    return 'Tell Luxora what you\'d rather do instead of $current.';
+  }
+
+  @override
+  String get dayFlowSwapTemplate => 'मैं कुछ ऐसा सोच रहा था…';
+
+  @override
+  String get dayFlowSwapHint =>
+      'e.g. a quiet park this morning, or seafood for dinner';
+
+  @override
+  String get dayFlowSwapApply => 'मेरा दिन अपडेट करें';
+
+  @override
+  String get dayFlowSwapViewPlace => 'View current stop';
+
+  @override
+  String dayFlowSwapSuccess(String newStop, String phase) {
+    return 'Updated — $newStop is now your $phase stop.';
+  }
+
+  @override
+  String get dayFlowSwapNoMatch =>
+      'Couldn\'t find a match nearby — try being more specific.';
+
+  @override
+  String get dayFlowSwapTapToChange => 'Change this stop';
+
+  @override
+  String get dayFlowSwapHoldSpeak => 'बोलने के लिए दबाए रखें';
+
+  @override
+  String get dayFlowSwapListening => 'सुन रहा हूँ…';
+
+  @override
   String get rightNowButton => 'हमें अभी क्या करना चाहिए?';
 
   @override
@@ -989,6 +1028,12 @@ class AppLocalizationsHi extends AppLocalizations {
   String get conciergeVoiceRelease => 'भेजने के लिए छोड़ें';
 
   @override
+  String get conciergeVoiceSend => 'Luxora को भेजें';
+
+  @override
+  String get conciergeVoiceProcessing => 'Luxora को भेजा जा रहा है…';
+
+  @override
   String get conciergeVoiceNoSpeech =>
       'सुनाई नहीं दिया — दबाकर रखें, बोलें, फिर छोड़ें।';
 
@@ -1027,7 +1072,30 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get conciergeVoiceDeviceNote =>
-      'उपलब्ध आवाज़ें आपके डिवाइस के भाषा पैक पर निर्भर करती हैं।';
+      'Download more voices in iPhone Settings → Accessibility → Spoken Content → Voices. Return here and tap Refresh.';
+
+  @override
+  String get conciergeVoiceDeviceSection => 'Voices on this iPhone';
+
+  @override
+  String get conciergeVoiceDeviceSectionHint =>
+      'Includes voices you downloaded — tap one to use it for Luxora.';
+
+  @override
+  String get conciergeVoiceRefreshList => 'Refresh voice list';
+
+  @override
+  String get conciergeVoiceShowAllLanguages => 'Show all languages';
+
+  @override
+  String get conciergeVoiceOpenSettings => 'Open iPhone voice settings';
+
+  @override
+  String get conciergeVoiceNoDeviceVoices =>
+      'No voices found — download packs in Settings, then refresh.';
+
+  @override
+  String get conciergeVoicePresetSection => 'Quick personas';
 
   @override
   String get conciergeVoiceRegionRecommended => 'अनुशंसित';
@@ -1912,6 +1980,54 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get weatherRadarTapToExpand => 'पूर्ण स्क्रीन के लिए टैप करें';
+
+  @override
+  String get weatherRadarNow => 'अभी';
+
+  @override
+  String weatherRadarMinutesAgo(int minutes) {
+    return '$minutes मिनट पहले';
+  }
+
+  @override
+  String weatherRadarMinutesAhead(int minutes) {
+    return '+$minutes मिनट';
+  }
+
+  @override
+  String get weatherRadarStepBack => 'Earlier frame';
+
+  @override
+  String get weatherRadarStepForward => 'Later frame';
+
+  @override
+  String get weatherRadarJumpNow => 'Now';
+
+  @override
+  String get weatherRadarJump1h => '−1 hr';
+
+  @override
+  String get weatherRadarJump2h => '−2 hr';
+
+  @override
+  String get weatherRadarJump30m => '+30 min';
+
+  @override
+  String get weatherRadarSpeedSlow => 'Slow';
+
+  @override
+  String get weatherRadarSpeedNormal => 'Normal';
+
+  @override
+  String get weatherRadarSpeedFast => 'Fast';
+
+  @override
+  String get weatherRadarLoopNote =>
+      'Radar loop: past ~2 hours in 10‑minute steps, plus short-range nowcast when available — not a 4‑hour forecast.';
+
+  @override
+  String get shareMapPreviewCaption =>
+      'मानचित्र पूर्वावलोकन · लाइव दिशाओं के लिए Luxora में खोलें';
 
   @override
   String get weatherMapOverlays => 'मानचित्र ओवरले';

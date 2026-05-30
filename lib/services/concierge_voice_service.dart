@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:luxora_ai/models/concierge/concierge_device_voice.dart';
 import 'package:luxora_ai/models/concierge/concierge_voice_preset.dart';
 import 'package:luxora_ai/services/concierge_voice_settings_store.dart';
 import 'package:speech_to_text/speech_to_text.dart';
@@ -14,6 +15,12 @@ class _DeviceVoice {
   final String name;
   final String locale;
   final String? identifier;
+
+  ConciergeDeviceVoice toPublic() => ConciergeDeviceVoice(
+        name: name,
+        locale: locale,
+        identifier: identifier,
+      );
 }
 
 /// Picks the best transcript from partial/final STT callbacks and UI fallback.
@@ -49,8 +56,42 @@ class ConciergeVoiceService {
   String _lastFinal = '';
   List<_DeviceVoice> _deviceVoices = const [];
 
+  VoidCallback? _onSessionEnded;
+
   bool get isListening => _listening;
   bool get isAvailable => _sttAvailable && !kIsWeb;
+
+  /// Reloads voices from the OS — call when opening voice settings or after
+  /// downloading new iPhone voice packs.
+  Future<List<ConciergeDeviceVoice>> refreshDeviceVoices({
+    String? languageCode,
+    bool includeAllLanguages = false,
+  }) async {
+    if (kIsWeb) return const [];
+    await initialize();
+    _deviceVoices = await _loadDeviceVoices();
+    return listDeviceVoices(
+      languageCode: languageCode,
+      includeAllLanguages: includeAllLanguages,
+    );
+  }
+
+  List<ConciergeDeviceVoice> listDeviceVoices({
+    String? languageCode,
+    bool includeAllLanguages = false,
+  }) {
+    final voices = _deviceVoices.map((v) => v.toPublic()).toList()
+      ..sort((a, b) {
+        final locale = a.locale.compareTo(b.locale);
+        if (locale != 0) return locale;
+        return a.name.compareTo(b.name);
+      });
+
+    if (includeAllLanguages || languageCode == null) return voices;
+
+    final lang = languageCode.toLowerCase().split('-').first;
+    return voices.where((v) => v.matchesLanguage(lang)).toList();
+  }
 
   Future<void> initialize() async {
     if (_initialized) return;
@@ -86,6 +127,10 @@ class ConciergeVoiceService {
         if (kDebugMode) {
           debugPrint('ConciergeVoice STT status: $status');
         }
+        if (status == 'done' || status == 'notListening') {
+          _listening = false;
+          _onSessionEnded?.call();
+        }
       },
     );
     _initialized = true;
@@ -119,12 +164,14 @@ class ConciergeVoiceService {
   Future<bool> startListening({
     required String languageCode,
     required void Function(String text) onPartial,
+    VoidCallback? onSessionEnded,
   }) async {
     if (kIsWeb) return false;
     await initialize();
     if (!_sttAvailable) return false;
 
     await stopSpeaking();
+    _onSessionEnded = onSessionEnded;
     final locale = await _resolveSttLocale(languageCode);
     _resetTranscript();
     _listening = true;
@@ -163,15 +210,25 @@ class ConciergeVoiceService {
     final backup = fallback.trim();
 
     if (_stt.isListening) {
-      await _stt.stop();
-    } else if (_listening && _lastFinal.isEmpty && _lastHeard.isEmpty && backup.isEmpty) {
-      await _stt.cancel();
+      try {
+        await _stt.stop().timeout(const Duration(seconds: 2));
+      } catch (_) {
+        try {
+          await _stt.cancel();
+        } catch (_) {}
+      }
+    } else if (_listening &&
+        _lastFinal.isEmpty &&
+        _lastHeard.isEmpty &&
+        backup.isEmpty) {
+      try {
+        await _stt.cancel();
+      } catch (_) {}
     }
 
-    // iOS often delivers the final transcript shortly after stop().
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < 8; i++) {
       if (_lastFinal.trim().isNotEmpty) break;
-      await Future<void>.delayed(const Duration(milliseconds: 120));
+      await Future<void>.delayed(const Duration(milliseconds: 100));
     }
 
     _listening = false;
@@ -182,15 +239,19 @@ class ConciergeVoiceService {
       fallback: backup,
     );
     _resetTranscript();
+    _onSessionEnded = null;
     return words.isEmpty ? null : words;
   }
 
   Future<void> cancelListening() async {
     if (_stt.isListening || _listening) {
-      await _stt.cancel();
+      try {
+        await _stt.cancel();
+      } catch (_) {}
     }
     _listening = false;
     _resetTranscript();
+    _onSessionEnded = null;
   }
 
   void dispose() {
@@ -206,31 +267,64 @@ class ConciergeVoiceService {
 
   Future<void> _applyVoice({required String languageCode}) async {
     await _settings.load();
+    await _tts.setSpeechRate(_settings.speechRate);
+
+    if (_deviceVoices.isEmpty) {
+      _deviceVoices = await _loadDeviceVoices();
+    }
+
+    final customKey = _settings.deviceVoiceKey;
+    if (customKey != null && customKey.isNotEmpty) {
+      final custom = _voiceForStorageKey(customKey);
+      if (custom != null && await _setDeviceVoice(custom)) return;
+    }
+
     final preset = _settings.preset;
     final locale = preset.matchesAppLanguage
         ? ConciergeVoicePresets.localeForAppLanguage(languageCode)
         : preset.ttsLocale;
 
-    await _tts.setSpeechRate(_settings.speechRate);
-
     final picked = _pickDeviceVoice(preset, locale);
-    if (picked != null) {
-      try {
-        final byName = await _tts.setVoice({
-          'name': picked.name,
-          'locale': picked.locale,
-        });
-        if (byName == 1) return;
-        if (picked.identifier != null && picked.identifier!.isNotEmpty) {
-          final byId = await _tts.setVoice({'identifier': picked.identifier!});
-          if (byId == 1) return;
-        }
-      } catch (_) {
-        // Fall through to language-only setup.
-      }
-    }
+    if (picked != null && await _setDeviceVoiceInternal(picked)) return;
     await _tts.setLanguage(locale);
   }
+
+  ConciergeDeviceVoice? _voiceForStorageKey(String key) {
+    for (final voice in _deviceVoices) {
+      if (voice.toPublic().storageKey == key) {
+        return voice.toPublic();
+      }
+    }
+    return null;
+  }
+
+  Future<bool> _setDeviceVoice(ConciergeDeviceVoice voice) async {
+    try {
+      if (defaultTargetPlatform == TargetPlatform.iOS &&
+          voice.identifier != null &&
+          voice.identifier!.isNotEmpty) {
+        final byId = await _tts.setVoice({'identifier': voice.identifier!});
+        if (byId == 1) return true;
+      }
+
+      final byName = await _tts.setVoice({
+        'name': voice.name,
+        'locale': voice.locale,
+      });
+      if (byName == 1) return true;
+
+      if (voice.identifier != null && voice.identifier!.isNotEmpty) {
+        final byId = await _tts.setVoice({'identifier': voice.identifier!});
+        if (byId == 1) return true;
+      }
+    } catch (_) {
+      return false;
+    }
+    return false;
+  }
+
+  Future<bool> _setDeviceVoiceInternal(_DeviceVoice voice) =>
+      _setDeviceVoice(voice.toPublic());
 
   _DeviceVoice? _pickDeviceVoice(ConciergeVoicePreset preset, String locale) {
     if (_deviceVoices.isEmpty) return null;
@@ -253,6 +347,19 @@ class ConciergeVoiceService {
 
     final pool = _deviceVoices.where(localeMatches).toList();
     if (pool.isEmpty) return null;
+
+    pool.sort((a, b) {
+      int rank(String name) {
+        final n = name.toLowerCase();
+        if (n.contains('premium') || n.contains('enhanced')) return 0;
+        if (n.contains('compact')) return 2;
+        return 1;
+      }
+
+      final byQuality = rank(a.name).compareTo(rank(b.name));
+      if (byQuality != 0) return byQuality;
+      return a.name.compareTo(b.name);
+    });
 
     for (final hint in preset.nameHints) {
       final h = hint.toLowerCase();
@@ -281,6 +388,10 @@ class ConciergeVoiceService {
       'monica',
       'amelie',
       'anna',
+      'zoe',
+      'karen',
+      'moira',
+      'tessa',
     ];
     const maleHints = [
       'male',
@@ -290,6 +401,9 @@ class ConciergeVoiceService {
       'yuri',
       'jorge',
       'thomas',
+      'evan',
+      'nathan',
+      'gordon',
     ];
     final hints =
         gender == ConciergeVoiceGender.female ? femaleHints : maleHints;

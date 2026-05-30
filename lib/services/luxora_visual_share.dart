@@ -14,6 +14,8 @@ abstract final class LuxoraVisualShare {
     required String subject,
     String fileName = 'luxora_share.png',
     double width = 400,
+    bool loadNetworkAssets = false,
+    List<String> precacheNetworkUrls = const [],
   }) async {
     final key = GlobalKey();
     final overlay = OverlayEntry(
@@ -31,8 +33,16 @@ abstract final class LuxoraVisualShare {
     final overlayState = Overlay.of(context, rootOverlay: true);
     overlayState.insert(overlay);
     try {
+      for (final url in precacheNetworkUrls) {
+        if (url.isEmpty) continue;
+        try {
+          await precacheImage(NetworkImage(url), context);
+        } catch (_) {}
+      }
       await WidgetsBinding.instance.endOfFrame;
-      await Future<void>.delayed(const Duration(milliseconds: 60));
+      await Future<void>.delayed(
+        Duration(milliseconds: loadNetworkAssets ? 1400 : 60),
+      );
 
       final boundary =
           key.currentContext?.findRenderObject() as RenderRepaintBoundary?;
