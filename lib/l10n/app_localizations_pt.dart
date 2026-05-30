@@ -1232,6 +1232,16 @@ class AppLocalizationsPt extends AppLocalizations {
   String get ticketBrowseAgendaDeals => 'Ver ofertas para a sua agenda →';
 
   @override
+  String get conciergeFreshThread =>
+      'A sua agenda está no Mapa e na Timeline. Arquivei este chat e comecei outro — ajuste o dia, encontre ofertas ou pergunte algo novo.';
+
+  @override
+  String get conciergeThreadArchivedSnack => 'Chat arquivado — nova conversa';
+
+  @override
+  String get conciergeNewConversationTooltip => 'Nova conversação';
+
+  @override
   String get itinerarySameAsMapAgenda =>
       'Mesmo plano da agenda de hoje no Mapa — partilhe o dia aqui ou a partir do Mapa.';
 

@@ -371,6 +371,10 @@ authorization_url_path = "/oauth/consent"
 # Allow dynamic client registration
 allow_dynamic_registration = false
 
+# Luxora uses publishable keys (sb_publishable_*) — not JWTs. Gateway auth is via `apikey` header.
+[functions.bright-processor]
+verify_jwt = false
+
 [edge_runtime]
 enabled = true
 # Supported request policies: `oneshot`, `per_worker`.

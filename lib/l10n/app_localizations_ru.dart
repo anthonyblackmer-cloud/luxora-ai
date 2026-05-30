@@ -1234,6 +1234,16 @@ class AppLocalizationsRu extends AppLocalizations {
   String get ticketBrowseAgendaDeals => 'Смотреть предложения для повестки →';
 
   @override
+  String get conciergeFreshThread =>
+      'Ваша повестка на Карте и в Timeline. Я архивировала этот чат и начала новый — измените день, найдите предложения или спросите что-то новое.';
+
+  @override
+  String get conciergeThreadArchivedSnack => 'Чат архивирован — новый диалог';
+
+  @override
+  String get conciergeNewConversationTooltip => 'Новый разговор';
+
+  @override
   String get itinerarySameAsMapAgenda =>
       'Тот же план, что и повестка дня на Карте — поделитесь днём здесь или с Карты.';
 

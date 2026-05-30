@@ -1227,6 +1227,16 @@ class AppLocalizationsTr extends AppLocalizations {
   String get ticketBrowseAgendaDeals => 'Gündeminiz için fırsatları gör →';
 
   @override
+  String get conciergeFreshThread =>
+      'Gündeminiz Harita ve Timeline\'da. Bu sohbeti arşivledim ve yenisini başlattım — günü ayarlayın, fırsat bulun veya yeni bir şey sorun.';
+
+  @override
+  String get conciergeThreadArchivedSnack => 'Sohbet arşivlendi — yeni konuşma';
+
+  @override
+  String get conciergeNewConversationTooltip => 'Yeni sohbet';
+
+  @override
   String get itinerarySameAsMapAgenda =>
       'Harita sekmesindeki bugünün gündemiyle aynı plan — günü buradan veya Harita\'dan paylaşın.';
 

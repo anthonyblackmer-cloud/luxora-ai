@@ -6,8 +6,10 @@ import 'package:luxora_ai/models/trip_plan.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
 import 'package:luxora_ai/services/active_day_flow_store.dart';
 import 'package:luxora_ai/services/active_trip_plan_store.dart';
+import 'package:luxora_ai/services/concierge_theme_park_planner.dart';
 import 'package:luxora_ai/services/concierge_ticket_sync.dart';
 import 'package:luxora_ai/services/concierge_trip_save_sync.dart';
+import 'package:luxora_ai/services/city_pack_registry.dart';
 import 'package:luxora_ai/services/crowd_prediction_service.dart';
 import 'package:luxora_ai/services/day_flow_planner.dart';
 import 'package:luxora_ai/services/discover_radius_controller.dart';
@@ -45,9 +47,12 @@ abstract final class ConciergeItinerarySync {
 
     final base = profile ?? TripProfileStore.instance.profile.value ?? const TripProfile();
     final mergedFeel = _mergeTripFeel(base.tripFeel, trimmed);
-    final enriched = TripOccasionInterpreter.apply(
-      TripFeelInterpreter.enrichFromText(
-        TripFeelInterpreter.enrich(base.copyWith(tripFeel: mergedFeel)),
+    var enriched = TripOccasionInterpreter.apply(
+      ConciergeThemeParkPlanner.enrichProfile(
+        TripFeelInterpreter.enrichFromText(
+          TripFeelInterpreter.enrich(base.copyWith(tripFeel: mergedFeel)),
+          trimmed,
+        ),
         trimmed,
       ),
     );
@@ -56,30 +61,64 @@ abstract final class ConciergeItinerarySync {
 
     final repo = PlacesRepository.instance;
     final radius = DiscoverRadiusController.instance.radius;
-    final pool = repo.placesWithinRadius(
+    var pool = repo.placesWithinRadius(
       radius == DiscoverRadius.allFlorida ? DiscoverRadius.miles100 : radius,
     );
+    final parkIntent = ConciergeThemeParkPlanner.parseIntent(trimmed);
+    if (parkIntent.isExcursion) {
+      pool = ConciergeThemeParkPlanner.ensureThemeParkPlacesInPool(pool, repo);
+    }
     final homeBaseId = HomeBaseStore.instance.placeId.value;
     final homeBase = homeBaseId == null ? null : repo.byId(homeBaseId);
     final savedIds = SavedPlacesStorage.instance.savedIds.value;
 
-    final flow = DayFlowPlanner.plan(
-      profile: enriched,
-      pool: pool,
-      homeBase: homeBase,
-      savedIds: savedIds,
-    );
-    if (flow.isEmpty) return null;
+    final cityId = _resolveCityId(enriched);
 
-    final cityId = enriched.cityId.isNotEmpty ? enriched.cityId : 'orlando';
-    final offer = PaywallCatalog.isSupported(cityId)
-        ? PaywallCatalog.offerFor(cityId)
-        : PaywallCatalog.offerFor('orlando');
-    final plan = _planFromFlow(
-      flow: flow,
-      cityId: cityId,
-      destination: offer.cityName,
-    );
+    DayFlow flow;
+    TripPlan plan;
+
+    if (parkIntent.isExcursion && parkIntent.dayCount >= 1) {
+      final routes = ConciergeThemeParkPlanner.pickRoutes(
+        dayCount: parkIntent.dayCount,
+        disney: parkIntent.disney,
+        universal: parkIntent.universal,
+      );
+      final mappedFlow = ConciergeThemeParkPlanner.dayFlowFromRoute(
+        routes.first,
+        repo,
+        homeBase: homeBase,
+        profile: enriched,
+      );
+      if (mappedFlow == null || mappedFlow.isEmpty) return null;
+
+      flow = mappedFlow;
+      final offer = PaywallCatalog.isSupported(cityId)
+          ? PaywallCatalog.offerFor(cityId)
+          : PaywallCatalog.offerFor('orlando');
+      plan = ConciergeThemeParkPlanner.planFromRoutes(
+        routes: routes,
+        cityId: cityId,
+        destination: offer.cityName,
+        repo: repo,
+      );
+    } else {
+      flow = DayFlowPlanner.plan(
+        profile: enriched,
+        pool: pool,
+        homeBase: homeBase,
+        savedIds: savedIds,
+      );
+      if (flow.isEmpty) return null;
+
+      final offer = PaywallCatalog.isSupported(cityId)
+          ? PaywallCatalog.offerFor(cityId)
+          : PaywallCatalog.offerFor('orlando');
+      plan = _planFromFlow(
+        flow: flow,
+        cityId: cityId,
+        destination: offer.cityName,
+      );
+    }
 
     final deals = ConciergeTicketSync.dealsFor(
       userMessage: trimmed,
@@ -94,6 +133,14 @@ abstract final class ConciergeItinerarySync {
 
     for (final block in flow.blocks) {
       await SavedPlacesStorage.instance.save(block.place.id);
+    }
+    for (final day in planWithDeals.days) {
+      for (final item in day.items) {
+        final placeId = item.placeId;
+        if (placeId != null) {
+          await SavedPlacesStorage.instance.save(placeId);
+        }
+      }
     }
 
     return ConciergeItinerarySyncResult(
@@ -111,6 +158,12 @@ abstract final class ConciergeItinerarySync {
       return prior;
     }
     return '$prior · ${message.trim()}';
+  }
+
+  static String _resolveCityId(TripProfile profile) {
+    final active = CityPackRegistry.instance.active.cityId;
+    if (active.isNotEmpty) return active;
+    return profile.cityId.isNotEmpty ? profile.cityId : 'orlando';
   }
 
   static TripPlan _planFromFlow({
@@ -183,7 +236,10 @@ abstract final class ConciergeItinerarySync {
     };
   }
 
-  static String timelineSnapshot(DayFlow flow) {
+  static String timelineSnapshot(DayFlow flow, {TripPlan? plan}) {
+    if (plan != null && plan.days.length > 1) {
+      return plan.days.map((d) => d.label).join(' · ');
+    }
     if (flow.isEmpty) return '';
     return flow.blocks.map((b) => b.place.title).join(' → ');
   }
@@ -196,7 +252,7 @@ abstract final class ConciergeItinerarySync {
     await ConciergeTripSaveSync.upsertFromItinerary(
       profile: profile,
       plan: plan,
-      timelineSnapshot: timelineSnapshot(flow),
+      timelineSnapshot: timelineSnapshot(flow, plan: plan),
       nextExperience: flow.blocks.isEmpty ? null : flow.blocks.first.place.title,
     );
   }

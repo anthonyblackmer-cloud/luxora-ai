@@ -1239,6 +1239,17 @@ class AppLocalizationsFr extends AppLocalizations {
       'Parcourir les offres pour ton agenda →';
 
   @override
+  String get conciergeFreshThread =>
+      'Ton agenda est sur Carte et Timeline. J\'ai archivé ce chat et en ai ouvert un nouveau — ajuste la journée, trouve des offres ou demande autre chose.';
+
+  @override
+  String get conciergeThreadArchivedSnack =>
+      'Chat archivé — nouvelle conversation';
+
+  @override
+  String get conciergeNewConversationTooltip => 'Nouvelle conversation';
+
+  @override
   String get itinerarySameAsMapAgenda =>
       'Même plan que l\'agenda du jour sur Carte — partage la journée ici ou depuis Carte.';
 

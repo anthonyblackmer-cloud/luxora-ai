@@ -1205,6 +1205,16 @@ class AppLocalizationsJa extends AppLocalizations {
   String get ticketBrowseAgendaDeals => '予定向け特典を見る →';
 
   @override
+  String get conciergeFreshThread =>
+      '予定はマップとタイムラインにあります。このチャットをアーカイブして新しく始めました — 日を調整したり、特典を探したり、新しいことを聞いてください。';
+
+  @override
+  String get conciergeThreadArchivedSnack => 'チャットをアーカイブ — 新しいスレッド';
+
+  @override
+  String get conciergeNewConversationTooltip => '新しい会話';
+
+  @override
   String get itinerarySameAsMapAgenda =>
       'マップの今日の予定と同じプラン — ここまたはマップから一日分を共有できます。';
 

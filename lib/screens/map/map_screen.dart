@@ -179,7 +179,7 @@ class MapScreen extends StatelessWidget {
           if (homeBase == null) const HotelIntelMapBanner(),
           _MapRoutePlanner(
             key: ValueKey(
-              '$activeCityId-${profile?.hashCode}-${savedIds.join(',')}-$homeBaseId-${radius.name}',
+              '$activeCityId-${ActiveDayFlowStore.instance.revision}-${dayFlow.orderedPlaceIds.join('-')}-${profile?.hashCode}-${savedIds.join(',')}-$homeBaseId-${radius.name}',
             ),
             initialFlow: dayFlow,
             fallbackRouteIds: fallbackRouteIds,
@@ -293,7 +293,7 @@ class _MapRoutePlannerState extends State<_MapRoutePlanner> {
   @override
   void didUpdateWidget(_MapRoutePlanner oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.initialFlow != widget.initialFlow) {
+    if (!_sameFlow(oldWidget.initialFlow, widget.initialFlow)) {
       _flow = widget.initialFlow;
       _rerouteMessage = null;
     }
@@ -318,6 +318,9 @@ class _MapRoutePlannerState extends State<_MapRoutePlanner> {
       ? LatLng(widget.homeBase!.latitude, widget.homeBase!.longitude)
       : PlaceDistance.hubCenter;
 
+  static bool _sameFlow(DayFlow a, DayFlow b) =>
+      a.orderedPlaceIds.join(',') == b.orderedPlaceIds.join(',');
+
   List<String> get _routeIds => _flow.isEmpty
       ? widget.fallbackRouteIds
       : _flow.orderedPlaceIds;
@@ -332,9 +335,7 @@ class _MapRoutePlannerState extends State<_MapRoutePlanner> {
 
   Future<void> _persistFlow() async {
     if (_flow.isEmpty) return;
-    final cityId = widget.profile?.cityId.isNotEmpty ?? false
-        ? widget.profile!.cityId
-        : CityPackRegistry.instance.active.cityId;
+    final cityId = CityPackRegistry.instance.active.cityId;
     await ActiveDayFlowStore.instance.save(_flow, cityId: cityId);
   }
 

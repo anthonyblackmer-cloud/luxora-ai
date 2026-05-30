@@ -16,6 +16,10 @@ class ActiveDayFlowStore extends ChangeNotifier {
 
   final Map<String, Map<String, dynamic>> _snapshots = {};
   bool _loaded = false;
+  int _revision = 0;
+
+  /// Bumps whenever [save] replaces a city's flow — Map uses this to refresh.
+  int get revision => _revision;
 
   DayFlow? flowFor(String cityId) {
     final raw = _snapshots[cityId];
@@ -44,6 +48,7 @@ class ActiveDayFlowStore extends ChangeNotifier {
     if (flow.isEmpty) return;
     await load();
     _snapshots[cityId] = DayFlowCodec.encode(flow);
+    _revision++;
     notifyListeners();
     try {
       final prefs = await SharedPreferences.getInstance();

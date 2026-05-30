@@ -11,6 +11,7 @@ import 'package:luxora_ai/models/concierge/concierge_trip_context.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
 import 'package:luxora_ai/services/concierge_ai_service.dart';
 import 'package:luxora_ai/services/concierge_context_builder.dart';
+import 'package:luxora_ai/services/concierge_conversation_archive.dart';
 import 'package:luxora_ai/services/concierge_itinerary_sync.dart';
 import 'package:luxora_ai/services/concierge_session_memory.dart';
 import 'package:luxora_ai/services/concierge_ticket_sync.dart';
@@ -407,7 +408,7 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
           if (showDealsInChat && agendaDealsChat.isNotEmpty) {
             _messages.add((user: false, text: agendaDealsChat));
           }
-          WidgetsBinding.instance.addPostFrameCallback((_) {
+          WidgetsBinding.instance.addPostFrameCallback((_) async {
             if (!mounted) return;
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
@@ -431,6 +432,15 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
                 ),
               );
             }
+            await Future<void>.delayed(const Duration(milliseconds: 1200));
+            if (!mounted) return;
+            await _archiveAndStartFreshThread(
+              l,
+              summary: ConciergeItinerarySync.timelineSnapshot(
+                sync.flow,
+                plan: sync.plan,
+              ),
+            );
           });
         }
         if (saveResult != null) {
@@ -476,6 +486,35 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
       }
     }
     _scrollToEnd();
+  }
+
+  Future<void> _archiveAndStartFreshThread(
+    AppLocalizations l, {
+    String summary = '',
+    bool showSnackBar = true,
+  }) async {
+    if (_messages.isEmpty && _apiHistory.isEmpty) return;
+    await ConciergeConversationArchive.instance.archiveThread(
+      messages: List.from(_messages),
+      apiHistory: List.from(_apiHistory),
+      summary: summary,
+    );
+    if (!mounted) return;
+    setState(() {
+      _messages
+        ..clear()
+        ..add((user: false, text: l.conciergeFreshThread));
+      _apiHistory.clear();
+    });
+    _scrollToEnd();
+    if (showSnackBar && mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(l.conciergeThreadArchivedSnack),
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
+    }
   }
 
   void _scrollToEnd() {
@@ -721,6 +760,16 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
                   ),
                 ],
               ],
+            ),
+          ),
+          IconButton(
+            tooltip: l.conciergeNewConversationTooltip,
+            onPressed: _apiHistory.isEmpty
+                ? null
+                : () => unawaited(_archiveAndStartFreshThread(l)),
+            icon: Icon(
+              Icons.add_comment_outlined,
+              color: t.accent.withValues(alpha: 0.9),
             ),
           ),
         ],

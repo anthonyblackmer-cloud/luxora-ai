@@ -1226,6 +1226,16 @@ class AppLocalizationsHi extends AppLocalizations {
   String get ticketBrowseAgendaDeals => 'अपने एजेंडे के ऑफ़र देखें →';
 
   @override
+  String get conciergeFreshThread =>
+      'आपका एजेंडा मानचित्र और टाइमलाइन पर है। मैंने इस चैट को संग्रहित किया और नई शुरू की — दिन बदलें, ऑफ़र खोजें, या कुछ नया पूछें।';
+
+  @override
+  String get conciergeThreadArchivedSnack => 'चैट संग्रहित — नई बातचीत';
+
+  @override
+  String get conciergeNewConversationTooltip => 'नई बातचीत';
+
+  @override
   String get itinerarySameAsMapAgenda =>
       'मानचित्र टैब पर आज के एजेंडे जैसा ही प्लान — यहाँ या मानचित्र से पूरा दिन साझा करें।';
 

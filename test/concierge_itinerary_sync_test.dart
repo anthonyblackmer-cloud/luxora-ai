@@ -51,6 +51,33 @@ void main() {
     );
   });
 
+  test('applyAfterChat builds multi-day Disney and Universal excursion', () async {
+    const profile = TripProfile(cityId: 'orlando', destination: 'Orlando');
+
+    final result = await ConciergeItinerarySync.applyAfterChat(
+      userMessage:
+          'Create a four-day three-night excursion to Disney and Universal Studios',
+      profile: profile,
+    );
+
+    expect(result, isNotNull);
+    expect(result!.plan.days.length, 4);
+    expect(
+      result.plan.days.map((d) => d.label).join(' ').toLowerCase(),
+      anyOf(contains('magic kingdom'), contains('wizarding'), contains('epcot')),
+    );
+    expect(
+      result.flow.blocks.map((b) => b.place.id),
+      isNotEmpty,
+    );
+    expect(
+      result.flow.blocks.any((b) => b.place.id.contains('magic-kingdom')) ||
+          result.flow.blocks.any((b) => b.place.id.contains('universal')) ||
+          result.flow.blocks.any((b) => b.place.id.contains('islands')),
+      isTrue,
+    );
+  });
+
   test('DayFlowPlanner produces blocks for enriched romantic profile', () {
     final profile = TripFeelInterpreter.enrichFromText(
       const TripProfile(foodieInterest: 75, poolsideInterest: 60),

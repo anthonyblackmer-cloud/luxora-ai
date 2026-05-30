@@ -1185,6 +1185,16 @@ class AppLocalizationsZh extends AppLocalizations {
   String get ticketBrowseAgendaDeals => '浏览行程相关优惠 →';
 
   @override
+  String get conciergeFreshThread =>
+      '您的行程已在地图和时间线上。我已归档此对话并开始新对话 — 可调整行程、查找优惠或提出新问题。';
+
+  @override
+  String get conciergeThreadArchivedSnack => '对话已归档 — 新对话已开始';
+
+  @override
+  String get conciergeNewConversationTooltip => '新对话';
+
+  @override
   String get itinerarySameAsMapAgenda => '与地图标签上的今日行程相同 — 可在此或从地图分享全天行程。';
 
   @override

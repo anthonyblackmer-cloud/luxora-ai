@@ -1208,6 +1208,16 @@ class AppLocalizationsKo extends AppLocalizations {
   String get ticketBrowseAgendaDeals => '일정 맞춤 할인 보기 →';
 
   @override
+  String get conciergeFreshThread =>
+      '일정은 지도와 타임라인에 있습니다. 이 채팅을 보관하고 새로 시작했어요 — 하루를 조정하거나, 할인을 찾거나, 새 질문을 해 주세요.';
+
+  @override
+  String get conciergeThreadArchivedSnack => '채팅 보관됨 — 새 대화 시작';
+
+  @override
+  String get conciergeNewConversationTooltip => '새 대화';
+
+  @override
   String get itinerarySameAsMapAgenda =>
       '지도 탭의 오늘 일정과 같은 계획 — 여기 또는 지도에서 하루 일정을 공유하세요.';
 

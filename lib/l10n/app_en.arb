@@ -537,6 +537,9 @@
     }
   },
   "ticketBrowseAgendaDeals": "Browse deals for your agenda →",
+  "conciergeFreshThread": "Your agenda is on Map and Timeline. I've archived this chat and started fresh — tweak the day, find deals, or ask something new.",
+  "conciergeThreadArchivedSnack": "Chat archived — fresh thread started",
+  "conciergeNewConversationTooltip": "New conversation",
   "itinerarySameAsMapAgenda": "Same plan as Today's agenda on the Map tab — share the full day card here or from Map.",
   "conciergeTicketsFoundIntro": "I found authorized ticket deals for your trip — tap Book tickets on Timeline for direct links:",
   "conciergeTicketDealLine": "• {title}: {price} via {source} (save {savings})",

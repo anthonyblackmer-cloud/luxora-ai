@@ -2229,6 +2229,24 @@ abstract class AppLocalizations {
   /// **'Browse deals for your agenda →'**
   String get ticketBrowseAgendaDeals;
 
+  /// No description provided for @conciergeFreshThread.
+  ///
+  /// In en, this message translates to:
+  /// **'Your agenda is on Map and Timeline. I\'ve archived this chat and started fresh — tweak the day, find deals, or ask something new.'**
+  String get conciergeFreshThread;
+
+  /// No description provided for @conciergeThreadArchivedSnack.
+  ///
+  /// In en, this message translates to:
+  /// **'Chat archived — fresh thread started'**
+  String get conciergeThreadArchivedSnack;
+
+  /// No description provided for @conciergeNewConversationTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'New conversation'**
+  String get conciergeNewConversationTooltip;
+
   /// No description provided for @itinerarySameAsMapAgenda.
   ///
   /// In en, this message translates to:

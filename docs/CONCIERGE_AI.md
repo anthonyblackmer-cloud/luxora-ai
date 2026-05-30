@@ -28,9 +28,8 @@ supabase login
 supabase link --project-ref YOUR_PROJECT_REF
 supabase secrets set OPENAI_API_KEY=sk-...
 # Optional: supabase secrets set OPENAI_MODEL=gpt-4o
-supabase functions deploy concierge-chat
-# Or if your dashboard slug is bright-processor:
-# supabase functions deploy bright-processor --project-ref YOUR_PROJECT_REF
+npx supabase functions deploy bright-processor --project-ref YOUR_PROJECT_REF --no-verify-jwt
+# Publishable keys (sb_publishable_*) are not JWTs — verify_jwt must be off for the app.
 ```
 
 The function lives at `supabase/functions/concierge-chat/index.ts`.
