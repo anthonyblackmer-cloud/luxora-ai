@@ -118,7 +118,13 @@ class TicketDealsRepository extends ChangeNotifier {
         jsonDecode(raw) as Map<String, dynamic>,
       );
     } catch (e) {
-      debugPrint('TicketDealsRepository bundled $cityId: $e');
+      assert(() {
+        debugPrint(
+          'TicketDealsRepository: bundled $cityId unavailable ($e) — '
+          'using Dart catalog fallback. Stop and re-run flutter run after adding assets.',
+        );
+        return true;
+      }());
       return null;
     }
   }

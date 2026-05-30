@@ -78,6 +78,9 @@ class _FeedListState extends State<FeedList> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: ListenableBuilder(
+        listenable: CityPackRegistry.instance,
+        builder: (context, _) {
+          return ListenableBuilder(
         listenable: DiscoverRadiusController.instance,
         builder: (context, _) {
           final radius = DiscoverRadiusController.instance.radius;
@@ -351,7 +354,9 @@ class _FeedListState extends State<FeedList> {
             ),
           );
         },
-          );
+      );
+        },
+      );
         },
       ),
     );

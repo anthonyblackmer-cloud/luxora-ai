@@ -9,6 +9,7 @@ class SavedTripSummary {
     required this.experienceCount,
     required this.moodTags,
     required this.timelineStatus,
+    this.cityId = 'orlando',
     this.routeOptimized = false,
     this.weatherWindow,
     this.nextExperience,
@@ -24,6 +25,7 @@ class SavedTripSummary {
   final int experienceCount;
   final List<String> moodTags;
   final String timelineStatus;
+  final String cityId;
   final bool routeOptimized;
   final String? weatherWindow;
   final String? nextExperience;
@@ -45,6 +47,9 @@ class SavedTripSummary {
     return parts.isEmpty ? timelineStatus : parts.join(' · ');
   }
 
+  /// True when this trip belongs to the currently active city pack.
+  bool matchesActiveCity(String activeCityId) => cityId == activeCityId;
+
   /// Builds a fresh trip card from a completed onboarding [TripProfile].
   factory SavedTripSummary.fromProfile(
     TripProfile profile, {
@@ -62,6 +67,7 @@ class SavedTripSummary {
       experienceCount: 0,
       moodTags: profile.moods.map(_moodLabel).toList(),
       timelineStatus: 'Building itinerary',
+      cityId: profile.cityId,
       userCreated: true,
     );
   }
@@ -85,6 +91,7 @@ class SavedTripSummary {
         'experienceCount': experienceCount,
         'moodTags': moodTags,
         'timelineStatus': timelineStatus,
+        'cityId': cityId,
         'routeOptimized': routeOptimized,
         'weatherWindow': weatherWindow,
         'nextExperience': nextExperience,
@@ -104,6 +111,7 @@ class SavedTripSummary {
           .map((e) => e.toString())
           .toList(),
       timelineStatus: json['timelineStatus'] as String? ?? '',
+      cityId: json['cityId'] as String? ?? 'orlando',
       routeOptimized: json['routeOptimized'] as bool? ?? false,
       weatherWindow: json['weatherWindow'] as String?,
       nextExperience: json['nextExperience'] as String?,
@@ -123,6 +131,7 @@ const savedTripSummaries = [
     experienceCount: 8,
     moodTags: ['Romantic', 'Sunset-ready'],
     timelineStatus: 'Timeline ready',
+    cityId: 'orlando',
     routeOptimized: true,
     weatherWindow: 'Clear evenings Thu–Sat',
     nextExperience: 'Rooftop sunset dinner — Winter Park',
@@ -137,6 +146,7 @@ const savedTripSummaries = [
     experienceCount: 11,
     moodTags: ['Family bonding', 'Springs'],
     timelineStatus: 'Building itinerary',
+    cityId: 'orlando',
     routeOptimized: false,
     weatherWindow: 'Afternoon showers likely Tue',
     nextExperience: 'Crystal spring float — Apopka (early slot)',

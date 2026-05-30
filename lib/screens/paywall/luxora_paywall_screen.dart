@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/models/paywall/paywall_city_offer.dart';
-import 'package:luxora_ai/services/city_pack_registry.dart';
+import 'package:luxora_ai/services/city_pack_sync.dart';
 import 'package:luxora_ai/services/paywall_personalization.dart';
 import 'package:luxora_ai/services/paywall_service.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
@@ -51,7 +51,7 @@ class _LuxoraPaywallScreenState extends State<LuxoraPaywallScreen> {
 
   Future<void> _switchCity(String cityId) async {
     if (!PaywallService.needsUnlock(cityId)) {
-      await CityPackRegistry.instance.setActiveCity(cityId);
+      await CityPackSync.switchCity(cityId);
       if (mounted) context.pop(true);
       return;
     }

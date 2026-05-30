@@ -5,6 +5,7 @@ import 'package:luxora_ai/models/paywall/paywall_city_offer.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
 import 'package:luxora_ai/services/city_pack_entitlement_store.dart';
 import 'package:luxora_ai/services/city_pack_registry.dart';
+import 'package:luxora_ai/services/city_pack_sync.dart';
 import 'package:luxora_ai/services/paywall_personalization.dart';
 import 'package:luxora_ai/services/trip_profile_store.dart';
 
@@ -27,7 +28,10 @@ abstract final class PaywallService {
     String? cityId,
   }) async {
     final id = cityId ?? CityPackRegistry.instance.active.cityId;
-    if (!needsUnlock(id)) return true;
+    if (!needsUnlock(id)) {
+      await CityPackSync.switchCity(id);
+      return true;
+    }
 
     final result = await context.push<bool>('/paywall?city=$id');
     return result ?? false;
@@ -36,7 +40,7 @@ abstract final class PaywallService {
   /// Simulated purchase — wire StoreKit / Play Billing here later.
   static Future<void> completeUnlock(String cityId) async {
     await CityPackEntitlementStore.instance.unlockCity(cityId);
-    await CityPackRegistry.instance.setActiveCity(cityId);
+    await CityPackSync.switchCity(cityId);
   }
 
   /// Maps a catalog city id onto trip profile destination fields.

@@ -44,6 +44,11 @@ class MapScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: ListenableBuilder(
+        listenable: CityPackRegistry.instance,
+        builder: (context, _) {
+          final activeCityId = CityPackRegistry.instance.active.cityId;
+          final hub = CityPackRegistry.instance.hubCenter;
+          return ListenableBuilder(
         listenable: DiscoverRadiusController.instance,
         builder: (context, _) {
           final radius = DiscoverRadiusController.instance.radius;
@@ -137,7 +142,7 @@ class MapScreen extends StatelessWidget {
           if (homeBase == null) const HotelIntelMapBanner(),
           _MapRoutePlanner(
             key: ValueKey(
-              '${profile?.hashCode}-${savedIds.join(',')}-$homeBaseId-${radius.name}',
+              '$activeCityId-${profile?.hashCode}-${savedIds.join(',')}-$homeBaseId-${radius.name}',
             ),
             initialFlow: dayFlow,
             fallbackRouteIds: fallbackRouteIds,
@@ -148,13 +153,12 @@ class MapScreen extends StatelessWidget {
             savedIds: savedIds,
             gemIds: gemIds,
             radiusMiles: radiusMiles,
-            weatherLat: homeBase?.latitude ??
-                CityPackRegistry.instance.hubCenter.latitude,
-            weatherLng: homeBase?.longitude ??
-                CityPackRegistry.instance.hubCenter.longitude,
+            weatherLat: homeBase?.latitude ?? hub.latitude,
+            weatherLng: homeBase?.longitude ?? hub.longitude,
             weatherLabel: homeBase != null
                 ? catalogText(context, homeBase.title)
                 : CityPackRegistry.instance.hubLabel.split(',').first,
+            mapHubCenter: hub,
             onPlaceTap: (place) => _showPlace(context, place),
           ),
           const SizedBox(height: 20),
@@ -339,6 +343,8 @@ class MapScreen extends StatelessWidget {
             },
           );
         },
+      );
+        },
       ),
     );
   }
@@ -361,6 +367,7 @@ class _MapRoutePlanner extends StatefulWidget {
     required this.weatherLat,
     required this.weatherLng,
     required this.weatherLabel,
+    required this.mapHubCenter,
     required this.onPlaceTap,
   });
 
@@ -376,6 +383,7 @@ class _MapRoutePlanner extends StatefulWidget {
   final double weatherLat;
   final double weatherLng;
   final String weatherLabel;
+  final LatLng mapHubCenter;
   final void Function(LuxPlace place) onPlaceTap;
 
   @override
@@ -420,7 +428,7 @@ class _MapRoutePlannerState extends State<_MapRoutePlanner> {
 
   LatLng get _origin => widget.homeBase != null
       ? LatLng(widget.homeBase!.latitude, widget.homeBase!.longitude)
-      : PlaceDistance.orlandoCenter;
+      : PlaceDistance.hubCenter;
 
   List<String> get _routeIds => _flow.isEmpty
       ? widget.fallbackRouteIds
@@ -483,6 +491,10 @@ class _MapRoutePlannerState extends State<_MapRoutePlanner> {
             padding: EdgeInsets.zero,
             glow: true,
             child: LuxFloridaMap(
+              key: ValueKey(
+                '${widget.mapHubCenter.latitude}-${widget.mapHubCenter.longitude}',
+              ),
+              hubCenter: widget.mapHubCenter,
               places: _mapPlacesWithFlow,
               routePlaceIds: _routeIds,
               gemPlaceIds: widget.gemIds,

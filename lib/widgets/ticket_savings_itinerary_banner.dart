@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:luxora_ai/data/trip_plans.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
+import 'package:luxora_ai/services/city_pack_registry.dart';
 import 'package:luxora_ai/services/saved_places_storage.dart';
 import 'package:luxora_ai/services/ticket_savings_service.dart';
 import 'package:luxora_ai/services/trip_profile_store.dart';
@@ -15,14 +16,18 @@ class TicketSavingsItineraryBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ValueListenableBuilder<TripProfile?>(
+    return ListenableBuilder(
+      listenable: CityPackRegistry.instance,
+      builder: (context, _) {
+        final samplePlan = samplePlanForActiveCity();
+        return ValueListenableBuilder<TripProfile?>(
       valueListenable: TripProfileStore.instance.profile,
       builder: (context, profile, _) {
         return ValueListenableBuilder<Set<String>>(
           valueListenable: SavedPlacesStorage.instance.savedIds,
           builder: (context, savedIds, _) {
             final insights = TicketSavingsService.insightsFor(
-              plan: sampleGoldenEscapePlan,
+              plan: samplePlan,
               profile: profile,
               savedPlaceIds: savedIds,
             );
@@ -74,6 +79,8 @@ class TicketSavingsItineraryBanner extends StatelessWidget {
             );
           },
         );
+      },
+    );
       },
     );
   }

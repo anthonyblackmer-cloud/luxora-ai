@@ -1,4 +1,91 @@
 import 'package:luxora_ai/models/trip_plan.dart';
+import 'package:luxora_ai/services/city_pack_registry.dart';
+
+TripPlan samplePlanForActiveCity() {
+  if (CityPackRegistry.instance.active.cityId == 'miami') {
+    return sampleMiamiEscapePlan;
+  }
+  return sampleGoldenEscapePlan;
+}
+
+const sampleMiamiEscapePlan = TripPlan(
+  id: 'miami-golden',
+  title: 'Miami Golden Escape',
+  days: [
+    TripDay(
+      dayNumber: 1,
+      label: 'South Beach rhythm',
+      items: [
+        TripItem(
+          id: 'm1',
+          time: '8:30 AM',
+          title: 'Sunrise on Lummus Park Beach',
+          emotionalLine:
+              'Wide Atlantic light and soft sand — you start Miami unhurried, not tourist-rushed.',
+          location: 'South Beach',
+          category: 'Beach',
+          placeId: 'place-miami-lummus-park',
+        ),
+        TripItem(
+          id: 'm2',
+          time: '1:00 PM',
+          title: 'Wynwood mural walk',
+          emotionalLine:
+              'Color explodes block by block — your camera finds stories the guidebooks skip.',
+          location: 'Wynwood',
+          category: 'Arts',
+          placeId: 'place-miami-wynwood-walls',
+        ),
+        TripItem(
+          id: 'm3',
+          time: '6:30 PM',
+          title: 'Vizcaya gardens at golden hour',
+          emotionalLine:
+              'Bay breezes through Italian stone — dinner energy without leaving the romance.',
+          location: 'Coconut Grove',
+          category: 'Culture',
+          placeId: 'place-miami-vizcaya',
+        ),
+      ],
+    ),
+    TripDay(
+      dayNumber: 2,
+      label: 'Culture & coast',
+      items: [
+        TripItem(
+          id: 'm4',
+          time: '10:00 AM',
+          title: 'Pérez Art Museum terrace',
+          emotionalLine:
+              'Modern art with Biscayne views — a calm counterpoint to last night\'s neon.',
+          location: 'Downtown Miami',
+          category: 'Museums',
+          placeId: 'place-miami-perez-art',
+        ),
+        TripItem(
+          id: 'm5',
+          time: '2:30 PM',
+          title: 'Little Havana cafecito crawl',
+          emotionalLine:
+              'Espresso, domino clatter, and living history — Miami as locals actually live it.',
+          location: 'Little Havana',
+          category: 'Food',
+          placeId: 'place-miami-little-havana',
+        ),
+        TripItem(
+          id: 'm6',
+          time: '7:15 PM',
+          title: 'Ocean Drive sunset stroll',
+          emotionalLine:
+              'Art deco pastels glow as the Atlantic turns gold — your table waits nearby.',
+          location: 'South Beach',
+          category: 'Nightlife',
+          placeId: 'place-miami-ocean-drive',
+        ),
+      ],
+    ),
+  ],
+);
 
 const sampleGoldenEscapePlan = TripPlan(
   id: 'orlando-golden',

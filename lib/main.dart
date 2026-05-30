@@ -19,6 +19,8 @@ import 'package:luxora_ai/services/saved_trips_store.dart';
 
 import 'package:luxora_ai/services/trip_profile_store.dart';
 
+import 'package:luxora_ai/services/city_pack_sync.dart';
+
 import 'package:luxora_ai/services/ticket_deals_repository.dart';
 
 import 'package:luxora_ai/services/unsplash_photo_registry.dart';
@@ -51,6 +53,8 @@ Future<void> main() async {
   await SavedTripsStore.instance.load();
 
   await TripProfileStore.instance.load();
+
+  await CityPackSync.bootstrapAfterLoad();
 
   await HomeBaseStore.instance.load();
 

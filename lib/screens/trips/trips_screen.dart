@@ -4,6 +4,7 @@ import 'package:share_plus/share_plus.dart';
 import 'package:luxora_ai/l10n/catalog_localizer.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/data/saved_trips.dart';
+import 'package:luxora_ai/services/city_pack_registry.dart';
 import 'package:luxora_ai/services/saved_trips_store.dart';
 import 'package:luxora_ai/services/trip_cover_resolver.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
@@ -65,15 +66,22 @@ class TripsScreen extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             Expanded(
-              child: ValueListenableBuilder<List<SavedTripSummary>>(
+              child: ListenableBuilder(
+                listenable: CityPackRegistry.instance,
+                builder: (context, _) {
+                  final activeCity = CityPackRegistry.instance.active.cityId;
+                  return ValueListenableBuilder<List<SavedTripSummary>>(
                 valueListenable: SavedTripsStore.instance.trips,
                 builder: (context, trips, _) {
-                  if (trips.isEmpty) {
+                  final visible = trips
+                      .where((t) => t.matchesActiveCity(activeCity))
+                      .toList();
+                  if (visible.isEmpty) {
                     return _EmptyTrips(onCreate: () => context.push('/onboarding'));
                   }
                   return ListView(
                     children: [
-                      for (final trip in trips)
+                      for (final trip in visible)
                         Padding(
                           padding: const EdgeInsets.only(bottom: 14),
                           child: _TripCard(
@@ -95,6 +103,8 @@ class TripsScreen extends StatelessWidget {
                       ),
                     ],
                   );
+                },
+              );
                 },
               ),
             ),

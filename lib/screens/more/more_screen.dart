@@ -7,6 +7,7 @@ import 'package:luxora_ai/settings/luxora_language_catalog.dart';
 import 'package:luxora_ai/state/luxora_app_state.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/widgets/more/luxora_more_grid_tile.dart';
+import 'package:luxora_ai/widgets/more_destination_picker.dart';
 import 'package:luxora_ai/widgets/settings/luxora_language_picker_sheet.dart';
 import 'package:luxora_ai/widgets/settings/luxora_settings_sheet.dart';
 
@@ -140,6 +141,7 @@ class MoreScreen extends StatelessWidget {
                 ),
               ),
             ),
+            const SliverToBoxAdapter(child: MoreDestinationPicker()),
             SliverPadding(
               padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
               sliver: SliverList(

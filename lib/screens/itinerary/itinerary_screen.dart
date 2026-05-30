@@ -3,6 +3,7 @@ import 'package:luxora_ai/data/trip_plans.dart';
 import 'package:luxora_ai/l10n/catalog_localizer.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/models/trip_plan.dart';
+import 'package:luxora_ai/services/city_pack_registry.dart';
 import 'package:luxora_ai/services/places_repository.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/widgets/attraction_detail_sheet.dart';
@@ -18,77 +19,90 @@ class ItineraryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l = context.l10n;
-    final plan = sampleGoldenEscapePlan;
 
     return Scaffold(
       backgroundColor: Colors.transparent,
       appBar: LuxSecondaryAppBar(title: l.navTimeline),
       body: SafeArea(
         top: false,
-        child: DefaultTabController(
-        length: plan.days.length,
-        child: Column(
-          children: [
-            Expanded(
-              child: ListView(
-                padding: const EdgeInsets.all(20),
+        child: ListenableBuilder(
+          listenable: CityPackRegistry.instance,
+          builder: (context, _) {
+            final plan = samplePlanForActiveCity();
+            return DefaultTabController(
+              length: plan.days.length,
+              child: Column(
                 children: [
-                  Text(
-                    l.itineraryBadge,
-                    style: TextStyle(
-                      fontSize: 11,
-                      fontWeight: FontWeight.w700,
-                      letterSpacing: 2.5,
-                      color: LuxColors.gold.withValues(alpha: 0.8),
-                    ),
-                  ),
-                  Text(
-                    plan.title,
-                    style: Theme.of(context).textTheme.headlineMedium,
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    l.itineraryTagline,
-                    style: const TextStyle(color: LuxColors.stone400, height: 1.4),
-                  ),
-                  const SizedBox(height: 16),
-                  const TicketSavingsItineraryBanner(),
-                  DecoratedBox(
-                    decoration: BoxDecoration(
-                      color: Colors.white.withValues(alpha: 0.04),
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: Colors.white.withValues(alpha: 0.08)),
-                    ),
-                    child: TabBar(
-                      isScrollable: true,
-                      indicatorColor: LuxColors.gold,
-                      dividerColor: Colors.transparent,
-                      labelColor: LuxColors.cream,
-                      unselectedLabelColor: LuxColors.stone500,
-                      tabs: [
-                        for (final day in plan.days)
-                          Tab(
-                            text: l.itineraryDayTab(day.dayNumber, day.label),
-                          ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  SizedBox(
-                    height: 560,
-                    child: TabBarView(
+                  Expanded(
+                    child: ListView(
+                      padding: const EdgeInsets.all(20),
                       children: [
-                        for (final day in plan.days)
-                          _ItineraryDayView(day: day),
+                        Text(
+                          l.itineraryBadge,
+                          style: TextStyle(
+                            fontSize: 11,
+                            fontWeight: FontWeight.w700,
+                            letterSpacing: 2.5,
+                            color: LuxColors.gold.withValues(alpha: 0.8),
+                          ),
+                        ),
+                        Text(
+                          plan.title,
+                          style: Theme.of(context).textTheme.headlineMedium,
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          l.itineraryTagline,
+                          style: const TextStyle(
+                            color: LuxColors.stone400,
+                            height: 1.4,
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        const TicketSavingsItineraryBanner(),
+                        DecoratedBox(
+                          decoration: BoxDecoration(
+                            color: Colors.white.withValues(alpha: 0.04),
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(
+                              color: Colors.white.withValues(alpha: 0.08),
+                            ),
+                          ),
+                          child: TabBar(
+                            isScrollable: true,
+                            indicatorColor: LuxColors.gold,
+                            dividerColor: Colors.transparent,
+                            labelColor: LuxColors.cream,
+                            unselectedLabelColor: LuxColors.stone500,
+                            tabs: [
+                              for (final day in plan.days)
+                                Tab(
+                                  text: l.itineraryDayTab(
+                                    day.dayNumber,
+                                    day.label,
+                                  ),
+                                ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        SizedBox(
+                          height: 560,
+                          child: TabBarView(
+                            children: [
+                              for (final day in plan.days)
+                                _ItineraryDayView(day: day),
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   ),
                 ],
               ),
-            ),
-          ],
+            );
+          },
         ),
-      ),
       ),
     );
   }

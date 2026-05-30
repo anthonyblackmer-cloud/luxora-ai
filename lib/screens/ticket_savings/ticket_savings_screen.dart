@@ -55,6 +55,10 @@ class _TicketSavingsScreenState extends State<TicketSavingsScreen> {
         child: ListenableBuilder(
           listenable: TicketDealsRepository.instance,
           builder: (context, _) {
+            return ListenableBuilder(
+          listenable: CityPackRegistry.instance,
+          builder: (context, _) {
+            final samplePlan = samplePlanForActiveCity();
             return ValueListenableBuilder<TripProfile?>(
         valueListenable: TripProfileStore.instance.profile,
         builder: (context, profile, _) {
@@ -65,13 +69,13 @@ class _TicketSavingsScreenState extends State<TicketSavingsScreen> {
               final kids = profile?.kids ?? 0;
               final deals = _visibleDeals();
               final insights = TicketSavingsService.insightsFor(
-                plan: sampleGoldenEscapePlan,
+                plan: samplePlan,
                 profile: profile,
                 savedPlaceIds: savedIds,
               );
               final itineraryMatches = TicketSavingsService.dealsMatchingItinerary(
                 TicketSavingsService.detectItineraryTags(
-                  plan: sampleGoldenEscapePlan,
+                  plan: samplePlan,
                   savedPlaceIds: savedIds,
                 ),
               );
@@ -280,6 +284,8 @@ class _TicketSavingsScreenState extends State<TicketSavingsScreen> {
           );
         },
       );
+          },
+        );
           },
         ),
       ),

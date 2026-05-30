@@ -114,6 +114,9 @@ class GemsScreen extends StatelessWidget {
       body: SafeArea(
         top: false,
         child: ListenableBuilder(
+          listenable: CityPackRegistry.instance,
+          builder: (context, _) {
+            return ListenableBuilder(
         listenable: DiscoverRadiusController.instance,
         builder: (context, _) {
           return ValueListenableBuilder<TripProfile?>(
@@ -390,6 +393,8 @@ class GemsScreen extends StatelessWidget {
       );
             },
           );
+        },
+      );
         },
       ),
       ),

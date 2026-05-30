@@ -3,7 +3,6 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:luxora_ai/models/lux_place.dart';
 import 'package:luxora_ai/services/city_pack_registry.dart';
-import 'package:luxora_ai/util/place_distance.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -12,6 +11,7 @@ class LuxFloridaMap extends StatefulWidget {
   const LuxFloridaMap({
     super.key,
     required this.places,
+    required this.hubCenter,
     this.routePlaceIds = const [],
     this.gemPlaceIds = const {},
     this.sponsoredPlaceIds = const {},
@@ -22,6 +22,7 @@ class LuxFloridaMap extends StatefulWidget {
   });
 
   final List<LuxPlace> places;
+  final LatLng hubCenter;
   final List<String> routePlaceIds;
   final Set<String> gemPlaceIds;
   final Set<String> sponsoredPlaceIds;
@@ -38,7 +39,6 @@ class LuxFloridaMap extends StatefulWidget {
 
 class _LuxFloridaMapState extends State<LuxFloridaMap>
     with SingleTickerProviderStateMixin {
-  static final _hub = PlaceDistance.hubCenter;
   static const _distance = Distance();
 
   final MapController _controller = MapController();
@@ -63,7 +63,8 @@ class _LuxFloridaMapState extends State<LuxFloridaMap>
   void didUpdateWidget(LuxFloridaMap oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.places != widget.places ||
-        oldWidget.radiusMiles != widget.radiusMiles) {
+        oldWidget.radiusMiles != widget.radiusMiles ||
+        oldWidget.hubCenter != widget.hubCenter) {
       WidgetsBinding.instance.addPostFrameCallback((_) => _fitToPlaces());
     }
     if (oldWidget.routePlaceIds != widget.routePlaceIds) {
@@ -82,12 +83,13 @@ class _LuxFloridaMapState extends State<LuxFloridaMap>
   }
 
   void _fitToPlaces() {
+    final hub = widget.hubCenter;
     final points = <LatLng>[
-      if (widget.showOrlandoHub) _hub,
+      if (widget.showOrlandoHub) hub,
       ...widget.places.map((p) => LatLng(p.latitude, p.longitude)),
     ];
     if (points.isEmpty) {
-      _controller.move(_hub, 9);
+      _controller.move(hub, 9);
       return;
     }
     if (points.length == 1) {
@@ -174,7 +176,7 @@ class _LuxFloridaMapState extends State<LuxFloridaMap>
           return FlutterMap(
             mapController: _controller,
             options: MapOptions(
-              initialCenter: _hub,
+              initialCenter: widget.hubCenter,
               initialZoom: 8.2,
               minZoom: 6,
               maxZoom: 16,
@@ -188,7 +190,7 @@ class _LuxFloridaMapState extends State<LuxFloridaMap>
                 CircleLayer(
                   circles: [
                     CircleMarker(
-                      point: _hub,
+                      point: widget.hubCenter,
                       radius: widget.radiusMiles! * 1609.344,
                       useRadiusInMeter: true,
                       color: LuxColors.gold.withValues(alpha: 0.08),
@@ -222,7 +224,7 @@ class _LuxFloridaMapState extends State<LuxFloridaMap>
                 markers: [
                   if (widget.showOrlandoHub)
                     Marker(
-                      point: _hub,
+                      point: widget.hubCenter,
                       width: 52,
                       height: 52,
                       child: Column(
