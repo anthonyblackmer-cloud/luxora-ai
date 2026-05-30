@@ -13,7 +13,7 @@ import 'package:luxora_ai/widgets/lux_responsive_frame.dart';
 
 
 
-/// Five-tab shell — Discover · Map · Concierge · Trips · More.
+/// Five-tab shell — Agenda · Map · Concierge · Trips · More.
 
 class MainShell extends StatelessWidget {
 
@@ -72,13 +72,13 @@ class MainShell extends StatelessWidget {
 
             NavigationDestination(
 
-              icon: const Icon(Icons.auto_awesome_outlined),
+              icon: const Icon(Icons.event_note_outlined),
 
-              selectedIcon: const Icon(Icons.auto_awesome_rounded),
+              selectedIcon: const Icon(Icons.event_note_rounded),
 
-              label: l.navDiscover,
+              label: l.navAgenda,
 
-              tooltip: l.navDiscover,
+              tooltip: l.navAgenda,
 
             ),
 

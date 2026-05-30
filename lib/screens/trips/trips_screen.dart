@@ -469,9 +469,9 @@ class _TripCardState extends State<_TripCard> {
                         ),
                       ),
                       TextButton.icon(
-                        onPressed: () => context.push('/itinerary'),
+                        onPressed: () => context.go('/agenda'),
                         icon: const Icon(Icons.arrow_forward_rounded, size: 18),
-                        label: Text(l.tripsOpenTimeline),
+                        label: Text(l.tripsOpenAgenda),
                         style: TextButton.styleFrom(
                           foregroundColor: LuxColors.gold,
                         ),

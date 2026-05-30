@@ -30,7 +30,9 @@ GoRouter createAppRouter() {
     navigatorKey: _rootKey,
     initialLocation: '/',
     redirect: (context, state) {
-      if (state.uri.path == '/experiences') return '/discover';
+      if (state.uri.path == '/discover' || state.uri.path == '/itinerary') {
+        return '/agenda';
+      }
       return null;
     },
     routes: [
@@ -105,8 +107,8 @@ GoRouter createAppRouter() {
       ),
       GoRoute(
         parentNavigatorKey: _rootKey,
-        path: '/itinerary',
-        builder: (context, state) => _luxPage(const ItineraryScreen()),
+        path: '/experiences',
+        builder: (context, state) => _luxPage(const ExperiencesScreen()),
       ),
       GoRoute(
         parentNavigatorKey: _rootKey,
@@ -125,8 +127,9 @@ GoRouter createAppRouter() {
           StatefulShellBranch(
             routes: [
               GoRoute(
-                path: '/discover',
-                builder: (context, state) => const ExperiencesScreen(),
+                path: '/agenda',
+                builder: (context, state) =>
+                    const ItineraryScreen(primaryTab: true),
               ),
             ],
           ),

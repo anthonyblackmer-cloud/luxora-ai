@@ -77,6 +77,9 @@ class AppLocalizationsHi extends AppLocalizations {
   String get navConcierge => 'दरबान';
 
   @override
+  String get navAgenda => 'एजेंडा';
+
+  @override
   String get navDiscover => 'खोज करना';
 
   @override
@@ -90,6 +93,10 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get navTimeline => 'समय';
+
+  @override
+  String get agendaPageSubtitle =>
+      'पूरी यात्रा — दिन-दर-दिन स्टॉप, टिकट ऑफ़र और आज की कॉन्सierge योजना।';
 
   @override
   String get navGems => 'रत्न';
@@ -165,6 +172,9 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get moreCardItinerarySub => 'आपका दिन-ब-दिन सुनहरा पलायन';
+
+  @override
+  String get moreCardDiscoverSub => 'ट्रेंडिंग डाइनिंग, अनुभव और लाइव खोज';
 
   @override
   String get savedFavoritesTitle => 'पसंदीदा सहेजा गया';
@@ -1495,6 +1505,9 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get tripsTimelineSnapshot => 'टाइमलाइन स्नैपशॉट';
+
+  @override
+  String get tripsOpenAgenda => 'पूर्ण एजेंडा खोलें';
 
   @override
   String get tripsOpenTimeline => 'पूर्ण टाइमलाइन खोलें';

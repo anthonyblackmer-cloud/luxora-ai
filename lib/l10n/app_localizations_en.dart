@@ -77,6 +77,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get navConcierge => 'Concierge';
 
   @override
+  String get navAgenda => 'Agenda';
+
+  @override
   String get navDiscover => 'Discover';
 
   @override
@@ -90,6 +93,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get navTimeline => 'Timeline';
+
+  @override
+  String get agendaPageSubtitle =>
+      'Your full trip — day-by-day stops, ticket deals, and today\'s Concierge plan.';
 
   @override
   String get navGems => 'Gems';
@@ -163,6 +170,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get moreCardItinerarySub => 'Your day-by-day golden escape';
+
+  @override
+  String get moreCardDiscoverSub =>
+      'Trending dining, experiences, and live discovery';
 
   @override
   String get savedFavoritesTitle => 'Saved favorites';
@@ -1187,17 +1198,18 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get conciergeItinerarySynced =>
-      'I\'ve added that to Today\'s agenda on Map and your Timeline — the same stops, ready to share.';
+      'I\'ve added that to your Agenda — same stops on Map, ready to share.';
 
   @override
-  String get conciergeAgendaUpdatedSnack => 'Your agenda is ready on Map';
+  String get conciergeAgendaUpdatedSnack =>
+      'Your agenda is ready on Map and Agenda';
 
   @override
   String get conciergeAgendaSyncFailed =>
-      'Map and Timeline did not update. Try one clear request, for example: Plan a 4-day Disney and Universal trip.';
+      'Map and Agenda did not update. Try one clear request, for example: Plan a 4-day Disney and Universal trip.';
 
   @override
-  String get conciergeViewAgendaOnMap => 'View on Map';
+  String get conciergeViewAgendaOnMap => 'View Agenda';
 
   @override
   String get conciergeAgendaDealsIntro =>
@@ -1229,7 +1241,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get conciergeFreshThread =>
-      'Your agenda is on Map and Timeline. I\'ve archived this chat and started fresh — tweak the day, find deals, or ask something new.';
+      'Your agenda is on Map and Agenda. I\'ve archived this chat and started fresh — tweak the day, find deals, or ask something new.';
 
   @override
   String get conciergeThreadArchivedSnack =>
@@ -1240,11 +1252,11 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get itinerarySameAsMapAgenda =>
-      'Same plan as Today\'s agenda on the Map tab — share the full day card here or from Map.';
+      'Today\'s Concierge plan — also pinned on Map. Share the day card below.';
 
   @override
   String get conciergeTicketsFoundIntro =>
-      'I found authorized ticket deals for your trip — tap Book tickets on Timeline for direct links:';
+      'I found authorized ticket deals for your trip — tap Book tickets on Agenda for direct links:';
 
   @override
   String conciergeTicketDealLine(
@@ -1258,7 +1270,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get conciergeTicketsTimelineHint =>
-      'Each matching stop on Timeline now has a Book tickets button with the reseller link.';
+      'Each matching stop on Agenda now has a Book tickets button with the reseller link.';
 
   @override
   String itineraryBookTickets(String amount) {
@@ -1497,6 +1509,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get tripsTimelineSnapshot => 'Timeline snapshot';
 
   @override
+  String get tripsOpenAgenda => 'Open full agenda';
+
+  @override
   String get tripsOpenTimeline => 'Open full timeline';
 
   @override
@@ -1512,7 +1527,7 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get itineraryBadge => 'YOUR TIMELINE';
+  String get itineraryBadge => 'YOUR AGENDA';
 
   @override
   String get itineraryTagline =>

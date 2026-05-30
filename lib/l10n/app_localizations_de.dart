@@ -78,6 +78,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String get navConcierge => 'Portier';
 
   @override
+  String get navAgenda => 'Agenda';
+
+  @override
   String get navDiscover => 'Entdecken';
 
   @override
@@ -91,6 +94,10 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get navTimeline => 'Zeitplan';
+
+  @override
+  String get agendaPageSubtitle =>
+      'Ihre gesamte Reise — Tagesstopps, Ticketangebote und der heutige Concierge-Plan.';
 
   @override
   String get navGems => 'Geheimtipps';
@@ -167,6 +174,10 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get moreCardItinerarySub => 'Ihr täglicher goldener Zufluchtsort';
+
+  @override
+  String get moreCardDiscoverSub =>
+      'Trends bei Dining, Erlebnissen und Live-Entdeckung';
 
   @override
   String get savedFavoritesTitle => 'Gespeicherte Favoriten';
@@ -1501,6 +1512,9 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get tripsTimelineSnapshot => 'Zeitleisten-Schnappschuss';
+
+  @override
+  String get tripsOpenAgenda => 'Vollständige Agenda öffnen';
 
   @override
   String get tripsOpenTimeline => 'Vollständige Zeitleiste öffnen';

@@ -78,6 +78,9 @@ class AppLocalizationsIt extends AppLocalizations {
   String get navConcierge => 'Concierge';
 
   @override
+  String get navAgenda => 'Agenda';
+
+  @override
   String get navDiscover => 'Scoprire';
 
   @override
@@ -91,6 +94,10 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get navTimeline => 'Cronologia';
+
+  @override
+  String get agendaPageSubtitle =>
+      'Il viaggio completo — tappe giorno per giorno, offerte biglietti e piano Concierge di oggi.';
 
   @override
   String get navGems => 'Gemme';
@@ -167,6 +174,9 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get moreCardItinerarySub => 'La tua fuga d\'oro giorno dopo giorno';
+
+  @override
+  String get moreCardDiscoverSub => 'Trend dining, esperienze e scoperta live';
 
   @override
   String get savedFavoritesTitle => 'Preferiti salvati';
@@ -1509,6 +1519,9 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get tripsTimelineSnapshot => 'Istantanea della sequenza temporale';
+
+  @override
+  String get tripsOpenAgenda => 'Apri agenda completa';
 
   @override
   String get tripsOpenTimeline => 'Apri la cronologia completa';

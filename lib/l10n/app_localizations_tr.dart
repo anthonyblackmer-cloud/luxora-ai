@@ -78,6 +78,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get navConcierge => 'Kapıcı';
 
   @override
+  String get navAgenda => 'Ajanda';
+
+  @override
   String get navDiscover => 'Keşfetmek';
 
   @override
@@ -91,6 +94,10 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get navTimeline => 'Zaman çizelgesi';
+
+  @override
+  String get agendaPageSubtitle =>
+      'Tüm gezi — günlük duraklar, bilet fırsatları ve bugünün concierge planı.';
 
   @override
   String get navGems => 'Taşlar';
@@ -167,6 +174,9 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get moreCardItinerarySub => 'Günlük altın kaçışınız';
+
+  @override
+  String get moreCardDiscoverSub => 'Trend yemek, deneyimler ve canlı keşif';
 
   @override
   String get savedFavoritesTitle => 'Favoriler kaydedildi';
@@ -1497,6 +1507,9 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get tripsTimelineSnapshot => 'Zaman çizelgesi anlık görüntüsü';
+
+  @override
+  String get tripsOpenAgenda => 'Tam ajandayı aç';
 
   @override
   String get tripsOpenTimeline => 'Tam zaman çizelgesini aç';

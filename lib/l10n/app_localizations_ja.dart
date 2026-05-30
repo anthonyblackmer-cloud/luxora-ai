@@ -76,6 +76,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get navConcierge => 'コンシェルジュ';
 
   @override
+  String get navAgenda => '予定';
+
+  @override
   String get navDiscover => '発見する';
 
   @override
@@ -89,6 +92,9 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get navTimeline => 'タイムライン';
+
+  @override
+  String get agendaPageSubtitle => '旅の全体像 — 日ごとの立ち寄り、チケット割引、今日のコンシェルジュプラン。';
 
   @override
   String get navGems => '宝石';
@@ -161,6 +167,9 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get moreCardItinerarySub => '日々の黄金の逃避行';
+
+  @override
+  String get moreCardDiscoverSub => 'トレンドのダイニング、体験、ライブ発見';
 
   @override
   String get savedFavoritesTitle => '保存されたお気に入り';
@@ -1461,6 +1470,9 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get tripsTimelineSnapshot => 'タイムラインのスナップショット';
+
+  @override
+  String get tripsOpenAgenda => '予定全体を開く';
 
   @override
   String get tripsOpenTimeline => '完全なタイムラインを開く';

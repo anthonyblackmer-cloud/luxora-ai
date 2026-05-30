@@ -78,6 +78,9 @@ class AppLocalizationsPt extends AppLocalizations {
   String get navConcierge => 'Porteiro';
 
   @override
+  String get navAgenda => 'Agenda';
+
+  @override
   String get navDiscover => 'Descobrir';
 
   @override
@@ -91,6 +94,10 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get navTimeline => 'Linha do tempo';
+
+  @override
+  String get agendaPageSubtitle =>
+      'A viagem completa — paradas dia a dia, ofertas de ingressos e plano Concierge de hoje.';
 
   @override
   String get navGems => 'Gemas';
@@ -166,6 +173,10 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get moreCardItinerarySub => 'Sua fuga dourada do dia a dia';
+
+  @override
+  String get moreCardDiscoverSub =>
+      'Tendências em gastronomia, experiências e descoberta ao vivo';
 
   @override
   String get savedFavoritesTitle => 'Favoritos salvos';
@@ -1502,6 +1513,9 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get tripsTimelineSnapshot => 'Instantâneo da linha do tempo';
+
+  @override
+  String get tripsOpenAgenda => 'Abrir agenda completa';
 
   @override
   String get tripsOpenTimeline => 'Abrir linha do tempo completa';

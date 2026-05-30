@@ -78,6 +78,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get navConcierge => 'Консьерж';
 
   @override
+  String get navAgenda => 'Повестка';
+
+  @override
   String get navDiscover => 'Обнаружить';
 
   @override
@@ -91,6 +94,10 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get navTimeline => 'Хронология';
+
+  @override
+  String get agendaPageSubtitle =>
+      'Вся поездка — остановки по дням, скидки на билеты и план консьержа на сегодня.';
 
   @override
   String get navGems => 'Драгоценные камни';
@@ -169,6 +176,10 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get moreCardItinerarySub => 'Ваш золотой побег изо дня в день';
+
+  @override
+  String get moreCardDiscoverSub =>
+      'Тренды ресторанов, впечатлений и live-открытий';
 
   @override
   String get savedFavoritesTitle => 'Сохраненные избранные';
@@ -1504,6 +1515,9 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get tripsTimelineSnapshot => 'Снимок временной шкалы';
+
+  @override
+  String get tripsOpenAgenda => 'Открыть полную повестку';
 
   @override
   String get tripsOpenTimeline => 'Открыть полную хронологию';

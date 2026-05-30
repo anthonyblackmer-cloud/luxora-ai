@@ -430,7 +430,7 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
               context,
               message: snackMessage,
               actionLabel: l.conciergeViewAgendaOnMap,
-              onAction: () => context.go('/map'),
+              onAction: () => context.go('/agenda'),
             );
             await Future<void>.delayed(const Duration(milliseconds: 1200));
             if (!mounted) return;

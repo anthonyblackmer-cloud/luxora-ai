@@ -75,6 +75,9 @@ class AppLocalizationsKo extends AppLocalizations {
   String get navConcierge => '관리인';
 
   @override
+  String get navAgenda => '일정';
+
+  @override
   String get navDiscover => '발견하다';
 
   @override
@@ -88,6 +91,9 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get navTimeline => '타임라인';
+
+  @override
+  String get agendaPageSubtitle => '전체 여행 — 일별 스톱, 티켓 할인, 오늘의 컨시어지 플랜.';
 
   @override
   String get navGems => '보석';
@@ -160,6 +166,9 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get moreCardItinerarySub => '당신의 일상을 황금빛 탈출로';
+
+  @override
+  String get moreCardDiscoverSub => '트렌드 다이닝, 체험, 라이브 탐색';
 
   @override
   String get savedFavoritesTitle => '저장된 즐겨찾기';
@@ -1463,6 +1472,9 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get tripsTimelineSnapshot => '타임라인 스냅샷';
+
+  @override
+  String get tripsOpenAgenda => '전체 일정 열기';
 
   @override
   String get tripsOpenTimeline => '전체 타임라인 열기';

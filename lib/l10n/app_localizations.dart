@@ -250,6 +250,12 @@ abstract class AppLocalizations {
   /// **'Concierge'**
   String get navConcierge;
 
+  /// No description provided for @navAgenda.
+  ///
+  /// In en, this message translates to:
+  /// **'Agenda'**
+  String get navAgenda;
+
   /// No description provided for @navDiscover.
   ///
   /// In en, this message translates to:
@@ -279,6 +285,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Timeline'**
   String get navTimeline;
+
+  /// No description provided for @agendaPageSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your full trip — day-by-day stops, ticket deals, and today\'s Concierge plan.'**
+  String get agendaPageSubtitle;
 
   /// No description provided for @navGems.
   ///
@@ -423,6 +435,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Your day-by-day golden escape'**
   String get moreCardItinerarySub;
+
+  /// No description provided for @moreCardDiscoverSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Trending dining, experiences, and live discovery'**
+  String get moreCardDiscoverSub;
 
   /// No description provided for @savedFavoritesTitle.
   ///
@@ -2172,25 +2190,25 @@ abstract class AppLocalizations {
   /// No description provided for @conciergeItinerarySynced.
   ///
   /// In en, this message translates to:
-  /// **'I\'ve added that to Today\'s agenda on Map and your Timeline — the same stops, ready to share.'**
+  /// **'I\'ve added that to your Agenda — same stops on Map, ready to share.'**
   String get conciergeItinerarySynced;
 
   /// No description provided for @conciergeAgendaUpdatedSnack.
   ///
   /// In en, this message translates to:
-  /// **'Your agenda is ready on Map'**
+  /// **'Your agenda is ready on Map and Agenda'**
   String get conciergeAgendaUpdatedSnack;
 
   /// No description provided for @conciergeAgendaSyncFailed.
   ///
   /// In en, this message translates to:
-  /// **'Map and Timeline did not update. Try one clear request, for example: Plan a 4-day Disney and Universal trip.'**
+  /// **'Map and Agenda did not update. Try one clear request, for example: Plan a 4-day Disney and Universal trip.'**
   String get conciergeAgendaSyncFailed;
 
   /// No description provided for @conciergeViewAgendaOnMap.
   ///
   /// In en, this message translates to:
-  /// **'View on Map'**
+  /// **'View Agenda'**
   String get conciergeViewAgendaOnMap;
 
   /// No description provided for @conciergeAgendaDealsIntro.
@@ -2238,7 +2256,7 @@ abstract class AppLocalizations {
   /// No description provided for @conciergeFreshThread.
   ///
   /// In en, this message translates to:
-  /// **'Your agenda is on Map and Timeline. I\'ve archived this chat and started fresh — tweak the day, find deals, or ask something new.'**
+  /// **'Your agenda is on Map and Agenda. I\'ve archived this chat and started fresh — tweak the day, find deals, or ask something new.'**
   String get conciergeFreshThread;
 
   /// No description provided for @conciergeThreadArchivedSnack.
@@ -2256,13 +2274,13 @@ abstract class AppLocalizations {
   /// No description provided for @itinerarySameAsMapAgenda.
   ///
   /// In en, this message translates to:
-  /// **'Same plan as Today\'s agenda on the Map tab — share the full day card here or from Map.'**
+  /// **'Today\'s Concierge plan — also pinned on Map. Share the day card below.'**
   String get itinerarySameAsMapAgenda;
 
   /// No description provided for @conciergeTicketsFoundIntro.
   ///
   /// In en, this message translates to:
-  /// **'I found authorized ticket deals for your trip — tap Book tickets on Timeline for direct links:'**
+  /// **'I found authorized ticket deals for your trip — tap Book tickets on Agenda for direct links:'**
   String get conciergeTicketsFoundIntro;
 
   /// No description provided for @conciergeTicketDealLine.
@@ -2279,7 +2297,7 @@ abstract class AppLocalizations {
   /// No description provided for @conciergeTicketsTimelineHint.
   ///
   /// In en, this message translates to:
-  /// **'Each matching stop on Timeline now has a Book tickets button with the reseller link.'**
+  /// **'Each matching stop on Agenda now has a Book tickets button with the reseller link.'**
   String get conciergeTicketsTimelineHint;
 
   /// No description provided for @itineraryBookTickets.
@@ -2678,6 +2696,12 @@ abstract class AppLocalizations {
   /// **'Timeline snapshot'**
   String get tripsTimelineSnapshot;
 
+  /// No description provided for @tripsOpenAgenda.
+  ///
+  /// In en, this message translates to:
+  /// **'Open full agenda'**
+  String get tripsOpenAgenda;
+
   /// No description provided for @tripsOpenTimeline.
   ///
   /// In en, this message translates to:
@@ -2705,7 +2729,7 @@ abstract class AppLocalizations {
   /// No description provided for @itineraryBadge.
   ///
   /// In en, this message translates to:
-  /// **'YOUR TIMELINE'**
+  /// **'YOUR AGENDA'**
   String get itineraryBadge;
 
   /// No description provided for @itineraryTagline.

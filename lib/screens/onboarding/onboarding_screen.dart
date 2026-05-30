@@ -111,7 +111,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       await PaywallService.talkToLuxora(
         context,
         cityId: enriched.cityId,
-        fallbackRoute: '/discover',
+        fallbackRoute: '/agenda',
       );
     } finally {
       _finishing = false;
@@ -147,7 +147,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     if (context.canPop()) {
                       context.pop();
                     } else {
-                      context.go('/discover');
+                      context.go('/agenda');
                     }
                   },
                 ),

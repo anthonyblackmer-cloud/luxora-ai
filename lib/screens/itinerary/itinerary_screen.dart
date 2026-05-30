@@ -18,137 +18,166 @@ import 'package:luxora_ai/widgets/ticket_savings_itinerary_banner.dart';
 import 'package:luxora_ai/widgets/trip_item_ticket_link.dart';
 import 'package:luxora_ai/widgets/visual_share_icon_button.dart';
 
+/// Full trip agenda — day-by-day stops, ticket deals, and today's Concierge plan.
 class ItineraryScreen extends StatelessWidget {
-  const ItineraryScreen({super.key});
+  const ItineraryScreen({super.key, this.primaryTab = false});
+
+  /// When true, renders as the main Agenda tab (no secondary app bar).
+  final bool primaryTab;
 
   @override
   Widget build(BuildContext context) {
     final l = context.l10n;
+    final tokens = luxThemeTokensOf(context);
+
+    final body = ListenableBuilder(
+      listenable: Listenable.merge([
+        CityPackRegistry.instance,
+        ActiveTripPlanStore.instance,
+        ActiveDayFlowStore.instance,
+      ]),
+      builder: (context, _) {
+        final plan = samplePlanForActiveCity();
+        final dayFlow = ActiveDayFlowStore.instance.flowForActiveCity();
+        return DefaultTabController(
+          length: plan.days.length,
+          child: ListView(
+            padding: EdgeInsets.fromLTRB(20, primaryTab ? 12 : 20, 20, 24),
+            children: [
+              if (primaryTab) ...[
+                Text(
+                  l.navAgenda,
+                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                        fontWeight: FontWeight.w900,
+                        letterSpacing: -0.42,
+                        height: 1.02,
+                        color: tokens.textPrimary,
+                      ),
+                ),
+                const SizedBox(height: 6),
+                Text(
+                  l.agendaPageSubtitle,
+                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                        color: tokens.textMuted,
+                        fontWeight: FontWeight.w600,
+                        height: 1.25,
+                      ),
+                ),
+                const SizedBox(height: 20),
+              ],
+              Text(
+                l.itineraryBadge,
+                style: TextStyle(
+                  fontSize: 11,
+                  fontWeight: FontWeight.w700,
+                  letterSpacing: 2.5,
+                  color: tokens.accent.withValues(alpha: 0.8),
+                ),
+              ),
+              Text(
+                plan.title,
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
+              const SizedBox(height: 8),
+              Text(
+                l.itineraryTagline,
+                style: TextStyle(
+                  color: tokens.textMuted,
+                  height: 1.4,
+                ),
+              ),
+              if (dayFlow != null && !dayFlow.isEmpty) ...[
+                const SizedBox(height: 12),
+                GlassCard(
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: Text(
+                          l.itinerarySameAsMapAgenda,
+                          style: TextStyle(
+                            fontSize: 13,
+                            height: 1.4,
+                            color: tokens.textPrimary,
+                          ),
+                        ),
+                      ),
+                      VisualShareIconButton(
+                        subject: l.mapPlanDayTitle,
+                        fileName: 'luxora_day_agenda.png',
+                        shareWidth: 420,
+                        color: LuxColors.gold,
+                        background: LuxColors.gold.withValues(alpha: 0.12),
+                        cardBuilder: (ctx) =>
+                            buildDayAgendaShareCard(ctx, dayFlow),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+              const SizedBox(height: 16),
+              const TicketSavingsItineraryBanner(),
+              DecoratedBox(
+                decoration: BoxDecoration(
+                  color: tokens.panelFill,
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: tokens.borderSubtle),
+                ),
+                child: TabBar(
+                  isScrollable: true,
+                  indicatorColor: tokens.accent,
+                  dividerColor: Colors.transparent,
+                  labelColor: tokens.textPrimary,
+                  unselectedLabelColor: tokens.textMuted,
+                  tabs: [
+                    for (final day in plan.days)
+                      Tab(
+                        text: l.itineraryDayTab(
+                          day.dayNumber,
+                          day.label,
+                        ),
+                      ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 16),
+              SizedBox(
+                height: 560,
+                child: TabBarView(
+                  children: [
+                    for (final day in plan.days) _ItineraryDayView(day: day),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+
+    if (primaryTab) {
+      return DecoratedBox(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            stops: const [0.0, 0.38, 0.72, 1.0],
+            colors: [
+              tokens.bg,
+              Color.lerp(tokens.bg, tokens.accent, 0.04)!,
+              Color.lerp(tokens.bg, tokens.accent, 0.02)!,
+              tokens.bgSecondary.withValues(alpha: 0.94),
+            ],
+          ),
+        ),
+        child: SafeArea(child: body),
+      );
+    }
 
     return Scaffold(
       backgroundColor: Colors.transparent,
-      appBar: LuxSecondaryAppBar(title: l.navTimeline),
-      body: SafeArea(
-        top: false,
-        child: ListenableBuilder(
-          listenable: Listenable.merge([
-            CityPackRegistry.instance,
-            ActiveTripPlanStore.instance,
-            ActiveDayFlowStore.instance,
-          ]),
-          builder: (context, _) {
-            final plan = samplePlanForActiveCity();
-            final dayFlow = ActiveDayFlowStore.instance.flowForActiveCity();
-            final tokens = luxThemeTokensOf(context);
-            return DefaultTabController(
-              length: plan.days.length,
-              child: Column(
-                children: [
-                  Expanded(
-                    child: ListView(
-                      padding: const EdgeInsets.all(20),
-                      children: [
-                        Text(
-                          l.itineraryBadge,
-                          style: TextStyle(
-                            fontSize: 11,
-                            fontWeight: FontWeight.w700,
-                            letterSpacing: 2.5,
-                            color: tokens.accent.withValues(alpha: 0.8),
-                          ),
-                        ),
-                        Text(
-                          plan.title,
-                          style: Theme.of(context).textTheme.headlineMedium,
-                        ),
-                        const SizedBox(height: 8),
-                        Text(
-                          l.itineraryTagline,
-                          style: TextStyle(
-                            color: tokens.textMuted,
-                            height: 1.4,
-                          ),
-                        ),
-                        if (dayFlow != null && !dayFlow.isEmpty) ...[
-                          const SizedBox(height: 12),
-                          GlassCard(
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        l.itinerarySameAsMapAgenda,
-                                        style: TextStyle(
-                                          fontSize: 13,
-                                          height: 1.4,
-                                          color: tokens.textPrimary,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                VisualShareIconButton(
-                                  subject: l.mapPlanDayTitle,
-                                  fileName: 'luxora_day_agenda.png',
-                                  shareWidth: 420,
-                                  color: LuxColors.gold,
-                                  background: LuxColors.gold
-                                      .withValues(alpha: 0.12),
-                                  cardBuilder: (ctx) =>
-                                      buildDayAgendaShareCard(ctx, dayFlow),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                        const SizedBox(height: 16),
-                        const TicketSavingsItineraryBanner(),
-                        DecoratedBox(
-                          decoration: BoxDecoration(
-                            color: tokens.panelFill,
-                            borderRadius: BorderRadius.circular(12),
-                            border: Border.all(color: tokens.borderSubtle),
-                          ),
-                          child: TabBar(
-                            isScrollable: true,
-                            indicatorColor: tokens.accent,
-                            dividerColor: Colors.transparent,
-                            labelColor: tokens.textPrimary,
-                            unselectedLabelColor: tokens.textMuted,
-                            tabs: [
-                              for (final day in plan.days)
-                                Tab(
-                                  text: l.itineraryDayTab(
-                                    day.dayNumber,
-                                    day.label,
-                                  ),
-                                ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(height: 16),
-                        SizedBox(
-                          height: 560,
-                          child: TabBarView(
-                            children: [
-                              for (final day in plan.days)
-                                _ItineraryDayView(day: day),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            );
-          },
-        ),
-      ),
+      appBar: LuxSecondaryAppBar(title: l.navAgenda),
+      body: SafeArea(top: false, child: body),
     );
   }
 }
@@ -215,50 +244,50 @@ class _ItineraryDayView extends StatelessWidget {
                   child: GlassCard(
                     glow: true,
                     child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        item.time,
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: tokens.accent.withValues(alpha: 0.9),
-                          fontWeight: FontWeight.w600,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          item.time,
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: tokens.accent.withValues(alpha: 0.9),
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
-                      ),
-                      const SizedBox(height: 4),
-                      Text(
-                        catalogText(context, item.title),
-                        style: const TextStyle(
-                          fontSize: 17,
-                          fontWeight: FontWeight.w700,
+                        const SizedBox(height: 4),
+                        Text(
+                          catalogText(context, item.title),
+                          style: const TextStyle(
+                            fontSize: 17,
+                            fontWeight: FontWeight.w700,
+                          ),
                         ),
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        catalogText(context, item.emotionalLine),
-                        style: TextStyle(
-                          color: tokens.textMuted,
-                          height: 1.4,
+                        const SizedBox(height: 8),
+                        Text(
+                          catalogText(context, item.emotionalLine),
+                          style: TextStyle(
+                            color: tokens.textMuted,
+                            height: 1.4,
+                          ),
                         ),
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        '${catalogText(context, item.location)} · ${catalogText(context, item.category)}',
-                        style: TextStyle(
-                          fontSize: 11,
-                          color: tokens.textMuted.withValues(alpha: 0.85),
+                        const SizedBox(height: 8),
+                        Text(
+                          '${catalogText(context, item.location)} · ${catalogText(context, item.category)}',
+                          style: TextStyle(
+                            fontSize: 11,
+                            color: tokens.textMuted.withValues(alpha: 0.85),
+                          ),
                         ),
-                      ),
-                      TripItemTicketLink(item: item),
-                      if (thumbPlace?.unsplashPhoto case final photo?) ...[
-                        const SizedBox(height: 10),
-                        UnsplashAttribution(
-                          photo: photo,
-                          compact: true,
-                          onDark: false,
-                        ),
+                        TripItemTicketLink(item: item),
+                        if (thumbPlace?.unsplashPhoto case final photo?) ...[
+                          const SizedBox(height: 10),
+                          UnsplashAttribution(
+                            photo: photo,
+                            compact: true,
+                            onDark: false,
+                          ),
+                        ],
                       ],
-                    ],
                     ),
                   ),
                 ),

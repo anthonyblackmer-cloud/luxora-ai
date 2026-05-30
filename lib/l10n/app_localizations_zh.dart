@@ -75,6 +75,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get navConcierge => '礼宾';
 
   @override
+  String get navAgenda => '日程';
+
+  @override
   String get navDiscover => '发现';
 
   @override
@@ -88,6 +91,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get navTimeline => '行程';
+
+  @override
+  String get agendaPageSubtitle => '完整行程 — 每日站点、门票优惠与今日礼宾计划。';
 
   @override
   String get navGems => '秘境';
@@ -160,6 +166,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get moreCardItinerarySub => '您每日的黄金之旅';
+
+  @override
+  String get moreCardDiscoverSub => '热门餐饮、体验与实时发现';
 
   @override
   String get savedFavoritesTitle => '已保存的收藏夹';
@@ -1434,6 +1443,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get tripsTimelineSnapshot => '时间轴快照';
+
+  @override
+  String get tripsOpenAgenda => '打开完整日程';
 
   @override
   String get tripsOpenTimeline => '打开完整的时间线';

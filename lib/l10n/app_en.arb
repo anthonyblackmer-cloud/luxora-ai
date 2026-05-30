@@ -22,11 +22,13 @@
   "commonDelete": "Delete",
   "settingsStartOverSubtitle": "Start a fresh trip from scratch",
   "navConcierge": "Concierge",
+  "navAgenda": "Agenda",
   "navDiscover": "Discover",
   "navMap": "Map",
   "navTrips": "Trips",
   "navMore": "More",
   "navTimeline": "Timeline",
+  "agendaPageSubtitle": "Your full trip — day-by-day stops, ticket deals, and today's Concierge plan.",
   "navGems": "Gems",
   "navFeed": "Feed",
   "navTrips": "Trips",
@@ -52,6 +54,7 @@
   "moreCardCityPacksSub": "Unlock destination concierges",
   "moreCardPartnersSub": "Featured partner experiences",
   "moreCardItinerarySub": "Your day-by-day golden escape",
+  "moreCardDiscoverSub": "Trending dining, experiences, and live discovery",
   "savedFavoritesTitle": "Saved favorites",
   "savedFavoritesEmpty": "Bookmark destinations on the map or feed — they'll appear here.",
   "helpCenterTitle": "Help Center",
@@ -510,10 +513,10 @@
   "conciergeVoicePresetDeF": "German · Female",
   "conciergeVoicePresetDeM": "German · Male",
   "conciergeThinking": "Luxora is thinking…",
-  "conciergeItinerarySynced": "I've added that to Today's agenda on Map and your Timeline — the same stops, ready to share.",
-  "conciergeAgendaUpdatedSnack": "Your agenda is ready on Map",
-  "conciergeAgendaSyncFailed": "Map and Timeline did not update. Try one clear request, for example: Plan a 4-day Disney and Universal trip.",
-  "conciergeViewAgendaOnMap": "View on Map",
+  "conciergeItinerarySynced": "I've added that to your Agenda — same stops on Map, ready to share.",
+  "conciergeAgendaUpdatedSnack": "Your agenda is ready on Map and Agenda",
+  "conciergeAgendaSyncFailed": "Map and Agenda did not update. Try one clear request, for example: Plan a 4-day Disney and Universal trip.",
+  "conciergeViewAgendaOnMap": "View Agenda",
   "conciergeAgendaDealsIntro": "I matched authorized ticket deals to stops on your agenda — compare before you buy at the gate:",
   "conciergeAgendaDealsSnack": "Ticket deals matched to your agenda",
   "conciergeViewTicketDeals": "View deals",
@@ -538,11 +541,11 @@
     }
   },
   "ticketBrowseAgendaDeals": "Browse deals for your agenda →",
-  "conciergeFreshThread": "Your agenda is on Map and Timeline. I've archived this chat and started fresh — tweak the day, find deals, or ask something new.",
+  "conciergeFreshThread": "Your agenda is on Map and Agenda. I've archived this chat and started fresh — tweak the day, find deals, or ask something new.",
   "conciergeThreadArchivedSnack": "Chat archived — fresh thread started",
   "conciergeNewConversationTooltip": "New conversation",
-  "itinerarySameAsMapAgenda": "Same plan as Today's agenda on the Map tab — share the full day card here or from Map.",
-  "conciergeTicketsFoundIntro": "I found authorized ticket deals for your trip — tap Book tickets on Timeline for direct links:",
+  "itinerarySameAsMapAgenda": "Today's Concierge plan — also pinned on Map. Share the day card below.",
+  "conciergeTicketsFoundIntro": "I found authorized ticket deals for your trip — tap Book tickets on Agenda for direct links:",
   "conciergeTicketDealLine": "• {title}: {price} via {source} (save {savings})",
   "@conciergeTicketDealLine": {
     "placeholders": {
@@ -552,7 +555,7 @@
       "savings": { "type": "String" }
     }
   },
-  "conciergeTicketsTimelineHint": "Each matching stop on Timeline now has a Book tickets button with the reseller link.",
+  "conciergeTicketsTimelineHint": "Each matching stop on Agenda now has a Book tickets button with the reseller link.",
   "itineraryBookTickets": "Book tickets · Save {amount}",
   "@itineraryBookTickets": {
     "placeholders": {
@@ -656,6 +659,7 @@
   "tripsNextUp": "Next up",
   "tripsSunsetWindow": "Sunset window",
   "tripsTimelineSnapshot": "Timeline snapshot",
+  "tripsOpenAgenda": "Open full agenda",
   "tripsOpenTimeline": "Open full timeline",
   "tripsShare": "Share",
   "shareItineraryFooter": "Planned with Luxora — your emotionally intelligent Florida companion.",
@@ -663,7 +667,7 @@
   "@shareSubject": {
     "placeholders": { "title": { "type": "String" } }
   },
-  "itineraryBadge": "YOUR TIMELINE",
+  "itineraryBadge": "YOUR AGENDA",
   "itineraryTagline": "Every moment connected — anticipation built in, stress left out.",
   "itineraryDayTab": "Day {day} · {label}",
   "@itineraryDayTab": {
