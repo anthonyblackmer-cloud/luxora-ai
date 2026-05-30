@@ -5,14 +5,14 @@
 - Flutter iOS + Android project
 - Cinematic theme, 8 flows, bottom navigation
 - Emotional onboarding + local trip profile (SharedPreferences)
-- Mock concierge + sample itinerary
+- Mock concierge + sample itinerary (replaced by live OpenAI when Supabase configured)
 
 ## Phase 1 — Ship-ready MVP
 
 - [x] Curated place imagery + tab-specific presentation (`docs/IMAGE_STRATEGY.md`)
 - [ ] Supabase `places` table + Storage bucket (SQL in `supabase/migrations/`)
 - [ ] Wire `PlacesRepository` to Supabase (replace local catalog URLs)
-- [ ] OpenAI via backend (avoid embedding API keys in app)
+- [x] OpenAI via backend — Edge Function `concierge-chat` + `ConciergeAiService` (see `docs/CONCIERGE_AI.md`)
 - [ ] Supabase auth + cloud saved trips
 - [ ] Mapbox Flutter map
 - [ ] App icons, splash, store listings

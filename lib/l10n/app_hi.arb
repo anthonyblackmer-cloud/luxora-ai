@@ -1521,5 +1521,68 @@
         "type": "int"
       }
     }
-  }
+  },
+  "onboardCityLabel": "अपना शहर चुनें",
+  "onboardCityUnlockNote": "हर गंतव्य का अपना कॉन्सierge अनलॉक होता है — प्रति शहर एक बार की खरीद। ऑरलैंडो थीम पार्क एक पैक हैं (Disney और Universal एक साथ)।",
+  "landingCityLabel": "आप कहाँ जा रहे हैं?",
+  "paywallSwitchCity": "गंतव्य",
+  "cityPickerUnlocked": "अनलॉक",
+  "cityPickerUnlockPrice": "{price} अनलॉक करें",
+  "@cityPickerUnlockPrice": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallOrlandoAddonsHeading": "थीम पार्क पैक",
+  "paywallOrlandoBaseIncludes": "ऑरलैंडो में भोजन, छिपे रत्न, होटल और पार्क-रहित अनुभव शामिल हैं। Disney और Universal एक साथ के लिए थीम पार्क पैक जोड़ें।",
+  "paywallUnlockAddon": "{packName} अनलॉक करें · {price}",
+  "@paywallUnlockAddon": {
+    "placeholders": {
+      "packName": {
+        "type": "String"
+      },
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallAddonUnlocked": "अनलॉक",
+  "paywallAddonRequiresOrlando": "पहले ऑरलैंडो अनलॉक आवश्यक",
+  "paywallUnlockAddonPack": "{packName} अनलॉक करें",
+  "@paywallUnlockAddonPack": {
+    "placeholders": {
+      "packName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallCtaUnlockAddon": "{packName} अनलॉक करें",
+  "@paywallCtaUnlockAddon": {
+    "placeholders": {
+      "packName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallAddonThemeParksTitle": "Disney और Universal पैक",
+  "paywallAddonThemeParksSubtitle": "Walt Disney World और Universal Orlando — सभी पार्क, डील, रूट और भीड़ intel एक अनलॉक में।",
+  "hotelLinkUnavailable": "इस प्रवास के लिए बुकिंग लिंक उपलब्ध नहीं है।",
+  "hotelLinkOpenFailed": "लिंक नहीं खुल सका — ब्राउज़र में फिर से कोशिश करें।",
+  "cityPickerThemeParksSubtitle": "Orlando ऐड-ऑन · Disney और Universal एक साथ",
+  "orlandoThemeParksPromptTitle": "Orlando के लिए Disney और Universal अनलॉक करें?",
+  "orlandoThemeParksPromptBody": "Walt Disney World और Universal Orlando के लिए थीम पार्क पैक जोड़ें — सभी पार्क, टिकट डील, रूट और भीड़ intel एक अनलॉक में।",
+  "orlandoThemeParksPromptUnlock": "अनलॉक · {price}",
+  "@orlandoThemeParksPromptUnlock": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "orlandoThemeParksPromptNotNow": "अभी नहीं",
+  "conciergeThinking": "Luxora सोच रहा है…",
+  "conciergeAiError": "Luxora तक नहीं पहुँच सका। कनेक्शन जाँचें और फिर कोशिश करें।",
+  "conciergeAiNotConfigured": "लाइव concierge के लिए Supabase + OpenAI चाहिए। SUPABASE_URL और SUPABASE_ANON_KEY स्थानीय config में जोड़ें और concierge-chat edge function deploy करें — docs/CONCIERGE_AI.md देखें।"
 }

@@ -9,6 +9,8 @@ import 'package:luxora_ai/models/trip_profile.dart';
 import 'package:luxora_ai/services/day_flow_planner.dart';
 import 'package:luxora_ai/services/drive_friction_service.dart';
 import 'package:luxora_ai/services/city_pack_registry.dart';
+import 'package:luxora_ai/services/map_launcher.dart';
+import 'package:luxora_ai/services/orlando_addon_service.dart';
 import 'package:luxora_ai/services/places_repository.dart';
 import 'package:luxora_ai/util/place_distance.dart';
 
@@ -19,7 +21,9 @@ abstract final class HotelIntelligenceService {
     final orlando = HotelsCatalog.all.where((h) => ids.contains(h.id));
     final miami = MiamiHotelsCatalog.all.where((h) => ids.contains(h.id));
     final keys = FloridaKeysHotelsCatalog.all.where((h) => ids.contains(h.id));
-    return [...orlando, ...miami, ...keys];
+    return [...orlando, ...miami, ...keys]
+        .where(OrlandoAddonService.isHotelAccessible)
+        .toList();
   }
 
   static LuxHotel? hotelById(String id) =>
@@ -30,28 +34,75 @@ abstract final class HotelIntelligenceService {
   static LuxPlace? placeFor(LuxHotel hotel) =>
       PlacesRepository.instance.byId(hotel.placeId);
 
-  /// Top 3 stays for the matchmaker flow.
+  /// Top 3 stays for the matchmaker flow — active city pack only.
   static List<HotelMatchResult> match({
     required HotelMatchmakerInput input,
     required AppLocalizations l,
   }) {
+    final activeCityId = CityPackRegistry.instance.active.cityId;
+    final pool = allHotels()
+        .where((h) => (h.cityPackId ?? 'orlando') == activeCityId)
+        .toList();
     final scored = <(LuxHotel, int)>[];
-    for (final hotel in allHotels()) {
+    for (final hotel in pool) {
       scored.add((hotel, _matchScore(hotel, input)));
     }
-    scored.sort((a, b) => b.$2.compareTo(a.$2));
+    scored.sort((a, b) {
+      final byScore = b.$2.compareTo(a.$2);
+      if (byScore != 0) return byScore;
+      return b.$1.luxoraScore.compareTo(a.$1.luxoraScore);
+    });
 
     return scored
         .take(3)
         .map(
           (e) => _buildMatchResult(
             hotel: e.$1,
-            score: e.$2,
+            score: e.$2.clamp(0, 100),
             input: input,
             l: l,
           ),
         )
         .toList();
+  }
+
+  /// City-aware attraction chips for the matchmaker UI.
+  static List<({String tag, String label})> matchmakerAttractionOptions(
+    String cityId,
+  ) =>
+      switch (cityId) {
+        'miami' => const [
+            (tag: 'beach', label: 'Beach'),
+            (tag: 'nightlife', label: 'Nightlife'),
+            (tag: 'foodie', label: 'Food & Wynwood'),
+            (tag: 'luxury', label: 'Luxury'),
+          ],
+        'florida-keys' => const [
+            (tag: 'water', label: 'Water & boating'),
+            (tag: 'fishing', label: 'Fishing'),
+            (tag: 'beach', label: 'Beach'),
+            (tag: 'luxury', label: 'Luxury'),
+            (tag: 'romantic', label: 'Romantic'),
+          ],
+        _ => const [
+            (tag: 'disney', label: 'Disney'),
+            (tag: 'universal', label: 'Universal'),
+            (tag: 'winter_park', label: 'Winter Park'),
+            (tag: 'idrive', label: 'I-Drive'),
+          ],
+      };
+
+  static List<({String tag, String label})> visibleMatchmakerAttractions(
+    String cityId,
+  ) {
+    final options = matchmakerAttractionOptions(cityId);
+    if (cityId != 'orlando') return options;
+    return options.where((o) {
+      if (o.tag == 'disney' || o.tag == 'universal') {
+        return OrlandoAddonService.canAccessThemeParks();
+      }
+      return true;
+    }).toList();
   }
 
   static int _matchScore(LuxHotel hotel, HotelMatchmakerInput input) {
@@ -72,13 +123,23 @@ abstract final class HotelIntelligenceService {
       score += (hotel.romanceScore - 50) ~/ 3;
     }
 
+    var attractionHits = 0;
     for (final tag in input.plannedAttractions) {
-      if (hotel.plannedAttractionTags.contains(tag)) score += 14;
+      if (hotel.plannedAttractionTags.contains(tag)) {
+        score += 22;
+        attractionHits++;
+      } else if (_attractionMatchesBestFor(tag, hotel)) {
+        score += 18;
+        attractionHits++;
+      }
+    }
+    if (input.plannedAttractions.isNotEmpty && attractionHits == 0) {
+      score -= 28;
     }
 
     for (final vibe in input.preferredVibes) {
-      if (hotel.plannedAttractionTags.contains(vibe)) score += 8;
-      if (_vibeMatchesTag(vibe, hotel)) score += 6;
+      if (_vibeMatchesTag(vibe, hotel)) score += 8;
+      if (hotel.plannedAttractionTags.contains(vibe)) score += 6;
     }
 
     if (input.transport == HotelTransportPreference.walkableArea) {
@@ -102,10 +163,35 @@ abstract final class HotelIntelligenceService {
           score += (hotel.foodAccessScore - 50) ~/ 4;
         }
       }
+      for (final tag in input.plannedAttractions) {
+        if (tag == 'nightlife') {
+          score += (hotel.nightlifeScore - 50) ~/ 3;
+        }
+        if (tag == 'beach') {
+          score += (hotel.beachAccessScore - 50) ~/ 3;
+        }
+        if (tag == 'foodie') {
+          score += (hotel.foodAccessScore - 50) ~/ 3;
+        }
+      }
     }
 
-    return score.clamp(0, 100);
+    return score;
   }
+
+  static bool _attractionMatchesBestFor(String tag, LuxHotel hotel) =>
+      switch (tag) {
+        'disney' => hotel.bestForTags.contains(HotelBestForTag.bestForDisney),
+        'universal' =>
+          hotel.bestForTags.contains(HotelBestForTag.bestForUniversal),
+        'winter_park' =>
+          hotel.plannedAttractionTags.contains('winter_park') ||
+              hotel.neighborhood.toLowerCase().contains('winter park'),
+        'idrive' =>
+          hotel.plannedAttractionTags.contains('idrive') ||
+              hotel.neighborhood.toLowerCase().contains('drive'),
+        _ => false,
+      };
 
   static int _budgetFit(HotelPriceRange hotel, HotelPriceRange budget) {
     final h = _priceTier(hotel);
@@ -150,13 +236,18 @@ abstract final class HotelIntelligenceService {
     required AppLocalizations l,
   }) {
     final attractions = input.plannedAttractions;
+    final primaryTag = _primaryAttractionMatch(hotel, attractions);
     final attrLabel = attractions.isEmpty
         ? l.hotelMatchAttractionsGeneral
-        : attractions.map(_attractionLabel).join(' + ');
+        : (primaryTag != null
+            ? _attractionLabel(primaryTag)
+            : attractions.map(_attractionLabel).join(' + '));
 
-    final whyMatch = attractions.length >= 2
-        ? l.hotelMatchWhyMulti(attrLabel, hotel.name)
-        : l.hotelMatchWhySingle(hotel.name, hotel.neighborhood);
+    final whyMatch = primaryTag != null
+        ? l.hotelMatchWhySingle(hotel.name, hotel.neighborhood)
+        : attractions.length >= 2
+            ? l.hotelMatchWhyMulti(attrLabel, hotel.name)
+            : l.hotelMatchWhySingle(hotel.name, hotel.neighborhood);
 
     final bestFor = input.hasKids
         ? l.hotelMatchBestForFamily
@@ -184,8 +275,28 @@ abstract final class HotelIntelligenceService {
         'universal' => 'Universal',
         'winter_park' => 'Winter Park',
         'idrive' => 'I-Drive',
+        'beach' => 'Beach',
+        'nightlife' => 'Nightlife',
+        'foodie' => 'Food & Wynwood',
+        'water' => 'Water',
+        'fishing' => 'Fishing',
+        'luxury' => 'Luxury',
+        'romantic' => 'Romantic',
         _ => tag,
       };
+
+  static String? _primaryAttractionMatch(
+    LuxHotel hotel,
+    List<String> attractions,
+  ) {
+    for (final tag in attractions) {
+      if (hotel.plannedAttractionTags.contains(tag) ||
+          _attractionMatchesBestFor(tag, hotel)) {
+        return tag;
+      }
+    }
+    return null;
+  }
 
   static String _itineraryImpactText(
     LuxHotel hotel,
@@ -386,10 +497,50 @@ abstract final class HotelIntelligenceService {
       };
 
   static String checkRatesUrlFor(LuxHotel hotel) =>
-      hotel.affiliateUrl ?? hotel.checkRatesUrl ?? hotel.hotelWebsiteUrl ?? '';
+      _resolveHotelUrl(
+        hotel.affiliateUrl ?? hotel.checkRatesUrl ?? hotel.hotelWebsiteUrl,
+        hotel,
+        forRates: true,
+      );
 
   static String websiteUrlFor(LuxHotel hotel) =>
-      hotel.hotelWebsiteUrl ?? hotel.checkRatesUrl ?? '';
+      _resolveHotelUrl(
+        hotel.hotelWebsiteUrl ?? hotel.checkRatesUrl ?? hotel.affiliateUrl,
+        hotel,
+        forRates: false,
+      );
+
+  static bool hasCheckRatesLink(LuxHotel hotel) =>
+      checkRatesUrlFor(hotel).isNotEmpty;
+
+  static bool hasWebsiteLink(LuxHotel hotel) => websiteUrlFor(hotel).isNotEmpty;
+
+  static String _resolveHotelUrl(
+    String? raw,
+    LuxHotel hotel, {
+    required bool forRates,
+  }) {
+    final candidate = MapLauncher.normalizeUrl(raw ?? '');
+    if (candidate.isNotEmpty && !_isPlaceholderUrl(candidate)) {
+      return candidate;
+    }
+    return forRates
+        ? _googleTravelHotelsUrl(hotel)
+        : _googleWebsiteSearchUrl(hotel);
+  }
+
+  static bool _isPlaceholderUrl(String url) =>
+      url.contains('example.com');
+
+  static String _googleTravelHotelsUrl(LuxHotel hotel) {
+    final q = Uri.encodeComponent('${hotel.name} ${hotel.neighborhood}');
+    return 'https://www.google.com/travel/hotels?q=$q';
+  }
+
+  static String _googleWebsiteSearchUrl(LuxHotel hotel) {
+    final q = Uri.encodeComponent('${hotel.name} official website');
+    return 'https://www.google.com/search?q=$q';
+  }
 }
 
 extension _FirstOrNull<E> on Iterable<E> {

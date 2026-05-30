@@ -1,8 +1,24 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:luxora_ai/data/florida_keys/florida_keys_content.dart';
 import 'package:luxora_ai/models/lux_place.dart';
+import 'package:luxora_ai/services/unsplash_photo_registry.dart';
 
 void main() {
+  setUpAll(() async {
+    TestWidgetsFlutterBinding.ensureInitialized();
+    await UnsplashPhotoRegistry.instance.ensureLoaded();
+  });
+
+  test('Florida Keys place photos resolve from curated bundle', () {
+    for (final place in FloridaKeysContent.places) {
+      expect(
+        place.unsplashPhoto?.hotlinkUrl,
+        startsWith('https://'),
+        reason: place.id,
+      );
+    }
+  });
+
   test('Florida Keys pack meets minimum curated content targets', () {
     final places = FloridaKeysContent.places;
     final hotels = places.where((p) => p.category == LuxPlaceCategory.hotel);

@@ -1,21 +1,13 @@
 import 'package:flutter/foundation.dart';
 import 'package:luxora_ai/models/lux_place.dart';
+import 'package:luxora_ai/services/supabase_bootstrap.dart';
 import 'package:luxora_ai/services/supabase_config.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 /// Fetches `places` rows from Supabase when configured (Phase 2).
 class PlacesRemoteRepository {
-  static bool _clientReady = false;
-
   static Future<void> ensureInitialized() async {
-    if (!SupabaseConfig.isConfigured || _clientReady) {
-      return;
-    }
-    await Supabase.initialize(
-      url: SupabaseConfig.url,
-      anonKey: SupabaseConfig.anonKey,
-    );
-    _clientReady = true;
+    await SupabaseBootstrap.initialize();
   }
 
   static Future<List<LuxPlace>?> tryFetchPlaces() async {

@@ -983,6 +983,17 @@ class AppLocalizationsPt extends AppLocalizations {
       'O concierge de voz chegará em breve – por enquanto, toque em um momento ou digite como deseja se sentir.';
 
   @override
+  String get conciergeThinking => 'Luxora está pensando…';
+
+  @override
+  String get conciergeAiError =>
+      'Não consegui contactar a Luxora. Verifique a ligação e tente novamente.';
+
+  @override
+  String get conciergeAiNotConfigured =>
+      'O concierge ao vivo requer Supabase + OpenAI. Adicione SUPABASE_URL e SUPABASE_ANON_KEY à config local e implemente a função concierge-chat — ver docs/CONCIERGE_AI.md.';
+
+  @override
   String get mapAiPowers => 'Poderes do mapa de IA';
 
   @override
@@ -1534,25 +1545,29 @@ class AppLocalizationsPt extends AppLocalizations {
   String get onboardRegion => 'Região';
 
   @override
-  String get onboardCityLabel => 'Choose your city';
+  String get onboardCityLabel => 'Escolha sua cidade';
 
   @override
   String get onboardCityUnlockNote =>
-      'Each destination has its own concierge unlock — one-time purchase per city.';
+      'Cada destino tem seu próprio desbloqueio de concierge — compra única por cidade. Os parques de Orlando são um pack (Disney e Universal juntos).';
 
   @override
-  String get landingCityLabel => 'Where are you going?';
+  String get landingCityLabel => 'Para onde você vai?';
 
   @override
-  String get paywallSwitchCity => 'Destination';
+  String get paywallSwitchCity => 'Destino';
 
   @override
-  String get cityPickerUnlocked => 'Unlocked';
+  String get cityPickerUnlocked => 'Desbloqueado';
 
   @override
   String cityPickerUnlockPrice(String price) {
-    return 'Unlock $price';
+    return 'Desbloquear $price';
   }
+
+  @override
+  String get cityPickerThemeParksSubtitle =>
+      'Add-on Orlando · Disney e Universal juntos';
 
   @override
   String get onboardStep2Title => 'Hora de se sentir livre';
@@ -2026,6 +2041,14 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get hotelVisitWebsite => 'Visite o site';
+
+  @override
+  String get hotelLinkUnavailable =>
+      'Link de reserva indisponível para esta estadia.';
+
+  @override
+  String get hotelLinkOpenFailed =>
+      'Não foi possível abrir o link — tente novamente no navegador.';
 
   @override
   String get hotelSave => 'Salvar hotel';
@@ -2766,4 +2789,56 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get paywallHeadlineMiamiWeekend =>
       'NÃO PERCA SEU FIM DE SEMANA EM MIAMI';
+
+  @override
+  String get paywallOrlandoAddonsHeading => 'Pack de parques temáticos';
+
+  @override
+  String get paywallOrlandoBaseIncludes =>
+      'Orlando inclui restaurantes, joias escondidas, hotéis e experiências fora dos parques. Adicione o pack de parques para Disney e Universal juntos.';
+
+  @override
+  String get paywallAddonThemeParksTitle => 'Pack Disney e Universal';
+
+  @override
+  String get paywallAddonThemeParksSubtitle =>
+      'Walt Disney World e Universal Orlando — todos os parques, ofertas, rotas e intel de multidões em um desbloqueio.';
+
+  @override
+  String paywallUnlockAddon(String packName, String price) {
+    return 'Desbloquear $packName · $price';
+  }
+
+  @override
+  String get paywallAddonUnlocked => 'Desbloqueado';
+
+  @override
+  String get paywallAddonRequiresOrlando =>
+      'Requer desbloqueio de Orlando primeiro';
+
+  @override
+  String paywallUnlockAddonPack(String packName) {
+    return 'Desbloquear $packName';
+  }
+
+  @override
+  String paywallCtaUnlockAddon(String packName) {
+    return 'Desbloquear $packName';
+  }
+
+  @override
+  String get orlandoThemeParksPromptTitle =>
+      'Desbloquear Disney e Universal para Orlando?';
+
+  @override
+  String get orlandoThemeParksPromptBody =>
+      'Adicione o pack de parques para Walt Disney World e Universal Orlando — todos os parques, ofertas de ingressos, rotas e intel de multidões em um desbloqueio.';
+
+  @override
+  String orlandoThemeParksPromptUnlock(String price) {
+    return 'Desbloquear · $price';
+  }
+
+  @override
+  String get orlandoThemeParksPromptNotNow => 'Agora não';
 }

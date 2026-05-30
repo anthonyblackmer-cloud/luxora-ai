@@ -1,3 +1,6 @@
 {
-  "UNSPLASH_ACCESS_KEY": ""
+  "UNSPLASH_ACCESS_KEY": "",
+  "SUPABASE_URL": "",
+  "SUPABASE_ANON_KEY": "",
+  "SUPABASE_CONCIERGE_FUNCTION": "concierge-chat"
 }

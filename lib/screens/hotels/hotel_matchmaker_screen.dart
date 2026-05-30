@@ -2,13 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/models/lux_hotel.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
+import 'package:luxora_ai/services/city_pack_registry.dart';
 import 'package:luxora_ai/services/hotel_intelligence_service.dart';
 import 'package:luxora_ai/services/trip_profile_store.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
 import 'package:luxora_ai/widgets/hotel_card.dart';
 import 'package:luxora_ai/widgets/hotel_detail_sheet.dart';
+import 'package:luxora_ai/theme/lux_breakpoints.dart';
 import 'package:luxora_ai/widgets/lux_button.dart';
+import 'package:luxora_ai/widgets/lux_responsive_frame.dart';
 
 class HotelMatchmakerScreen extends StatefulWidget {
   const HotelMatchmakerScreen({super.key});
@@ -23,9 +26,12 @@ class _HotelMatchmakerScreenState extends State<HotelMatchmakerScreen> {
   int _kids = 0;
   int _luxuryLevel = 3;
   HotelTransportPreference _transport = HotelTransportPreference.rentalCar;
-  final Set<String> _attractions = {'disney'};
-  final Set<String> _vibes = {'romantic'};
+  final Set<String> _attractions = {};
+  final Set<String> _vibes = {};
   List<HotelMatchResult>? _results;
+  HotelMatchmakerInput? _lastInput;
+
+  String get _cityId => CityPackRegistry.instance.active.cityId;
 
   void _runMatchmaker() {
     final l = context.l10n;
@@ -39,6 +45,7 @@ class _HotelMatchmakerScreenState extends State<HotelMatchmakerScreen> {
       preferredVibes: _vibes.toList(),
     );
     setState(() {
+      _lastInput = input;
       _results = HotelIntelligenceService.match(input: input, l: l);
     });
   }
@@ -47,13 +54,26 @@ class _HotelMatchmakerScreenState extends State<HotelMatchmakerScreen> {
   void initState() {
     super.initState();
     TripProfileStore.instance.profile.addListener(_seedFromProfile);
+    CityPackRegistry.instance.addListener(_onCityChanged);
     _seedFromProfile();
   }
 
   @override
   void dispose() {
     TripProfileStore.instance.profile.removeListener(_seedFromProfile);
+    CityPackRegistry.instance.removeListener(_onCityChanged);
     super.dispose();
+  }
+
+  void _onCityChanged() {
+    final visible = HotelIntelligenceService.visibleMatchmakerAttractions(
+      _cityId,
+    );
+    final allowed = visible.map((e) => e.tag).toSet();
+    setState(() {
+      _attractions.removeWhere((tag) => !allowed.contains(tag));
+      _results = null;
+    });
   }
 
   void _seedFromProfile() {
@@ -62,6 +82,7 @@ class _HotelMatchmakerScreenState extends State<HotelMatchmakerScreen> {
     setState(() {
       _adults = profile.adults;
       _kids = profile.kids;
+      _vibes.clear();
       if (profile.moods.contains(TripMood.romantic)) _vibes.add('romantic');
       if (profile.kids > 0 || profile.moods.contains(TripMood.familyBonding)) {
         _vibes.add('family');
@@ -72,6 +93,9 @@ class _HotelMatchmakerScreenState extends State<HotelMatchmakerScreen> {
   @override
   Widget build(BuildContext context) {
     final l = context.l10n;
+    final attractionOptions =
+        HotelIntelligenceService.visibleMatchmakerAttractions(_cityId);
+    final compact = luxIsTablet(context);
 
     return Scaffold(
       backgroundColor: const Color(0xFF0C0A09),
@@ -80,8 +104,9 @@ class _HotelMatchmakerScreenState extends State<HotelMatchmakerScreen> {
         title: Text(l.hotelMatchmakerTitle),
       ),
       body: SafeArea(
-        child: ListView(
-          padding: const EdgeInsets.all(20),
+        child: LuxResponsiveFrame(
+          child: ListView(
+          padding: EdgeInsets.all(compact ? 16 : 20),
           children: [
             Text(
               l.hotelMatchmakerSubtitle,
@@ -100,7 +125,10 @@ class _HotelMatchmakerScreenState extends State<HotelMatchmakerScreen> {
                 return ChoiceChip(
                   label: Text(
                     HotelIntelligenceService.priceRangeLabel(l, r),
+                    style: TextStyle(fontSize: compact ? 12 : null),
                   ),
+                  visualDensity:
+                      compact ? VisualDensity.compact : VisualDensity.standard,
                   selected: selected,
                   onSelected: (_) => setState(() => _budget = r),
                 );
@@ -129,42 +157,35 @@ class _HotelMatchmakerScreenState extends State<HotelMatchmakerScreen> {
             ),
             const SizedBox(height: 16),
             _SectionLabel(l.hotelMatchAttractions),
-            Wrap(
-              spacing: 8,
-              runSpacing: 8,
-              children: [
-                _AttractionChip(
-                  label: 'Disney',
-                  tag: 'disney',
-                  selected: _attractions.contains('disney'),
-                  onTap: () => setState(() {
-                    _attractions.contains('disney')
-                        ? _attractions.remove('disney')
-                        : _attractions.add('disney');
-                  }),
+            if (attractionOptions.isEmpty)
+              Text(
+                l.hotelMatchAttractionsGeneral,
+                style: const TextStyle(
+                  fontSize: 12,
+                  color: LuxColors.stone400,
                 ),
-                _AttractionChip(
-                  label: 'Universal',
-                  tag: 'universal',
-                  selected: _attractions.contains('universal'),
-                  onTap: () => setState(() {
-                    _attractions.contains('universal')
-                        ? _attractions.remove('universal')
-                        : _attractions.add('universal');
-                  }),
-                ),
-                _AttractionChip(
-                  label: 'Winter Park',
-                  tag: 'winter_park',
-                  selected: _attractions.contains('winter_park'),
-                  onTap: () => setState(() {
-                    _attractions.contains('winter_park')
-                        ? _attractions.remove('winter_park')
-                        : _attractions.add('winter_park');
-                  }),
-                ),
-              ],
-            ),
+              )
+            else
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: [
+                  for (final option in attractionOptions)
+                    _AttractionChip(
+                      label: option.label,
+                      tag: option.tag,
+                      compact: compact,
+                      selected: _attractions.contains(option.tag),
+                      onTap: () => setState(() {
+                        if (_attractions.contains(option.tag)) {
+                          _attractions.remove(option.tag);
+                        } else {
+                          _attractions.add(option.tag);
+                        }
+                      }),
+                    ),
+                ],
+              ),
             const SizedBox(height: 16),
             _SectionLabel(l.hotelMatchLuxuryLevel),
             Slider(
@@ -231,11 +252,13 @@ class _HotelMatchmakerScreenState extends State<HotelMatchmakerScreen> {
                       context,
                       hotel: result.hotel,
                       place: place,
+                      matchInput: _lastInput,
                     );
                   },
                 ),
             ],
           ],
+        ),
         ),
       ),
     );
@@ -304,17 +327,20 @@ class _AttractionChip extends StatelessWidget {
     required this.tag,
     required this.selected,
     required this.onTap,
+    this.compact = false,
   });
 
   final String label;
   final String tag;
   final bool selected;
   final VoidCallback onTap;
+  final bool compact;
 
   @override
   Widget build(BuildContext context) {
     return FilterChip(
-      label: Text(label),
+      label: Text(label, style: TextStyle(fontSize: compact ? 12 : null)),
+      visualDensity: compact ? VisualDensity.compact : VisualDensity.standard,
       selected: selected,
       onSelected: (_) => onTap(),
     );

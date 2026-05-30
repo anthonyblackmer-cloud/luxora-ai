@@ -1521,5 +1521,68 @@
         "type": "int"
       }
     }
-  }
+  },
+  "onboardCityLabel": "都市を選ぶ",
+  "onboardCityUnlockNote": "各目的地には専用のコンシェルジュ解除があります — 都市ごとに一度だけ購入。オーランドのテーマパークは1つのパック（DisneyとUniversalをまとめて）です。",
+  "landingCityLabel": "どこへ行きますか？",
+  "paywallSwitchCity": "目的地",
+  "cityPickerUnlocked": "解除済み",
+  "cityPickerUnlockPrice": "{price} を解除",
+  "@cityPickerUnlockPrice": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallOrlandoAddonsHeading": "テーマパークパック",
+  "paywallOrlandoBaseIncludes": "オーランド解除にはダイニング、隠れた名所、ホテル、パーク外の体験が含まれます。DisneyとUniversalをまとめたテーマパークパックを追加。",
+  "paywallUnlockAddon": "{packName}を解除 · {price}",
+  "@paywallUnlockAddon": {
+    "placeholders": {
+      "packName": {
+        "type": "String"
+      },
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallAddonUnlocked": "解除済み",
+  "paywallAddonRequiresOrlando": "先にオーランド解除が必要です",
+  "paywallUnlockAddonPack": "{packName}を解除",
+  "@paywallUnlockAddonPack": {
+    "placeholders": {
+      "packName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallCtaUnlockAddon": "{packName}を解除",
+  "@paywallCtaUnlockAddon": {
+    "placeholders": {
+      "packName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallAddonThemeParksTitle": "Disney & Universalパック",
+  "paywallAddonThemeParksSubtitle": "Walt Disney WorldとUniversal Orlando — 全パーク、ディール、ルート、混雑インテリを1回の解除で。",
+  "hotelLinkUnavailable": "この宿泊の予約リンクはまだ利用できません。",
+  "hotelLinkOpenFailed": "リンクを開けませんでした — ブラウザでもう一度お試しください。",
+  "cityPickerThemeParksSubtitle": "オーランドアドオン · DisneyとUniversalをまとめて",
+  "orlandoThemeParksPromptTitle": "Orlando向けにDisney & Universalを解除しますか？",
+  "orlandoThemeParksPromptBody": "Walt Disney WorldとUniversal Orlando向けのテーマパークパックを追加 — 全パーク、チケットディール、ルート、混雑intelを1回の解除で。",
+  "orlandoThemeParksPromptUnlock": "解除 · {price}",
+  "@orlandoThemeParksPromptUnlock": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "orlandoThemeParksPromptNotNow": "後で",
+  "conciergeThinking": "Luxoraが考えています…",
+  "conciergeAiError": "Luxoraに接続できませんでした。接続を確認してもう一度お試しください。",
+  "conciergeAiNotConfigured": "ライブコンシェルジュにはSupabase + OpenAIが必要です。SUPABASE_URLとSUPABASE_ANON_KEYをローカルconfigに追加し、concierge-chat edge functionをデプロイしてください — docs/CONCIERGE_AI.md。"
 }

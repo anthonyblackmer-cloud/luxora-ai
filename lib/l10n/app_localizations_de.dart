@@ -980,6 +980,17 @@ class AppLocalizationsDe extends AppLocalizations {
       'Voice Concierge ist bald verfügbar – tippen Sie zunächst kurz auf oder geben Sie ein, was Sie möchten.';
 
   @override
+  String get conciergeThinking => 'Luxora denkt nach…';
+
+  @override
+  String get conciergeAiError =>
+      'Luxora ist gerade nicht erreichbar. Verbindung prüfen und erneut versuchen.';
+
+  @override
+  String get conciergeAiNotConfigured =>
+      'Live-Concierge benötigt Supabase + OpenAI. SUPABASE_URL und SUPABASE_ANON_KEY in die lokale Config eintragen und die Edge Function concierge-chat deployen — siehe docs/CONCIERGE_AI.md.';
+
+  @override
   String get mapAiPowers => 'KI-Kartenfunktionen';
 
   @override
@@ -1530,25 +1541,29 @@ class AppLocalizationsDe extends AppLocalizations {
   String get onboardRegion => 'Region';
 
   @override
-  String get onboardCityLabel => 'Choose your city';
+  String get onboardCityLabel => 'Wähle deine Stadt';
 
   @override
   String get onboardCityUnlockNote =>
-      'Each destination has its own concierge unlock — one-time purchase per city.';
+      'Jedes Reiseziel hat sein eigenes Concierge-Freischalten — einmaliger Kauf pro Stadt. Orlando-Themenparks sind ein Paket (Disney & Universal zusammen).';
 
   @override
-  String get landingCityLabel => 'Where are you going?';
+  String get landingCityLabel => 'Wohin geht es?';
 
   @override
-  String get paywallSwitchCity => 'Destination';
+  String get paywallSwitchCity => 'Reiseziel';
 
   @override
-  String get cityPickerUnlocked => 'Unlocked';
+  String get cityPickerUnlocked => 'Freigeschaltet';
 
   @override
   String cityPickerUnlockPrice(String price) {
-    return 'Unlock $price';
+    return 'Freischalten $price';
   }
+
+  @override
+  String get cityPickerThemeParksSubtitle =>
+      'Orlando-Add-on · Disney & Universal zusammen';
 
   @override
   String get onboardStep2Title => 'Zeit, dich frei zu fühlen';
@@ -2023,6 +2038,14 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get hotelVisitWebsite => 'Besuchen Sie die Website';
+
+  @override
+  String get hotelLinkUnavailable =>
+      'Buchungslink für diesen Aufenthalt noch nicht verfügbar.';
+
+  @override
+  String get hotelLinkOpenFailed =>
+      'Link konnte nicht geöffnet werden — versuche es im Browser erneut.';
 
   @override
   String get hotelSave => 'Hotel speichern';
@@ -2757,4 +2780,56 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get paywallHeadlineMiamiWeekend =>
       'Verschwenden Sie nicht Ihr Miami-Wochenende';
+
+  @override
+  String get paywallOrlandoAddonsHeading => 'Themenpark-Paket';
+
+  @override
+  String get paywallOrlandoBaseIncludes =>
+      'Orlando umfasst Restaurants, Geheimtipps, Hotels und Erlebnisse außerhalb der Parks. Themenpark-Paket für Disney und Universal zusammen.';
+
+  @override
+  String get paywallAddonThemeParksTitle => 'Disney & Universal Paket';
+
+  @override
+  String get paywallAddonThemeParksSubtitle =>
+      'Walt Disney World und Universal Orlando — alle Parks, Deals, Routen und Crowd-Intel in einem Freischalten.';
+
+  @override
+  String paywallUnlockAddon(String packName, String price) {
+    return '$packName freischalten · $price';
+  }
+
+  @override
+  String get paywallAddonUnlocked => 'Freigeschaltet';
+
+  @override
+  String get paywallAddonRequiresOrlando =>
+      'Erfordert zuerst Orlando-Freischaltung';
+
+  @override
+  String paywallUnlockAddonPack(String packName) {
+    return '$packName freischalten';
+  }
+
+  @override
+  String paywallCtaUnlockAddon(String packName) {
+    return '$packName freischalten';
+  }
+
+  @override
+  String get orlandoThemeParksPromptTitle =>
+      'Disney & Universal für Orlando freischalten?';
+
+  @override
+  String get orlandoThemeParksPromptBody =>
+      'Füge das Themenpark-Paket für Walt Disney World und Universal Orlando hinzu — alle Parks, Ticket-Deals, Routen und Crowd-Intel in einem Freischalten.';
+
+  @override
+  String orlandoThemeParksPromptUnlock(String price) {
+    return 'Freischalten · $price';
+  }
+
+  @override
+  String get orlandoThemeParksPromptNotNow => 'Nicht jetzt';
 }

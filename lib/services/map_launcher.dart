@@ -12,6 +12,16 @@ enum MapsProvider { google, apple }
 class MapLauncher {
   const MapLauncher._();
 
+  /// Ensures external links have a scheme browsers can open.
+  static String normalizeUrl(String url) {
+    final trimmed = url.trim();
+    if (trimmed.isEmpty) return '';
+    if (trimmed.startsWith('http://') || trimmed.startsWith('https://')) {
+      return trimmed;
+    }
+    return 'https://$trimmed';
+  }
+
   /// Opens a map centered on the destination (a marker / place view).
   static Future<bool> openPlace({
     required double latitude,
@@ -51,16 +61,32 @@ class MapLauncher {
     return _launch(uri);
   }
 
-  /// Opens an arbitrary external map URL (e.g. an official park map page/PDF).
+  /// Opens an arbitrary external URL (hotel site, rates, partner link).
   static Future<bool> openUrl(String url) {
-    final uri = Uri.tryParse(url);
-    if (uri == null) return Future.value(false);
+    final normalized = normalizeUrl(url);
+    if (normalized.isEmpty) return Future.value(false);
+
+    final uri = Uri.tryParse(normalized);
+    if (uri == null || !uri.hasScheme) return Future.value(false);
     return _launch(uri);
   }
 
   static Future<bool> _launch(Uri uri) async {
     try {
-      return await launchUrl(uri, mode: LaunchMode.externalApplication);
+      if (!await canLaunchUrl(uri)) {
+        debugPrint('MapLauncher cannot launch $uri');
+        return false;
+      }
+
+      final mode = kIsWeb
+          ? LaunchMode.platformDefault
+          : LaunchMode.externalApplication;
+
+      return await launchUrl(
+        uri,
+        mode: mode,
+        webOnlyWindowName: kIsWeb ? '_blank' : null,
+      );
     } catch (error) {
       debugPrint('MapLauncher failed to open $uri: $error');
       return false;

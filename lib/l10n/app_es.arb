@@ -1521,5 +1521,68 @@
         "type": "int"
       }
     }
-  }
+  },
+  "onboardCityLabel": "Elige tu ciudad",
+  "onboardCityUnlockNote": "Cada destino tiene su propio desbloqueo de concierge — compra única por ciudad. Los parques de Orlando son un pack (Disney y Universal juntos).",
+  "landingCityLabel": "¿A dónde vas?",
+  "paywallSwitchCity": "Destino",
+  "cityPickerUnlocked": "Desbloqueado",
+  "cityPickerUnlockPrice": "Desbloquear {price}",
+  "@cityPickerUnlockPrice": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallOrlandoAddonsHeading": "Pack de parques temáticos",
+  "paywallOrlandoBaseIncludes": "Orlando incluye gastronomía, joyas ocultas, hoteles y experiencias fuera de parques. Añade el pack de parques para Disney y Universal juntos.",
+  "paywallUnlockAddon": "Desbloquear {packName} · {price}",
+  "@paywallUnlockAddon": {
+    "placeholders": {
+      "packName": {
+        "type": "String"
+      },
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallAddonUnlocked": "Desbloqueado",
+  "paywallAddonRequiresOrlando": "Requiere desbloquear Orlando primero",
+  "paywallUnlockAddonPack": "Desbloquear {packName}",
+  "@paywallUnlockAddonPack": {
+    "placeholders": {
+      "packName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallCtaUnlockAddon": "Desbloquear {packName}",
+  "@paywallCtaUnlockAddon": {
+    "placeholders": {
+      "packName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallAddonThemeParksTitle": "Pack Disney y Universal",
+  "paywallAddonThemeParksSubtitle": "Walt Disney World y Universal Orlando — todos los parques, ofertas, rutas e inteligencia de multitudes en un desbloqueo.",
+  "hotelLinkUnavailable": "Enlace de reserva no disponible para esta estancia.",
+  "hotelLinkOpenFailed": "No se pudo abrir el enlace — inténtalo de nuevo en el navegador.",
+  "cityPickerThemeParksSubtitle": "Complemento Orlando · Disney y Universal juntos",
+  "orlandoThemeParksPromptTitle": "¿Desbloquear Disney y Universal para Orlando?",
+  "orlandoThemeParksPromptBody": "Añade el pack de parques para Walt Disney World y Universal Orlando — todos los parques, ofertas de entradas, rutas e inteligencia de multitudes en un desbloqueo.",
+  "orlandoThemeParksPromptUnlock": "Desbloquear · {price}",
+  "@orlandoThemeParksPromptUnlock": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "orlandoThemeParksPromptNotNow": "Ahora no",
+  "conciergeThinking": "Luxora está pensando…",
+  "conciergeAiError": "No pude contactar a Luxora. Comprueba tu conexión e inténtalo de nuevo.",
+  "conciergeAiNotConfigured": "El concierge en vivo requiere Supabase + OpenAI. Añade SUPABASE_URL y SUPABASE_ANON_KEY a tu config local y despliega la función concierge-chat — ver docs/CONCIERGE_AI.md."
 }

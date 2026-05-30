@@ -943,6 +943,16 @@ class AppLocalizationsZh extends AppLocalizations {
   String get conciergeVoiceSoon => '语音礼宾服务即将推出 - 现在，只需轻按某个时刻或输入您想要的感受即可。';
 
   @override
+  String get conciergeThinking => 'Luxora 正在思考…';
+
+  @override
+  String get conciergeAiError => '无法连接 Luxora。请检查网络后重试。';
+
+  @override
+  String get conciergeAiNotConfigured =>
+      '实时礼宾需要 Supabase + OpenAI。请在本地 config 中添加 SUPABASE_URL 和 SUPABASE_ANON_KEY，并部署 concierge-chat edge function — 见 docs/CONCIERGE_AI.md。';
+
+  @override
   String get mapAiPowers => 'AI 地图能力';
 
   @override
@@ -1458,25 +1468,28 @@ class AppLocalizationsZh extends AppLocalizations {
   String get onboardRegion => '地区';
 
   @override
-  String get onboardCityLabel => 'Choose your city';
+  String get onboardCityLabel => '选择您的城市';
 
   @override
   String get onboardCityUnlockNote =>
-      'Each destination has its own concierge unlock — one-time purchase per city.';
+      '每个目的地都有独立的礼宾解锁 — 按城市一次性购买。奥兰多主题公园为一个套餐（迪士尼和环球影城一起）。';
 
   @override
-  String get landingCityLabel => 'Where are you going?';
+  String get landingCityLabel => '您要去哪里？';
 
   @override
-  String get paywallSwitchCity => 'Destination';
+  String get paywallSwitchCity => '目的地';
 
   @override
-  String get cityPickerUnlocked => 'Unlocked';
+  String get cityPickerUnlocked => '已解锁';
 
   @override
   String cityPickerUnlockPrice(String price) {
-    return 'Unlock $price';
+    return '解锁 $price';
   }
+
+  @override
+  String get cityPickerThemeParksSubtitle => '奥兰多附加包 · 迪士尼和环球影城一起';
 
   @override
   String get onboardStep2Title => '该感受自由了';
@@ -1931,6 +1944,12 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get hotelVisitWebsite => '访问网站';
+
+  @override
+  String get hotelLinkUnavailable => '此住宿的预订链接尚不可用。';
+
+  @override
+  String get hotelLinkOpenFailed => '无法打开链接 — 请在浏览器中重试。';
 
   @override
   String get hotelSave => '保存酒店';
@@ -2626,4 +2645,54 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get paywallHeadlineMiamiWeekend => '不要浪费你的迈阿密周末';
+
+  @override
+  String get paywallOrlandoAddonsHeading => '主题公园套餐';
+
+  @override
+  String get paywallOrlandoBaseIncludes =>
+      '奥兰多解锁包括餐饮、隐藏宝石、酒店和园外体验。添加主题公园套餐，迪士尼和环球影城一起解锁。';
+
+  @override
+  String get paywallAddonThemeParksTitle => '迪士尼和环球影城套餐';
+
+  @override
+  String get paywallAddonThemeParksSubtitle =>
+      '华特迪士尼世界和奥兰多环球影城 — 所有园区、优惠、路线和人流情报一次解锁。';
+
+  @override
+  String paywallUnlockAddon(String packName, String price) {
+    return '解锁$packName · $price';
+  }
+
+  @override
+  String get paywallAddonUnlocked => '已解锁';
+
+  @override
+  String get paywallAddonRequiresOrlando => '需先解锁奥兰多';
+
+  @override
+  String paywallUnlockAddonPack(String packName) {
+    return '解锁$packName';
+  }
+
+  @override
+  String paywallCtaUnlockAddon(String packName) {
+    return '解锁$packName';
+  }
+
+  @override
+  String get orlandoThemeParksPromptTitle => '为奥兰多解锁迪士尼和环球影城？';
+
+  @override
+  String get orlandoThemeParksPromptBody =>
+      '添加 Walt Disney World 和 Universal Orlando 主题公园套餐 — 所有园区、门票优惠、路线和人流情报一次解锁。';
+
+  @override
+  String orlandoThemeParksPromptUnlock(String price) {
+    return '解锁 · $price';
+  }
+
+  @override
+  String get orlandoThemeParksPromptNotNow => '以后再说';
 }

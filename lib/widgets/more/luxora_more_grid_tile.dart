@@ -10,6 +10,7 @@ class LuxoraMoreGridTile extends StatelessWidget {
     required this.subtitle,
     required this.onTap,
     this.featured = false,
+    this.compact = false,
     this.animationIndex = 0,
   });
 
@@ -18,6 +19,7 @@ class LuxoraMoreGridTile extends StatelessWidget {
   final String subtitle;
   final VoidCallback onTap;
   final bool featured;
+  final bool compact;
   final int animationIndex;
 
   @override
@@ -26,11 +28,15 @@ class LuxoraMoreGridTile extends StatelessWidget {
     final scheme = theme.colorScheme;
     final tokens = luxThemeTokensOf(context);
     final accent = tokens.accent;
-    final r = 26.0;
+    final r = compact ? 20.0 : 26.0;
     final hi = scheme.surface.withValues(alpha: 0.42);
     final lo = tokens.bgSecondary.withValues(alpha: 0.72);
-    final iconBox = featured ? 82.0 : 64.0;
-    final iconGlyph = featured ? 44.0 : 34.0;
+    final iconBox = featured
+        ? (compact ? 58.0 : 82.0)
+        : (compact ? 48.0 : 64.0);
+    final iconGlyph = featured
+        ? (compact ? 30.0 : 44.0)
+        : (compact ? 26.0 : 34.0);
 
     final cardGradient = featured
         ? LinearGradient(
@@ -133,7 +139,12 @@ class LuxoraMoreGridTile extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(11, 16, 11, 13),
+                    padding: EdgeInsets.fromLTRB(
+                      compact ? 9 : 11,
+                      compact ? 12 : 16,
+                      compact ? 9 : 11,
+                      compact ? 10 : 13,
+                    ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
@@ -170,7 +181,7 @@ class LuxoraMoreGridTile extends StatelessWidget {
                             child: Icon(icon, color: accent, size: iconGlyph),
                           ),
                         ),
-                        SizedBox(height: featured ? 13 : 10),
+                        SizedBox(height: featured ? (compact ? 8 : 13) : (compact ? 6 : 10)),
                         Text(
                           title,
                           textAlign: TextAlign.center,
@@ -178,7 +189,9 @@ class LuxoraMoreGridTile extends StatelessWidget {
                           overflow: TextOverflow.ellipsis,
                           style: theme.textTheme.titleMedium?.copyWith(
                             fontWeight: FontWeight.w800,
-                            fontSize: featured ? 18 : 16,
+                            fontSize: featured
+                                ? (compact ? 15 : 18)
+                                : (compact ? 14 : 16),
                             height: 1.05,
                             letterSpacing: -0.35,
                             color: tokens.textPrimary,
@@ -194,7 +207,7 @@ class LuxoraMoreGridTile extends StatelessWidget {
                             style: theme.textTheme.bodySmall?.copyWith(
                               color: tokens.textMuted,
                               height: 1.18,
-                              fontSize: 11,
+                              fontSize: compact ? 10 : 11,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -221,6 +234,7 @@ class LuxoraMoreListTile extends StatelessWidget {
     required this.subtitle,
     required this.onTap,
     this.trailing,
+    this.compact = false,
   });
 
   final IconData icon;
@@ -228,6 +242,7 @@ class LuxoraMoreListTile extends StatelessWidget {
   final String subtitle;
   final VoidCallback onTap;
   final Widget? trailing;
+  final bool compact;
 
   @override
   Widget build(BuildContext context) {
@@ -237,20 +252,23 @@ class LuxoraMoreListTile extends StatelessWidget {
       color: Colors.transparent,
       child: InkWell(
         onTap: onTap,
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(compact ? 16 : 18),
         child: Ink(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(18),
+            borderRadius: BorderRadius.circular(compact ? 16 : 18),
             color: tokens.bgSecondary.withValues(alpha: 0.5),
             border: Border.all(color: accent.withValues(alpha: 0.14)),
           ),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+            padding: EdgeInsets.symmetric(
+              horizontal: compact ? 14 : 16,
+              vertical: compact ? 11 : 14,
+            ),
             child: Row(
               children: [
                 Container(
-                  width: 44,
-                  height: 44,
+                  width: compact ? 40 : 44,
+                  height: compact ? 40 : 44,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: accent.withValues(alpha: 0.12),
@@ -259,9 +277,9 @@ class LuxoraMoreListTile extends StatelessWidget {
                     ),
                   ),
                   alignment: Alignment.center,
-                  child: Icon(icon, color: accent, size: 22),
+                  child: Icon(icon, color: accent, size: compact ? 20 : 22),
                 ),
-                const SizedBox(width: 14),
+                SizedBox(width: compact ? 12 : 14),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -270,7 +288,7 @@ class LuxoraMoreListTile extends StatelessWidget {
                         title,
                         style: TextStyle(
                           fontWeight: FontWeight.w700,
-                          fontSize: 15,
+                          fontSize: compact ? 14 : 15,
                           color: tokens.textPrimary,
                         ),
                       ),
@@ -278,7 +296,7 @@ class LuxoraMoreListTile extends StatelessWidget {
                       Text(
                         subtitle,
                         style: TextStyle(
-                          fontSize: 12,
+                          fontSize: compact ? 11 : 12,
                           color: tokens.textMuted,
                           height: 1.25,
                         ),

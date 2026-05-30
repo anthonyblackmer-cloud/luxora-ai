@@ -7,6 +7,7 @@ import 'package:luxora_ai/l10n/luxora_l10n_helpers.dart';
 import 'package:luxora_ai/data/saved_trips.dart';
 import 'package:luxora_ai/models/trip_occasion.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
+import 'package:luxora_ai/services/city_picker_actions.dart';
 import 'package:luxora_ai/services/paywall_service.dart';
 import 'package:luxora_ai/services/saved_trips_store.dart';
 import 'package:luxora_ai/services/trip_feel_interpreter.dart';
@@ -60,12 +61,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     );
     if (!mounted) return;
 
-    final unlocked = await PaywallService.showPaywall(
+    await PaywallService.talkToLuxora(
       context,
       cityId: enriched.cityId,
+      fallbackRoute: '/discover',
     );
-    if (!mounted) return;
-    context.go(unlocked ? '/trips' : '/discover');
   }
 
   void _next() {
@@ -145,11 +145,16 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             CityDestinationPicker(
               label: l.onboardCityLabel,
               selectedCityId: _profile.cityId,
-              onChanged: (cityId) {
-                setState(() {
-                  _profile = PaywallService.profileForCity(_profile, cityId);
-                });
-              },
+              onChanged: (id) => CityPickerActions.handleSelection(
+                context,
+                pickedId: id,
+                currentCityId: _profile.cityId,
+                onCitySelected: (cityId) {
+                  setState(() {
+                    _profile = PaywallService.profileForCity(_profile, cityId);
+                  });
+                },
+              ),
             ),
             const SizedBox(height: 8),
             Text(

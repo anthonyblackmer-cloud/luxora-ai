@@ -6,6 +6,7 @@ import 'package:luxora_ai/data/miami/miami_content.dart';
 import 'package:luxora_ai/models/discover_radius.dart';
 import 'package:luxora_ai/models/lux_place.dart';
 import 'package:luxora_ai/services/city_pack_registry.dart';
+import 'package:luxora_ai/services/orlando_addon_service.dart';
 import 'package:luxora_ai/services/places_asset_repository.dart';
 import 'package:luxora_ai/services/places_remote_repository.dart';
 import 'package:luxora_ai/util/place_distance.dart';
@@ -152,6 +153,9 @@ class PlacesRepository {
       return false;
     }
     if (!CityPackRegistry.instance.placeBelongsToActivePack(place.cityPackId)) {
+      return false;
+    }
+    if (!OrlandoAddonService.isPlaceAccessible(place)) {
       return false;
     }
     if (radius.isUnlimited) {

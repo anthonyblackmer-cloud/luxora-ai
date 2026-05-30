@@ -22,6 +22,7 @@ Future<void> showHotelDetailSheet(
   required LuxHotel hotel,
   required LuxPlace place,
   DayFlow? flow,
+  HotelMatchmakerInput? matchInput,
 }) {
   return showModalBottomSheet<void>(
     context: context,
@@ -33,11 +34,34 @@ Future<void> showHotelDetailSheet(
       child: Center(
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 920),
-          child: HotelDetailSheet(hotel: hotel, place: place, flow: flow),
+          child: HotelDetailSheet(
+            hotel: hotel,
+            place: place,
+            flow: flow,
+            matchInput: matchInput,
+          ),
         ),
       ),
     ),
   );
+}
+
+Future<void> openHotelLink(BuildContext context, String url) async {
+  final l = context.l10n;
+  if (url.isEmpty) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(l.hotelLinkUnavailable)),
+    );
+    return;
+  }
+
+  final ok = await MapLauncher.openUrl(url);
+  if (!context.mounted) return;
+  if (!ok) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(l.hotelLinkOpenFailed)),
+    );
+  }
 }
 
 class HotelDetailSheet extends StatelessWidget {
@@ -46,11 +70,13 @@ class HotelDetailSheet extends StatelessWidget {
     required this.hotel,
     required this.place,
     this.flow,
+    this.matchInput,
   });
 
   final LuxHotel hotel;
   final LuxPlace place;
   final DayFlow? flow;
+  final HotelMatchmakerInput? matchInput;
 
   @override
   Widget build(BuildContext context) {
@@ -105,6 +131,7 @@ class HotelDetailSheet extends StatelessWidget {
                           hotel: hotel,
                           profile: profile,
                           flow: flow,
+                          matchInput: matchInput,
                         );
                         final friction =
                             HotelIntelligenceService.travelFrictionScore(hotel);
@@ -116,6 +143,7 @@ class HotelDetailSheet extends StatelessWidget {
                               borderRadius: BorderRadius.circular(16),
                               child: LuxPlaceImage(
                                 place: place,
+                                overridePhotoId: hotel.unsplashPhotoId,
                                 presentation: LuxImagePresentation.detailHero,
                               ),
                             ),
@@ -305,14 +333,12 @@ class HotelDetailSheet extends StatelessWidget {
                                     label: l.hotelCheckRates,
                                     outline: true,
                                     icon: Icons.open_in_new_rounded,
-                                    onPressed: () {
-                                      final url =
-                                          HotelIntelligenceService
-                                              .checkRatesUrlFor(hotel);
-                                      if (url.isNotEmpty) {
-                                        MapLauncher.openUrl(url);
-                                      }
-                                    },
+                                    onPressed: () => openHotelLink(
+                                      context,
+                                      HotelIntelligenceService.checkRatesUrlFor(
+                                        hotel,
+                                      ),
+                                    ),
                                   ),
                                 ),
                                 const SizedBox(width: 10),
@@ -321,14 +347,12 @@ class HotelDetailSheet extends StatelessWidget {
                                     label: l.hotelVisitWebsite,
                                     outline: true,
                                     icon: Icons.language_rounded,
-                                    onPressed: () {
-                                      final url =
-                                          HotelIntelligenceService
-                                              .websiteUrlFor(hotel);
-                                      if (url.isNotEmpty) {
-                                        MapLauncher.openUrl(url);
-                                      }
-                                    },
+                                    onPressed: () => openHotelLink(
+                                      context,
+                                      HotelIntelligenceService.websiteUrlFor(
+                                        hotel,
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ],

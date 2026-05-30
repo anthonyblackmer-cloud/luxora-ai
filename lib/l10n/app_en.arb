@@ -431,6 +431,9 @@
   "tripsOpenStory": "Your story",
   "conciergeVoiceHold": "Hold to speak",
   "conciergeVoiceSoon": "Voice concierge is coming soon — for now, tap a moment or type how you want to feel.",
+  "conciergeThinking": "Luxora is thinking…",
+  "conciergeAiError": "I couldn't reach Luxora right now. Check your connection and try again.",
+  "conciergeAiNotConfigured": "Live concierge requires Supabase + OpenAI. Add SUPABASE_URL and SUPABASE_ANON_KEY to your local config and deploy the concierge-chat edge function — see docs/CONCIERGE_AI.md.",
   "mapAiPowers": "AI map powers",
   "mapNavLayerTitle": "Stop friction intelligence",
   "mapNavLayerSubtitle": "Crowd, parking, and drive-stress outlook on each Plan my day stop — plus one-tap reroute.",
@@ -638,7 +641,7 @@
   "onboardDestination": "Destination",
   "onboardRegion": "Region",
   "onboardCityLabel": "Choose your city",
-  "onboardCityUnlockNote": "Each destination has its own concierge unlock — one-time purchase per city.",
+  "onboardCityUnlockNote": "Each destination has its own concierge unlock — one-time purchase per city. Orlando theme parks are one add-on pack (Disney & Universal together).",
   "landingCityLabel": "Where are you going?",
   "paywallSwitchCity": "Destination",
   "cityPickerUnlocked": "Unlocked",
@@ -648,6 +651,7 @@
       "price": { "type": "String" }
     }
   },
+  "cityPickerThemeParksSubtitle": "Orlando add-on · Disney & Universal together",
   "onboardStep2Title": "Time to feel free",
   "onboardStep2Subtitle": "When does your escape begin?",
   "onboardBudget": "Trip budget (USD)",
@@ -848,6 +852,8 @@
   "hotelGetDirections": "Get Directions",
   "hotelCheckRates": "Check Rates",
   "hotelVisitWebsite": "Visit Website",
+  "hotelLinkUnavailable": "Booking link not available for this stay yet.",
+  "hotelLinkOpenFailed": "Couldn't open link — check your browser or try again.",
   "hotelSave": "Save Hotel",
   "hotelSaved": "Saved",
   "hotelDistanceTitle": "Distance to key spots",
@@ -1193,5 +1199,39 @@
     }
   },
   "paywallHeadlineMiamiDefault": "EXPERIENCE MIAMI DIFFERENTLY",
-  "paywallHeadlineMiamiWeekend": "DON'T WASTE YOUR MIAMI WEEKEND"
+  "paywallHeadlineMiamiWeekend": "DON'T WASTE YOUR MIAMI WEEKEND",
+  "paywallOrlandoAddonsHeading": "Theme park pack",
+  "paywallOrlandoBaseIncludes": "Orlando unlock includes dining, hidden gems, hotels, and non-park experiences. Add the theme park pack for Disney and Universal together.",
+  "paywallAddonThemeParksTitle": "Disney & Universal Pack",
+  "paywallAddonThemeParksSubtitle": "Walt Disney World and Universal Orlando — all parks, deals, routes, and crowd intel in one unlock.",
+  "paywallUnlockAddon": "Unlock {packName} · {price}",
+  "@paywallUnlockAddon": {
+    "placeholders": {
+      "packName": {"type": "String"},
+      "price": {"type": "String"}
+    }
+  },
+  "paywallAddonUnlocked": "Unlocked",
+  "paywallAddonRequiresOrlando": "Requires Orlando unlock first",
+  "paywallUnlockAddonPack": "Unlock {packName}",
+  "@paywallUnlockAddonPack": {
+    "placeholders": {
+      "packName": {"type": "String"}
+    }
+  },
+  "paywallCtaUnlockAddon": "Unlock {packName}",
+  "@paywallCtaUnlockAddon": {
+    "placeholders": {
+      "packName": {"type": "String"}
+    }
+  },
+  "orlandoThemeParksPromptTitle": "Unlock Disney & Universal for Orlando?",
+  "orlandoThemeParksPromptBody": "Add the theme park pack for Walt Disney World and Universal Orlando — all parks, ticket deals, routes, and crowd intel in one unlock.",
+  "orlandoThemeParksPromptUnlock": "Unlock · {price}",
+  "@orlandoThemeParksPromptUnlock": {
+    "placeholders": {
+      "price": {"type": "String"}
+    }
+  },
+  "orlandoThemeParksPromptNotNow": "Not now"
 }

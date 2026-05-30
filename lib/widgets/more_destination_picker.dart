@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/services/city_pack_registry.dart';
-import 'package:luxora_ai/services/city_pack_sync.dart';
-import 'package:luxora_ai/services/paywall_service.dart';
+import 'package:luxora_ai/services/city_picker_actions.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/widgets/city_destination_picker.dart';
 
@@ -33,18 +32,11 @@ class MoreDestinationPicker extends StatelessWidget {
               child: CityDestinationPicker(
                 label: l.paywallSwitchCity,
                 selectedCityId: cityId,
-                onChanged: (next) async {
-                  if (next == cityId) return;
-                  if (PaywallService.needsUnlock(next)) {
-                    final ok = await PaywallService.showPaywall(
-                      context,
-                      cityId: next,
-                    );
-                    if (!ok || !context.mounted) return;
-                  } else {
-                    await CityPackSync.switchCity(next);
-                  }
-                },
+                onChanged: (next) => CityPickerActions.handleSelection(
+                  context,
+                  pickedId: next,
+                  currentCityId: cityId,
+                ),
               ),
             ),
           ),

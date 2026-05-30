@@ -5,7 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:luxora_ai/l10n/app_localizations.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_helpers.dart';
+import 'package:luxora_ai/models/concierge/concierge_trip_context.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
+import 'package:luxora_ai/services/concierge_ai_service.dart';
+import 'package:luxora_ai/services/concierge_context_builder.dart';
 import 'package:luxora_ai/services/concierge_session_memory.dart';
 import 'package:luxora_ai/services/trip_profile_storage.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
@@ -22,11 +25,14 @@ class ConciergeScreen extends StatefulWidget {
 
 class _ConciergeScreenState extends State<ConciergeScreen> {
   final _messages = <({bool user, String text})>[];
+  final _apiHistory = <ConciergeChatMessage>[];
   final _controller = TextEditingController();
   final _scrollController = ScrollController();
   final _memory = ConciergeSessionMemory();
   String? _tripFeel;
+  TripProfile? _profile;
   List<String> _stylePrefs = [];
+  bool _isThinking = false;
 
   @override
   void initState() {
@@ -49,11 +55,15 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
     final l = AppLocalizations.of(context);
     final recall = _recallLine(l, profile, prefs, returning: lastVisit != null);
     setState(() {
+      _profile = profile;
       _tripFeel = profile?.tripFeel;
       _stylePrefs = prefs;
       _messages.add((user: false, text: l.conciergeWelcome));
       if (recall != null) {
         _messages.add((user: false, text: recall));
+      }
+      if (!ConciergeAiService.isConfigured) {
+        _messages.add((user: false, text: l.conciergeAiNotConfigured));
       }
     });
     unawaited(_memory.markVisited());
@@ -103,9 +113,9 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
     }
   }
 
-  void _send(String text) {
+  Future<void> _send(String text) async {
     final trimmed = text.trim();
-    if (trimmed.isEmpty) return;
+    if (trimmed.isEmpty || _isThinking) return;
     _dismissKeyboard();
     final inferred = ConciergeSessionMemory.preferenceFromUserMessage(trimmed);
     if (inferred != null) {
@@ -114,13 +124,61 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
     setState(() {
       _messages.add((user: true, text: trimmed));
       _controller.clear();
+      _isThinking = true;
     });
     _scrollToEnd();
-    Future.delayed(const Duration(milliseconds: 550), () {
+
+    if (!ConciergeAiService.isConfigured) {
       if (!mounted) return;
-      setState(() => _messages.add((user: false, text: _mockReply(trimmed))));
+      setState(() {
+        _isThinking = false;
+        _messages.add((
+          user: false,
+          text: AppLocalizations.of(context).conciergeAiNotConfigured,
+        ));
+      });
       _scrollToEnd();
-    });
+      return;
+    }
+
+    _apiHistory.add(ConciergeChatMessage(role: 'user', content: trimmed));
+
+    try {
+      final locale = Localizations.localeOf(context).languageCode;
+      final contextPayload = ConciergeContextBuilder.build(
+        profile: _profile,
+        stylePrefs: _stylePrefs,
+        localeCode: locale,
+      );
+      final reply = await ConciergeAiService.chat(
+        messages: List<ConciergeChatMessage>.from(_apiHistory),
+        context: contextPayload,
+      );
+      _apiHistory.add(ConciergeChatMessage(role: 'assistant', content: reply));
+      if (!mounted) return;
+      setState(() {
+        _isThinking = false;
+        _messages.add((user: false, text: reply));
+      });
+    } on ConciergeAiException catch (e) {
+      if (!mounted) return;
+      setState(() {
+        _isThinking = false;
+        _apiHistory.removeLast();
+        _messages.add((user: false, text: e.message));
+      });
+    } catch (_) {
+      if (!mounted) return;
+      setState(() {
+        _isThinking = false;
+        _apiHistory.removeLast();
+        _messages.add((
+          user: false,
+          text: AppLocalizations.of(context).conciergeAiError,
+        ));
+      });
+    }
+    _scrollToEnd();
   }
 
   void _scrollToEnd() {
@@ -139,42 +197,6 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
     if (hour < 12) return l.conciergeGreetingMorning;
     if (hour < 18) return l.conciergeGreetingAfternoon;
     return l.conciergeGreetingEvening;
-  }
-
-  String _styleMemoryLine() {
-    if (_stylePrefs.isEmpty) return '';
-    return ' I’m honoring your style: ${_stylePrefs.join(' · ')}.';
-  }
-
-  String _mockReply(String prompt) {
-    final lower = prompt.toLowerCase();
-    final feel = _tripFeel != null && _tripFeel!.isNotEmpty
-        ? ' I’m shaping this around your trip feel: “$_tripFeel”.'
-        : '';
-    final style = _styleMemoryLine();
-
-    if (lower.contains('romantic')) {
-      return 'Picture a slow spa morning, a hidden spring at noon, and a rooftop table timed for golden hour — not 7PM on a schedule, but a sunset when you’re ready.$feel$style Shall I add this to your timeline and surface a few Gems locals don’t share?';
-    }
-    if (lower.contains('wellness') || lower.contains('reset')) {
-      return 'I’ll build a restorative arc: citrus spa ritual, quiet spring float, and an early night with soft luxury — zero packed transfers.$feel$style Want crowd-light Gems only?';
-    }
-    if (lower.contains('family') || lower.contains('magic')) {
-      return 'Family magic with adult pacing: a softer park rhythm, a spring dip everyone loves, and dinners where nobody melts down.$feel$style I’ll keep a rainy-day backup in your Feed.';
-    }
-    if (lower.contains('hidden') || lower.contains('luxury')) {
-      return 'I’ll lean on our Gems layer — alley courtyards, north-trail springs, and tables without street signage.$feel$style The Feed can handle what’s trending if you want one viral night.';
-    }
-    if (lower.contains('foodie')) {
-      return 'Foodie adventure: rooftops, chef counters, and one splurge night where the city feels golden.$feel$style I’ll sequence drive times so you’re hungry, not rushed.';
-    }
-    if (lower.contains('disney') || lower.contains('after-dark')) {
-      return 'After-dark wonder with fewer crowds — emotional pacing, not marathon miles.$feel$style I’ll pair it with a quiet Gem morning so the trip breathes.';
-    }
-    if (lower.contains('adventure')) {
-      return 'Adventure with elegance: eco paddle, island energy, one bold day trip — still premium, never gritty.$feel$style Map routes will optimize drive time when we go live.';
-    }
-    return 'I’m curating a flow of moments across Florida — anticipation built in, stress left out.$feel$style Try Gems for secrets or Feed for what’s buzzing right now.';
   }
 
   Future<void> _showStyleRefineSheet(AppLocalizations l) async {
@@ -491,8 +513,32 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
                       height: 132,
                       child: ListView.builder(
                         controller: _scrollController,
-                        itemCount: _messages.length,
+                        itemCount: _messages.length + (_isThinking ? 1 : 0),
                         itemBuilder: (context, i) {
+                          if (_isThinking && i == _messages.length) {
+                            return Align(
+                              alignment: Alignment.centerLeft,
+                              child: Container(
+                                margin: const EdgeInsets.only(bottom: 10),
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 14,
+                                  vertical: 10,
+                                ),
+                                decoration: BoxDecoration(
+                                  color: t.panelFill,
+                                  borderRadius: BorderRadius.circular(16),
+                                ),
+                                child: Text(
+                                  l.conciergeThinking,
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontStyle: FontStyle.italic,
+                                    color: t.textMuted,
+                                  ),
+                                ),
+                              ),
+                            );
+                          }
                           final m = _messages[i];
                           return Align(
                             alignment: m.user
@@ -567,12 +613,16 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
                         suffixIcon: IconButton(
                           icon: Icon(
                             Icons.send_rounded,
-                            color: t.accent,
+                            color: _isThinking
+                                ? t.textMuted.withValues(alpha: 0.4)
+                                : t.accent,
                           ),
-                          onPressed: () => _send(_controller.text),
+                          onPressed: _isThinking
+                              ? null
+                              : () => _send(_controller.text),
                         ),
                       ),
-                      onSubmitted: _send,
+                      onSubmitted: _isThinking ? null : _send,
                     ),
                   ],
                 ),

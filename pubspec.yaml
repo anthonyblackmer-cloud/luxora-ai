@@ -52,6 +52,7 @@ flutter:
     - assets/images/founder.png
     - assets/places/osm_places.json
     - assets/city_packs/
+    - assets/city_packs/city_pack_florida-keys.json
     - assets/deals/
   fonts:
     - family: Cormorant Garamond

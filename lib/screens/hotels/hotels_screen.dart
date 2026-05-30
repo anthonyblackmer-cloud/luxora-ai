@@ -10,6 +10,7 @@ import 'package:luxora_ai/widgets/glass_card.dart';
 import 'package:luxora_ai/widgets/hotel_card.dart';
 import 'package:luxora_ai/widgets/hotel_compare_sheet.dart';
 import 'package:luxora_ai/widgets/hotel_detail_sheet.dart';
+import 'package:luxora_ai/widgets/lux_responsive_frame.dart';
 import 'package:luxora_ai/widgets/lux_secondary_app_bar.dart';
 import 'package:luxora_ai/widgets/lux_button.dart';
 import 'package:luxora_ai/widgets/partner_sponsor_badge.dart';
@@ -53,7 +54,8 @@ class _HotelsScreenState extends State<HotelsScreen> {
       appBar: LuxSecondaryAppBar(title: l.navStays),
       body: SafeArea(
         top: false,
-        child: ValueListenableBuilder(
+        child: LuxResponsiveFrame(
+          child: ValueListenableBuilder(
         valueListenable: HomeBaseStore.instance.placeId,
         builder: (context, homeBaseId, _) {
           return Column(
@@ -205,6 +207,7 @@ class _HotelsScreenState extends State<HotelsScreen> {
           );
         },
       ),
+        ),
       ),
     );
   }

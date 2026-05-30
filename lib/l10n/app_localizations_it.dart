@@ -986,6 +986,17 @@ class AppLocalizationsIt extends AppLocalizations {
       'Il concierge vocale sarà presto disponibile: per ora, tocca un momento o digita come vuoi sentirti.';
 
   @override
+  String get conciergeThinking => 'Luxora sta pensando…';
+
+  @override
+  String get conciergeAiError =>
+      'Non riesco a raggiungere Luxora. Controlla la connessione e riprova.';
+
+  @override
+  String get conciergeAiNotConfigured =>
+      'Il concierge live richiede Supabase + OpenAI. Aggiungi SUPABASE_URL e SUPABASE_ANON_KEY alla config locale e distribuisci la edge function concierge-chat — vedi docs/CONCIERGE_AI.md.';
+
+  @override
   String get mapAiPowers => 'Poteri della mappa dell\'IA';
 
   @override
@@ -1540,25 +1551,29 @@ class AppLocalizationsIt extends AppLocalizations {
   String get onboardRegion => 'Regione';
 
   @override
-  String get onboardCityLabel => 'Choose your city';
+  String get onboardCityLabel => 'Scegli la tua città';
 
   @override
   String get onboardCityUnlockNote =>
-      'Each destination has its own concierge unlock — one-time purchase per city.';
+      'Ogni destinazione ha il proprio sblocco concierge — acquisto una tantum per città. I parchi di Orlando sono un pack (Disney e Universal insieme).';
 
   @override
-  String get landingCityLabel => 'Where are you going?';
+  String get landingCityLabel => 'Dove stai andando?';
 
   @override
-  String get paywallSwitchCity => 'Destination';
+  String get paywallSwitchCity => 'Destinazione';
 
   @override
-  String get cityPickerUnlocked => 'Unlocked';
+  String get cityPickerUnlocked => 'Sbloccato';
 
   @override
   String cityPickerUnlockPrice(String price) {
-    return 'Unlock $price';
+    return 'Sblocca $price';
   }
+
+  @override
+  String get cityPickerThemeParksSubtitle =>
+      'Add-on Orlando · Disney e Universal insieme';
 
   @override
   String get onboardStep2Title => 'È ora di sentirsi liberi';
@@ -2033,6 +2048,14 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get hotelVisitWebsite => 'Visita il sito web';
+
+  @override
+  String get hotelLinkUnavailable =>
+      'Link di prenotazione non disponibile per questo soggiorno.';
+
+  @override
+  String get hotelLinkOpenFailed =>
+      'Impossibile aprire il link — riprova nel browser.';
 
   @override
   String get hotelSave => 'Salva Albergo';
@@ -2777,4 +2800,55 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get paywallHeadlineMiamiWeekend =>
       'NON SPRECARE IL TUO WEEKEND A MIAMI';
+
+  @override
+  String get paywallOrlandoAddonsHeading => 'Pack parchi a tema';
+
+  @override
+  String get paywallOrlandoBaseIncludes =>
+      'Orlando include ristoranti, gemme nascoste, hotel ed esperienze fuori parco. Aggiungi il pack parchi per Disney e Universal insieme.';
+
+  @override
+  String get paywallAddonThemeParksTitle => 'Pack Disney e Universal';
+
+  @override
+  String get paywallAddonThemeParksSubtitle =>
+      'Walt Disney World e Universal Orlando — tutti i parchi, offerte, percorsi e intel affollamento in uno sblocco.';
+
+  @override
+  String paywallUnlockAddon(String packName, String price) {
+    return 'Sblocca $packName · $price';
+  }
+
+  @override
+  String get paywallAddonUnlocked => 'Sbloccato';
+
+  @override
+  String get paywallAddonRequiresOrlando => 'Richiede prima lo sblocco Orlando';
+
+  @override
+  String paywallUnlockAddonPack(String packName) {
+    return 'Sblocca $packName';
+  }
+
+  @override
+  String paywallCtaUnlockAddon(String packName) {
+    return 'Sblocca $packName';
+  }
+
+  @override
+  String get orlandoThemeParksPromptTitle =>
+      'Sbloccare Disney e Universal per Orlando?';
+
+  @override
+  String get orlandoThemeParksPromptBody =>
+      'Aggiungi il pack parchi per Walt Disney World e Universal Orlando — tutti i parchi, offerte biglietti, percorsi e intel affollamento in uno sblocco.';
+
+  @override
+  String orlandoThemeParksPromptUnlock(String price) {
+    return 'Sblocca · $price';
+  }
+
+  @override
+  String get orlandoThemeParksPromptNotNow => 'Non ora';
 }

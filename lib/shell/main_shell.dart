@@ -6,9 +6,10 @@ import 'package:go_router/go_router.dart';
 
 import 'package:luxora_ai/l10n/app_localizations.dart';
 
+import 'package:luxora_ai/theme/lux_breakpoints.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
-
 import 'package:luxora_ai/widgets/lux_background.dart';
+import 'package:luxora_ai/widgets/lux_responsive_frame.dart';
 
 
 
@@ -33,24 +34,11 @@ class MainShell extends StatelessWidget {
     final tokens = luxThemeTokensOf(context);
 
     final compactNav = MediaQuery.sizeOf(context).width < 560;
-
+    final tablet = luxIsTablet(context);
     final navBg = tokens.bg.withValues(alpha: 0.92);
 
-
-
-    return LuxBackground(
-
-      child: Scaffold(
-
-        backgroundColor: Colors.transparent,
-
-        resizeToAvoidBottomInset: !kIsWeb,
-
-        body: navigationShell,
-
-        bottomNavigationBar: NavigationBar(
-
-          height: compactNav ? 68 : 74,
+    final navBar = NavigationBar(
+      height: compactNav ? 68 : (tablet ? 64 : 74),
 
           labelBehavior: compactNav
 
@@ -143,13 +131,19 @@ class MainShell extends StatelessWidget {
 
           ],
 
+        );
+
+    return LuxBackground(
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        resizeToAvoidBottomInset: !kIsWeb,
+        body: LuxResponsiveFrame(
+          fullBleed: navigationShell.currentIndex == 1,
+          child: navigationShell,
         ),
-
+        bottomNavigationBar: navBar,
       ),
-
     );
-
   }
-
 }
 

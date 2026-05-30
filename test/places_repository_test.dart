@@ -17,6 +17,17 @@ void main() {
     await PlacesRepository.instance.initialize();
   });
 
+  test('every catalog unsplashPhotoId resolves in curated.json', () {
+    final repo = PlacesRepository.instance;
+    for (final place in repo.activePlaces) {
+      expect(
+        place.unsplashPhoto?.hotlinkUrl,
+        startsWith('https://'),
+        reason: '${place.id} → ${place.unsplashPhotoId}',
+      );
+    }
+  });
+
   test('feed and gem ids resolve to places with image urls', () {
     final repo = PlacesRepository.instance;
     for (final id in kFeedItemPlaceIds.values) {

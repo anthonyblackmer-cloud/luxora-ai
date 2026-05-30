@@ -11,9 +11,11 @@ import 'package:luxora_ai/services/partner_sponsorship_service.dart';
 import 'package:luxora_ai/services/ticket_deals_repository.dart';
 import 'package:luxora_ai/services/ticket_savings_service.dart';
 import 'package:luxora_ai/services/trip_profile_store.dart';
+import 'package:luxora_ai/theme/lux_breakpoints.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/widgets/attraction_detail_sheet.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
+import 'package:luxora_ai/widgets/lux_responsive_frame.dart';
 import 'package:luxora_ai/widgets/lux_secondary_app_bar.dart';
 import 'package:luxora_ai/widgets/partner_sponsor_badge.dart';
 import 'package:luxora_ai/widgets/ticket_deal_card.dart';
@@ -47,12 +49,14 @@ class _TicketSavingsScreenState extends State<TicketSavingsScreen> {
   @override
   Widget build(BuildContext context) {
     final l = context.l10n;
+    final compact = luxIsTablet(context);
     return Scaffold(
       backgroundColor: Colors.transparent,
       appBar: LuxSecondaryAppBar(title: l.navTicketSavings),
       body: SafeArea(
         top: false,
-        child: ListenableBuilder(
+        child: LuxResponsiveFrame(
+          child: ListenableBuilder(
           listenable: TicketDealsRepository.instance,
           builder: (context, _) {
             return ListenableBuilder(
@@ -99,7 +103,7 @@ class _TicketSavingsScreenState extends State<TicketSavingsScreen> {
                 },
                 child: ListView(
                 physics: const AlwaysScrollableScrollPhysics(),
-                padding: const EdgeInsets.all(20),
+                padding: EdgeInsets.all(compact ? 16 : 20),
                 children: [
                   Text(
                     l.ticketSavingsBadgeLabel,
@@ -217,12 +221,14 @@ class _TicketSavingsScreenState extends State<TicketSavingsScreen> {
                       _FilterChip(
                         label: l.ticketFilterAll,
                         selected: _category == null,
+                        compact: compact,
                         onTap: () => setState(() => _category = null),
                       ),
                       for (final c in TicketDealCategory.values)
                         _FilterChip(
                           label: _categoryLabel(l, c),
                           selected: _category == c,
+                          compact: compact,
                           onTap: () => setState(() => _category = c),
                         ),
                     ],
@@ -239,8 +245,13 @@ class _TicketSavingsScreenState extends State<TicketSavingsScreen> {
                           Padding(
                             padding: const EdgeInsets.only(right: 8),
                             child: ChoiceChip(
-                              label: Text(_sortLabel(l, s),
-                                  style: const TextStyle(fontSize: 12)),
+                              label: Text(
+                                _sortLabel(l, s),
+                                style: TextStyle(fontSize: compact ? 11 : 12),
+                              ),
+                              visualDensity: compact
+                                  ? VisualDensity.compact
+                                  : VisualDensity.standard,
                               selected: _sort == s,
                               onSelected: (_) => setState(() => _sort = s),
                               selectedColor:
@@ -287,6 +298,7 @@ class _TicketSavingsScreenState extends State<TicketSavingsScreen> {
           },
         );
           },
+        ),
         ),
       ),
     );
@@ -527,16 +539,19 @@ class _FilterChip extends StatelessWidget {
     required this.label,
     required this.selected,
     required this.onTap,
+    this.compact = false,
   });
 
   final String label;
   final bool selected;
   final VoidCallback onTap;
+  final bool compact;
 
   @override
   Widget build(BuildContext context) {
     return FilterChip(
-      label: Text(label, style: const TextStyle(fontSize: 12)),
+      label: Text(label, style: TextStyle(fontSize: compact ? 11 : 12)),
+      visualDensity: compact ? VisualDensity.compact : VisualDensity.standard,
       selected: selected,
       onSelected: (_) => onTap(),
       selectedColor: LuxColors.gold.withValues(alpha: 0.2),

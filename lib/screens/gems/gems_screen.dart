@@ -10,6 +10,7 @@ import 'package:luxora_ai/services/partner_sponsorship_service.dart';
 import 'package:luxora_ai/services/places_repository.dart';
 import 'package:luxora_ai/services/trip_profile_store.dart';
 import 'package:luxora_ai/services/unsplash_download_tracker.dart';
+import 'package:luxora_ai/theme/lux_breakpoints.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/widgets/attraction_detail_sheet.dart';
 import 'package:luxora_ai/widgets/destination_search_sheet.dart';
@@ -17,6 +18,7 @@ import 'package:luxora_ai/widgets/discover_radius_selector.dart';
 import 'package:luxora_ai/widgets/discover_scope_banner.dart';
 import 'package:luxora_ai/widgets/lux_place_image.dart';
 import 'package:luxora_ai/widgets/affiliate_hint.dart';
+import 'package:luxora_ai/widgets/lux_responsive_frame.dart';
 import 'package:luxora_ai/widgets/lux_secondary_app_bar.dart';
 import 'package:luxora_ai/widgets/partner_sponsor_badge.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
@@ -108,12 +110,14 @@ class GemsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l = context.l10n;
+    final compact = luxIsTablet(context);
     return Scaffold(
       backgroundColor: Colors.transparent,
       appBar: LuxSecondaryAppBar(title: l.navGems),
       body: SafeArea(
         top: false,
-        child: ListenableBuilder(
+        child: LuxResponsiveFrame(
+          child: ListenableBuilder(
           listenable: CityPackRegistry.instance,
           builder: (context, _) {
             return ListenableBuilder(
@@ -127,7 +131,7 @@ class GemsScreen extends StatelessWidget {
           final matchedCount = rankedGems.where((g) => g.matched).length;
 
           return ListView.builder(
-        padding: const EdgeInsets.all(20),
+        padding: EdgeInsets.all(compact ? 16 : 20),
         itemCount: rankedGems.length + 1,
         itemBuilder: (context, i) {
           if (i == 0) {
@@ -397,6 +401,7 @@ class GemsScreen extends StatelessWidget {
       );
         },
       ),
+        ),
       ),
     );
   }

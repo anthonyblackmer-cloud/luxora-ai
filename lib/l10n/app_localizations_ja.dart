@@ -959,6 +959,16 @@ class AppLocalizationsJa extends AppLocalizations {
       '音声コンシェルジュが間もなく登場します。今のところは、瞬間をタップするか、感じたいことを入力してください。';
 
   @override
+  String get conciergeThinking => 'Luxoraが考えています…';
+
+  @override
+  String get conciergeAiError => 'Luxoraに接続できませんでした。接続を確認してもう一度お試しください。';
+
+  @override
+  String get conciergeAiNotConfigured =>
+      'ライブコンシェルジュにはSupabase + OpenAIが必要です。SUPABASE_URLとSUPABASE_ANON_KEYをローカルconfigに追加し、concierge-chat edge functionをデプロイしてください — docs/CONCIERGE_AI.md。';
+
+  @override
   String get mapAiPowers => 'AI マップの力';
 
   @override
@@ -1481,25 +1491,29 @@ class AppLocalizationsJa extends AppLocalizations {
   String get onboardRegion => '地域';
 
   @override
-  String get onboardCityLabel => 'Choose your city';
+  String get onboardCityLabel => '都市を選ぶ';
 
   @override
   String get onboardCityUnlockNote =>
-      'Each destination has its own concierge unlock — one-time purchase per city.';
+      '各目的地には専用のコンシェルジュ解除があります — 都市ごとに一度だけ購入。オーランドのテーマパークは1つのパック（DisneyとUniversalをまとめて）です。';
 
   @override
-  String get landingCityLabel => 'Where are you going?';
+  String get landingCityLabel => 'どこへ行きますか？';
 
   @override
-  String get paywallSwitchCity => 'Destination';
+  String get paywallSwitchCity => '目的地';
 
   @override
-  String get cityPickerUnlocked => 'Unlocked';
+  String get cityPickerUnlocked => '解除済み';
 
   @override
   String cityPickerUnlockPrice(String price) {
-    return 'Unlock $price';
+    return '$price を解除';
   }
+
+  @override
+  String get cityPickerThemeParksSubtitle =>
+      'オーランドアドオン · DisneyとUniversalをまとめて';
 
   @override
   String get onboardStep2Title => '自由を感じる時間';
@@ -1960,6 +1974,12 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get hotelVisitWebsite => 'ウェブサイトにアクセス';
+
+  @override
+  String get hotelLinkUnavailable => 'この宿泊の予約リンクはまだ利用できません。';
+
+  @override
+  String get hotelLinkOpenFailed => 'リンクを開けませんでした — ブラウザでもう一度お試しください。';
 
   @override
   String get hotelSave => 'ホテルを保存';
@@ -2675,4 +2695,55 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get paywallHeadlineMiamiWeekend => 'マイアミの週末を無駄にしないでください';
+
+  @override
+  String get paywallOrlandoAddonsHeading => 'テーマパークパック';
+
+  @override
+  String get paywallOrlandoBaseIncludes =>
+      'オーランド解除にはダイニング、隠れた名所、ホテル、パーク外の体験が含まれます。DisneyとUniversalをまとめたテーマパークパックを追加。';
+
+  @override
+  String get paywallAddonThemeParksTitle => 'Disney & Universalパック';
+
+  @override
+  String get paywallAddonThemeParksSubtitle =>
+      'Walt Disney WorldとUniversal Orlando — 全パーク、ディール、ルート、混雑インテリを1回の解除で。';
+
+  @override
+  String paywallUnlockAddon(String packName, String price) {
+    return '$packNameを解除 · $price';
+  }
+
+  @override
+  String get paywallAddonUnlocked => '解除済み';
+
+  @override
+  String get paywallAddonRequiresOrlando => '先にオーランド解除が必要です';
+
+  @override
+  String paywallUnlockAddonPack(String packName) {
+    return '$packNameを解除';
+  }
+
+  @override
+  String paywallCtaUnlockAddon(String packName) {
+    return '$packNameを解除';
+  }
+
+  @override
+  String get orlandoThemeParksPromptTitle =>
+      'Orlando向けにDisney & Universalを解除しますか？';
+
+  @override
+  String get orlandoThemeParksPromptBody =>
+      'Walt Disney WorldとUniversal Orlando向けのテーマパークパックを追加 — 全パーク、チケットディール、ルート、混雑intelを1回の解除で。';
+
+  @override
+  String orlandoThemeParksPromptUnlock(String price) {
+    return '解除 · $price';
+  }
+
+  @override
+  String get orlandoThemeParksPromptNotNow => '後で';
 }

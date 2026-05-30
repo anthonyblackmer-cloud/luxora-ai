@@ -3,6 +3,7 @@ import 'package:luxora_ai/data/miami/miami_ticket_deals.dart';
 import 'package:luxora_ai/data/ticket_deals_catalog.dart';
 import 'package:luxora_ai/models/ticket_deal.dart';
 import 'package:luxora_ai/services/city_pack_registry.dart';
+import 'package:luxora_ai/services/orlando_addon_service.dart';
 import 'package:luxora_ai/services/ticket_deals_repository.dart';
 
 /// Unified ticket deal lookup — city pack filters which catalog applies.
@@ -22,7 +23,10 @@ abstract final class TicketDealsResolver {
 
   static List<TicketDeal> allDealsForActive() {
     final ids = CityPackRegistry.instance.ticketDealIds.toSet();
-    return catalogForActive().where((d) => ids.contains(d.id)).toList();
+    return catalogForActive()
+        .where((d) => ids.contains(d.id))
+        .where(OrlandoAddonService.isDealAccessible)
+        .toList();
   }
 
   static TicketDeal? byId(String id) {

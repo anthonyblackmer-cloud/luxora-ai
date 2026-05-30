@@ -978,6 +978,17 @@ class AppLocalizationsHi extends AppLocalizations {
       'वॉयस कंसीयज जल्द ही आ रहा है - अभी के लिए, एक क्षण टैप करें या टाइप करें कि आप कैसा महसूस करना चाहते हैं।';
 
   @override
+  String get conciergeThinking => 'Luxora सोच रहा है…';
+
+  @override
+  String get conciergeAiError =>
+      'Luxora तक नहीं पहुँच सका। कनेक्शन जाँचें और फिर कोशिश करें।';
+
+  @override
+  String get conciergeAiNotConfigured =>
+      'लाइव concierge के लिए Supabase + OpenAI चाहिए। SUPABASE_URL और SUPABASE_ANON_KEY स्थानीय config में जोड़ें और concierge-chat edge function deploy करें — docs/CONCIERGE_AI.md देखें।';
+
+  @override
   String get mapAiPowers => 'एआई मानचित्र शक्तियाँ';
 
   @override
@@ -1524,25 +1535,29 @@ class AppLocalizationsHi extends AppLocalizations {
   String get onboardRegion => 'क्षेत्र';
 
   @override
-  String get onboardCityLabel => 'Choose your city';
+  String get onboardCityLabel => 'अपना शहर चुनें';
 
   @override
   String get onboardCityUnlockNote =>
-      'Each destination has its own concierge unlock — one-time purchase per city.';
+      'हर गंतव्य का अपना कॉन्सierge अनलॉक होता है — प्रति शहर एक बार की खरीद। ऑरलैंडो थीम पार्क एक पैक हैं (Disney और Universal एक साथ)।';
 
   @override
-  String get landingCityLabel => 'Where are you going?';
+  String get landingCityLabel => 'आप कहाँ जा रहे हैं?';
 
   @override
-  String get paywallSwitchCity => 'Destination';
+  String get paywallSwitchCity => 'गंतव्य';
 
   @override
-  String get cityPickerUnlocked => 'Unlocked';
+  String get cityPickerUnlocked => 'अनलॉक';
 
   @override
   String cityPickerUnlockPrice(String price) {
-    return 'Unlock $price';
+    return '$price अनलॉक करें';
   }
+
+  @override
+  String get cityPickerThemeParksSubtitle =>
+      'Orlando ऐड-ऑन · Disney और Universal एक साथ';
 
   @override
   String get onboardStep2Title => 'स्वतंत्र महसूस करने का समय';
@@ -2015,6 +2030,14 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get hotelVisitWebsite => 'बेवसाइट देखना';
+
+  @override
+  String get hotelLinkUnavailable =>
+      'इस प्रवास के लिए बुकिंग लिंक उपलब्ध नहीं है।';
+
+  @override
+  String get hotelLinkOpenFailed =>
+      'लिंक नहीं खुल सका — ब्राउज़र में फिर से कोशिश करें।';
 
   @override
   String get hotelSave => 'होटल बचाओ';
@@ -2752,4 +2775,55 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get paywallHeadlineMiamiWeekend =>
       'अपना मियामी सप्ताहांत बर्बाद मत करो';
+
+  @override
+  String get paywallOrlandoAddonsHeading => 'थीम पार्क पैक';
+
+  @override
+  String get paywallOrlandoBaseIncludes =>
+      'ऑरलैंडो में भोजन, छिपे रत्न, होटल और पार्क-रहित अनुभव शामिल हैं। Disney और Universal एक साथ के लिए थीम पार्क पैक जोड़ें।';
+
+  @override
+  String get paywallAddonThemeParksTitle => 'Disney और Universal पैक';
+
+  @override
+  String get paywallAddonThemeParksSubtitle =>
+      'Walt Disney World और Universal Orlando — सभी पार्क, डील, रूट और भीड़ intel एक अनलॉक में।';
+
+  @override
+  String paywallUnlockAddon(String packName, String price) {
+    return '$packName अनलॉक करें · $price';
+  }
+
+  @override
+  String get paywallAddonUnlocked => 'अनलॉक';
+
+  @override
+  String get paywallAddonRequiresOrlando => 'पहले ऑरलैंडो अनलॉक आवश्यक';
+
+  @override
+  String paywallUnlockAddonPack(String packName) {
+    return '$packName अनलॉक करें';
+  }
+
+  @override
+  String paywallCtaUnlockAddon(String packName) {
+    return '$packName अनलॉक करें';
+  }
+
+  @override
+  String get orlandoThemeParksPromptTitle =>
+      'Orlando के लिए Disney और Universal अनलॉक करें?';
+
+  @override
+  String get orlandoThemeParksPromptBody =>
+      'Walt Disney World और Universal Orlando के लिए थीम पार्क पैक जोड़ें — सभी पार्क, टिकट डील, रूट और भीड़ intel एक अनलॉक में।';
+
+  @override
+  String orlandoThemeParksPromptUnlock(String price) {
+    return 'अनलॉक · $price';
+  }
+
+  @override
+  String get orlandoThemeParksPromptNotNow => 'अभी नहीं';
 }

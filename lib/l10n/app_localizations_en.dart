@@ -975,6 +975,17 @@ class AppLocalizationsEn extends AppLocalizations {
       'Voice concierge is coming soon — for now, tap a moment or type how you want to feel.';
 
   @override
+  String get conciergeThinking => 'Luxora is thinking…';
+
+  @override
+  String get conciergeAiError =>
+      'I couldn\'t reach Luxora right now. Check your connection and try again.';
+
+  @override
+  String get conciergeAiNotConfigured =>
+      'Live concierge requires Supabase + OpenAI. Add SUPABASE_URL and SUPABASE_ANON_KEY to your local config and deploy the concierge-chat edge function — see docs/CONCIERGE_AI.md.';
+
+  @override
   String get mapAiPowers => 'AI map powers';
 
   @override
@@ -1524,7 +1535,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get onboardCityUnlockNote =>
-      'Each destination has its own concierge unlock — one-time purchase per city.';
+      'Each destination has its own concierge unlock — one-time purchase per city. Orlando theme parks are one add-on pack (Disney & Universal together).';
 
   @override
   String get landingCityLabel => 'Where are you going?';
@@ -1539,6 +1550,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String cityPickerUnlockPrice(String price) {
     return 'Unlock $price';
   }
+
+  @override
+  String get cityPickerThemeParksSubtitle =>
+      'Orlando add-on · Disney & Universal together';
 
   @override
   String get onboardStep2Title => 'Time to feel free';
@@ -2010,6 +2025,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get hotelVisitWebsite => 'Visit Website';
+
+  @override
+  String get hotelLinkUnavailable =>
+      'Booking link not available for this stay yet.';
+
+  @override
+  String get hotelLinkOpenFailed =>
+      'Couldn\'t open link — check your browser or try again.';
 
   @override
   String get hotelSave => 'Save Hotel';
@@ -2741,4 +2764,55 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get paywallHeadlineMiamiWeekend => 'DON\'T WASTE YOUR MIAMI WEEKEND';
+
+  @override
+  String get paywallOrlandoAddonsHeading => 'Theme park pack';
+
+  @override
+  String get paywallOrlandoBaseIncludes =>
+      'Orlando unlock includes dining, hidden gems, hotels, and non-park experiences. Add the theme park pack for Disney and Universal together.';
+
+  @override
+  String get paywallAddonThemeParksTitle => 'Disney & Universal Pack';
+
+  @override
+  String get paywallAddonThemeParksSubtitle =>
+      'Walt Disney World and Universal Orlando — all parks, deals, routes, and crowd intel in one unlock.';
+
+  @override
+  String paywallUnlockAddon(String packName, String price) {
+    return 'Unlock $packName · $price';
+  }
+
+  @override
+  String get paywallAddonUnlocked => 'Unlocked';
+
+  @override
+  String get paywallAddonRequiresOrlando => 'Requires Orlando unlock first';
+
+  @override
+  String paywallUnlockAddonPack(String packName) {
+    return 'Unlock $packName';
+  }
+
+  @override
+  String paywallCtaUnlockAddon(String packName) {
+    return 'Unlock $packName';
+  }
+
+  @override
+  String get orlandoThemeParksPromptTitle =>
+      'Unlock Disney & Universal for Orlando?';
+
+  @override
+  String get orlandoThemeParksPromptBody =>
+      'Add the theme park pack for Walt Disney World and Universal Orlando — all parks, ticket deals, routes, and crowd intel in one unlock.';
+
+  @override
+  String orlandoThemeParksPromptUnlock(String price) {
+    return 'Unlock · $price';
+  }
+
+  @override
+  String get orlandoThemeParksPromptNotNow => 'Not now';
 }

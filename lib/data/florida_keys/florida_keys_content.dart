@@ -15,16 +15,16 @@ abstract final class FloridaKeysContent {
   static const cityId = 'florida-keys';
 
   static const _photos = [
-    'AK2vwEobto4',
-    'X_LNSoZ7xeM',
-    'eQ2ElhooTjc',
-    'sWK9wki5zHU',
-    'JZYQ_P94T-Q',
-    'xEaAoizNFV8',
-    'RibghBxKlKc',
-    'p0vZplFhKYI',
-    'M4RVCkMpb1I',
-    'z78FxiNCA5w',
+    '-_RKsFzbQcA',
+    'XdMlBrcfig4',
+    '3i-TsBuiTPk',
+    'J1kanAYKlIA',
+    'xHe0i1Kqtog',
+    'dbgPflysTKk',
+    '2Bdln1-BtUA',
+    'TkGZFU2t9gc',
+    'oVUmFyST27s',
+    'yPghlfQcGkE',
   ];
 
   static const _restaurantStyles = [

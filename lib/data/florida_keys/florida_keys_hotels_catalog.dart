@@ -7,14 +7,14 @@ abstract final class FloridaKeysHotelsCatalog {
   static const cityId = FloridaKeysCuratedPlaces.cityId;
 
   static const _photos = [
-    'AK2vwEobto4',
-    'X_LNSoZ7xeM',
-    'eQ2ElhooTjc',
-    'sWK9wki5zHU',
-    'JZYQ_P94T-Q',
-    'xEaAoizNFV8',
-    'RibghBxKlKc',
-    'p0vZplFhKYI',
+    '-_RKsFzbQcA',
+    'XdMlBrcfig4',
+    '3i-TsBuiTPk',
+    'J1kanAYKlIA',
+    'xHe0i1Kqtog',
+    'dbgPflysTKk',
+    '2Bdln1-BtUA',
+    'TkGZFU2t9gc',
   ];
 
   static const _flagship = [

@@ -980,6 +980,17 @@ class AppLocalizationsTr extends AppLocalizations {
       'Sesli konsiyerj yakında geliyor; şimdilik bir dakikaya dokunun veya nasıl hissetmek istediğinizi yazın.';
 
   @override
+  String get conciergeThinking => 'Luxora düşünüyor…';
+
+  @override
+  String get conciergeAiError =>
+      'Luxora\'ya ulaşılamadı. Bağlantınızı kontrol edip tekrar deneyin.';
+
+  @override
+  String get conciergeAiNotConfigured =>
+      'Canlı concierge için Supabase + OpenAI gerekir. SUPABASE_URL ve SUPABASE_ANON_KEY\'i yerel config\'e ekleyin ve concierge-chat edge function\'ını deploy edin — docs/CONCIERGE_AI.md.';
+
+  @override
   String get mapAiPowers => 'Yapay zeka harita güçleri';
 
   @override
@@ -1529,25 +1540,29 @@ class AppLocalizationsTr extends AppLocalizations {
   String get onboardRegion => 'Bölge';
 
   @override
-  String get onboardCityLabel => 'Choose your city';
+  String get onboardCityLabel => 'Şehrinizi seçin';
 
   @override
   String get onboardCityUnlockNote =>
-      'Each destination has its own concierge unlock — one-time purchase per city.';
+      'Her destinasyonun kendi concierge kilidi vardır — şehir başına tek seferlik satın alma. Orlando tema parkları tek pakettir (Disney ve Universal birlikte).';
 
   @override
-  String get landingCityLabel => 'Where are you going?';
+  String get landingCityLabel => 'Nereye gidiyorsunuz?';
 
   @override
-  String get paywallSwitchCity => 'Destination';
+  String get paywallSwitchCity => 'Destinasyon';
 
   @override
-  String get cityPickerUnlocked => 'Unlocked';
+  String get cityPickerUnlocked => 'Açıldı';
 
   @override
   String cityPickerUnlockPrice(String price) {
-    return 'Unlock $price';
+    return '$price kilidini aç';
   }
+
+  @override
+  String get cityPickerThemeParksSubtitle =>
+      'Orlando eklentisi · Disney ve Universal birlikte';
 
   @override
   String get onboardStep2Title => 'Özgür hissetme zamanı';
@@ -2021,6 +2036,14 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get hotelVisitWebsite => 'Web Sitesini Ziyaret Edin';
+
+  @override
+  String get hotelLinkUnavailable =>
+      'Bu konaklama için rezervasyon bağlantısı henüz yok.';
+
+  @override
+  String get hotelLinkOpenFailed =>
+      'Bağlantı açılamadı — tarayıcıda tekrar deneyin.';
 
   @override
   String get hotelSave => 'Oteli Kaydet';
@@ -2759,4 +2782,56 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get paywallHeadlineMiamiWeekend => 'MIAMI HAFTASONUNUZU ziyan etmeyin';
+
+  @override
+  String get paywallOrlandoAddonsHeading => 'Tema park paketi';
+
+  @override
+  String get paywallOrlandoBaseIncludes =>
+      'Orlando yemek, gizli hazineler, oteller ve park dışı deneyimler içerir. Disney ve Universal birlikte için tema park paketi ekleyin.';
+
+  @override
+  String get paywallAddonThemeParksTitle => 'Disney ve Universal Paketi';
+
+  @override
+  String get paywallAddonThemeParksSubtitle =>
+      'Walt Disney World ve Universal Orlando — tüm parklar, fırsatlar, rotalar ve kalabalık intel tek kilitle.';
+
+  @override
+  String paywallUnlockAddon(String packName, String price) {
+    return '$packName kilidini aç · $price';
+  }
+
+  @override
+  String get paywallAddonUnlocked => 'Kilidi açıldı';
+
+  @override
+  String get paywallAddonRequiresOrlando =>
+      'Önce Orlando kilidini açmanız gerekir';
+
+  @override
+  String paywallUnlockAddonPack(String packName) {
+    return '$packName kilidini aç';
+  }
+
+  @override
+  String paywallCtaUnlockAddon(String packName) {
+    return '$packName kilidini aç';
+  }
+
+  @override
+  String get orlandoThemeParksPromptTitle =>
+      'Orlando için Disney ve Universal kilidini aç?';
+
+  @override
+  String get orlandoThemeParksPromptBody =>
+      'Walt Disney World ve Universal Orlando için tema parkı paketini ekleyin — tüm parklar, bilet fırsatları, rotalar ve kalabalık intel tek kilitlemede.';
+
+  @override
+  String orlandoThemeParksPromptUnlock(String price) {
+    return 'Kilidi aç · $price';
+  }
+
+  @override
+  String get orlandoThemeParksPromptNotNow => 'Şimdi değil';
 }

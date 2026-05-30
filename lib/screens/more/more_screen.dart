@@ -4,6 +4,7 @@ import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/services/weather_concierge_launcher.dart';
 import 'package:luxora_ai/settings/luxora_language_catalog.dart';
 import 'package:luxora_ai/state/luxora_app_state.dart';
+import 'package:luxora_ai/theme/lux_breakpoints.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/widgets/more/luxora_more_grid_tile.dart';
 import 'package:luxora_ai/widgets/more_destination_picker.dart';
@@ -20,6 +21,10 @@ class MoreScreen extends StatelessWidget {
     final theme = Theme.of(context);
     final tokens = luxThemeTokensOf(context);
     final appState = LuxoraAppState.of(context);
+    final contentWidth = luxEffectiveContentWidth(context);
+    final gridColumns = luxMoreGridCrossAxisCount(contentWidth - 40);
+    final gridAspect = luxMoreGridChildAspectRatio(contentWidth - 40);
+    final compactTiles = luxIsTablet(context);
 
     return DecoratedBox(
       decoration: BoxDecoration(
@@ -86,16 +91,16 @@ class MoreScreen extends StatelessWidget {
             SliverPadding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               sliver: SliverGrid(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 14,
-                  crossAxisSpacing: 14,
-                  childAspectRatio: 0.88,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: gridColumns,
+                  mainAxisSpacing: compactTiles ? 12 : 14,
+                  crossAxisSpacing: compactTiles ? 12 : 14,
+                  childAspectRatio: gridAspect,
                 ),
                 delegate: SliverChildListDelegate.fixed([
                   LuxoraMoreGridTile(
                     animationIndex: 0,
-                    featured: true,
+                    compact: compactTiles,
                     icon: Icons.hotel_rounded,
                     title: l.navStays,
                     subtitle: l.moreCardHotelsSub,
@@ -103,7 +108,7 @@ class MoreScreen extends StatelessWidget {
                   ),
                   LuxoraMoreGridTile(
                     animationIndex: 1,
-                    featured: true,
+                    compact: compactTiles,
                     icon: Icons.diamond_rounded,
                     title: l.navGems,
                     subtitle: l.moreCardGemsSub,
@@ -111,6 +116,7 @@ class MoreScreen extends StatelessWidget {
                   ),
                   LuxoraMoreGridTile(
                     animationIndex: 2,
+                    compact: compactTiles,
                     icon: Icons.confirmation_number_rounded,
                     title: l.ticketSavingsTitle,
                     subtitle: l.moreCardTicketsSub,
@@ -118,6 +124,7 @@ class MoreScreen extends StatelessWidget {
                   ),
                   LuxoraMoreGridTile(
                     animationIndex: 3,
+                    compact: compactTiles,
                     icon: Icons.wb_sunny_rounded,
                     title: l.weatherConciergeTitle,
                     subtitle: l.moreCardWeatherSub,
@@ -146,6 +153,7 @@ class MoreScreen extends StatelessWidget {
               sliver: SliverList(
                 delegate: SliverChildListDelegate.fixed([
                   LuxoraMoreListTile(
+                    compact: compactTiles,
                     icon: Icons.person_outline_rounded,
                     title: l.moreCardProfileTitle,
                     subtitle: l.moreCardProfileSub,
@@ -153,6 +161,7 @@ class MoreScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   LuxoraMoreListTile(
+                    compact: compactTiles,
                     icon: Icons.favorite_border_rounded,
                     title: l.savedFavoritesTitle,
                     subtitle: l.moreCardFavoritesSub,
@@ -160,6 +169,7 @@ class MoreScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   LuxoraMoreListTile(
+                    compact: compactTiles,
                     icon: Icons.notifications_none_rounded,
                     title: l.moreCardNotificationsTitle,
                     subtitle: l.moreCardNotificationsSub,
@@ -187,6 +197,7 @@ class MoreScreen extends StatelessWidget {
               sliver: SliverList(
                 delegate: SliverChildListDelegate.fixed([
                   LuxoraMoreListTile(
+                    compact: compactTiles,
                     icon: Icons.grid_view_rounded,
                     title: l.settings,
                     subtitle: l.moreCardSettingsSub,
@@ -194,6 +205,7 @@ class MoreScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   LuxoraMoreListTile(
+                    compact: compactTiles,
                     icon: Icons.language_rounded,
                     title: l.language,
                     subtitle: LuxoraLanguageCatalog.displayName(appState.locale),
@@ -201,6 +213,7 @@ class MoreScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   LuxoraMoreListTile(
+                    compact: compactTiles,
                     icon: Icons.auto_stories_outlined,
                     title: l.storyTitle,
                     subtitle: l.moreCardAboutSub,
@@ -208,6 +221,7 @@ class MoreScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   LuxoraMoreListTile(
+                    compact: compactTiles,
                     icon: Icons.help_outline_rounded,
                     title: l.helpCenterTitle,
                     subtitle: l.moreCardHelpSub,
@@ -215,6 +229,7 @@ class MoreScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   LuxoraMoreListTile(
+                    compact: compactTiles,
                     icon: Icons.handshake_outlined,
                     title: l.partnerOffersTitle,
                     subtitle: l.moreCardPartnersSub,
@@ -222,6 +237,7 @@ class MoreScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   LuxoraMoreListTile(
+                    compact: compactTiles,
                     icon: Icons.view_timeline_rounded,
                     title: l.navTimeline,
                     subtitle: l.moreCardItinerarySub,

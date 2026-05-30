@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:luxora_ai/models/lux_place.dart';
 import 'package:luxora_ai/models/unsplash_photo.dart';
+import 'package:luxora_ai/services/unsplash_photo_registry.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/widgets/unsplash_image.dart';
 
@@ -18,6 +19,7 @@ class LuxPlaceImage extends StatelessWidget {
     super.key,
     required this.place,
     required this.presentation,
+    this.overridePhotoId,
     this.fallbackGradient,
     this.borderRadius,
     this.overlayChild,
@@ -34,10 +36,12 @@ class LuxPlaceImage extends StatelessWidget {
     this.overlayChild,
     this.bottomCaption,
   })  : place = null,
+        overridePhotoId = null,
         trackUsageOnDisplay = false,
         onUserSelect = null;
 
   final LuxPlace? place;
+  final String? overridePhotoId;
   final LuxImagePresentation presentation;
   final List<Color>? fallbackGradient;
   final BorderRadius? borderRadius;
@@ -48,7 +52,10 @@ class LuxPlaceImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final photo = place?.unsplashPhoto;
+    final photo = (overridePhotoId != null
+            ? UnsplashPhotoRegistry.instance.byId(overridePhotoId)
+            : null) ??
+        place?.unsplashPhoto;
     if (photo == null) {
       return _gradientOnly();
     }

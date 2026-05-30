@@ -1521,5 +1521,68 @@
         "type": "int"
       }
     }
-  }
+  },
+  "onboardCityLabel": "Выберите город",
+  "onboardCityUnlockNote": "У каждого направления свой разблокировщик консьержа — разовая покупка на город. Парки Орlando — один пакет (Disney и Universal вместе).",
+  "landingCityLabel": "Куда вы направляетесь?",
+  "paywallSwitchCity": "Направление",
+  "cityPickerUnlocked": "Разблокировано",
+  "cityPickerUnlockPrice": "Разблокировать {price}",
+  "@cityPickerUnlockPrice": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallOrlandoAddonsHeading": "Пакет тематических парков",
+  "paywallOrlandoBaseIncludes": "Orlando включает рестораны, скрытые жемчужины, отели и впечатления вне парков. Добавьте пакет парков для Disney и Universal вместе.",
+  "paywallUnlockAddon": "Разблокировать {packName} · {price}",
+  "@paywallUnlockAddon": {
+    "placeholders": {
+      "packName": {
+        "type": "String"
+      },
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallAddonUnlocked": "Разблокировано",
+  "paywallAddonRequiresOrlando": "Сначала нужен разблокировщик Orlando",
+  "paywallUnlockAddonPack": "Разблокировать {packName}",
+  "@paywallUnlockAddonPack": {
+    "placeholders": {
+      "packName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallCtaUnlockAddon": "Разблокировать {packName}",
+  "@paywallCtaUnlockAddon": {
+    "placeholders": {
+      "packName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallAddonThemeParksTitle": "Пакет Disney и Universal",
+  "paywallAddonThemeParksSubtitle": "Walt Disney World и Universal Orlando — все парки, предложения, маршруты и intel толпы в одной покупке.",
+  "hotelLinkUnavailable": "Ссылка на бронирование для этого отеля пока недоступна.",
+  "hotelLinkOpenFailed": "Не удалось открыть ссылку — попробуйте снова в браузере.",
+  "cityPickerThemeParksSubtitle": "Дополнение Orlando · Disney и Universal вместе",
+  "orlandoThemeParksPromptTitle": "Разблокировать Disney и Universal для Орlando?",
+  "orlandoThemeParksPromptBody": "Добавьте пакет парков для Walt Disney World и Universal Orlando — все парки, билетные предложения, маршруты и intel по толпам в одной разблокировке.",
+  "orlandoThemeParksPromptUnlock": "Разблокировать · {price}",
+  "@orlandoThemeParksPromptUnlock": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "orlandoThemeParksPromptNotNow": "Не сейчас",
+  "conciergeThinking": "Luxora думает…",
+  "conciergeAiError": "Не удалось связаться с Luxora. Проверьте подключение и попробуйте снова.",
+  "conciergeAiNotConfigured": "Живой консьерж требует Supabase + OpenAI. Добавьте SUPABASE_URL и SUPABASE_ANON_KEY в локальную конфигурацию и разверните edge function concierge-chat — см. docs/CONCIERGE_AI.md."
 }

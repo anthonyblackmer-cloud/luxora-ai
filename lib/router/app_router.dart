@@ -55,9 +55,13 @@ GoRouter createAppRouter() {
         path: '/paywall',
         pageBuilder: (context, state) {
           final cityId = state.uri.queryParameters['city'] ?? 'orlando';
+          final addonId = state.uri.queryParameters['addon'];
           return CustomTransitionPage<void>(
             key: state.pageKey,
-            child: LuxoraPaywallScreen(cityId: cityId),
+            child: LuxoraPaywallScreen(
+              cityId: cityId,
+              addonId: addonId,
+            ),
             transitionsBuilder:
                 (context, animation, secondaryAnimation, child) {
               return FadeTransition(opacity: animation, child: child);

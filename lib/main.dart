@@ -13,6 +13,7 @@ import 'package:luxora_ai/services/discover_radius_controller.dart';
 import 'package:luxora_ai/services/home_base_store.dart';
 
 import 'package:luxora_ai/services/places_repository.dart';
+import 'package:luxora_ai/services/supabase_bootstrap.dart';
 
 import 'package:luxora_ai/services/saved_places_storage.dart';
 
@@ -44,6 +45,8 @@ Future<void> main() async {
   await CityPackEntitlementStore.instance.load();
 
   await DiscoverRadiusController.instance.load();
+
+  await SupabaseBootstrap.initialize();
 
   await PlacesRepository.instance.initialize();
 

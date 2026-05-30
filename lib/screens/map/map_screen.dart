@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:luxora_ai/l10n/app_localizations.dart';
 import 'package:luxora_ai/l10n/catalog_localizer.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
@@ -43,6 +44,17 @@ class MapScreen extends StatelessWidget {
     showAttractionDetailSheet(context, place: place);
   }
 
+  static void _openAffiliateCategory(BuildContext context, int index) {
+    final route = switch (index) {
+      0 => '/stays/matchmaker',
+      1 || 2 || 6 => '/discover',
+      3 || 4 => '/ticket-savings',
+      5 => '/partner-offers',
+      _ => '/partner-offers',
+    };
+    context.push(route);
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -63,8 +75,7 @@ class MapScreen extends StatelessWidget {
           final radiusMiles =
               radius.isUnlimited ? null : radius.miles.toDouble();
           final l = context.l10n;
-          final capabilities = mapAiCapabilitiesL10n(l);
-          final capabilitiesFuture = mapAiCapabilitiesFutureL10n(l);
+          final affiliateCategories = affiliateCategoriesL10n(l);
 
           return ValueListenableBuilder<Set<String>>(
             valueListenable: SavedPlacesStorage.instance.savedIds,
@@ -177,159 +188,6 @@ class MapScreen extends StatelessWidget {
             mapHubCenter: hub,
             onPlaceTap: (place) => _showPlace(context, place),
           ),
-          const SizedBox(height: 20),
-          Text(
-            l.mapAiPowers,
-            style: Theme.of(context).textTheme.titleMedium,
-          ),
-          const SizedBox(height: 10),
-          ...capabilities.map(
-            (cap) => Padding(
-              padding: const EdgeInsets.only(bottom: 8),
-              child: GlassCard(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        color: LuxColors.gold.withValues(alpha: 0.12),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Icon(cap.icon, color: LuxColors.gold, size: 22),
-                    ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              Expanded(
-                                child: Text(
-                                  cap.title,
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 15,
-                                  ),
-                                ),
-                              ),
-                              if (cap.comingSoon)
-                                Container(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 6,
-                                    vertical: 2,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color: Colors.white.withValues(alpha: 0.08),
-                                    borderRadius: BorderRadius.circular(4),
-                                  ),
-                                  child: Text(
-                                    l.commonSoon,
-                                    style: TextStyle(
-                                      fontSize: 9,
-                                      color: LuxColors.stone500,
-                                    ),
-                                  ),
-                                ),
-                            ],
-                          ),
-                          const SizedBox(height: 4),
-                          Text(
-                            cap.description,
-                            style: const TextStyle(
-                              fontSize: 13,
-                              height: 1.35,
-                              color: LuxColors.stone400,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(height: 20),
-          Text(
-            l.mapNavLayerTitle,
-            style: Theme.of(context).textTheme.titleMedium,
-          ),
-          const SizedBox(height: 8),
-          Text(
-            l.mapNavLayerSubtitle,
-            style: const TextStyle(color: LuxColors.stone500, fontSize: 13, height: 1.35),
-          ),
-          const SizedBox(height: 10),
-          ...capabilitiesFuture.map(
-            (cap) => Padding(
-              padding: const EdgeInsets.only(bottom: 8),
-              child: GlassCard(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        color: LuxColors.feedAccent.withValues(alpha: 0.12),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Icon(cap.icon, color: LuxColors.feedAccent, size: 22),
-                    ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              Expanded(
-                                child: Text(
-                                  cap.title,
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 15,
-                                  ),
-                                ),
-                              ),
-                              if (cap.comingSoon)
-                                Text(
-                                  l.commonRoadmap,
-                                  style: TextStyle(
-                                    fontSize: 9,
-                                    color: LuxColors.feedLive,
-                                    fontWeight: FontWeight.w700,
-                                  ),
-                                )
-                              else
-                                Text(
-                                  l.commonLive,
-                                  style: TextStyle(
-                                    fontSize: 9,
-                                    color: LuxColors.gold,
-                                    fontWeight: FontWeight.w700,
-                                  ),
-                                ),
-                            ],
-                          ),
-                          const SizedBox(height: 4),
-                          Text(
-                            cap.description,
-                            style: const TextStyle(
-                              fontSize: 13,
-                              height: 1.35,
-                              color: LuxColors.stone400,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
           const SizedBox(height: 16),
           Text(
             l.mapBookingTitle,
@@ -339,15 +197,18 @@ class MapScreen extends StatelessWidget {
           Wrap(
             spacing: 8,
             runSpacing: 8,
-            children: affiliateCategoriesL10n(l)
-                .map(
-                  (c) => Chip(
-                    label: Text(c, style: const TextStyle(fontSize: 12)),
-                    backgroundColor: Colors.white.withValues(alpha: 0.06),
-                    side: BorderSide(color: Colors.white.withValues(alpha: 0.1)),
+            children: [
+              for (var i = 0; i < affiliateCategories.length; i++)
+                ActionChip(
+                  label: Text(
+                    affiliateCategories[i],
+                    style: const TextStyle(fontSize: 12),
                   ),
-                )
-                .toList(),
+                  backgroundColor: Colors.white.withValues(alpha: 0.06),
+                  side: BorderSide(color: Colors.white.withValues(alpha: 0.1)),
+                  onPressed: () => _openAffiliateCategory(context, i),
+                ),
+            ],
           ),
           const SizedBox(height: 24),
         ],

@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_helpers.dart';
 import 'package:luxora_ai/services/city_pack_registry.dart';
+import 'package:luxora_ai/services/city_picker_actions.dart';
 import 'package:luxora_ai/services/partner_sponsorship_service.dart';
 import 'package:luxora_ai/services/paywall_service.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
@@ -29,9 +30,7 @@ class _LandingScreenState extends State<LandingScreen> {
   }
 
   Future<void> _enterApp() async {
-    final unlocked = await PaywallService.showPaywall(context, cityId: _cityId);
-    if (!mounted) return;
-    if (unlocked) context.go('/discover');
+    await PaywallService.talkToLuxora(context, cityId: _cityId);
   }
 
   @override
@@ -128,7 +127,13 @@ class _LandingScreenState extends State<LandingScreen> {
                       CityDestinationPicker(
                         label: l.landingCityLabel,
                         selectedCityId: _cityId,
-                        onChanged: (id) => setState(() => _cityId = id),
+                        onChanged: (id) => CityPickerActions.handleSelection(
+                          context,
+                          pickedId: id,
+                          currentCityId: _cityId,
+                          onCitySelected: (cityId) =>
+                              setState(() => _cityId = cityId),
+                        ),
                       ),
                       const Spacer(),
                       LuxButton(

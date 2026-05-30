@@ -1521,5 +1521,68 @@
         "type": "int"
       }
     }
-  }
+  },
+  "onboardCityLabel": "Şehrinizi seçin",
+  "onboardCityUnlockNote": "Her destinasyonun kendi concierge kilidi vardır — şehir başına tek seferlik satın alma. Orlando tema parkları tek pakettir (Disney ve Universal birlikte).",
+  "landingCityLabel": "Nereye gidiyorsunuz?",
+  "paywallSwitchCity": "Destinasyon",
+  "cityPickerUnlocked": "Açıldı",
+  "cityPickerUnlockPrice": "{price} kilidini aç",
+  "@cityPickerUnlockPrice": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallOrlandoAddonsHeading": "Tema park paketi",
+  "paywallOrlandoBaseIncludes": "Orlando yemek, gizli hazineler, oteller ve park dışı deneyimler içerir. Disney ve Universal birlikte için tema park paketi ekleyin.",
+  "paywallUnlockAddon": "{packName} kilidini aç · {price}",
+  "@paywallUnlockAddon": {
+    "placeholders": {
+      "packName": {
+        "type": "String"
+      },
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallAddonUnlocked": "Kilidi açıldı",
+  "paywallAddonRequiresOrlando": "Önce Orlando kilidini açmanız gerekir",
+  "paywallUnlockAddonPack": "{packName} kilidini aç",
+  "@paywallUnlockAddonPack": {
+    "placeholders": {
+      "packName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallCtaUnlockAddon": "{packName} kilidini aç",
+  "@paywallCtaUnlockAddon": {
+    "placeholders": {
+      "packName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallAddonThemeParksTitle": "Disney ve Universal Paketi",
+  "paywallAddonThemeParksSubtitle": "Walt Disney World ve Universal Orlando — tüm parklar, fırsatlar, rotalar ve kalabalık intel tek kilitle.",
+  "hotelLinkUnavailable": "Bu konaklama için rezervasyon bağlantısı henüz yok.",
+  "hotelLinkOpenFailed": "Bağlantı açılamadı — tarayıcıda tekrar deneyin.",
+  "cityPickerThemeParksSubtitle": "Orlando eklentisi · Disney ve Universal birlikte",
+  "orlandoThemeParksPromptTitle": "Orlando için Disney ve Universal kilidini aç?",
+  "orlandoThemeParksPromptBody": "Walt Disney World ve Universal Orlando için tema parkı paketini ekleyin — tüm parklar, bilet fırsatları, rotalar ve kalabalık intel tek kilitlemede.",
+  "orlandoThemeParksPromptUnlock": "Kilidi aç · {price}",
+  "@orlandoThemeParksPromptUnlock": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "orlandoThemeParksPromptNotNow": "Şimdi değil",
+  "conciergeThinking": "Luxora düşünüyor…",
+  "conciergeAiError": "Luxora'ya ulaşılamadı. Bağlantınızı kontrol edip tekrar deneyin.",
+  "conciergeAiNotConfigured": "Canlı concierge için Supabase + OpenAI gerekir. SUPABASE_URL ve SUPABASE_ANON_KEY'i yerel config'e ekleyin ve concierge-chat edge function'ını deploy edin — docs/CONCIERGE_AI.md."
 }

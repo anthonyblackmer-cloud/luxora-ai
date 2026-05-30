@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:luxora_ai/l10n/app_localizations.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
-import 'package:luxora_ai/theme/lux_theme.dart';
-import 'package:luxora_ai/widgets/glass_card.dart';
+import 'package:luxora_ai/services/paywall_service.dart';
+import 'package:luxora_ai/theme/lux_theme.dart';import 'package:luxora_ai/widgets/glass_card.dart';
 import 'package:luxora_ai/widgets/lux_background.dart';
 import 'package:luxora_ai/widgets/lux_button.dart';
 
@@ -174,7 +174,7 @@ class WhyLuxoraScreen extends StatelessWidget {
               label: l.landingTalk,
               outline: true,
               icon: Icons.chat_bubble_rounded,
-              onPressed: () => context.go('/discover'),
+              onPressed: () => PaywallService.talkToLuxora(context),
             ),
           ],
         ),

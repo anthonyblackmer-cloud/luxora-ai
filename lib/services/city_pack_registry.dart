@@ -129,10 +129,11 @@ class CityPackRegistry extends ChangeNotifier {
       cityPackId == active.cityId;
 
   Future<void> _loadBundledPacks() async {
+    // Florida Keys is merged from [FloridaKeysContent] — skip JSON so stale web
+    // builds (hot restart without asset rebundle) do not 404 on the new file.
     const assets = [
       'assets/city_packs/city_pack_orlando.json',
       'assets/city_packs/city_pack_miami.json',
-      'assets/city_packs/city_pack_florida-keys.json',
       'assets/city_packs/city_pack_nyc.json',
       'assets/city_packs/city_pack_vegas.json',
       'assets/city_packs/city_pack_paris.json',

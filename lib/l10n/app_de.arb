@@ -1521,5 +1521,68 @@
         "type": "int"
       }
     }
-  }
+  },
+  "onboardCityLabel": "Wähle deine Stadt",
+  "onboardCityUnlockNote": "Jedes Reiseziel hat sein eigenes Concierge-Freischalten — einmaliger Kauf pro Stadt. Orlando-Themenparks sind ein Paket (Disney & Universal zusammen).",
+  "landingCityLabel": "Wohin geht es?",
+  "paywallSwitchCity": "Reiseziel",
+  "cityPickerUnlocked": "Freigeschaltet",
+  "cityPickerUnlockPrice": "Freischalten {price}",
+  "@cityPickerUnlockPrice": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallOrlandoAddonsHeading": "Themenpark-Paket",
+  "paywallOrlandoBaseIncludes": "Orlando umfasst Restaurants, Geheimtipps, Hotels und Erlebnisse außerhalb der Parks. Themenpark-Paket für Disney und Universal zusammen.",
+  "paywallUnlockAddon": "{packName} freischalten · {price}",
+  "@paywallUnlockAddon": {
+    "placeholders": {
+      "packName": {
+        "type": "String"
+      },
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallAddonUnlocked": "Freigeschaltet",
+  "paywallAddonRequiresOrlando": "Erfordert zuerst Orlando-Freischaltung",
+  "paywallUnlockAddonPack": "{packName} freischalten",
+  "@paywallUnlockAddonPack": {
+    "placeholders": {
+      "packName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallCtaUnlockAddon": "{packName} freischalten",
+  "@paywallCtaUnlockAddon": {
+    "placeholders": {
+      "packName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallAddonThemeParksTitle": "Disney & Universal Paket",
+  "paywallAddonThemeParksSubtitle": "Walt Disney World und Universal Orlando — alle Parks, Deals, Routen und Crowd-Intel in einem Freischalten.",
+  "hotelLinkUnavailable": "Buchungslink für diesen Aufenthalt noch nicht verfügbar.",
+  "hotelLinkOpenFailed": "Link konnte nicht geöffnet werden — versuche es im Browser erneut.",
+  "cityPickerThemeParksSubtitle": "Orlando-Add-on · Disney & Universal zusammen",
+  "orlandoThemeParksPromptTitle": "Disney & Universal für Orlando freischalten?",
+  "orlandoThemeParksPromptBody": "Füge das Themenpark-Paket für Walt Disney World und Universal Orlando hinzu — alle Parks, Ticket-Deals, Routen und Crowd-Intel in einem Freischalten.",
+  "orlandoThemeParksPromptUnlock": "Freischalten · {price}",
+  "@orlandoThemeParksPromptUnlock": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "orlandoThemeParksPromptNotNow": "Nicht jetzt",
+  "conciergeThinking": "Luxora denkt nach…",
+  "conciergeAiError": "Luxora ist gerade nicht erreichbar. Verbindung prüfen und erneut versuchen.",
+  "conciergeAiNotConfigured": "Live-Concierge benötigt Supabase + OpenAI. SUPABASE_URL und SUPABASE_ANON_KEY in die lokale Config eintragen und die Edge Function concierge-chat deployen — siehe docs/CONCIERGE_AI.md."
 }

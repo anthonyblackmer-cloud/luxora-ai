@@ -1521,5 +1521,68 @@
         "type": "int"
       }
     }
-  }
+  },
+  "onboardCityLabel": "选择您的城市",
+  "onboardCityUnlockNote": "每个目的地都有独立的礼宾解锁 — 按城市一次性购买。奥兰多主题公园为一个套餐（迪士尼和环球影城一起）。",
+  "landingCityLabel": "您要去哪里？",
+  "paywallSwitchCity": "目的地",
+  "cityPickerUnlocked": "已解锁",
+  "cityPickerUnlockPrice": "解锁 {price}",
+  "@cityPickerUnlockPrice": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallOrlandoAddonsHeading": "主题公园套餐",
+  "paywallOrlandoBaseIncludes": "奥兰多解锁包括餐饮、隐藏宝石、酒店和园外体验。添加主题公园套餐，迪士尼和环球影城一起解锁。",
+  "paywallUnlockAddon": "解锁{packName} · {price}",
+  "@paywallUnlockAddon": {
+    "placeholders": {
+      "packName": {
+        "type": "String"
+      },
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallAddonUnlocked": "已解锁",
+  "paywallAddonRequiresOrlando": "需先解锁奥兰多",
+  "paywallUnlockAddonPack": "解锁{packName}",
+  "@paywallUnlockAddonPack": {
+    "placeholders": {
+      "packName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallCtaUnlockAddon": "解锁{packName}",
+  "@paywallCtaUnlockAddon": {
+    "placeholders": {
+      "packName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallAddonThemeParksTitle": "迪士尼和环球影城套餐",
+  "paywallAddonThemeParksSubtitle": "华特迪士尼世界和奥兰多环球影城 — 所有园区、优惠、路线和人流情报一次解锁。",
+  "hotelLinkUnavailable": "此住宿的预订链接尚不可用。",
+  "hotelLinkOpenFailed": "无法打开链接 — 请在浏览器中重试。",
+  "cityPickerThemeParksSubtitle": "奥兰多附加包 · 迪士尼和环球影城一起",
+  "orlandoThemeParksPromptTitle": "为奥兰多解锁迪士尼和环球影城？",
+  "orlandoThemeParksPromptBody": "添加 Walt Disney World 和 Universal Orlando 主题公园套餐 — 所有园区、门票优惠、路线和人流情报一次解锁。",
+  "orlandoThemeParksPromptUnlock": "解锁 · {price}",
+  "@orlandoThemeParksPromptUnlock": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "orlandoThemeParksPromptNotNow": "以后再说",
+  "conciergeThinking": "Luxora 正在思考…",
+  "conciergeAiError": "无法连接 Luxora。请检查网络后重试。",
+  "conciergeAiNotConfigured": "实时礼宾需要 Supabase + OpenAI。请在本地 config 中添加 SUPABASE_URL 和 SUPABASE_ANON_KEY，并部署 concierge-chat edge function — 见 docs/CONCIERGE_AI.md。"
 }

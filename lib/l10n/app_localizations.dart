@@ -1785,6 +1785,24 @@ abstract class AppLocalizations {
   /// **'Voice concierge is coming soon — for now, tap a moment or type how you want to feel.'**
   String get conciergeVoiceSoon;
 
+  /// No description provided for @conciergeThinking.
+  ///
+  /// In en, this message translates to:
+  /// **'Luxora is thinking…'**
+  String get conciergeThinking;
+
+  /// No description provided for @conciergeAiError.
+  ///
+  /// In en, this message translates to:
+  /// **'I couldn\'t reach Luxora right now. Check your connection and try again.'**
+  String get conciergeAiError;
+
+  /// No description provided for @conciergeAiNotConfigured.
+  ///
+  /// In en, this message translates to:
+  /// **'Live concierge requires Supabase + OpenAI. Add SUPABASE_URL and SUPABASE_ANON_KEY to your local config and deploy the concierge-chat edge function — see docs/CONCIERGE_AI.md.'**
+  String get conciergeAiNotConfigured;
+
   /// No description provided for @mapAiPowers.
   ///
   /// In en, this message translates to:
@@ -2778,7 +2796,7 @@ abstract class AppLocalizations {
   /// No description provided for @onboardCityUnlockNote.
   ///
   /// In en, this message translates to:
-  /// **'Each destination has its own concierge unlock — one-time purchase per city.'**
+  /// **'Each destination has its own concierge unlock — one-time purchase per city. Orlando theme parks are one add-on pack (Disney & Universal together).'**
   String get onboardCityUnlockNote;
 
   /// No description provided for @landingCityLabel.
@@ -2804,6 +2822,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Unlock {price}'**
   String cityPickerUnlockPrice(String price);
+
+  /// No description provided for @cityPickerThemeParksSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Orlando add-on · Disney & Universal together'**
+  String get cityPickerThemeParksSubtitle;
 
   /// No description provided for @onboardStep2Title.
   ///
@@ -3642,6 +3666,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Visit Website'**
   String get hotelVisitWebsite;
+
+  /// No description provided for @hotelLinkUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Booking link not available for this stay yet.'**
+  String get hotelLinkUnavailable;
+
+  /// No description provided for @hotelLinkOpenFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t open link — check your browser or try again.'**
+  String get hotelLinkOpenFailed;
 
   /// No description provided for @hotelSave.
   ///
@@ -4912,6 +4948,84 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'DON\'T WASTE YOUR MIAMI WEEKEND'**
   String get paywallHeadlineMiamiWeekend;
+
+  /// No description provided for @paywallOrlandoAddonsHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme park pack'**
+  String get paywallOrlandoAddonsHeading;
+
+  /// No description provided for @paywallOrlandoBaseIncludes.
+  ///
+  /// In en, this message translates to:
+  /// **'Orlando unlock includes dining, hidden gems, hotels, and non-park experiences. Add the theme park pack for Disney and Universal together.'**
+  String get paywallOrlandoBaseIncludes;
+
+  /// No description provided for @paywallAddonThemeParksTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Disney & Universal Pack'**
+  String get paywallAddonThemeParksTitle;
+
+  /// No description provided for @paywallAddonThemeParksSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Walt Disney World and Universal Orlando — all parks, deals, routes, and crowd intel in one unlock.'**
+  String get paywallAddonThemeParksSubtitle;
+
+  /// No description provided for @paywallUnlockAddon.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock {packName} · {price}'**
+  String paywallUnlockAddon(String packName, String price);
+
+  /// No description provided for @paywallAddonUnlocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlocked'**
+  String get paywallAddonUnlocked;
+
+  /// No description provided for @paywallAddonRequiresOrlando.
+  ///
+  /// In en, this message translates to:
+  /// **'Requires Orlando unlock first'**
+  String get paywallAddonRequiresOrlando;
+
+  /// No description provided for @paywallUnlockAddonPack.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock {packName}'**
+  String paywallUnlockAddonPack(String packName);
+
+  /// No description provided for @paywallCtaUnlockAddon.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock {packName}'**
+  String paywallCtaUnlockAddon(String packName);
+
+  /// No description provided for @orlandoThemeParksPromptTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock Disney & Universal for Orlando?'**
+  String get orlandoThemeParksPromptTitle;
+
+  /// No description provided for @orlandoThemeParksPromptBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Add the theme park pack for Walt Disney World and Universal Orlando — all parks, ticket deals, routes, and crowd intel in one unlock.'**
+  String get orlandoThemeParksPromptBody;
+
+  /// No description provided for @orlandoThemeParksPromptUnlock.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock · {price}'**
+  String orlandoThemeParksPromptUnlock(String price);
+
+  /// No description provided for @orlandoThemeParksPromptNotNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Not now'**
+  String get orlandoThemeParksPromptNotNow;
 }
 
 class _AppLocalizationsDelegate

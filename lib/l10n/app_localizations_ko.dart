@@ -962,6 +962,16 @@ class AppLocalizationsKo extends AppLocalizations {
       '음성 컨시어지가 곧 출시됩니다. 지금은 순간을 탭하거나 원하는 느낌을 입력하세요.';
 
   @override
+  String get conciergeThinking => 'Luxora가 생각 중…';
+
+  @override
+  String get conciergeAiError => 'Luxora에 연결할 수 없습니다. 연결을 확인하고 다시 시도하세요.';
+
+  @override
+  String get conciergeAiNotConfigured =>
+      '라이브 컨시어지는 Supabase + OpenAI가 필요합니다. SUPABASE_URL과 SUPABASE_ANON_KEY를 로컬 config에 추가하고 concierge-chat edge function을 배포하세요 — docs/CONCIERGE_AI.md.';
+
+  @override
   String get mapAiPowers => 'AI 지도의 힘';
 
   @override
@@ -1483,25 +1493,28 @@ class AppLocalizationsKo extends AppLocalizations {
   String get onboardRegion => '지역';
 
   @override
-  String get onboardCityLabel => 'Choose your city';
+  String get onboardCityLabel => '도시 선택';
 
   @override
   String get onboardCityUnlockNote =>
-      'Each destination has its own concierge unlock — one-time purchase per city.';
+      '각 목적지마다 전용 컨시어지 잠금 해제 — 도시당 일회성 구매. 올랜도 테마파크는 하나의 팩(Disney와 Universal 함께)입니다.';
 
   @override
-  String get landingCityLabel => 'Where are you going?';
+  String get landingCityLabel => '어디로 가시나요?';
 
   @override
-  String get paywallSwitchCity => 'Destination';
+  String get paywallSwitchCity => '목적지';
 
   @override
-  String get cityPickerUnlocked => 'Unlocked';
+  String get cityPickerUnlocked => '잠금 해제됨';
 
   @override
   String cityPickerUnlockPrice(String price) {
-    return 'Unlock $price';
+    return '$price 잠금 해제';
   }
+
+  @override
+  String get cityPickerThemeParksSubtitle => '올랜도 애드온 · Disney와 Universal 함께';
 
   @override
   String get onboardStep2Title => '자유로움을 느끼는 시간';
@@ -1963,6 +1976,12 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get hotelVisitWebsite => '웹사이트 방문';
+
+  @override
+  String get hotelLinkUnavailable => '이 숙소의 예약 링크를 아직 사용할 수 없습니다.';
+
+  @override
+  String get hotelLinkOpenFailed => '링크를 열 수 없습니다 — 브라우저에서 다시 시도하세요.';
 
   @override
   String get hotelSave => '호텔 저장';
@@ -2673,4 +2692,55 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get paywallHeadlineMiamiWeekend => '마이애미 주말을 낭비하지 마세요';
+
+  @override
+  String get paywallOrlandoAddonsHeading => '테마파크 팩';
+
+  @override
+  String get paywallOrlandoBaseIncludes =>
+      '올랜도 잠금 해제에는 다이닝, 숨은 보석, 호텔, 파크 외 경험이 포함됩니다. Disney와 Universal을 함께 위한 테마파크 팩 추가.';
+
+  @override
+  String get paywallAddonThemeParksTitle => 'Disney & Universal 팩';
+
+  @override
+  String get paywallAddonThemeParksSubtitle =>
+      'Walt Disney World와 Universal Orlando — 모든 파크, 딜, 루트, 혼잡 intel을 한 번에.';
+
+  @override
+  String paywallUnlockAddon(String packName, String price) {
+    return '$packName 잠금 해제 · $price';
+  }
+
+  @override
+  String get paywallAddonUnlocked => '잠금 해제됨';
+
+  @override
+  String get paywallAddonRequiresOrlando => '먼저 올랜도 잠금 해제 필요';
+
+  @override
+  String paywallUnlockAddonPack(String packName) {
+    return '$packName 잠금 해제';
+  }
+
+  @override
+  String paywallCtaUnlockAddon(String packName) {
+    return '$packName 잠금 해제';
+  }
+
+  @override
+  String get orlandoThemeParksPromptTitle =>
+      'Orlando용 Disney & Universal을 잠금 해제할까요?';
+
+  @override
+  String get orlandoThemeParksPromptBody =>
+      'Walt Disney World와 Universal Orlando를 위한 테마파크 팩 추가 — 모든 파크, 티켓 딜, 루트, 혼잡 intel을 한 번에.';
+
+  @override
+  String orlandoThemeParksPromptUnlock(String price) {
+    return '잠금 해제 · $price';
+  }
+
+  @override
+  String get orlandoThemeParksPromptNotNow => '나중에';
 }

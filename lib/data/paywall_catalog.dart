@@ -2,7 +2,7 @@ import 'package:luxora_ai/models/paywall/paywall_city_offer.dart';
 
 /// Bundled city-pack offers — swap JSON/admin pipeline later without UI changes.
 abstract final class PaywallCatalog {
-  static const defaultPriceUsd = 19.99;
+  static const defaultPriceUsd = 9.99;
 
   static const offers = <String, PaywallCityOffer>{
     'orlando': PaywallCityOffer(
@@ -89,12 +89,12 @@ abstract final class PaywallCatalog {
       cityId: 'paris',
       cityName: 'Paris',
       regionLabel: 'France',
-      heroUnsplashId: 'Ayb1R20X6Ro',
+      heroUnsplashId: 'xMMA_mtJ8xM',
       priceUsd: defaultPriceUsd,
       vacationCostMinUsd: 2800,
       vacationCostMaxUsd: 7000,
-      couplesHeroUnsplashId: 'Ayb1R20X6Ro',
-      luxuryHeroUnsplashId: 'Ayb1R20X6Ro',
+      couplesHeroUnsplashId: 'xMMA_mtJ8xM',
+      luxuryHeroUnsplashId: 'xMMA_mtJ8xM',
       foodieHeroUnsplashId: 'p0vZplFhKYI',
     ),
   };

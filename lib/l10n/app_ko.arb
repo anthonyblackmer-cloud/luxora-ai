@@ -1521,5 +1521,68 @@
         "type": "int"
       }
     }
-  }
+  },
+  "onboardCityLabel": "도시 선택",
+  "onboardCityUnlockNote": "각 목적지마다 전용 컨시어지 잠금 해제 — 도시당 일회성 구매. 올랜도 테마파크는 하나의 팩(Disney와 Universal 함께)입니다.",
+  "landingCityLabel": "어디로 가시나요?",
+  "paywallSwitchCity": "목적지",
+  "cityPickerUnlocked": "잠금 해제됨",
+  "cityPickerUnlockPrice": "{price} 잠금 해제",
+  "@cityPickerUnlockPrice": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallOrlandoAddonsHeading": "테마파크 팩",
+  "paywallOrlandoBaseIncludes": "올랜도 잠금 해제에는 다이닝, 숨은 보석, 호텔, 파크 외 경험이 포함됩니다. Disney와 Universal을 함께 위한 테마파크 팩 추가.",
+  "paywallUnlockAddon": "{packName} 잠금 해제 · {price}",
+  "@paywallUnlockAddon": {
+    "placeholders": {
+      "packName": {
+        "type": "String"
+      },
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallAddonUnlocked": "잠금 해제됨",
+  "paywallAddonRequiresOrlando": "먼저 올랜도 잠금 해제 필요",
+  "paywallUnlockAddonPack": "{packName} 잠금 해제",
+  "@paywallUnlockAddonPack": {
+    "placeholders": {
+      "packName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallCtaUnlockAddon": "{packName} 잠금 해제",
+  "@paywallCtaUnlockAddon": {
+    "placeholders": {
+      "packName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallAddonThemeParksTitle": "Disney & Universal 팩",
+  "paywallAddonThemeParksSubtitle": "Walt Disney World와 Universal Orlando — 모든 파크, 딜, 루트, 혼잡 intel을 한 번에.",
+  "hotelLinkUnavailable": "이 숙소의 예약 링크를 아직 사용할 수 없습니다.",
+  "hotelLinkOpenFailed": "링크를 열 수 없습니다 — 브라우저에서 다시 시도하세요.",
+  "cityPickerThemeParksSubtitle": "올랜도 애드온 · Disney와 Universal 함께",
+  "orlandoThemeParksPromptTitle": "Orlando용 Disney & Universal을 잠금 해제할까요?",
+  "orlandoThemeParksPromptBody": "Walt Disney World와 Universal Orlando를 위한 테마파크 팩 추가 — 모든 파크, 티켓 딜, 루트, 혼잡 intel을 한 번에.",
+  "orlandoThemeParksPromptUnlock": "잠금 해제 · {price}",
+  "@orlandoThemeParksPromptUnlock": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "orlandoThemeParksPromptNotNow": "나중에",
+  "conciergeThinking": "Luxora가 생각 중…",
+  "conciergeAiError": "Luxora에 연결할 수 없습니다. 연결을 확인하고 다시 시도하세요.",
+  "conciergeAiNotConfigured": "라이브 컨시어지는 Supabase + OpenAI가 필요합니다. SUPABASE_URL과 SUPABASE_ANON_KEY를 로컬 config에 추가하고 concierge-chat edge function을 배포하세요 — docs/CONCIERGE_AI.md."
 }

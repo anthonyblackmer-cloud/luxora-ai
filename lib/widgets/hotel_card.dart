@@ -51,6 +51,7 @@ class HotelCard extends StatelessWidget {
                       ),
                       child: LuxPlaceImage(
                         place: place,
+                        overridePhotoId: hotel.unsplashPhotoId,
                         presentation: LuxImagePresentation.feedHero,
                         borderRadius: const BorderRadius.vertical(
                           top: Radius.circular(16),
