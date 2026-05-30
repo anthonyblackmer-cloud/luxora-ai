@@ -29,6 +29,8 @@ supabase link --project-ref YOUR_PROJECT_REF
 supabase secrets set OPENAI_API_KEY=sk-...
 # Optional: supabase secrets set OPENAI_MODEL=gpt-4o
 supabase functions deploy concierge-chat
+# Or if your dashboard slug is bright-processor:
+# supabase functions deploy bright-processor --project-ref YOUR_PROJECT_REF
 ```
 
 The function lives at `supabase/functions/concierge-chat/index.ts`.

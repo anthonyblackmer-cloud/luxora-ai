@@ -1114,6 +1114,12 @@ abstract class AppLocalizations {
   /// **'What’s moving right now — trending spots, new openings, creator picks, seasonal routes, and live updates.'**
   String get feedSubtitle;
 
+  /// No description provided for @feedSubtitleFamily.
+  ///
+  /// In en, this message translates to:
+  /// **'Family-friendly picks for your crew — parks, easy wins, and moments that land with kids (and parents).'**
+  String get feedSubtitleFamily;
+
   /// No description provided for @feedPillTrending.
   ///
   /// In en, this message translates to:
@@ -1144,11 +1150,23 @@ abstract class AppLocalizations {
   /// **'HOW DO YOU WANT TO FEEL?'**
   String get feedMoodPrompt;
 
+  /// No description provided for @feedMoodPromptFamily.
+  ///
+  /// In en, this message translates to:
+  /// **'HOW SHOULD TODAY FEEL FOR YOUR CREW?'**
+  String get feedMoodPromptFamily;
+
   /// No description provided for @feedMoodAll.
   ///
   /// In en, this message translates to:
   /// **'Everything'**
   String get feedMoodAll;
+
+  /// No description provided for @feedMoodFamily.
+  ///
+  /// In en, this message translates to:
+  /// **'Family magic'**
+  String get feedMoodFamily;
 
   /// No description provided for @feedMoodRomantic.
   ///
@@ -1186,11 +1204,23 @@ abstract class AppLocalizations {
   /// **'Foodie'**
   String get feedMoodFoodie;
 
+  /// No description provided for @feedFamilyMoodHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme parks, character meals, and easy parent wins — filtered for family tags.'**
+  String get feedFamilyMoodHint;
+
   /// No description provided for @feedEmptyHint.
   ///
   /// In en, this message translates to:
   /// **'No feed cards in this radius — try 50 mi or All Florida for Gulf coast and Keys highlights.'**
   String get feedEmptyHint;
+
+  /// No description provided for @feedEmptyHintFamily.
+  ///
+  /// In en, this message translates to:
+  /// **'No family-tagged cards in this radius — try Adventurous or Everything, or widen the radius.'**
+  String get feedEmptyHintFamily;
 
   /// No description provided for @gemsBadge.
   ///
@@ -2127,11 +2157,35 @@ abstract class AppLocalizations {
   /// **'I couldn\'t reach Luxora right now. Check your connection and try again.'**
   String get conciergeAiError;
 
+  /// No description provided for @conciergeAiErrorVoice.
+  ///
+  /// In en, this message translates to:
+  /// **'Sorry — I couldn\'t connect to Luxora\'s concierge just now.'**
+  String get conciergeAiErrorVoice;
+
   /// No description provided for @conciergeAiNotConfigured.
   ///
   /// In en, this message translates to:
-  /// **'Live concierge requires Supabase + OpenAI. Add SUPABASE_URL and SUPABASE_ANON_KEY to your local config and deploy the concierge-chat edge function — see docs/CONCIERGE_AI.md.'**
+  /// **'Luxora\'s live concierge isn\'t wired up on this build yet — Supabase URL and anon key need to be baked into the app, and the edge function deployed. Map and itinerary still work; see docs/CONCIERGE_AI.md for setup.'**
   String get conciergeAiNotConfigured;
+
+  /// No description provided for @conciergeAiOpenAiNotReady.
+  ///
+  /// In en, this message translates to:
+  /// **'Luxora heard you, but the concierge brain isn\'t online yet. Set OPENAI_API_KEY in Supabase secrets for the edge function (bright-processor), then try again.'**
+  String get conciergeAiOpenAiNotReady;
+
+  /// No description provided for @conciergeAiFunctionNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Luxora couldn\'t find the concierge edge function \"{function}\". Deploy it in Supabase or fix SUPABASE_CONCIERGE_FUNCTION on this build.'**
+  String conciergeAiFunctionNotFound(String function);
+
+  /// No description provided for @conciergeAiAuthFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Luxora couldn\'t authenticate with Supabase — double-check SUPABASE_ANON_KEY matches your project.'**
+  String get conciergeAiAuthFailed;
 
   /// No description provided for @mapAiPowers.
   ///

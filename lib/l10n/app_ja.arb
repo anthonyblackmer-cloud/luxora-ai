@@ -1584,7 +1584,7 @@
   "orlandoThemeParksPromptNotNow": "後で",
   "conciergeThinking": "Luxoraが考えています…",
   "conciergeAiError": "Luxoraに接続できませんでした。接続を確認してもう一度お試しください。",
-  "conciergeAiNotConfigured": "ライブコンシェルジュにはSupabase + OpenAIが必要です。SUPABASE_URLとSUPABASE_ANON_KEYをローカルconfigに追加し、concierge-chat edge functionをデプロイしてください — docs/CONCIERGE_AI.md。",
+  "conciergeAiNotConfigured": "Luxora's live concierge isn't wired up on this build yet — Supabase URL and anon key need to be baked into the app, and the edge function deployed. Map and itinerary still work; see docs/CONCIERGE_AI.md for setup.",
   "conciergeVoiceListening": "Luxoraが聞いています…",
   "conciergeVoiceRelease": "離して送信",
   "conciergeVoiceUnavailable": "このデバイスでは音声を利用できません。",
@@ -1665,5 +1665,14 @@
   "conciergeVoiceShowAllLanguages": "Show all languages",
   "conciergeVoiceOpenSettings": "Open iPhone voice settings",
   "conciergeVoiceNoDeviceVoices": "No voices found — download packs in Settings, then refresh.",
-  "conciergeVoicePresetSection": "クイック選択"
+  "conciergeVoicePresetSection": "クイック選択",
+  "feedSubtitleFamily": "Family-friendly picks for your crew — parks, easy wins, and moments that land with kids (and parents).",
+  "feedMoodPromptFamily": "今日は家族みんなでどんな一日に？",
+  "feedMoodFamily": "ファミリーマジック",
+  "feedFamilyMoodHint": "Theme parks, character meals, and easy parent wins — filtered for family tags.",
+  "feedEmptyHintFamily": "No family-tagged cards in this radius — try Adventurous or Everything, or widen the radius.",
+  "conciergeAiErrorVoice": "Sorry — I couldn't connect to Luxora's concierge just now.",
+  "conciergeAiOpenAiNotReady": "Luxora heard you, but the concierge brain isn't online yet. Set OPENAI_API_KEY in Supabase secrets for the edge function (bright-processor), then try again.",
+  "conciergeAiFunctionNotFound": "Luxora couldn't find the concierge edge function \"{function}\". Deploy it in Supabase or fix SUPABASE_CONCIERGE_FUNCTION on this build.",
+  "conciergeAiAuthFailed": "Luxora couldn't authenticate with Supabase — double-check SUPABASE_ANON_KEY matches your project."
 }

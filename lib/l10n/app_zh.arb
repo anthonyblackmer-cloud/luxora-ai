@@ -1584,7 +1584,7 @@
   "orlandoThemeParksPromptNotNow": "以后再说",
   "conciergeThinking": "Luxora 正在思考…",
   "conciergeAiError": "无法连接 Luxora。请检查网络后重试。",
-  "conciergeAiNotConfigured": "实时礼宾需要 Supabase + OpenAI。请在本地 config 中添加 SUPABASE_URL 和 SUPABASE_ANON_KEY，并部署 concierge-chat edge function — 见 docs/CONCIERGE_AI.md。",
+  "conciergeAiNotConfigured": "Luxora's live concierge isn't wired up on this build yet — Supabase URL and anon key need to be baked into the app, and the edge function deployed. Map and itinerary still work; see docs/CONCIERGE_AI.md for setup.",
   "conciergeVoiceListening": "Luxora 正在聆听…",
   "conciergeVoiceRelease": "松开发送",
   "conciergeVoiceUnavailable": "此设备不支持语音。",
@@ -1665,5 +1665,14 @@
   "conciergeVoiceShowAllLanguages": "Show all languages",
   "conciergeVoiceOpenSettings": "Open iPhone voice settings",
   "conciergeVoiceNoDeviceVoices": "No voices found — download packs in Settings, then refresh.",
-  "conciergeVoicePresetSection": "快速人设"
+  "conciergeVoicePresetSection": "快速人设",
+  "feedSubtitleFamily": "Family-friendly picks for your crew — parks, easy wins, and moments that land with kids (and parents).",
+  "feedMoodPromptFamily": "今天家人想怎么过？",
+  "feedMoodFamily": "亲子魔法",
+  "feedFamilyMoodHint": "Theme parks, character meals, and easy parent wins — filtered for family tags.",
+  "feedEmptyHintFamily": "No family-tagged cards in this radius — try Adventurous or Everything, or widen the radius.",
+  "conciergeAiErrorVoice": "Sorry — I couldn't connect to Luxora's concierge just now.",
+  "conciergeAiOpenAiNotReady": "Luxora heard you, but the concierge brain isn't online yet. Set OPENAI_API_KEY in Supabase secrets for the edge function (bright-processor), then try again.",
+  "conciergeAiFunctionNotFound": "Luxora couldn't find the concierge edge function \"{function}\". Deploy it in Supabase or fix SUPABASE_CONCIERGE_FUNCTION on this build.",
+  "conciergeAiAuthFailed": "Luxora couldn't authenticate with Supabase — double-check SUPABASE_ANON_KEY matches your project."
 }

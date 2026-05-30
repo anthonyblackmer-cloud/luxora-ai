@@ -1584,7 +1584,7 @@
   "orlandoThemeParksPromptNotNow": "Ahora no",
   "conciergeThinking": "Luxora está pensando…",
   "conciergeAiError": "No pude contactar a Luxora. Comprueba tu conexión e inténtalo de nuevo.",
-  "conciergeAiNotConfigured": "El concierge en vivo requiere Supabase + OpenAI. Añade SUPABASE_URL y SUPABASE_ANON_KEY a tu config local y despliega la función concierge-chat — ver docs/CONCIERGE_AI.md.",
+  "conciergeAiNotConfigured": "Luxora's live concierge isn't wired up on this build yet — Supabase URL and anon key need to be baked into the app, and the edge function deployed. Map and itinerary still work; see docs/CONCIERGE_AI.md for setup.",
   "conciergeVoiceListening": "Luxora está escuchando…",
   "conciergeVoiceRelease": "Suelta para enviar",
   "conciergeVoiceUnavailable": "La voz no está disponible en este dispositivo.",
@@ -1665,5 +1665,14 @@
   "conciergeVoiceShowAllLanguages": "Show all languages",
   "conciergeVoiceOpenSettings": "Open iPhone voice settings",
   "conciergeVoiceNoDeviceVoices": "No voices found — download packs in Settings, then refresh.",
-  "conciergeVoicePresetSection": "Personas rápidas"
+  "conciergeVoicePresetSection": "Personas rápidas",
+  "feedSubtitleFamily": "Opciones para la familia — parques, planes fáciles y momentos que encantan a los niños.",
+  "feedMoodPromptFamily": "¿CÓMO DEBERÍA SENTIRSE HOY PARA TU FAMILIA?",
+  "feedMoodFamily": "Magia familiar",
+  "feedFamilyMoodHint": "Theme parks, character meals, and easy parent wins — filtered for family tags.",
+  "feedEmptyHintFamily": "No family-tagged cards in this radius — try Adventurous or Everything, or widen the radius.",
+  "conciergeAiErrorVoice": "Lo siento — no pude conectar con el concierge de Luxora ahora.",
+  "conciergeAiOpenAiNotReady": "Luxora heard you, but the concierge brain isn't online yet. Set OPENAI_API_KEY in Supabase secrets for the edge function (bright-processor), then try again.",
+  "conciergeAiFunctionNotFound": "Luxora couldn't find the concierge edge function \"{function}\". Deploy it in Supabase or fix SUPABASE_CONCIERGE_FUNCTION on this build.",
+  "conciergeAiAuthFailed": "Luxora couldn't authenticate with Supabase — double-check SUPABASE_ANON_KEY matches your project."
 }

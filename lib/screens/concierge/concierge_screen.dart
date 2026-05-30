@@ -13,6 +13,7 @@ import 'package:luxora_ai/services/concierge_session_memory.dart';
 import 'package:luxora_ai/services/concierge_voice_service.dart';
 import 'package:luxora_ai/services/trip_profile_storage.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
+import 'package:luxora_ai/util/concierge_ai_user_message.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
 import 'package:luxora_ai/widgets/concierge/concierge_voice_settings_sheet.dart';
 import 'package:luxora_ai/widgets/luxora_moment_chips.dart';
@@ -75,7 +76,11 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
         _messages.add((user: false, text: recall));
       }
       if (!ConciergeAiService.isConfigured) {
-        _messages.add((user: false, text: l.conciergeAiNotConfigured));
+        _messages.add((
+          user: false,
+          text: conciergeAiUserMessage(l, ConciergeAiException.notConfigured())
+              .chatText,
+        ));
       }
     });
     unawaited(_memory.markVisited());
@@ -263,6 +268,7 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
       HapticFeedback.selectionClick();
     }
     _dismissKeyboard();
+    final l = AppLocalizations.of(context);
     final inferred = ConciergeSessionMemory.preferenceFromUserMessage(trimmed);
     if (inferred != null) {
       unawaited(_addStylePref(inferred));
@@ -276,12 +282,12 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
 
     if (!ConciergeAiService.isConfigured) {
       if (!mounted) return;
-      final offline = AppLocalizations.of(context).conciergeAiNotConfigured;
+      final msg = conciergeAiUserMessage(l, ConciergeAiException.notConfigured());
       setState(() {
         _isThinking = false;
-        _messages.add((user: false, text: offline));
+        _messages.add((user: false, text: msg.chatText));
       });
-      if (fromVoice) unawaited(_speakLuxora(offline));
+      if (fromVoice) unawaited(_speakLuxora(msg.voiceText));
       _scrollToEnd();
       return;
     }
@@ -308,21 +314,22 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
       unawaited(_speakLuxora(reply));
     } on ConciergeAiException catch (e) {
       if (!mounted) return;
+      final msg = conciergeAiUserMessage(l, e);
       setState(() {
         _isThinking = false;
         _apiHistory.removeLast();
-        _messages.add((user: false, text: e.message));
+        _messages.add((user: false, text: msg.chatText));
       });
-      if (fromVoice) unawaited(_speakLuxora(e.message));
+      if (fromVoice) unawaited(_speakLuxora(msg.voiceText));
     } catch (_) {
       if (!mounted) return;
-      final err = AppLocalizations.of(context).conciergeAiError;
+      final msg = conciergeAiUserMessage(l, Exception());
       setState(() {
         _isThinking = false;
         _apiHistory.removeLast();
-        _messages.add((user: false, text: err));
+        _messages.add((user: false, text: msg.chatText));
       });
-      if (fromVoice) unawaited(_speakLuxora(err));
+      if (fromVoice) unawaited(_speakLuxora(msg.voiceText));
     }
     _scrollToEnd();
   }
@@ -493,11 +500,11 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
             Row(
               children: [
                 Expanded(
-                  child: Listener(
+                  child: GestureDetector(
                     behavior: HitTestBehavior.opaque,
-                    onPointerDown: (_) => _onVoicePointerDown(l),
-                    onPointerUp: (_) => _onVoicePointerRelease(),
-                    onPointerCancel: (_) => _onVoicePointerRelease(),
+                    onLongPressStart: (_) => _onVoicePointerDown(l),
+                    onLongPressEnd: (_) => _onVoicePointerRelease(),
+                    onLongPressCancel: () => _onVoicePointerRelease(),
                     child: AnimatedContainer(
                       duration: const Duration(milliseconds: 180),
                       padding: const EdgeInsets.symmetric(vertical: 10),

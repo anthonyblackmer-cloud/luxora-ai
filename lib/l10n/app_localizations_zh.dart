@@ -551,6 +551,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get feedSubtitle => '此刻正在发生的事：热门地点、新开业、创作者精选、季节路线和实时更新。';
 
   @override
+  String get feedSubtitleFamily =>
+      'Family-friendly picks for your crew — parks, easy wins, and moments that land with kids (and parents).';
+
+  @override
   String get feedPillTrending => '热门';
 
   @override
@@ -566,7 +570,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get feedMoodPrompt => '您想要感觉如何？';
 
   @override
+  String get feedMoodPromptFamily => '今天家人想怎么过？';
+
+  @override
   String get feedMoodAll => '一切';
+
+  @override
+  String get feedMoodFamily => '亲子魔法';
 
   @override
   String get feedMoodRomantic => '浪漫的';
@@ -587,7 +597,15 @@ class AppLocalizationsZh extends AppLocalizations {
   String get feedMoodFoodie => '美食家';
 
   @override
+  String get feedFamilyMoodHint =>
+      'Theme parks, character meals, and easy parent wins — filtered for family tags.';
+
+  @override
   String get feedEmptyHint => '此范围内没有动态卡片。试试 50 mi 或全佛罗里达，查看墨西哥湾海岸和群岛亮点。';
+
+  @override
+  String get feedEmptyHintFamily =>
+      'No family-tagged cards in this radius — try Adventurous or Everything, or widen the radius.';
 
   @override
   String get gemsBadge => '内行精选';
@@ -1125,8 +1143,25 @@ class AppLocalizationsZh extends AppLocalizations {
   String get conciergeAiError => '无法连接 Luxora。请检查网络后重试。';
 
   @override
+  String get conciergeAiErrorVoice =>
+      'Sorry — I couldn\'t connect to Luxora\'s concierge just now.';
+
+  @override
   String get conciergeAiNotConfigured =>
-      '实时礼宾需要 Supabase + OpenAI。请在本地 config 中添加 SUPABASE_URL 和 SUPABASE_ANON_KEY，并部署 concierge-chat edge function — 见 docs/CONCIERGE_AI.md。';
+      'Luxora\'s live concierge isn\'t wired up on this build yet — Supabase URL and anon key need to be baked into the app, and the edge function deployed. Map and itinerary still work; see docs/CONCIERGE_AI.md for setup.';
+
+  @override
+  String get conciergeAiOpenAiNotReady =>
+      'Luxora heard you, but the concierge brain isn\'t online yet. Set OPENAI_API_KEY in Supabase secrets for the edge function (bright-processor), then try again.';
+
+  @override
+  String conciergeAiFunctionNotFound(String function) {
+    return 'Luxora couldn\'t find the concierge edge function \"$function\". Deploy it in Supabase or fix SUPABASE_CONCIERGE_FUNCTION on this build.';
+  }
+
+  @override
+  String get conciergeAiAuthFailed =>
+      'Luxora couldn\'t authenticate with Supabase — double-check SUPABASE_ANON_KEY matches your project.';
 
   @override
   String get mapAiPowers => 'AI 地图能力';

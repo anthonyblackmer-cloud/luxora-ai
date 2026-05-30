@@ -13,7 +13,7 @@ abstract final class SupabaseConfig {
   /// Edge function slug — default `concierge-chat`; override if dashboard auto-named it.
   static const conciergeFunction = String.fromEnvironment(
     'SUPABASE_CONCIERGE_FUNCTION',
-    defaultValue: 'concierge-chat',
+    defaultValue: 'bright-processor',
   );
 
   static bool get isConfigured => url.isNotEmpty && anonKey.isNotEmpty;

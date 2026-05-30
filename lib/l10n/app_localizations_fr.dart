@@ -576,6 +576,10 @@ class AppLocalizationsFr extends AppLocalizations {
       'Ce qui bouge maintenant : lieux tendance, nouvelles ouvertures, choix de créateurs, itinéraires saisonniers et mises à jour en direct.';
 
   @override
+  String get feedSubtitleFamily =>
+      'Idées famille — parcs, moments faciles et joie pour les enfants (et les parents).';
+
+  @override
   String get feedPillTrending => 'Tendance';
 
   @override
@@ -591,7 +595,14 @@ class AppLocalizationsFr extends AppLocalizations {
   String get feedMoodPrompt => 'COMMENT VOULEZ-VOUS VOUS SENTIR ?';
 
   @override
+  String get feedMoodPromptFamily =>
+      'COMMENT LA JOURNÉE DOIT-ELLE SE SENTIR POUR VOTRE ÉQUIPE ?';
+
+  @override
   String get feedMoodAll => 'Tout';
+
+  @override
+  String get feedMoodFamily => 'Magie familiale';
 
   @override
   String get feedMoodRomantic => 'Romantique';
@@ -612,8 +623,16 @@ class AppLocalizationsFr extends AppLocalizations {
   String get feedMoodFoodie => 'Fin gourmet';
 
   @override
+  String get feedFamilyMoodHint =>
+      'Theme parks, character meals, and easy parent wins — filtered for family tags.';
+
+  @override
   String get feedEmptyHint =>
       'Aucune carte dans ce rayon : essayez 50 mi ou Toute la Floride pour la côte du Golfe et les Keys.';
+
+  @override
+  String get feedEmptyHintFamily =>
+      'No family-tagged cards in this radius — try Adventurous or Everything, or widen the radius.';
 
   @override
   String get gemsBadge => 'SÉLECTION D’INITIÉS';
@@ -1175,8 +1194,25 @@ class AppLocalizationsFr extends AppLocalizations {
       'Impossible de joindre Luxora. Vérifiez votre connexion et réessayez.';
 
   @override
+  String get conciergeAiErrorVoice =>
+      'Désolé — je n\'ai pas pu joindre le concierge Luxora pour le moment.';
+
+  @override
   String get conciergeAiNotConfigured =>
-      'Le concierge en direct nécessite Supabase + OpenAI. Ajoutez SUPABASE_URL et SUPABASE_ANON_KEY à votre config locale et déployez la fonction concierge-chat — voir docs/CONCIERGE_AI.md.';
+      'Luxora\'s live concierge isn\'t wired up on this build yet — Supabase URL and anon key need to be baked into the app, and the edge function deployed. Map and itinerary still work; see docs/CONCIERGE_AI.md for setup.';
+
+  @override
+  String get conciergeAiOpenAiNotReady =>
+      'Luxora heard you, but the concierge brain isn\'t online yet. Set OPENAI_API_KEY in Supabase secrets for the edge function (bright-processor), then try again.';
+
+  @override
+  String conciergeAiFunctionNotFound(String function) {
+    return 'Luxora couldn\'t find the concierge edge function \"$function\". Deploy it in Supabase or fix SUPABASE_CONCIERGE_FUNCTION on this build.';
+  }
+
+  @override
+  String get conciergeAiAuthFailed =>
+      'Luxora couldn\'t authenticate with Supabase — double-check SUPABASE_ANON_KEY matches your project.';
 
   @override
   String get mapAiPowers => 'Pouvoirs de la carte IA';
