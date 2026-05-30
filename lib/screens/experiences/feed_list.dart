@@ -112,7 +112,7 @@ class _FeedListState extends State<FeedList> {
   Widget build(BuildContext context) {
 
     return SafeArea(
-
+      top: false,
       child: ListenableBuilder(
 
         listenable: CityPackRegistry.instance,
