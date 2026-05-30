@@ -6,6 +6,7 @@ import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/models/ticket_deal.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
 import 'package:luxora_ai/services/city_pack_registry.dart';
+import 'package:luxora_ai/services/concierge_ticket_sync.dart';
 import 'package:luxora_ai/services/saved_places_storage.dart';
 import 'package:luxora_ai/services/partner_sponsorship_service.dart';
 import 'package:luxora_ai/services/ticket_deals_repository.dart';
@@ -196,6 +197,25 @@ class _TicketSavingsScreenState extends State<TicketSavingsScreen> {
                             style: TextStyle(
                               fontSize: 12,
                               color: LuxColors.gold.withValues(alpha: 0.85),
+                            ),
+                          ),
+                          ...ConciergeTicketSync.matchesForPlan(samplePlan)
+                              .take(4)
+                              .map(
+                            (match) => Padding(
+                              padding: const EdgeInsets.only(top: 8),
+                              child: Text(
+                                l.ticketAgendaMatchLine(
+                                  match.stopTitle,
+                                  '\$${match.deal.savingsUsd}',
+                                  match.deal.sourceName,
+                                ),
+                                style: const TextStyle(
+                                  fontSize: 12,
+                                  height: 1.35,
+                                  color: LuxColors.stone400,
+                                ),
+                              ),
                             ),
                           ),
                         ],

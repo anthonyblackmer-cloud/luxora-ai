@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:luxora_ai/l10n/catalog_localizer.dart';
@@ -5,7 +7,9 @@ import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_helpers.dart';
 import 'package:luxora_ai/models/lux_place.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
+import 'package:luxora_ai/services/active_day_flow_store.dart';
 import 'package:luxora_ai/services/city_pack_registry.dart';
+import 'package:luxora_ai/services/day_flow_codec.dart';
 import 'package:luxora_ai/util/day_flow_share_content.dart';
 import 'package:luxora_ai/util/day_flow_labels.dart';
 import 'package:luxora_ai/util/place_distance.dart';
@@ -86,17 +90,20 @@ class MapScreen extends StatelessWidget {
               return ValueListenableBuilder<String?>(
                 valueListenable: HomeBaseStore.instance.placeId,
                 builder: (context, homeBaseId, _) {
+              return ListenableBuilder(
+                listenable: ActiveDayFlowStore.instance,
+                builder: (context, _) {
               return ValueListenableBuilder<TripProfile?>(
                 valueListenable: TripProfileStore.instance.profile,
                 builder: (context, profile, _) {
                   final homeBase = repo.byId(homeBaseId);
-                  // Sequence a time-of-day flow (morning → night) from the
-                  // traveler's interest dials, saved bookmarks, and home base.
-                  final dayFlow = DayFlowPlanner.plan(
+                  final storedFlow = ActiveDayFlowStore.instance.flowFor(activeCityId);
+                  final dayFlow = resolveDayFlowForActiveCity(
                     profile: profile,
                     pool: places,
                     homeBase: homeBase,
                     savedIds: savedIds,
+                    storedFlow: storedFlow,
                   );
 
                   // Map pins: capped (curated + nearest OSM) unioned with the
@@ -220,6 +227,8 @@ class MapScreen extends StatelessWidget {
               );
                 },
               );
+                },
+              );
             },
           );
         },
@@ -228,7 +237,6 @@ class MapScreen extends StatelessWidget {
       ),
     );
   }
-
 }
 
 /// Map + weather + day plan with crowd outlook and one-tap reroute.
@@ -322,6 +330,14 @@ class _MapRoutePlannerState extends State<_MapRoutePlanner> {
     return byId.values.toList();
   }
 
+  Future<void> _persistFlow() async {
+    if (_flow.isEmpty) return;
+    final cityId = widget.profile?.cityId.isNotEmpty ?? false
+        ? widget.profile!.cityId
+        : CityPackRegistry.instance.active.cityId;
+    await ActiveDayFlowStore.instance.save(_flow, cityId: cityId);
+  }
+
   void _reroute() {
     final l = context.l10n;
     final result = DayFlowRerouter.apply(
@@ -337,6 +353,7 @@ class _MapRoutePlannerState extends State<_MapRoutePlanner> {
           ? l.mapRerouteApplied(result.swappedStopCount)
           : l.mapRerouteNone;
     });
+    unawaited(_persistFlow());
   }
 
   void _openWeatherConcierge() {
@@ -367,6 +384,7 @@ class _MapRoutePlannerState extends State<_MapRoutePlanner> {
           _flow = flow;
           _rerouteMessage = message;
         });
+        unawaited(_persistFlow());
       },
       onViewPlace: widget.onPlaceTap,
     );

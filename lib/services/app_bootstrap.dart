@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:luxora_ai/services/active_day_flow_store.dart';
 import 'package:luxora_ai/services/active_trip_plan_store.dart';
 import 'package:luxora_ai/services/city_pack_entitlement_store.dart';
 import 'package:luxora_ai/services/city_pack_registry.dart';
@@ -29,6 +30,7 @@ abstract final class AppBootstrap {
       SavedPlacesStorage.instance.load(),
       SavedTripsStore.instance.load(),
       ActiveTripPlanStore.instance.load(),
+      ActiveDayFlowStore.instance.load(),
       TripProfileStore.instance.load(),
       HomeBaseStore.instance.load(),
     ]);

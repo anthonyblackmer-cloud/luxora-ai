@@ -4,9 +4,9 @@ import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/services/weather_concierge_advisor.dart';
 import 'package:luxora_ai/services/weather_service.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
-import 'package:luxora_ai/util/share_map_thumbnail.dart';
 import 'package:luxora_ai/widgets/luxora_branded_share_card.dart';
 import 'package:luxora_ai/widgets/luxora_share_section.dart';
+import 'package:luxora_ai/widgets/weather_radar_preview.dart';
 import 'package:luxora_ai/widgets/weather_ui.dart';
 
 Widget buildWeatherConciergeShareCard(
@@ -113,7 +113,7 @@ Widget buildWeatherConciergeShareCard(
           locale: locale,
         ),
         const SizedBox(height: 12),
-        ShareStaticMapThumbnail(
+        ShareWeatherRadarPreview(
           latitude: latitude,
           longitude: longitude,
           height: 168,

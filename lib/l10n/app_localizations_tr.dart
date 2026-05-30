@@ -1190,7 +1190,45 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get conciergeItinerarySynced =>
-      'Zaman çizelgenize ekledim — gününüzü görmek için Timeline veya Harita\'yı açın.';
+      'Bugünün gündemine Harita ve Timeline\'a ekledim — aynı duraklar, paylaşmaya hazır.';
+
+  @override
+  String get conciergeAgendaUpdatedSnack => 'Gündeminiz Harita\'da hazır';
+
+  @override
+  String get conciergeViewAgendaOnMap => 'Harita\'da gör';
+
+  @override
+  String get conciergeAgendaDealsIntro =>
+      'Gündeminizdeki duraklarla yetkili bilet fırsatlarını eşleştirdim — gişeden almadan önce karşılaştırın:';
+
+  @override
+  String get conciergeAgendaDealsSnack => 'Gündeminize uyan bilet fırsatları';
+
+  @override
+  String get conciergeViewTicketDeals => 'Fırsatları gör';
+
+  @override
+  String ticketAgendaMatchLine(String stop, String amount, String source) {
+    return '$stop · tah. tasarruf $amount · $source';
+  }
+
+  @override
+  String ticketAgendaStopsSummary(int count) {
+    return 'Gündeminizdeki $count durakta ortak fırsatlar var — gişeden almadan önce yetkili teklifleri karşılaştırın.';
+  }
+
+  @override
+  String ticketAgendaStopsSavings(String amount) {
+    return 'Tah. aile tasarrufu · $amount';
+  }
+
+  @override
+  String get ticketBrowseAgendaDeals => 'Gündeminiz için fırsatları gör →';
+
+  @override
+  String get itinerarySameAsMapAgenda =>
+      'Harita sekmesindeki bugünün gündemiyle aynı plan — günü buradan veya Harita\'dan paylaşın.';
 
   @override
   String get conciergeTicketsFoundIntro =>
@@ -2134,6 +2172,10 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get shareMapPreviewCaption =>
       'Harita önizlemesi · canlı yol tarifi için Luxora’da aç';
+
+  @override
+  String get shareRadarPreviewCaption =>
+      'Canlı Doppler radarı · tam döngü için Luxora’da aç';
 
   @override
   String get weatherMapOverlays => 'Harita katmanları';

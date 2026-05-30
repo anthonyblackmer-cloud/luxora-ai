@@ -1194,7 +1194,46 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get conciergeItinerarySynced =>
-      'Adicionei à sua linha do tempo — abra Timeline ou Mapa para ver o dia.';
+      'Adicionei à agenda de hoje no Mapa e à sua Timeline — mesmas paradas, prontas para partilhar.';
+
+  @override
+  String get conciergeAgendaUpdatedSnack => 'A sua agenda está pronta no Mapa';
+
+  @override
+  String get conciergeViewAgendaOnMap => 'Ver no Mapa';
+
+  @override
+  String get conciergeAgendaDealsIntro =>
+      'Associei ofertas autorizadas às paragens da sua agenda — compare antes de comprar na bilheteira:';
+
+  @override
+  String get conciergeAgendaDealsSnack =>
+      'Ofertas de bilhetes associadas à sua agenda';
+
+  @override
+  String get conciergeViewTicketDeals => 'Ver ofertas';
+
+  @override
+  String ticketAgendaMatchLine(String stop, String amount, String source) {
+    return '$stop · poupança est. $amount via $source';
+  }
+
+  @override
+  String ticketAgendaStopsSummary(int count) {
+    return '$count paragens da sua agenda têm ofertas de parceiros — compare ofertas autorizadas antes de comprar na bilheteira.';
+  }
+
+  @override
+  String ticketAgendaStopsSavings(String amount) {
+    return 'Poupança familiar est. · $amount';
+  }
+
+  @override
+  String get ticketBrowseAgendaDeals => 'Ver ofertas para a sua agenda →';
+
+  @override
+  String get itinerarySameAsMapAgenda =>
+      'Mesmo plano da agenda de hoje no Mapa — partilhe o dia aqui ou a partir do Mapa.';
 
   @override
   String get conciergeTicketsFoundIntro =>
@@ -2141,6 +2180,10 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get shareMapPreviewCaption =>
       'Prévia do mapa · abrir no Luxora para rotas ao vivo';
+
+  @override
+  String get shareRadarPreviewCaption =>
+      'Radar Doppler ao vivo · abra no Luxora para o loop completo';
 
   @override
   String get weatherMapOverlays => 'Sobreposições de mapas';

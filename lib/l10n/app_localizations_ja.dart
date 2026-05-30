@@ -1168,7 +1168,45 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get conciergeItinerarySynced =>
-      'タイムラインに反映しました — マップまたはタイムラインで一日を確認できます。';
+      '今日の予定をマップとタイムラインに反映しました — 同じ立ち寄り先、共有できます。';
+
+  @override
+  String get conciergeAgendaUpdatedSnack => 'マップで予定の準備ができました';
+
+  @override
+  String get conciergeViewAgendaOnMap => 'マップで見る';
+
+  @override
+  String get conciergeAgendaDealsIntro =>
+      '予定の立ち寄り先に正規チケット特典をマッチしました — 現地購入前に比較してください：';
+
+  @override
+  String get conciergeAgendaDealsSnack => '予定にマッチしたチケット特典';
+
+  @override
+  String get conciergeViewTicketDeals => '特典を見る';
+
+  @override
+  String ticketAgendaMatchLine(String stop, String amount, String source) {
+    return '$stop · 推定$amount節約 · $source';
+  }
+
+  @override
+  String ticketAgendaStopsSummary(int count) {
+    return '予定の$countか所にパートナー特典があります — 現地購入前に正規オファーを比較してください。';
+  }
+
+  @override
+  String ticketAgendaStopsSavings(String amount) {
+    return '家族の推定節約 · $amount';
+  }
+
+  @override
+  String get ticketBrowseAgendaDeals => '予定向け特典を見る →';
+
+  @override
+  String get itinerarySameAsMapAgenda =>
+      'マップの今日の予定と同じプラン — ここまたはマップから一日分を共有できます。';
 
   @override
   String get conciergeTicketsFoundIntro =>
@@ -2073,6 +2111,9 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get shareMapPreviewCaption => '地図プレビュー · ライブ案内はLuxoraで開く';
+
+  @override
+  String get shareRadarPreviewCaption => 'ライブドップラーレーダー · Luxoraで全ループを表示';
 
   @override
   String get weatherMapOverlays => '地図オーバーレイ';

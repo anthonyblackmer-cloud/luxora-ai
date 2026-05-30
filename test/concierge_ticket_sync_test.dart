@@ -91,4 +91,39 @@ void main() {
     expect(item.ticketDealId, isNotNull);
     expect(ConciergeTicketSync.dealForItem(item), isNotNull);
   });
+
+  test('matchesForPlan lists stops with attached deals', () {
+    final plan = TripPlan(
+      id: 'test',
+      title: 'Test',
+      days: [
+        TripDay(
+          dayNumber: 1,
+          label: 'Day 1',
+          items: [
+            TripItem(
+              id: '1',
+              time: '9:00 AM',
+              title: 'Magic Kingdom',
+              emotionalLine: 'Park day',
+              location: 'Lake Buena Vista',
+              category: 'Theme park',
+              placeId: 'place-magic-kingdom',
+            ),
+          ],
+        ),
+      ],
+    );
+
+    final deals = ConciergeTicketSync.dealsFor(
+      userMessage: 'Plan a theme park day',
+      plan: plan,
+    );
+    final updated = ConciergeTicketSync.attachDealsToPlan(plan, deals);
+    final matches = ConciergeTicketSync.matchesForPlan(updated);
+
+    expect(matches, isNotEmpty);
+    expect(matches.first.stopTitle, 'Magic Kingdom');
+    expect(matches.first.deal.id, isNotEmpty);
+  });
 }

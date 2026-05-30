@@ -93,7 +93,7 @@ class WeatherConciergeSheet extends StatelessWidget {
         fileName: 'luxora_weather.png',
         shareWidth: 420,
         loadNetworkAssets: true,
-        precacheNetworkUrls: sharePrecacheUrlsForPlace(
+        precacheNetworkUrls: sharePrecacheUrlsForWeather(
           latitude: latitude,
           longitude: longitude,
         ),

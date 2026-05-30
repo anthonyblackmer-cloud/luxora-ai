@@ -1199,7 +1199,46 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get conciergeItinerarySynced =>
-      'L\'ho aggiunto alla tua timeline — apri Timeline o Mappa per vedere la giornata.';
+      'L\'ho aggiunto all\'agenda di oggi su Mappa e alla Timeline — stesse tappe, pronte da condividere.';
+
+  @override
+  String get conciergeAgendaUpdatedSnack => 'La tua agenda è pronta su Mappa';
+
+  @override
+  String get conciergeViewAgendaOnMap => 'Vai alla Mappa';
+
+  @override
+  String get conciergeAgendaDealsIntro =>
+      'Ho abbinato offerte autorizzate alle tappe della tua agenda — confronta prima di comprare al botteghino:';
+
+  @override
+  String get conciergeAgendaDealsSnack =>
+      'Offerte biglietti abbinati alla tua agenda';
+
+  @override
+  String get conciergeViewTicketDeals => 'Vedi offerte';
+
+  @override
+  String ticketAgendaMatchLine(String stop, String amount, String source) {
+    return '$stop · risparmio stim. $amount via $source';
+  }
+
+  @override
+  String ticketAgendaStopsSummary(int count) {
+    return '$count tappe della tua agenda hanno offerte partner — confronta le offerte autorizzate prima di comprare al botteghino.';
+  }
+
+  @override
+  String ticketAgendaStopsSavings(String amount) {
+    return 'Risparmio famiglia stim. · $amount';
+  }
+
+  @override
+  String get ticketBrowseAgendaDeals => 'Sfoglia offerte per la tua agenda →';
+
+  @override
+  String get itinerarySameAsMapAgenda =>
+      'Stesso piano dell\'agenda di oggi sulla scheda Mappa — condividi la giornata qui o da Mappa.';
 
   @override
   String get conciergeTicketsFoundIntro =>
@@ -2149,6 +2188,10 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get shareMapPreviewCaption =>
       'Anteprima mappa · apri in Luxora per indicazioni live';
+
+  @override
+  String get shareRadarPreviewCaption =>
+      'Radar Doppler live · apri in Luxora per il loop completo';
 
   @override
   String get weatherMapOverlays => 'Sovrapposizioni di mappe';

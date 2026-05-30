@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:go_router/go_router.dart';
 import 'package:luxora_ai/data/concierge_prompts.dart';
 import 'package:luxora_ai/l10n/app_localizations.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_helpers.dart';
@@ -378,6 +379,39 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
           _profile = sync.profile;
           _tripFeel = sync.profile.tripFeel;
           _messages.add((user: false, text: l.conciergeItinerarySynced));
+          final agendaDealsChat = ConciergeTicketSync.agendaSavingsChat(
+            l,
+            sync.plan,
+            profile: sync.profile,
+          );
+          if (agendaDealsChat.isNotEmpty) {
+            _messages.add((user: false, text: agendaDealsChat));
+          }
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            if (!mounted) return;
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(l.conciergeAgendaUpdatedSnack),
+                behavior: SnackBarBehavior.floating,
+                action: SnackBarAction(
+                  label: l.conciergeViewAgendaOnMap,
+                  onPressed: () => context.go('/map'),
+                ),
+              ),
+            );
+            if (agendaDealsChat.isNotEmpty) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(l.conciergeAgendaDealsSnack),
+                  behavior: SnackBarBehavior.floating,
+                  action: SnackBarAction(
+                    label: l.conciergeViewTicketDeals,
+                    onPressed: () => context.push('/ticket-savings'),
+                  ),
+                ),
+              );
+            }
+          });
         }
         if (saveResult != null) {
           _messages.add((user: false, text: saveResult.chatMessage));

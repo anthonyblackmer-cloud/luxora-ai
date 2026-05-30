@@ -4,6 +4,7 @@ import 'package:luxora_ai/models/discover_radius.dart';
 import 'package:luxora_ai/models/ticket_deal.dart';
 import 'package:luxora_ai/models/trip_plan.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
+import 'package:luxora_ai/services/active_day_flow_store.dart';
 import 'package:luxora_ai/services/active_trip_plan_store.dart';
 import 'package:luxora_ai/services/concierge_ticket_sync.dart';
 import 'package:luxora_ai/services/concierge_trip_save_sync.dart';
@@ -88,6 +89,7 @@ abstract final class ConciergeItinerarySync {
     final planWithDeals = ConciergeTicketSync.attachDealsToPlan(plan, deals);
 
     await ActiveTripPlanStore.instance.save(planWithDeals, cityId: cityId);
+    await ActiveDayFlowStore.instance.save(flow, cityId: cityId);
     await _syncSavedTripCard(enriched, flow, planWithDeals);
 
     for (final block in flow.blocks) {

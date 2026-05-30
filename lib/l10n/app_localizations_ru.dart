@@ -1196,7 +1196,46 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get conciergeItinerarySynced =>
-      'Я добавила это в вашу хронологию — откройте Timeline или Карту.';
+      'Я добавила это в повестку дня на Карте и в Timeline — те же остановки, готовы к отправке.';
+
+  @override
+  String get conciergeAgendaUpdatedSnack => 'Ваша повестка готова на Карте';
+
+  @override
+  String get conciergeViewAgendaOnMap => 'Открыть Карту';
+
+  @override
+  String get conciergeAgendaDealsIntro =>
+      'Я сопоставила авторизованные предложения на билеты с остановками вашей повестки — сравните перед покупкой на кассе:';
+
+  @override
+  String get conciergeAgendaDealsSnack =>
+      'Предложения на билеты под вашу повестку';
+
+  @override
+  String get conciergeViewTicketDeals => 'Смотреть предложения';
+
+  @override
+  String ticketAgendaMatchLine(String stop, String amount, String source) {
+    return '$stop · ориент. экономия $amount через $source';
+  }
+
+  @override
+  String ticketAgendaStopsSummary(int count) {
+    return 'У $count остановок вашей повестки есть партнёрские предложения — сравните авторизованные предложения перед покупкой на месте.';
+  }
+
+  @override
+  String ticketAgendaStopsSavings(String amount) {
+    return 'Ориент. семейная экономия · $amount';
+  }
+
+  @override
+  String get ticketBrowseAgendaDeals => 'Смотреть предложения для повестки →';
+
+  @override
+  String get itinerarySameAsMapAgenda =>
+      'Тот же план, что и повестка дня на Карте — поделитесь днём здесь или с Карты.';
 
   @override
   String get conciergeTicketsFoundIntro =>
@@ -2138,6 +2177,10 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get shareMapPreviewCaption =>
       'Превью карты · откройте в Luxora для маршрута';
+
+  @override
+  String get shareRadarPreviewCaption =>
+      'Живой доплер-радар · откройте в Luxora для полного цикла';
 
   @override
   String get weatherMapOverlays => 'Наложения карт';

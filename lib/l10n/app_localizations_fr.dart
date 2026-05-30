@@ -1200,7 +1200,47 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get conciergeItinerarySynced =>
-      'C\'est ajouté à ta timeline — ouvre Timeline ou Carte pour voir ta journée.';
+      'C\'est ajouté à l\'agenda du jour sur Carte et à ta Timeline — mêmes étapes, prêtes à partager.';
+
+  @override
+  String get conciergeAgendaUpdatedSnack => 'Ton agenda est prête sur Carte';
+
+  @override
+  String get conciergeViewAgendaOnMap => 'Voir sur Carte';
+
+  @override
+  String get conciergeAgendaDealsIntro =>
+      'J\'ai associé des offres autorisées aux étapes de ton agenda — compare avant d\'acheter à la billetterie :';
+
+  @override
+  String get conciergeAgendaDealsSnack =>
+      'Offres billets associées à ton agenda';
+
+  @override
+  String get conciergeViewTicketDeals => 'Voir les offres';
+
+  @override
+  String ticketAgendaMatchLine(String stop, String amount, String source) {
+    return '$stop · économie est. $amount via $source';
+  }
+
+  @override
+  String ticketAgendaStopsSummary(int count) {
+    return '$count étapes de ton agenda ont des offres partenaires — compare les offres autorisées avant d\'acheter sur place.';
+  }
+
+  @override
+  String ticketAgendaStopsSavings(String amount) {
+    return 'Économie familiale est. · $amount';
+  }
+
+  @override
+  String get ticketBrowseAgendaDeals =>
+      'Parcourir les offres pour ton agenda →';
+
+  @override
+  String get itinerarySameAsMapAgenda =>
+      'Même plan que l\'agenda du jour sur Carte — partage la journée ici ou depuis Carte.';
 
   @override
   String get conciergeTicketsFoundIntro =>
@@ -2153,6 +2193,10 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get shareMapPreviewCaption =>
       'Aperçu carte · ouvrir dans Luxora pour l’itinéraire en direct';
+
+  @override
+  String get shareRadarPreviewCaption =>
+      'Radar Doppler en direct · ouvrir dans Luxora pour la boucle complète';
 
   @override
   String get weatherMapOverlays => 'Superpositions de cartes';

@@ -1171,7 +1171,45 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get conciergeItinerarySynced =>
-      '타임라인에 반영했습니다 — 지도 또는 타임라인에서 하루 일정을 확인하세요.';
+      '오늘 일정을 지도와 타임라인에 반영했습니다 — 같은 경유지, 공유 준비 완료.';
+
+  @override
+  String get conciergeAgendaUpdatedSnack => '지도에서 일정이 준비되었습니다';
+
+  @override
+  String get conciergeViewAgendaOnMap => '지도에서 보기';
+
+  @override
+  String get conciergeAgendaDealsIntro =>
+      '일정의 경유지에 공식 티켓 할인을 매칭했습니다 — 현장 구매 전에 비교해 보세요:';
+
+  @override
+  String get conciergeAgendaDealsSnack => '일정에 맞는 티켓 할인';
+
+  @override
+  String get conciergeViewTicketDeals => '할인 보기';
+
+  @override
+  String ticketAgendaMatchLine(String stop, String amount, String source) {
+    return '$stop · 예상 절약 $amount · $source';
+  }
+
+  @override
+  String ticketAgendaStopsSummary(int count) {
+    return '일정의 $count개 경유지에 파트너 할인이 있습니다 — 현장 구매 전에 공식 혜택을 비교하세요.';
+  }
+
+  @override
+  String ticketAgendaStopsSavings(String amount) {
+    return '가족 예상 절약 · $amount';
+  }
+
+  @override
+  String get ticketBrowseAgendaDeals => '일정 맞춤 할인 보기 →';
+
+  @override
+  String get itinerarySameAsMapAgenda =>
+      '지도 탭의 오늘 일정과 같은 계획 — 여기 또는 지도에서 하루 일정을 공유하세요.';
 
   @override
   String get conciergeTicketsFoundIntro =>
@@ -2075,6 +2113,9 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get shareMapPreviewCaption => '지도 미리보기 · Luxora에서 실시간 길 안내';
+
+  @override
+  String get shareRadarPreviewCaption => '실시간 도플러 레이더 · Luxora에서 전체 루프 보기';
 
   @override
   String get weatherMapOverlays => '지도 오버레이';

@@ -1192,7 +1192,47 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get conciergeItinerarySynced =>
-      'Ich habe das in deine Timeline eingetragen — öffne Timeline oder Karte für deinen Tag.';
+      'Ich habe das in die heutige Agenda auf Karte und in deine Timeline eingetragen — gleiche Stopps, teilbar.';
+
+  @override
+  String get conciergeAgendaUpdatedSnack =>
+      'Deine Agenda ist auf der Karte bereit';
+
+  @override
+  String get conciergeViewAgendaOnMap => 'Zur Karte';
+
+  @override
+  String get conciergeAgendaDealsIntro =>
+      'Ich habe autorisierte Ticket-Angebote zu den Stopps deiner Agenda zugeordnet — vergleiche vor dem Kauf an der Kasse:';
+
+  @override
+  String get conciergeAgendaDealsSnack =>
+      'Ticket-Angebote passend zu deiner Agenda';
+
+  @override
+  String get conciergeViewTicketDeals => 'Angebote ansehen';
+
+  @override
+  String ticketAgendaMatchLine(String stop, String amount, String source) {
+    return '$stop · ca. $amount sparen via $source';
+  }
+
+  @override
+  String ticketAgendaStopsSummary(int count) {
+    return '$count Stopps auf deiner Agenda haben Partner-Angebote — vergleiche autorisierte Angebote vor dem Kauf an der Kasse.';
+  }
+
+  @override
+  String ticketAgendaStopsSavings(String amount) {
+    return 'Geschätzte Familienersparnis · $amount';
+  }
+
+  @override
+  String get ticketBrowseAgendaDeals => 'Angebote für deine Agenda →';
+
+  @override
+  String get itinerarySameAsMapAgenda =>
+      'Gleicher Plan wie die heutige Agenda auf Karte — teile den Tag hier oder von der Karte.';
 
   @override
   String get conciergeTicketsFoundIntro =>
@@ -2139,6 +2179,10 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get shareMapPreviewCaption =>
       'Kartenvorschau · in Luxora für Live-Navigation öffnen';
+
+  @override
+  String get shareRadarPreviewCaption =>
+      'Live-Doppler-Radar · in Luxora für die vollständige Schleife öffnen';
 
   @override
   String get weatherMapOverlays => 'Kartenüberlagerungen';

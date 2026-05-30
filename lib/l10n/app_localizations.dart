@@ -2172,8 +2172,68 @@ abstract class AppLocalizations {
   /// No description provided for @conciergeItinerarySynced.
   ///
   /// In en, this message translates to:
-  /// **'I\'ve built that into your timeline — open Timeline or Map to see your day.'**
+  /// **'I\'ve added that to Today\'s agenda on Map and your Timeline — the same stops, ready to share.'**
   String get conciergeItinerarySynced;
+
+  /// No description provided for @conciergeAgendaUpdatedSnack.
+  ///
+  /// In en, this message translates to:
+  /// **'Your agenda is ready on Map'**
+  String get conciergeAgendaUpdatedSnack;
+
+  /// No description provided for @conciergeViewAgendaOnMap.
+  ///
+  /// In en, this message translates to:
+  /// **'View on Map'**
+  String get conciergeViewAgendaOnMap;
+
+  /// No description provided for @conciergeAgendaDealsIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'I matched authorized ticket deals to stops on your agenda — compare before you buy at the gate:'**
+  String get conciergeAgendaDealsIntro;
+
+  /// No description provided for @conciergeAgendaDealsSnack.
+  ///
+  /// In en, this message translates to:
+  /// **'Ticket deals matched to your agenda'**
+  String get conciergeAgendaDealsSnack;
+
+  /// No description provided for @conciergeViewTicketDeals.
+  ///
+  /// In en, this message translates to:
+  /// **'View deals'**
+  String get conciergeViewTicketDeals;
+
+  /// No description provided for @ticketAgendaMatchLine.
+  ///
+  /// In en, this message translates to:
+  /// **'{stop} · est. save {amount} via {source}'**
+  String ticketAgendaMatchLine(String stop, String amount, String source);
+
+  /// No description provided for @ticketAgendaStopsSummary.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} stops on your agenda have partner deals — compare authorized offers before you buy at the gate.'**
+  String ticketAgendaStopsSummary(int count);
+
+  /// No description provided for @ticketAgendaStopsSavings.
+  ///
+  /// In en, this message translates to:
+  /// **'Est. family savings · {amount}'**
+  String ticketAgendaStopsSavings(String amount);
+
+  /// No description provided for @ticketBrowseAgendaDeals.
+  ///
+  /// In en, this message translates to:
+  /// **'Browse deals for your agenda →'**
+  String get ticketBrowseAgendaDeals;
+
+  /// No description provided for @itinerarySameAsMapAgenda.
+  ///
+  /// In en, this message translates to:
+  /// **'Same plan as Today\'s agenda on the Map tab — share the full day card here or from Map.'**
+  String get itinerarySameAsMapAgenda;
 
   /// No description provided for @conciergeTicketsFoundIntro.
   ///
@@ -3829,6 +3889,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Map preview · open in Luxora for live directions'**
   String get shareMapPreviewCaption;
+
+  /// No description provided for @shareRadarPreviewCaption.
+  ///
+  /// In en, this message translates to:
+  /// **'Live Doppler radar · open in Luxora for the full loop'**
+  String get shareRadarPreviewCaption;
 
   /// No description provided for @weatherMapOverlays.
   ///

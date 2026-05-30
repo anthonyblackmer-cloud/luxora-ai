@@ -510,7 +510,34 @@
   "conciergeVoicePresetDeF": "German · Female",
   "conciergeVoicePresetDeM": "German · Male",
   "conciergeThinking": "Luxora is thinking…",
-  "conciergeItinerarySynced": "I've built that into your timeline — open Timeline or Map to see your day.",
+  "conciergeItinerarySynced": "I've added that to Today's agenda on Map and your Timeline — the same stops, ready to share.",
+  "conciergeAgendaUpdatedSnack": "Your agenda is ready on Map",
+  "conciergeViewAgendaOnMap": "View on Map",
+  "conciergeAgendaDealsIntro": "I matched authorized ticket deals to stops on your agenda — compare before you buy at the gate:",
+  "conciergeAgendaDealsSnack": "Ticket deals matched to your agenda",
+  "conciergeViewTicketDeals": "View deals",
+  "ticketAgendaMatchLine": "{stop} · est. save {amount} via {source}",
+  "@ticketAgendaMatchLine": {
+    "placeholders": {
+      "stop": { "type": "String" },
+      "amount": { "type": "String" },
+      "source": { "type": "String" }
+    }
+  },
+  "ticketAgendaStopsSummary": "{count} stops on your agenda have partner deals — compare authorized offers before you buy at the gate.",
+  "@ticketAgendaStopsSummary": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "ticketAgendaStopsSavings": "Est. family savings · {amount}",
+  "@ticketAgendaStopsSavings": {
+    "placeholders": {
+      "amount": { "type": "String" }
+    }
+  },
+  "ticketBrowseAgendaDeals": "Browse deals for your agenda →",
+  "itinerarySameAsMapAgenda": "Same plan as Today's agenda on the Map tab — share the full day card here or from Map.",
   "conciergeTicketsFoundIntro": "I found authorized ticket deals for your trip — tap Book tickets on Timeline for direct links:",
   "conciergeTicketDealLine": "• {title}: {price} via {source} (save {savings})",
   "@conciergeTicketDealLine": {
@@ -902,6 +929,7 @@
   "weatherRadarSpeedFast": "Fast",
   "weatherRadarLoopNote": "Radar loop: past ~2 hours in 10‑minute steps, plus short-range nowcast when available — not a 4‑hour forecast.",
   "shareMapPreviewCaption": "Map preview · open in Luxora for live directions",
+  "shareRadarPreviewCaption": "Live Doppler radar · open in Luxora for the full loop",
   "weatherMapOverlays": "Map overlays",
   "weatherOverlayPrecip": "Precipitation",
   "weatherOverlayTemp": "Temperature",

@@ -1149,7 +1149,43 @@ class AppLocalizationsZh extends AppLocalizations {
   String get conciergeThinking => 'Luxora 正在思考…';
 
   @override
-  String get conciergeItinerarySynced => '已写入您的时间线 — 打开时间线或地图查看当日行程。';
+  String get conciergeItinerarySynced => '已写入地图上的今日行程和时间线 — 相同站点，可分享。';
+
+  @override
+  String get conciergeAgendaUpdatedSnack => '地图上的行程已就绪';
+
+  @override
+  String get conciergeViewAgendaOnMap => '在地图上查看';
+
+  @override
+  String get conciergeAgendaDealsIntro => '我已将授权门票优惠与您行程中的站点匹配 — 请在窗口购票前比较：';
+
+  @override
+  String get conciergeAgendaDealsSnack => '已匹配您行程的门票优惠';
+
+  @override
+  String get conciergeViewTicketDeals => '查看优惠';
+
+  @override
+  String ticketAgendaMatchLine(String stop, String amount, String source) {
+    return '$stop · 预计节省 $amount · $source';
+  }
+
+  @override
+  String ticketAgendaStopsSummary(int count) {
+    return '您行程中的 $count 个站点有合作伙伴优惠 — 请在窗口购票前比较授权报价。';
+  }
+
+  @override
+  String ticketAgendaStopsSavings(String amount) {
+    return '预计家庭节省 · $amount';
+  }
+
+  @override
+  String get ticketBrowseAgendaDeals => '浏览行程相关优惠 →';
+
+  @override
+  String get itinerarySameAsMapAgenda => '与地图标签上的今日行程相同 — 可在此或从地图分享全天行程。';
 
   @override
   String get conciergeTicketsFoundIntro => '我找到了授权票务优惠 — 在时间线点击「预订门票」即可打开链接。';
@@ -2043,6 +2079,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get shareMapPreviewCaption => '地图预览 · 在 Luxora 中打开以获取实时路线';
+
+  @override
+  String get shareRadarPreviewCaption => '实时多普勒雷达 · 在 Luxora 中打开查看完整循环';
 
   @override
   String get weatherMapOverlays => '地图叠加';

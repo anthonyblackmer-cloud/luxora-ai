@@ -7,6 +7,19 @@ import 'package:luxora_ai/models/trip_profile.dart';
 import 'package:luxora_ai/services/active_trip_plan_store.dart';
 import 'package:luxora_ai/services/ticket_savings_service.dart';
 
+/// A timeline stop with an authorized ticket deal attached.
+class AgendaTicketMatch {
+  const AgendaTicketMatch({
+    required this.stopTitle,
+    required this.deal,
+    this.placeId,
+  });
+
+  final String stopTitle;
+  final String? placeId;
+  final TicketDeal deal;
+}
+
 /// Matches Smart Ticket Savings deals to Concierge requests and timeline stops.
 abstract final class ConciergeTicketSync {
   static const _ticketKeywords = [
@@ -127,6 +140,78 @@ abstract final class ConciergeTicketSync {
     final updated = attachDealsToPlan(plan, deals);
     await ActiveTripPlanStore.instance.save(updated, cityId: cityId);
     return deals;
+  }
+
+  /// Stops on [plan] that have ticket deals (attached or place-matched).
+  static List<AgendaTicketMatch> matchesForPlan(TripPlan plan) {
+    final catalog = TicketDealsResolver.allDealsForActive();
+    final matches = <AgendaTicketMatch>[];
+    final seenDealIds = <String>{};
+
+    for (final day in plan.days) {
+      for (final item in day.items) {
+        final deal = dealForItem(item) ??
+            (item.placeId == null
+                ? null
+                : _bestDealForPlace(item.placeId!, catalog));
+        if (deal == null) continue;
+        if (!seenDealIds.add(deal.id)) continue;
+        matches.add(
+          AgendaTicketMatch(
+            stopTitle: item.title,
+            placeId: item.placeId,
+            deal: deal,
+          ),
+        );
+      }
+    }
+
+    matches.sort((a, b) => b.deal.savingsUsd.compareTo(a.deal.savingsUsd));
+    return matches;
+  }
+
+  static int totalFamilySavingsUsd(
+    Iterable<AgendaTicketMatch> matches, {
+    TripProfile? profile,
+  }) {
+    final adults = profile?.adults ?? 2;
+    final kids = profile?.kids ?? 0;
+    var total = 0;
+    for (final match in matches) {
+      total += TicketSavingsService.familySavingsUsd(
+        deal: match.deal,
+        adults: adults,
+        kids: kids,
+      );
+    }
+    return total;
+  }
+
+  static String agendaSavingsChat(
+    AppLocalizations l,
+    TripPlan plan, {
+    TripProfile? profile,
+  }) {
+    final matches = matchesForPlan(plan);
+    if (matches.isEmpty) return '';
+
+    final buffer = StringBuffer('${l.conciergeAgendaDealsIntro}\n\n');
+    for (final match in matches.take(4)) {
+      final save = TicketSavingsService.familySavingsUsd(
+        deal: match.deal,
+        adults: profile?.adults ?? 2,
+        kids: profile?.kids ?? 0,
+      );
+      buffer.writeln(
+        l.ticketAgendaMatchLine(
+          match.stopTitle,
+          _usd(save),
+          match.deal.sourceName,
+        ),
+      );
+    }
+    buffer.write('\n${l.conciergeTicketsTimelineHint}');
+    return buffer.toString().trim();
   }
 
   static String chatSummary(

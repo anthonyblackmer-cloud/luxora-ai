@@ -3,10 +3,12 @@ import 'package:luxora_ai/data/trip_plans.dart';
 import 'package:luxora_ai/l10n/catalog_localizer.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/models/trip_plan.dart';
+import 'package:luxora_ai/services/active_day_flow_store.dart';
 import 'package:luxora_ai/services/active_trip_plan_store.dart';
 import 'package:luxora_ai/services/city_pack_registry.dart';
 import 'package:luxora_ai/services/places_repository.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
+import 'package:luxora_ai/util/day_flow_share_content.dart';
 import 'package:luxora_ai/widgets/attraction_detail_sheet.dart';
 import 'package:luxora_ai/widgets/lux_place_image.dart';
 import 'package:luxora_ai/widgets/lux_secondary_app_bar.dart';
@@ -14,6 +16,7 @@ import 'package:luxora_ai/widgets/unsplash_attribution.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
 import 'package:luxora_ai/widgets/ticket_savings_itinerary_banner.dart';
 import 'package:luxora_ai/widgets/trip_item_ticket_link.dart';
+import 'package:luxora_ai/widgets/visual_share_icon_button.dart';
 
 class ItineraryScreen extends StatelessWidget {
   const ItineraryScreen({super.key});
@@ -31,9 +34,11 @@ class ItineraryScreen extends StatelessWidget {
           listenable: Listenable.merge([
             CityPackRegistry.instance,
             ActiveTripPlanStore.instance,
+            ActiveDayFlowStore.instance,
           ]),
           builder: (context, _) {
             final plan = samplePlanForActiveCity();
+            final dayFlow = ActiveDayFlowStore.instance.flowForActiveCity();
             final tokens = luxThemeTokensOf(context);
             return DefaultTabController(
               length: plan.days.length,
@@ -64,6 +69,42 @@ class ItineraryScreen extends StatelessWidget {
                             height: 1.4,
                           ),
                         ),
+                        if (dayFlow != null && !dayFlow.isEmpty) ...[
+                          const SizedBox(height: 12),
+                          GlassCard(
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        l.itinerarySameAsMapAgenda,
+                                        style: TextStyle(
+                                          fontSize: 13,
+                                          height: 1.4,
+                                          color: tokens.textPrimary,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                VisualShareIconButton(
+                                  subject: l.mapPlanDayTitle,
+                                  fileName: 'luxora_day_agenda.png',
+                                  shareWidth: 420,
+                                  color: LuxColors.gold,
+                                  background: LuxColors.gold
+                                      .withValues(alpha: 0.12),
+                                  cardBuilder: (ctx) =>
+                                      buildDayAgendaShareCard(ctx, dayFlow),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                         const SizedBox(height: 16),
                         const TicketSavingsItineraryBanner(),
                         DecoratedBox(

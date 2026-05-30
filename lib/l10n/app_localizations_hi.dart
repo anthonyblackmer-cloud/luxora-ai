@@ -1189,7 +1189,45 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get conciergeItinerarySynced =>
-      'मैंने इसे आपकी टाइमलाइन में जोड़ दिया है — मानचित्र या टाइमलाइन खोलें।';
+      'मैंने इसे मानचित्र पर आज के एजेंडे और आपकी टाइमलाइन में जोड़ दिया — वही स्टॉप, साझा करने के लिए तैयार।';
+
+  @override
+  String get conciergeAgendaUpdatedSnack => 'आपका एजेंडा मानचित्र पर तैयार है';
+
+  @override
+  String get conciergeViewAgendaOnMap => 'मानचित्र पर देखें';
+
+  @override
+  String get conciergeAgendaDealsIntro =>
+      'मैंने आपके एजेंडे के स्टॉप से अधिकृत टिकट ऑफ़र मिलाए हैं — गेट पर खरीदने से पहले तुलना करें:';
+
+  @override
+  String get conciergeAgendaDealsSnack => 'आपके एजेंडे से मेल खाते टिकट ऑफ़र';
+
+  @override
+  String get conciergeViewTicketDeals => 'ऑफ़र देखें';
+
+  @override
+  String ticketAgendaMatchLine(String stop, String amount, String source) {
+    return '$stop · अनु. बचत $amount · $source';
+  }
+
+  @override
+  String ticketAgendaStopsSummary(int count) {
+    return 'आपके एजेंडे के $count स्टॉप पर पार्टनर ऑफ़र हैं — गेट पर खरीदने से पहले अधिकृत ऑफ़र तुलना करें।';
+  }
+
+  @override
+  String ticketAgendaStopsSavings(String amount) {
+    return 'अनुमानित परिवार बचत · $amount';
+  }
+
+  @override
+  String get ticketBrowseAgendaDeals => 'अपने एजेंडे के ऑफ़र देखें →';
+
+  @override
+  String get itinerarySameAsMapAgenda =>
+      'मानचित्र टैब पर आज के एजेंडे जैसा ही प्लान — यहाँ या मानचित्र से पूरा दिन साझा करें।';
 
   @override
   String get conciergeTicketsFoundIntro =>
@@ -2130,6 +2168,10 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get shareMapPreviewCaption =>
       'मानचित्र पूर्वावलोकन · लाइव दिशाओं के लिए Luxora में खोलें';
+
+  @override
+  String get shareRadarPreviewCaption =>
+      'लाइव डॉप्लर राडार · पूरा लूप Luxora में खोलें';
 
   @override
   String get weatherMapOverlays => 'मानचित्र ओवरले';
