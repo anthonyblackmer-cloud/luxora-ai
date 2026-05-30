@@ -47,6 +47,10 @@
 	<true/>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Luxora uses the microphone so you can talk to your travel concierge.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Luxora converts your speech to text for concierge conversations.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

@@ -977,7 +977,107 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get conciergeVoiceSoon =>
-      'Voice Concierge ist bald verfügbar – tippen Sie zunächst kurz auf oder geben Sie ein, was Sie möchten.';
+      'Mikrofon-Zugriff erlauben, damit Luxora zuhören kann.';
+
+  @override
+  String get conciergeVoiceListening => 'Luxora hört zu…';
+
+  @override
+  String get conciergeVoiceRelease => 'Loslassen zum Senden';
+
+  @override
+  String get conciergeVoiceUnavailable =>
+      'Spracheingabe ist auf diesem Gerät nicht verfügbar.';
+
+  @override
+  String get conciergeVoiceSettingsTitle => 'Luxora-Stimme';
+
+  @override
+  String get conciergeVoiceSettingsSubtitle =>
+      'Wählen Sie Akzent, Ton und Tempo — nutzt die Systemstimmen Ihres Geräts.';
+
+  @override
+  String get conciergeVoiceRateLabel => 'Sprechtempo';
+
+  @override
+  String get conciergeVoiceRateSlow => 'Langsam';
+
+  @override
+  String get conciergeVoiceRateNatural => 'Natürlich';
+
+  @override
+  String get conciergeVoiceRateFast => 'Schnell';
+
+  @override
+  String get conciergeVoicePreview => 'Stimme testen';
+
+  @override
+  String get conciergeVoicePreviewSample =>
+      'Hallo — ich bin Luxora. Sag mir, wie sich diese Reise anfühlen soll.';
+
+  @override
+  String get conciergeVoiceDeviceNote =>
+      'Verfügbare Stimmen hängen von den Sprachpaketen auf Ihrem Gerät ab.';
+
+  @override
+  String get conciergeVoiceRegionRecommended => 'Empfohlen';
+
+  @override
+  String get conciergeVoiceRegionEnglish => 'Englisch';
+
+  @override
+  String get conciergeVoiceRegionRussian => 'Russisch';
+
+  @override
+  String get conciergeVoiceRegionSpanish => 'Spanisch';
+
+  @override
+  String get conciergeVoiceRegionFrench => 'Französisch';
+
+  @override
+  String get conciergeVoiceRegionGerman => 'Deutsch';
+
+  @override
+  String get conciergeVoiceRegionOther => 'Andere';
+
+  @override
+  String get conciergeVoicePresetMatchApp => 'App-Sprache · Weiblich';
+
+  @override
+  String get conciergeVoicePresetEnUsF => 'Amerikanisch · Weiblich';
+
+  @override
+  String get conciergeVoicePresetEnUsM => 'Amerikanisch · Männlich';
+
+  @override
+  String get conciergeVoicePresetEnGbF => 'Britisch · Weiblich';
+
+  @override
+  String get conciergeVoicePresetEnGbM => 'Britisch · Männlich';
+
+  @override
+  String get conciergeVoicePresetRuF => 'Russisch · Weiblich';
+
+  @override
+  String get conciergeVoicePresetRuM => 'Russisch · Männlich';
+
+  @override
+  String get conciergeVoicePresetEsF => 'Spanisch · Weiblich';
+
+  @override
+  String get conciergeVoicePresetEsM => 'Spanisch · Männlich';
+
+  @override
+  String get conciergeVoicePresetFrF => 'Französisch · Weiblich';
+
+  @override
+  String get conciergeVoicePresetFrM => 'Französisch · Männlich';
+
+  @override
+  String get conciergeVoicePresetDeF => 'Deutsch · Weiblich';
+
+  @override
+  String get conciergeVoicePresetDeM => 'Deutsch · Männlich';
 
   @override
   String get conciergeThinking => 'Luxora denkt nach…';

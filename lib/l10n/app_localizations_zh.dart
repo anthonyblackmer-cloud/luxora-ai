@@ -940,7 +940,103 @@ class AppLocalizationsZh extends AppLocalizations {
   String get conciergeVoiceHold => '按住说话';
 
   @override
-  String get conciergeVoiceSoon => '语音礼宾服务即将推出 - 现在，只需轻按某个时刻或输入您想要的感受即可。';
+  String get conciergeVoiceSoon => '请允许麦克风，以便 Luxora 能听你说。';
+
+  @override
+  String get conciergeVoiceListening => 'Luxora 正在聆听…';
+
+  @override
+  String get conciergeVoiceRelease => '松开发送';
+
+  @override
+  String get conciergeVoiceUnavailable => '此设备不支持语音。';
+
+  @override
+  String get conciergeVoiceSettingsTitle => 'Luxora 语音';
+
+  @override
+  String get conciergeVoiceSettingsSubtitle => '选择口音、音色和语速 — 使用您设备的系统语音。';
+
+  @override
+  String get conciergeVoiceRateLabel => '语速';
+
+  @override
+  String get conciergeVoiceRateSlow => '慢';
+
+  @override
+  String get conciergeVoiceRateNatural => '自然';
+
+  @override
+  String get conciergeVoiceRateFast => '快';
+
+  @override
+  String get conciergeVoicePreview => '试听语音';
+
+  @override
+  String get conciergeVoicePreviewSample => '你好 — 我是 Luxora。告诉我你希望这次旅行是什么感觉。';
+
+  @override
+  String get conciergeVoiceDeviceNote => '可用语音取决于设备上的语言包。';
+
+  @override
+  String get conciergeVoiceRegionRecommended => '推荐';
+
+  @override
+  String get conciergeVoiceRegionEnglish => '英语';
+
+  @override
+  String get conciergeVoiceRegionRussian => '俄语';
+
+  @override
+  String get conciergeVoiceRegionSpanish => '西班牙语';
+
+  @override
+  String get conciergeVoiceRegionFrench => '法语';
+
+  @override
+  String get conciergeVoiceRegionGerman => '德语';
+
+  @override
+  String get conciergeVoiceRegionOther => '其他';
+
+  @override
+  String get conciergeVoicePresetMatchApp => '匹配应用语言 · 女声';
+
+  @override
+  String get conciergeVoicePresetEnUsF => '美式 · 女声';
+
+  @override
+  String get conciergeVoicePresetEnUsM => '美式 · 男声';
+
+  @override
+  String get conciergeVoicePresetEnGbF => '英式 · 女声';
+
+  @override
+  String get conciergeVoicePresetEnGbM => '英式 · 男声';
+
+  @override
+  String get conciergeVoicePresetRuF => '俄语 · 女声';
+
+  @override
+  String get conciergeVoicePresetRuM => '俄语 · 男声';
+
+  @override
+  String get conciergeVoicePresetEsF => '西语 · 女声';
+
+  @override
+  String get conciergeVoicePresetEsM => '西语 · 男声';
+
+  @override
+  String get conciergeVoicePresetFrF => '法语 · 女声';
+
+  @override
+  String get conciergeVoicePresetFrM => '法语 · 男声';
+
+  @override
+  String get conciergeVoicePresetDeF => '德语 · 女声';
+
+  @override
+  String get conciergeVoicePresetDeM => '德语 · 男声';
 
   @override
   String get conciergeThinking => 'Luxora 正在思考…';

@@ -977,7 +977,106 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get conciergeVoiceSoon =>
-      'Sesli konsiyerj yakında geliyor; şimdilik bir dakikaya dokunun veya nasıl hissetmek istediğinizi yazın.';
+      'Luxora\'nın dinlemesi için mikrofona izin verin.';
+
+  @override
+  String get conciergeVoiceListening => 'Luxora dinliyor…';
+
+  @override
+  String get conciergeVoiceRelease => 'Göndermek için bırakın';
+
+  @override
+  String get conciergeVoiceUnavailable => 'Ses bu cihazda kullanılamıyor.';
+
+  @override
+  String get conciergeVoiceSettingsTitle => 'Luxora sesi';
+
+  @override
+  String get conciergeVoiceSettingsSubtitle =>
+      'Aksan, ton ve hız seçin — cihazınızın sistem seslerini kullanır.';
+
+  @override
+  String get conciergeVoiceRateLabel => 'Konuşma hızı';
+
+  @override
+  String get conciergeVoiceRateSlow => 'Yavaş';
+
+  @override
+  String get conciergeVoiceRateNatural => 'Doğal';
+
+  @override
+  String get conciergeVoiceRateFast => 'Hızlı';
+
+  @override
+  String get conciergeVoicePreview => 'Sesi dene';
+
+  @override
+  String get conciergeVoicePreviewSample =>
+      'Merhaba — ben Luxora. Bu yolculuğun nasıl hissettirmesini istediğini söyle.';
+
+  @override
+  String get conciergeVoiceDeviceNote =>
+      'Mevcut sesler cihazınızdaki dil paketlerine bağlıdır.';
+
+  @override
+  String get conciergeVoiceRegionRecommended => 'Önerilen';
+
+  @override
+  String get conciergeVoiceRegionEnglish => 'İngilizce';
+
+  @override
+  String get conciergeVoiceRegionRussian => 'Rusça';
+
+  @override
+  String get conciergeVoiceRegionSpanish => 'İspanyolca';
+
+  @override
+  String get conciergeVoiceRegionFrench => 'Fransızca';
+
+  @override
+  String get conciergeVoiceRegionGerman => 'Almanca';
+
+  @override
+  String get conciergeVoiceRegionOther => 'Diğer';
+
+  @override
+  String get conciergeVoicePresetMatchApp => 'Uygulama dili · Kadın';
+
+  @override
+  String get conciergeVoicePresetEnUsF => 'Amerikan · Kadın';
+
+  @override
+  String get conciergeVoicePresetEnUsM => 'Amerikan · Erkek';
+
+  @override
+  String get conciergeVoicePresetEnGbF => 'İngiliz · Kadın';
+
+  @override
+  String get conciergeVoicePresetEnGbM => 'İngiliz · Erkek';
+
+  @override
+  String get conciergeVoicePresetRuF => 'Rus · Kadın';
+
+  @override
+  String get conciergeVoicePresetRuM => 'Rus · Erkek';
+
+  @override
+  String get conciergeVoicePresetEsF => 'İspanyol · Kadın';
+
+  @override
+  String get conciergeVoicePresetEsM => 'İspanyol · Erkek';
+
+  @override
+  String get conciergeVoicePresetFrF => 'Fransız · Kadın';
+
+  @override
+  String get conciergeVoicePresetFrM => 'Fransız · Erkek';
+
+  @override
+  String get conciergeVoicePresetDeF => 'Alman · Kadın';
+
+  @override
+  String get conciergeVoicePresetDeM => 'Alman · Erkek';
 
   @override
   String get conciergeThinking => 'Luxora düşünüyor…';

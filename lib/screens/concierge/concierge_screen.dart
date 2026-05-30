@@ -10,9 +10,11 @@ import 'package:luxora_ai/models/trip_profile.dart';
 import 'package:luxora_ai/services/concierge_ai_service.dart';
 import 'package:luxora_ai/services/concierge_context_builder.dart';
 import 'package:luxora_ai/services/concierge_session_memory.dart';
+import 'package:luxora_ai/services/concierge_voice_service.dart';
 import 'package:luxora_ai/services/trip_profile_storage.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
+import 'package:luxora_ai/widgets/concierge/concierge_voice_settings_sheet.dart';
 import 'package:luxora_ai/widgets/luxora_moment_chips.dart';
 import 'package:luxora_ai/widgets/settings/luxora_premium_sheet_shell.dart';
 
@@ -33,15 +35,21 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
   TripProfile? _profile;
   List<String> _stylePrefs = [];
   bool _isThinking = false;
+  bool _voiceListening = false;
+  String _voicePartial = '';
+  final _voice = ConciergeVoiceService.instance;
 
   @override
   void initState() {
     super.initState();
+    unawaited(_voice.initialize());
     WidgetsBinding.instance.addPostFrameCallback((_) => _load());
   }
 
   @override
   void dispose() {
+    unawaited(_voice.cancelListening());
+    unawaited(_voice.stopSpeaking());
     _controller.dispose();
     _scrollController.dispose();
     super.dispose();
@@ -113,6 +121,61 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
     }
   }
 
+  Future<void> _speakLuxora(String text) async {
+    if (kIsWeb || !mounted) return;
+    final locale = Localizations.localeOf(context).languageCode;
+    await _voice.speak(text, languageCode: locale);
+  }
+
+  Future<void> _startVoiceInput(AppLocalizations l) async {
+    if (_isThinking || _voiceListening) return;
+    final locale = Localizations.localeOf(context).languageCode;
+    final started = await _voice.startListening(
+      languageCode: locale,
+      onPartial: (partial) {
+        if (!mounted) return;
+        setState(() => _voicePartial = partial);
+      },
+    );
+    if (!mounted) return;
+    if (!started) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(l.conciergeVoiceUnavailable),
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
+      return;
+    }
+    setState(() {
+      _voiceListening = true;
+      _voicePartial = '';
+    });
+  }
+
+  Future<void> _finishVoiceInput() async {
+    if (!_voiceListening) return;
+    final text = await _voice.stopListeningAndTakeResult();
+    if (!mounted) return;
+    setState(() {
+      _voiceListening = false;
+      _voicePartial = '';
+    });
+    if (text != null && text.trim().isNotEmpty) {
+      await _send(text);
+    }
+  }
+
+  Future<void> _cancelVoiceInput() async {
+    if (!_voiceListening) return;
+    await _voice.cancelListening();
+    if (!mounted) return;
+    setState(() {
+      _voiceListening = false;
+      _voicePartial = '';
+    });
+  }
+
   Future<void> _send(String text) async {
     final trimmed = text.trim();
     if (trimmed.isEmpty || _isThinking) return;
@@ -160,6 +223,7 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
         _isThinking = false;
         _messages.add((user: false, text: reply));
       });
+      unawaited(_speakLuxora(reply));
     } on ConciergeAiException catch (e) {
       if (!mounted) return;
       setState(() {
@@ -344,40 +408,91 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
             const SizedBox(height: 14),
             LuxoraMomentChips(onMomentSelected: _send),
             const SizedBox(height: 12),
-            GestureDetector(
-              onLongPress: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(l.conciergeVoiceSoon),
-                    behavior: SnackBarBehavior.floating,
-                  ),
-                );
-              },
-              child: Container(
-                width: double.infinity,
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  border: Border.all(
-                    color: t.accent.withValues(alpha: 0.25),
-                  ),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.mic_rounded,
-                        size: 18, color: t.accent.withValues(alpha: 0.9)),
-                    const SizedBox(width: 8),
-                    Text(
-                      l.conciergeVoiceHold,
-                      style: TextStyle(
-                        fontSize: 13,
-                        color: t.textMuted,
+            Row(
+              children: [
+                Expanded(
+                  child: GestureDetector(
+                    onLongPressStart: (_) => _startVoiceInput(l),
+                    onLongPressEnd: (_) => _finishVoiceInput(),
+                    onLongPressCancel: _cancelVoiceInput,
+                    child: AnimatedContainer(
+                      duration: const Duration(milliseconds: 180),
+                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        color: _voiceListening
+                            ? t.accent.withValues(alpha: 0.12)
+                            : null,
+                        border: Border.all(
+                          color: _voiceListening
+                              ? t.accent.withValues(alpha: 0.55)
+                              : t.accent.withValues(alpha: 0.25),
+                        ),
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                _voiceListening
+                                    ? Icons.graphic_eq_rounded
+                                    : Icons.mic_rounded,
+                                size: 18,
+                                color: t.accent.withValues(alpha: 0.9),
+                              ),
+                              const SizedBox(width: 8),
+                              Text(
+                                _voiceListening
+                                    ? l.conciergeVoiceListening
+                                    : l.conciergeVoiceHold,
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  color: t.textMuted,
+                                ),
+                              ),
+                            ],
+                          ),
+                          if (_voiceListening) ...[
+                            const SizedBox(height: 4),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 12),
+                              child: Text(
+                                _voicePartial.isEmpty
+                                    ? l.conciergeVoiceRelease
+                                    : _voicePartial,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  height: 1.3,
+                                  color: _voicePartial.isEmpty
+                                      ? t.textMuted.withValues(alpha: 0.8)
+                                      : t.textPrimary,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ],
                       ),
                     ),
-                  ],
+                  ),
                 ),
-              ),
+                const SizedBox(width: 10),
+                IconButton(
+                  tooltip: l.conciergeVoiceSettingsTitle,
+                  onPressed: () => ConciergeVoiceSettingsSheet.show(context),
+                  style: IconButton.styleFrom(
+                    backgroundColor: t.panelFill,
+                    foregroundColor: t.accent,
+                    side: BorderSide(color: t.accent.withValues(alpha: 0.25)),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                  icon: const Icon(Icons.record_voice_over_rounded),
+                ),
+              ],
             ),
             const SizedBox(height: 16),
             Text(

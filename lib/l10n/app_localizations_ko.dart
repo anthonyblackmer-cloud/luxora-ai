@@ -958,8 +958,105 @@ class AppLocalizationsKo extends AppLocalizations {
   String get conciergeVoiceHold => '길게 눌러 말하세요';
 
   @override
-  String get conciergeVoiceSoon =>
-      '음성 컨시어지가 곧 출시됩니다. 지금은 순간을 탭하거나 원하는 느낌을 입력하세요.';
+  String get conciergeVoiceSoon => 'Luxora가 들을 수 있도록 마이크를 허용하세요.';
+
+  @override
+  String get conciergeVoiceListening => 'Luxora가 듣고 있습니다…';
+
+  @override
+  String get conciergeVoiceRelease => '놓으면 전송';
+
+  @override
+  String get conciergeVoiceUnavailable => '이 기기에서는 음성을 사용할 수 없습니다.';
+
+  @override
+  String get conciergeVoiceSettingsTitle => 'Luxora 음성';
+
+  @override
+  String get conciergeVoiceSettingsSubtitle =>
+      '억양, 톤, 속도를 선택하세요 — 기기의 시스템 음성을 사용합니다.';
+
+  @override
+  String get conciergeVoiceRateLabel => '말하기 속도';
+
+  @override
+  String get conciergeVoiceRateSlow => '느리게';
+
+  @override
+  String get conciergeVoiceRateNatural => '자연스럽게';
+
+  @override
+  String get conciergeVoiceRateFast => '빠르게';
+
+  @override
+  String get conciergeVoicePreview => '음성 미리듣기';
+
+  @override
+  String get conciergeVoicePreviewSample =>
+      '안녕하세요 — Luxora입니다. 이 여행을 어떻게 느끼고 싶은지 알려주세요.';
+
+  @override
+  String get conciergeVoiceDeviceNote => '사용 가능한 음성은 기기의 언어 팩에 따라 다릅니다.';
+
+  @override
+  String get conciergeVoiceRegionRecommended => '추천';
+
+  @override
+  String get conciergeVoiceRegionEnglish => '영어';
+
+  @override
+  String get conciergeVoiceRegionRussian => '러시아어';
+
+  @override
+  String get conciergeVoiceRegionSpanish => '스페인어';
+
+  @override
+  String get conciergeVoiceRegionFrench => '프랑스어';
+
+  @override
+  String get conciergeVoiceRegionGerman => '독일어';
+
+  @override
+  String get conciergeVoiceRegionOther => '기타';
+
+  @override
+  String get conciergeVoicePresetMatchApp => '앱 언어 · 여성';
+
+  @override
+  String get conciergeVoicePresetEnUsF => '미국 · 여성';
+
+  @override
+  String get conciergeVoicePresetEnUsM => '미국 · 남성';
+
+  @override
+  String get conciergeVoicePresetEnGbF => '영국 · 여성';
+
+  @override
+  String get conciergeVoicePresetEnGbM => '영국 · 남성';
+
+  @override
+  String get conciergeVoicePresetRuF => '러시아 · 여성';
+
+  @override
+  String get conciergeVoicePresetRuM => '러시아 · 남성';
+
+  @override
+  String get conciergeVoicePresetEsF => '스페인 · 여성';
+
+  @override
+  String get conciergeVoicePresetEsM => '스페인 · 남성';
+
+  @override
+  String get conciergeVoicePresetFrF => '프랑스 · 여성';
+
+  @override
+  String get conciergeVoicePresetFrM => '프랑스 · 남성';
+
+  @override
+  String get conciergeVoicePresetDeF => '독일 · 여성';
+
+  @override
+  String get conciergeVoicePresetDeM => '독일 · 남성';
 
   @override
   String get conciergeThinking => 'Luxora가 생각 중…';

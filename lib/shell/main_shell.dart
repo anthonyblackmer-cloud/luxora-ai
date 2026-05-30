@@ -94,10 +94,10 @@ class MainShell extends StatelessWidget {
 
             NavigationDestination(
 
-              icon: const Icon(Icons.spatial_audio_off_outlined),
+              icon: const Icon(Icons.mic_none_outlined),
 
               selectedIcon: Icon(
-                Icons.spatial_audio_off_rounded,
+                Icons.mic_rounded,
                 color: tokens.accent.withValues(alpha: 0.95),
               ),
 

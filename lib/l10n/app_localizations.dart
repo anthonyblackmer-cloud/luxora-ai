@@ -1782,8 +1782,200 @@ abstract class AppLocalizations {
   /// No description provided for @conciergeVoiceSoon.
   ///
   /// In en, this message translates to:
-  /// **'Voice concierge is coming soon — for now, tap a moment or type how you want to feel.'**
+  /// **'Allow microphone access so Luxora can hear you.'**
   String get conciergeVoiceSoon;
+
+  /// No description provided for @conciergeVoiceListening.
+  ///
+  /// In en, this message translates to:
+  /// **'Luxora is listening…'**
+  String get conciergeVoiceListening;
+
+  /// No description provided for @conciergeVoiceRelease.
+  ///
+  /// In en, this message translates to:
+  /// **'Release to send'**
+  String get conciergeVoiceRelease;
+
+  /// No description provided for @conciergeVoiceUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Voice isn\'t available on this device.'**
+  String get conciergeVoiceUnavailable;
+
+  /// No description provided for @conciergeVoiceSettingsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Luxora voice'**
+  String get conciergeVoiceSettingsTitle;
+
+  /// No description provided for @conciergeVoiceSettingsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose how Luxora sounds when she speaks — accent, tone, and pace. Uses your device\'s built-in voices.'**
+  String get conciergeVoiceSettingsSubtitle;
+
+  /// No description provided for @conciergeVoiceRateLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Speaking pace'**
+  String get conciergeVoiceRateLabel;
+
+  /// No description provided for @conciergeVoiceRateSlow.
+  ///
+  /// In en, this message translates to:
+  /// **'Slow'**
+  String get conciergeVoiceRateSlow;
+
+  /// No description provided for @conciergeVoiceRateNatural.
+  ///
+  /// In en, this message translates to:
+  /// **'Natural'**
+  String get conciergeVoiceRateNatural;
+
+  /// No description provided for @conciergeVoiceRateFast.
+  ///
+  /// In en, this message translates to:
+  /// **'Fast'**
+  String get conciergeVoiceRateFast;
+
+  /// No description provided for @conciergeVoicePreview.
+  ///
+  /// In en, this message translates to:
+  /// **'Preview voice'**
+  String get conciergeVoicePreview;
+
+  /// No description provided for @conciergeVoicePreviewSample.
+  ///
+  /// In en, this message translates to:
+  /// **'Hello — I\'m Luxora. Tell me how you want this trip to feel.'**
+  String get conciergeVoicePreviewSample;
+
+  /// No description provided for @conciergeVoiceDeviceNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Available voices depend on your iPhone or Android language packs.'**
+  String get conciergeVoiceDeviceNote;
+
+  /// No description provided for @conciergeVoiceRegionRecommended.
+  ///
+  /// In en, this message translates to:
+  /// **'Recommended'**
+  String get conciergeVoiceRegionRecommended;
+
+  /// No description provided for @conciergeVoiceRegionEnglish.
+  ///
+  /// In en, this message translates to:
+  /// **'English'**
+  String get conciergeVoiceRegionEnglish;
+
+  /// No description provided for @conciergeVoiceRegionRussian.
+  ///
+  /// In en, this message translates to:
+  /// **'Russian'**
+  String get conciergeVoiceRegionRussian;
+
+  /// No description provided for @conciergeVoiceRegionSpanish.
+  ///
+  /// In en, this message translates to:
+  /// **'Spanish'**
+  String get conciergeVoiceRegionSpanish;
+
+  /// No description provided for @conciergeVoiceRegionFrench.
+  ///
+  /// In en, this message translates to:
+  /// **'French'**
+  String get conciergeVoiceRegionFrench;
+
+  /// No description provided for @conciergeVoiceRegionGerman.
+  ///
+  /// In en, this message translates to:
+  /// **'German'**
+  String get conciergeVoiceRegionGerman;
+
+  /// No description provided for @conciergeVoiceRegionOther.
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get conciergeVoiceRegionOther;
+
+  /// No description provided for @conciergeVoicePresetMatchApp.
+  ///
+  /// In en, this message translates to:
+  /// **'Match app language · Female'**
+  String get conciergeVoicePresetMatchApp;
+
+  /// No description provided for @conciergeVoicePresetEnUsF.
+  ///
+  /// In en, this message translates to:
+  /// **'American · Female'**
+  String get conciergeVoicePresetEnUsF;
+
+  /// No description provided for @conciergeVoicePresetEnUsM.
+  ///
+  /// In en, this message translates to:
+  /// **'American · Male'**
+  String get conciergeVoicePresetEnUsM;
+
+  /// No description provided for @conciergeVoicePresetEnGbF.
+  ///
+  /// In en, this message translates to:
+  /// **'British · Female'**
+  String get conciergeVoicePresetEnGbF;
+
+  /// No description provided for @conciergeVoicePresetEnGbM.
+  ///
+  /// In en, this message translates to:
+  /// **'British · Male'**
+  String get conciergeVoicePresetEnGbM;
+
+  /// No description provided for @conciergeVoicePresetRuF.
+  ///
+  /// In en, this message translates to:
+  /// **'Russian · Female'**
+  String get conciergeVoicePresetRuF;
+
+  /// No description provided for @conciergeVoicePresetRuM.
+  ///
+  /// In en, this message translates to:
+  /// **'Russian · Male'**
+  String get conciergeVoicePresetRuM;
+
+  /// No description provided for @conciergeVoicePresetEsF.
+  ///
+  /// In en, this message translates to:
+  /// **'Spanish · Female'**
+  String get conciergeVoicePresetEsF;
+
+  /// No description provided for @conciergeVoicePresetEsM.
+  ///
+  /// In en, this message translates to:
+  /// **'Spanish · Male'**
+  String get conciergeVoicePresetEsM;
+
+  /// No description provided for @conciergeVoicePresetFrF.
+  ///
+  /// In en, this message translates to:
+  /// **'French · Female'**
+  String get conciergeVoicePresetFrF;
+
+  /// No description provided for @conciergeVoicePresetFrM.
+  ///
+  /// In en, this message translates to:
+  /// **'French · Male'**
+  String get conciergeVoicePresetFrM;
+
+  /// No description provided for @conciergeVoicePresetDeF.
+  ///
+  /// In en, this message translates to:
+  /// **'German · Female'**
+  String get conciergeVoicePresetDeF;
+
+  /// No description provided for @conciergeVoicePresetDeM.
+  ///
+  /// In en, this message translates to:
+  /// **'German · Male'**
+  String get conciergeVoicePresetDeM;
 
   /// No description provided for @conciergeThinking.
   ///
