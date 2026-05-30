@@ -20,6 +20,7 @@ enum DiscoveryStyle { hiddenGems, balanced, iconic }
 
 class TripProfile {
   const TripProfile({
+    this.cityId = 'orlando',
     this.destination = 'Orlando',
     this.region = 'Florida',
     this.startDate = '',
@@ -42,6 +43,7 @@ class TripProfile {
     this.occasion = TripOccasion.general,
   });
 
+  final String cityId;
   final String destination;
   final String region;
   final String startDate;
@@ -80,6 +82,7 @@ class TripProfile {
   final TripOccasion occasion;
 
   TripProfile copyWith({
+    String? cityId,
     String? destination,
     String? region,
     String? startDate,
@@ -102,6 +105,7 @@ class TripProfile {
     TripOccasion? occasion,
   }) {
     return TripProfile(
+      cityId: cityId ?? this.cityId,
       destination: destination ?? this.destination,
       region: region ?? this.region,
       startDate: startDate ?? this.startDate,

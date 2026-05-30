@@ -296,6 +296,18 @@ class AppLocalizationsRu extends AppLocalizations {
   String get ticketDealsSectionTitle => 'Авторизованные сделки';
 
   @override
+  String ticketDealsPricesAsOf(String date) {
+    return 'Цены на $date';
+  }
+
+  @override
+  String get ticketDealsRefreshFailed =>
+      'Не удалось обновить цены — показываем кэшированные предложения.';
+
+  @override
+  String get ticketDealsUpdating => 'Обновление цен…';
+
+  @override
   String get ticketNoDeals =>
       'В этом фильтре нет предложений — попробуйте другую категорию.';
 
@@ -1450,6 +1462,27 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get onboardRegion => 'Область';
+
+  @override
+  String get onboardCityLabel => 'Choose your city';
+
+  @override
+  String get onboardCityUnlockNote =>
+      'Each destination has its own concierge unlock — one-time purchase per city.';
+
+  @override
+  String get landingCityLabel => 'Where are you going?';
+
+  @override
+  String get paywallSwitchCity => 'Destination';
+
+  @override
+  String get cityPickerUnlocked => 'Unlocked';
+
+  @override
+  String cityPickerUnlockPrice(String price) {
+    return 'Unlock $price';
+  }
 
   @override
   String get onboardStep2Title => 'Время чувствовать себя свободным';

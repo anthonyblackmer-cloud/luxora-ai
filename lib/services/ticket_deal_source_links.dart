@@ -7,12 +7,11 @@ abstract final class TicketDealSourceLinks {
   static const _bySourceName = <String, String>{
     'Undercover Tourist': 'https://www.undercovertourist.com/',
     'ParkSavers': 'https://www.parksavers.com/',
-    'Authorized Ticket Center': 'https://www.authorizedticketcenter.com/',
+    'Medieval Times': 'https://www.medievaltimes.com/orlando',
     'SeaWorld Authorized Partner': 'https://seaworld.com/orlando/',
     'LEGOLAND Authorized Reseller': 'https://www.legoland.com/florida/',
     'ICON Park Direct': 'https://www.iconparkorlando.com/',
-    'Goldstar': 'https://www.goldstar.com/',
-    'Groupon': 'https://www.groupon.com/',
+    'Groupon': 'https://www.groupon.com/local/orlando',
     'Vizcaya Direct': 'https://vizcaya.org/',
     'PAMM Direct': 'https://www.pamm.org/',
     'Frost Science Direct': 'https://www.frostscience.org/',
@@ -28,6 +27,9 @@ abstract final class TicketDealSourceLinks {
   };
 
   static String? resolve(TicketDeal deal) {
+    if (deal.sourceUrl != null && deal.sourceUrl!.isNotEmpty) {
+      return deal.sourceUrl;
+    }
     final sponsored = deal.activeSponsorship?.sponsorUrl;
     if (sponsored != null && sponsored.isNotEmpty) return sponsored;
     return _bySourceName[deal.sourceName];

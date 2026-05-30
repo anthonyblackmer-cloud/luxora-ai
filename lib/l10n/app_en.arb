@@ -109,6 +109,12 @@
   "ticketSortLuxury": "Luxury experiences",
   "ticketSortClosest": "Closest to me",
   "ticketDealsSectionTitle": "Authorized deals",
+  "ticketDealsPricesAsOf": "Prices as of {date}",
+  "@ticketDealsPricesAsOf": {
+    "placeholders": { "date": { "type": "String" } }
+  },
+  "ticketDealsRefreshFailed": "Couldn't refresh prices — showing cached deals.",
+  "ticketDealsUpdating": "Updating prices…",
   "ticketNoDeals": "No deals in this filter — try another category.",
   "ticketConfidenceHigh": "High confidence",
   "ticketConfidenceVerified": "Verified reseller",
@@ -598,6 +604,17 @@
   "onboardStep1Subtitle": "Where are you headed?",
   "onboardDestination": "Destination",
   "onboardRegion": "Region",
+  "onboardCityLabel": "Choose your city",
+  "onboardCityUnlockNote": "Each destination has its own concierge unlock — one-time purchase per city.",
+  "landingCityLabel": "Where are you going?",
+  "paywallSwitchCity": "Destination",
+  "cityPickerUnlocked": "Unlocked",
+  "cityPickerUnlockPrice": "Unlock {price}",
+  "@cityPickerUnlockPrice": {
+    "placeholders": {
+      "price": { "type": "String" }
+    }
+  },
   "onboardStep2Title": "Time to feel free",
   "onboardStep2Subtitle": "When does your escape begin?",
   "onboardBudget": "Trip budget (USD)",

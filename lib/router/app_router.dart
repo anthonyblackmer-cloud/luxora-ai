@@ -40,7 +40,11 @@ GoRouter createAppRouter() {
       ),
       GoRoute(
         path: '/onboarding',
-        builder: (context, state) => _luxPage(const OnboardingScreen()),
+        builder: (context, state) => _luxPage(
+          OnboardingScreen(
+            initialCityId: state.uri.queryParameters['city'],
+          ),
+        ),
       ),
       GoRoute(
         path: '/story',

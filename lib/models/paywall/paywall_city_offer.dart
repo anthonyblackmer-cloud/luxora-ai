@@ -19,7 +19,7 @@ class PaywallCityOffer {
   final String cityName;
   final String regionLabel;
   final String heroUnsplashId;
-  final int priceUsd;
+  final double priceUsd;
   final int vacationCostMinUsd;
   final int vacationCostMaxUsd;
 
@@ -44,7 +44,7 @@ class PaywallCityOffer {
         PaywallPersona.general => heroUnsplashId,
       };
 
-  String get formattedPrice => '\$$priceUsd';
+  String get formattedPrice => '\$${priceUsd.toStringAsFixed(2)}';
 }
 
 /// Trip-profile-driven paywall tone — swaps hero and headline copy.

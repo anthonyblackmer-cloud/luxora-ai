@@ -295,6 +295,18 @@ class AppLocalizationsTr extends AppLocalizations {
   String get ticketDealsSectionTitle => 'Yetkili anlaşmalar';
 
   @override
+  String ticketDealsPricesAsOf(String date) {
+    return '$date itibarıyla fiyatlar';
+  }
+
+  @override
+  String get ticketDealsRefreshFailed =>
+      'Fiyatlar yenilenemedi — önbellekteki fırsatlar gösteriliyor.';
+
+  @override
+  String get ticketDealsUpdating => 'Fiyatlar güncelleniyor…';
+
+  @override
   String get ticketNoDeals =>
       'Bu filtrede fırsat yok; başka bir kategori deneyin.';
 
@@ -1449,6 +1461,27 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get onboardRegion => 'Bölge';
+
+  @override
+  String get onboardCityLabel => 'Choose your city';
+
+  @override
+  String get onboardCityUnlockNote =>
+      'Each destination has its own concierge unlock — one-time purchase per city.';
+
+  @override
+  String get landingCityLabel => 'Where are you going?';
+
+  @override
+  String get paywallSwitchCity => 'Destination';
+
+  @override
+  String get cityPickerUnlocked => 'Unlocked';
+
+  @override
+  String cityPickerUnlockPrice(String price) {
+    return 'Unlock $price';
+  }
 
   @override
   String get onboardStep2Title => 'Özgür hissetme zamanı';

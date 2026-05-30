@@ -3,6 +3,7 @@ import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/services/partner_sponsorship_service.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
+import 'package:luxora_ai/widgets/lux_secondary_app_bar.dart';
 import 'package:luxora_ai/widgets/partner_sponsor_badge.dart';
 
 class PartnerOffersScreen extends StatelessWidget {
@@ -18,11 +19,7 @@ class PartnerOffersScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Colors.transparent,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        title: Text(l.partnerOffersTitle),
-      ),
+      appBar: LuxSecondaryAppBar(title: l.partnerOffersTitle),
       body: ListView(
         padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
         children: [

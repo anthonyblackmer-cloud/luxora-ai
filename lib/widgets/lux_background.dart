@@ -34,7 +34,10 @@ class LuxBackground extends StatelessWidget {
             left: -30,
             child: _orb(tokens.orbTertiary, 140),
           ),
-          child,
+          Material(
+            color: Colors.transparent,
+            child: child,
+          ),
         ],
       ),
     );

@@ -33,6 +33,7 @@ class TicketDeal {
     required this.discountPriceUsd,
     required this.sourceName,
     required this.expiresAt,
+    this.sourceUrl,
     this.placeId,
     this.unsplashPhotoId,
     this.discountPercent,
@@ -55,6 +56,7 @@ class TicketDeal {
   final int officialPriceUsd;
   final int discountPriceUsd;
   final String sourceName;
+  final String? sourceUrl;
   final DateTime expiresAt;
   final String? placeId;
   final String? unsplashPhotoId;

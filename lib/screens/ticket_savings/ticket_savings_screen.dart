@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:luxora_ai/data/trip_plans.dart';
 import 'package:luxora_ai/l10n/app_localizations.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/models/ticket_deal.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
+import 'package:luxora_ai/services/city_pack_registry.dart';
 import 'package:luxora_ai/services/saved_places_storage.dart';
 import 'package:luxora_ai/services/partner_sponsorship_service.dart';
+import 'package:luxora_ai/services/ticket_deals_repository.dart';
 import 'package:luxora_ai/services/ticket_savings_service.dart';
 import 'package:luxora_ai/services/trip_profile_store.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/widgets/attraction_detail_sheet.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
+import 'package:luxora_ai/widgets/lux_secondary_app_bar.dart';
 import 'package:luxora_ai/widgets/partner_sponsor_badge.dart';
 import 'package:luxora_ai/widgets/ticket_deal_card.dart';
 import 'package:luxora_ai/services/places_repository.dart';
@@ -43,8 +47,15 @@ class _TicketSavingsScreenState extends State<TicketSavingsScreen> {
   @override
   Widget build(BuildContext context) {
     final l = context.l10n;
-    return SafeArea(
-      child: ValueListenableBuilder<TripProfile?>(
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      appBar: LuxSecondaryAppBar(title: l.navTicketSavings),
+      body: SafeArea(
+        top: false,
+        child: ListenableBuilder(
+          listenable: TicketDealsRepository.instance,
+          builder: (context, _) {
+            return ValueListenableBuilder<TripProfile?>(
         valueListenable: TripProfileStore.instance.profile,
         builder: (context, profile, _) {
           return ValueListenableBuilder<Set<String>>(
@@ -64,8 +75,26 @@ class _TicketSavingsScreenState extends State<TicketSavingsScreen> {
                   savedPlaceIds: savedIds,
                 ),
               );
+              final cityId = CityPackRegistry.instance.active.cityId;
+              final repo = TicketDealsRepository.instance;
+              final pricesUpdated = repo.updatedAtFor(cityId);
+              final refreshFailed = repo.lastRefreshError != null;
 
-              return ListView(
+              return RefreshIndicator(
+                onRefresh: () async {
+                  await repo.refresh(cityId: cityId);
+                  if (!mounted) return;
+                  setState(() {
+                    final fresh = TicketSavingsService.allDeals();
+                    if (fresh.isEmpty) return;
+                    if (_calculatorDeal == null ||
+                        !fresh.any((d) => d.id == _calculatorDeal!.id)) {
+                      _calculatorDeal = fresh.first;
+                    }
+                  });
+                },
+                child: ListView(
+                physics: const AlwaysScrollableScrollPhysics(),
                 padding: const EdgeInsets.all(20),
                 children: [
                   Text(
@@ -90,7 +119,43 @@ class _TicketSavingsScreenState extends State<TicketSavingsScreen> {
                       fontSize: 13,
                     ),
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 8),
+                  if (repo.isRefreshing)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 8),
+                      child: Text(
+                        l.ticketDealsUpdating,
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: LuxColors.gold.withValues(alpha: 0.85),
+                        ),
+                      ),
+                    )
+                  else if (pricesUpdated != null)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 8),
+                      child: Text(
+                        l.ticketDealsPricesAsOf(
+                          DateFormat.yMMMd().format(pricesUpdated),
+                        ),
+                        style: const TextStyle(
+                          fontSize: 12,
+                          color: LuxColors.stone400,
+                        ),
+                      ),
+                    ),
+                  if (refreshFailed)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 8),
+                      child: Text(
+                        l.ticketDealsRefreshFailed,
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: LuxColors.gold.withValues(alpha: 0.75),
+                        ),
+                      ),
+                    ),
+                  const SizedBox(height: 8),
                   FeaturedPartnerSection(
                     title: l.featuredTicketPartnersTitle,
                     subtitle: l.featuredTicketPartnersSubtitle,
@@ -209,10 +274,14 @@ class _TicketSavingsScreenState extends State<TicketSavingsScreen> {
                       ),
                   const SizedBox(height: 24),
                 ],
+              ),
               );
             },
           );
         },
+      );
+          },
+        ),
       ),
     );
   }

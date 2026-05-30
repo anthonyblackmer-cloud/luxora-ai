@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-
 import 'package:flutter_localizations/flutter_localizations.dart';
-
-import 'package:google_fonts/google_fonts.dart';
-
 import 'package:luxora_ai/l10n/app_localizations.dart';
 
 import 'package:luxora_ai/router/app_router.dart';
@@ -23,6 +19,8 @@ import 'package:luxora_ai/services/saved_trips_store.dart';
 
 import 'package:luxora_ai/services/trip_profile_store.dart';
 
+import 'package:luxora_ai/services/ticket_deals_repository.dart';
+
 import 'package:luxora_ai/services/unsplash_photo_registry.dart';
 
 import 'package:luxora_ai/state/luxora_app_state.dart';
@@ -34,10 +32,7 @@ import 'package:provider/provider.dart';
 
 
 Future<void> main() async {
-
   WidgetsFlutterBinding.ensureInitialized();
-
-  await GoogleFonts.pendingFonts([GoogleFonts.notoColorEmoji()]);
 
   await UnsplashPhotoRegistry.instance.ensureLoaded();
 
@@ -48,6 +43,8 @@ Future<void> main() async {
   await DiscoverRadiusController.instance.load();
 
   await PlacesRepository.instance.initialize();
+
+  await TicketDealsRepository.instance.load();
 
   await SavedPlacesStorage.instance.load();
 

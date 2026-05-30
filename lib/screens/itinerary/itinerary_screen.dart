@@ -7,6 +7,7 @@ import 'package:luxora_ai/services/places_repository.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/widgets/attraction_detail_sheet.dart';
 import 'package:luxora_ai/widgets/lux_place_image.dart';
+import 'package:luxora_ai/widgets/lux_secondary_app_bar.dart';
 import 'package:luxora_ai/widgets/unsplash_attribution.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
 import 'package:luxora_ai/widgets/ticket_savings_itinerary_banner.dart';
@@ -19,8 +20,12 @@ class ItineraryScreen extends StatelessWidget {
     final l = context.l10n;
     final plan = sampleGoldenEscapePlan;
 
-    return SafeArea(
-      child: DefaultTabController(
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      appBar: LuxSecondaryAppBar(title: l.navTimeline),
+      body: SafeArea(
+        top: false,
+        child: DefaultTabController(
         length: plan.days.length,
         child: Column(
           children: [
@@ -83,6 +88,7 @@ class ItineraryScreen extends StatelessWidget {
             ),
           ],
         ),
+      ),
       ),
     );
   }

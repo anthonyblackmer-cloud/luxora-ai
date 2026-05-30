@@ -1091,6 +1091,9 @@
   "ticketConfidenceLimited": "Durée limitée",
   "ticketConfidenceVerified": "Revendeur vérifié",
   "ticketDealsSectionTitle": "Offres autorisées",
+  "ticketDealsPricesAsOf": "Prix au {date}",
+  "ticketDealsRefreshFailed": "Impossible d'actualiser les prix — affichage des offres en cache.",
+  "ticketDealsUpdating": "Mise à jour des prix…",
   "ticketDiscountPrice": "Prix ​​​​de Louxora",
   "ticketEstimatedFamilySave": "Économies familiales estimées : {amount}.",
   "@ticketEstimatedFamilySave": {

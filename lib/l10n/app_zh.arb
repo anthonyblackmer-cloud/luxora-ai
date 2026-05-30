@@ -1091,6 +1091,9 @@
   "ticketConfidenceLimited": "限时",
   "ticketConfidenceVerified": "已验证经销商",
   "ticketDealsSectionTitle": "授权交易",
+  "ticketDealsPricesAsOf": "价格更新于 {date}",
+  "ticketDealsRefreshFailed": "无法刷新价格 — 显示缓存优惠。",
+  "ticketDealsUpdating": "正在更新价格…",
   "ticketDiscountPrice": "卢克索拉价格",
   "ticketEstimatedFamilySave": "预计家庭储蓄：{amount}。",
   "@ticketEstimatedFamilySave": {

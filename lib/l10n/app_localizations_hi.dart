@@ -293,6 +293,18 @@ class AppLocalizationsHi extends AppLocalizations {
   String get ticketDealsSectionTitle => 'अधिकृत सौदे';
 
   @override
+  String ticketDealsPricesAsOf(String date) {
+    return '$date तक की कीमतें';
+  }
+
+  @override
+  String get ticketDealsRefreshFailed =>
+      'कीमतें रीफ़्रेश नहीं हो सकीं — कैश किए गए सौदे दिखाए जा रहे हैं।';
+
+  @override
+  String get ticketDealsUpdating => 'कीमतें अपडेट हो रही हैं…';
+
+  @override
   String get ticketNoDeals =>
       'इस फ़िल्टर में कोई डील नहीं - दूसरी श्रेणी आज़माएँ।';
 
@@ -1444,6 +1456,27 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get onboardRegion => 'क्षेत्र';
+
+  @override
+  String get onboardCityLabel => 'Choose your city';
+
+  @override
+  String get onboardCityUnlockNote =>
+      'Each destination has its own concierge unlock — one-time purchase per city.';
+
+  @override
+  String get landingCityLabel => 'Where are you going?';
+
+  @override
+  String get paywallSwitchCity => 'Destination';
+
+  @override
+  String get cityPickerUnlocked => 'Unlocked';
+
+  @override
+  String cityPickerUnlockPrice(String price) {
+    return 'Unlock $price';
+  }
 
   @override
   String get onboardStep2Title => 'स्वतंत्र महसूस करने का समय';

@@ -2,7 +2,7 @@ import 'package:luxora_ai/models/paywall/paywall_city_offer.dart';
 
 /// Bundled city-pack offers — swap JSON/admin pipeline later without UI changes.
 abstract final class PaywallCatalog {
-  static const defaultPriceUsd = 29;
+  static const defaultPriceUsd = 19.99;
 
   static const offers = <String, PaywallCityOffer>{
     'orlando': PaywallCityOffer(
@@ -85,10 +85,35 @@ abstract final class PaywallCatalog {
       luxuryHeroUnsplashId: 'xMMA_mtJ8xM',
       foodieHeroUnsplashId: 'p0vZplFhKYI',
     ),
+    'paris': PaywallCityOffer(
+      cityId: 'paris',
+      cityName: 'Paris',
+      regionLabel: 'France',
+      heroUnsplashId: 'Ayb1R20X6Ro',
+      priceUsd: defaultPriceUsd,
+      vacationCostMinUsd: 2800,
+      vacationCostMaxUsd: 7000,
+      couplesHeroUnsplashId: 'Ayb1R20X6Ro',
+      luxuryHeroUnsplashId: 'Ayb1R20X6Ro',
+      foodieHeroUnsplashId: 'p0vZplFhKYI',
+    ),
   };
 
   static PaywallCityOffer offerFor(String cityId) =>
       offers[cityId] ?? offers['orlando']!;
 
-  static List<PaywallCityOffer> get allOffers => offers.values.toList();
+  static bool isSupported(String cityId) => offers.containsKey(cityId);
+
+  /// All unlockable destinations — sorted by region, then city name.
+  static List<PaywallCityOffer> get selectableOffers {
+    final list = offers.values.toList()
+      ..sort((a, b) {
+        final byRegion = a.regionLabel.compareTo(b.regionLabel);
+        if (byRegion != 0) return byRegion;
+        return a.cityName.compareTo(b.cityName);
+      });
+    return list;
+  }
+
+  static List<PaywallCityOffer> get allOffers => selectableOffers;
 }

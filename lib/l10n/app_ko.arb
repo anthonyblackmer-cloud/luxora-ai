@@ -1091,6 +1091,9 @@
   "ticketConfidenceLimited": "제한된 시간",
   "ticketConfidenceVerified": "검증된 리셀러",
   "ticketDealsSectionTitle": "승인된 거래",
+  "ticketDealsPricesAsOf": "{date} 기준 가격",
+  "ticketDealsRefreshFailed": "가격을 새로고침할 수 없습니다 — 캐시된 혜택을 표시합니다.",
+  "ticketDealsUpdating": "가격 업데이트 중…",
   "ticketDiscountPrice": "룩소라 가격",
   "ticketEstimatedFamilySave": "예상 가족 절감액: {amount}.",
   "@ticketEstimatedFamilySave": {

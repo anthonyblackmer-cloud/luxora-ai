@@ -285,6 +285,17 @@ class AppLocalizationsZh extends AppLocalizations {
   String get ticketDealsSectionTitle => '授权交易';
 
   @override
+  String ticketDealsPricesAsOf(String date) {
+    return '价格更新于 $date';
+  }
+
+  @override
+  String get ticketDealsRefreshFailed => '无法刷新价格 — 显示缓存优惠。';
+
+  @override
+  String get ticketDealsUpdating => '正在更新价格…';
+
+  @override
   String get ticketNoDeals => '此过滤器中没有优惠 - 尝试其他类别。';
 
   @override
@@ -1381,6 +1392,27 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get onboardRegion => '地区';
+
+  @override
+  String get onboardCityLabel => 'Choose your city';
+
+  @override
+  String get onboardCityUnlockNote =>
+      'Each destination has its own concierge unlock — one-time purchase per city.';
+
+  @override
+  String get landingCityLabel => 'Where are you going?';
+
+  @override
+  String get paywallSwitchCity => 'Destination';
+
+  @override
+  String get cityPickerUnlocked => 'Unlocked';
+
+  @override
+  String cityPickerUnlockPrice(String price) {
+    return 'Unlock $price';
+  }
 
   @override
   String get onboardStep2Title => '该感受自由了';

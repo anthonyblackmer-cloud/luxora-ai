@@ -1091,6 +1091,9 @@
   "ticketConfidenceLimited": "Begrenzte Zeit",
   "ticketConfidenceVerified": "Verifizierter Wiederverkäufer",
   "ticketDealsSectionTitle": "Autorisierte Angebote",
+  "ticketDealsPricesAsOf": "Preise vom {date}",
+  "ticketDealsRefreshFailed": "Preise konnten nicht aktualisiert werden — zwischengespeicherte Angebote werden angezeigt.",
+  "ticketDealsUpdating": "Preise werden aktualisiert…",
   "ticketDiscountPrice": "Luxora-Preis",
   "ticketEstimatedFamilySave": "Geschätzte Ersparnisse der Familie: {amount}.",
   "@ticketEstimatedFamilySave": {

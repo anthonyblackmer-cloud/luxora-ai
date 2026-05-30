@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 enum LuxThemePreset {
   goldenEmber,
@@ -197,12 +196,15 @@ abstract final class LuxColors {
 ThemeData buildLuxTheme(LuxThemePreset preset) {
   final palette = paletteFor(preset);
   final tokens = LuxThemeTokens.fromPalette(palette);
-  final display = GoogleFonts.cormorantGaramondTextTheme();
-  final body = GoogleFonts.notoSansTextTheme();
+  const displayFamily = 'Cormorant Garamond';
+  const bodyFamily = 'Noto Sans';
+
+  final baseText = ThemeData(brightness: Brightness.dark).textTheme;
 
   return ThemeData(
     useMaterial3: true,
     brightness: Brightness.dark,
+    fontFamily: bodyFamily,
     // Mood chips use emoji — Noto fallback avoids web console warnings.
     fontFamilyFallback: const [
       'Noto Sans',
@@ -263,19 +265,30 @@ ThemeData buildLuxTheme(LuxThemePreset preset) {
       ),
     ),
     extensions: [tokens],
-    textTheme: body.apply(
-      bodyColor: palette.textPrimary,
-      displayColor: palette.textPrimary,
-    ).copyWith(
-      displayLarge: display.displayLarge?.copyWith(
-        fontWeight: FontWeight.w600,
-        height: 1.05,
-      ),
-      displayMedium: display.displayMedium?.copyWith(
-        fontWeight: FontWeight.w600,
-      ),
-      titleLarge: display.titleLarge?.copyWith(fontWeight: FontWeight.w600),
-    ),
+    textTheme: baseText
+        .apply(
+          bodyColor: palette.textPrimary,
+          displayColor: palette.textPrimary,
+        )
+        .copyWith(
+          displayLarge: baseText.displayLarge?.copyWith(
+            fontFamily: displayFamily,
+            fontWeight: FontWeight.w600,
+            height: 1.05,
+          ),
+          displayMedium: baseText.displayMedium?.copyWith(
+            fontFamily: displayFamily,
+            fontWeight: FontWeight.w600,
+          ),
+          headlineMedium: baseText.headlineMedium?.copyWith(
+            fontFamily: displayFamily,
+            fontWeight: FontWeight.w600,
+          ),
+          titleLarge: baseText.titleLarge?.copyWith(
+            fontFamily: displayFamily,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
   );
 }
 

@@ -286,6 +286,17 @@ class AppLocalizationsJa extends AppLocalizations {
   String get ticketDealsSectionTitle => '正規取引';
 
   @override
+  String ticketDealsPricesAsOf(String date) {
+    return '$date時点の価格';
+  }
+
+  @override
+  String get ticketDealsRefreshFailed => '価格を更新できませんでした — キャッシュのお得情報を表示中。';
+
+  @override
+  String get ticketDealsUpdating => '価格を更新中…';
+
+  @override
   String get ticketNoDeals => 'このフィルターには取引がありません。別のカテゴリをお試しください。';
 
   @override
@@ -1406,6 +1417,27 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get onboardRegion => '地域';
+
+  @override
+  String get onboardCityLabel => 'Choose your city';
+
+  @override
+  String get onboardCityUnlockNote =>
+      'Each destination has its own concierge unlock — one-time purchase per city.';
+
+  @override
+  String get landingCityLabel => 'Where are you going?';
+
+  @override
+  String get paywallSwitchCity => 'Destination';
+
+  @override
+  String get cityPickerUnlocked => 'Unlocked';
+
+  @override
+  String cityPickerUnlockPrice(String price) {
+    return 'Unlock $price';
+  }
 
   @override
   String get onboardStep2Title => '自由を感じる時間';

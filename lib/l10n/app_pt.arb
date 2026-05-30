@@ -1091,6 +1091,9 @@
   "ticketConfidenceLimited": "Tempo limitado",
   "ticketConfidenceVerified": "Revendedor verificado",
   "ticketDealsSectionTitle": "Transações autorizadas",
+  "ticketDealsPricesAsOf": "Preços de {date}",
+  "ticketDealsRefreshFailed": "Não foi possível atualizar os preços — mostrando ofertas em cache.",
+  "ticketDealsUpdating": "Atualizando preços…",
   "ticketDiscountPrice": "Preço Luxora",
   "ticketEstimatedFamilySave": "Poupança familiar estimada: {amount}.",
   "@ticketEstimatedFamilySave": {

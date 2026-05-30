@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:luxora_ai/data/paywall_catalog.dart';
 import 'package:luxora_ai/models/paywall/paywall_city_offer.dart';
+import 'package:luxora_ai/models/trip_profile.dart';
 import 'package:luxora_ai/services/city_pack_entitlement_store.dart';
 import 'package:luxora_ai/services/city_pack_registry.dart';
 import 'package:luxora_ai/services/paywall_personalization.dart';
@@ -36,5 +37,16 @@ abstract final class PaywallService {
   static Future<void> completeUnlock(String cityId) async {
     await CityPackEntitlementStore.instance.unlockCity(cityId);
     await CityPackRegistry.instance.setActiveCity(cityId);
+  }
+
+  /// Maps a catalog city id onto trip profile destination fields.
+  static TripProfile profileForCity(TripProfile profile, String cityId) {
+    if (!PaywallCatalog.isSupported(cityId)) return profile;
+    final offer = PaywallCatalog.offerFor(cityId);
+    return profile.copyWith(
+      cityId: cityId,
+      destination: offer.cityName,
+      region: offer.regionLabel,
+    );
   }
 }

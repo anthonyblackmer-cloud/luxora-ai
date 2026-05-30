@@ -295,6 +295,18 @@ class AppLocalizationsDe extends AppLocalizations {
   String get ticketDealsSectionTitle => 'Autorisierte Angebote';
 
   @override
+  String ticketDealsPricesAsOf(String date) {
+    return 'Preise vom $date';
+  }
+
+  @override
+  String get ticketDealsRefreshFailed =>
+      'Preise konnten nicht aktualisiert werden — zwischengespeicherte Angebote werden angezeigt.';
+
+  @override
+  String get ticketDealsUpdating => 'Preise werden aktualisiert…';
+
+  @override
   String get ticketNoDeals =>
       'Keine Angebote in diesem Filter – versuchen Sie es mit einer anderen Kategorie.';
 
@@ -1450,6 +1462,27 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get onboardRegion => 'Region';
+
+  @override
+  String get onboardCityLabel => 'Choose your city';
+
+  @override
+  String get onboardCityUnlockNote =>
+      'Each destination has its own concierge unlock — one-time purchase per city.';
+
+  @override
+  String get landingCityLabel => 'Where are you going?';
+
+  @override
+  String get paywallSwitchCity => 'Destination';
+
+  @override
+  String get cityPickerUnlocked => 'Unlocked';
+
+  @override
+  String cityPickerUnlockPrice(String price) {
+    return 'Unlock $price';
+  }
 
   @override
   String get onboardStep2Title => 'Zeit, dich frei zu fühlen';

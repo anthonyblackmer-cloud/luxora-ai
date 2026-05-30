@@ -286,6 +286,17 @@ class AppLocalizationsKo extends AppLocalizations {
   String get ticketDealsSectionTitle => '승인된 거래';
 
   @override
+  String ticketDealsPricesAsOf(String date) {
+    return '$date 기준 가격';
+  }
+
+  @override
+  String get ticketDealsRefreshFailed => '가격을 새로고침할 수 없습니다 — 캐시된 혜택을 표시합니다.';
+
+  @override
+  String get ticketDealsUpdating => '가격 업데이트 중…';
+
+  @override
   String get ticketNoDeals => '이 필터에는 거래가 없습니다. 다른 카테고리를 시도해 보세요.';
 
   @override
@@ -1409,6 +1420,27 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get onboardRegion => '지역';
+
+  @override
+  String get onboardCityLabel => 'Choose your city';
+
+  @override
+  String get onboardCityUnlockNote =>
+      'Each destination has its own concierge unlock — one-time purchase per city.';
+
+  @override
+  String get landingCityLabel => 'Where are you going?';
+
+  @override
+  String get paywallSwitchCity => 'Destination';
+
+  @override
+  String get cityPickerUnlocked => 'Unlocked';
+
+  @override
+  String cityPickerUnlockPrice(String price) {
+    return 'Unlock $price';
+  }
 
   @override
   String get onboardStep2Title => '자유로움을 느끼는 시간';

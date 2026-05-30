@@ -1091,6 +1091,9 @@
   "ticketConfidenceLimited": "Ограниченное время",
   "ticketConfidenceVerified": "Проверенный реселлер",
   "ticketDealsSectionTitle": "Авторизованные сделки",
+  "ticketDealsPricesAsOf": "Цены на {date}",
+  "ticketDealsRefreshFailed": "Не удалось обновить цены — показываем кэшированные предложения.",
+  "ticketDealsUpdating": "Обновление цен…",
   "ticketDiscountPrice": "Цена Луксоры",
   "ticketEstimatedFamilySave": "Предполагаемая семейная экономия: {amount}.",
   "@ticketEstimatedFamilySave": {

@@ -1091,6 +1091,9 @@
   "ticketConfidenceLimited": "Sınırlı süre",
   "ticketConfidenceVerified": "Doğrulanmış satıcı",
   "ticketDealsSectionTitle": "Yetkili anlaşmalar",
+  "ticketDealsPricesAsOf": "{date} itibarıyla fiyatlar",
+  "ticketDealsRefreshFailed": "Fiyatlar yenilenemedi — önbellekteki fırsatlar gösteriliyor.",
+  "ticketDealsUpdating": "Fiyatlar güncelleniyor…",
   "ticketDiscountPrice": "Luxora fiyatı",
   "ticketEstimatedFamilySave": "Tahmini aile tasarrufu: {amount}.",
   "@ticketEstimatedFamilySave": {

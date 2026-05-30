@@ -1091,6 +1091,9 @@
   "ticketConfidenceLimited": "सीमित समय",
   "ticketConfidenceVerified": "सत्यापित पुनर्विक्रेता",
   "ticketDealsSectionTitle": "अधिकृत सौदे",
+  "ticketDealsPricesAsOf": "{date} तक की कीमतें",
+  "ticketDealsRefreshFailed": "कीमतें रीफ़्रेश नहीं हो सकीं — कैश किए गए सौदे दिखाए जा रहे हैं।",
+  "ticketDealsUpdating": "कीमतें अपडेट हो रही हैं…",
   "ticketDiscountPrice": "लक्सोरा कीमत",
   "ticketEstimatedFamilySave": "अनुमानित पारिवारिक बचत: {amount}.",
   "@ticketEstimatedFamilySave": {

@@ -7,18 +7,22 @@ import 'package:luxora_ai/l10n/luxora_l10n_helpers.dart';
 import 'package:luxora_ai/data/saved_trips.dart';
 import 'package:luxora_ai/models/trip_occasion.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
+import 'package:luxora_ai/services/paywall_service.dart';
 import 'package:luxora_ai/services/saved_trips_store.dart';
 import 'package:luxora_ai/services/trip_feel_interpreter.dart';
 import 'package:luxora_ai/services/trip_occasion_interpreter.dart';
 import 'package:luxora_ai/services/trip_profile_store.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
+import 'package:luxora_ai/widgets/city_destination_picker.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
 import 'package:luxora_ai/widgets/lux_background.dart';
 import 'package:luxora_ai/widgets/lux_button.dart';
 import 'package:luxora_ai/widgets/lux_slider_field.dart';
 
 class OnboardingScreen extends StatefulWidget {
-  const OnboardingScreen({super.key});
+  const OnboardingScreen({super.key, this.initialCityId});
+
+  final String? initialCityId;
 
   @override
   State<OnboardingScreen> createState() => _OnboardingScreenState();
@@ -31,6 +35,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   static const _stepCount = 5;
   static const _budgetMinUsd = 1000;
   static const _budgetMaxUsd = 100000;
+
+  @override
+  void initState() {
+    super.initState();
+    final cityId = widget.initialCityId;
+    if (cityId != null) {
+      _profile = PaywallService.profileForCity(_profile, cityId);
+    }
+  }
 
   Future<void> _finish() async {
     // Let the typed "trip feel" actually reshape the dials/moods that drive
@@ -46,7 +59,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       ),
     );
     if (!mounted) return;
-    context.go('/trips');
+
+    final unlocked = await PaywallService.showPaywall(
+      context,
+      cityId: enriched.cityId,
+    );
+    if (!mounted) return;
+    context.go(unlocked ? '/trips' : '/discover');
   }
 
   void _next() {
@@ -123,12 +142,26 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           l.onboardStep1Title,
           l.onboardStep1Subtitle,
           [
-            _field(l.onboardDestination, _profile.destination, (v) {
-              setState(() => _profile = _profile.copyWith(destination: v));
-            }),
-            _field(l.onboardRegion, _profile.region, (v) {
-              setState(() => _profile = _profile.copyWith(region: v));
-            }),
+            CityDestinationPicker(
+              label: l.onboardCityLabel,
+              selectedCityId: _profile.cityId,
+              onChanged: (cityId) {
+                setState(() {
+                  _profile = PaywallService.profileForCity(_profile, cityId);
+                });
+              },
+            ),
+            const SizedBox(height: 8),
+            Text(
+              l.onboardCityUnlockNote,
+              style: TextStyle(
+                fontSize: 12,
+                height: 1.4,
+                color: LuxColors.stone400.withValues(alpha: 0.95),
+              ),
+            ),
+            const SizedBox(height: 16),
+            _readOnlyField(l.onboardRegion, _profile.region),
           ],
         ),
       1 => _stepCard(
@@ -336,15 +369,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     );
   }
 
-  Widget _field(String label, String value, ValueChanged<String> onChanged) {
+  Widget _readOnlyField(String label, String value) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
-      child: TextFormField(
-        key: ValueKey('$label-$value'),
-        initialValue: value,
-        style: const TextStyle(color: Colors.white),
+      child: InputDecorator(
         decoration: _inputDeco(label),
-        onChanged: onChanged,
+        child: Text(
+          value,
+          style: const TextStyle(color: LuxColors.stone300),
+        ),
       ),
     );
   }

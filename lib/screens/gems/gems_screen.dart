@@ -17,6 +17,7 @@ import 'package:luxora_ai/widgets/discover_radius_selector.dart';
 import 'package:luxora_ai/widgets/discover_scope_banner.dart';
 import 'package:luxora_ai/widgets/lux_place_image.dart';
 import 'package:luxora_ai/widgets/affiliate_hint.dart';
+import 'package:luxora_ai/widgets/lux_secondary_app_bar.dart';
 import 'package:luxora_ai/widgets/partner_sponsor_badge.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
 
@@ -106,8 +107,13 @@ class GemsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: ListenableBuilder(
+    final l = context.l10n;
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      appBar: LuxSecondaryAppBar(title: l.navGems),
+      body: SafeArea(
+        top: false,
+        child: ListenableBuilder(
         listenable: DiscoverRadiusController.instance,
         builder: (context, _) {
           return ValueListenableBuilder<TripProfile?>(
@@ -378,13 +384,14 @@ class GemsScreen extends StatelessWidget {
                 ],
               ),
             ),
-            ),
+          ),
           );
         },
       );
             },
           );
         },
+      ),
       ),
     );
   }

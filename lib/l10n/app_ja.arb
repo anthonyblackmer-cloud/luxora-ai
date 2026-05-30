@@ -1091,6 +1091,9 @@
   "ticketConfidenceLimited": "期間限定",
   "ticketConfidenceVerified": "認証済み再販業者",
   "ticketDealsSectionTitle": "正規取引",
+  "ticketDealsPricesAsOf": "{date}時点の価格",
+  "ticketDealsRefreshFailed": "価格を更新できませんでした — キャッシュのお得情報を表示中。",
+  "ticketDealsUpdating": "価格を更新中…",
   "ticketDiscountPrice": "ルクソラ 価格",
   "ticketEstimatedFamilySave": "家族の推定貯蓄額: {amount}。",
   "@ticketEstimatedFamilySave": {

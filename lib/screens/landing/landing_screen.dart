@@ -2,15 +2,37 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_helpers.dart';
+import 'package:luxora_ai/services/city_pack_registry.dart';
 import 'package:luxora_ai/services/partner_sponsorship_service.dart';
+import 'package:luxora_ai/services/paywall_service.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/widgets/attraction_detail_sheet.dart';
+import 'package:luxora_ai/widgets/city_destination_picker.dart';
 import 'package:luxora_ai/widgets/lux_background.dart';
 import 'package:luxora_ai/widgets/lux_button.dart';
 import 'package:luxora_ai/widgets/partner_sponsor_badge.dart';
 
-class LandingScreen extends StatelessWidget {
+class LandingScreen extends StatefulWidget {
   const LandingScreen({super.key});
+
+  @override
+  State<LandingScreen> createState() => _LandingScreenState();
+}
+
+class _LandingScreenState extends State<LandingScreen> {
+  late String _cityId;
+
+  @override
+  void initState() {
+    super.initState();
+    _cityId = CityPackRegistry.instance.active.cityId;
+  }
+
+  Future<void> _enterApp() async {
+    final unlocked = await PaywallService.showPaywall(context, cityId: _cityId);
+    if (!mounted) return;
+    if (unlocked) context.go('/discover');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -102,18 +124,25 @@ class LandingScreen extends StatelessWidget {
                           color: LuxColors.stone300.withValues(alpha: 0.95),
                         ),
                       ),
+                      const SizedBox(height: 20),
+                      CityDestinationPicker(
+                        label: l.landingCityLabel,
+                        selectedCityId: _cityId,
+                        onChanged: (id) => setState(() => _cityId = id),
+                      ),
                       const Spacer(),
                       LuxButton(
                         label: l.landingBegin,
                         icon: Icons.arrow_forward_rounded,
-                        onPressed: () => context.push('/onboarding'),
+                        onPressed: () =>
+                            context.push('/onboarding?city=$_cityId'),
                       ),
                       const SizedBox(height: 12),
                       LuxButton(
                         label: l.landingTalk,
                         outline: true,
                         icon: Icons.auto_awesome_rounded,
-                        onPressed: () => context.go('/discover'),
+                        onPressed: _enterApp,
                       ),
                       const SizedBox(height: 12),
                       LuxButton(
@@ -126,11 +155,13 @@ class LandingScreen extends StatelessWidget {
                       Row(
                         children: [
                           Icon(Icons.auto_awesome,
-                              size: 16, color: LuxColors.gold.withValues(alpha: 0.8)),
+                              size: 16,
+                              color: LuxColors.gold.withValues(alpha: 0.8)),
                           const SizedBox(width: 8),
                           Text(
                             l.landingValues,
-                            style: TextStyle(fontSize: 12, color: LuxColors.stone500),
+                            style:
+                                TextStyle(fontSize: 12, color: LuxColors.stone500),
                           ),
                         ],
                       ),
@@ -180,7 +211,8 @@ class LandingScreen extends StatelessWidget {
                             .map(
                               (c) => Chip(
                                 label: Text(c),
-                                backgroundColor: Colors.white.withValues(alpha: 0.06),
+                                backgroundColor:
+                                    Colors.white.withValues(alpha: 0.06),
                                 side: BorderSide(
                                   color: Colors.white.withValues(alpha: 0.1),
                                 ),

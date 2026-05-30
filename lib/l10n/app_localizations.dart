@@ -640,6 +640,24 @@ abstract class AppLocalizations {
   /// **'Authorized deals'**
   String get ticketDealsSectionTitle;
 
+  /// No description provided for @ticketDealsPricesAsOf.
+  ///
+  /// In en, this message translates to:
+  /// **'Prices as of {date}'**
+  String ticketDealsPricesAsOf(String date);
+
+  /// No description provided for @ticketDealsRefreshFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t refresh prices — showing cached deals.'**
+  String get ticketDealsRefreshFailed;
+
+  /// No description provided for @ticketDealsUpdating.
+  ///
+  /// In en, this message translates to:
+  /// **'Updating prices…'**
+  String get ticketDealsUpdating;
+
   /// No description provided for @ticketNoDeals.
   ///
   /// In en, this message translates to:
@@ -2642,6 +2660,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Region'**
   String get onboardRegion;
+
+  /// No description provided for @onboardCityLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose your city'**
+  String get onboardCityLabel;
+
+  /// No description provided for @onboardCityUnlockNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Each destination has its own concierge unlock — one-time purchase per city.'**
+  String get onboardCityUnlockNote;
+
+  /// No description provided for @landingCityLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Where are you going?'**
+  String get landingCityLabel;
+
+  /// No description provided for @paywallSwitchCity.
+  ///
+  /// In en, this message translates to:
+  /// **'Destination'**
+  String get paywallSwitchCity;
+
+  /// No description provided for @cityPickerUnlocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlocked'**
+  String get cityPickerUnlocked;
+
+  /// No description provided for @cityPickerUnlockPrice.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock {price}'**
+  String cityPickerUnlockPrice(String price);
 
   /// No description provided for @onboardStep2Title.
   ///

@@ -24,6 +24,7 @@ class TripProfileStorage {
   }
 
   Map<String, dynamic> _encode(TripProfile p) => {
+        'cityId': p.cityId,
         'destination': p.destination,
         'region': p.region,
         'startDate': p.startDate,
@@ -49,6 +50,7 @@ class TripProfileStorage {
   TripProfile _decode(Map<String, dynamic> m) {
     final relaxAdventure = m['relaxationVsAdventure'] as int? ?? 50;
     return TripProfile(
+      cityId: m['cityId'] as String? ?? 'orlando',
       destination: m['destination'] as String? ?? 'Orlando',
       region: m['region'] as String? ?? 'Florida',
       startDate: m['startDate'] as String? ?? '',

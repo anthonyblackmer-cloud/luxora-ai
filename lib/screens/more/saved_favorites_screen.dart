@@ -6,6 +6,7 @@ import 'package:luxora_ai/services/saved_places_storage.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/widgets/attraction_detail_sheet.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
+import 'package:luxora_ai/widgets/lux_secondary_app_bar.dart';
 import 'package:luxora_ai/widgets/lux_place_image.dart';
 
 class SavedFavoritesScreen extends StatelessWidget {
@@ -16,11 +17,7 @@ class SavedFavoritesScreen extends StatelessWidget {
     final l = context.l10n;
     return Scaffold(
       backgroundColor: Colors.transparent,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        title: Text(l.savedFavoritesTitle),
-      ),
+      appBar: LuxSecondaryAppBar(title: l.savedFavoritesTitle),
       body: ValueListenableBuilder<Set<String>>(
         valueListenable: SavedPlacesStorage.instance.savedIds,
         builder: (context, ids, _) {

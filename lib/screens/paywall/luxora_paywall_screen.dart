@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/models/paywall/paywall_city_offer.dart';
+import 'package:luxora_ai/services/city_pack_registry.dart';
 import 'package:luxora_ai/services/paywall_personalization.dart';
 import 'package:luxora_ai/services/paywall_service.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
+import 'package:luxora_ai/widgets/city_destination_picker.dart';
 import 'package:luxora_ai/widgets/paywall/paywall_benefit_cards.dart';
 import 'package:luxora_ai/widgets/paywall/paywall_cta.dart';
 import 'package:luxora_ai/widgets/paywall/paywall_feature_grid.dart';
@@ -47,6 +49,15 @@ class _LuxoraPaywallScreenState extends State<LuxoraPaywallScreen> {
     }
   }
 
+  Future<void> _switchCity(String cityId) async {
+    if (!PaywallService.needsUnlock(cityId)) {
+      await CityPackRegistry.instance.setActiveCity(cityId);
+      if (mounted) context.pop(true);
+      return;
+    }
+    setState(() => _offer = PaywallService.offerForCity(cityId));
+  }
+
   void _continueExploring() {
     context.pop(false);
   }
@@ -72,7 +83,18 @@ class _LuxoraPaywallScreenState extends State<LuxoraPaywallScreen> {
             ),
             slivers: [
               SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 56, 20, 0),
+                  child: CityDestinationPicker(
+                    label: l.paywallSwitchCity,
+                    selectedCityId: _offer.cityId,
+                    onChanged: _switchCity,
+                  ),
+                ),
+              ),
+              SliverToBoxAdapter(
                 child: PaywallHero(
+                  key: ValueKey(_offer.cityId),
                   heroPhotoId: heroId,
                   headline: headline,
                   subheadline: l.paywallHeroSubheadline,
