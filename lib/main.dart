@@ -1,80 +1,27 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:luxora_ai/l10n/app_localizations.dart';
-
 import 'package:luxora_ai/router/app_router.dart';
-
-import 'package:luxora_ai/services/city_pack_entitlement_store.dart';
-import 'package:luxora_ai/services/city_pack_registry.dart';
-
-import 'package:luxora_ai/services/discover_radius_controller.dart';
-
-import 'package:luxora_ai/services/home_base_store.dart';
-
-import 'package:luxora_ai/services/places_repository.dart';
-import 'package:luxora_ai/services/supabase_bootstrap.dart';
-
-import 'package:luxora_ai/services/saved_places_storage.dart';
-
-import 'package:luxora_ai/services/saved_trips_store.dart';
-
-import 'package:luxora_ai/services/trip_profile_store.dart';
-
-import 'package:luxora_ai/services/city_pack_sync.dart';
-
-import 'package:luxora_ai/services/ticket_deals_repository.dart';
-
-import 'package:luxora_ai/services/unsplash_photo_registry.dart';
-
+import 'package:luxora_ai/services/app_bootstrap.dart';
 import 'package:luxora_ai/state/luxora_app_state.dart';
-
 import 'package:luxora_ai/util/web_viewport_guard.dart';
-
 import 'package:provider/provider.dart';
-
-
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await UnsplashPhotoRegistry.instance.ensureLoaded();
-
-  await CityPackRegistry.instance.load();
-
-  await CityPackEntitlementStore.instance.load();
-
-  await DiscoverRadiusController.instance.load();
-
-  await SupabaseBootstrap.initialize();
-
-  await PlacesRepository.instance.initialize();
-
-  await TicketDealsRepository.instance.load();
-
-  await SavedPlacesStorage.instance.load();
-
-  await SavedTripsStore.instance.load();
-
-  await TripProfileStore.instance.load();
-
-  await CityPackSync.bootstrapAfterLoad();
-
-  await HomeBaseStore.instance.load();
-
-
-
   final appState = LuxoraAppState();
-
-  await appState.load();
-
-
+  await Future.wait([
+    AppBootstrap.prepareForFirstFrame(),
+    appState.load(),
+  ]);
 
   runApp(LuxoraApp(appState: appState));
-
+  unawaited(AppBootstrap.loadDeferredServices());
 }
-
-
 
 class LuxoraApp extends StatefulWidget {
   const LuxoraApp({super.key, required this.appState});
@@ -110,7 +57,6 @@ class _LuxoraAppState extends State<LuxoraApp> {
             ],
             supportedLocales: AppLocalizations.supportedLocales,
             routerConfig: _router,
-
             builder: (context, child) {
               final guarded = webViewportGuard(context, child);
               final tint = state.themePalette.overlayTint;
@@ -123,17 +69,9 @@ class _LuxoraAppState extends State<LuxoraApp> {
                 ],
               );
             },
-
           );
-
         },
-
       ),
-
     );
-
   }
-
 }
-
-

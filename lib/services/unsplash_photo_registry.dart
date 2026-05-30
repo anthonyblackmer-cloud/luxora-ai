@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/services.dart';
 import 'package:luxora_ai/models/unsplash_photo.dart';
 import 'package:luxora_ai/services/unsplash_api_client.dart';
@@ -30,7 +32,7 @@ class UnsplashPhotoRegistry {
     _loaded = true;
 
     if (UnsplashConfig.hasAccessKey) {
-      await _refreshFromApi(list.map((p) => p.id));
+      unawaited(_refreshFromApi(list.map((p) => p.id)));
     }
   }
 
