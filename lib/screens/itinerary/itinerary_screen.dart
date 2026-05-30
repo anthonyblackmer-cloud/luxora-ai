@@ -29,6 +29,7 @@ class ItineraryScreen extends StatelessWidget {
           listenable: CityPackRegistry.instance,
           builder: (context, _) {
             final plan = samplePlanForActiveCity();
+            final tokens = luxThemeTokensOf(context);
             return DefaultTabController(
               length: plan.days.length,
               child: Column(
@@ -43,7 +44,7 @@ class ItineraryScreen extends StatelessWidget {
                             fontSize: 11,
                             fontWeight: FontWeight.w700,
                             letterSpacing: 2.5,
-                            color: LuxColors.gold.withValues(alpha: 0.8),
+                            color: tokens.accent.withValues(alpha: 0.8),
                           ),
                         ),
                         Text(
@@ -53,8 +54,8 @@ class ItineraryScreen extends StatelessWidget {
                         const SizedBox(height: 8),
                         Text(
                           l.itineraryTagline,
-                          style: const TextStyle(
-                            color: LuxColors.stone400,
+                          style: TextStyle(
+                            color: tokens.textMuted,
                             height: 1.4,
                           ),
                         ),
@@ -62,18 +63,16 @@ class ItineraryScreen extends StatelessWidget {
                         const TicketSavingsItineraryBanner(),
                         DecoratedBox(
                           decoration: BoxDecoration(
-                            color: Colors.white.withValues(alpha: 0.04),
+                            color: tokens.panelFill,
                             borderRadius: BorderRadius.circular(12),
-                            border: Border.all(
-                              color: Colors.white.withValues(alpha: 0.08),
-                            ),
+                            border: Border.all(color: tokens.borderSubtle),
                           ),
                           child: TabBar(
                             isScrollable: true,
-                            indicatorColor: LuxColors.gold,
+                            indicatorColor: tokens.accent,
                             dividerColor: Colors.transparent,
-                            labelColor: LuxColors.cream,
-                            unselectedLabelColor: LuxColors.stone500,
+                            labelColor: tokens.textPrimary,
+                            unselectedLabelColor: tokens.textMuted,
                             tabs: [
                               for (final day in plan.days)
                                 Tab(
@@ -115,6 +114,7 @@ class _ItineraryDayView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final tokens = luxThemeTokensOf(context);
     return ListView.builder(
       itemCount: day.items.length,
       itemBuilder: (context, i) {
@@ -137,13 +137,13 @@ class _ItineraryDayView extends StatelessWidget {
                   else
                     CircleAvatar(
                       radius: 12,
-                      backgroundColor: LuxColors.gold.withValues(alpha: 0.2),
+                      backgroundColor: tokens.accent.withValues(alpha: 0.2),
                       child: Text(
                         '${i + 1}',
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 11,
                           fontWeight: FontWeight.bold,
-                          color: LuxColors.gold,
+                          color: tokens.accent,
                         ),
                       ),
                     ),
@@ -152,7 +152,7 @@ class _ItineraryDayView extends StatelessWidget {
                       width: 2,
                       height: thumbPlace != null ? 64 : 72,
                       margin: const EdgeInsets.symmetric(vertical: 4),
-                      color: LuxColors.gold.withValues(alpha: 0.25),
+                      color: tokens.accent.withValues(alpha: 0.25),
                     ),
                 ],
               ),
@@ -175,7 +175,7 @@ class _ItineraryDayView extends StatelessWidget {
                         item.time,
                         style: TextStyle(
                           fontSize: 12,
-                          color: LuxColors.gold.withValues(alpha: 0.9),
+                          color: tokens.accent.withValues(alpha: 0.9),
                           fontWeight: FontWeight.w600,
                         ),
                       ),
@@ -190,17 +190,17 @@ class _ItineraryDayView extends StatelessWidget {
                       const SizedBox(height: 8),
                       Text(
                         catalogText(context, item.emotionalLine),
-                        style: const TextStyle(
-                          color: LuxColors.stone300,
+                        style: TextStyle(
+                          color: tokens.textMuted,
                           height: 1.4,
                         ),
                       ),
                       const SizedBox(height: 8),
                       Text(
                         '${catalogText(context, item.location)} · ${catalogText(context, item.category)}',
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 11,
-                          color: LuxColors.stone500,
+                          color: tokens.textMuted.withValues(alpha: 0.85),
                         ),
                       ),
                       if (thumbPlace?.unsplashPhoto case final photo?) ...[

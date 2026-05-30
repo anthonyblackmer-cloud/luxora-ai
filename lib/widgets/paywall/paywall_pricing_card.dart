@@ -17,6 +17,7 @@ class PaywallPricingCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final t = luxThemeTokensOf(context);
     final l = context.l10n;
     final min = _formatUsd(offer.vacationCostMinUsd);
     final max = _formatUsd(offer.vacationCostMaxUsd);
@@ -35,17 +36,17 @@ class PaywallPricingCard extends StatelessWidget {
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
-                  LuxColors.gold.withValues(alpha: 0.18),
-                  const Color(0xFF1C1917),
+                  t.accent.withValues(alpha: 0.18),
+                  t.bgSecondary,
                 ],
               ),
               border: Border.all(
-                color: LuxColors.gold.withValues(alpha: 0.45),
+                color: t.accent.withValues(alpha: 0.45),
                 width: 1.5,
               ),
               boxShadow: [
                 BoxShadow(
-                  color: LuxColors.gold.withValues(alpha: 0.15),
+                  color: t.accent.withValues(alpha: 0.15),
                   blurRadius: 32,
                   spreadRadius: -4,
                 ),
@@ -56,10 +57,10 @@ class PaywallPricingCard extends StatelessWidget {
               children: [
                 Text(
                   l.paywallUnlockCityConcierge(offer.cityName),
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w800,
-                    color: LuxColors.cream,
+                    color: t.textPrimary,
                   ),
                 ),
                 const SizedBox(height: 18),
@@ -68,12 +69,12 @@ class PaywallPricingCard extends StatelessWidget {
                   children: [
                     Text(
                       offer.formattedPrice,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 48,
                         height: 1,
                         fontWeight: FontWeight.w900,
                         letterSpacing: -1.5,
-                        color: LuxColors.gold,
+                        color: t.accent,
                       ),
                     ),
                     const SizedBox(width: 10),
@@ -84,7 +85,7 @@ class PaywallPricingCard extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 13,
                           fontWeight: FontWeight.w600,
-                          color: LuxColors.stone300,
+                          color: t.textMuted,
                         ),
                       ),
                     ),
@@ -104,7 +105,7 @@ class PaywallPricingCard extends StatelessWidget {
                         Icon(
                           Icons.check_circle_rounded,
                           size: 16,
-                          color: LuxColors.gold.withValues(alpha: 0.9),
+                          color: t.accent.withValues(alpha: 0.9),
                         ),
                         const SizedBox(width: 8),
                         Expanded(
@@ -112,7 +113,7 @@ class PaywallPricingCard extends StatelessWidget {
                             line,
                             style: TextStyle(
                               fontSize: 13,
-                              color: LuxColors.stone300,
+                              color: t.textMuted,
                             ),
                           ),
                         ),
@@ -129,9 +130,9 @@ class PaywallPricingCard extends StatelessWidget {
             padding: const EdgeInsets.all(18),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
-              color: Colors.black.withValues(alpha: 0.35),
+              color: t.panelFill,
               border: Border.all(
-                color: LuxColors.stone500.withValues(alpha: 0.25),
+                color: t.textMuted.withValues(alpha: 0.25),
               ),
             ),
             child: Column(
@@ -146,7 +147,7 @@ class PaywallPricingCard extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 13,
                     height: 1.45,
-                    color: LuxColors.stone400,
+                    color: t.textMuted,
                   ),
                 ),
                 const SizedBox(height: 12),
@@ -157,15 +158,15 @@ class PaywallPricingCard extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w700,
-                        color: LuxColors.stone300,
+                        color: t.textMuted,
                       ),
                     ),
                     Text(
                       l.paywallLuxoraPriceLine(offer.formattedPrice),
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w800,
-                        color: LuxColors.gold,
+                        color: t.accent,
                       ),
                     ),
                   ],
@@ -176,7 +177,7 @@ class PaywallPricingCard extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 12,
                     fontStyle: FontStyle.italic,
-                    color: LuxColors.stone400.withValues(alpha: 0.9),
+                    color: t.textMuted.withValues(alpha: 0.9),
                   ),
                 ),
               ],

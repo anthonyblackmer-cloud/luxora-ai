@@ -14,26 +14,36 @@ class LuxBackground extends StatelessWidget {
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [tokens.bgSecondary, tokens.bg, tokens.bg],
+          colors: tokens.isLight
+              ? [tokens.bg, tokens.bgSecondary, tokens.bg]
+              : [tokens.bgSecondary, tokens.bg, tokens.bg],
         ),
       ),
       child: Stack(
         children: [
-          Positioned(
-            top: -80,
-            left: -40,
-            child: _orb(tokens.accent.withValues(alpha: 0.2), 200),
-          ),
-          Positioned(
-            top: 120,
-            right: -60,
-            child: _orb(tokens.orbSecondary, 160),
-          ),
-          Positioned(
-            bottom: 80,
-            left: -30,
-            child: _orb(tokens.orbTertiary, 140),
-          ),
+          if (!tokens.isLight) ...[
+            Positioned(
+              top: -80,
+              left: -40,
+              child: _orb(tokens.accent.withValues(alpha: 0.2), 200),
+            ),
+            Positioned(
+              top: 120,
+              right: -60,
+              child: _orb(tokens.orbSecondary, 160),
+            ),
+            Positioned(
+              bottom: 80,
+              left: -30,
+              child: _orb(tokens.orbTertiary, 140),
+            ),
+          ] else ...[
+            Positioned(
+              top: -120,
+              right: -80,
+              child: _orb(tokens.accent.withValues(alpha: 0.04), 240),
+            ),
+          ],
           Material(
             color: Colors.transparent,
             child: child,

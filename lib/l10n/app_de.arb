@@ -17,6 +17,9 @@
   "affiliateWellness": "Wellness-Buchungen",
   "appTitle": "Luxora AI",
   "appearance": "Darstellung",
+  "settingsThemeIntro": "Luxuriös und cineastisch oder klar und lesbar — wählen Sie, was zu Ihrem Tag passt.",
+  "settingsThemeSectionLuxury": "Luxuriös & cineastisch",
+  "settingsThemeSectionReadable": "Klar & lesbar",
   "catBeaches": "Strände",
   "catEco": "Ökotourismus",
   "catFamily": "Familie",
@@ -1366,6 +1369,9 @@
   "weatherPackWater": "Wasserflasche",
   "weatherPlanImpact": "Auswirkungen auf Ihren Plan",
   "weatherRadarComingSoon": "Live-Radar kommt bald.",
+  "weatherRadarPlay": "Schleife abspielen",
+  "weatherRadarPause": "Schleife pausieren",
+  "weatherRadarTapToExpand": "Tippen für Vollbild",
   "weatherRainNote": "{percent}% Regenwahrscheinlichkeit – packen Sie eine leichte Schicht ein.",
   "@weatherRainNote": {
     "placeholders": {

@@ -17,6 +17,9 @@
   "affiliateWellness": "웰니스 예약",
   "appTitle": "Luxora AI",
   "appearance": "모습",
+  "settingsThemeIntro": "시네마틱 럭셔리 또는 깔끔한 가독성 — 하루에 맞는 스타일을 선택하세요.",
+  "settingsThemeSectionLuxury": "시네마틱 럭셔리",
+  "settingsThemeSectionReadable": "깔끔하고 읽기 쉬운",
   "catBeaches": "해변",
   "catEco": "생태 관광",
   "catFamily": "가족",
@@ -1366,6 +1369,9 @@
   "weatherPackWater": "물병",
   "weatherPlanImpact": "귀하의 계획에 미치는 영향",
   "weatherRadarComingSoon": "실시간 레이더가 곧 제공될 예정입니다.",
+  "weatherRadarPlay": "루프 재생",
+  "weatherRadarPause": "루프 일시정지",
+  "weatherRadarTapToExpand": "탭하여 전체 화면",
   "weatherRainNote": "비 올 확률은 {percent}%입니다. 얇은 옷을 준비하세요.",
   "@weatherRainNote": {
     "placeholders": {

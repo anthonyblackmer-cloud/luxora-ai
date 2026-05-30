@@ -24,6 +24,7 @@ class PaywallCTA extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final t = luxThemeTokensOf(context);
     final l = context.l10n;
 
     return PaywallReveal(
@@ -35,20 +36,23 @@ class PaywallCTA extends StatelessWidget {
             child: FilledButton(
               onPressed: isLoading ? null : onUnlock,
               style: FilledButton.styleFrom(
-                backgroundColor: LuxColors.gold,
-                foregroundColor: const Color(0xFF0C0A09),
+                backgroundColor: t.accent,
+                foregroundColor: t.onAccent,
                 padding: const EdgeInsets.symmetric(vertical: 18),
                 elevation: 12,
-                shadowColor: LuxColors.gold.withValues(alpha: 0.55),
+                shadowColor: t.accent.withValues(alpha: 0.55),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16),
                 ),
               ),
               child: isLoading
-                  ? const SizedBox(
+                  ? SizedBox(
                       width: 22,
                       height: 22,
-                      child: CircularProgressIndicator(strokeWidth: 2),
+                      child: CircularProgressIndicator(
+                        strokeWidth: 2,
+                        color: t.onAccent,
+                      ),
                     )
                   : Text(
                       l.paywallCtaUnlock(offer.cityName),
@@ -68,9 +72,9 @@ class PaywallCTA extends StatelessWidget {
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
-                color: LuxColors.stone400,
+                color: t.textMuted,
                 decoration: TextDecoration.underline,
-                decorationColor: LuxColors.stone500.withValues(alpha: 0.5),
+                decorationColor: t.textMuted.withValues(alpha: 0.5),
               ),
             ),
           ),
@@ -81,7 +85,7 @@ class PaywallCTA extends StatelessWidget {
             style: TextStyle(
               fontSize: 11,
               height: 1.4,
-              color: LuxColors.stone500,
+              color: t.textMuted,
             ),
           ),
         ],
@@ -105,6 +109,7 @@ class PaywallStickyCTA extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final t = luxThemeTokensOf(context);
     final l = context.l10n;
     return Container(
       padding: const EdgeInsets.fromLTRB(20, 12, 20, 20),
@@ -113,9 +118,9 @@ class PaywallStickyCTA extends StatelessWidget {
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
-            const Color(0xFF0C0A09).withValues(alpha: 0),
-            const Color(0xFF0C0A09).withValues(alpha: 0.92),
-            const Color(0xFF0C0A09),
+            t.bg.withValues(alpha: 0),
+            t.bg.withValues(alpha: 0.92),
+            t.bg,
           ],
         ),
       ),

@@ -18,6 +18,15 @@ class AppLocalizationsZh extends AppLocalizations {
   String get appearance => '外观';
 
   @override
+  String get settingsThemeIntro => '电影感奢华或清晰易读——选择适合您一天的风格。';
+
+  @override
+  String get settingsThemeSectionLuxury => '电影感奢华';
+
+  @override
+  String get settingsThemeSectionReadable => '清晰易读';
+
+  @override
   String get dark_mode => '深色模式';
 
   @override
@@ -1601,6 +1610,15 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get weatherRadarComingSoon => '实时雷达即将推出。';
+
+  @override
+  String get weatherRadarPlay => '播放循环';
+
+  @override
+  String get weatherRadarPause => '暂停循环';
+
+  @override
+  String get weatherRadarTapToExpand => '点击全屏查看';
 
   @override
   String get weatherMapOverlays => '地图叠加';

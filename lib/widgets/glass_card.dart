@@ -16,25 +16,31 @@ class GlassCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final tokens = luxThemeTokensOf(context);
-    // DropdownButton, FilterChip, etc. need a Material ancestor; many Luxora
-    // routes sit on LuxBackground without a Scaffold.
     return Material(
       color: Colors.transparent,
       child: Container(
         padding: padding,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
-          color: tokens.bgSecondary.withValues(alpha: 0.46),
-          border: Border.all(color: tokens.accent.withValues(alpha: 0.16)),
-          boxShadow: glow
-              ? [
-                  BoxShadow(
-                    color: tokens.glow.withValues(alpha: 0.55),
-                    blurRadius: 40,
-                    spreadRadius: -8,
-                  ),
-                ]
-              : null,
+          color: tokens.cardFill,
+          border: Border.all(
+            color: tokens.accent.withValues(alpha: tokens.isLight ? 0.12 : 0.16),
+          ),
+          boxShadow: [
+            if (tokens.isLight)
+              BoxShadow(
+                color: tokens.elevationShadow,
+                blurRadius: 18,
+                offset: const Offset(0, 6),
+                spreadRadius: -4,
+              ),
+            if (glow)
+              BoxShadow(
+                color: tokens.glow.withValues(alpha: 0.55),
+                blurRadius: 40,
+                spreadRadius: -8,
+              ),
+          ],
         ),
         child: child,
       ),

@@ -18,6 +18,16 @@ class AppLocalizationsTr extends AppLocalizations {
   String get appearance => 'Dış görünüş';
 
   @override
+  String get settingsThemeIntro =>
+      'Sinematik lüks veya net okunabilirlik — gününüze uyanı seçin.';
+
+  @override
+  String get settingsThemeSectionLuxury => 'Sinematik lüks';
+
+  @override
+  String get settingsThemeSectionReadable => 'Net ve okunabilir';
+
+  @override
   String get dark_mode => 'Karanlık mod';
 
   @override
@@ -1678,6 +1688,15 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get weatherRadarComingSoon => 'Canlı radar çok yakında.';
+
+  @override
+  String get weatherRadarPlay => 'Döngüyü oynat';
+
+  @override
+  String get weatherRadarPause => 'Döngüyü duraklat';
+
+  @override
+  String get weatherRadarTapToExpand => 'Tam ekran için dokunun';
 
   @override
   String get weatherMapOverlays => 'Harita katmanları';

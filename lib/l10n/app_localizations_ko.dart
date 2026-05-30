@@ -18,6 +18,15 @@ class AppLocalizationsKo extends AppLocalizations {
   String get appearance => '모습';
 
   @override
+  String get settingsThemeIntro => '시네마틱 럭셔리 또는 깔끔한 가독성 — 하루에 맞는 스타일을 선택하세요.';
+
+  @override
+  String get settingsThemeSectionLuxury => '시네마틱 럭셔리';
+
+  @override
+  String get settingsThemeSectionReadable => '깔끔하고 읽기 쉬운';
+
+  @override
   String get dark_mode => '다크 모드';
 
   @override
@@ -1630,6 +1639,15 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get weatherRadarComingSoon => '실시간 레이더가 곧 제공될 예정입니다.';
+
+  @override
+  String get weatherRadarPlay => '루프 재생';
+
+  @override
+  String get weatherRadarPause => '루프 일시정지';
+
+  @override
+  String get weatherRadarTapToExpand => '탭하여 전체 화면';
 
   @override
   String get weatherMapOverlays => '지도 오버레이';

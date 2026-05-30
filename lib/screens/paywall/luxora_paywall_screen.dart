@@ -64,6 +64,7 @@ class _LuxoraPaywallScreenState extends State<LuxoraPaywallScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final t = luxThemeTokensOf(context);
     final l = context.l10n;
     final headline = PaywallPersonalization.headline(
       l,
@@ -74,7 +75,7 @@ class _LuxoraPaywallScreenState extends State<LuxoraPaywallScreen> {
     final heroId = _offer.heroForPersona(_persona);
 
     return Scaffold(
-      backgroundColor: LuxColors.bg,
+      backgroundColor: t.bg,
       body: Stack(
         children: [
           CustomScrollView(

@@ -17,6 +17,9 @@
   "affiliateWellness": "Бронирование велнес-услуг",
   "appTitle": "Luxora AI",
   "appearance": "Появление",
+  "settingsThemeIntro": "Кинематографичная роскошь или чистая читаемость — выберите то, что подходит вашему дню.",
+  "settingsThemeSectionLuxury": "Кинематографичная роскошь",
+  "settingsThemeSectionReadable": "Чисто и читаемо",
   "catBeaches": "Пляжи",
   "catEco": "Эко туризм",
   "catFamily": "Семья",
@@ -1366,6 +1369,9 @@
   "weatherPackWater": "Бутылка с водой",
   "weatherPlanImpact": "Влияние на ваш план",
   "weatherRadarComingSoon": "Живой радар скоро появится.",
+  "weatherRadarPlay": "Воспроизвести цикл",
+  "weatherRadarPause": "Пауза цикла",
+  "weatherRadarTapToExpand": "Нажмите для полноэкранного режима",
   "weatherRainNote": "{percent}% вероятность дождя — упакуйте легкий слой.",
   "@weatherRainNote": {
     "placeholders": {

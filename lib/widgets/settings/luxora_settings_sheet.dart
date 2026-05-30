@@ -30,7 +30,7 @@ class LuxoraSettingsSheet extends StatelessWidget {
 
     return LuxoraPremiumSheetShell(
       title: l.settings,
-      heightFraction: 0.72,
+      heightFraction: 0.88,
       child: SingleChildScrollView(
         padding: const EdgeInsets.fromLTRB(20, 0, 20, 16),
         child: Column(
@@ -51,17 +51,48 @@ class LuxoraSettingsSheet extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             Text(
-              'Choose your signature atmosphere',
+              l.settingsThemeIntro,
               style: subtitleStyle,
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 12),
+            Text(
+              l.settingsThemeSectionLuxury,
+              style: TextStyle(
+                fontSize: 11,
+                fontWeight: FontWeight.w800,
+                letterSpacing: 1.6,
+                color: theme.colorScheme.onSurfaceVariant,
+              ),
+            ),
+            const SizedBox(height: 8),
             Column(
               children: [
-                for (final palette in luxThemePalettes)
+                for (final themePalette in luxThemePalettes.where((p) => !p.isLight))
                   _ThemePreviewCard(
-                    palette: palette,
-                    selected: appState.themePreset == palette.id,
-                    onTap: () => appState.setThemePreset(palette.id),
+                    palette: themePalette,
+                    selected: appState.themePreset == themePalette.id,
+                    onTap: () => appState.setThemePreset(themePalette.id),
+                  ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            Text(
+              l.settingsThemeSectionReadable,
+              style: TextStyle(
+                fontSize: 11,
+                fontWeight: FontWeight.w800,
+                letterSpacing: 1.6,
+                color: theme.colorScheme.onSurfaceVariant,
+              ),
+            ),
+            const SizedBox(height: 8),
+            Column(
+              children: [
+                for (final themePalette in luxThemePalettes.where((p) => p.isLight))
+                  _ThemePreviewCard(
+                    palette: themePalette,
+                    selected: appState.themePreset == themePalette.id,
+                    onTap: () => appState.setThemePreset(themePalette.id),
                   ),
               ],
             ),

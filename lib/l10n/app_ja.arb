@@ -17,6 +17,9 @@
   "affiliateWellness": "ウェルネスの予約",
   "appTitle": "Luxora AI",
   "appearance": "外観",
+  "settingsThemeIntro": "シネマティックなラグジュアリーか、読みやすいクリーンさ — その日に合うものを選びましょう。",
+  "settingsThemeSectionLuxury": "シネマティック・ラグジュアリー",
+  "settingsThemeSectionReadable": "クリーンで読みやすい",
   "catBeaches": "ビーチ",
   "catEco": "エコツーリズム",
   "catFamily": "家族",
@@ -1366,6 +1369,9 @@
   "weatherPackWater": "水筒",
   "weatherPlanImpact": "計画への影響",
   "weatherRadarComingSoon": "ライブレーダーは近日公開予定です。",
+  "weatherRadarPlay": "ループ再生",
+  "weatherRadarPause": "ループ一時停止",
+  "weatherRadarTapToExpand": "タップして全画面表示",
   "weatherRainNote": "{percent}% の降水確率 — 薄手のものを用意してください。",
   "@weatherRainNote": {
     "placeholders": {

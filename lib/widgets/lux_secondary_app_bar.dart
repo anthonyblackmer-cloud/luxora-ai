@@ -28,18 +28,19 @@ class LuxSecondaryAppBar extends StatelessWidget implements PreferredSizeWidget 
   @override
   Widget build(BuildContext context) {
     final l = context.l10n;
+    final tokens = luxThemeTokensOf(context);
     return AppBar(
-      backgroundColor: Colors.black.withValues(alpha: 0.28),
+      backgroundColor: tokens.appBarScrim,
       surfaceTintColor: Colors.transparent,
-      elevation: 0,
-      scrolledUnderElevation: 0,
+      elevation: tokens.isLight ? 0.5 : 0,
+      scrolledUnderElevation: tokens.isLight ? 1 : 0,
       automaticallyImplyLeading: false,
-      foregroundColor: LuxColors.cream,
-      iconTheme: const IconThemeData(color: LuxColors.cream, size: 24),
+      foregroundColor: tokens.textPrimary,
+      iconTheme: IconThemeData(color: tokens.textPrimary, size: 24),
       title: Text(
         title,
-        style: const TextStyle(
-          color: LuxColors.cream,
+        style: TextStyle(
+          color: tokens.textPrimary,
           fontWeight: FontWeight.w700,
         ),
       ),

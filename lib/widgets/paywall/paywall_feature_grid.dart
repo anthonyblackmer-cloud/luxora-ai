@@ -27,6 +27,7 @@ class PaywallFeatureGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final t = luxThemeTokensOf(context);
     final l = context.l10n;
 
     return PaywallReveal(
@@ -34,7 +35,7 @@ class PaywallFeatureGrid extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _sectionTitle(l.paywallWhatYouUnlock),
+          _sectionTitle(l.paywallWhatYouUnlock, t),
           const SizedBox(height: 14),
           ...features.map(
             (f) => Padding(
@@ -43,22 +44,22 @@ class PaywallFeatureGrid extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
                 child: Row(
                   children: [
-                    Icon(f.$1, size: 20, color: LuxColors.gold),
+                    Icon(f.$1, size: 20, color: t.accent),
                     const SizedBox(width: 12),
                     Expanded(
                       child: Text(
                         f.$2(l),
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w600,
-                          color: LuxColors.cream,
+                          color: t.textPrimary,
                         ),
                       ),
                     ),
                     Icon(
                       Icons.check_rounded,
                       size: 18,
-                      color: LuxColors.gold.withValues(alpha: 0.85),
+                      color: t.accent.withValues(alpha: 0.85),
                     ),
                   ],
                 ),
@@ -70,14 +71,14 @@ class PaywallFeatureGrid extends StatelessWidget {
     );
   }
 
-  Widget _sectionTitle(String title) {
+  Widget _sectionTitle(String title, LuxThemeTokens t) {
     return Text(
       title,
-      style: const TextStyle(
+      style: TextStyle(
         fontSize: 22,
         fontWeight: FontWeight.w800,
         letterSpacing: -0.3,
-        color: LuxColors.cream,
+        color: t.textPrimary,
       ),
     );
   }

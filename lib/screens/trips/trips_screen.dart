@@ -20,6 +20,7 @@ class TripsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l = context.l10n;
+    final tokens = luxThemeTokensOf(context);
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.all(20),
@@ -38,7 +39,7 @@ class TripsScreen extends StatelessWidget {
                           fontSize: 11,
                           fontWeight: FontWeight.w700,
                           letterSpacing: 2.5,
-                          color: LuxColors.gold.withValues(alpha: 0.8),
+                          color: tokens.accent.withValues(alpha: 0.8),
                         ),
                       ),
                       Text(
@@ -49,7 +50,7 @@ class TripsScreen extends StatelessWidget {
                       Text(
                         l.tripsSubtitle,
                         style: TextStyle(
-                          color: LuxColors.stone400,
+                          color: tokens.textMuted,
                           fontSize: 13,
                           height: 1.35,
                         ),

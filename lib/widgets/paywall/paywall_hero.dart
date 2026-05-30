@@ -24,6 +24,7 @@ class PaywallHero extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final t = luxThemeTokensOf(context);
     final l = context.l10n;
     final photo = UnsplashPhotoRegistry.instance.byId(heroPhotoId);
     final height = MediaQuery.sizeOf(context).height * 0.52;
@@ -47,18 +48,18 @@ class PaywallHero extends StatelessWidget {
                 colors: [
                   Colors.black.withValues(alpha: 0.15),
                   Colors.black.withValues(alpha: 0.55),
-                  const Color(0xFF0C0A09).withValues(alpha: 0.95),
+                  t.bg.withValues(alpha: 0.95),
                 ],
                 stops: const [0.0, 0.55, 1.0],
               ),
             )
           else
             Container(
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
-                  colors: [Color(0xFF1C1917), Color(0xFF0C0A09)],
+                  colors: [t.bgSecondary, t.bg],
                 ),
               ),
             ),
@@ -80,7 +81,7 @@ class PaywallHero extends StatelessWidget {
                           fontSize: 11,
                           fontWeight: FontWeight.w700,
                           letterSpacing: 3.2,
-                          color: LuxColors.gold.withValues(alpha: 0.92),
+                          color: t.accent.withValues(alpha: 0.92),
                         ),
                       ),
                       const SizedBox(height: 12),
@@ -104,7 +105,7 @@ class PaywallHero extends StatelessWidget {
                           fontSize: 16,
                           height: 1.45,
                           fontWeight: FontWeight.w500,
-                          color: LuxColors.stone300.withValues(alpha: 0.95),
+                          color: LuxColors.cream.withValues(alpha: 0.85),
                         ),
                       ),
                       if (emotionalLine != null) ...[
@@ -120,7 +121,7 @@ class PaywallHero extends StatelessWidget {
                               borderRadius: BorderRadius.circular(12),
                               color: Colors.black.withValues(alpha: 0.35),
                               border: Border.all(
-                                color: LuxColors.gold.withValues(alpha: 0.28),
+                                color: t.accent.withValues(alpha: 0.28),
                               ),
                             ),
                             child: Text(
@@ -129,7 +130,7 @@ class PaywallHero extends StatelessWidget {
                                 fontSize: 13,
                                 height: 1.4,
                                 fontStyle: FontStyle.italic,
-                                color: LuxColors.stone300.withValues(alpha: 0.92),
+                                color: LuxColors.cream.withValues(alpha: 0.82),
                               ),
                             ),
                           ),

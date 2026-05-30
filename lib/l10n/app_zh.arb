@@ -17,6 +17,9 @@
   "affiliateWellness": "康养预订",
   "appTitle": "Luxora AI",
   "appearance": "外观",
+  "settingsThemeIntro": "电影感奢华或清晰易读——选择适合您一天的风格。",
+  "settingsThemeSectionLuxury": "电影感奢华",
+  "settingsThemeSectionReadable": "清晰易读",
   "catBeaches": "海滩",
   "catEco": "生态旅游",
   "catFamily": "家庭",
@@ -1366,6 +1369,9 @@
   "weatherPackWater": "水瓶",
   "weatherPlanImpact": "对您的计划的影响",
   "weatherRadarComingSoon": "实时雷达即将推出。",
+  "weatherRadarPlay": "播放循环",
+  "weatherRadarPause": "暂停循环",
+  "weatherRadarTapToExpand": "点击全屏查看",
   "weatherRainNote": "{percent}% 几率下雨 — 带上薄薄的一层。",
   "@weatherRainNote": {
     "placeholders": {

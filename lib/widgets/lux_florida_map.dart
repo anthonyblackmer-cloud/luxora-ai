@@ -172,6 +172,7 @@ class _LuxFloridaMapState extends State<LuxFloridaMap>
           final t = Curves.easeOutCubic.transform(_routeAnim.value);
           final drawnRoute = _partialPolyline(route, t);
           final routeLen = route.length;
+          final tokens = luxThemeTokensOf(context);
 
           return FlutterMap(
             mapController: _controller,
@@ -193,8 +194,8 @@ class _LuxFloridaMapState extends State<LuxFloridaMap>
                       point: widget.hubCenter,
                       radius: widget.radiusMiles! * 1609.344,
                       useRadiusInMeter: true,
-                      color: LuxColors.gold.withValues(alpha: 0.08),
-                      borderColor: LuxColors.gold.withValues(alpha: 0.45),
+                      color: tokens.accent.withValues(alpha: 0.08),
+                      borderColor: tokens.accent.withValues(alpha: 0.45),
                       borderStrokeWidth: 2,
                     ),
                   ],
@@ -204,17 +205,17 @@ class _LuxFloridaMapState extends State<LuxFloridaMap>
                   polylines: [
                     Polyline(
                       points: drawnRoute,
-                      color: LuxColors.gold.withValues(alpha: 0.18),
+                      color: tokens.accent.withValues(alpha: 0.18),
                       strokeWidth: 10,
                     ),
                     Polyline(
                       points: drawnRoute,
-                      color: LuxColors.gold.withValues(alpha: 0.35),
+                      color: tokens.accent.withValues(alpha: 0.35),
                       strokeWidth: 6,
                     ),
                     Polyline(
                       points: drawnRoute,
-                      color: LuxColors.gold.withValues(alpha: 0.92),
+                      color: tokens.accent.withValues(alpha: 0.92),
                       strokeWidth: 2.5,
                     ),
                   ],
@@ -233,25 +234,37 @@ class _LuxFloridaMapState extends State<LuxFloridaMap>
                           Container(
                             padding: const EdgeInsets.all(7),
                             decoration: BoxDecoration(
-                              color: LuxColors.gold.withValues(alpha: 0.9),
+                              color: tokens.accent.withValues(alpha: 0.9),
                               shape: BoxShape.circle,
-                              border: Border.all(color: LuxColors.cream, width: 2),
+                              border: Border.all(
+                                color: tokens.isLight
+                                    ? tokens.bg
+                                    : tokens.textPrimary,
+                                width: 2,
+                              ),
                             ),
-                            child: const Icon(
+                            child: Icon(
                               Icons.home_work_rounded,
                               size: 18,
-                              color: Color(0xFF0C0A09),
+                              color: tokens.onAccent,
                             ),
                           ),
                           const SizedBox(height: 2),
                           Text(
                             CityPackRegistry.instance.hubLabel.split(',').first,
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontSize: 9,
                               fontWeight: FontWeight.w800,
-                              color: LuxColors.cream,
+                              color: tokens.isLight
+                                  ? tokens.textPrimary
+                                  : tokens.textPrimary,
                               shadows: [
-                                Shadow(color: Colors.black, blurRadius: 6),
+                                Shadow(
+                                  color: tokens.isLight
+                                      ? tokens.bg.withValues(alpha: 0.85)
+                                      : Colors.black,
+                                  blurRadius: 6,
+                                ),
                               ],
                             ),
                           ),
@@ -319,13 +332,14 @@ class _PlaceMarker extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final tokens = luxThemeTokensOf(context);
     final color = isGem
-        ? LuxColors.gold
+        ? tokens.accent
         : isSponsored
-            ? LuxColors.gold.withValues(alpha: 0.85)
+            ? tokens.accent.withValues(alpha: 0.85)
             : isOnRoute
                 ? LuxColors.ocean
-                : LuxColors.stone300;
+                : tokens.textMuted;
     final icon = isGem
         ? Icons.diamond_rounded
         : isSponsored
@@ -347,7 +361,9 @@ class _PlaceMarker extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(6),
                 decoration: BoxDecoration(
-                  color: const Color(0xFF0C0A09).withValues(alpha: 0.88),
+                  color: tokens.isLight
+                      ? tokens.bg.withValues(alpha: 0.92)
+                      : const Color(0xFF0C0A09).withValues(alpha: 0.88),
                   shape: BoxShape.circle,
                   border: Border.all(
                     color: color,

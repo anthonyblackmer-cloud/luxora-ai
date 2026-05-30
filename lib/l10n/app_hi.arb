@@ -17,6 +17,9 @@
   "affiliateWellness": "कल्याण बुकिंग",
   "appTitle": "Luxora AI",
   "appearance": "उपस्थिति",
+  "settingsThemeIntro": "सिनेमाई लक्ज़री या साफ़ पठनीयता — अपने दिन के अनुसार चुनें।",
+  "settingsThemeSectionLuxury": "सिनेमाई लक्ज़री",
+  "settingsThemeSectionReadable": "साफ़ और पठनीय",
   "catBeaches": "समुद्र तटों",
   "catEco": "इको पर्यटन",
   "catFamily": "परिवार",
@@ -1366,6 +1369,9 @@
   "weatherPackWater": "पानी की बोतल",
   "weatherPlanImpact": "आपकी योजना पर प्रभाव",
   "weatherRadarComingSoon": "लाइव राडार जल्द ही आ रहा है।",
+  "weatherRadarPlay": "लूप चलाएँ",
+  "weatherRadarPause": "लूप रोकें",
+  "weatherRadarTapToExpand": "पूर्ण स्क्रीन के लिए टैप करें",
   "weatherRainNote": "वर्षा की {percent}% संभावना - एक हल्की परत पैक करें।",
   "@weatherRainNote": {
     "placeholders": {

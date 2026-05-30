@@ -21,8 +21,10 @@ abstract final class WeatherConciergeLauncher {
     showDialog<void>(
       context: context,
       barrierDismissible: false,
-      builder: (ctx) => const Center(
-        child: CircularProgressIndicator(color: LuxColors.gold),
+      builder: (ctx) => Center(
+        child: CircularProgressIndicator(
+          color: luxThemeTokensOf(ctx).accent,
+        ),
       ),
     );
 
@@ -60,6 +62,8 @@ abstract final class WeatherConciergeLauncher {
       context,
       weather: weather,
       placeLabel: hubLabel,
+      latitude: hub.latitude,
+      longitude: hub.longitude,
       flow: flow,
       pool: pool,
     );

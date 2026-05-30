@@ -60,11 +60,12 @@ class LuxoraPremiumSheetPalette {
   factory LuxoraPremiumSheetPalette.of(BuildContext context) {
     final theme = Theme.of(context);
     final scheme = theme.colorScheme;
+    final tokens = luxThemeTokensOf(context);
     final isDark = theme.brightness == Brightness.dark;
     return LuxoraPremiumSheetPalette(
       accent: scheme.primary,
-      cardColor: isDark ? const Color(0xFF1F1B33) : scheme.surface,
-      borderMuted: scheme.outline.withValues(alpha: isDark ? 0.22 : 0.35),
+      cardColor: isDark ? const Color(0xFF1F1B33) : tokens.surface,
+      borderMuted: tokens.borderSubtle,
       isDark: isDark,
       scheme: scheme,
     );
@@ -111,6 +112,7 @@ class LuxoraPremiumSheetShell extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final palette = LuxoraPremiumSheetPalette.of(context);
+    final tokens = luxThemeTokensOf(context);
     final height = MediaQuery.sizeOf(context).height * heightFraction;
 
     return Container(
@@ -127,9 +129,9 @@ class LuxoraPremiumSheetShell extends StatelessWidget {
                   Color(0xFF0F0A09),
                 ]
               : [
-                  theme.colorScheme.surface,
-                  Color.lerp(theme.colorScheme.surface, LuxColors.gold, 0.04)!,
-                  theme.colorScheme.surface,
+                  tokens.bg,
+                  tokens.bgSecondary,
+                  tokens.bg,
                 ],
         ),
         border: Border.all(

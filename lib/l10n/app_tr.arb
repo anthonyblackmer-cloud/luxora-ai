@@ -17,6 +17,9 @@
   "affiliateWellness": "Sağlıklı yaşam rezervasyonları",
   "appTitle": "Luxora AI",
   "appearance": "Dış görünüş",
+  "settingsThemeIntro": "Sinematik lüks veya net okunabilirlik — gününüze uyanı seçin.",
+  "settingsThemeSectionLuxury": "Sinematik lüks",
+  "settingsThemeSectionReadable": "Net ve okunabilir",
   "catBeaches": "Plajlar",
   "catEco": "Eko turizm",
   "catFamily": "Aile",
@@ -1366,6 +1369,9 @@
   "weatherPackWater": "Su şişesi",
   "weatherPlanImpact": "Planınıza Etkisi",
   "weatherRadarComingSoon": "Canlı radar çok yakında.",
+  "weatherRadarPlay": "Döngüyü oynat",
+  "weatherRadarPause": "Döngüyü duraklat",
+  "weatherRadarTapToExpand": "Tam ekran için dokunun",
   "weatherRainNote": "Yağmur ihtimali %{percent}; üzerinize ince bir tabaka örtün.",
   "@weatherRainNote": {
     "placeholders": {

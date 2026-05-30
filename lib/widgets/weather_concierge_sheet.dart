@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:latlong2/latlong.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/models/lux_place.dart';
 import 'package:luxora_ai/services/day_flow_planner.dart';
@@ -9,12 +10,15 @@ import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
 import 'package:luxora_ai/widgets/lux_button.dart';
 import 'package:luxora_ai/widgets/settings/luxora_premium_sheet_shell.dart';
+import 'package:luxora_ai/widgets/weather_map_panel.dart';
 import 'package:luxora_ai/widgets/weather_ui.dart';
 
 Future<void> showWeatherConciergeSheet(
   BuildContext context, {
   required LuxWeather weather,
   required String placeLabel,
+  required double latitude,
+  required double longitude,
   required DayFlow flow,
   required List<LuxPlace> pool,
   VoidCallback? onAdjustDay,
@@ -32,6 +36,8 @@ Future<void> showWeatherConciergeSheet(
           child: WeatherConciergeSheet(
             weather: weather,
             placeLabel: placeLabel,
+            latitude: latitude,
+            longitude: longitude,
             flow: flow,
             pool: pool,
             onAdjustDay: onAdjustDay,
@@ -48,6 +54,8 @@ class WeatherConciergeSheet extends StatelessWidget {
     super.key,
     required this.weather,
     required this.placeLabel,
+    required this.latitude,
+    required this.longitude,
     required this.flow,
     required this.pool,
     this.onAdjustDay,
@@ -55,6 +63,8 @@ class WeatherConciergeSheet extends StatelessWidget {
 
   final LuxWeather weather;
   final String placeLabel;
+  final double latitude;
+  final double longitude;
   final DayFlow flow;
   final List<LuxPlace> pool;
   final VoidCallback? onAdjustDay;
@@ -122,11 +132,10 @@ class WeatherConciergeSheet extends StatelessWidget {
           const SizedBox(height: 18),
           _SectionTitle(l.weatherLiveRadar),
           const SizedBox(height: 10),
-          const _RadarPlaceholder(),
-          const SizedBox(height: 18),
-          _SectionTitle(l.weatherMapOverlays),
-          const SizedBox(height: 10),
-          const _OverlayToggles(),
+          WeatherMapPanel(
+            center: LatLng(latitude, longitude),
+            initialOverlay: WeatherMapOverlay.precip,
+          ),
           const SizedBox(height: 24),
         ],
       ),
@@ -153,16 +162,17 @@ class _HeroSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l = context.l10n;
-    final gradient = _weatherGradient(weather.condition, weather.isDay);
+    final tokens = luxThemeTokensOf(context);
+    final gradient = _weatherGradient(weather.condition, weather.isDay, tokens.accent);
 
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         gradient: gradient,
-        border: Border.all(color: LuxColors.gold.withValues(alpha: 0.22)),
+        border: Border.all(color: tokens.accent.withValues(alpha: 0.22)),
         boxShadow: [
           BoxShadow(
-            color: LuxColors.gold.withValues(alpha: 0.12),
+            color: tokens.accent.withValues(alpha: 0.12),
             blurRadius: 32,
             spreadRadius: -8,
           ),
@@ -178,7 +188,7 @@ class _HeroSection extends StatelessWidget {
               fontSize: 11,
               fontWeight: FontWeight.w700,
               letterSpacing: 1.2,
-              color: LuxColors.gold.withValues(alpha: 0.9),
+              color: tokens.accent.withValues(alpha: 0.9),
             ),
           ),
           const SizedBox(height: 10),
@@ -187,7 +197,7 @@ class _HeroSection extends StatelessWidget {
             children: [
               Icon(
                 weatherConditionIcon(weather.condition, weather.isDay),
-                color: LuxColors.gold,
+                color: tokens.accent,
                 size: 44,
               ),
               const SizedBox(width: 14),
@@ -197,28 +207,28 @@ class _HeroSection extends StatelessWidget {
                   children: [
                     Text(
                       _temp(weather.temperatureF),
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 36,
                         fontWeight: FontWeight.w800,
-                        color: LuxColors.cream,
+                        color: tokens.textPrimary,
                         height: 1,
                       ),
                     ),
                     if (weather.feelsLikeF != null)
                       Text(
                         l.weatherFeelsLike(_temp(weather.feelsLikeF!)),
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 13,
-                          color: LuxColors.stone400,
+                          color: tokens.textMuted,
                         ),
                       ),
                     const SizedBox(height: 4),
                     Text(
                       weatherConditionLabel(l, weather.condition),
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.w600,
-                        color: LuxColors.cream,
+                        color: tokens.textPrimary,
                       ),
                     ),
                   ],
@@ -299,7 +309,7 @@ class _HeroSection extends StatelessWidget {
   }
 }
 
-LinearGradient _weatherGradient(LuxWeatherCondition c, bool isDay) {
+LinearGradient _weatherGradient(LuxWeatherCondition c, bool isDay, Color accent) {
   final top = switch (c) {
     LuxWeatherCondition.clear =>
       isDay ? const Color(0xFF1A2744) : const Color(0xFF0F1528),
@@ -314,7 +324,7 @@ LinearGradient _weatherGradient(LuxWeatherCondition c, bool isDay) {
     end: Alignment.bottomRight,
     colors: [
       top,
-      Color.lerp(top, LuxColors.gold, 0.08)!,
+      Color.lerp(top, accent, 0.08)!,
     ],
   );
 }
@@ -334,21 +344,22 @@ class _StatChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final tokens = luxThemeTokensOf(context);
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
       decoration: BoxDecoration(
         color: Colors.black.withValues(alpha: 0.28),
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.white.withValues(alpha: 0.08)),
+        border: Border.all(color: tokens.borderSubtle),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(icon, size: 14, color: LuxColors.gold),
+          Icon(icon, size: 14, color: tokens.accent),
           const SizedBox(width: 6),
           Text(
             hideValue ? label : '$label · $value',
-            style: const TextStyle(fontSize: 11, color: LuxColors.stone400),
+            style: TextStyle(fontSize: 11, color: tokens.textMuted),
           ),
         ],
       ),
@@ -364,6 +375,7 @@ class _AdviceCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l = context.l10n;
+    final tokens = luxThemeTokensOf(context);
     return GlassCard(
       glow: true,
       child: Column(
@@ -371,14 +383,14 @@ class _AdviceCard extends StatelessWidget {
         children: [
           Row(
             children: [
-              const Icon(Icons.auto_awesome_rounded, color: LuxColors.gold, size: 18),
+              Icon(Icons.auto_awesome_rounded, color: tokens.accent, size: 18),
               const SizedBox(width: 8),
               Text(
                 l.weatherConciergeAdviceTitle,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w800,
-                  color: LuxColors.cream,
+                  color: tokens.textPrimary,
                 ),
               ),
             ],
@@ -391,7 +403,7 @@ class _AdviceCard extends StatelessWidget {
                 Text(
                   '•',
                   style: TextStyle(
-                    color: LuxColors.gold.withValues(alpha: 0.8),
+                    color: tokens.accent.withValues(alpha: 0.8),
                     fontSize: 14,
                   ),
                 ),
@@ -399,10 +411,10 @@ class _AdviceCard extends StatelessWidget {
                 Expanded(
                   child: Text(
                     line,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 13,
                       height: 1.45,
-                      color: LuxColors.stone400,
+                      color: tokens.textMuted,
                     ),
                   ),
                 ),
@@ -423,13 +435,14 @@ class _SectionTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final tokens = luxThemeTokensOf(context);
     return Text(
       text,
       style: TextStyle(
         fontSize: 12,
         fontWeight: FontWeight.w800,
         letterSpacing: 1.1,
-        color: LuxColors.gold.withValues(alpha: 0.85),
+        color: tokens.accent.withValues(alpha: 0.85),
       ),
     );
   }
@@ -480,24 +493,25 @@ class _PackChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final tokens = luxThemeTokensOf(context);
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(14),
-        color: LuxColors.gold.withValues(alpha: 0.08),
-        border: Border.all(color: LuxColors.gold.withValues(alpha: 0.22)),
+        color: tokens.accent.withValues(alpha: 0.08),
+        border: Border.all(color: tokens.accent.withValues(alpha: 0.22)),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(icon, size: 16, color: LuxColors.gold),
+          Icon(icon, size: 16, color: tokens.accent),
           const SizedBox(width: 8),
           Text(
             label,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.w600,
-              color: LuxColors.cream,
+              color: tokens.textPrimary,
             ),
           ),
         ],
@@ -518,6 +532,7 @@ class _PlanImpactCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l = context.l10n;
+    final tokens = luxThemeTokensOf(context);
     final fmt = DateFormat.jm(locale.toLanguageTag());
 
     return GlassCard(
@@ -526,42 +541,42 @@ class _PlanImpactCard extends StatelessWidget {
         children: [
           Text(
             insight.planImpact,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 13,
               height: 1.45,
-              color: LuxColors.cream,
+              color: tokens.textPrimary,
             ),
           ),
           if (insight.outdoorStopsAtRisk.isNotEmpty) ...[
             const SizedBox(height: 12),
             Text(
               l.weatherOutdoorAtRisk(insight.outdoorStopsAtRisk.length),
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.w700,
-                color: LuxColors.gold,
+                color: tokens.accent,
               ),
             ),
             const SizedBox(height: 4),
             Text(
               insight.outdoorStopsAtRisk.join(' · '),
-              style: const TextStyle(fontSize: 12, color: LuxColors.stone400),
+              style: TextStyle(fontSize: 12, color: tokens.textMuted),
             ),
           ],
           if (insight.indoorBackups.isNotEmpty) ...[
             const SizedBox(height: 12),
             Text(
               l.weatherIndoorBackup,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.w700,
-                color: LuxColors.gold,
+                color: tokens.accent,
               ),
             ),
             const SizedBox(height: 4),
             Text(
               insight.indoorBackups.join(' · '),
-              style: const TextStyle(fontSize: 12, color: LuxColors.stone400),
+              style: TextStyle(fontSize: 12, color: tokens.textMuted),
             ),
           ],
           if (insight.bestOutdoorWindow != null) ...[
@@ -609,21 +624,22 @@ class _WindowRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final tokens = luxThemeTokensOf(context);
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Icon(icon, size: 15, color: LuxColors.gold),
+        Icon(icon, size: 15, color: tokens.accent),
         const SizedBox(width: 8),
         Expanded(
           child: RichText(
             text: TextSpan(
-              style: const TextStyle(fontSize: 12, color: LuxColors.stone400),
+              style: TextStyle(fontSize: 12, color: tokens.textMuted),
               children: [
                 TextSpan(
                   text: '$label · ',
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontWeight: FontWeight.w700,
-                    color: LuxColors.cream,
+                    color: tokens.textPrimary,
                   ),
                 ),
                 TextSpan(text: value),
@@ -652,10 +668,11 @@ class _HourlyTimeline extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l = context.l10n;
+    final tokens = luxThemeTokensOf(context);
     if (weather.hourly.isEmpty) {
       return Text(
         l.weatherHourlyUnavailable,
-        style: const TextStyle(fontSize: 12, color: LuxColors.stone400),
+        style: TextStyle(fontSize: 12, color: tokens.textMuted),
       );
     }
 
@@ -671,10 +688,10 @@ class _HourlyTimeline extends StatelessWidget {
           final h = weather.hourly[i];
           final highlight = highlights[i];
           final borderColor = switch (highlight) {
-            WeatherHourlyHighlight.bestOutdoor => LuxColors.gold,
+            WeatherHourlyHighlight.bestOutdoor => tokens.accent,
             WeatherHourlyHighlight.rainRisk => const Color(0xFF6B9BD1),
             WeatherHourlyHighlight.sunset => const Color(0xFFE8A87C),
-            null => Colors.white.withValues(alpha: 0.08),
+            null => tokens.borderSubtle,
           };
 
           return Container(
@@ -701,130 +718,36 @@ class _HourlyTimeline extends StatelessWidget {
               children: [
                 Text(
                   fmt.format(h.time),
-                  style: const TextStyle(fontSize: 10, color: LuxColors.stone400),
+                  style: TextStyle(fontSize: 10, color: tokens.textMuted),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
                 Icon(
                   weatherConditionIcon(h.condition, h.time.hour >= 6 && h.time.hour < 20),
                   size: 20,
-                  color: LuxColors.gold,
+                  color: tokens.accent,
                 ),
                 Text(
                   useFahrenheit
                       ? '${h.temperatureF.round()}°'
                       : '${h.temperatureC.round()}°',
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.w700,
-                    color: LuxColors.cream,
+                    color: tokens.textPrimary,
                   ),
                 ),
                 Text(
                   '${h.rainChance ?? 0}%',
-                  style: const TextStyle(fontSize: 10, color: LuxColors.stone400),
+                  style: TextStyle(fontSize: 10, color: tokens.textMuted),
                 ),
                 if ((h.windSpeedMph ?? 0) >= 15)
-                  Icon(Icons.air_rounded, size: 12, color: LuxColors.stone400),
+                  Icon(Icons.air_rounded, size: 12, color: tokens.textMuted),
               ],
             ),
           );
         },
       ),
-    );
-  }
-}
-
-class _RadarPlaceholder extends StatelessWidget {
-  const _RadarPlaceholder();
-
-  @override
-  Widget build(BuildContext context) {
-    final l = context.l10n;
-    return Container(
-      height: 140,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
-        gradient: LinearGradient(
-          colors: [
-            const Color(0xFF1A2332),
-            LuxColors.gold.withValues(alpha: 0.06),
-          ],
-        ),
-        border: Border.all(color: LuxColors.gold.withValues(alpha: 0.18)),
-      ),
-      child: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(
-              Icons.radar_rounded,
-              size: 36,
-              color: LuxColors.gold.withValues(alpha: 0.5),
-            ),
-            const SizedBox(height: 10),
-            Text(
-              l.weatherRadarComingSoon,
-              style: const TextStyle(
-                fontSize: 13,
-                fontWeight: FontWeight.w600,
-                color: LuxColors.stone400,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _OverlayToggles extends StatelessWidget {
-  const _OverlayToggles();
-
-  @override
-  Widget build(BuildContext context) {
-    final l = context.l10n;
-    final items = [
-      (l.weatherOverlayPrecip, Icons.water_drop_outlined),
-      (l.weatherOverlayTemp, Icons.thermostat_outlined),
-      (l.weatherOverlayWind, Icons.air_rounded),
-      (l.weatherOverlayCloud, Icons.cloud_queue_rounded),
-    ];
-
-    return Wrap(
-      spacing: 8,
-      runSpacing: 8,
-      children: [
-        for (final (label, icon) in items)
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-              color: Colors.white.withValues(alpha: 0.04),
-              border: Border.all(color: Colors.white.withValues(alpha: 0.1)),
-            ),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Icon(icon, size: 16, color: LuxColors.stone400),
-                const SizedBox(width: 8),
-                Text(
-                  label,
-                  style: const TextStyle(fontSize: 12, color: LuxColors.stone400),
-                ),
-                const SizedBox(width: 8),
-                Text(
-                  l.weatherComingSoon,
-                  style: TextStyle(
-                    fontSize: 10,
-                    fontWeight: FontWeight.w700,
-                    color: LuxColors.gold.withValues(alpha: 0.7),
-                  ),
-                ),
-              ],
-            ),
-          ),
-      ],
     );
   }
 }

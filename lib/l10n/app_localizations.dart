@@ -136,6 +136,24 @@ abstract class AppLocalizations {
   /// **'Appearance'**
   String get appearance;
 
+  /// No description provided for @settingsThemeIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Luxury cinematic or clean readability — pick what fits your day.'**
+  String get settingsThemeIntro;
+
+  /// No description provided for @settingsThemeSectionLuxury.
+  ///
+  /// In en, this message translates to:
+  /// **'Luxury cinematic'**
+  String get settingsThemeSectionLuxury;
+
+  /// No description provided for @settingsThemeSectionReadable.
+  ///
+  /// In en, this message translates to:
+  /// **'Clean & readable'**
+  String get settingsThemeSectionReadable;
+
   /// No description provided for @dark_mode.
   ///
   /// In en, this message translates to:
@@ -3044,6 +3062,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Live radar coming soon.'**
   String get weatherRadarComingSoon;
+
+  /// No description provided for @weatherRadarPlay.
+  ///
+  /// In en, this message translates to:
+  /// **'Play loop'**
+  String get weatherRadarPlay;
+
+  /// No description provided for @weatherRadarPause.
+  ///
+  /// In en, this message translates to:
+  /// **'Pause loop'**
+  String get weatherRadarPause;
+
+  /// No description provided for @weatherRadarTapToExpand.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap for full screen'**
+  String get weatherRadarTapToExpand;
 
   /// No description provided for @weatherMapOverlays.
   ///

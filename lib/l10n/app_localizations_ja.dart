@@ -18,6 +18,16 @@ class AppLocalizationsJa extends AppLocalizations {
   String get appearance => '外観';
 
   @override
+  String get settingsThemeIntro =>
+      'シネマティックなラグジュアリーか、読みやすいクリーンさ — その日に合うものを選びましょう。';
+
+  @override
+  String get settingsThemeSectionLuxury => 'シネマティック・ラグジュアリー';
+
+  @override
+  String get settingsThemeSectionReadable => 'クリーンで読みやすい';
+
+  @override
   String get dark_mode => 'ダークモード';
 
   @override
@@ -1626,6 +1636,15 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get weatherRadarComingSoon => 'ライブレーダーは近日公開予定です。';
+
+  @override
+  String get weatherRadarPlay => 'ループ再生';
+
+  @override
+  String get weatherRadarPause => 'ループ一時停止';
+
+  @override
+  String get weatherRadarTapToExpand => 'タップして全画面表示';
 
   @override
   String get weatherMapOverlays => '地図オーバーレイ';

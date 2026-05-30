@@ -18,6 +18,16 @@ class AppLocalizationsIt extends AppLocalizations {
   String get appearance => 'Aspetto';
 
   @override
+  String get settingsThemeIntro =>
+      'Lusso cinematografico o chiarezza leggibile — scegli ciò che si adatta alla tua giornata.';
+
+  @override
+  String get settingsThemeSectionLuxury => 'Lusso cinematografico';
+
+  @override
+  String get settingsThemeSectionReadable => 'Chiaro e leggibile';
+
+  @override
   String get dark_mode => 'Modalità oscura';
 
   @override
@@ -1687,6 +1697,15 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get weatherRadarComingSoon => 'Radar live in arrivo.';
+
+  @override
+  String get weatherRadarPlay => 'Avvia loop';
+
+  @override
+  String get weatherRadarPause => 'Pausa loop';
+
+  @override
+  String get weatherRadarTapToExpand => 'Tocca per schermo intero';
 
   @override
   String get weatherMapOverlays => 'Sovrapposizioni di mappe';

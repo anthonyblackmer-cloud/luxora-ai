@@ -18,6 +18,16 @@ class AppLocalizationsRu extends AppLocalizations {
   String get appearance => 'Появление';
 
   @override
+  String get settingsThemeIntro =>
+      'Кинематографичная роскошь или чистая читаемость — выберите то, что подходит вашему дню.';
+
+  @override
+  String get settingsThemeSectionLuxury => 'Кинематографичная роскошь';
+
+  @override
+  String get settingsThemeSectionReadable => 'Чисто и читаемо';
+
+  @override
   String get dark_mode => 'Темный режим';
 
   @override
@@ -1678,6 +1688,15 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get weatherRadarComingSoon => 'Живой радар скоро появится.';
+
+  @override
+  String get weatherRadarPlay => 'Воспроизвести цикл';
+
+  @override
+  String get weatherRadarPause => 'Пауза цикла';
+
+  @override
+  String get weatherRadarTapToExpand => 'Нажмите для полноэкранного режима';
 
   @override
   String get weatherMapOverlays => 'Наложения карт';

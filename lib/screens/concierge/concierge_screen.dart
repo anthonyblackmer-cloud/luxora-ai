@@ -178,14 +178,16 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
   }
 
   Future<void> _showStyleRefineSheet(AppLocalizations l) async {
+    final t = luxThemeTokensOf(context);
     await showModalBottomSheet<void>(
       context: context,
       useSafeArea: true,
-      backgroundColor: const Color(0xFF12100F),
+      backgroundColor: t.bgSecondary,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(22)),
       ),
       builder: (ctx) {
+        final t = luxThemeTokensOf(ctx);
         return Padding(
           padding: const EdgeInsets.fromLTRB(16, 12, 16, 20),
           child: Column(
@@ -197,7 +199,7 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
                   width: 42,
                   height: 4,
                   decoration: BoxDecoration(
-                    color: Colors.white.withValues(alpha: 0.22),
+                    color: t.borderSubtle,
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
@@ -215,8 +217,8 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
                     ),
                   ),
                   LuxSheetCloseButton(
-                    color: LuxColors.cream,
-                    background: Colors.white.withValues(alpha: 0.06),
+                    color: t.textPrimary,
+                    background: t.panelFill,
                   ),
                 ],
               ),
@@ -233,7 +235,7 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
                           ? (_) => _removeStylePref(s)
                           : (_) => _addStylePref(s),
                       selectedColor: LuxColors.gemAccent.withValues(alpha: 0.2),
-                      backgroundColor: Colors.white.withValues(alpha: 0.04),
+                      backgroundColor: t.panelFill,
                       checkmarkColor: LuxColors.gemAccent,
                     ),
                 ],
@@ -248,6 +250,7 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
   @override
   Widget build(BuildContext context) {
     final l = AppLocalizations.of(context);
+    final t = luxThemeTokensOf(context);
     final prompts = conciergePromptChipsL10n(l);
     final primaryPrompts = [
       prompts[0], // Romantic
@@ -276,7 +279,7 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
                           fontSize: 11,
                           fontWeight: FontWeight.w700,
                           letterSpacing: 3,
-                          color: LuxColors.gold.withValues(alpha: 0.85),
+                          color: t.accent.withValues(alpha: 0.85),
                         ),
                       ),
                       Text(
@@ -287,8 +290,8 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
                         const SizedBox(height: 4),
                         Text(
                           l.conciergeTripFeel(_tripFeel!),
-                          style: const TextStyle(
-                            color: LuxColors.stone500,
+                          style: TextStyle(
+                            color: t.textMuted,
                             fontSize: 13,
                           ),
                         ),
@@ -303,16 +306,16 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
               width: double.infinity,
               padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
               decoration: BoxDecoration(
-                color: Colors.white.withValues(alpha: 0.07),
+                color: t.panelFill,
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: Colors.white.withValues(alpha: 0.1)),
+                border: Border.all(color: t.borderSubtle),
               ),
               child: Text(
                 '${_greeting(l)} ${l.conciergeWelcomeWarm}',
                 style: TextStyle(
                   fontSize: 15,
                   height: 1.42,
-                  color: LuxColors.stone300.withValues(alpha: 0.96),
+                  color: t.textMuted.withValues(alpha: 0.96),
                 ),
               ),
             ),
@@ -334,20 +337,20 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
                   border: Border.all(
-                    color: LuxColors.gold.withValues(alpha: 0.25),
+                    color: t.accent.withValues(alpha: 0.25),
                   ),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(Icons.mic_rounded,
-                        size: 18, color: LuxColors.gold.withValues(alpha: 0.9)),
+                        size: 18, color: t.accent.withValues(alpha: 0.9)),
                     const SizedBox(width: 8),
                     Text(
                       l.conciergeVoiceHold,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 13,
-                        color: LuxColors.stone400,
+                        color: t.textMuted,
                       ),
                     ),
                   ],
@@ -361,7 +364,7 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
                 fontSize: 11,
                 fontWeight: FontWeight.w700,
                 letterSpacing: 0.5,
-                color: LuxColors.stone500.withValues(alpha: 0.9),
+                color: t.textMuted.withValues(alpha: 0.9),
               ),
             ),
             const SizedBox(height: 10),
@@ -384,18 +387,18 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
                           borderRadius: BorderRadius.circular(16),
                           gradient: LinearGradient(
                             colors: [
-                              LuxColors.gold.withValues(alpha: 0.15),
-                              Colors.white.withValues(alpha: 0.03),
+                              t.accent.withValues(alpha: 0.15),
+                              t.panelFill,
                             ],
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight,
                           ),
                           border: Border.all(
-                            color: LuxColors.gold.withValues(alpha: 0.35),
+                            color: t.accent.withValues(alpha: 0.35),
                           ),
                           boxShadow: [
                             BoxShadow(
-                              color: LuxColors.gold.withValues(alpha: 0.07),
+                              color: t.accent.withValues(alpha: 0.07),
                               blurRadius: 14,
                             ),
                           ],
@@ -411,7 +414,7 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
                                 2 => Icons.family_restroom_rounded,
                                 _ => Icons.explore_rounded,
                               },
-                              color: LuxColors.gold.withValues(alpha: 0.95),
+                              color: t.accent.withValues(alpha: 0.95),
                               size: 20,
                             ),
                             Text(
@@ -439,7 +442,7 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
                     icon: const Icon(Icons.tune_rounded, size: 18),
                     label: Text(l.conciergeRefineStyle),
                     style: OutlinedButton.styleFrom(
-                      foregroundColor: LuxColors.cream,
+                      foregroundColor: t.textPrimary,
                       side: BorderSide(
                         color: LuxColors.gemAccent.withValues(alpha: 0.42),
                       ),
@@ -447,7 +450,7 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(14),
                       ),
-                      backgroundColor: Colors.white.withValues(alpha: 0.03),
+                      backgroundColor: t.panelFill,
                     ),
                   ),
                 ),
@@ -473,7 +476,7 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
                   if (_stylePrefs.length > activeStylePreview.length)
                     Chip(
                       label: Text('+${_stylePrefs.length - activeStylePreview.length}'),
-                      backgroundColor: Colors.white.withValues(alpha: 0.04),
+                      backgroundColor: t.panelFill,
                     ),
                 ],
               ),
@@ -507,8 +510,8 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
                               ),
                               decoration: BoxDecoration(
                                 color: m.user
-                                    ? LuxColors.gold.withValues(alpha: 0.18)
-                                    : Colors.white.withValues(alpha: 0.08),
+                                    ? t.accent.withValues(alpha: 0.18)
+                                    : t.panelFill,
                                 borderRadius: BorderRadius.circular(16),
                               ),
                               child: Text(
@@ -517,8 +520,8 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
                                   fontSize: 14,
                                   height: 1.4,
                                   color: m.user
-                                      ? LuxColors.cream
-                                      : LuxColors.stone300,
+                                      ? t.textPrimary
+                                      : t.textMuted,
                                 ),
                               ),
                             ),
@@ -529,42 +532,42 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
                     const Spacer(),
                     TextField(
                       controller: _controller,
-                      style: const TextStyle(
-                        color: Colors.white,
+                      style: TextStyle(
+                        color: t.textPrimary,
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
                       ),
                       decoration: InputDecoration(
                         hintText: l.conciergeInputHint,
                         hintStyle: TextStyle(
-                          color: LuxColors.stone500.withValues(alpha: 0.72),
+                          color: t.textMuted.withValues(alpha: 0.72),
                           fontSize: 16,
                         ),
                         filled: true,
-                        fillColor: Colors.white.withValues(alpha: 0.07),
+                        fillColor: t.panelFill,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(26),
                           borderSide: BorderSide(
-                            color: LuxColors.gold.withValues(alpha: 0.2),
+                            color: t.accent.withValues(alpha: 0.2),
                           ),
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(26),
                           borderSide: BorderSide(
-                            color: LuxColors.gold.withValues(alpha: 0.22),
+                            color: t.accent.withValues(alpha: 0.22),
                           ),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(26),
                           borderSide: BorderSide(
-                            color: LuxColors.gold.withValues(alpha: 0.55),
+                            color: t.accent.withValues(alpha: 0.55),
                             width: 1.2,
                           ),
                         ),
                         suffixIcon: IconButton(
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.send_rounded,
-                            color: LuxColors.gold,
+                            color: t.accent,
                           ),
                           onPressed: () => _send(_controller.text),
                         ),

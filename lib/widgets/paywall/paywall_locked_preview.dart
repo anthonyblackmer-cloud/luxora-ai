@@ -13,6 +13,7 @@ class PaywallLockedPreview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final t = luxThemeTokensOf(context);
     final l = context.l10n;
     final items = [
       l.paywallLockedDateNight,
@@ -31,10 +32,10 @@ class PaywallLockedPreview extends StatelessWidget {
         children: [
           Text(
             l.paywallLockedPreviewTitle,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 22,
               fontWeight: FontWeight.w800,
-              color: LuxColors.cream,
+              color: t.textPrimary,
             ),
           ),
           const SizedBox(height: 6),
@@ -42,7 +43,7 @@ class PaywallLockedPreview extends StatelessWidget {
             l.paywallLockedPreviewSubtitle,
             style: TextStyle(
               fontSize: 13,
-              color: LuxColors.stone400,
+              color: t.textMuted,
             ),
           ),
           const SizedBox(height: 14),
@@ -65,6 +66,8 @@ class _LockedCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final t = luxThemeTokensOf(context);
+
     return ClipRRect(
       borderRadius: BorderRadius.circular(14),
       child: Stack(
@@ -73,8 +76,8 @@ class _LockedCard extends StatelessWidget {
             width: double.infinity,
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
             decoration: BoxDecoration(
-              color: const Color(0xFF1C1917),
-              border: Border.all(color: LuxColors.gold.withValues(alpha: 0.12)),
+              color: t.bgSecondary,
+              border: Border.all(color: t.accent.withValues(alpha: 0.12)),
               borderRadius: BorderRadius.circular(14),
             ),
             child: Text(
@@ -82,7 +85,7 @@ class _LockedCard extends StatelessWidget {
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
-                color: LuxColors.stone300.withValues(alpha: 0.35),
+                color: t.textMuted.withValues(alpha: 0.35),
               ),
             ),
           ),
@@ -90,7 +93,7 @@ class _LockedCard extends StatelessWidget {
             child: BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
               child: Container(
-                color: Colors.black.withValues(alpha: 0.25),
+                color: t.bg.withValues(alpha: 0.25),
                 alignment: Alignment.centerLeft,
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Row(
@@ -98,16 +101,16 @@ class _LockedCard extends StatelessWidget {
                     Icon(
                       Icons.lock_rounded,
                       size: 18,
-                      color: LuxColors.gold.withValues(alpha: 0.85),
+                      color: t.accent.withValues(alpha: 0.85),
                     ),
                     const SizedBox(width: 10),
                     Expanded(
                       child: Text(
                         label,
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w700,
-                          color: LuxColors.cream,
+                          color: t.textPrimary,
                         ),
                       ),
                     ),

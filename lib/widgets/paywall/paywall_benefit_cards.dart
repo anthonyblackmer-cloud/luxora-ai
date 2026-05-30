@@ -11,6 +11,7 @@ class PaywallBenefitCards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final t = luxThemeTokensOf(context);
     final l = context.l10n;
     final cards = [
       (
@@ -42,11 +43,11 @@ class PaywallBenefitCards extends StatelessWidget {
         children: [
           Text(
             l.paywallWhyTravelersUnlock,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 22,
               fontWeight: FontWeight.w800,
               letterSpacing: -0.3,
-              color: LuxColors.cream,
+              color: t.textPrimary,
             ),
           ),
           const SizedBox(height: 14),
@@ -62,12 +63,12 @@ class PaywallBenefitCards extends StatelessWidget {
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                     colors: [
-                      LuxColors.gold.withValues(alpha: 0.08),
-                      const Color(0xFF1C1917).withValues(alpha: 0.85),
+                      t.accent.withValues(alpha: 0.08),
+                      t.bgSecondary.withValues(alpha: 0.85),
                     ],
                   ),
                   border: Border.all(
-                    color: LuxColors.gold.withValues(alpha: 0.18),
+                    color: t.accent.withValues(alpha: 0.18),
                   ),
                 ),
                 child: Row(
@@ -77,9 +78,9 @@ class PaywallBenefitCards extends StatelessWidget {
                       padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: LuxColors.gold.withValues(alpha: 0.12),
+                        color: t.accent.withValues(alpha: 0.12),
                       ),
-                      child: Icon(c.$1, color: LuxColors.gold, size: 22),
+                      child: Icon(c.$1, color: t.accent, size: 22),
                     ),
                     const SizedBox(width: 14),
                     Expanded(
@@ -88,10 +89,10 @@ class PaywallBenefitCards extends StatelessWidget {
                         children: [
                           Text(
                             c.$2,
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w800,
-                              color: LuxColors.cream,
+                              color: t.textPrimary,
                             ),
                           ),
                           const SizedBox(height: 6),
@@ -100,7 +101,7 @@ class PaywallBenefitCards extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 13,
                               height: 1.45,
-                              color: LuxColors.stone400,
+                              color: t.textMuted,
                             ),
                           ),
                         ],

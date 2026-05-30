@@ -11,6 +11,7 @@ class PaywallSocialProof extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final t = luxThemeTokensOf(context);
     final l = context.l10n;
     final quotes = [
       l.paywallReview1,
@@ -25,10 +26,10 @@ class PaywallSocialProof extends StatelessWidget {
         children: [
           Text(
             l.paywallSocialProofTitle,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 22,
               fontWeight: FontWeight.w800,
-              color: LuxColors.cream,
+              color: t.textPrimary,
             ),
           ),
           const SizedBox(height: 14),
@@ -40,9 +41,9 @@ class PaywallSocialProof extends StatelessWidget {
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(14),
-                  color: const Color(0xFF1C1917).withValues(alpha: 0.8),
+                  color: t.bgSecondary.withValues(alpha: 0.8),
                   border: Border.all(
-                    color: LuxColors.gold.withValues(alpha: 0.12),
+                    color: t.accent.withValues(alpha: 0.12),
                   ),
                 ),
                 child: Column(
@@ -54,7 +55,7 @@ class PaywallSocialProof extends StatelessWidget {
                         (_) => Icon(
                           Icons.star_rounded,
                           size: 16,
-                          color: LuxColors.gold.withValues(alpha: 0.95),
+                          color: t.accent.withValues(alpha: 0.95),
                         ),
                       ),
                     ),
@@ -65,7 +66,7 @@ class PaywallSocialProof extends StatelessWidget {
                         fontSize: 14,
                         height: 1.45,
                         fontStyle: FontStyle.italic,
-                        color: LuxColors.stone300,
+                        color: t.textMuted,
                       ),
                     ),
                   ],

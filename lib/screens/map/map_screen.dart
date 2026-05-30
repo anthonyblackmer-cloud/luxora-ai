@@ -466,6 +466,8 @@ class _MapRoutePlannerState extends State<_MapRoutePlanner> {
       context,
       weather: weather,
       placeLabel: widget.weatherLabel,
+      latitude: widget.weatherLat,
+      longitude: widget.weatherLng,
       flow: _flow,
       pool: widget.pool,
       onAdjustDay: _flow.isEmpty ? null : _reroute,

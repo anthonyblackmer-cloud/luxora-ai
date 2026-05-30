@@ -18,6 +18,16 @@ class AppLocalizationsHi extends AppLocalizations {
   String get appearance => 'उपस्थिति';
 
   @override
+  String get settingsThemeIntro =>
+      'सिनेमाई लक्ज़री या साफ़ पठनीयता — अपने दिन के अनुसार चुनें।';
+
+  @override
+  String get settingsThemeSectionLuxury => 'सिनेमाई लक्ज़री';
+
+  @override
+  String get settingsThemeSectionReadable => 'साफ़ और पठनीय';
+
+  @override
   String get dark_mode => 'डार्क मोड';
 
   @override
@@ -1673,6 +1683,15 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get weatherRadarComingSoon => 'लाइव राडार जल्द ही आ रहा है।';
+
+  @override
+  String get weatherRadarPlay => 'लूप चलाएँ';
+
+  @override
+  String get weatherRadarPause => 'लूप रोकें';
+
+  @override
+  String get weatherRadarTapToExpand => 'पूर्ण स्क्रीन के लिए टैप करें';
 
   @override
   String get weatherMapOverlays => 'मानचित्र ओवरले';
