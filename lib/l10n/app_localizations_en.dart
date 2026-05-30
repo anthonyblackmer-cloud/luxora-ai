@@ -1245,6 +1245,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String get tripsDeleted => 'Trip deleted';
 
   @override
+  String get tripsEditDates => 'Trip dates';
+
+  @override
+  String get tripsSaveDates => 'Save dates';
+
+  @override
+  String get tripsDatesUpdated => 'Trip dates updated';
+
+  @override
+  String get tripsDatesFlexible => 'Dates flexible';
+
+  @override
   String get tripsLiveWeather => 'Live weather';
 
   @override
@@ -1668,6 +1680,31 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get onboardStep2Subtitle => 'When does your escape begin?';
+
+  @override
+  String get onboardStartDateLabel => 'Start date';
+
+  @override
+  String get onboardEndDateLabel => 'End date';
+
+  @override
+  String get onboardPickDate => 'Tap to choose';
+
+  @override
+  String get onboardSelectStartDate => 'Choose start date';
+
+  @override
+  String get onboardSelectEndDate => 'Choose end date';
+
+  @override
+  String get onboardDatesHint =>
+      'You can change these anytime from your Trips tab.';
+
+  @override
+  String get onboardStepBudgetTitle => 'Plan with ease';
+
+  @override
+  String get onboardStepBudgetSubtitle => 'What feels right for this escape?';
 
   @override
   String get onboardBudget => 'Trip budget (USD)';

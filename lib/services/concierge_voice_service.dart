@@ -61,8 +61,15 @@ class ConciergeVoiceService {
     }
 
     _sttAvailable = await _stt.initialize(
-      onError: (_) {
-        _listening = false;
+      onError: (error) {
+        if (kDebugMode) {
+          debugPrint('ConciergeVoice STT error: $error');
+        }
+      },
+      onStatus: (status) {
+        if (kDebugMode) {
+          debugPrint('ConciergeVoice STT status: $status');
+        }
       },
     );
     _initialized = true;
@@ -127,20 +134,23 @@ class ConciergeVoiceService {
     return started;
   }
 
-  Future<String?> stopListeningAndTakeResult() async {
+  Future<String?> stopListeningAndTakeResult({String fallback = ''}) async {
     final snapshot = _lastHeard.trim();
+    final backup = fallback.trim();
 
     if (_stt.isListening) {
       await _stt.stop();
-    } else if (_listening) {
+    } else if (_listening && snapshot.isEmpty && backup.isEmpty) {
       await _stt.cancel();
     }
 
     // iOS often delivers the final transcript just after stop().
-    await Future<void>.delayed(const Duration(milliseconds: 450));
+    await Future<void>.delayed(const Duration(milliseconds: 650));
 
     _listening = false;
-    final words = _lastHeard.trim().isNotEmpty ? _lastHeard.trim() : snapshot;
+    final words = _lastHeard.trim().isNotEmpty
+        ? _lastHeard.trim()
+        : (snapshot.isNotEmpty ? snapshot : backup);
     _lastHeard = '';
     return words.isEmpty ? null : words;
   }

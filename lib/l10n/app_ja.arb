@@ -1618,5 +1618,17 @@
   "conciergeVoicePresetDeF": "ドイツ · 女性",
   "conciergeVoicePresetDeM": "ドイツ · 男性",
   "conciergeVoiceNoSpeech": "聞き取れませんでした。押したまま話してから離してください。",
-  "conciergeVoicePreviewFailed": "プレビューを再生できませんでした。音量を確認して再度お試しください。"
+  "conciergeVoicePreviewFailed": "プレビューを再生できませんでした。音量を確認して再度お試しください。",
+  "onboardStartDateLabel": "開始日",
+  "onboardEndDateLabel": "終了日",
+  "onboardPickDate": "タップして選択",
+  "onboardSelectStartDate": "開始日を選択",
+  "onboardSelectEndDate": "終了日を選択",
+  "onboardDatesHint": "旅行タブからいつでも変更できます。",
+  "onboardStepBudgetTitle": "無理のない計画",
+  "onboardStepBudgetSubtitle": "この旅に合う予算は？",
+  "tripsEditDates": "旅行の日程",
+  "tripsSaveDates": "日程を保存",
+  "tripsDatesUpdated": "日程を更新しました",
+  "tripsDatesFlexible": "日程は未定"
 }

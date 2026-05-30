@@ -1618,5 +1618,17 @@
   "conciergeVoicePresetDeF": "Deutsch · Weiblich",
   "conciergeVoicePresetDeM": "Deutsch · Männlich",
   "conciergeVoiceNoSpeech": "Das habe ich nicht verstanden — halten, sprechen, loslassen.",
-  "conciergeVoicePreviewFailed": "Vorschau fehlgeschlagen. Lautstärke prüfen und erneut versuchen."
+  "conciergeVoicePreviewFailed": "Vorschau fehlgeschlagen. Lautstärke prüfen und erneut versuchen.",
+  "onboardStartDateLabel": "Startdatum",
+  "onboardEndDateLabel": "Enddatum",
+  "onboardPickDate": "Tippen zum Auswählen",
+  "onboardSelectStartDate": "Startdatum wählen",
+  "onboardSelectEndDate": "Enddatum wählen",
+  "onboardDatesHint": "Sie können die Daten jederzeit unter Reisen ändern.",
+  "onboardStepBudgetTitle": "Entspannt planen",
+  "onboardStepBudgetSubtitle": "Was fühlt sich für diese Reise richtig an?",
+  "tripsEditDates": "Reisedaten",
+  "tripsSaveDates": "Daten speichern",
+  "tripsDatesUpdated": "Reisedaten aktualisiert",
+  "tripsDatesFlexible": "Flexible Daten"
 }

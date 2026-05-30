@@ -7,6 +7,8 @@ import 'package:luxora_ai/models/trip_profile.dart';
 import 'package:luxora_ai/services/crowd_prediction_service.dart';
 import 'package:luxora_ai/services/right_now_service.dart';
 import 'package:luxora_ai/services/weather_service.dart';
+import 'package:luxora_ai/widgets/luxora_branded_share_card.dart';
+import 'package:luxora_ai/widgets/visual_share_icon_button.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
 import 'package:luxora_ai/widgets/lux_button.dart';
@@ -190,26 +192,58 @@ class _MomentCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l = context.l10n;
+    final placeTitle = catalogText(context, moment.place.title);
     return GlassCard(
       glow: true,
-      child: InkWell(
-        borderRadius: BorderRadius.circular(16),
-        onTap: onTap,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              l.rightNowResultTitle,
-              style: TextStyle(
-                fontSize: 11,
-                fontWeight: FontWeight.w700,
-                letterSpacing: 1.2,
-                color: LuxColors.gold.withValues(alpha: 0.85),
-              ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 16, 12, 0),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    l.rightNowResultTitle,
+                    style: TextStyle(
+                      fontSize: 11,
+                      fontWeight: FontWeight.w700,
+                      letterSpacing: 1.2,
+                      color: LuxColors.gold.withValues(alpha: 0.85),
+                    ),
+                  ),
+                ),
+                VisualShareIconButton(
+                  subject: placeTitle,
+                  fileName: 'luxora_right_now.png',
+                  color: LuxColors.gold,
+                  background: LuxColors.gold.withValues(alpha: 0.12),
+                  iconSize: 18,
+                  cardBuilder: (ctx) {
+                    final lines = <String>[narrative];
+                    if (secretLine != null && secretLine!.isNotEmpty) {
+                      lines.add(secretLine!);
+                    }
+                    return LuxoraBrandedShareCard(
+                      title: ctx.l10n.rightNowResultTitle,
+                      subtitle: catalogText(ctx, moment.place.title),
+                      lines: lines,
+                    );
+                  },
+                ),
+              ],
             ),
-            const SizedBox(height: 8),
-            Text(
-              narrative,
+          ),
+          InkWell(
+            borderRadius: BorderRadius.circular(16),
+            onTap: onTap,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    narrative,
               style: const TextStyle(
                 fontSize: 14,
                 height: 1.45,
@@ -244,8 +278,11 @@ class _MomentCard extends StatelessWidget {
               l.rightNowTapForDetails,
               style: TextStyle(fontSize: 11, color: LuxColors.stone500),
             ),
-          ],
-        ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

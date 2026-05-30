@@ -1191,6 +1191,18 @@ class AppLocalizationsZh extends AppLocalizations {
   String get tripsDeleted => '行程已删除';
 
   @override
+  String get tripsEditDates => '行程日期';
+
+  @override
+  String get tripsSaveDates => '保存日期';
+
+  @override
+  String get tripsDatesUpdated => '日期已更新';
+
+  @override
+  String get tripsDatesFlexible => '日期待定';
+
+  @override
   String get tripsLiveWeather => '实时天气';
 
   @override
@@ -1598,6 +1610,30 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get onboardStep2Subtitle => '你的逃离何时开始？';
+
+  @override
+  String get onboardStartDateLabel => '开始日期';
+
+  @override
+  String get onboardEndDateLabel => '结束日期';
+
+  @override
+  String get onboardPickDate => '点击选择';
+
+  @override
+  String get onboardSelectStartDate => '选择开始日期';
+
+  @override
+  String get onboardSelectEndDate => '选择结束日期';
+
+  @override
+  String get onboardDatesHint => '可随时在「行程」标签页中修改。';
+
+  @override
+  String get onboardStepBudgetTitle => '轻松规划';
+
+  @override
+  String get onboardStepBudgetSubtitle => '这次旅行适合的预算是？';
 
   @override
   String get onboardBudget => '旅行预算（USD）';

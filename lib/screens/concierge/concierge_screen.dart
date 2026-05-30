@@ -36,6 +36,7 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
   List<String> _stylePrefs = [];
   bool _isThinking = false;
   bool _voiceListening = false;
+  bool _voiceFinishing = false;
   String _voicePartial = '';
   final _voice = ConciergeVoiceService.instance;
 
@@ -48,7 +49,7 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
 
   @override
   void dispose() {
-    unawaited(_voice.cancelListening());
+    unawaited(_cancelVoiceInput());
     unawaited(_voice.stopSpeaking());
     _controller.dispose();
     _scrollController.dispose();
@@ -158,34 +159,56 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
   }
 
   Future<void> _finishVoiceInput() async {
-    if (!_voiceListening) return;
+    if (!_voiceListening || _voiceFinishing) return;
+    _voiceFinishing = true;
     final heard = _voicePartial.trim();
-    final text = (await _voice.stopListeningAndTakeResult()) ?? heard;
-    if (!mounted) return;
-    setState(() {
-      _voiceListening = false;
-      _voicePartial = '';
-    });
-    if (text.trim().isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(AppLocalizations.of(context).conciergeVoiceNoSpeech),
-          behavior: SnackBarBehavior.floating,
-        ),
-      );
-      return;
+    try {
+      final text =
+          (await _voice.stopListeningAndTakeResult(fallback: heard)) ?? heard;
+      if (!mounted) return;
+      setState(() {
+        _voiceListening = false;
+        _voicePartial = '';
+      });
+      if (text.trim().isEmpty) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(AppLocalizations.of(context).conciergeVoiceNoSpeech),
+            behavior: SnackBarBehavior.floating,
+          ),
+        );
+        return;
+      }
+      await _send(text);
+    } finally {
+      _voiceFinishing = false;
     }
-    await _send(text);
   }
 
   Future<void> _cancelVoiceInput() async {
+    if (!_voiceListening || _voiceFinishing) return;
+    _voiceFinishing = true;
+    try {
+      await _voice.cancelListening();
+      if (!mounted) return;
+      setState(() {
+        _voiceListening = false;
+        _voicePartial = '';
+      });
+    } finally {
+      _voiceFinishing = false;
+    }
+  }
+
+  void _onVoicePointerDown(AppLocalizations l) {
+    if (_isThinking || _voiceListening || _voiceFinishing) return;
+    _startVoiceInput(l);
+  }
+
+  void _onVoicePointerRelease() {
     if (!_voiceListening) return;
-    await _voice.cancelListening();
-    if (!mounted) return;
-    setState(() {
-      _voiceListening = false;
-      _voicePartial = '';
-    });
+    // iOS often fires cancel instead of up; always submit on release.
+    unawaited(_finishVoiceInput());
   }
 
   Future<void> _send(String text) async {
@@ -424,12 +447,10 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
               children: [
                 Expanded(
                   child: Listener(
-                    onPointerDown: (_) {
-                      if (_isThinking || _voiceListening) return;
-                      _startVoiceInput(l);
-                    },
-                    onPointerUp: (_) => _finishVoiceInput(),
-                    onPointerCancel: (_) => _cancelVoiceInput(),
+                    behavior: HitTestBehavior.opaque,
+                    onPointerDown: (_) => _onVoicePointerDown(l),
+                    onPointerUp: (_) => _onVoicePointerRelease(),
+                    onPointerCancel: (_) => _onVoicePointerRelease(),
                     child: AnimatedContainer(
                       duration: const Duration(milliseconds: 180),
                       padding: const EdgeInsets.symmetric(vertical: 10),

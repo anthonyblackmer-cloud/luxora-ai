@@ -1,4 +1,5 @@
 import 'package:luxora_ai/models/trip_profile.dart';
+import 'package:luxora_ai/util/trip_date_format.dart';
 
 /// Saved trip collections — rich status for a living dashboard.
 class SavedTripSummary {
@@ -10,6 +11,8 @@ class SavedTripSummary {
     required this.moodTags,
     required this.timelineStatus,
     this.cityId = 'orlando',
+    this.startDate = '',
+    this.endDate = '',
     this.routeOptimized = false,
     this.weatherWindow,
     this.nextExperience,
@@ -26,6 +29,11 @@ class SavedTripSummary {
   final List<String> moodTags;
   final String timelineStatus;
   final String cityId;
+
+  /// ISO `yyyy-MM-dd` — used for editing and dedupe.
+  final String startDate;
+  final String endDate;
+
   final bool routeOptimized;
   final String? weatherWindow;
   final String? nextExperience;
@@ -50,20 +58,84 @@ class SavedTripSummary {
   /// True when this trip belongs to the currently active city pack.
   bool matchesActiveCity(String activeCityId) => cityId == activeCityId;
 
+  /// Stable key for preventing duplicate cards (same trip, new timestamp id).
+  String get dedupeKey => userCreated
+      ? '$cityId|$title|$startDate|$endDate'
+      : id;
+
+  /// Stable storage id for a trip built from onboarding [TripProfile].
+  static String idForProfile(TripProfile profile) {
+    String slug(String raw) =>
+        raw.trim().toLowerCase().replaceAll(RegExp(r'[^a-z0-9]+'), '-');
+    final dest = slug(
+      profile.destination.trim().isEmpty ? 'florida' : profile.destination,
+    );
+    final start = slug(profile.startDate);
+    final end = slug(profile.endDate);
+    return 'trip-${profile.cityId}-$dest-$start-$end';
+  }
+
+  SavedTripSummary copyWith({
+    String? id,
+    String? title,
+    String? dateRange,
+    int? experienceCount,
+    List<String>? moodTags,
+    String? timelineStatus,
+    String? cityId,
+    String? startDate,
+    String? endDate,
+    bool? routeOptimized,
+    String? weatherWindow,
+    String? nextExperience,
+    String? sunsetWindow,
+    String? timelineSnapshot,
+    String? liveWeatherNote,
+    bool? userCreated,
+  }) {
+    return SavedTripSummary(
+      id: id ?? this.id,
+      title: title ?? this.title,
+      dateRange: dateRange ?? this.dateRange,
+      experienceCount: experienceCount ?? this.experienceCount,
+      moodTags: moodTags ?? this.moodTags,
+      timelineStatus: timelineStatus ?? this.timelineStatus,
+      cityId: cityId ?? this.cityId,
+      startDate: startDate ?? this.startDate,
+      endDate: endDate ?? this.endDate,
+      routeOptimized: routeOptimized ?? this.routeOptimized,
+      weatherWindow: weatherWindow ?? this.weatherWindow,
+      nextExperience: nextExperience ?? this.nextExperience,
+      sunsetWindow: sunsetWindow ?? this.sunsetWindow,
+      timelineSnapshot: timelineSnapshot ?? this.timelineSnapshot,
+      liveWeatherNote: liveWeatherNote ?? this.liveWeatherNote,
+      userCreated: userCreated ?? this.userCreated,
+    );
+  }
+
   /// Builds a fresh trip card from a completed onboarding [TripProfile].
   factory SavedTripSummary.fromProfile(
     TripProfile profile, {
-    required String id,
+    String? id,
+    String localeName = 'en',
+    required String flexibleDateLabel,
   }) {
     final destination =
         profile.destination.trim().isEmpty ? 'Florida' : profile.destination.trim();
-    final dates = [profile.startDate.trim(), profile.endDate.trim()]
-        .where((d) => d.isNotEmpty)
-        .join(' – ');
+    final start = profile.startDate.trim();
+    final end = profile.endDate.trim();
+    final dateRange = TripDateFormat.displayRange(
+      startIso: start,
+      endIso: end,
+      localeName: localeName,
+      flexibleLabel: flexibleDateLabel,
+    );
     return SavedTripSummary(
-      id: id,
+      id: id ?? idForProfile(profile),
       title: '$destination Escape',
-      dateRange: dates.isEmpty ? 'Dates flexible' : dates,
+      dateRange: dateRange,
+      startDate: start,
+      endDate: end,
       experienceCount: 0,
       moodTags: profile.moods.map(_moodLabel).toList(),
       timelineStatus: 'Building itinerary',
@@ -88,6 +160,8 @@ class SavedTripSummary {
         'id': id,
         'title': title,
         'dateRange': dateRange,
+        'startDate': startDate,
+        'endDate': endDate,
         'experienceCount': experienceCount,
         'moodTags': moodTags,
         'timelineStatus': timelineStatus,
@@ -106,6 +180,8 @@ class SavedTripSummary {
       id: json['id'] as String,
       title: json['title'] as String? ?? 'Trip',
       dateRange: json['dateRange'] as String? ?? '',
+      startDate: json['startDate'] as String? ?? '',
+      endDate: json['endDate'] as String? ?? '',
       experienceCount: json['experienceCount'] as int? ?? 0,
       moodTags: (json['moodTags'] as List<dynamic>? ?? const [])
           .map((e) => e.toString())
@@ -128,6 +204,8 @@ const savedTripSummaries = [
     id: 'orlando-golden',
     title: 'Orlando Golden Escape',
     dateRange: 'Mar 14 – Mar 18',
+    startDate: '2026-03-14',
+    endDate: '2026-03-18',
     experienceCount: 8,
     moodTags: ['Romantic', 'Sunset-ready'],
     timelineStatus: 'Timeline ready',
@@ -143,6 +221,8 @@ const savedTripSummaries = [
     id: 'florida-family',
     title: 'Florida Family Wonder',
     dateRange: 'Apr 2 – Apr 9',
+    startDate: '2026-04-02',
+    endDate: '2026-04-09',
     experienceCount: 11,
     moodTags: ['Family bonding', 'Springs'],
     timelineStatus: 'Building itinerary',

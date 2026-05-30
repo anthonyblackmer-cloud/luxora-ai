@@ -1618,5 +1618,17 @@
   "conciergeVoicePresetDeF": "Tedesca · Femminile",
   "conciergeVoicePresetDeM": "Tedesco · Maschile",
   "conciergeVoiceNoSpeech": "Non ho capito — tieni premuto, parla e rilascia.",
-  "conciergeVoicePreviewFailed": "Anteprima non riprodotta. Controlla il volume e riprova."
+  "conciergeVoicePreviewFailed": "Anteprima non riprodotta. Controlla il volume e riprova.",
+  "onboardStartDateLabel": "Data di inizio",
+  "onboardEndDateLabel": "Data di fine",
+  "onboardPickDate": "Tocca per scegliere",
+  "onboardSelectStartDate": "Scegli data di inizio",
+  "onboardSelectEndDate": "Scegli data di fine",
+  "onboardDatesHint": "Puoi modificarle in qualsiasi momento nella scheda Viaggi.",
+  "onboardStepBudgetTitle": "Pianifica con calma",
+  "onboardStepBudgetSubtitle": "Quale budget per questa fuga?",
+  "tripsEditDates": "Date del viaggio",
+  "tripsSaveDates": "Salva date",
+  "tripsDatesUpdated": "Date aggiornate",
+  "tripsDatesFlexible": "Date flessibili"
 }

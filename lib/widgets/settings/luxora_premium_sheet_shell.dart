@@ -101,12 +101,14 @@ class LuxoraPremiumSheetShell extends StatelessWidget {
     required this.child,
     this.heightFraction = 0.92,
     this.footer,
+    this.headerTrailing,
   });
 
   final String title;
   final Widget child;
   final double heightFraction;
   final Widget? footer;
+  final Widget? headerTrailing;
 
   @override
   Widget build(BuildContext context) {
@@ -183,6 +185,10 @@ class LuxoraPremiumSheetShell extends StatelessWidget {
                                   ),
                             ),
                           ),
+                          if (headerTrailing case final action?) ...[
+                            action,
+                            const SizedBox(width: 4),
+                          ],
                           LuxSheetCloseButton(
                             color: palette.scheme.onSurface,
                             background: palette.scheme.onSurface

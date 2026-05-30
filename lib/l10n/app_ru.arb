@@ -1618,5 +1618,17 @@
   "conciergeVoicePresetDeF": "Немецкий · Женский",
   "conciergeVoicePresetDeM": "Немецкий · Мужской",
   "conciergeVoiceNoSpeech": "Не расслышала — удерживайте, говорите и отпустите.",
-  "conciergeVoicePreviewFailed": "Не удалось воспроизвести. Проверьте громкость и попробуйте снова."
+  "conciergeVoicePreviewFailed": "Не удалось воспроизвести. Проверьте громкость и попробуйте снова.",
+  "onboardStartDateLabel": "Дата начала",
+  "onboardEndDateLabel": "Дата окончания",
+  "onboardPickDate": "Нажмите, чтобы выбрать",
+  "onboardSelectStartDate": "Выберите дату начала",
+  "onboardSelectEndDate": "Выберите дату окончания",
+  "onboardDatesHint": "Их можно изменить в любой момент на вкладке «Поездки».",
+  "onboardStepBudgetTitle": "Планируйте спокойно",
+  "onboardStepBudgetSubtitle": "Какой бюджет для этой поездки?",
+  "tripsEditDates": "Даты поездки",
+  "tripsSaveDates": "Сохранить даты",
+  "tripsDatesUpdated": "Даты обновлены",
+  "tripsDatesFlexible": "Гибкие даты"
 }

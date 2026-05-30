@@ -1618,5 +1618,17 @@
   "conciergeVoicePresetDeF": "जर्मन · महिला",
   "conciergeVoicePresetDeM": "जर्मन · पुरुष",
   "conciergeVoiceNoSpeech": "सुनाई नहीं दिया — दबाकर रखें, बोलें, फिर छोड़ें।",
-  "conciergeVoicePreviewFailed": "पूर्वावलोकन नहीं चला। वॉल्यूम जाँचें और फिर कोशिश करें।"
+  "conciergeVoicePreviewFailed": "पूर्वावलोकन नहीं चला। वॉल्यूम जाँचें और फिर कोशिश करें।",
+  "onboardStartDateLabel": "शुरुआत की तारीख",
+  "onboardEndDateLabel": "अंत की तारीख",
+  "onboardPickDate": "चुनने के लिए टैप करें",
+  "onboardSelectStartDate": "शुरुआत की तारीख चुनें",
+  "onboardSelectEndDate": "अंत की तारीख चुनें",
+  "onboardDatesHint": "आप इन्हें कभी भी यात्राएँ टैब से बदल सकते हैं।",
+  "onboardStepBudgetTitle": "आराम से योजना बनाएँ",
+  "onboardStepBudgetSubtitle": "इस यात्रा के लिए क्या सही लगता है?",
+  "tripsEditDates": "यात्रा की तारीखें",
+  "tripsSaveDates": "तारीखें सहेजें",
+  "tripsDatesUpdated": "तारीखें अपडेट हो गईं",
+  "tripsDatesFlexible": "लचीली तारीखें"
 }

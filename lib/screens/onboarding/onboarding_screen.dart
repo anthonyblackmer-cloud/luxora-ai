@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:luxora_ai/l10n/app_localizations.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_helpers.dart';
-import 'package:luxora_ai/data/saved_trips.dart';
 import 'package:luxora_ai/models/trip_occasion.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
 import 'package:luxora_ai/services/city_picker_actions.dart';
@@ -19,6 +18,7 @@ import 'package:luxora_ai/widgets/glass_card.dart';
 import 'package:luxora_ai/widgets/lux_background.dart';
 import 'package:luxora_ai/widgets/lux_button.dart';
 import 'package:luxora_ai/widgets/lux_slider_field.dart';
+import 'package:luxora_ai/widgets/trip_date_picker_fields.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key, this.initialCityId});
@@ -31,9 +31,10 @@ class OnboardingScreen extends StatefulWidget {
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
   int _step = 0;
+  bool _finishing = false;
   TripProfile _profile = const TripProfile();
 
-  static const _stepCount = 5;
+  static const _stepCount = 6;
   static const _budgetMinUsd = 1000;
   static const _budgetMaxUsd = 100000;
 
@@ -47,25 +48,32 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   }
 
   Future<void> _finish() async {
-    // Let the typed "trip feel" actually reshape the dials/moods that drive
-    // the Day Flow and recommendations.
-    final enriched = TripOccasionInterpreter.apply(
-      TripFeelInterpreter.enrich(_profile),
-    );
-    await TripProfileStore.instance.save(enriched);
-    await SavedTripsStore.instance.add(
-      SavedTripSummary.fromProfile(
+    if (_finishing) return;
+    _finishing = true;
+    try {
+      // Let the typed "trip feel" actually reshape the dials/moods that drive
+      // the Day Flow and recommendations.
+      final enriched = TripOccasionInterpreter.apply(
+        TripFeelInterpreter.enrich(_profile),
+      );
+      final locale = Localizations.localeOf(context).languageCode;
+      final flexibleDates = AppLocalizations.of(context).tripsDatesFlexible;
+      await TripProfileStore.instance.save(enriched);
+      await SavedTripsStore.instance.upsertFromProfile(
         enriched,
-        id: 'trip-${DateTime.now().millisecondsSinceEpoch}',
-      ),
-    );
-    if (!mounted) return;
+        localeName: locale,
+        flexibleDateLabel: flexibleDates,
+      );
+      if (!mounted) return;
 
-    await PaywallService.talkToLuxora(
-      context,
-      cityId: enriched.cityId,
-      fallbackRoute: '/discover',
-    );
+      await PaywallService.talkToLuxora(
+        context,
+        cityId: enriched.cityId,
+        fallbackRoute: '/discover',
+      );
+    } finally {
+      _finishing = false;
+    }
   }
 
   void _next() {
@@ -173,6 +181,22 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           l.onboardStep2Title,
           l.onboardStep2Subtitle,
           [
+            TripDatePickerFields(
+              startIso: _profile.startDate,
+              endIso: _profile.endDate,
+              onChanged: (start, end) => setState(
+                () => _profile = _profile.copyWith(
+                  startDate: start,
+                  endDate: end,
+                ),
+              ),
+            ),
+          ],
+        ),
+      2 => _stepCard(
+          l.onboardStepBudgetTitle,
+          l.onboardStepBudgetSubtitle,
+          [
             LuxSliderField(
               label: l.onboardBudget,
               value: _profile.budgetUsd.toDouble(),
@@ -189,7 +213,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             ),
           ],
         ),
-      2 => _stepCard(
+      3 => _stepCard(
           l.onboardStep3Title,
           l.onboardStep3Subtitle,
           [
@@ -207,7 +231,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             ),
           ],
         ),
-      3 => _stepCard(
+      4 => _stepCard(
           l.onboardStep4Title,
           l.onboardStep4Subtitle,
           [

@@ -1212,6 +1212,18 @@ class AppLocalizationsJa extends AppLocalizations {
   String get tripsDeleted => '旅行が削除されました';
 
   @override
+  String get tripsEditDates => '旅行の日程';
+
+  @override
+  String get tripsSaveDates => '日程を保存';
+
+  @override
+  String get tripsDatesUpdated => '日程を更新しました';
+
+  @override
+  String get tripsDatesFlexible => '日程は未定';
+
+  @override
   String get tripsLiveWeather => 'ライブ天気';
 
   @override
@@ -1624,6 +1636,30 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get onboardStep2Subtitle => '逃亡はいつ始まりますか？';
+
+  @override
+  String get onboardStartDateLabel => '開始日';
+
+  @override
+  String get onboardEndDateLabel => '終了日';
+
+  @override
+  String get onboardPickDate => 'タップして選択';
+
+  @override
+  String get onboardSelectStartDate => '開始日を選択';
+
+  @override
+  String get onboardSelectEndDate => '終了日を選択';
+
+  @override
+  String get onboardDatesHint => '旅行タブからいつでも変更できます。';
+
+  @override
+  String get onboardStepBudgetTitle => '無理のない計画';
+
+  @override
+  String get onboardStepBudgetSubtitle => 'この旅に合う予算は？';
 
   @override
   String get onboardBudget => '旅行予算 (USD)';

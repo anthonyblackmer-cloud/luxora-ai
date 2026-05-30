@@ -1618,5 +1618,17 @@
   "conciergeVoicePresetDeF": "Alman · Kadın",
   "conciergeVoicePresetDeM": "Alman · Erkek",
   "conciergeVoiceNoSpeech": "Duymadım — basılı tut, konuş, bırak.",
-  "conciergeVoicePreviewFailed": "Önizleme oynatılamadı. Sesi kontrol edip tekrar deneyin."
+  "conciergeVoicePreviewFailed": "Önizleme oynatılamadı. Sesi kontrol edip tekrar deneyin.",
+  "onboardStartDateLabel": "Başlangıç tarihi",
+  "onboardEndDateLabel": "Bitiş tarihi",
+  "onboardPickDate": "Seçmek için dokunun",
+  "onboardSelectStartDate": "Başlangıç tarihi seçin",
+  "onboardSelectEndDate": "Bitiş tarihi seçin",
+  "onboardDatesHint": "Geziler sekmesinden istediğiniz zaman değiştirebilirsiniz.",
+  "onboardStepBudgetTitle": "Rahat planlayın",
+  "onboardStepBudgetSubtitle": "Bu kaçamak için ne uygun?",
+  "tripsEditDates": "Gezi tarihleri",
+  "tripsSaveDates": "Tarihleri kaydet",
+  "tripsDatesUpdated": "Tarihler güncellendi",
+  "tripsDatesFlexible": "Esnek tarihler"
 }

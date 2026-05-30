@@ -2271,6 +2271,30 @@ abstract class AppLocalizations {
   /// **'Trip deleted'**
   String get tripsDeleted;
 
+  /// No description provided for @tripsEditDates.
+  ///
+  /// In en, this message translates to:
+  /// **'Trip dates'**
+  String get tripsEditDates;
+
+  /// No description provided for @tripsSaveDates.
+  ///
+  /// In en, this message translates to:
+  /// **'Save dates'**
+  String get tripsSaveDates;
+
+  /// No description provided for @tripsDatesUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Trip dates updated'**
+  String get tripsDatesUpdated;
+
+  /// No description provided for @tripsDatesFlexible.
+  ///
+  /// In en, this message translates to:
+  /// **'Dates flexible'**
+  String get tripsDatesFlexible;
+
   /// No description provided for @tripsLiveWeather.
   ///
   /// In en, this message translates to:
@@ -3044,6 +3068,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'When does your escape begin?'**
   String get onboardStep2Subtitle;
+
+  /// No description provided for @onboardStartDateLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Start date'**
+  String get onboardStartDateLabel;
+
+  /// No description provided for @onboardEndDateLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'End date'**
+  String get onboardEndDateLabel;
+
+  /// No description provided for @onboardPickDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap to choose'**
+  String get onboardPickDate;
+
+  /// No description provided for @onboardSelectStartDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose start date'**
+  String get onboardSelectStartDate;
+
+  /// No description provided for @onboardSelectEndDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose end date'**
+  String get onboardSelectEndDate;
+
+  /// No description provided for @onboardDatesHint.
+  ///
+  /// In en, this message translates to:
+  /// **'You can change these anytime from your Trips tab.'**
+  String get onboardDatesHint;
+
+  /// No description provided for @onboardStepBudgetTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Plan with ease'**
+  String get onboardStepBudgetTitle;
+
+  /// No description provided for @onboardStepBudgetSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What feels right for this escape?'**
+  String get onboardStepBudgetSubtitle;
 
   /// No description provided for @onboardBudget.
   ///

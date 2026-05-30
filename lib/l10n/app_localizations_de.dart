@@ -1250,6 +1250,18 @@ class AppLocalizationsDe extends AppLocalizations {
   String get tripsDeleted => 'Reise gelöscht';
 
   @override
+  String get tripsEditDates => 'Reisedaten';
+
+  @override
+  String get tripsSaveDates => 'Daten speichern';
+
+  @override
+  String get tripsDatesUpdated => 'Reisedaten aktualisiert';
+
+  @override
+  String get tripsDatesFlexible => 'Flexible Daten';
+
+  @override
   String get tripsLiveWeather => 'Live-Wetter';
 
   @override
@@ -1678,6 +1690,32 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get onboardStep2Subtitle => 'Wann beginnt deine Auszeit?';
+
+  @override
+  String get onboardStartDateLabel => 'Startdatum';
+
+  @override
+  String get onboardEndDateLabel => 'Enddatum';
+
+  @override
+  String get onboardPickDate => 'Tippen zum Auswählen';
+
+  @override
+  String get onboardSelectStartDate => 'Startdatum wählen';
+
+  @override
+  String get onboardSelectEndDate => 'Enddatum wählen';
+
+  @override
+  String get onboardDatesHint =>
+      'Sie können die Daten jederzeit unter Reisen ändern.';
+
+  @override
+  String get onboardStepBudgetTitle => 'Entspannt planen';
+
+  @override
+  String get onboardStepBudgetSubtitle =>
+      'Was fühlt sich für diese Reise richtig an?';
 
   @override
   String get onboardBudget => 'Reisebudget (USD)';

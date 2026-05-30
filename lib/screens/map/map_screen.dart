@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:luxora_ai/l10n/app_localizations.dart';
 import 'package:luxora_ai/l10n/catalog_localizer.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_helpers.dart';
 import 'package:luxora_ai/models/lux_place.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
 import 'package:luxora_ai/services/city_pack_registry.dart';
+import 'package:luxora_ai/util/day_flow_labels.dart';
 import 'package:luxora_ai/util/place_distance.dart';
+import 'package:luxora_ai/widgets/luxora_branded_share_card.dart';
+import 'package:luxora_ai/widgets/visual_share_icon_button.dart';
 import 'package:luxora_ai/services/crowd_prediction_service.dart';
 import 'package:luxora_ai/services/drive_friction_service.dart';
 import 'package:luxora_ai/widgets/travel_stop_intel_card.dart';
@@ -456,6 +458,32 @@ class _PlanMyDay extends StatelessWidget {
                   ),
                 ),
               ),
+              if (hasFlow)
+                VisualShareIconButton(
+                  subject: l.mapPlanDayTitle,
+                  fileName: 'luxora_day_plan.png',
+                  color: LuxColors.gold,
+                  background: LuxColors.gold.withValues(alpha: 0.12),
+                  cardBuilder: (ctx) {
+                    final shareL = ctx.l10n;
+                    final chips = [
+                      for (final e in flow.emphases) dayFlowVibeLabel(shareL, e),
+                    ];
+                    final subtitle = l.mapPlanDaySummary(
+                      flow.stopCount,
+                      flow.milesLabel,
+                      flow.driveTimeLabel,
+                    );
+                    return LuxoraBrandedShareCard(
+                      title: l.mapPlanDayTitle,
+                      subtitle: flow.homeBase == null
+                          ? subtitle
+                          : '$subtitle · ${l.mapPlanDayHomeBase(catalogText(ctx, flow.homeBase!.title))}',
+                      chips: chips,
+                      lines: dayFlowShareLines(ctx, flow),
+                    );
+                  },
+                ),
             ],
           ),
           const SizedBox(height: 8),
@@ -498,7 +526,7 @@ class _PlanMyDay extends StatelessWidget {
                         ),
                       ),
                       child: Text(
-                        _vibeLabel(l, e),
+                        dayFlowVibeLabel(l, e),
                         style: const TextStyle(
                           fontSize: 11,
                           fontWeight: FontWeight.w700,
@@ -667,7 +695,7 @@ class _DayFlowRow extends StatelessWidget {
                     ),
                   ),
                   child: Icon(
-                    _phaseIcon(block.phase),
+                    dayFlowPhaseIcon(block.phase),
                     size: 15,
                     color: LuxColors.gold,
                   ),
@@ -689,7 +717,7 @@ class _DayFlowRow extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      _phaseLabel(l, block.phase),
+                      dayFlowPhaseLabel(l, block.phase),
                       style: TextStyle(
                         fontSize: 10,
                         fontWeight: FontWeight.w800,
@@ -708,7 +736,7 @@ class _DayFlowRow extends StatelessWidget {
                     ),
                     const SizedBox(height: 2),
                     Text(
-                      _reasonLabel(l, block.reason),
+                      dayFlowReasonLabel(l, block.reason),
                       style: const TextStyle(
                         fontSize: 12,
                         height: 1.3,
@@ -746,41 +774,3 @@ class _DayFlowRow extends StatelessWidget {
     );
   }
 }
-
-IconData _phaseIcon(DayPhase phase) => switch (phase) {
-      DayPhase.morning => Icons.wb_twilight_rounded,
-      DayPhase.midday => Icons.wb_sunny_rounded,
-      DayPhase.afternoon => Icons.beach_access_rounded,
-      DayPhase.evening => Icons.restaurant_rounded,
-      DayPhase.night => Icons.nightlife_rounded,
-    };
-
-String _phaseLabel(AppLocalizations l, DayPhase phase) => switch (phase) {
-      DayPhase.morning => l.dayFlowMorning,
-      DayPhase.midday => l.dayFlowMidday,
-      DayPhase.afternoon => l.dayFlowAfternoon,
-      DayPhase.evening => l.dayFlowEvening,
-      DayPhase.night => l.dayFlowNight,
-    };
-
-String _reasonLabel(AppLocalizations l, DayBlockReason reason) =>
-    switch (reason) {
-      DayBlockReason.morningPool => l.dayFlowReasonMorningPool,
-      DayBlockReason.morningCalm => l.dayFlowReasonMorningCalm,
-      DayBlockReason.middayAdventure => l.dayFlowReasonMiddayAdventure,
-      DayBlockReason.middayCulture => l.dayFlowReasonMiddayCulture,
-      DayBlockReason.middayIcon => l.dayFlowReasonMiddayIcon,
-      DayBlockReason.afternoonDowntime => l.dayFlowReasonAfternoonDowntime,
-      DayBlockReason.afternoonGem => l.dayFlowReasonAfternoonGem,
-      DayBlockReason.eveningDining => l.dayFlowReasonEveningDining,
-      DayBlockReason.nightOut => l.dayFlowReasonNightOut,
-    };
-
-String _vibeLabel(AppLocalizations l, DayInterest interest) =>
-    switch (interest) {
-      DayInterest.foodie => l.dayFlowVibeFoodie,
-      DayInterest.nightlife => l.dayFlowVibeNightlife,
-      DayInterest.poolside => l.dayFlowVibePoolside,
-      DayInterest.adventure => l.dayFlowVibeAdventure,
-      DayInterest.culture => l.dayFlowVibeCulture,
-    };

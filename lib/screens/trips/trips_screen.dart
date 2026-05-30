@@ -12,6 +12,7 @@ import 'package:luxora_ai/widgets/attraction_detail_sheet.dart';
 import 'package:luxora_ai/widgets/lux_place_image.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
 import 'package:luxora_ai/widgets/lux_button.dart';
+import 'package:luxora_ai/widgets/trip_dates_editor_sheet.dart';
 import 'package:luxora_ai/widgets/visual_itinerary_share_card.dart';
 
 class TripsScreen extends StatelessWidget {
@@ -328,11 +329,29 @@ class _TripCardState extends State<_TripCard> {
                     ],
                   ),
                   const SizedBox(height: 6),
-                  Text(
-                    catalogText(context, trip.dateRange),
-                    style: const TextStyle(
-                      fontSize: 12,
-                      color: LuxColors.stone500,
+                  InkWell(
+                    onTap: () => TripDatesEditorSheet.show(context, trip),
+                    borderRadius: BorderRadius.circular(8),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 2),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Text(
+                              catalogText(context, trip.dateRange),
+                              style: const TextStyle(
+                                fontSize: 12,
+                                color: LuxColors.stone500,
+                              ),
+                            ),
+                          ),
+                          Icon(
+                            Icons.edit_calendar_rounded,
+                            size: 16,
+                            color: LuxColors.gold.withValues(alpha: 0.85),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   const SizedBox(height: 12),

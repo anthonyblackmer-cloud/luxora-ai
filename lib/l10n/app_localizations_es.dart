@@ -1254,6 +1254,18 @@ class AppLocalizationsEs extends AppLocalizations {
   String get tripsDeleted => 'Viaje eliminado';
 
   @override
+  String get tripsEditDates => 'Fechas del viaje';
+
+  @override
+  String get tripsSaveDates => 'Guardar fechas';
+
+  @override
+  String get tripsDatesUpdated => 'Fechas actualizadas';
+
+  @override
+  String get tripsDatesFlexible => 'Fechas flexibles';
+
+  @override
   String get tripsLiveWeather => 'Clima en vivo';
 
   @override
@@ -1685,6 +1697,31 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get onboardStep2Subtitle => '¿Cuándo empieza tu escape?';
+
+  @override
+  String get onboardStartDateLabel => 'Fecha de inicio';
+
+  @override
+  String get onboardEndDateLabel => 'Fecha de fin';
+
+  @override
+  String get onboardPickDate => 'Toca para elegir';
+
+  @override
+  String get onboardSelectStartDate => 'Elegir fecha de inicio';
+
+  @override
+  String get onboardSelectEndDate => 'Elegir fecha de fin';
+
+  @override
+  String get onboardDatesHint =>
+      'Puedes cambiarlas cuando quieras en la pestaña Viajes.';
+
+  @override
+  String get onboardStepBudgetTitle => 'Planifica con calma';
+
+  @override
+  String get onboardStepBudgetSubtitle => '¿Qué encaja con esta escapada?';
 
   @override
   String get onboardBudget => 'Presupuesto del viaje (USD)';

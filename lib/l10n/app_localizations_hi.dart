@@ -1246,6 +1246,18 @@ class AppLocalizationsHi extends AppLocalizations {
   String get tripsDeleted => 'यात्रा हटा दी गई';
 
   @override
+  String get tripsEditDates => 'यात्रा की तारीखें';
+
+  @override
+  String get tripsSaveDates => 'तारीखें सहेजें';
+
+  @override
+  String get tripsDatesUpdated => 'तारीखें अपडेट हो गईं';
+
+  @override
+  String get tripsDatesFlexible => 'लचीली तारीखें';
+
+  @override
   String get tripsLiveWeather => 'लाइव मौसम';
 
   @override
@@ -1671,6 +1683,31 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get onboardStep2Subtitle => 'आपका पलायन कब शुरू होता है?';
+
+  @override
+  String get onboardStartDateLabel => 'शुरुआत की तारीख';
+
+  @override
+  String get onboardEndDateLabel => 'अंत की तारीख';
+
+  @override
+  String get onboardPickDate => 'चुनने के लिए टैप करें';
+
+  @override
+  String get onboardSelectStartDate => 'शुरुआत की तारीख चुनें';
+
+  @override
+  String get onboardSelectEndDate => 'अंत की तारीख चुनें';
+
+  @override
+  String get onboardDatesHint =>
+      'आप इन्हें कभी भी यात्राएँ टैब से बदल सकते हैं।';
+
+  @override
+  String get onboardStepBudgetTitle => 'आराम से योजना बनाएँ';
+
+  @override
+  String get onboardStepBudgetSubtitle => 'इस यात्रा के लिए क्या सही लगता है?';
 
   @override
   String get onboardBudget => 'यात्रा बजट (USD)';

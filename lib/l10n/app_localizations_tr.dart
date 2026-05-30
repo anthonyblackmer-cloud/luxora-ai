@@ -1248,6 +1248,18 @@ class AppLocalizationsTr extends AppLocalizations {
   String get tripsDeleted => 'Gezi silindi';
 
   @override
+  String get tripsEditDates => 'Gezi tarihleri';
+
+  @override
+  String get tripsSaveDates => 'Tarihleri kaydet';
+
+  @override
+  String get tripsDatesUpdated => 'Tarihler güncellendi';
+
+  @override
+  String get tripsDatesFlexible => 'Esnek tarihler';
+
+  @override
   String get tripsLiveWeather => 'Canlı hava durumu';
 
   @override
@@ -1675,6 +1687,31 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get onboardStep2Subtitle => 'Kaçışınız ne zaman başlıyor?';
+
+  @override
+  String get onboardStartDateLabel => 'Başlangıç tarihi';
+
+  @override
+  String get onboardEndDateLabel => 'Bitiş tarihi';
+
+  @override
+  String get onboardPickDate => 'Seçmek için dokunun';
+
+  @override
+  String get onboardSelectStartDate => 'Başlangıç tarihi seçin';
+
+  @override
+  String get onboardSelectEndDate => 'Bitiş tarihi seçin';
+
+  @override
+  String get onboardDatesHint =>
+      'Geziler sekmesinden istediğiniz zaman değiştirebilirsiniz.';
+
+  @override
+  String get onboardStepBudgetTitle => 'Rahat planlayın';
+
+  @override
+  String get onboardStepBudgetSubtitle => 'Bu kaçamak için ne uygun?';
 
   @override
   String get onboardBudget => 'Seyahat bütçesi (USD)';

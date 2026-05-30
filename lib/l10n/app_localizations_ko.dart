@@ -1214,6 +1214,18 @@ class AppLocalizationsKo extends AppLocalizations {
   String get tripsDeleted => '여행이 삭제되었습니다.';
 
   @override
+  String get tripsEditDates => '여행 날짜';
+
+  @override
+  String get tripsSaveDates => '날짜 저장';
+
+  @override
+  String get tripsDatesUpdated => '날짜가 업데이트되었습니다';
+
+  @override
+  String get tripsDatesFlexible => '날짜 미정';
+
+  @override
   String get tripsLiveWeather => '실시간 날씨';
 
   @override
@@ -1625,6 +1637,30 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get onboardStep2Subtitle => '탈출은 언제 시작되나요?';
+
+  @override
+  String get onboardStartDateLabel => '출발일';
+
+  @override
+  String get onboardEndDateLabel => '귀국일';
+
+  @override
+  String get onboardPickDate => '탭하여 선택';
+
+  @override
+  String get onboardSelectStartDate => '출발일 선택';
+
+  @override
+  String get onboardSelectEndDate => '귀국일 선택';
+
+  @override
+  String get onboardDatesHint => '여행 탭에서 언제든 변경할 수 있습니다.';
+
+  @override
+  String get onboardStepBudgetTitle => '편안하게 계획';
+
+  @override
+  String get onboardStepBudgetSubtitle => '이 여행에 맞는 예산은?';
 
   @override
   String get onboardBudget => '여행 예산(USD)';

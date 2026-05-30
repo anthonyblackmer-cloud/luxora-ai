@@ -1254,6 +1254,18 @@ class AppLocalizationsRu extends AppLocalizations {
   String get tripsDeleted => 'Поездка удалена';
 
   @override
+  String get tripsEditDates => 'Даты поездки';
+
+  @override
+  String get tripsSaveDates => 'Сохранить даты';
+
+  @override
+  String get tripsDatesUpdated => 'Даты обновлены';
+
+  @override
+  String get tripsDatesFlexible => 'Гибкие даты';
+
+  @override
   String get tripsLiveWeather => 'Живая погода';
 
   @override
@@ -1680,6 +1692,31 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get onboardStep2Subtitle => 'Когда начнется твой побег?';
+
+  @override
+  String get onboardStartDateLabel => 'Дата начала';
+
+  @override
+  String get onboardEndDateLabel => 'Дата окончания';
+
+  @override
+  String get onboardPickDate => 'Нажмите, чтобы выбрать';
+
+  @override
+  String get onboardSelectStartDate => 'Выберите дату начала';
+
+  @override
+  String get onboardSelectEndDate => 'Выберите дату окончания';
+
+  @override
+  String get onboardDatesHint =>
+      'Их можно изменить в любой момент на вкладке «Поездки».';
+
+  @override
+  String get onboardStepBudgetTitle => 'Планируйте спокойно';
+
+  @override
+  String get onboardStepBudgetSubtitle => 'Какой бюджет для этой поездки?';
 
   @override
   String get onboardBudget => 'Бюджет поездки (долл. США)';
