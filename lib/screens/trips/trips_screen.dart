@@ -274,7 +274,7 @@ class _TripCardState extends State<_TripCard> {
             borderRadius: BorderRadius.circular(16),
             onTap: () => setState(() => _expanded = !_expanded),
             child: Padding(
-              padding: const EdgeInsets.all(16),
+              padding: const EdgeInsets.fromLTRB(16, 16, 8, 16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -282,24 +282,46 @@ class _TripCardState extends State<_TripCard> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Expanded(
-                        child: Text(
-                          catalogText(context, trip.title),
-                          style: const TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w700,
-                          ),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              child: Text(
+                                catalogText(context, trip.title),
+                                style: const TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                            ),
+                            _StatusChip(
+                              label: trip.timelineStatus,
+                              highlight: trip.routeOptimized,
+                            ),
+                            const SizedBox(width: 4),
+                            Icon(
+                              _expanded
+                                  ? Icons.keyboard_arrow_up_rounded
+                                  : Icons.keyboard_arrow_down_rounded,
+                              color: LuxColors.stone500,
+                            ),
+                          ],
                         ),
                       ),
-                      _StatusChip(
-                        label: trip.timelineStatus,
-                        highlight: trip.routeOptimized,
-                      ),
-                      const SizedBox(width: 4),
-                      Icon(
-                        _expanded
-                            ? Icons.keyboard_arrow_up_rounded
-                            : Icons.keyboard_arrow_down_rounded,
-                        color: LuxColors.stone500,
+                      IconButton(
+                        onPressed: widget.onDelete,
+                        tooltip: l.commonDelete,
+                        visualDensity: VisualDensity.compact,
+                        padding: EdgeInsets.zero,
+                        constraints: const BoxConstraints(
+                          minWidth: 36,
+                          minHeight: 36,
+                        ),
+                        icon: Icon(
+                          Icons.delete_outline_rounded,
+                          size: 22,
+                          color: LuxColors.stone400.withValues(alpha: 0.95),
+                        ),
                       ),
                     ],
                   ),
@@ -413,7 +435,9 @@ class _TripCardState extends State<_TripCard> {
                     ],
                   ),
                   const SizedBox(height: 12),
-                  Row(
+                  Wrap(
+                    spacing: 4,
+                    runSpacing: 4,
                     children: [
                       TextButton.icon(
                         onPressed: () => context.push('/trip-story', extra: trip),
@@ -431,21 +455,12 @@ class _TripCardState extends State<_TripCard> {
                           foregroundColor: LuxColors.gold,
                         ),
                       ),
-                      const Spacer(),
                       TextButton.icon(
                         onPressed: _shareTrip,
                         icon: const Icon(Icons.ios_share_rounded, size: 18),
                         label: Text(l.tripsShare),
                         style: TextButton.styleFrom(
                           foregroundColor: LuxColors.gold,
-                        ),
-                      ),
-                      TextButton.icon(
-                        onPressed: widget.onDelete,
-                        icon: const Icon(Icons.delete_outline_rounded, size: 18),
-                        label: Text(l.commonDelete),
-                        style: TextButton.styleFrom(
-                          foregroundColor: LuxColors.stone400,
                         ),
                       ),
                     ],
