@@ -923,6 +923,12 @@ class AppLocalizationsTr extends AppLocalizations {
   String get occasionFamily => 'Çocuklu aile';
 
   @override
+  String get occasionDisneyAdventure => 'Disney macerası';
+
+  @override
+  String get occasionUniversalAdventure => 'Universal macerası';
+
+  @override
   String get localSecretTitle => 'Yerel sır';
 
   @override
@@ -1043,6 +1049,9 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get conciergeVoiceListening => 'Luxora dinliyor…';
+
+  @override
+  String get conciergeVoiceSpeaking => 'Luxora konuşuyor…';
 
   @override
   String get conciergeVoiceRelease => 'Göndermek için bırakın';

@@ -12,6 +12,7 @@ import 'package:luxora_ai/services/paywall_personalization.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/services/orlando_addon_service.dart';
 import 'package:luxora_ai/services/trip_profile_store.dart';
+import 'package:luxora_ai/util/trip_occasion_catalog.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 
 /// Entry points for showing and completing city-pack unlock flows.
@@ -190,6 +191,7 @@ abstract final class PaywallService {
     await CityPackEntitlementStore.instance
         .unlockAddon(addonId);
     await CityPackSync.switchCity(OrlandoAddonCatalog.parentCityId);
+    await TripOccasionCatalog.applyThemeParksUnlockToActiveProfile();
     _orlandoAddonPromptShown = true;
   }
 

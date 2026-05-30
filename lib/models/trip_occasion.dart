@@ -6,6 +6,8 @@ enum TripOccasion {
   coupleDateNight,
   coupleProposal,
   familyWithKids,
+  disneyAdventure,
+  universalAdventure,
 }
 
 extension TripOccasionX on TripOccasion {
@@ -16,4 +18,8 @@ extension TripOccasionX on TripOccasion {
       this == TripOccasion.coupleProposal;
 
   bool get isFamily => this == TripOccasion.familyWithKids;
+
+  bool get isThemePark =>
+      this == TripOccasion.disneyAdventure ||
+      this == TripOccasion.universalAdventure;
 }

@@ -41,6 +41,7 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
   bool _voiceReleaseQueued = false;
   bool _voiceFinishing = false;
   bool _voiceProcessing = false;
+  bool _luxoraSpeaking = false;
   String _voicePartial = '';
   final _voice = ConciergeVoiceService.instance;
 
@@ -130,56 +131,81 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
     }
   }
 
+  void _resetVoiceUi() {
+    _voiceListening = false;
+    _voiceStarting = false;
+    _voiceFinishing = false;
+    _voiceProcessing = false;
+    _voiceReleaseQueued = false;
+    _voicePartial = '';
+  }
+
   Future<void> _speakLuxora(String text) async {
     if (kIsWeb || !mounted) return;
     final locale = Localizations.localeOf(context).languageCode;
-    await _voice.speak(text, languageCode: locale);
+    if (mounted) setState(() => _luxoraSpeaking = true);
+    await _voice.speak(
+      text,
+      languageCode: locale,
+      onComplete: () {
+        if (mounted) setState(() => _luxoraSpeaking = false);
+      },
+    );
+  }
+
+  Future<void> _interruptLuxoraSpeech() async {
+    await _voice.stopSpeaking();
+    if (mounted) setState(() => _luxoraSpeaking = false);
   }
 
   Future<void> _startVoiceInput(AppLocalizations l) async {
-    if (_isThinking ||
-        _voiceListening ||
-        _voiceStarting ||
-        _voiceFinishing) {
-      return;
+    if (_isThinking || _voiceFinishing) return;
+    if (_luxoraSpeaking) {
+      await _interruptLuxoraSpeech();
     }
+    if (!mounted) return;
+    if (_voiceListening || _voiceStarting || _voiceProcessing) return;
+
+    final locale = Localizations.localeOf(context).languageCode;
+    final messenger = ScaffoldMessenger.of(context);
     _voiceStarting = true;
     _voiceReleaseQueued = false;
-    setState(() {
-      _voiceListening = true;
-      _voicePartial = '';
-    });
-    final locale = Localizations.localeOf(context).languageCode;
-    final started = await _voice.startListening(
-      languageCode: locale,
-      onPartial: (partial) {
-        if (!mounted) return;
-        setState(() => _voicePartial = partial);
-      },
-      onSessionEnded: () {
-        if (!mounted || _voiceFinishing) return;
-        if (_voiceListening || _voicePartial.trim().isNotEmpty) {
-          unawaited(_finishVoiceInput());
-        }
-      },
-    );
-    _voiceStarting = false;
-    if (!mounted) return;
-    if (!started) {
+    if (mounted) {
       setState(() {
-        _voiceListening = false;
+        _voiceListening = true;
         _voicePartial = '';
       });
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(l.conciergeVoiceSoon),
-          behavior: SnackBarBehavior.floating,
-        ),
-      );
-      return;
     }
-    if (_voiceReleaseQueued) {
-      unawaited(_finishVoiceInput());
+    try {
+      final started = await _voice.startListening(
+        languageCode: locale,
+        onPartial: (partial) {
+          if (!mounted) return;
+          setState(() => _voicePartial = partial);
+        },
+        onSessionEnded: () {
+          if (!mounted || _voiceFinishing || !_voiceListening) return;
+          if (_voicePartial.trim().isNotEmpty) {
+            unawaited(_finishVoiceInput());
+          }
+        },
+      );
+      if (!mounted) return;
+      if (!started) {
+        setState(_resetVoiceUi);
+        messenger.showSnackBar(
+          SnackBar(
+            content: Text(l.conciergeVoiceSoon),
+            behavior: SnackBarBehavior.floating,
+          ),
+        );
+        return;
+      }
+      if (_voiceReleaseQueued) {
+        unawaited(_finishVoiceInput());
+      }
+    } finally {
+      _voiceStarting = false;
     }
   }
 
@@ -207,6 +233,7 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
         _voicePartial = '';
       });
       if (text.trim().isEmpty) {
+        if (mounted) setState(_resetVoiceUi);
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(AppLocalizations.of(context).conciergeVoiceNoSpeech),
@@ -219,9 +246,7 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
       await _send(text, fromVoice: true);
     } finally {
       _voiceFinishing = false;
-      if (mounted && _voiceProcessing) {
-        setState(() => _voiceProcessing = false);
-      }
+      if (mounted) setState(_resetVoiceUi);
     }
   }
 
@@ -231,24 +256,22 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
     try {
       await _voice.cancelListening();
       if (!mounted) return;
-      setState(() {
-        _voiceListening = false;
-        _voicePartial = '';
-      });
+      setState(_resetVoiceUi);
     } finally {
       _voiceFinishing = false;
     }
   }
 
   void _onVoicePointerDown(AppLocalizations l) {
-    if (_isThinking ||
-        _voiceListening ||
-        _voiceStarting ||
-        _voiceFinishing ||
-        _voiceProcessing) {
+    if (_isThinking || _voiceFinishing) return;
+    if (_voiceListening || _voiceStarting || _voiceProcessing) return;
+    if (_luxoraSpeaking) {
+      unawaited(_interruptLuxoraSpeech().then((_) {
+        if (mounted) _startVoiceInput(l);
+      }));
       return;
     }
-    _startVoiceInput(l);
+    unawaited(_startVoiceInput(l));
   }
 
   void _onVoicePointerRelease() {
@@ -311,7 +334,7 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
         _isThinking = false;
         _messages.add((user: false, text: reply));
       });
-      unawaited(_speakLuxora(reply));
+      if (fromVoice) unawaited(_speakLuxora(reply));
     } on ConciergeAiException catch (e) {
       if (!mounted) return;
       final msg = conciergeAiUserMessage(l, e);
@@ -330,6 +353,10 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
         _messages.add((user: false, text: msg.chatText));
       });
       if (fromVoice) unawaited(_speakLuxora(msg.voiceText));
+    } finally {
+      if (mounted && _isThinking) {
+        setState(() => _isThinking = false);
+      }
     }
     _scrollToEnd();
   }
@@ -500,21 +527,25 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
             Row(
               children: [
                 Expanded(
-                  child: GestureDetector(
+                  child: Listener(
                     behavior: HitTestBehavior.opaque,
-                    onLongPressStart: (_) => _onVoicePointerDown(l),
-                    onLongPressEnd: (_) => _onVoicePointerRelease(),
-                    onLongPressCancel: () => _onVoicePointerRelease(),
+                    onPointerDown: (_) => _onVoicePointerDown(l),
+                    onPointerUp: (_) => _onVoicePointerRelease(),
+                    onPointerCancel: (_) => _onVoicePointerRelease(),
                     child: AnimatedContainer(
                       duration: const Duration(milliseconds: 180),
                       padding: const EdgeInsets.symmetric(vertical: 10),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
-                        color: (_voiceListening || _voiceProcessing)
+                        color: (_voiceListening ||
+                                _voiceProcessing ||
+                                _luxoraSpeaking)
                             ? t.accent.withValues(alpha: 0.12)
                             : null,
                         border: Border.all(
-                          color: (_voiceListening || _voiceProcessing)
+                          color: (_voiceListening ||
+                                  _voiceProcessing ||
+                                  _luxoraSpeaking)
                               ? t.accent.withValues(alpha: 0.55)
                               : t.accent.withValues(alpha: 0.25),
                         ),
@@ -538,7 +569,9 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
                                 Icon(
                                   _voiceListening
                                       ? Icons.graphic_eq_rounded
-                                      : Icons.mic_rounded,
+                                      : _luxoraSpeaking
+                                          ? Icons.volume_up_rounded
+                                          : Icons.mic_rounded,
                                   size: 18,
                                   color: t.accent.withValues(alpha: 0.9),
                                 ),
@@ -548,7 +581,9 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
                                     ? l.conciergeVoiceProcessing
                                     : _voiceListening
                                         ? l.conciergeVoiceListening
-                                        : l.conciergeVoiceHold,
+                                        : _luxoraSpeaking
+                                            ? l.conciergeVoiceSpeaking
+                                            : l.conciergeVoiceHold,
                                 style: TextStyle(
                                   fontSize: 13,
                                   color: t.textMuted,

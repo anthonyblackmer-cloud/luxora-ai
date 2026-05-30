@@ -3,6 +3,7 @@ import 'package:luxora_ai/data/concierge_prompts.dart';
 import 'package:luxora_ai/data/florida_experiences.dart';
 import 'package:luxora_ai/data/map_ai_capabilities.dart';
 import 'package:luxora_ai/l10n/app_localizations.dart';
+import 'package:luxora_ai/models/trip_occasion.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
 
 /// Localized concierge quick-prompt chips (AI prompts stay English).
@@ -47,6 +48,18 @@ String localizeStylePref(AppLocalizations l, String canonicalEn) =>
       'Aesthetic dining' => l.styleAestheticDining,
       'Family-easy logistics' => l.styleFamilyEasy,
       _ => canonicalEn,
+    };
+
+String localizeTripOccasion(AppLocalizations l, TripOccasion occasion) =>
+    switch (occasion) {
+      TripOccasion.general => l.occasionGeneral,
+      TripOccasion.coupleAnniversary => l.occasionAnniversary,
+      TripOccasion.coupleHoneymoon => l.occasionHoneymoon,
+      TripOccasion.coupleDateNight => l.occasionDateNight,
+      TripOccasion.coupleProposal => l.occasionProposal,
+      TripOccasion.familyWithKids => l.occasionFamily,
+      TripOccasion.disneyAdventure => l.occasionDisneyAdventure,
+      TripOccasion.universalAdventure => l.occasionUniversalAdventure,
     };
 
 List<MapAiCapability> mapAiCapabilitiesL10n(AppLocalizations l) => [

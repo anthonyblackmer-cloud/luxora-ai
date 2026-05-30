@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:luxora_ai/models/concierge/concierge_device_voice.dart';
@@ -51,14 +53,18 @@ class ConciergeVoiceService {
   bool _initialized = false;
   bool _sttAvailable = false;
   bool _listening = false;
+  bool _speaking = false;
+  int _listenGeneration = 0;
   String _lastHeard = '';
   String _lastPartial = '';
   String _lastFinal = '';
   List<_DeviceVoice> _deviceVoices = const [];
 
   VoidCallback? _onSessionEnded;
+  VoidCallback? _onSpeakComplete;
 
   bool get isListening => _listening;
+  bool get isSpeaking => _speaking;
   bool get isAvailable => _sttAvailable && !kIsWeb;
 
   /// Reloads voices from the OS — call when opening voice settings or after
@@ -114,6 +120,15 @@ class ConciergeVoiceService {
       }
       await _tts.setPitch(1.02);
       await _tts.setVolume(1.0);
+      _tts.setCompletionHandler(() {
+        _speaking = false;
+        final done = _onSpeakComplete;
+        _onSpeakComplete = null;
+        done?.call();
+        if (defaultTargetPlatform == TargetPlatform.iOS) {
+          unawaited(_prepareIosAudioAfterSpeech());
+        }
+      });
       _deviceVoices = await _loadDeviceVoices();
     }
 
@@ -137,16 +152,35 @@ class ConciergeVoiceService {
   }
 
   /// Speaks [text] with the selected Luxora voice preset. Returns false on failure.
-  Future<bool> speak(String text, {required String languageCode}) async {
+  Future<bool> speak(
+    String text, {
+    required String languageCode,
+    VoidCallback? onComplete,
+  }) async {
     final trimmed = text.trim();
     if (trimmed.isEmpty || kIsWeb) return false;
     try {
       await initialize();
+      await _endSttSession();
       await stopSpeaking();
+      await _configureIosAudioForSpeaking();
       await _applyVoice(languageCode: languageCode);
+      _onSpeakComplete = onComplete;
+      _speaking = true;
       final result = await _tts.speak(trimmed);
-      return result == 1;
+      if (result != 1) {
+        _speaking = false;
+        final done = _onSpeakComplete;
+        _onSpeakComplete = null;
+        done?.call();
+        return false;
+      }
+      return true;
     } catch (_) {
+      _speaking = false;
+      final done = _onSpeakComplete;
+      _onSpeakComplete = null;
+      done?.call();
       return false;
     }
   }
@@ -158,7 +192,57 @@ class ConciergeVoiceService {
       speak(sample, languageCode: languageCode);
 
   Future<void> stopSpeaking() async {
+    _speaking = false;
+    final done = _onSpeakComplete;
+    _onSpeakComplete = null;
     await _tts.stop();
+    done?.call();
+  }
+
+  Future<void> _prepareIosAudioAfterSpeech() async {
+    await Future<void>.delayed(const Duration(milliseconds: 180));
+    await _configureIosAudioForListening();
+  }
+
+  /// Clears any in-flight STT session so mic can be used again after TTS.
+  Future<void> _endSttSession() async {
+    _listenGeneration++;
+    _onSessionEnded = null;
+    if (_stt.isListening || _listening) {
+      try {
+        await _stt.stop().timeout(const Duration(seconds: 2));
+      } catch (_) {
+        try {
+          await _stt.cancel();
+        } catch (_) {}
+      }
+    }
+    _listening = false;
+    _resetTranscript();
+    await Future<void>.delayed(const Duration(milliseconds: 120));
+  }
+
+  Future<void> _configureIosAudioForListening() async {
+    if (kIsWeb || defaultTargetPlatform != TargetPlatform.iOS) return;
+    await _tts.setIosAudioCategory(
+      IosTextToSpeechAudioCategory.playAndRecord,
+      [
+        IosTextToSpeechAudioCategoryOptions.defaultToSpeaker,
+        IosTextToSpeechAudioCategoryOptions.allowBluetooth,
+        IosTextToSpeechAudioCategoryOptions.allowBluetoothA2DP,
+      ],
+    );
+  }
+
+  Future<void> _configureIosAudioForSpeaking() async {
+    if (kIsWeb || defaultTargetPlatform != TargetPlatform.iOS) return;
+    await _tts.setIosAudioCategory(
+      IosTextToSpeechAudioCategory.playback,
+      [
+        IosTextToSpeechAudioCategoryOptions.defaultToSpeaker,
+        IosTextToSpeechAudioCategoryOptions.allowBluetooth,
+      ],
+    );
   }
 
   Future<bool> startListening({
@@ -171,7 +255,15 @@ class ConciergeVoiceService {
     if (!_sttAvailable) return false;
 
     await stopSpeaking();
-    _onSessionEnded = onSessionEnded;
+    await _endSttSession();
+    await _configureIosAudioForListening();
+    await Future<void>.delayed(const Duration(milliseconds: 80));
+
+    final generation = _listenGeneration;
+    _onSessionEnded = () {
+      if (generation != _listenGeneration) return;
+      onSessionEnded?.call();
+    };
     final locale = await _resolveSttLocale(languageCode);
     _resetTranscript();
     _listening = true;
@@ -202,6 +294,7 @@ class ConciergeVoiceService {
     if (!started) {
       _listening = false;
       _resetTranscript();
+      _onSessionEnded = null;
     }
     return started;
   }
@@ -239,19 +332,13 @@ class ConciergeVoiceService {
       fallback: backup,
     );
     _resetTranscript();
+    _listenGeneration++;
     _onSessionEnded = null;
     return words.isEmpty ? null : words;
   }
 
   Future<void> cancelListening() async {
-    if (_stt.isListening || _listening) {
-      try {
-        await _stt.cancel();
-      } catch (_) {}
-    }
-    _listening = false;
-    _resetTranscript();
-    _onSessionEnded = null;
+    await _endSttSession();
   }
 
   void dispose() {

@@ -921,6 +921,12 @@ class AppLocalizationsHi extends AppLocalizations {
   String get occasionFamily => 'बच्चों वाला परिवार';
 
   @override
+  String get occasionDisneyAdventure => 'Disney adventure';
+
+  @override
+  String get occasionUniversalAdventure => 'Universal adventure';
+
+  @override
   String get localSecretTitle => 'स्थानीय रहस्य';
 
   @override
@@ -1041,6 +1047,9 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get conciergeVoiceListening => 'Luxora सुन रही है…';
+
+  @override
+  String get conciergeVoiceSpeaking => 'Luxora बोल रही है…';
 
   @override
   String get conciergeVoiceRelease => 'भेजने के लिए छोड़ें';

@@ -906,6 +906,12 @@ class AppLocalizationsKo extends AppLocalizations {
   String get occasionFamily => '어린이 동반 가족';
 
   @override
+  String get occasionDisneyAdventure => '디즈니 어드벤처';
+
+  @override
+  String get occasionUniversalAdventure => '유니버설 어드벤처';
+
+  @override
   String get localSecretTitle => '로컬 비밀';
 
   @override
@@ -1024,6 +1030,9 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get conciergeVoiceListening => 'Luxora가 듣고 있습니다…';
+
+  @override
+  String get conciergeVoiceSpeaking => 'Luxora가 말하고 있습니다…';
 
   @override
   String get conciergeVoiceRelease => '놓으면 전송';

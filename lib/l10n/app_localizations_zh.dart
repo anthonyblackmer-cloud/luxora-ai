@@ -897,6 +897,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String get occasionFamily => '有孩子的家庭';
 
   @override
+  String get occasionDisneyAdventure => '迪士尼冒险';
+
+  @override
+  String get occasionUniversalAdventure => '环球冒险';
+
+  @override
   String get localSecretTitle => '当地秘密';
 
   @override
@@ -1006,6 +1012,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get conciergeVoiceListening => 'Luxora 正在聆听…';
+
+  @override
+  String get conciergeVoiceSpeaking => 'Luxora 正在说话…';
 
   @override
   String get conciergeVoiceRelease => '松开发送';

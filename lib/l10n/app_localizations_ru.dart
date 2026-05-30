@@ -927,6 +927,12 @@ class AppLocalizationsRu extends AppLocalizations {
   String get occasionFamily => 'Семья с детьми';
 
   @override
+  String get occasionDisneyAdventure => 'Приключение Disney';
+
+  @override
+  String get occasionUniversalAdventure => 'Приключение Universal';
+
+  @override
   String get localSecretTitle => 'Местная тайна';
 
   @override
@@ -1047,6 +1053,9 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get conciergeVoiceListening => 'Luxora слушает…';
+
+  @override
+  String get conciergeVoiceSpeaking => 'Luxora говорит…';
 
   @override
   String get conciergeVoiceRelease => 'Отпустите, чтобы отправить';

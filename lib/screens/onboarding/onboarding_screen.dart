@@ -1,12 +1,16 @@
+import 'dart:async';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:luxora_ai/l10n/app_localizations.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_helpers.dart';
+import 'package:luxora_ai/util/trip_occasion_catalog.dart';
 import 'package:luxora_ai/models/trip_occasion.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
 import 'package:luxora_ai/services/city_picker_actions.dart';
+import 'package:luxora_ai/services/city_pack_entitlement_store.dart';
 import 'package:luxora_ai/services/paywall_service.dart';
 import 'package:luxora_ai/services/saved_trips_store.dart';
 import 'package:luxora_ai/services/trip_feel_interpreter.dart';
@@ -33,6 +37,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   int _step = 0;
   bool _finishing = false;
   TripProfile _profile = const TripProfile();
+  bool _themeParksUnlocked = false;
 
   static const _stepCount = 6;
   static const _budgetMinUsd = 1000;
@@ -45,6 +50,43 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     if (cityId != null) {
       _profile = PaywallService.profileForCity(_profile, cityId);
     }
+    unawaited(_loadEntitlements());
+    CityPackEntitlementStore.instance.addListener(_onEntitlementsChanged);
+  }
+
+  @override
+  void dispose() {
+    CityPackEntitlementStore.instance.removeListener(_onEntitlementsChanged);
+    super.dispose();
+  }
+
+  Future<void> _loadEntitlements() async {
+    await CityPackEntitlementStore.instance.load();
+    _syncThemeParkOccasions();
+  }
+
+  void _onEntitlementsChanged() {
+    _syncThemeParkOccasions();
+  }
+
+  void _syncThemeParkOccasions() {
+    if (!mounted) return;
+    final unlocked = TripOccasionCatalog.themeParksUnlocked();
+    final normalized = TripOccasionCatalog.normalizeOccasion(
+      _profile.occasion,
+      profile: _profile,
+    );
+    final newlyUnlocked = unlocked && !_themeParksUnlocked;
+    setState(() {
+      _themeParksUnlocked = unlocked;
+      if (normalized != _profile.occasion) {
+        _profile = _profile.copyWith(occasion: normalized);
+      } else if (newlyUnlocked &&
+          _profile.occasion == TripOccasion.general &&
+          TripOccasionCatalog.showsThemeParkOccasions(_profile)) {
+        _profile = _profile.copyWith(occasion: TripOccasion.disneyAdventure);
+      }
+    });
   }
 
   Future<void> _finish() async {
@@ -160,6 +202,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 onCitySelected: (cityId) {
                   setState(() {
                     _profile = PaywallService.profileForCity(_profile, cityId);
+                    _profile = _profile.copyWith(
+                      occasion: TripOccasionCatalog.normalizeOccasion(
+                        _profile.occasion,
+                        profile: _profile,
+                      ),
+                    );
                   });
                 },
               ),
@@ -332,10 +380,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               spacing: 8,
               runSpacing: 8,
               children: [
-                for (final o in TripOccasion.values)
+                for (final o in TripOccasionCatalog.visibleOccasions(_profile))
                   FilterChip(
                     selected: _profile.occasion == o,
-                    label: Text(_occasionLabel(l, o)),
+                    label: Text(localizeTripOccasion(l, o)),
                     onSelected: (_) => setState(
                       () => _profile = _profile.copyWith(occasion: o),
                     ),
@@ -431,13 +479,4 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       ),
     );
   }
-
-  String _occasionLabel(AppLocalizations l, TripOccasion o) => switch (o) {
-        TripOccasion.general => l.occasionGeneral,
-        TripOccasion.coupleAnniversary => l.occasionAnniversary,
-        TripOccasion.coupleHoneymoon => l.occasionHoneymoon,
-        TripOccasion.coupleDateNight => l.occasionDateNight,
-        TripOccasion.coupleProposal => l.occasionProposal,
-        TripOccasion.familyWithKids => l.occasionFamily,
-      };
 }

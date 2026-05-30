@@ -1695,6 +1695,18 @@ abstract class AppLocalizations {
   /// **'Family with kids'**
   String get occasionFamily;
 
+  /// No description provided for @occasionDisneyAdventure.
+  ///
+  /// In en, this message translates to:
+  /// **'Disney adventure'**
+  String get occasionDisneyAdventure;
+
+  /// No description provided for @occasionUniversalAdventure.
+  ///
+  /// In en, this message translates to:
+  /// **'Universal adventure'**
+  String get occasionUniversalAdventure;
+
   /// No description provided for @localSecretTitle.
   ///
   /// In en, this message translates to:
@@ -1892,6 +1904,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Luxora is listening…'**
   String get conciergeVoiceListening;
+
+  /// No description provided for @conciergeVoiceSpeaking.
+  ///
+  /// In en, this message translates to:
+  /// **'Luxora is speaking…'**
+  String get conciergeVoiceSpeaking;
 
   /// No description provided for @conciergeVoiceRelease.
   ///

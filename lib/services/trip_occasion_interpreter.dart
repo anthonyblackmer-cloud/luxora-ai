@@ -36,6 +36,34 @@ abstract final class TripOccasionInterpreter {
           poolsideInterest: _boost(profile.poolsideInterest, 10),
           adventureInterest: _clampLow(profile.adventureInterest, 55),
         ),
+      TripOccasion.disneyAdventure => profile.copyWith(
+          moods: _mergeMoods(
+            profile.moods,
+            profile.kids > 0
+                ? [TripMood.familyBonding, TripMood.adventurous]
+                : [TripMood.adventurous, TripMood.luxurious],
+          ),
+          adventureInterest: _boost(profile.adventureInterest, 20),
+          cultureInterest: _boost(profile.cultureInterest, 10),
+          discoveryStyle: DiscoveryStyle.iconic,
+          pace: profile.pace == PacePreference.packed
+              ? PacePreference.balanced
+              : profile.pace,
+        ),
+      TripOccasion.universalAdventure => profile.copyWith(
+          moods: _mergeMoods(
+            profile.moods,
+            profile.kids > 0
+                ? [TripMood.familyBonding, TripMood.adventurous]
+                : [TripMood.adventurous, TripMood.social],
+          ),
+          adventureInterest: _boost(profile.adventureInterest, 25),
+          nightlifeInterest: _boost(profile.nightlifeInterest, 10),
+          discoveryStyle: DiscoveryStyle.balanced,
+          pace: profile.pace == PacePreference.packed
+              ? PacePreference.balanced
+              : profile.pace,
+        ),
     };
   }
 

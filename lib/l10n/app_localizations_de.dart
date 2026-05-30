@@ -922,6 +922,12 @@ class AppLocalizationsDe extends AppLocalizations {
   String get occasionFamily => 'Familie mit Kindern';
 
   @override
+  String get occasionDisneyAdventure => 'Disney-Abenteuer';
+
+  @override
+  String get occasionUniversalAdventure => 'Universal-Abenteuer';
+
+  @override
   String get localSecretTitle => 'Lokales Geheimnis';
 
   @override
@@ -1043,6 +1049,9 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get conciergeVoiceListening => 'Luxora hört zu…';
+
+  @override
+  String get conciergeVoiceSpeaking => 'Luxora spricht…';
 
   @override
   String get conciergeVoiceRelease => 'Loslassen zum Senden';

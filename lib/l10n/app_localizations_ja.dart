@@ -907,6 +907,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String get occasionFamily => 'お子様連れのご家族';
 
   @override
+  String get occasionDisneyAdventure => 'Disneyアドベンチャー';
+
+  @override
+  String get occasionUniversalAdventure => 'Universalアドベンチャー';
+
+  @override
   String get localSecretTitle => 'ローカルシークレット';
 
   @override
@@ -1021,6 +1027,9 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get conciergeVoiceListening => 'Luxoraが聞いています…';
+
+  @override
+  String get conciergeVoiceSpeaking => 'Luxoraが話しています…';
 
   @override
   String get conciergeVoiceRelease => '離して送信';
