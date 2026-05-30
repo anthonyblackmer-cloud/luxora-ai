@@ -75,7 +75,14 @@ The system prompt instructs the model to recommend from that list and avoid inve
 
 ## Production / Codemagic
 
-Add `SUPABASE_URL` and `SUPABASE_ANON_KEY` to your Codemagic `dart_defines.json` generation (alongside Unsplash). Keep `OPENAI_API_KEY` **only** in Supabase secrets.
+Add to Codemagic **Secrets** (in both `appstore_credentials` for iOS and `google_play` for Android):
+
+- `SUPABASE_URL` — e.g. `https://YOUR_PROJECT.supabase.co`
+- `SUPABASE_ANON_KEY` — anon or `sb_publishable_` key from Supabase dashboard
+
+`codemagic.yaml` already passes these via `dart_defines.json` along with Unsplash. It sets `SUPABASE_CONCIERGE_FUNCTION` to `bright-processor` (change in yaml if you redeploy under a different slug).
+
+Keep `OPENAI_API_KEY` **only** in Supabase secrets — never in Codemagic or the app binary.
 
 ## Troubleshooting
 

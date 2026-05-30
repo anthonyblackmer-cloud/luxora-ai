@@ -66,7 +66,17 @@ git push -u origin main
 
 ## Codemagic
 
-`codemagic.yaml` defines `luxora-ios-workflow` and `luxora-android-workflow`. In Codemagic: **Add application** → paste the repo URL above → enable YAML → add `UNSPLASH_ACCESS_KEY` to your existing `appstore_credentials` group → configure signing for `com.luxora.luxoraAi` / `com.luxora.luxora_ai`.
+`codemagic.yaml` defines `luxora-ios-workflow` and `luxora-android-workflow`. In Codemagic: **Add application** → paste the repo URL above → enable YAML → configure signing for `com.luxora.luxoraAi` / `com.luxora.luxora_ai`.
+
+Add these **Secrets** to `appstore_credentials` (iOS) and `google_play` (Android):
+
+| Secret | Purpose |
+|--------|---------|
+| `UNSPLASH_ACCESS_KEY` | Hero / curated photos |
+| `SUPABASE_URL` | Live Concierge backend |
+| `SUPABASE_ANON_KEY` | Supabase anon or publishable key |
+
+Keep `OPENAI_API_KEY` **only** in Supabase Edge Function secrets — not in Codemagic.
 
 ## Project layout
 
