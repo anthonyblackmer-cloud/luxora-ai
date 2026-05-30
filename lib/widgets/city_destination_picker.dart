@@ -23,6 +23,8 @@ class CityDestinationPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l = context.l10n;
+    final tokens = luxThemeTokensOf(context);
+    final scheme = Theme.of(context).colorScheme;
     final offers = PaywallCatalog.selectableOffers;
     final value = PaywallCatalog.isSupported(selectedCityId)
         ? selectedCityId
@@ -34,10 +36,10 @@ class CityDestinationPicker extends StatelessWidget {
         if (label != null) ...[
           Text(
             label!,
-            style: const TextStyle(
+            style: TextStyle(
               fontWeight: FontWeight.w600,
               fontSize: 14,
-              color: LuxColors.cream,
+              color: tokens.textPrimary,
             ),
           ),
           const SizedBox(height: 8),
@@ -45,21 +47,28 @@ class CityDestinationPicker extends StatelessWidget {
         DropdownButtonFormField<String>(
           initialValue: value,
           isExpanded: true,
-          dropdownColor: const Color(0xFF1C1917),
+          dropdownColor: tokens.bgSecondary,
+          style: TextStyle(color: tokens.textPrimary),
           decoration: InputDecoration(
             filled: true,
-            fillColor: Colors.white.withValues(alpha: 0.06),
+            fillColor: scheme.surface.withValues(alpha: 0.72),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide(color: Colors.white.withValues(alpha: 0.12)),
+              borderSide: BorderSide(
+                color: tokens.accent.withValues(alpha: 0.2),
+              ),
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide(color: Colors.white.withValues(alpha: 0.12)),
+              borderSide: BorderSide(
+                color: tokens.accent.withValues(alpha: 0.2),
+              ),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide(color: LuxColors.gold.withValues(alpha: 0.5)),
+              borderSide: BorderSide(
+                color: tokens.accent.withValues(alpha: 0.54),
+              ),
             ),
           ),
           items: [
@@ -82,7 +91,7 @@ class CityDestinationPicker extends StatelessWidget {
                   '${offer.cityName} · ${offer.regionLabel}',
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(color: LuxColors.cream),
+                  style: TextStyle(color: tokens.textPrimary),
                 ),
               ),
           ],
@@ -112,6 +121,7 @@ class _CityMenuRow extends StatelessWidget {
   Widget build(BuildContext context) {
     final unlocked =
         CityPackEntitlementStore.instance.isUnlocked(offer.cityId);
+    final tokens = luxThemeTokensOf(context);
 
     return Row(
       children: [
@@ -129,7 +139,7 @@ class _CityMenuRow extends StatelessWidget {
             style: TextStyle(
               fontSize: 11,
               fontWeight: FontWeight.w700,
-              color: unlocked ? LuxColors.feedLive : LuxColors.gold,
+              color: unlocked ? LuxColors.feedLive : tokens.accent,
             ),
           ),
         ],

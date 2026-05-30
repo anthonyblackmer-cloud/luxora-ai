@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:go_router/go_router.dart';
 import 'package:luxora_ai/l10n/app_localizations.dart';
 
 import 'package:luxora_ai/router/app_router.dart';
@@ -72,55 +73,40 @@ Future<void> main() async {
 
 
 
-class LuxoraApp extends StatelessWidget {
-
+class LuxoraApp extends StatefulWidget {
   const LuxoraApp({super.key, required this.appState});
-
-
 
   final LuxoraAppState appState;
 
+  @override
+  State<LuxoraApp> createState() => _LuxoraAppState();
+}
 
+class _LuxoraAppState extends State<LuxoraApp> {
+  /// Created once — theme/locale updates must not rebuild GoRouter or navigation resets to `/`.
+  late final GoRouter _router = createAppRouter();
 
   @override
-
   Widget build(BuildContext context) {
-
     return ChangeNotifierProvider<LuxoraAppState>.value(
-
-      value: appState,
-
+      value: widget.appState,
       child: Consumer<LuxoraAppState>(
-
         builder: (context, state, _) {
-
           return MaterialApp.router(
-
             title: 'Luxora AI',
-
             debugShowCheckedModeBanner: false,
-
             theme: state.theme,
             themeAnimationDuration: const Duration(milliseconds: 450),
             themeAnimationCurve: Curves.easeInOutCubic,
-
             locale: Locale(state.locale),
-
             localizationsDelegates: const [
-
               AppLocalizations.delegate,
-
               GlobalMaterialLocalizations.delegate,
-
               GlobalWidgetsLocalizations.delegate,
-
               GlobalCupertinoLocalizations.delegate,
-
             ],
-
             supportedLocales: AppLocalizations.supportedLocales,
-
-            routerConfig: createAppRouter(),
+            routerConfig: _router,
 
             builder: (context, child) {
               final guarded = webViewportGuard(context, child);

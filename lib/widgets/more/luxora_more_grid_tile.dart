@@ -25,7 +25,7 @@ class LuxoraMoreGridTile extends StatelessWidget {
     final theme = Theme.of(context);
     final scheme = theme.colorScheme;
     final tokens = luxThemeTokensOf(context);
-    final gold = LuxColors.gold;
+    final accent = tokens.accent;
     final r = 26.0;
     final hi = scheme.surface.withValues(alpha: 0.42);
     final lo = tokens.bgSecondary.withValues(alpha: 0.72);
@@ -37,9 +37,9 @@ class LuxoraMoreGridTile extends StatelessWidget {
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
-              Color.lerp(hi, gold, 0.14)!,
+              Color.lerp(hi, accent, 0.14)!,
               lo,
-              gold.withValues(alpha: 0.12),
+              accent.withValues(alpha: 0.12),
             ],
             stops: const [0.0, 0.42, 1.0],
           )
@@ -70,16 +70,16 @@ class LuxoraMoreGridTile extends StatelessWidget {
         child: InkWell(
           onTap: onTap,
           borderRadius: BorderRadius.circular(r),
-          splashColor: gold.withValues(alpha: 0.14),
-          highlightColor: gold.withValues(alpha: 0.07),
+          splashColor: accent.withValues(alpha: 0.14),
+          highlightColor: accent.withValues(alpha: 0.07),
           child: Ink(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(r),
               gradient: cardGradient,
               border: Border.all(
                 color: featured
-                    ? gold.withValues(alpha: 0.55)
-                    : gold.withValues(alpha: 0.18),
+                    ? accent.withValues(alpha: 0.55)
+                    : accent.withValues(alpha: 0.18),
                 width: featured ? 1.6 : 1.1,
               ),
               boxShadow: [
@@ -90,7 +90,7 @@ class LuxoraMoreGridTile extends StatelessWidget {
                   spreadRadius: -6,
                 ),
                 BoxShadow(
-                  color: gold.withValues(alpha: featured ? 0.28 : 0.12),
+                  color: accent.withValues(alpha: featured ? 0.28 : 0.12),
                   blurRadius: 32,
                   spreadRadius: -8,
                   offset: const Offset(0, 16),
@@ -123,7 +123,7 @@ class LuxoraMoreGridTile extends StatelessWidget {
                             center: const Alignment(-0.92, -0.92),
                             radius: 1.05,
                             colors: [
-                              gold.withValues(alpha: featured ? 0.18 : 0.1),
+                              accent.withValues(alpha: featured ? 0.18 : 0.1),
                               Colors.transparent,
                             ],
                             stops: const [0.0, 0.58],
@@ -145,20 +145,20 @@ class LuxoraMoreGridTile extends StatelessWidget {
                               shape: BoxShape.circle,
                               gradient: RadialGradient(
                                 colors: [
-                                  gold.withValues(alpha: featured ? 0.55 : 0.38),
-                                  gold.withValues(alpha: 0.05),
+                                  accent.withValues(alpha: featured ? 0.55 : 0.38),
+                                  accent.withValues(alpha: 0.05),
                                 ],
                                 stops: const [0.32, 1.0],
                               ),
                               border: Border.all(
-                                color: gold.withValues(
+                                color: accent.withValues(
                                   alpha: featured ? 0.75 : 0.48,
                                 ),
                                 width: featured ? 2.2 : 1.4,
                               ),
                               boxShadow: [
                                 BoxShadow(
-                                  color: gold.withValues(
+                                  color: accent.withValues(
                                     alpha: featured ? 0.65 : 0.4,
                                   ),
                                   blurRadius: featured ? 24 : 16,
@@ -167,7 +167,7 @@ class LuxoraMoreGridTile extends StatelessWidget {
                               ],
                             ),
                             alignment: Alignment.center,
-                            child: Icon(icon, color: gold, size: iconGlyph),
+                            child: Icon(icon, color: accent, size: iconGlyph),
                           ),
                         ),
                         SizedBox(height: featured ? 13 : 10),
@@ -181,7 +181,7 @@ class LuxoraMoreGridTile extends StatelessWidget {
                             fontSize: featured ? 18 : 16,
                             height: 1.05,
                             letterSpacing: -0.35,
-                            color: LuxColors.cream,
+                            color: tokens.textPrimary,
                           ),
                         ),
                         const SizedBox(height: 4),
@@ -192,7 +192,7 @@ class LuxoraMoreGridTile extends StatelessWidget {
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                             style: theme.textTheme.bodySmall?.copyWith(
-                              color: LuxColors.stone400,
+                              color: tokens.textMuted,
                               height: 1.18,
                               fontSize: 11,
                               fontWeight: FontWeight.w600,
@@ -232,6 +232,7 @@ class LuxoraMoreListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final tokens = luxThemeTokensOf(context);
+    final accent = tokens.accent;
     return Material(
       color: Colors.transparent,
       child: InkWell(
@@ -241,7 +242,7 @@ class LuxoraMoreListTile extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(18),
             color: tokens.bgSecondary.withValues(alpha: 0.5),
-            border: Border.all(color: LuxColors.gold.withValues(alpha: 0.14)),
+            border: Border.all(color: accent.withValues(alpha: 0.14)),
           ),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
@@ -252,13 +253,13 @@ class LuxoraMoreListTile extends StatelessWidget {
                   height: 44,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: LuxColors.gold.withValues(alpha: 0.12),
+                    color: accent.withValues(alpha: 0.12),
                     border: Border.all(
-                      color: LuxColors.gold.withValues(alpha: 0.35),
+                      color: accent.withValues(alpha: 0.35),
                     ),
                   ),
                   alignment: Alignment.center,
-                  child: Icon(icon, color: LuxColors.gold, size: 22),
+                  child: Icon(icon, color: accent, size: 22),
                 ),
                 const SizedBox(width: 14),
                 Expanded(
@@ -267,18 +268,18 @@ class LuxoraMoreListTile extends StatelessWidget {
                     children: [
                       Text(
                         title,
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontWeight: FontWeight.w700,
                           fontSize: 15,
-                          color: LuxColors.cream,
+                          color: tokens.textPrimary,
                         ),
                       ),
                       const SizedBox(height: 2),
                       Text(
                         subtitle,
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 12,
-                          color: LuxColors.stone400,
+                          color: tokens.textMuted,
                           height: 1.25,
                         ),
                       ),
@@ -288,7 +289,7 @@ class LuxoraMoreListTile extends StatelessWidget {
                 trailing ??
                     Icon(
                       Icons.chevron_right_rounded,
-                      color: LuxColors.stone500.withValues(alpha: 0.9),
+                      color: tokens.textMuted.withValues(alpha: 0.9),
                     ),
               ],
             ),

@@ -3,6 +3,7 @@ import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/services/city_pack_registry.dart';
 import 'package:luxora_ai/services/city_pack_sync.dart';
 import 'package:luxora_ai/services/paywall_service.dart';
+import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/widgets/city_destination_picker.dart';
 
 /// Switch the live concierge destination from the More hub.
@@ -12,6 +13,7 @@ class MoreDestinationPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l = context.l10n;
+    final tokens = luxThemeTokensOf(context);
     return ListenableBuilder(
       listenable: CityPackRegistry.instance,
       builder: (context, _) {
@@ -20,9 +22,11 @@ class MoreDestinationPicker extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
           child: DecoratedBox(
             decoration: BoxDecoration(
-              color: Colors.white.withValues(alpha: 0.04),
+              color: tokens.bgSecondary.withValues(alpha: 0.55),
               borderRadius: BorderRadius.circular(14),
-              border: Border.all(color: Colors.white.withValues(alpha: 0.08)),
+              border: Border.all(
+                color: tokens.accent.withValues(alpha: 0.18),
+              ),
             ),
             child: Padding(
               padding: const EdgeInsets.all(14),

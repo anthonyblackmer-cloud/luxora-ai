@@ -30,8 +30,8 @@ class MoreScreen extends StatelessWidget {
           stops: const [0.0, 0.38, 0.72, 1.0],
           colors: [
             tokens.bg,
-            Color.lerp(tokens.bg, LuxColors.gold, 0.04)!,
-            Color.lerp(tokens.bg, LuxColors.gold, 0.02)!,
+            Color.lerp(tokens.bg, tokens.accent, 0.04)!,
+            Color.lerp(tokens.bg, tokens.accent, 0.02)!,
             tokens.bgSecondary.withValues(alpha: 0.94),
           ],
         ),
@@ -54,14 +54,14 @@ class MoreScreen extends StatelessWidget {
                         fontWeight: FontWeight.w900,
                         letterSpacing: -0.42,
                         height: 1.02,
-                        color: LuxColors.cream,
+                        color: tokens.textPrimary,
                       ),
                     ),
                     const SizedBox(height: 6),
                     Text(
                       l.morePageSubtitle,
                       style: theme.textTheme.titleSmall?.copyWith(
-                        color: LuxColors.stone400,
+                        color: tokens.textMuted,
                         fontWeight: FontWeight.w600,
                         height: 1.25,
                       ),
@@ -79,7 +79,7 @@ class MoreScreen extends StatelessWidget {
                     fontSize: 11,
                     fontWeight: FontWeight.w800,
                     letterSpacing: 2.2,
-                    color: LuxColors.gold.withValues(alpha: 0.85),
+                    color: tokens.accent.withValues(alpha: 0.85),
                   ),
                 ),
               ),
@@ -136,7 +136,7 @@ class MoreScreen extends StatelessWidget {
                     fontSize: 11,
                     fontWeight: FontWeight.w800,
                     letterSpacing: 2.2,
-                    color: LuxColors.gold.withValues(alpha: 0.85),
+                    color: tokens.accent.withValues(alpha: 0.85),
                   ),
                 ),
               ),
@@ -178,7 +178,7 @@ class MoreScreen extends StatelessWidget {
                     fontSize: 11,
                     fontWeight: FontWeight.w800,
                     letterSpacing: 2.2,
-                    color: LuxColors.gold.withValues(alpha: 0.85),
+                    color: tokens.accent.withValues(alpha: 0.85),
                   ),
                 ),
               ),
@@ -246,17 +246,18 @@ class MoreScreen extends StatelessWidget {
   }
 
   void _showNotifications(BuildContext context) {
+    final tokens = luxThemeTokensOf(context);
     showDialog<void>(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: luxThemeTokensOf(context).bgSecondary,
+        backgroundColor: luxThemeTokensOf(ctx).bgSecondary,
         title: Text(
           context.l10n.moreCardNotificationsTitle,
-          style: const TextStyle(color: LuxColors.cream),
+          style: TextStyle(color: tokens.textPrimary),
         ),
         content: Text(
           context.l10n.notificationsComingSoon,
-          style: const TextStyle(color: LuxColors.stone400),
+          style: TextStyle(color: tokens.textMuted),
         ),
         actions: [
           TextButton(
@@ -269,17 +270,18 @@ class MoreScreen extends StatelessWidget {
   }
 
   void _showHelp(BuildContext context) {
+    final tokens = luxThemeTokensOf(context);
     showDialog<void>(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: luxThemeTokensOf(context).bgSecondary,
+        backgroundColor: luxThemeTokensOf(ctx).bgSecondary,
         title: Text(
           context.l10n.helpCenterTitle,
-          style: const TextStyle(color: LuxColors.cream),
+          style: TextStyle(color: tokens.textPrimary),
         ),
         content: Text(
           context.l10n.helpCenterBody,
-          style: const TextStyle(color: LuxColors.stone400, height: 1.4),
+          style: TextStyle(color: tokens.textMuted, height: 1.4),
         ),
         actions: [
           TextButton(
