@@ -39,6 +39,8 @@ class TripProfile {
     this.cultureInterest = 40,
     this.discoveryStyle = DiscoveryStyle.balanced,
     this.tripFeel = '',
+    this.tripName = '',
+    this.useAutoTripName = true,
     this.moods = const [TripMood.luxurious, TripMood.relaxing],
     this.occasion = TripOccasion.general,
   });
@@ -76,6 +78,10 @@ class TripProfile {
 
   final DiscoveryStyle discoveryStyle;
   final String tripFeel;
+  final String tripName;
+
+  /// When true, [TripNameGenerator] crafts the title from mood and occasion.
+  final bool useAutoTripName;
   final List<TripMood> moods;
 
   /// Anniversary, honeymoon, family, etc. — drives couple/family engines.
@@ -101,6 +107,8 @@ class TripProfile {
     int? cultureInterest,
     DiscoveryStyle? discoveryStyle,
     String? tripFeel,
+    String? tripName,
+    bool? useAutoTripName,
     List<TripMood>? moods,
     TripOccasion? occasion,
   }) {
@@ -125,6 +133,8 @@ class TripProfile {
       cultureInterest: cultureInterest ?? this.cultureInterest,
       discoveryStyle: discoveryStyle ?? this.discoveryStyle,
       tripFeel: tripFeel ?? this.tripFeel,
+      tripName: tripName ?? this.tripName,
+      useAutoTripName: useAutoTripName ?? this.useAutoTripName,
       moods: moods ?? this.moods,
       occasion: occasion ?? this.occasion,
     );

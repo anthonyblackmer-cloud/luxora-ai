@@ -9,8 +9,12 @@ import 'package:luxora_ai/l10n/luxora_l10n_helpers.dart';
 import 'package:luxora_ai/util/trip_occasion_catalog.dart';
 import 'package:luxora_ai/models/trip_occasion.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
-import 'package:luxora_ai/services/city_picker_actions.dart';
+import 'package:luxora_ai/data/orlando/orlando_addon_catalog.dart';
+import 'package:luxora_ai/services/city_pack_sync.dart';
+import 'package:luxora_ai/services/concierge_itinerary_sync.dart';
+import 'package:luxora_ai/services/places_repository.dart';
 import 'package:luxora_ai/services/city_pack_entitlement_store.dart';
+import 'package:luxora_ai/services/city_picker_actions.dart';
 import 'package:luxora_ai/services/paywall_service.dart';
 import 'package:luxora_ai/services/saved_trips_store.dart';
 import 'package:luxora_ai/services/trip_feel_interpreter.dart';
@@ -23,6 +27,7 @@ import 'package:luxora_ai/widgets/lux_background.dart';
 import 'package:luxora_ai/widgets/lux_button.dart';
 import 'package:luxora_ai/widgets/lux_slider_field.dart';
 import 'package:luxora_ai/widgets/trip_date_picker_fields.dart';
+import 'package:luxora_ai/widgets/trip_name_fields.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key, this.initialCityId});
@@ -39,7 +44,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   TripProfile _profile = const TripProfile();
   bool _themeParksUnlocked = false;
 
-  static const _stepCount = 6;
+  static const _stepCount = 7;
   static const _budgetMinUsd = 1000;
   static const _budgetMaxUsd = 100000;
 
@@ -91,11 +96,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   Future<void> _finish() async {
     if (_finishing) return;
-    _finishing = true;
+    setState(() => _finishing = true);
     try {
-      // Let the typed "trip feel" actually reshape the dials/moods that drive
-      // the Day Flow and recommendations.
-      final enriched = TripOccasionInterpreter.apply(
+      var enriched = TripOccasionInterpreter.apply(
         TripFeelInterpreter.enrich(_profile),
       );
       final locale = Localizations.localeOf(context).languageCode;
@@ -108,13 +111,36 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       );
       if (!mounted) return;
 
-      await PaywallService.talkToLuxora(
-        context,
-        cityId: enriched.cityId,
-        fallbackRoute: '/agenda',
-      );
+      if (PaywallService.needsUnlock(enriched.cityId)) {
+        final ok = await PaywallService.showPaywall(
+          context,
+          cityId: enriched.cityId,
+        );
+        if (!ok || !mounted) return;
+      } else {
+        await CityPackSync.switchCity(enriched.cityId);
+      }
+
+      if (enriched.cityId == OrlandoAddonCatalog.parentCityId) {
+        await PaywallService.promptOrlandoThemeParksIfNeeded(context);
+        if (!mounted) return;
+        enriched = TripOccasionInterpreter.apply(
+          enriched.copyWith(
+            occasion: TripOccasionCatalog.normalizeOccasion(
+              enriched.occasion,
+              profile: enriched,
+            ),
+          ),
+        );
+        await TripProfileStore.instance.save(enriched);
+      }
+
+      await ConciergeItinerarySync.buildFromProfile(enriched);
+
+      if (!mounted) return;
+      context.go('/agenda');
     } finally {
-      _finishing = false;
+      if (mounted) setState(() => _finishing = false);
     }
   }
 
@@ -171,11 +197,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 Expanded(child: _buildStep()),
                 const SizedBox(height: 16),
                 LuxButton(
-                  label: _step == _stepCount - 1
-                      ? l.onboardFinish
-                      : l.commonContinue,
-                  icon: Icons.favorite_rounded,
-                  onPressed: _next,
+                  label: _finishing
+                      ? l.onboardBuilding
+                      : (_step == _stepCount - 1
+                          ? l.onboardFinish
+                          : l.commonContinue),
+                  icon: _step == _stepCount - 1
+                      ? Icons.auto_awesome_rounded
+                      : Icons.favorite_rounded,
+                  onPressed: _finishing ? null : _next,
                 ),
               ],
             ),
@@ -355,7 +385,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             ),
           ],
         ),
-      _ => _stepCard(
+      5 => _stepCard(
           l.onboardStep5Title,
           l.onboardStep5Subtitle,
           [
@@ -416,6 +446,27 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   checkmarkColor: LuxColors.gold,
                 );
               }).toList(),
+            ),
+          ],
+          glow: true,
+        ),
+      _ => _stepCard(
+          l.onboardStepNameEyebrow,
+          l.onboardStepNameTitle,
+          [
+            Text(
+              l.onboardStepNameSubtitle,
+              style: TextStyle(
+                fontSize: 13,
+                height: 1.4,
+                color: LuxColors.stone400.withValues(alpha: 0.95),
+              ),
+            ),
+            const SizedBox(height: 16),
+            TripNameFields(
+              profile: _profile,
+              compact: true,
+              onChanged: (next) => setState(() => _profile = next),
             ),
           ],
           glow: true,

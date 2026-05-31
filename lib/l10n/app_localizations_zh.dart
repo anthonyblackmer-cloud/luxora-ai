@@ -90,7 +90,117 @@ class AppLocalizationsZh extends AppLocalizations {
   String get navMore => '更多的';
 
   @override
+  String get navRestaurants => '餐厅';
+
+  @override
   String get navTimeline => '行程';
+
+  @override
+  String get agendaTabItinerary => '天数';
+
+  @override
+  String get agendaTabRestaurants => '餐厅';
+
+  @override
+  String get restaurantsPageTitle => '餐厅';
+
+  @override
+  String get restaurantsPageSubtitle =>
+      '浏览 Luxora 精选餐厅 — 收藏或让 Concierge 为您选今晚的餐点。';
+
+  @override
+  String get restaurantsConciergePick => '为我选一家餐厅';
+
+  @override
+  String restaurantsConciergePickDone(String name) {
+    return '已保存 $name — 请 Concierge 加入行程。';
+  }
+
+  @override
+  String restaurantsSavedCount(int count) {
+    return '已为行程保存 $count 家';
+  }
+
+  @override
+  String get restaurantsEmptyHint => '发现范围内暂无餐厅 — 请在地图上扩大范围。';
+
+  @override
+  String get moreCardRestaurantsSub => '浏览餐厅并让 Concierge 为您选择';
+
+  @override
+  String get agendaHotelSuggestionsTitle => '住宿推荐';
+
+  @override
+  String agendaHotelSuggestionsSubtitle(int budget) {
+    return '根据约 $budget 预算的 AI 匹配 — 点击查看全部。';
+  }
+
+  @override
+  String agendaHotelTopPick(String name) {
+    return '首选：$name';
+  }
+
+  @override
+  String get agendaStayDropdownHint => '选择酒店';
+
+  @override
+  String get agendaDiningDropdownHint => '选择餐厅';
+
+  @override
+  String get agendaDaySelectLabel => '哪一天';
+
+  @override
+  String get agendaDayDiningTitle => '今晚去哪吃';
+
+  @override
+  String agendaDayDiningSubtitle(int budget, String tier) {
+    return '根据今日行程与约 $budget 预算（$tier）推荐。';
+  }
+
+  @override
+  String get agendaDiningNearStops => '靠近今日站点';
+
+  @override
+  String get agendaDiningFitsBudget => '符合旅行预算';
+
+  @override
+  String get agendaDiningMatchesDay => '匹配今日氛围';
+
+  @override
+  String get agendaDiningFoodiePick => '美食家之选';
+
+  @override
+  String get browseCatRecommended => 'Recommended';
+
+  @override
+  String get browseCatDisneyHotels => '迪士尼区域';
+
+  @override
+  String get browseCatBudgetFriendly => '经济实惠';
+
+  @override
+  String get browseCatUpscaleLuxury => '高端奢华';
+
+  @override
+  String get browseCatUniversalHotels => '环球区域';
+
+  @override
+  String get browseCatThemeParkDining => '主题乐园餐饮';
+
+  @override
+  String get browseCatUpscaleDining => '精致餐饮';
+
+  @override
+  String get browseSearchAllHotels => '搜索完整酒店目录…';
+
+  @override
+  String get browseSearchAllRestaurants => '搜索完整餐厅目录…';
+
+  @override
+  String get browseCategoryEmpty => '该分类暂无匹配 — 请搜索或扩大发现范围。';
+
+  @override
+  String get browseFullCatalogHint => '使用上方搜索浏览 Luxora 全部酒店与餐厅。';
 
   @override
   String get agendaPageSubtitle => '完整行程 — 每日站点、门票优惠与今日礼宾计划。';
@@ -1906,7 +2016,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get landingRegionTitle => '奥兰多与佛罗里达，为感受而精选';
 
   @override
-  String get onboardFinish => '认识你的礼宾';
+  String get onboardFinish => '创建我的行程';
+
+  @override
+  String get onboardBuilding => '正在创建行程…';
 
   @override
   String get onboardStep1Title => '梦想最先降落的地方';
@@ -2722,6 +2835,32 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get onboardTripFeelHint => '日落晚餐、慢悠悠的早晨、和伴侣一起大笑…';
+
+  @override
+  String get onboardStepNameEyebrow => '故事从一个名字开始';
+
+  @override
+  String get onboardStepNameTitle => '这次旅行叫什么？';
+
+  @override
+  String get onboardStepNameSubtitle => 'Luxora 可根据你的风格起名 — 或自己输入。';
+
+  @override
+  String get onboardTripNameLuxora => '让 Luxora 起名';
+
+  @override
+  String get onboardTripNameYours => '我自己起名';
+
+  @override
+  String get onboardTripNameHint => '我们的春季纪念日之旅…';
+
+  @override
+  String onboardTripNameSuggested(String name) {
+    return 'Luxora 建议：$name';
+  }
+
+  @override
+  String get conciergeTripNameLabel => '旅行名称';
 
   @override
   String get moodRomantic => '浪漫';

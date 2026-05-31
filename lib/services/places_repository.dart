@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:luxora_ai/data/city_content_catalog.dart';
 import 'package:luxora_ai/data/curated_places_catalog.dart';
 import 'package:luxora_ai/data/feed_items.dart';
@@ -11,21 +12,31 @@ import 'package:luxora_ai/services/places_asset_repository.dart';
 import 'package:luxora_ai/services/places_remote_repository.dart';
 import 'package:luxora_ai/util/place_distance.dart';
 /// Resolves curated place media. Local catalog + optional Supabase overlay.
-class PlacesRepository {
+class PlacesRepository extends ChangeNotifier {
   PlacesRepository._();
   static final PlacesRepository instance = PlacesRepository._();
 
   final Map<String, LuxPlace> _byId = {};
   final Map<String, LuxPlace> _bySlug = {};
+  bool _localLoaded = false;
   bool _initialized = false;
+
+  /// Sync curated + pack places — safe before [initialize] so dining browse works
+  /// on first navigation (hotels use static catalogs; restaurants use this repo).
+  void ensureLocalCatalogLoaded() {
+    if (_localLoaded) return;
+    _localLoaded = true;
+    _loadLocal();
+    _mergePackExperiences();
+    notifyListeners();
+  }
 
   Future<void> initialize() async {
     if (_initialized) {
       return;
     }
+    ensureLocalCatalogLoaded();
     _initialized = true;
-    _loadLocal();
-    _mergePackExperiences();
     final osmPath = CityPackRegistry.instance.active.osmAssetPath;
     if (osmPath != null && osmPath.isNotEmpty) {
       final osm = await PlacesAssetRepository.loadOsmPlaces(assetPath: osmPath);
@@ -35,11 +46,13 @@ class PlacesRepository {
           osm.map((p) => _tagCityPack(p, packId)).toList(),
           overwrite: false,
         );
+        notifyListeners();
       }
     }
     final remote = await PlacesRemoteRepository.tryFetchPlaces();
     if (remote != null && remote.isNotEmpty) {
       _mergePlaces(remote);
+      notifyListeners();
     }
   }
 

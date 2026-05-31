@@ -18,6 +18,8 @@ import 'package:luxora_ai/services/concierge_session_memory.dart';
 import 'package:luxora_ai/services/concierge_ticket_sync.dart';
 import 'package:luxora_ai/services/concierge_trip_save_sync.dart';
 import 'package:luxora_ai/services/concierge_voice_service.dart';
+import 'package:luxora_ai/services/saved_trips_store.dart';
+import 'package:luxora_ai/services/trip_profile_store.dart';
 import 'package:luxora_ai/services/trip_profile_storage.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/util/concierge_agenda_chat_format.dart';
@@ -25,6 +27,7 @@ import 'package:luxora_ai/util/lux_snack_bar.dart';
 import 'package:luxora_ai/util/concierge_ai_user_message.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
 import 'package:luxora_ai/widgets/concierge/concierge_voice_settings_sheet.dart';
+import 'package:luxora_ai/widgets/trip_name_fields.dart';
 import 'package:luxora_ai/widgets/luxora_moment_chips.dart';
 import 'package:luxora_ai/widgets/settings/luxora_premium_sheet_shell.dart';
 
@@ -117,6 +120,17 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
     }
     if (parts.isEmpty) return null;
     return '${l.conciergeRecallReturning} ${parts.join(' ')}';
+  }
+
+  Future<void> _updateTripName(TripProfile next) async {
+    setState(() => _profile = next);
+    await TripProfileStore.instance.save(next);
+    final l = AppLocalizations.of(context);
+    await SavedTripsStore.instance.upsertFromProfile(
+      next,
+      localeName: Localizations.localeOf(context).languageCode,
+      flexibleDateLabel: l.tripsDatesFlexible,
+    );
   }
 
   Future<void> _addStylePref(String pref) async {
@@ -820,6 +834,23 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
           ),
         ),
       ),
+      if (_profile != null) ...[
+        const SizedBox(height: 14),
+        Text(
+          l.conciergeTripNameLabel,
+          style: TextStyle(
+            fontWeight: FontWeight.w700,
+            fontSize: 13,
+            color: t.textPrimary,
+          ),
+        ),
+        const SizedBox(height: 8),
+        TripNameFields(
+          profile: _profile!,
+          compact: true,
+          onChanged: (next) => unawaited(_updateTripName(next)),
+        ),
+      ],
       const SizedBox(height: 14),
       LuxoraMomentChips(onMomentSelected: _send),
       const SizedBox(height: 12),

@@ -23,6 +23,7 @@ import 'package:luxora_ai/services/unsplash_photo_registry.dart';
 abstract final class AppBootstrap {
   static Future<void> prepareForFirstFrame() async {
     await CityPackRegistry.instance.load();
+    PlacesRepository.instance.ensureLocalCatalogLoaded();
   }
 
   static Future<void> loadDeferredServices() async {

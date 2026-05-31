@@ -93,7 +93,121 @@ class AppLocalizationsTr extends AppLocalizations {
   String get navMore => 'Daha';
 
   @override
+  String get navRestaurants => 'Restoranlar';
+
+  @override
   String get navTimeline => 'Zaman çizelgesi';
+
+  @override
+  String get agendaTabItinerary => 'Günler';
+
+  @override
+  String get agendaTabRestaurants => 'Restoranlar';
+
+  @override
+  String get restaurantsPageTitle => 'Restoranlar';
+
+  @override
+  String get restaurantsPageSubtitle =>
+      'Luxora\'nın bildiği restoranları keşfedin — favorilere kaydedin veya Concierge akşam yemeğini seçsin.';
+
+  @override
+  String get restaurantsConciergePick => 'Benim için restoran seç';
+
+  @override
+  String restaurantsConciergePickDone(String name) {
+    return '$name kaydedildi — Concierge\'den seyahate eklemesini isteyin.';
+  }
+
+  @override
+  String restaurantsSavedCount(int count) {
+    return 'Seyahatiniz için $count kayıtlı';
+  }
+
+  @override
+  String get restaurantsEmptyHint =>
+      'Keşif yarıçapında restoran yok — haritada yarıçapı genişletin.';
+
+  @override
+  String get moreCardRestaurantsSub =>
+      'Restoranları keşfedin, Concierge seçsin';
+
+  @override
+  String get agendaHotelSuggestionsTitle => 'Nerede kalınır';
+
+  @override
+  String agendaHotelSuggestionsSubtitle(int budget) {
+    return '~$budget USD bütçenize göre AI önerisi — tüm seçenekler için dokunun.';
+  }
+
+  @override
+  String agendaHotelTopPick(String name) {
+    return 'En iyi seçim: $name';
+  }
+
+  @override
+  String get agendaStayDropdownHint => 'Otel seçin';
+
+  @override
+  String get agendaDiningDropdownHint => 'Restoran seçin';
+
+  @override
+  String get agendaDaySelectLabel => 'Hangi gün';
+
+  @override
+  String get agendaDayDiningTitle => 'Bu akşam nerede yemek';
+
+  @override
+  String agendaDayDiningSubtitle(int budget, String tier) {
+    return 'Bugünkü plan ve ~$budget USD bütçeniz ($tier) için öneriler.';
+  }
+
+  @override
+  String get agendaDiningNearStops => 'Bugünkü duraklara yakın';
+
+  @override
+  String get agendaDiningFitsBudget => 'Bütçenize uygun';
+
+  @override
+  String get agendaDiningMatchesDay => 'Günün temasına uygun';
+
+  @override
+  String get agendaDiningFoodiePick => 'Foodie favorisi';
+
+  @override
+  String get browseCatRecommended => 'Recommended';
+
+  @override
+  String get browseCatDisneyHotels => 'Disney bölgesi';
+
+  @override
+  String get browseCatBudgetFriendly => 'Ekonomik';
+
+  @override
+  String get browseCatUpscaleLuxury => 'Lüks ve üst segment';
+
+  @override
+  String get browseCatUniversalHotels => 'Universal bölgesi';
+
+  @override
+  String get browseCatThemeParkDining => 'Tema park restoranları';
+
+  @override
+  String get browseCatUpscaleDining => 'Fine dining';
+
+  @override
+  String get browseSearchAllHotels => 'Tüm otel kataloğunda ara…';
+
+  @override
+  String get browseSearchAllRestaurants => 'Tüm restoran kataloğunda ara…';
+
+  @override
+  String get browseCategoryEmpty =>
+      'Bu kategoride eşleşme yok — arama yapın veya yarıçapı genişletin.';
+
+  @override
+  String get browseFullCatalogHint =>
+      'Yukarıdaki arama ile tüm otel ve restoran kataloğuna ulaşın.';
 
   @override
   String get agendaPageSubtitle =>
@@ -1997,7 +2111,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get landingRegionTitle => 'Orlando ve Florida — duygu için seçilmiş';
 
   @override
-  String get onboardFinish => 'Konsiyerjinizle tanışın';
+  String get onboardFinish => 'Gezimi oluştur';
+
+  @override
+  String get onboardBuilding => 'Geziniz oluşturuluyor…';
 
   @override
   String get onboardStep1Title => 'Hayallerin ilk indiği yer';
@@ -2861,6 +2978,33 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get onboardTripFeelHint =>
       'Gün batımı akşam yemekleri, yavaş sabahlar, eşimle kahkahalar…';
+
+  @override
+  String get onboardStepNameEyebrow => 'Hikâyeniz bir isimle başlar';
+
+  @override
+  String get onboardStepNameTitle => 'Bu geziye ne ad verelim?';
+
+  @override
+  String get onboardStepNameSubtitle =>
+      'Luxora tarzınıza göre bir ad oluşturabilir — veya kendiniz yazın.';
+
+  @override
+  String get onboardTripNameLuxora => 'Luxora adlasın';
+
+  @override
+  String get onboardTripNameYours => 'Ben adlandırırım';
+
+  @override
+  String get onboardTripNameHint => 'Bahar yıldönümü kaçamağımız…';
+
+  @override
+  String onboardTripNameSuggested(String name) {
+    return 'Luxora önerisi: $name';
+  }
+
+  @override
+  String get conciergeTripNameLabel => 'Gezi adı';
 
   @override
   String get moodRomantic => 'Romantik';

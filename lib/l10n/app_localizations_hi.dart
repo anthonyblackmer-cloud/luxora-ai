@@ -92,7 +92,119 @@ class AppLocalizationsHi extends AppLocalizations {
   String get navMore => 'अधिक';
 
   @override
+  String get navRestaurants => 'रेस्तरां';
+
+  @override
   String get navTimeline => 'समय';
+
+  @override
+  String get agendaTabItinerary => 'दिन';
+
+  @override
+  String get agendaTabRestaurants => 'रेस्तरां';
+
+  @override
+  String get restaurantsPageTitle => 'रेस्तरां';
+
+  @override
+  String get restaurantsPageSubtitle =>
+      'Luxora के रेस्तरां देखें — पसंदीदा सहेजें या Concierge से आज की रात का भोजन चुनवाएं।';
+
+  @override
+  String get restaurantsConciergePick => 'मेरे लिए रेस्तरां चुनें';
+
+  @override
+  String restaurantsConciergePickDone(String name) {
+    return '$name सहेजा — Concierge से यात्रा में जोड़ने को कहें।';
+  }
+
+  @override
+  String restaurantsSavedCount(int count) {
+    return 'आपकी यात्रा के लिए $count सहेजे';
+  }
+
+  @override
+  String get restaurantsEmptyHint =>
+      'खोज त्रिज्या में कोई रेस्तरां नहीं — मानचित्र पर त्रिज्या बढ़ाएं।';
+
+  @override
+  String get moreCardRestaurantsSub => 'रेस्तरां देखें और Concierge चुनने दें';
+
+  @override
+  String get agendaHotelSuggestionsTitle => 'कहाँ ठहरें';
+
+  @override
+  String agendaHotelSuggestionsSubtitle(int budget) {
+    return 'आपके ~$budget USD बजट के लिए AI सुझाव — सभी विकल्प देखने के लिए टैप करें।';
+  }
+
+  @override
+  String agendaHotelTopPick(String name) {
+    return 'शीर्ष चुनाव: $name';
+  }
+
+  @override
+  String get agendaStayDropdownHint => 'होटल चुनें';
+
+  @override
+  String get agendaDiningDropdownHint => 'रेस्तरां चुनें';
+
+  @override
+  String get agendaDaySelectLabel => 'कौन सा दिन';
+
+  @override
+  String get agendaDayDiningTitle => 'आज रात कहाँ खाएँ';
+
+  @override
+  String agendaDayDiningSubtitle(int budget, String tier) {
+    return 'आज की योजना और ~$budget USD बजट ($tier) के अनुसार सुझाव।';
+  }
+
+  @override
+  String get agendaDiningNearStops => 'आज के स्टॉप के पास';
+
+  @override
+  String get agendaDiningFitsBudget => 'बजट के अनुकूल';
+
+  @override
+  String get agendaDiningMatchesDay => 'आज के मूड से मेल';
+
+  @override
+  String get agendaDiningFoodiePick => 'फूडी पसंद';
+
+  @override
+  String get browseCatRecommended => 'Recommended';
+
+  @override
+  String get browseCatDisneyHotels => 'Disney क्षेत्र';
+
+  @override
+  String get browseCatBudgetFriendly => 'बजट अनुकूल';
+
+  @override
+  String get browseCatUpscaleLuxury => 'लक्ज़री और उच्च श्रेणी';
+
+  @override
+  String get browseCatUniversalHotels => 'Universal क्षेत्र';
+
+  @override
+  String get browseCatThemeParkDining => 'थीम पार्क रेस्तरां';
+
+  @override
+  String get browseCatUpscaleDining => 'फाइन डाइनिंग';
+
+  @override
+  String get browseSearchAllHotels => 'पूरा होटल कैटलॉग खोजें…';
+
+  @override
+  String get browseSearchAllRestaurants => 'पूरा रेस्तरां कैटलॉग खोजें…';
+
+  @override
+  String get browseCategoryEmpty =>
+      'इस श्रेणी में कोई मिलान नहीं — खोजें या त्रिज्या बढ़ाएँ।';
+
+  @override
+  String get browseFullCatalogHint => 'ऊपर खोज से सभी होटल और रेस्तरां देखें।';
 
   @override
   String get agendaPageSubtitle =>
@@ -1994,7 +2106,10 @@ class AppLocalizationsHi extends AppLocalizations {
       'ऑरलैंडो और फ्लोरिडा - महसूस करने के लिए क्यूरेट किया गया';
 
   @override
-  String get onboardFinish => 'अपने द्वारपाल से मिलें';
+  String get onboardFinish => 'मेरी यात्रा बनाएँ';
+
+  @override
+  String get onboardBuilding => 'आपकी यात्रा बन रही है…';
 
   @override
   String get onboardStep1Title => 'जहां सपने सबसे पहले उतरते हैं';
@@ -2854,6 +2969,33 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get onboardTripFeelHint =>
       'सूर्यास्त रात्रिभोज, धीमी सुबह, अपने साथी के साथ हँसी...';
+
+  @override
+  String get onboardStepNameEyebrow => 'आपकी कहानी एक नाम से शुरू होती है';
+
+  @override
+  String get onboardStepNameTitle => 'इस यात्रा का नाम क्या रखें?';
+
+  @override
+  String get onboardStepNameSubtitle =>
+      'Luxora आपके मूड से नाम बना सकती है — या अपना लिखें।';
+
+  @override
+  String get onboardTripNameLuxora => 'Luxora नाम रखे';
+
+  @override
+  String get onboardTripNameYours => 'मैं नाम दूँगा/दूँगी';
+
+  @override
+  String get onboardTripNameHint => 'हमारी वसंत वर्षगाँठ यात्रा…';
+
+  @override
+  String onboardTripNameSuggested(String name) {
+    return 'Luxora सुझाव: $name';
+  }
+
+  @override
+  String get conciergeTripNameLabel => 'यात्रा का नाम';
 
   @override
   String get moodRomantic => 'प्रेम प्रसंगयुक्त';

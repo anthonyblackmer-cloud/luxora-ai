@@ -25,6 +25,15 @@ class HomeBaseStore {
 
   bool isHomeBase(String id) => placeId.value == id;
 
+  /// Sets [id] as the home base (replaces any previous selection).
+  Future<void> select(String id) async {
+    await load();
+    if (placeId.value == id) return;
+    placeId.value = id;
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(_key, id);
+  }
+
   /// Sets [id] as the home base, or clears it when [id] is already the base.
   /// Returns the new state (`true` = this id is now the home base).
   Future<bool> toggle(String id) async {

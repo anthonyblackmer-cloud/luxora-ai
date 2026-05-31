@@ -1,4 +1,5 @@
 import 'package:luxora_ai/models/trip_profile.dart';
+import 'package:luxora_ai/services/trip_name_generator.dart';
 import 'package:luxora_ai/util/trip_date_format.dart';
 
 /// Saved trip collections — rich status for a living dashboard.
@@ -126,8 +127,6 @@ class SavedTripSummary {
     String localeName = 'en',
     required String flexibleDateLabel,
   }) {
-    final destination =
-        profile.destination.trim().isEmpty ? 'Florida' : profile.destination.trim();
     final start = profile.startDate.trim();
     final end = profile.endDate.trim();
     final dateRange = TripDateFormat.displayRange(
@@ -138,7 +137,7 @@ class SavedTripSummary {
     );
     return SavedTripSummary(
       id: id ?? idForProfile(profile),
-      title: '$destination Escape',
+      title: TripNameGenerator.resolve(profile),
       dateRange: dateRange,
       startDate: start,
       endDate: end,

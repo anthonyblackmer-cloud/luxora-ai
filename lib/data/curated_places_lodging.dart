@@ -172,6 +172,20 @@ const curatedPlacesLodging = <LuxPlace>[
     moodTags: ['family', 'foodie'],
     sortOrder: 110,
   ),
+  LuxPlace(
+    id: 'hotel-holiday-inn-idrive',
+    slug: 'holiday-inn-express-orlando-idrive',
+    title: 'Holiday Inn Express Orlando - I-Drive',
+    category: LuxPlaceCategory.hotel,
+    unsplashPhotoId: 'z78FxiNCA5w',
+    location: '7275 International Dr, Orlando, FL',
+    latitude: 28.4568,
+    longitude: -81.4695,
+    description:
+        'Budget-friendly I-Drive stay with complimentary breakfast — walk to Universal corridor dining.',
+    moodTags: ['family', 'budget'],
+    sortOrder: 111,
+  ),
 
   // ═══ Notable restaurants ═══
   LuxPlace(

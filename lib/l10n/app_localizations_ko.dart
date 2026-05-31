@@ -90,7 +90,117 @@ class AppLocalizationsKo extends AppLocalizations {
   String get navMore => '더';
 
   @override
+  String get navRestaurants => '레스토랑';
+
+  @override
   String get navTimeline => '타임라인';
+
+  @override
+  String get agendaTabItinerary => '일';
+
+  @override
+  String get agendaTabRestaurants => '레스토랑';
+
+  @override
+  String get restaurantsPageTitle => '레스토랑';
+
+  @override
+  String get restaurantsPageSubtitle =>
+      'Luxora가 아는 레스토랑을 둘러보세요 — 즐겨찾기 저장 또는 Concierge가 저녁을 선택하게 하세요.';
+
+  @override
+  String get restaurantsConciergePick => '레스토랑 골라줘';
+
+  @override
+  String restaurantsConciergePickDone(String name) {
+    return '$name 저장됨 — Concierge에 여행에 추가 요청하세요.';
+  }
+
+  @override
+  String restaurantsSavedCount(int count) {
+    return '여행용 $count곳 저장';
+  }
+
+  @override
+  String get restaurantsEmptyHint => '발견 반경에 레스토랑이 없습니다 — 지도에서 반경을 넓히세요.';
+
+  @override
+  String get moreCardRestaurantsSub => '레스토랑 탐색 및 Concierge 선택';
+
+  @override
+  String get agendaHotelSuggestionsTitle => '숙소 추천';
+
+  @override
+  String agendaHotelSuggestionsSubtitle(int budget) {
+    return '약 $budget 예산에 맞춘 AI 추천 — 탭하여 전체 보기.';
+  }
+
+  @override
+  String agendaHotelTopPick(String name) {
+    return '최고 추천: $name';
+  }
+
+  @override
+  String get agendaStayDropdownHint => '호텔 선택';
+
+  @override
+  String get agendaDiningDropdownHint => '레스토랑 선택';
+
+  @override
+  String get agendaDaySelectLabel => '며칠 차';
+
+  @override
+  String get agendaDayDiningTitle => '오늘 저녁 식사';
+
+  @override
+  String agendaDayDiningSubtitle(int budget, String tier) {
+    return '오늘 일정과 ~$budget USD 예산($tier)에 맞는 추천.';
+  }
+
+  @override
+  String get agendaDiningNearStops => '오늘 경유지 근처';
+
+  @override
+  String get agendaDiningFitsBudget => '예산에 맞음';
+
+  @override
+  String get agendaDiningMatchesDay => '오늘 분위기에 맞음';
+
+  @override
+  String get agendaDiningFoodiePick => '푸디 추천';
+
+  @override
+  String get browseCatRecommended => 'Recommended';
+
+  @override
+  String get browseCatDisneyHotels => '디즈니 지역';
+
+  @override
+  String get browseCatBudgetFriendly => '가성비';
+
+  @override
+  String get browseCatUpscaleLuxury => '고급·럭셔리';
+
+  @override
+  String get browseCatUniversalHotels => '유니버설 지역';
+
+  @override
+  String get browseCatThemeParkDining => '테마파크 다이닝';
+
+  @override
+  String get browseCatUpscaleDining => '파인 다이닝';
+
+  @override
+  String get browseSearchAllHotels => '전체 호텔 카탈로그 검색…';
+
+  @override
+  String get browseSearchAllRestaurants => '전체 레스토랑 카탈로그 검색…';
+
+  @override
+  String get browseCategoryEmpty => '이 카테고리에 결과 없음 — 검색하거나 반경을 넓히세요.';
+
+  @override
+  String get browseFullCatalogHint => '위 검색으로 Luxora의 모든 호텔과 레스토랑을 볼 수 있습니다.';
 
   @override
   String get agendaPageSubtitle => '전체 여행 — 일별 스톱, 티켓 할인, 오늘의 컨시어지 플랜.';
@@ -1939,7 +2049,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get landingRegionTitle => '올랜도와 플로리다 — 느낌에 맞춰 선별';
 
   @override
-  String get onboardFinish => '컨시어지를 만나보세요';
+  String get onboardFinish => '내 여행 만들기';
+
+  @override
+  String get onboardBuilding => '여행을 만드는 중…';
 
   @override
   String get onboardStep1Title => '꿈이 먼저 닿는 곳';
@@ -2772,6 +2885,32 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get onboardTripFeelHint => '일몰 저녁 식사, 느린 아침, 파트너와의 웃음…';
+
+  @override
+  String get onboardStepNameEyebrow => '이야기는 이름에서 시작됩니다';
+
+  @override
+  String get onboardStepNameTitle => '이 여행의 이름은?';
+
+  @override
+  String get onboardStepNameSubtitle => 'Luxora가 분위기에 맞는 이름을 만들거나 직접 입력하세요.';
+
+  @override
+  String get onboardTripNameLuxora => 'Luxora가 이름 짓기';
+
+  @override
+  String get onboardTripNameYours => '직접 이름 짓기';
+
+  @override
+  String get onboardTripNameHint => '봄 기념일 여행…';
+
+  @override
+  String onboardTripNameSuggested(String name) {
+    return 'Luxora 제안: $name';
+  }
+
+  @override
+  String get conciergeTripNameLabel => '여행 이름';
 
   @override
   String get moodRomantic => '로맨틱';

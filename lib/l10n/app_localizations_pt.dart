@@ -93,7 +93,122 @@ class AppLocalizationsPt extends AppLocalizations {
   String get navMore => 'Mais';
 
   @override
+  String get navRestaurants => 'Restaurantes';
+
+  @override
   String get navTimeline => 'Linha do tempo';
+
+  @override
+  String get agendaTabItinerary => 'Dias';
+
+  @override
+  String get agendaTabRestaurants => 'Restaurantes';
+
+  @override
+  String get restaurantsPageTitle => 'Restaurantes';
+
+  @override
+  String get restaurantsPageSubtitle =>
+      'Explore restaurantes que a Luxora conhece — salve favoritos ou deixe o Concierge escolher o jantar.';
+
+  @override
+  String get restaurantsConciergePick => 'Escolher um restaurante para mim';
+
+  @override
+  String restaurantsConciergePickDone(String name) {
+    return 'Salvo $name — peça ao Concierge para incluir na viagem.';
+  }
+
+  @override
+  String restaurantsSavedCount(int count) {
+    return '$count salvos para sua viagem';
+  }
+
+  @override
+  String get restaurantsEmptyHint =>
+      'Nenhum restaurante no seu raio — amplie no mapa.';
+
+  @override
+  String get moreCardRestaurantsSub =>
+      'Explorar restaurantes e deixar o Concierge escolher';
+
+  @override
+  String get agendaHotelSuggestionsTitle => 'Onde ficar';
+
+  @override
+  String agendaHotelSuggestionsSubtitle(int budget) {
+    return 'Escolha IA para o orçamento ~$budget USD — toque para ver opções.';
+  }
+
+  @override
+  String agendaHotelTopPick(String name) {
+    return 'Melhor opção: $name';
+  }
+
+  @override
+  String get agendaStayDropdownHint => 'Escolher hotel';
+
+  @override
+  String get agendaDiningDropdownHint => 'Escolher restaurante';
+
+  @override
+  String get agendaDaySelectLabel => 'Qual dia';
+
+  @override
+  String get agendaDayDiningTitle => 'Onde jantar hoje';
+
+  @override
+  String agendaDayDiningSubtitle(int budget, String tier) {
+    return 'Sugestões para ~$budget USD ($tier) com base no plano de hoje.';
+  }
+
+  @override
+  String get agendaDiningNearStops => 'Perto das paradas de hoje';
+
+  @override
+  String get agendaDiningFitsBudget => 'Encaixa no orçamento';
+
+  @override
+  String get agendaDiningMatchesDay => 'Combina com o dia';
+
+  @override
+  String get agendaDiningFoodiePick => 'Favorito foodie';
+
+  @override
+  String get browseCatRecommended => 'Recommended';
+
+  @override
+  String get browseCatDisneyHotels => 'Área Disney';
+
+  @override
+  String get browseCatBudgetFriendly => 'Econômicos';
+
+  @override
+  String get browseCatUpscaleLuxury => 'Luxo e upscale';
+
+  @override
+  String get browseCatUniversalHotels => 'Área Universal';
+
+  @override
+  String get browseCatThemeParkDining => 'Restaurantes dos parques';
+
+  @override
+  String get browseCatUpscaleDining => 'Alta gastronomia';
+
+  @override
+  String get browseSearchAllHotels => 'Pesquisar catálogo completo de hotéis…';
+
+  @override
+  String get browseSearchAllRestaurants =>
+      'Pesquisar catálogo completo de restaurantes…';
+
+  @override
+  String get browseCategoryEmpty =>
+      'Nenhum resultado nesta categoria — tente a pesquisa ou amplie o raio.';
+
+  @override
+  String get browseFullCatalogHint =>
+      'Use a pesquisa para o catálogo completo de hotéis e restaurantes.';
 
   @override
   String get agendaPageSubtitle =>
@@ -2005,7 +2120,10 @@ class AppLocalizationsPt extends AppLocalizations {
       'Orlando e Flórida – curadoria de sentimento';
 
   @override
-  String get onboardFinish => 'Conheça seu concierge';
+  String get onboardFinish => 'Criar minha viagem';
+
+  @override
+  String get onboardBuilding => 'Criando sua viagem…';
 
   @override
   String get onboardStep1Title => 'Onde os sonhos pousam primeiro';
@@ -2869,6 +2987,33 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get onboardTripFeelHint =>
       'Jantares ao pôr do sol, manhãs lentas, risadas com meu parceiro…';
+
+  @override
+  String get onboardStepNameEyebrow => 'Sua história começa com um nome';
+
+  @override
+  String get onboardStepNameTitle => 'Como quer chamar esta viagem?';
+
+  @override
+  String get onboardStepNameSubtitle =>
+      'A Luxora pode criar um título pelo seu estilo — ou digite o seu.';
+
+  @override
+  String get onboardTripNameLuxora => 'Deixar a Luxora nomear';
+
+  @override
+  String get onboardTripNameYours => 'Eu nomeio';
+
+  @override
+  String get onboardTripNameHint => 'Nossa escapada de aniversário…';
+
+  @override
+  String onboardTripNameSuggested(String name) {
+    return 'Luxora sugere: $name';
+  }
+
+  @override
+  String get conciergeTripNameLabel => 'Nome da viagem';
 
   @override
   String get moodRomantic => 'Romântico';

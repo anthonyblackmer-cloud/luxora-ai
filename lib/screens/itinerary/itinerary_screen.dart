@@ -9,6 +9,9 @@ import 'package:luxora_ai/services/city_pack_registry.dart';
 import 'package:luxora_ai/services/places_repository.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/util/day_flow_share_content.dart';
+import 'package:luxora_ai/widgets/agenda/agenda_day_dropdown.dart';
+import 'package:luxora_ai/widgets/agenda/agenda_dining_dropdown.dart';
+import 'package:luxora_ai/widgets/agenda/agenda_stay_dropdown.dart';
 import 'package:luxora_ai/widgets/agenda_weather_action_bar.dart';
 import 'package:luxora_ai/widgets/attraction_detail_sheet.dart';
 import 'package:luxora_ai/widgets/lux_place_image.dart';
@@ -19,12 +22,19 @@ import 'package:luxora_ai/widgets/ticket_savings_itinerary_banner.dart';
 import 'package:luxora_ai/widgets/trip_item_ticket_link.dart';
 import 'package:luxora_ai/widgets/visual_share_icon_button.dart';
 
-/// Full trip agenda — day-by-day stops, ticket deals, and today's Concierge plan.
-class ItineraryScreen extends StatelessWidget {
+/// Full trip agenda — day stops, stay/dining picks, and ticket deals.
+class ItineraryScreen extends StatefulWidget {
   const ItineraryScreen({super.key, this.primaryTab = false});
 
   /// When true, renders as the main Agenda tab (no secondary app bar).
   final bool primaryTab;
+
+  @override
+  State<ItineraryScreen> createState() => _ItineraryScreenState();
+}
+
+class _ItineraryScreenState extends State<ItineraryScreen> {
+  int _selectedDayIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -40,124 +50,115 @@ class ItineraryScreen extends StatelessWidget {
       builder: (context, _) {
         final plan = samplePlanForActiveCity();
         final dayFlow = ActiveDayFlowStore.instance.flowForActiveCity();
-        return DefaultTabController(
-          length: plan.days.length,
-          child: ListView(
-            padding: EdgeInsets.fromLTRB(20, primaryTab ? 12 : 20, 20, 24),
-            children: [
-              if (primaryTab) ...[
-                Text(
-                  l.navAgenda,
-                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                        fontWeight: FontWeight.w900,
-                        letterSpacing: -0.42,
-                        height: 1.02,
-                        color: tokens.textPrimary,
-                      ),
-                ),
-                const SizedBox(height: 6),
-                Text(
-                  l.agendaPageSubtitle,
-                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                        color: tokens.textMuted,
-                        fontWeight: FontWeight.w600,
-                        height: 1.25,
-                      ),
-                ),
-                const SizedBox(height: 20),
-              ],
+        final days = plan.days;
+        final dayIndex = days.isEmpty
+            ? 0
+            : _selectedDayIndex.clamp(0, days.length - 1);
+        final selectedDay = days.isEmpty ? null : days[dayIndex];
+
+        return ListView(
+          padding: EdgeInsets.fromLTRB(20, widget.primaryTab ? 12 : 20, 20, 24),
+          children: [
+            if (widget.primaryTab) ...[
               Text(
-                l.itineraryBadge,
-                style: TextStyle(
-                  fontSize: 11,
-                  fontWeight: FontWeight.w700,
-                  letterSpacing: 2.5,
-                  color: tokens.accent.withValues(alpha: 0.8),
-                ),
+                l.navAgenda,
+                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                      fontWeight: FontWeight.w900,
+                      letterSpacing: -0.42,
+                      height: 1.02,
+                      color: tokens.textPrimary,
+                    ),
               ),
+              const SizedBox(height: 6),
               Text(
-                plan.title,
-                style: Theme.of(context).textTheme.headlineMedium,
+                l.agendaPageSubtitle,
+                style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                      color: tokens.textMuted,
+                      fontWeight: FontWeight.w600,
+                      height: 1.25,
+                    ),
               ),
-              const SizedBox(height: 8),
-              Text(
-                l.itineraryTagline,
-                style: TextStyle(
-                  color: tokens.textMuted,
-                  height: 1.4,
-                ),
+              const SizedBox(height: 20),
+            ],
+            Text(
+              l.itineraryBadge,
+              style: TextStyle(
+                fontSize: 11,
+                fontWeight: FontWeight.w700,
+                letterSpacing: 2.5,
+                color: tokens.accent.withValues(alpha: 0.8),
               ),
-              if (dayFlow != null && !dayFlow.isEmpty) ...[
-                const SizedBox(height: 12),
-                GlassCard(
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Expanded(
-                        child: Text(
-                          l.itinerarySameAsMapAgenda,
-                          style: TextStyle(
-                            fontSize: 13,
-                            height: 1.4,
-                            color: tokens.textPrimary,
-                          ),
-                        ),
-                      ),
-                      VisualShareIconButton(
-                        subject: l.mapPlanDayTitle,
-                        fileName: 'luxora_day_agenda.png',
-                        shareWidth: 420,
-                        color: LuxColors.gold,
-                        background: LuxColors.gold.withValues(alpha: 0.12),
-                        cardBuilder: (ctx) =>
-                            buildDayAgendaShareCard(ctx, dayFlow),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-              const SizedBox(height: 16),
-              const AgendaWeatherActionBar(),
-              const TicketSavingsItineraryBanner(),
-              DecoratedBox(
-                decoration: BoxDecoration(
-                  color: tokens.panelFill,
-                  borderRadius: BorderRadius.circular(12),
-                  border: Border.all(color: tokens.borderSubtle),
-                ),
-                child: TabBar(
-                  isScrollable: true,
-                  indicatorColor: tokens.accent,
-                  dividerColor: Colors.transparent,
-                  labelColor: tokens.textPrimary,
-                  unselectedLabelColor: tokens.textMuted,
-                  tabs: [
-                    for (final day in plan.days)
-                      Tab(
-                        text: l.itineraryDayTab(
-                          day.dayNumber,
-                          day.label,
-                        ),
-                      ),
-                  ],
-                ),
+            ),
+            Text(
+              plan.title,
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
+            const SizedBox(height: 8),
+            Text(
+              l.itineraryTagline,
+              style: TextStyle(
+                color: tokens.textMuted,
+                height: 1.4,
               ),
-              const SizedBox(height: 16),
-              SizedBox(
-                height: 560,
-                child: TabBarView(
+            ),
+            const SizedBox(height: 16),
+            AgendaStayDropdown(plan: plan),
+            if (selectedDay != null) ...[
+              const SizedBox(height: 12),
+              AgendaDiningDropdown(
+                key: ValueKey(selectedDay.dayNumber),
+                day: selectedDay,
+              ),
+            ],
+            if (days.length > 1) ...[
+              const SizedBox(height: 12),
+              AgendaDayDropdown(
+                days: days,
+                selectedIndex: dayIndex,
+                onChanged: (index) => setState(() => _selectedDayIndex = index),
+              ),
+            ],
+            if (dayFlow != null && !dayFlow.isEmpty) ...[
+              const SizedBox(height: 12),
+              GlassCard(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    for (final day in plan.days) _ItineraryDayView(day: day),
+                    Expanded(
+                      child: Text(
+                        l.itinerarySameAsMapAgenda,
+                        style: TextStyle(
+                          fontSize: 13,
+                          height: 1.4,
+                          color: tokens.textPrimary,
+                        ),
+                      ),
+                    ),
+                    VisualShareIconButton(
+                      subject: l.mapPlanDayTitle,
+                      fileName: 'luxora_day_agenda.png',
+                      shareWidth: 420,
+                      color: LuxColors.gold,
+                      background: LuxColors.gold.withValues(alpha: 0.12),
+                      cardBuilder: (ctx) => buildDayAgendaShareCard(ctx, dayFlow),
+                    ),
                   ],
                 ),
               ),
             ],
-          ),
+            const SizedBox(height: 16),
+            const AgendaWeatherActionBar(),
+            const TicketSavingsItineraryBanner(),
+            if (selectedDay != null) ...[
+              const SizedBox(height: 8),
+              _ItineraryDayTimeline(day: selectedDay),
+            ],
+          ],
         );
       },
     );
 
-    if (primaryTab) {
+    if (widget.primaryTab) {
       return DecoratedBox(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -184,19 +185,21 @@ class ItineraryScreen extends StatelessWidget {
   }
 }
 
-class _ItineraryDayView extends StatelessWidget {
-  const _ItineraryDayView({required this.day});
+class _ItineraryDayTimeline extends StatelessWidget {
+  const _ItineraryDayTimeline({required this.day});
 
   final TripDay day;
 
   @override
   Widget build(BuildContext context) {
     final tokens = luxThemeTokensOf(context);
-    return ListView.builder(
-      itemCount: day.items.length,
-      itemBuilder: (context, i) {
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: List.generate(day.items.length, (i) {
         final item = day.items[i];
         final thumbPlace = PlacesRepository.instance.byId(item.placeId);
+
         return Padding(
           padding: const EdgeInsets.only(bottom: 16, left: 8),
           child: Row(
@@ -297,7 +300,7 @@ class _ItineraryDayView extends StatelessWidget {
             ],
           ),
         );
-      },
+      }),
     );
   }
 }

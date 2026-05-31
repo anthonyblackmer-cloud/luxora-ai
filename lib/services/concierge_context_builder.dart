@@ -7,6 +7,7 @@ import 'package:luxora_ai/services/city_pack_registry.dart';
 import 'package:luxora_ai/services/concierge_trip_save_sync.dart';
 import 'package:luxora_ai/services/discover_radius_controller.dart';
 import 'package:luxora_ai/services/places_repository.dart';
+import 'package:luxora_ai/services/trip_name_generator.dart';
 
 /// Assembles trip + catalog context for the live concierge backend.
 abstract final class ConciergeContextBuilder {
@@ -75,6 +76,7 @@ abstract final class ConciergeContextBuilder {
       cityName: offer.cityName,
       region: offer.regionLabel,
       locale: localeCode,
+      tripName: TripNameGenerator.resolve(p),
       tripFeel: p.tripFeel,
       moods: p.moods.map((m) => m.name).toList(),
       stylePrefs: stylePrefs,

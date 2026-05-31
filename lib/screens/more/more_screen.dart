@@ -110,13 +110,21 @@ class MoreScreen extends StatelessWidget {
                   LuxoraMoreGridTile(
                     animationIndex: 1,
                     compact: compactTiles,
+                    icon: Icons.restaurant_rounded,
+                    title: l.navRestaurants,
+                    subtitle: l.moreCardRestaurantsSub,
+                    onTap: () => context.push('/restaurants'),
+                  ),
+                  LuxoraMoreGridTile(
+                    animationIndex: 2,
+                    compact: compactTiles,
                     icon: Icons.hotel_rounded,
                     title: l.navStays,
                     subtitle: l.moreCardHotelsSub,
                     onTap: () => context.push('/stays'),
                   ),
                   LuxoraMoreGridTile(
-                    animationIndex: 2,
+                    animationIndex: 3,
                     compact: compactTiles,
                     icon: Icons.diamond_rounded,
                     title: l.navGems,
@@ -124,7 +132,7 @@ class MoreScreen extends StatelessWidget {
                     onTap: () => context.push('/gems'),
                   ),
                   LuxoraMoreGridTile(
-                    animationIndex: 3,
+                    animationIndex: 4,
                     compact: compactTiles,
                     icon: Icons.confirmation_number_rounded,
                     title: l.ticketSavingsTitle,
@@ -132,7 +140,7 @@ class MoreScreen extends StatelessWidget {
                     onTap: () => context.push('/ticket-savings'),
                   ),
                   LuxoraMoreGridTile(
-                    animationIndex: 4,
+                    animationIndex: 5,
                     compact: compactTiles,
                     icon: Icons.wb_sunny_rounded,
                     title: l.weatherConciergeTitle,

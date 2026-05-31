@@ -13,13 +13,16 @@ import 'package:luxora_ai/widgets/attraction_detail_sheet.dart';
 import 'package:luxora_ai/widgets/partner_sponsor_badge.dart';
 
 /// Opens destination search (catalog title, city, category, tags).
-Future<void> showDestinationSearchSheet(BuildContext context) {
+Future<void> showDestinationSearchSheet(
+  BuildContext context, {
+  PlaceSearchFilter initialFilter = PlaceSearchFilter.all,
+}) {
   return showModalBottomSheet<void>(
     context: context,
     isScrollControlled: true,
     useSafeArea: true,
     backgroundColor: Colors.transparent,
-    builder: (ctx) => const _DestinationSearchSheet(),
+    builder: (ctx) => _DestinationSearchSheet(initialFilter: initialFilter),
   );
 }
 
@@ -71,29 +74,31 @@ class DestinationSearchBar extends StatelessWidget {
 
 /// Quick category filter for the search sheet — lets users pull a type of
 /// place on demand instead of scrolling the full catalog.
-enum _PlaceFilter { all, hotels, restaurants, destinations }
+enum PlaceSearchFilter { all, hotels, restaurants, destinations }
 
-extension _PlaceFilterX on _PlaceFilter {
+extension PlaceSearchFilterX on PlaceSearchFilter {
   String labelL10n(AppLocalizations l) => switch (this) {
-        _PlaceFilter.all => l.discoverFilterAll,
-        _PlaceFilter.hotels => l.discoverFilterHotels,
-        _PlaceFilter.restaurants => l.discoverFilterRestaurants,
-        _PlaceFilter.destinations => l.discoverFilterDestinations,
+        PlaceSearchFilter.all => l.discoverFilterAll,
+        PlaceSearchFilter.hotels => l.discoverFilterHotels,
+        PlaceSearchFilter.restaurants => l.discoverFilterRestaurants,
+        PlaceSearchFilter.destinations => l.discoverFilterDestinations,
       };
 
   bool matches(LuxPlace p) => switch (this) {
-        _PlaceFilter.all => true,
-        _PlaceFilter.hotels => p.category == LuxPlaceCategory.hotel,
-        _PlaceFilter.restaurants => p.category == LuxPlaceCategory.dining ||
+        PlaceSearchFilter.all => true,
+        PlaceSearchFilter.hotels => p.category == LuxPlaceCategory.hotel,
+        PlaceSearchFilter.restaurants => p.category == LuxPlaceCategory.dining ||
             p.category == LuxPlaceCategory.nightlife,
-        _PlaceFilter.destinations => p.category != LuxPlaceCategory.hotel &&
+        PlaceSearchFilter.destinations => p.category != LuxPlaceCategory.hotel &&
             p.category != LuxPlaceCategory.dining &&
             p.category != LuxPlaceCategory.nightlife,
       };
 }
 
 class _DestinationSearchSheet extends StatefulWidget {
-  const _DestinationSearchSheet();
+  const _DestinationSearchSheet({this.initialFilter = PlaceSearchFilter.all});
+
+  final PlaceSearchFilter initialFilter;
 
   @override
   State<_DestinationSearchSheet> createState() => _DestinationSearchSheetState();
@@ -102,11 +107,12 @@ class _DestinationSearchSheet extends StatefulWidget {
 class _DestinationSearchSheetState extends State<_DestinationSearchSheet> {
   final _controller = TextEditingController();
   final _focus = FocusNode();
-  _PlaceFilter _filter = _PlaceFilter.all;
+  late PlaceSearchFilter _filter;
 
   @override
   void initState() {
     super.initState();
+    _filter = widget.initialFilter;
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _focus.requestFocus();
     });
@@ -234,7 +240,7 @@ class _DestinationSearchSheetState extends State<_DestinationSearchSheet> {
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       children: [
-                        for (final f in _PlaceFilter.values)
+                        for (final f in PlaceSearchFilter.values)
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 4),
                             child: ChoiceChip(
@@ -288,7 +294,7 @@ class _DestinationSearchSheetState extends State<_DestinationSearchSheet> {
                       if (_controller.text.trim().isEmpty) {
                         // No query: All → curated suggestions; a category tab →
                         // pull the nearest venues of that type on demand.
-                        if (_filter == _PlaceFilter.all) {
+                        if (_filter == PlaceSearchFilter.all) {
                           return _SuggestionsList(
                             scrollController: scrollController,
                             radius: r,
@@ -315,7 +321,7 @@ class _DestinationSearchSheetState extends State<_DestinationSearchSheet> {
                           .searchPlaces(
                             _controller.text,
                             radius: r,
-                            limit: _filter == _PlaceFilter.all ? 40 : 150,
+                            limit: _filter == PlaceSearchFilter.all ? 40 : 150,
                           )
                           .where(_filter.matches)
                           .take(60)

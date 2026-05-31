@@ -84,6 +84,7 @@ abstract final class DayFlowPlanner {
     required List<LuxPlace> pool,
     LuxPlace? homeBase,
     Set<String> savedIds = const {},
+    Set<String> excludePlaceIds = const {},
   }) {
     final p = TripOccasionInterpreter.apply(profile ?? const TripProfile());
     final start = homeBase != null
@@ -92,7 +93,10 @@ abstract final class DayFlowPlanner {
 
     final isMiami = CityPackRegistry.instance.active.cityId == 'miami';
 
-    final used = <String>{if (homeBase != null) homeBase.id};
+    final used = <String>{
+      ...excludePlaceIds,
+      if (homeBase != null) homeBase.id,
+    };
     final blocks = <DayBlock>[];
     var cursor = start;
 

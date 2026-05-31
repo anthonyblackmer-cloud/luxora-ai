@@ -91,7 +91,117 @@ class AppLocalizationsJa extends AppLocalizations {
   String get navMore => 'もっと';
 
   @override
+  String get navRestaurants => 'レストラン';
+
+  @override
   String get navTimeline => 'タイムライン';
+
+  @override
+  String get agendaTabItinerary => '日数';
+
+  @override
+  String get agendaTabRestaurants => 'レストラン';
+
+  @override
+  String get restaurantsPageTitle => 'レストラン';
+
+  @override
+  String get restaurantsPageSubtitle =>
+      'Luxora が知るレストランを閲覧 — お気に入り保存または Concierge に今夜の食事を選ばせる。';
+
+  @override
+  String get restaurantsConciergePick => 'レストランを選んで';
+
+  @override
+  String restaurantsConciergePickDone(String name) {
+    return '$name を保存 — Concierge に旅程へ追加を依頼してください。';
+  }
+
+  @override
+  String restaurantsSavedCount(int count) {
+    return '旅程用に $count 件保存';
+  }
+
+  @override
+  String get restaurantsEmptyHint => '発見半径内にレストランがありません — 地図で半径を広げてください。';
+
+  @override
+  String get moreCardRestaurantsSub => 'レストランを閲覧し Concierge に選ばせる';
+
+  @override
+  String get agendaHotelSuggestionsTitle => '宿泊先';
+
+  @override
+  String agendaHotelSuggestionsSubtitle(int budget) {
+    return '約 $budget の予算に合わせた AI 提案 — タップですべて表示。';
+  }
+
+  @override
+  String agendaHotelTopPick(String name) {
+    return 'おすすめ：$name';
+  }
+
+  @override
+  String get agendaStayDropdownHint => 'ホテルを選択';
+
+  @override
+  String get agendaDiningDropdownHint => 'レストランを選択';
+
+  @override
+  String get agendaDaySelectLabel => '何日目';
+
+  @override
+  String get agendaDayDiningTitle => '今夜のディナー';
+
+  @override
+  String agendaDayDiningSubtitle(int budget, String tier) {
+    return '今日のプランと約 $budget（$tier）に合う提案。';
+  }
+
+  @override
+  String get agendaDiningNearStops => '今日の立ち寄り付近';
+
+  @override
+  String get agendaDiningFitsBudget => '予算に合う';
+
+  @override
+  String get agendaDiningMatchesDay => '今日の雰囲気に合う';
+
+  @override
+  String get agendaDiningFoodiePick => 'グルメおすすめ';
+
+  @override
+  String get browseCatRecommended => 'Recommended';
+
+  @override
+  String get browseCatDisneyHotels => 'ディズニーエリア';
+
+  @override
+  String get browseCatBudgetFriendly => 'リーズナブル';
+
+  @override
+  String get browseCatUpscaleLuxury => '高級・ラグジュアリー';
+
+  @override
+  String get browseCatUniversalHotels => 'ユニバーサルエリア';
+
+  @override
+  String get browseCatThemeParkDining => 'パーク内ダイニング';
+
+  @override
+  String get browseCatUpscaleDining => '上質なダイニング';
+
+  @override
+  String get browseSearchAllHotels => 'ホテル全カタログを検索…';
+
+  @override
+  String get browseSearchAllRestaurants => 'レストラン全カタログを検索…';
+
+  @override
+  String get browseCategoryEmpty => 'このカテゴリに該当なし — 検索するか範囲を広げてください。';
+
+  @override
+  String get browseFullCatalogHint => '上の検索で Luxora の全ホテル・レストランを閲覧できます。';
 
   @override
   String get agendaPageSubtitle => '旅の全体像 — 日ごとの立ち寄り、チケット割引、今日のコンシェルジュプラン。';
@@ -1938,7 +2048,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get landingRegionTitle => 'オーランドとフロリダ — 気分に合わせて厳選';
 
   @override
-  String get onboardFinish => 'コンシェルジュに会いましょう';
+  String get onboardFinish => '旅行を作成';
+
+  @override
+  String get onboardBuilding => '旅行を作成中…';
 
   @override
   String get onboardStep1Title => '夢が最初に着く場所';
@@ -2773,6 +2886,32 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get onboardTripFeelHint => '夕日が沈むディナー、ゆっくりとした朝、パートナーとの笑い…。';
+
+  @override
+  String get onboardStepNameEyebrow => '物語は名前から始まる';
+
+  @override
+  String get onboardStepNameTitle => 'この旅の名前は？';
+
+  @override
+  String get onboardStepNameSubtitle => 'Luxoraが雰囲気から名前を考えます — または自分で入力。';
+
+  @override
+  String get onboardTripNameLuxora => 'Luxoraに任せる';
+
+  @override
+  String get onboardTripNameYours => '自分で付ける';
+
+  @override
+  String get onboardTripNameHint => '春の記念日の旅…';
+
+  @override
+  String onboardTripNameSuggested(String name) {
+    return 'Luxoraの提案：$name';
+  }
+
+  @override
+  String get conciergeTripNameLabel => '旅行名';
 
   @override
   String get moodRomantic => 'ロマンチック';

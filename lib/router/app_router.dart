@@ -12,6 +12,7 @@ import 'package:luxora_ai/screens/more/partner_offers_screen.dart';
 import 'package:luxora_ai/screens/more/saved_favorites_screen.dart';
 import 'package:luxora_ai/screens/onboarding/onboarding_screen.dart';
 import 'package:luxora_ai/screens/paywall/luxora_paywall_screen.dart';
+import 'package:luxora_ai/screens/restaurants/restaurants_screen.dart';
 import 'package:luxora_ai/screens/story/why_luxora_screen.dart';
 import 'package:luxora_ai/screens/hotels/hotel_matchmaker_screen.dart';
 import 'package:luxora_ai/screens/hotels/hotels_screen.dart';
@@ -114,6 +115,11 @@ GoRouter createAppRouter() {
         parentNavigatorKey: _rootKey,
         path: '/saved-favorites',
         builder: (context, state) => _luxPage(const SavedFavoritesScreen()),
+      ),
+      GoRoute(
+        parentNavigatorKey: _rootKey,
+        path: '/restaurants',
+        builder: (context, state) => _luxPage(const RestaurantsScreen()),
       ),
       GoRoute(
         parentNavigatorKey: _rootKey,

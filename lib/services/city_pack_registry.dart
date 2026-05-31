@@ -125,8 +125,12 @@ class CityPackRegistry extends ChangeNotifier {
     _states[state.stateId] = state;
   }
 
-  bool placeBelongsToActivePack(String? cityPackId) =>
-      cityPackId == active.cityId;
+  bool placeBelongsToActivePack(String? cityPackId) {
+    final normalized = (cityPackId == null || cityPackId.isEmpty)
+        ? 'orlando'
+        : cityPackId;
+    return normalized == active.cityId;
+  }
 
   Future<void> _loadBundledPacks() async {
     // Florida Keys is merged from [FloridaKeysContent] — skip JSON so stale web

@@ -43,6 +43,8 @@ class TripProfileStorage {
         'cultureInterest': p.cultureInterest,
         'discoveryStyle': p.discoveryStyle.name,
         'tripFeel': p.tripFeel,
+        'tripName': p.tripName,
+        'useAutoTripName': p.useAutoTripName,
         'moods': p.moods.map((m) => m.name).toList(),
         'occasion': p.occasion.name,
       };
@@ -73,6 +75,8 @@ class TripProfileStorage {
       discoveryStyle: DiscoveryStyle.values
           .byName(m['discoveryStyle'] as String? ?? 'balanced'),
       tripFeel: m['tripFeel'] as String? ?? '',
+      tripName: m['tripName'] as String? ?? '',
+      useAutoTripName: m['useAutoTripName'] as bool? ?? true,
       moods: (m['moods'] as List<dynamic>? ?? [])
           .map((e) => TripMood.values.byName(e as String))
           .toList(),

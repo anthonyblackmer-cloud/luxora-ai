@@ -280,11 +280,209 @@ abstract class AppLocalizations {
   /// **'More'**
   String get navMore;
 
+  /// No description provided for @navRestaurants.
+  ///
+  /// In en, this message translates to:
+  /// **'Restaurants'**
+  String get navRestaurants;
+
   /// No description provided for @navTimeline.
   ///
   /// In en, this message translates to:
   /// **'Timeline'**
   String get navTimeline;
+
+  /// No description provided for @agendaTabItinerary.
+  ///
+  /// In en, this message translates to:
+  /// **'Days'**
+  String get agendaTabItinerary;
+
+  /// No description provided for @agendaTabRestaurants.
+  ///
+  /// In en, this message translates to:
+  /// **'Restaurants'**
+  String get agendaTabRestaurants;
+
+  /// No description provided for @restaurantsPageTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Restaurants'**
+  String get restaurantsPageTitle;
+
+  /// No description provided for @restaurantsPageSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Browse dining Luxora knows — save favorites or let Concierge pick tonight\'s meal.'**
+  String get restaurantsPageSubtitle;
+
+  /// No description provided for @restaurantsConciergePick.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick a restaurant for me'**
+  String get restaurantsConciergePick;
+
+  /// No description provided for @restaurantsConciergePickDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved {name} — ask Concierge to add it to your trip.'**
+  String restaurantsConciergePickDone(String name);
+
+  /// No description provided for @restaurantsSavedCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} saved for your trip'**
+  String restaurantsSavedCount(int count);
+
+  /// No description provided for @restaurantsEmptyHint.
+  ///
+  /// In en, this message translates to:
+  /// **'No restaurants in your discover radius — widen radius on the map.'**
+  String get restaurantsEmptyHint;
+
+  /// No description provided for @moreCardRestaurantsSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Browse dining and let Concierge pick for you'**
+  String get moreCardRestaurantsSub;
+
+  /// No description provided for @agendaHotelSuggestionsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Where to stay'**
+  String get agendaHotelSuggestionsTitle;
+
+  /// No description provided for @agendaHotelSuggestionsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'AI-matched to your ~{budget} USD trip budget — tap to see all options.'**
+  String agendaHotelSuggestionsSubtitle(int budget);
+
+  /// No description provided for @agendaHotelTopPick.
+  ///
+  /// In en, this message translates to:
+  /// **'Top pick: {name}'**
+  String agendaHotelTopPick(String name);
+
+  /// No description provided for @agendaStayDropdownHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Select a hotel'**
+  String get agendaStayDropdownHint;
+
+  /// No description provided for @agendaDiningDropdownHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Select a restaurant'**
+  String get agendaDiningDropdownHint;
+
+  /// No description provided for @agendaDaySelectLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Which day'**
+  String get agendaDaySelectLabel;
+
+  /// No description provided for @agendaDayDiningTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Where to eat tonight'**
+  String get agendaDayDiningTitle;
+
+  /// No description provided for @agendaDayDiningSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Suggestions for your ~{budget} USD budget ({tier} dining) based on today\'s plan.'**
+  String agendaDayDiningSubtitle(int budget, String tier);
+
+  /// No description provided for @agendaDiningNearStops.
+  ///
+  /// In en, this message translates to:
+  /// **'Near today\'s stops'**
+  String get agendaDiningNearStops;
+
+  /// No description provided for @agendaDiningFitsBudget.
+  ///
+  /// In en, this message translates to:
+  /// **'Fits your trip budget'**
+  String get agendaDiningFitsBudget;
+
+  /// No description provided for @agendaDiningMatchesDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Matches today\'s vibe'**
+  String get agendaDiningMatchesDay;
+
+  /// No description provided for @agendaDiningFoodiePick.
+  ///
+  /// In en, this message translates to:
+  /// **'Foodie favorite'**
+  String get agendaDiningFoodiePick;
+
+  /// No description provided for @browseCatRecommended.
+  ///
+  /// In en, this message translates to:
+  /// **'Recommended'**
+  String get browseCatRecommended;
+
+  /// No description provided for @browseCatDisneyHotels.
+  ///
+  /// In en, this message translates to:
+  /// **'Disney area'**
+  String get browseCatDisneyHotels;
+
+  /// No description provided for @browseCatBudgetFriendly.
+  ///
+  /// In en, this message translates to:
+  /// **'Budget friendly'**
+  String get browseCatBudgetFriendly;
+
+  /// No description provided for @browseCatUpscaleLuxury.
+  ///
+  /// In en, this message translates to:
+  /// **'Upscale & luxury'**
+  String get browseCatUpscaleLuxury;
+
+  /// No description provided for @browseCatUniversalHotels.
+  ///
+  /// In en, this message translates to:
+  /// **'Universal area'**
+  String get browseCatUniversalHotels;
+
+  /// No description provided for @browseCatThemeParkDining.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme park dining'**
+  String get browseCatThemeParkDining;
+
+  /// No description provided for @browseCatUpscaleDining.
+  ///
+  /// In en, this message translates to:
+  /// **'Upscale & fine dining'**
+  String get browseCatUpscaleDining;
+
+  /// No description provided for @browseSearchAllHotels.
+  ///
+  /// In en, this message translates to:
+  /// **'Search the full hotel catalog…'**
+  String get browseSearchAllHotels;
+
+  /// No description provided for @browseSearchAllRestaurants.
+  ///
+  /// In en, this message translates to:
+  /// **'Search the full restaurant catalog…'**
+  String get browseSearchAllRestaurants;
+
+  /// No description provided for @browseCategoryEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No matches in this category for your radius — try search or widen discover.'**
+  String get browseCategoryEmpty;
+
+  /// No description provided for @browseFullCatalogHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Use search above for the complete catalog — every hotel and restaurant Luxora knows.'**
+  String get browseFullCatalogHint;
 
   /// No description provided for @agendaPageSubtitle.
   ///
@@ -3563,8 +3761,14 @@ abstract class AppLocalizations {
   /// No description provided for @onboardFinish.
   ///
   /// In en, this message translates to:
-  /// **'Meet your concierge'**
+  /// **'Build my trip'**
   String get onboardFinish;
+
+  /// No description provided for @onboardBuilding.
+  ///
+  /// In en, this message translates to:
+  /// **'Building your trip…'**
+  String get onboardBuilding;
 
   /// No description provided for @onboardStep1Title.
   ///
@@ -5075,6 +5279,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Sunset dinners, slow mornings, laughter with my partner…'**
   String get onboardTripFeelHint;
+
+  /// No description provided for @onboardStepNameEyebrow.
+  ///
+  /// In en, this message translates to:
+  /// **'Your story starts with a name'**
+  String get onboardStepNameEyebrow;
+
+  /// No description provided for @onboardStepNameTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What should we call this trip?'**
+  String get onboardStepNameTitle;
+
+  /// No description provided for @onboardStepNameSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Luxora can craft a title from your vibe — or type your own.'**
+  String get onboardStepNameSubtitle;
+
+  /// No description provided for @onboardTripNameLuxora.
+  ///
+  /// In en, this message translates to:
+  /// **'Let Luxora name it'**
+  String get onboardTripNameLuxora;
+
+  /// No description provided for @onboardTripNameYours.
+  ///
+  /// In en, this message translates to:
+  /// **'I\'ll name it'**
+  String get onboardTripNameYours;
+
+  /// No description provided for @onboardTripNameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Our spring anniversary escape…'**
+  String get onboardTripNameHint;
+
+  /// No description provided for @onboardTripNameSuggested.
+  ///
+  /// In en, this message translates to:
+  /// **'Luxora suggests: {name}'**
+  String onboardTripNameSuggested(String name);
+
+  /// No description provided for @conciergeTripNameLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Trip name'**
+  String get conciergeTripNameLabel;
 
   /// No description provided for @moodRomantic.
   ///

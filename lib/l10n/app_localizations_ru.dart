@@ -93,7 +93,121 @@ class AppLocalizationsRu extends AppLocalizations {
   String get navMore => 'Более';
 
   @override
+  String get navRestaurants => 'Рестораны';
+
+  @override
   String get navTimeline => 'Хронология';
+
+  @override
+  String get agendaTabItinerary => 'Дни';
+
+  @override
+  String get agendaTabRestaurants => 'Рестораны';
+
+  @override
+  String get restaurantsPageTitle => 'Рестораны';
+
+  @override
+  String get restaurantsPageSubtitle =>
+      'Смотрите рестораны, которые знает Luxora — сохраняйте избранное или попросите Concierge выбрать ужин.';
+
+  @override
+  String get restaurantsConciergePick => 'Выбрать ресторан за меня';
+
+  @override
+  String restaurantsConciergePickDone(String name) {
+    return 'Сохранено $name — попросите Concierge добавить в поездку.';
+  }
+
+  @override
+  String restaurantsSavedCount(int count) {
+    return '$count сохранено для поездки';
+  }
+
+  @override
+  String get restaurantsEmptyHint =>
+      'Нет ресторанов в радиусе — увеличьте радиус на карте.';
+
+  @override
+  String get moreCardRestaurantsSub => 'Рестораны и выбор Concierge';
+
+  @override
+  String get agendaHotelSuggestionsTitle => 'Где остановиться';
+
+  @override
+  String agendaHotelSuggestionsSubtitle(int budget) {
+    return 'Подбор ИИ под бюджет ~$budget USD — нажмите для всех вариантов.';
+  }
+
+  @override
+  String agendaHotelTopPick(String name) {
+    return 'Лучший выбор: $name';
+  }
+
+  @override
+  String get agendaStayDropdownHint => 'Выберите отель';
+
+  @override
+  String get agendaDiningDropdownHint => 'Выберите ресторан';
+
+  @override
+  String get agendaDaySelectLabel => 'Какой день';
+
+  @override
+  String get agendaDayDiningTitle => 'Где поужинать сегодня';
+
+  @override
+  String agendaDayDiningSubtitle(int budget, String tier) {
+    return 'Рекомендации для ~$budget USD ($tier) по плану дня.';
+  }
+
+  @override
+  String get agendaDiningNearStops => 'Рядом с остановками дня';
+
+  @override
+  String get agendaDiningFitsBudget => 'Подходит под бюджет';
+
+  @override
+  String get agendaDiningMatchesDay => 'Подходит к дню';
+
+  @override
+  String get agendaDiningFoodiePick => 'Foodie-фavorit';
+
+  @override
+  String get browseCatRecommended => 'Recommended';
+
+  @override
+  String get browseCatDisneyHotels => 'Район Disney';
+
+  @override
+  String get browseCatBudgetFriendly => 'Бюджетные';
+
+  @override
+  String get browseCatUpscaleLuxury => 'Люкс и премиум';
+
+  @override
+  String get browseCatUniversalHotels => 'Район Universal';
+
+  @override
+  String get browseCatThemeParkDining => 'Рестораны парков';
+
+  @override
+  String get browseCatUpscaleDining => 'Изысканная кухня';
+
+  @override
+  String get browseSearchAllHotels => 'Поиск по полному каталогу отелей…';
+
+  @override
+  String get browseSearchAllRestaurants =>
+      'Поиск по полному каталогу ресторанов…';
+
+  @override
+  String get browseCategoryEmpty =>
+      'Нет совпадений в этой категории — попробуйте поиск или расширьте радиус.';
+
+  @override
+  String get browseFullCatalogHint =>
+      'Поиск выше — полный каталог отелей и ресторанов.';
 
   @override
   String get agendaPageSubtitle =>
@@ -2003,7 +2117,10 @@ class AppLocalizationsRu extends AppLocalizations {
   String get landingRegionTitle => 'Орландо и Флорида — созданы для чувств';
 
   @override
-  String get onboardFinish => 'Познакомьтесь с вашим консьержем';
+  String get onboardFinish => 'Создать поездку';
+
+  @override
+  String get onboardBuilding => 'Создаём поездку…';
 
   @override
   String get onboardStep1Title => 'Где мечты приземляются в первую очередь';
@@ -2868,6 +2985,33 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get onboardTripFeelHint =>
       'Ужины на закате, медленное утро, смех с моим партнером…';
+
+  @override
+  String get onboardStepNameEyebrow => 'Ваша история начинается с имени';
+
+  @override
+  String get onboardStepNameTitle => 'Как назвать эту поездку?';
+
+  @override
+  String get onboardStepNameSubtitle =>
+      'Luxora может придумать название по вашему настроению — или введите своё.';
+
+  @override
+  String get onboardTripNameLuxora => 'Пусть Luxora назовёт';
+
+  @override
+  String get onboardTripNameYours => 'Назову сам';
+
+  @override
+  String get onboardTripNameHint => 'Наша весенняя годовщина…';
+
+  @override
+  String onboardTripNameSuggested(String name) {
+    return 'Luxora предлагает: $name';
+  }
+
+  @override
+  String get conciergeTripNameLabel => 'Название поездки';
 
   @override
   String get moodRomantic => 'Романтический';

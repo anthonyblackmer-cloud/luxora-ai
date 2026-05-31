@@ -27,7 +27,58 @@
   "navMap": "Map",
   "navTrips": "Trips",
   "navMore": "More",
+  "navRestaurants": "Restaurants",
   "navTimeline": "Timeline",
+  "agendaTabItinerary": "Days",
+  "agendaTabRestaurants": "Restaurants",
+  "restaurantsPageTitle": "Restaurants",
+  "restaurantsPageSubtitle": "Browse dining Luxora knows — save favorites or let Concierge pick tonight's meal.",
+  "restaurantsConciergePick": "Pick a restaurant for me",
+  "restaurantsConciergePickDone": "Saved {name} — ask Concierge to add it to your trip.",
+  "@restaurantsConciergePickDone": {
+    "placeholders": { "name": { "type": "String" } }
+  },
+  "restaurantsSavedCount": "{count} saved for your trip",
+  "@restaurantsSavedCount": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "restaurantsEmptyHint": "No restaurants in your discover radius — widen radius on the map.",
+  "moreCardRestaurantsSub": "Browse dining and let Concierge pick for you",
+  "agendaHotelSuggestionsTitle": "Where to stay",
+  "agendaHotelSuggestionsSubtitle": "AI-matched to your ~{budget} USD trip budget — tap to see all options.",
+  "@agendaHotelSuggestionsSubtitle": {
+    "placeholders": { "budget": { "type": "int" } }
+  },
+  "agendaHotelTopPick": "Top pick: {name}",
+  "@agendaHotelTopPick": {
+    "placeholders": { "name": { "type": "String" } }
+  },
+  "agendaStayDropdownHint": "Select a hotel",
+  "agendaDiningDropdownHint": "Select a restaurant",
+  "agendaDaySelectLabel": "Which day",
+  "agendaDayDiningTitle": "Where to eat tonight",
+  "agendaDayDiningSubtitle": "Suggestions for your ~{budget} USD budget ({tier} dining) based on today's plan.",
+  "@agendaDayDiningSubtitle": {
+    "placeholders": {
+      "budget": { "type": "int" },
+      "tier": { "type": "String" }
+    }
+  },
+  "agendaDiningNearStops": "Near today's stops",
+  "agendaDiningFitsBudget": "Fits your trip budget",
+  "agendaDiningMatchesDay": "Matches today's vibe",
+  "agendaDiningFoodiePick": "Foodie favorite",
+  "browseCatRecommended": "Recommended",
+  "browseCatDisneyHotels": "Disney area",
+  "browseCatBudgetFriendly": "Budget friendly",
+  "browseCatUpscaleLuxury": "Upscale & luxury",
+  "browseCatUniversalHotels": "Universal area",
+  "browseCatThemeParkDining": "Theme park dining",
+  "browseCatUpscaleDining": "Upscale & fine dining",
+  "browseSearchAllHotels": "Search the full hotel catalog…",
+  "browseSearchAllRestaurants": "Search the full restaurant catalog…",
+  "browseCategoryEmpty": "No matches in this category for your radius — try search or widen discover.",
+  "browseFullCatalogHint": "Use search above for the complete catalog — every hotel and restaurant Luxora knows.",
   "agendaPageSubtitle": "Your full trip — day-by-day stops, ticket deals, and today's Concierge plan.",
   "navGems": "Gems",
   "navFeed": "Feed",
@@ -860,7 +911,8 @@
   "landingValues": "Memories · Emotion · Escape · Connection",
   "landingRegionBadge": "Launch region",
   "landingRegionTitle": "Orlando & Florida — curated for feeling",
-  "onboardFinish": "Meet your concierge",
+  "onboardFinish": "Build my trip",
+  "onboardBuilding": "Building your trip…",
   "onboardStep1Title": "Where dreams land first",
   "onboardStep1Subtitle": "Where are you headed?",
   "onboardDestination": "Destination",
@@ -1214,6 +1266,21 @@
   "onboardStep5Title": "The heart of Luxora",
   "onboardStep5Subtitle": "What do you want this trip to FEEL like?",
   "onboardTripFeelHint": "Sunset dinners, slow mornings, laughter with my partner…",
+  "onboardStepNameEyebrow": "Your story starts with a name",
+  "onboardStepNameTitle": "What should we call this trip?",
+  "onboardStepNameSubtitle": "Luxora can craft a title from your vibe — or type your own.",
+  "onboardTripNameLuxora": "Let Luxora name it",
+  "onboardTripNameYours": "I'll name it",
+  "onboardTripNameHint": "Our spring anniversary escape…",
+  "onboardTripNameSuggested": "Luxora suggests: {name}",
+  "@onboardTripNameSuggested": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "conciergeTripNameLabel": "Trip name",
   "moodRomantic": "Romantic",
   "moodRelaxing": "Relaxing",
   "moodAdventurous": "Adventurous",

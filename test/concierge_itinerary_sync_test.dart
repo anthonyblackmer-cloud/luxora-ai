@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:luxora_ai/models/discover_radius.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
 import 'package:luxora_ai/services/concierge_itinerary_sync.dart';
@@ -15,6 +16,7 @@ void main() {
   });
 
   setUpAll(() async {
+    await initializeDateFormatting('en_US');
     await PlacesRepository.instance.initialize();
   });
 
@@ -67,15 +69,32 @@ void main() {
       anyOf(contains('magic kingdom'), contains('wizarding'), contains('epcot')),
     );
     expect(
+      result.plan.days.any(
+        (d) => d.items.any((i) => i.category.toLowerCase() == 'dining'),
+      ),
+      isTrue,
+    );
+    expect(
       result.flow.blocks.map((b) => b.place.id),
       isNotEmpty,
     );
-    expect(
-      result.flow.blocks.any((b) => b.place.id.contains('magic-kingdom')) ||
-          result.flow.blocks.any((b) => b.place.id.contains('universal')) ||
-          result.flow.blocks.any((b) => b.place.id.contains('islands')),
-      isTrue,
+  });
+
+  test('applyAfterChat uses onboarding dates when message omits day count', () async {
+    const profile = TripProfile(
+      cityId: 'orlando',
+      destination: 'Orlando',
+      startDate: '2026-03-14',
+      endDate: '2026-03-17',
     );
+
+    final result = await ConciergeItinerarySync.applyAfterChat(
+      userMessage: 'Create our Disney and Universal trip',
+      profile: profile,
+    );
+
+    expect(result, isNotNull);
+    expect(result!.plan.days.length, 4);
   });
 
   test('DayFlowPlanner produces blocks for enriched romantic profile', () {
