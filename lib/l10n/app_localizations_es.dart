@@ -19,13 +19,102 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get settingsThemeIntro =>
-      'Cinemática de lujo o legibilidad clara: elige lo que mejor se adapte a tu día.';
+      'Oscuro cinematográfico o resort claro — elige el ambiente de tu viaje.';
+
+  @override
+  String get settingsThemeLabel => 'Tema';
+
+  @override
+  String get themeGoldenEmber => 'Golden Ember';
+
+  @override
+  String get themeGoldenEmberMood => 'Ultra lujo cálido';
+
+  @override
+  String get themeMidnightAmethyst => 'Midnight Amethyst';
+
+  @override
+  String get themeMidnightAmethystMood => 'Misterioso y exclusivo';
+
+  @override
+  String get themeEmeraldHaven => 'Emerald Haven';
+
+  @override
+  String get themeEmeraldHavenMood => 'Lujo tropical sereno';
+
+  @override
+  String get themeRivieraWhite => 'Riviera White';
+
+  @override
+  String get themeRivieraWhiteMood => 'Elegante revista de viajes de lujo';
+
+  @override
+  String get themeCoastalGlass => 'Coastal Glass';
+
+  @override
+  String get themeCoastalGlassMood => 'Energía vacacional premium y limpia';
+
+  @override
+  String get themeChampagneLuxe => 'Champagne Luxe';
+
+  @override
+  String get themeChampagneLuxeMood => 'Elegancia de concierge privado';
+
+  @override
+  String get themeBlackCard => 'Black Card';
+
+  @override
+  String get themeBlackCardMood => 'Prestigio de aviación privada';
 
   @override
   String get settingsThemeSectionLuxury => 'Cinemática de lujo';
 
   @override
   String get settingsThemeSectionReadable => 'Limpio y legible';
+
+  @override
+  String get settingsMapSkinSection => 'Mapa base';
+
+  @override
+  String get settingsMapSkinIntro =>
+      'Elige el aspecto de los mosaicos del mapa en la pestaña Mapa.';
+
+  @override
+  String get mapSkinVoyager => 'Voyager';
+
+  @override
+  String get mapSkinVoyagerMood => 'Color suave — parques, agua, carreteras';
+
+  @override
+  String get mapSkinOsm => 'OpenStreetMap';
+
+  @override
+  String get mapSkinOsmMood => 'Clásico, tonos naturales';
+
+  @override
+  String get mapSkinCartoLight => 'Carto Light';
+
+  @override
+  String get mapSkinCartoLightMood => 'Minimalista y claro';
+
+  @override
+  String get mapSkinCartoDark => 'Carto Dark';
+
+  @override
+  String get mapSkinCartoDarkMood => 'Mapa base nocturno';
+
+  @override
+  String get mapSkinMapboxStreets => 'Mapbox Streets';
+
+  @override
+  String get mapSkinMapboxStreetsMood =>
+      'Rico en detalle, estilo app de viajes';
+
+  @override
+  String get mapSkinMapboxOutdoors => 'Mapbox Outdoors';
+
+  @override
+  String get mapSkinMapboxOutdoorsMood => 'Énfasis en verdes y terreno';
 
   @override
   String get dark_mode => 'Modo oscuro';
@@ -745,6 +834,93 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get feedMoodFoodie => 'Conocedor gourmet';
+
+  @override
+  String get vibeSunsetReady => 'Atardecer';
+
+  @override
+  String get vibeViral => 'Viral';
+
+  @override
+  String get vibeFamilyApproved => 'Familiar';
+
+  @override
+  String get vibeHiddenGem => 'Joyita oculta';
+
+  @override
+  String get vibeRainSafe => 'Lluvia OK';
+
+  @override
+  String get vibeDateNight => 'Cita romántica';
+
+  @override
+  String get vibeNightVibe => 'Vibe nocturno';
+
+  @override
+  String get vibeFoodie => 'Foodie';
+
+  @override
+  String get vibeLuxury => 'Lujo';
+
+  @override
+  String get vibeTrending => 'Tendencia';
+
+  @override
+  String get vibeLive => 'En vivo';
+
+  @override
+  String get vibeSeasonal => 'De temporada';
+
+  @override
+  String get vibeLocalPick => 'Local';
+
+  @override
+  String get vibeAdventure => 'Aventura';
+
+  @override
+  String get vibeWellness => 'Bienestar';
+
+  @override
+  String get vibeBeachDay => 'Día de playa';
+
+  @override
+  String get vibeLuxoraPick => 'Elección Luxora';
+
+  @override
+  String get mapLayersTitle => 'CAPAS DE MAPA';
+
+  @override
+  String get mapLayerAll => 'Todos';
+
+  @override
+  String get mapLayerGems => 'Joyas';
+
+  @override
+  String get mapLayerNight => 'Noche';
+
+  @override
+  String get mapLayerDateNight => 'Cita';
+
+  @override
+  String get mapLayerWeather => 'Mejor clima';
+
+  @override
+  String get mapLayerItinerary => 'Itinerario';
+
+  @override
+  String get mapExpandMap => 'Ampliar mapa';
+
+  @override
+  String get mapFullscreenTitle => 'Mapa';
+
+  @override
+  String get mapCloseFullscreen => 'Cerrar mapa';
+
+  @override
+  String get mapItineraryDayLabel => 'Mostrar itinerario para';
+
+  @override
+  String get mapItineraryCurrentDay => 'Día actual';
 
   @override
   String get feedFamilyMoodHint =>

@@ -4,8 +4,19 @@ enum LuxThemePreset {
   goldenEmber,
   midnightAmethyst,
   emeraldHaven,
-  arctic,
-  cloud,
+  rivieraWhite,
+  coastalGlass,
+  champagneLuxe,
+  blackCard,
+}
+
+/// Visual treatment layered on top of palette colors.
+enum LuxThemeSurfaceStyle {
+  cinematic,
+  resort,
+  frostedGlass,
+  champagne,
+  blackCard,
 }
 
 class LuxThemePalette {
@@ -14,6 +25,7 @@ class LuxThemePalette {
     required this.name,
     required this.mood,
     required this.isLight,
+    required this.surfaceStyle,
     required this.bg,
     required this.bgSecondary,
     required this.accent,
@@ -30,6 +42,7 @@ class LuxThemePalette {
   final String name;
   final String mood;
   final bool isLight;
+  final LuxThemeSurfaceStyle surfaceStyle;
   final Color bg;
   final Color bgSecondary;
   final Color accent;
@@ -46,6 +59,7 @@ class LuxThemePalette {
 class LuxThemeTokens extends ThemeExtension<LuxThemeTokens> {
   const LuxThemeTokens({
     required this.isLight,
+    required this.surfaceStyle,
     required this.bg,
     required this.bgSecondary,
     required this.surface,
@@ -62,28 +76,49 @@ class LuxThemeTokens extends ThemeExtension<LuxThemeTokens> {
     required this.elevationShadow,
     required this.orbSecondary,
     required this.orbTertiary,
+    required this.frostedGlassCards,
+    required this.matteBlackButtons,
+    required this.goldDisplayHeadlines,
   });
 
   factory LuxThemeTokens.fromPalette(LuxThemePalette p) {
-    final borderSubtle = p.isLight
-        ? p.textPrimary.withValues(alpha: 0.1)
-        : Colors.white.withValues(alpha: 0.08);
-    final panelFill = p.isLight
-        ? p.bgSecondary.withValues(alpha: 0.85)
-        : Colors.white.withValues(alpha: 0.04);
-    final cardFill = p.isLight
-        ? p.surface
-        : p.bgSecondary.withValues(alpha: 0.46);
+    final frosted = p.surfaceStyle == LuxThemeSurfaceStyle.frostedGlass;
+    final champagne = p.surfaceStyle == LuxThemeSurfaceStyle.champagne;
+    final blackCard = p.surfaceStyle == LuxThemeSurfaceStyle.blackCard;
+
+    final borderSubtle = frosted
+        ? Colors.transparent
+        : p.isLight
+            ? p.textPrimary.withValues(alpha: champagne ? 0.06 : 0.1)
+            : Colors.white.withValues(alpha: 0.08);
+
+    final panelFill = frosted
+        ? Colors.white.withValues(alpha: 0.55)
+        : p.isLight
+            ? p.bgSecondary.withValues(alpha: 0.85)
+            : Colors.white.withValues(alpha: 0.04);
+
+    final cardFill = frosted
+        ? Colors.white.withValues(alpha: 0.68)
+        : p.isLight
+            ? p.surface
+            : p.bgSecondary.withValues(alpha: 0.46);
+
     final appBarScrim = p.isLight
         ? p.bg.withValues(alpha: 0.94)
         : Colors.black.withValues(alpha: 0.28);
-    final elevationShadow = p.isLight
-        ? p.textPrimary.withValues(alpha: 0.08)
-        : p.glow;
+
+    final elevationShadow = champagne
+        ? p.textPrimary.withValues(alpha: 0.04)
+        : p.isLight
+            ? p.textPrimary.withValues(alpha: 0.08)
+            : p.glow;
+
     final orbScale = p.isLight ? 0.35 : 1.0;
 
     return LuxThemeTokens(
       isLight: p.isLight,
+      surfaceStyle: p.surfaceStyle,
       bg: p.bg,
       bgSecondary: p.bgSecondary,
       surface: p.surface,
@@ -100,10 +135,14 @@ class LuxThemeTokens extends ThemeExtension<LuxThemeTokens> {
       elevationShadow: elevationShadow,
       orbSecondary: p.accentSecondary.withValues(alpha: 0.16 * orbScale),
       orbTertiary: p.accent.withValues(alpha: 0.12 * orbScale),
+      frostedGlassCards: frosted,
+      matteBlackButtons: blackCard,
+      goldDisplayHeadlines: champagne || blackCard,
     );
   }
 
   final bool isLight;
+  final LuxThemeSurfaceStyle surfaceStyle;
   final Color bg;
   final Color bgSecondary;
   final Color surface;
@@ -120,10 +159,14 @@ class LuxThemeTokens extends ThemeExtension<LuxThemeTokens> {
   final Color elevationShadow;
   final Color orbSecondary;
   final Color orbTertiary;
+  final bool frostedGlassCards;
+  final bool matteBlackButtons;
+  final bool goldDisplayHeadlines;
 
   @override
   LuxThemeTokens copyWith({
     bool? isLight,
+    LuxThemeSurfaceStyle? surfaceStyle,
     Color? bg,
     Color? bgSecondary,
     Color? surface,
@@ -140,9 +183,13 @@ class LuxThemeTokens extends ThemeExtension<LuxThemeTokens> {
     Color? elevationShadow,
     Color? orbSecondary,
     Color? orbTertiary,
+    bool? frostedGlassCards,
+    bool? matteBlackButtons,
+    bool? goldDisplayHeadlines,
   }) {
     return LuxThemeTokens(
       isLight: isLight ?? this.isLight,
+      surfaceStyle: surfaceStyle ?? this.surfaceStyle,
       bg: bg ?? this.bg,
       bgSecondary: bgSecondary ?? this.bgSecondary,
       surface: surface ?? this.surface,
@@ -159,6 +206,9 @@ class LuxThemeTokens extends ThemeExtension<LuxThemeTokens> {
       elevationShadow: elevationShadow ?? this.elevationShadow,
       orbSecondary: orbSecondary ?? this.orbSecondary,
       orbTertiary: orbTertiary ?? this.orbTertiary,
+      frostedGlassCards: frostedGlassCards ?? this.frostedGlassCards,
+      matteBlackButtons: matteBlackButtons ?? this.matteBlackButtons,
+      goldDisplayHeadlines: goldDisplayHeadlines ?? this.goldDisplayHeadlines,
     );
   }
 
@@ -167,6 +217,7 @@ class LuxThemeTokens extends ThemeExtension<LuxThemeTokens> {
     if (other is! LuxThemeTokens) return this;
     return LuxThemeTokens(
       isLight: t < 0.5 ? isLight : other.isLight,
+      surfaceStyle: t < 0.5 ? surfaceStyle : other.surfaceStyle,
       bg: Color.lerp(bg, other.bg, t) ?? bg,
       bgSecondary: Color.lerp(bgSecondary, other.bgSecondary, t) ?? bgSecondary,
       surface: Color.lerp(surface, other.surface, t) ?? surface,
@@ -185,6 +236,10 @@ class LuxThemeTokens extends ThemeExtension<LuxThemeTokens> {
           Color.lerp(elevationShadow, other.elevationShadow, t) ?? elevationShadow,
       orbSecondary: Color.lerp(orbSecondary, other.orbSecondary, t) ?? orbSecondary,
       orbTertiary: Color.lerp(orbTertiary, other.orbTertiary, t) ?? orbTertiary,
+      frostedGlassCards: t < 0.5 ? frostedGlassCards : other.frostedGlassCards,
+      matteBlackButtons: t < 0.5 ? matteBlackButtons : other.matteBlackButtons,
+      goldDisplayHeadlines:
+          t < 0.5 ? goldDisplayHeadlines : other.goldDisplayHeadlines,
     );
   }
 }
@@ -194,6 +249,7 @@ const _goldenEmber = LuxThemePalette(
   name: 'Golden Ember',
   mood: 'Warm ultra-luxury',
   isLight: false,
+  surfaceStyle: LuxThemeSurfaceStyle.cinematic,
   bg: Color(0xFF0C0A09),
   bgSecondary: Color(0xFF1C1917),
   accent: Color(0xFFFBBF24),
@@ -211,6 +267,7 @@ const _midnightAmethyst = LuxThemePalette(
   name: 'Midnight Amethyst',
   mood: 'Mysterious and exclusive',
   isLight: false,
+  surfaceStyle: LuxThemeSurfaceStyle.cinematic,
   bg: Color(0xFF050505),
   bgSecondary: Color(0xFF0F0F1A),
   accent: Color(0xFF9F7AEA),
@@ -228,6 +285,7 @@ const _emeraldHaven = LuxThemePalette(
   name: 'Emerald Haven',
   mood: 'Serene tropical luxury',
   isLight: false,
+  surfaceStyle: LuxThemeSurfaceStyle.cinematic,
   bg: Color(0xFF0A120F),
   bgSecondary: Color(0xFF11241F),
   accent: Color(0xFF10B981),
@@ -240,56 +298,121 @@ const _emeraldHaven = LuxThemePalette(
   overlayTint: Color(0x0D052015),
 );
 
-/// Apple / Linear-inspired productivity clarity — high contrast, minimal accent.
-const _arctic = LuxThemePalette(
-  id: LuxThemePreset.arctic,
-  name: 'Arctic',
-  mood: 'Clean modern clarity',
+/// Four Seasons / Ritz — luxury resort brochure.
+const _rivieraWhite = LuxThemePalette(
+  id: LuxThemePreset.rivieraWhite,
+  name: 'Riviera White',
+  mood: 'Elegant luxury travel magazine',
   isLight: true,
-  bg: Color(0xFFFFFFFF),
-  bgSecondary: Color(0xFFF5F5F7),
-  accent: Color(0xFF111827),
-  accentSecondary: Color(0xFF6B7280),
-  textPrimary: Color(0xFF111827),
-  textMuted: Color(0xFF6B7280),
+  surfaceStyle: LuxThemeSurfaceStyle.resort,
+  bg: Color(0xFFF8F6F1),
+  bgSecondary: Color(0xFFF0EBE3),
+  accent: Color(0xFFC9A86A),
+  accentSecondary: Color(0xFFA88752),
+  textPrimary: Color(0xFF1F1F1F),
+  textMuted: Color(0xFF6B6B6B),
   surface: Color(0xFFFFFFFF),
-  onAccent: Color(0xFFFFFFFF),
-  glow: Color(0x14111827),
-  overlayTint: Color(0x00000000),
+  onAccent: Color(0xFF1F1F1F),
+  glow: Color(0x26C9A86A),
+  overlayTint: Color(0x08F8F6F1),
 );
 
-/// Boutique travel magazine — warm surfaces, soft blue accents.
-const _cloud = LuxThemePalette(
-  id: LuxThemePreset.cloud,
-  name: 'Cloud',
-  mood: 'Calm boutique travel',
+/// Amalfi / Santorini — frosted coastal glass.
+const _coastalGlass = LuxThemePalette(
+  id: LuxThemePreset.coastalGlass,
+  name: 'Coastal Glass',
+  mood: 'Clean premium vacation energy',
   isLight: true,
-  bg: Color(0xFFFAF8F5),
-  bgSecondary: Color(0xFFF3EDE4),
-  accent: Color(0xFF6B8CAE),
-  accentSecondary: Color(0xFFB8A99A),
-  textPrimary: Color(0xFF3D3832),
-  textMuted: Color(0xFF7A7168),
-  surface: Color(0xFFFFFDF9),
+  surfaceStyle: LuxThemeSurfaceStyle.frostedGlass,
+  bg: Color(0xFFF4F9FB),
+  bgSecondary: Color(0xFFE3F2F7),
+  accent: Color(0xFF3A8DAD),
+  accentSecondary: Color(0xFF79C2D0),
+  textPrimary: Color(0xFF22313F),
+  textMuted: Color(0xFF5A6B7A),
+  surface: Color(0xFFFFFFFF),
   onAccent: Color(0xFFFFFFFF),
-  glow: Color(0x266B8CAE),
-  overlayTint: Color(0x08FAF8F5),
+  glow: Color(0x263A8DAD),
+  overlayTint: Color(0x0AF4F9FB),
+);
+
+/// Luxury hotel lobby — champagne and rose gold.
+const _champagneLuxe = LuxThemePalette(
+  id: LuxThemePreset.champagneLuxe,
+  name: 'Champagne Luxe',
+  mood: 'Private concierge elegance',
+  isLight: true,
+  surfaceStyle: LuxThemeSurfaceStyle.champagne,
+  bg: Color(0xFFFFFDF8),
+  bgSecondary: Color(0xFFFBF3E8),
+  accent: Color(0xFFD6B370),
+  accentSecondary: Color(0xFFC6937A),
+  textPrimary: Color(0xFF222222),
+  textMuted: Color(0xFF6B6358),
+  surface: Color(0xFFFFFFFF),
+  onAccent: Color(0xFF222222),
+  glow: Color(0x24D6B370),
+  overlayTint: Color(0x08FFFDF8),
+);
+
+/// Centurion / private aviation — warm stone with matte black + gold.
+const _blackCard = LuxThemePalette(
+  id: LuxThemePreset.blackCard,
+  name: 'Black Card',
+  mood: 'Private aviation prestige',
+  isLight: true,
+  surfaceStyle: LuxThemeSurfaceStyle.blackCard,
+  bg: Color(0xFFF3F0E8),
+  bgSecondary: Color(0xFFEBE6DC),
+  accent: Color(0xFFD4AF37),
+  accentSecondary: Color(0xFFB88B4A),
+  textPrimary: Color(0xFF1A1A1A),
+  textMuted: Color(0xFF6B6560),
+  surface: Color(0xFFFFFFFF),
+  onAccent: Color(0xFFD4AF37),
+  glow: Color(0x33D4AF37),
+  overlayTint: Color(0x08F3F0E8),
 );
 
 const luxThemePalettes = <LuxThemePalette>[
   _goldenEmber,
   _midnightAmethyst,
   _emeraldHaven,
-  _arctic,
-  _cloud,
+  _rivieraWhite,
+  _coastalGlass,
+  _champagneLuxe,
+  _blackCard,
 ];
+
+const luxThemePresetOrder = <LuxThemePreset>[
+  LuxThemePreset.goldenEmber,
+  LuxThemePreset.midnightAmethyst,
+  LuxThemePreset.emeraldHaven,
+  LuxThemePreset.rivieraWhite,
+  LuxThemePreset.coastalGlass,
+  LuxThemePreset.champagneLuxe,
+  LuxThemePreset.blackCard,
+];
+
+LuxThemePreset luxThemePresetFromStorage(String? raw) {
+  if (raw == null) return LuxThemePreset.goldenEmber;
+  if (raw == 'arctic' || raw == 'cloud') {
+    return LuxThemePreset.rivieraWhite;
+  }
+  for (final preset in LuxThemePreset.values) {
+    if (preset.name == raw) return preset;
+  }
+  return LuxThemePreset.goldenEmber;
+}
 
 LuxThemePalette paletteFor(LuxThemePreset preset) => switch (preset) {
       LuxThemePreset.goldenEmber => _goldenEmber,
       LuxThemePreset.midnightAmethyst => _midnightAmethyst,
       LuxThemePreset.emeraldHaven => _emeraldHaven,
-      LuxThemePreset.arctic => _arctic,
-      LuxThemePreset.cloud => _cloud,
+      LuxThemePreset.rivieraWhite => _rivieraWhite,
+      LuxThemePreset.coastalGlass => _coastalGlass,
+      LuxThemePreset.champagneLuxe => _champagneLuxe,
+      LuxThemePreset.blackCard => _blackCard,
     };
 
 /// Legacy fixed palette — prefer [luxThemeTokensOf] for theme-aware UI.
@@ -320,6 +443,8 @@ ThemeData buildLuxTheme(LuxThemePreset preset) {
   const displayFamily = 'Cormorant Garamond';
   const bodyFamily = 'Noto Sans';
   final brightness = palette.isLight ? Brightness.light : Brightness.dark;
+  final borderlessCards = tokens.frostedGlassCards ||
+      palette.surfaceStyle == LuxThemeSurfaceStyle.champagne;
 
   final baseText = ThemeData(brightness: brightness).textTheme;
 
@@ -340,6 +465,25 @@ ThemeData buildLuxTheme(LuxThemePreset preset) {
           surface: palette.surface,
           onSurface: palette.textPrimary,
           onSurfaceVariant: palette.textMuted,
+        );
+
+  final displayColor = tokens.goldDisplayHeadlines
+      ? palette.accent
+      : palette.textPrimary;
+
+  final filledButtonStyle = tokens.matteBlackButtons
+      ? FilledButton.styleFrom(
+          backgroundColor: const Color(0xFF0D0D0D),
+          foregroundColor: const Color(0xFFD4AF37),
+          iconColor: const Color(0xFFD4AF37),
+          textStyle: const TextStyle(fontWeight: FontWeight.w700),
+          elevation: 0,
+        )
+      : FilledButton.styleFrom(
+          backgroundColor: palette.accent,
+          foregroundColor: palette.onAccent,
+          textStyle: const TextStyle(fontWeight: FontWeight.w700),
+          elevation: 0,
         );
 
   return ThemeData(
@@ -363,12 +507,12 @@ ThemeData buildLuxTheme(LuxThemePreset preset) {
     cardTheme: CardThemeData(
       color: tokens.cardFill,
       shadowColor: tokens.elevationShadow,
-      elevation: palette.isLight ? 1.5 : 0,
+      elevation: palette.isLight && !borderlessCards ? 1.5 : 0,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
-        side: palette.isLight
-            ? BorderSide(color: tokens.borderSubtle)
-            : BorderSide.none,
+        side: borderlessCards || !palette.isLight
+            ? BorderSide.none
+            : BorderSide(color: tokens.borderSubtle),
       ),
     ),
     navigationBarTheme: NavigationBarThemeData(
@@ -431,14 +575,7 @@ ThemeData buildLuxTheme(LuxThemePreset preset) {
       ),
       hintStyle: TextStyle(color: palette.textMuted),
     ),
-    filledButtonTheme: FilledButtonThemeData(
-      style: FilledButton.styleFrom(
-        backgroundColor: palette.accent,
-        foregroundColor: palette.onAccent,
-        textStyle: const TextStyle(fontWeight: FontWeight.w700),
-        elevation: palette.isLight ? 0 : 0,
-      ),
-    ),
+    filledButtonTheme: FilledButtonThemeData(style: filledButtonStyle),
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(foregroundColor: palette.accent),
     ),
@@ -470,25 +607,29 @@ ThemeData buildLuxTheme(LuxThemePreset preset) {
     textTheme: baseText
         .apply(
           bodyColor: palette.textPrimary,
-          displayColor: palette.textPrimary,
+          displayColor: displayColor,
         )
         .copyWith(
           displayLarge: baseText.displayLarge?.copyWith(
             fontFamily: displayFamily,
             fontWeight: FontWeight.w600,
             height: 1.05,
+            color: displayColor,
           ),
           displayMedium: baseText.displayMedium?.copyWith(
             fontFamily: displayFamily,
             fontWeight: FontWeight.w600,
+            color: displayColor,
           ),
           headlineMedium: baseText.headlineMedium?.copyWith(
             fontFamily: displayFamily,
             fontWeight: FontWeight.w600,
+            color: displayColor,
           ),
           titleLarge: baseText.titleLarge?.copyWith(
             fontFamily: displayFamily,
             fontWeight: FontWeight.w600,
+            color: displayColor,
           ),
         ),
   );

@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:luxora_ai/l10n/app_localizations.dart';
+import 'package:luxora_ai/l10n/lux_theme_l10n.dart';
+import 'package:luxora_ai/l10n/map_basemap_skin_l10n.dart';
+import 'package:luxora_ai/models/map_basemap_skin.dart';
+import 'package:luxora_ai/services/map_tile_config.dart';
 import 'package:luxora_ai/settings/luxora_language_catalog.dart';
 import 'package:luxora_ai/state/luxora_app_state.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
@@ -70,29 +74,53 @@ class LuxoraSettingsSheet extends StatelessWidget {
               style: subtitleStyle,
             ),
             const SizedBox(height: 12),
-            Text(
-              l.settingsThemeSectionLuxury,
-              style: TextStyle(
-                fontSize: 11,
-                fontWeight: FontWeight.w800,
-                letterSpacing: 1.6,
-                color: theme.colorScheme.onSurfaceVariant,
+            InputDecorator(
+              decoration: InputDecoration(
+                labelText: l.settingsThemeLabel,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(14),
+                ),
+                contentPadding:
+                    const EdgeInsets.symmetric(horizontal: 14, vertical: 4),
               ),
-            ),
-            const SizedBox(height: 8),
-            Column(
-              children: [
-                for (final themePalette in luxThemePalettes.where((p) => !p.isLight))
-                  _ThemePreviewCard(
-                    palette: themePalette,
-                    selected: appState.themePreset == themePalette.id,
-                    onTap: () => appState.setThemePreset(themePalette.id),
-                  ),
-              ],
+              child: DropdownButtonHideUnderline(
+                child: DropdownButton<LuxThemePreset>(
+                  isExpanded: true,
+                  value: appState.themePreset,
+                  borderRadius: BorderRadius.circular(12),
+                  itemHeight: 64,
+                  items: [
+                    for (final preset in luxThemePresetOrder)
+                      DropdownMenuItem(
+                        value: preset,
+                        child: _ThemeDropdownRow(
+                          palette: paletteFor(preset),
+                          label: l.themePresetLabel(preset),
+                          mood: l.themePresetMood(preset),
+                          compact: false,
+                        ),
+                      ),
+                  ],
+                  selectedItemBuilder: (context) => [
+                    for (final preset in luxThemePresetOrder)
+                      _ThemeDropdownRow(
+                        palette: paletteFor(preset),
+                        label: l.themePresetLabel(preset),
+                        mood: l.themePresetMood(preset),
+                        compact: true,
+                      ),
+                  ],
+                  onChanged: (preset) {
+                    if (preset != null) {
+                      appState.setThemePreset(preset);
+                    }
+                  },
+                ),
+              ),
             ),
             const SizedBox(height: 16),
             Text(
-              l.settingsThemeSectionReadable,
+              l.settingsMapSkinSection,
               style: TextStyle(
                 fontSize: 11,
                 fontWeight: FontWeight.w800,
@@ -101,16 +129,67 @@ class LuxoraSettingsSheet extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 8),
-            Column(
-              children: [
-                for (final themePalette in luxThemePalettes.where((p) => p.isLight))
-                  _ThemePreviewCard(
-                    palette: themePalette,
-                    selected: appState.themePreset == themePalette.id,
-                    onTap: () => appState.setThemePreset(themePalette.id),
-                  ),
-              ],
+            Text(
+              l.settingsMapSkinIntro,
+              style: subtitleStyle,
             ),
+            const SizedBox(height: 12),
+            Builder(
+              builder: (context) {
+                final mapSkins = MapBasemapSkinCatalog.selectable(
+                  hasMapboxToken: MapTileConfig.hasMapboxToken,
+                );
+                final currentSkin = mapSkins.contains(appState.mapBasemapSkin)
+                    ? appState.mapBasemapSkin
+                    : MapBasemapSkinCatalog.defaultSkin;
+
+                return InputDecorator(
+                  decoration: InputDecoration(
+                    labelText: l.settingsMapSkinSection,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(14),
+                    ),
+                    contentPadding:
+                        const EdgeInsets.symmetric(horizontal: 14, vertical: 4),
+                  ),
+                  child: DropdownButtonHideUnderline(
+                    child: DropdownButton<MapBasemapSkin>(
+                      isExpanded: true,
+                      value: currentSkin,
+                      borderRadius: BorderRadius.circular(12),
+                      itemHeight: 64,
+                      items: [
+                        for (final skin in mapSkins)
+                          DropdownMenuItem(
+                            value: skin,
+                            child: _MapSkinDropdownRow(
+                              label: l.mapSkinLabel(skin),
+                              mood: l.mapSkinMood(skin),
+                              previewColors: skin.previewColors,
+                              compact: false,
+                            ),
+                          ),
+                      ],
+                      selectedItemBuilder: (context) => [
+                        for (final skin in mapSkins)
+                          _MapSkinDropdownRow(
+                            label: l.mapSkinLabel(skin),
+                            mood: l.mapSkinMood(skin),
+                            previewColors: skin.previewColors,
+                            compact: true,
+                          ),
+                      ],
+                      onChanged: (skin) {
+                        if (skin != null) {
+                          appState.setMapBasemapSkin(skin);
+                        }
+                      },
+                    ),
+                  ),
+                );
+              },
+            ),
+            const SizedBox(height: 16),
             palette.sectionDivider(),
             InkWell(
               onTap: () => LuxoraLanguagePickerSheet.show(context),
@@ -338,101 +417,161 @@ class LuxoraSettingsSheet extends StatelessWidget {
   }
 }
 
-class _ThemePreviewCard extends StatelessWidget {
-  const _ThemePreviewCard({
+class _ThemeDropdownRow extends StatelessWidget {
+  const _ThemeDropdownRow({
     required this.palette,
-    required this.selected,
-    required this.onTap,
+    required this.label,
+    required this.mood,
+    required this.compact,
   });
 
   final LuxThemePalette palette;
-  final bool selected;
-  final VoidCallback onTap;
+  final String label;
+  final String mood;
+  final bool compact;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return InkWell(
-      onTap: onTap,
-      borderRadius: BorderRadius.circular(14),
-      child: Container(
-        margin: const EdgeInsets.only(bottom: 10),
-        padding: const EdgeInsets.all(10),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(14),
-          border: Border.all(
-            color: selected
-                ? palette.accent.withValues(alpha: 0.9)
-                : theme.colorScheme.outline.withValues(alpha: 0.28),
-            width: selected ? 1.4 : 1,
+
+    return Row(
+      children: [
+        Container(
+          width: compact ? 44 : 52,
+          height: compact ? 32 : 38,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+            gradient: LinearGradient(
+              colors: [palette.bg, palette.bgSecondary, palette.accent],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+            border: Border.all(
+              color: palette.accent.withValues(alpha: 0.35),
+            ),
           ),
-          color: theme.colorScheme.surface.withValues(alpha: 0.45),
-          boxShadow: selected
-              ? [
-                  BoxShadow(
-                    color: palette.glow.withValues(alpha: 0.45),
-                    blurRadius: 18,
-                  ),
-                ]
-              : null,
-        ),
-        child: Row(
-          children: [
-            Container(
-              width: 66,
-              height: 46,
+          child: Align(
+            alignment: Alignment.bottomRight,
+            child: Container(
+              width: compact ? 10 : 12,
+              height: compact ? 10 : 12,
+              margin: const EdgeInsets.all(4),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                gradient: LinearGradient(
-                  colors: [palette.bg, palette.bgSecondary, palette.accent],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ),
-              ),
-              child: Align(
-                alignment: Alignment.bottomRight,
-                child: Container(
-                  width: 16,
-                  height: 16,
-                  margin: const EdgeInsets.all(6),
-                  decoration: BoxDecoration(
-                    color: palette.accentSecondary,
-                    shape: BoxShape.circle,
-                  ),
-                ),
+                color: palette.accentSecondary,
+                shape: BoxShape.circle,
               ),
             ),
-            const SizedBox(width: 12),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    palette.name,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 14,
-                    ),
-                  ),
-                  const SizedBox(height: 2),
-                  Text(
-                    palette.mood,
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: theme.colorScheme.onSurfaceVariant,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            if (selected)
-              Icon(
-                Icons.check_circle_rounded,
-                color: palette.accent,
-              ),
-          ],
+          ),
         ),
-      ),
+        const SizedBox(width: 10),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                label,
+                style: TextStyle(
+                  fontWeight: FontWeight.w700,
+                  fontSize: compact ? 15 : 14,
+                ),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+              if (!compact)
+                Text(
+                  mood,
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: theme.colorScheme.onSurfaceVariant,
+                  ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _MapSkinDropdownRow extends StatelessWidget {
+  const _MapSkinDropdownRow({
+    required this.label,
+    required this.mood,
+    required this.previewColors,
+    required this.compact,
+  });
+
+  final String label;
+  final String mood;
+  final (Color land, Color water, Color accent) previewColors;
+  final bool compact;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final (land, water, accent) = previewColors;
+
+    return Row(
+      children: [
+        Container(
+          width: compact ? 44 : 52,
+          height: compact ? 32 : 38,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+            gradient: LinearGradient(
+              colors: [land, water, accent],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+            border: Border.all(color: accent.withValues(alpha: 0.45)),
+          ),
+          child: Align(
+            alignment: Alignment.bottomRight,
+            child: Container(
+              width: compact ? 10 : 12,
+              height: compact ? 10 : 12,
+              margin: const EdgeInsets.all(4),
+              decoration: BoxDecoration(
+                color: accent,
+                shape: BoxShape.circle,
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(width: 10),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                label,
+                style: TextStyle(
+                  fontWeight: FontWeight.w700,
+                  fontSize: compact ? 15 : 14,
+                ),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+              if (!compact)
+                Text(
+                  mood,
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: theme.colorScheme.onSurfaceVariant,
+                  ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }

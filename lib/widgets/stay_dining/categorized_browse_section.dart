@@ -18,6 +18,8 @@ import 'package:luxora_ai/widgets/glass_card.dart';
 import 'package:luxora_ai/services/freemium_limits.dart';
 import 'package:luxora_ai/services/freemium_service.dart';
 import 'package:luxora_ai/widgets/freemium/freemium_unlock_cta.dart';
+import 'package:luxora_ai/util/place_vibe_resolver.dart';
+import 'package:luxora_ai/widgets/place_vibe_chip.dart';
 import 'package:luxora_ai/widgets/hotel_detail_sheet.dart';
 
 /// Scrollable category tabs with 4–5 hotel picks and full-catalog search.
@@ -131,7 +133,7 @@ class _CategorizedHotelSectionState extends State<CategorizedHotelSection>
           ),
           const SizedBox(height: 8),
           SizedBox(
-            height: widget.compact ? 220 : 260,
+            height: widget.compact ? 280 : 320,
             child: TabBarView(
               controller: _tabs,
               children: [
@@ -406,7 +408,7 @@ class _CategorizedRestaurantSectionState extends State<CategorizedRestaurantSect
           ),
           const SizedBox(height: 8),
           SizedBox(
-            height: widget.compact ? 220 : 260,
+            height: widget.compact ? 280 : 320,
             child: TabBarView(
               controller: _tabs,
               children: [
@@ -466,6 +468,7 @@ class _RestaurantCategoryList extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 8),
               child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Icon(Icons.dinner_dining_rounded,
                       size: 18, color: tokens.accent),
@@ -482,6 +485,7 @@ class _RestaurantCategoryList extends StatelessWidget {
                             color: tokens.textPrimary,
                           ),
                         ),
+                        const SizedBox(height: 2),
                         Text(
                           '${switch (TripBudgetMapper.tierForPlace(place)) {
                             DiningPriceTier.budget => l.hotelPriceBudget,
@@ -491,8 +495,14 @@ class _RestaurantCategoryList extends StatelessWidget {
                           }} · ${place.location}',
                           style:
                               TextStyle(fontSize: 11, color: tokens.textMuted),
-                          maxLines: 2,
+                          maxLines: 1,
                           overflow: TextOverflow.ellipsis,
+                        ),
+                        const SizedBox(height: 6),
+                        PlaceVibeChipRow(
+                          vibes: PlaceVibeResolver.forPlace(place),
+                          compact: true,
+                          maxChips: 3,
                         ),
                       ],
                     ),

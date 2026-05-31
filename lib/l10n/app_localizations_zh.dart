@@ -18,13 +18,100 @@ class AppLocalizationsZh extends AppLocalizations {
   String get appearance => '外观';
 
   @override
-  String get settingsThemeIntro => '奢华的电影风格或清晰的可读性——选择适合您一天的选择。';
+  String get settingsThemeIntro => '电影感深色或度假村浅色 — 选择您的旅行氛围。';
+
+  @override
+  String get settingsThemeLabel => '主题';
+
+  @override
+  String get themeGoldenEmber => 'Golden Ember';
+
+  @override
+  String get themeGoldenEmberMood => '温暖超奢华';
+
+  @override
+  String get themeMidnightAmethyst => 'Midnight Amethyst';
+
+  @override
+  String get themeMidnightAmethystMood => '神秘而专属';
+
+  @override
+  String get themeEmeraldHaven => 'Emerald Haven';
+
+  @override
+  String get themeEmeraldHavenMood => '宁静热带奢华';
+
+  @override
+  String get themeRivieraWhite => 'Riviera White';
+
+  @override
+  String get themeRivieraWhiteMood => '优雅奢华旅行杂志风';
+
+  @override
+  String get themeCoastalGlass => 'Coastal Glass';
+
+  @override
+  String get themeCoastalGlassMood => '干净高级度假感';
+
+  @override
+  String get themeChampagneLuxe => 'Champagne Luxe';
+
+  @override
+  String get themeChampagneLuxeMood => '私人礼宾优雅风';
+
+  @override
+  String get themeBlackCard => 'Black Card';
+
+  @override
+  String get themeBlackCardMood => '私人航空尊贵感';
 
   @override
   String get settingsThemeSectionLuxury => '豪华影院级';
 
   @override
   String get settingsThemeSectionReadable => '干净且可读';
+
+  @override
+  String get settingsMapSkinSection => '地图底图';
+
+  @override
+  String get settingsMapSkinIntro => '选择地图标签页中地图图块的外观。';
+
+  @override
+  String get mapSkinVoyager => 'Voyager';
+
+  @override
+  String get mapSkinVoyagerMood => '柔和色彩 — 公园、水域、道路';
+
+  @override
+  String get mapSkinOsm => 'OpenStreetMap';
+
+  @override
+  String get mapSkinOsmMood => '经典，自然色调';
+
+  @override
+  String get mapSkinCartoLight => 'Carto Light';
+
+  @override
+  String get mapSkinCartoLightMood => '简约明亮';
+
+  @override
+  String get mapSkinCartoDark => 'Carto Dark';
+
+  @override
+  String get mapSkinCartoDarkMood => '夜间友好底图';
+
+  @override
+  String get mapSkinMapboxStreets => 'Mapbox Streets';
+
+  @override
+  String get mapSkinMapboxStreetsMood => '细节丰富，旅行应用风格';
+
+  @override
+  String get mapSkinMapboxOutdoors => 'Mapbox Outdoors';
+
+  @override
+  String get mapSkinMapboxOutdoorsMood => '强调绿色与地形';
 
   @override
   String get dark_mode => '深色模式';
@@ -712,6 +799,93 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get feedMoodFoodie => '美食家';
+
+  @override
+  String get vibeSunsetReady => '日落';
+
+  @override
+  String get vibeViral => '热门';
+
+  @override
+  String get vibeFamilyApproved => '亲子';
+
+  @override
+  String get vibeHiddenGem => '隐藏宝石';
+
+  @override
+  String get vibeRainSafe => '防雨';
+
+  @override
+  String get vibeDateNight => '约会';
+
+  @override
+  String get vibeNightVibe => '夜生活';
+
+  @override
+  String get vibeFoodie => '美食';
+
+  @override
+  String get vibeLuxury => '奢华';
+
+  @override
+  String get vibeTrending => '趋势';
+
+  @override
+  String get vibeLive => '直播';
+
+  @override
+  String get vibeSeasonal => '当季';
+
+  @override
+  String get vibeLocalPick => '本地';
+
+  @override
+  String get vibeAdventure => '冒险';
+
+  @override
+  String get vibeWellness => '养生';
+
+  @override
+  String get vibeBeachDay => '海滩';
+
+  @override
+  String get vibeLuxoraPick => 'Luxora 精选';
+
+  @override
+  String get mapLayersTitle => '地图图层';
+
+  @override
+  String get mapLayerAll => '全部';
+
+  @override
+  String get mapLayerGems => '宝石';
+
+  @override
+  String get mapLayerNight => '夜生活';
+
+  @override
+  String get mapLayerDateNight => '约会';
+
+  @override
+  String get mapLayerWeather => '最佳天气';
+
+  @override
+  String get mapLayerItinerary => '行程';
+
+  @override
+  String get mapExpandMap => '展开地图';
+
+  @override
+  String get mapFullscreenTitle => '地图';
+
+  @override
+  String get mapCloseFullscreen => '关闭地图';
+
+  @override
+  String get mapItineraryDayLabel => '显示行程';
+
+  @override
+  String get mapItineraryCurrentDay => '当前日';
 
   @override
   String get feedFamilyMoodHint => '主题公园、角色餐以及轻松的家长胜利——根据家庭标签进行过滤。';

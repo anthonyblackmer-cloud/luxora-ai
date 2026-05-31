@@ -18,14 +18,100 @@ class AppLocalizationsJa extends AppLocalizations {
   String get appearance => '外観';
 
   @override
-  String get settingsThemeIntro =>
-      '高級感のある映画のようなもの、またはすっきりとした読みやすさ — あなたの一日にぴったりのものをお選びください。';
+  String get settingsThemeIntro => 'シネマティックなダークかリゾートのライト — 旅のムードを選びます。';
+
+  @override
+  String get settingsThemeLabel => 'テーマ';
+
+  @override
+  String get themeGoldenEmber => 'Golden Ember';
+
+  @override
+  String get themeGoldenEmberMood => '温かみのある超ラグジュアリー';
+
+  @override
+  String get themeMidnightAmethyst => 'Midnight Amethyst';
+
+  @override
+  String get themeMidnightAmethystMood => '神秘的でエクスクルーシブ';
+
+  @override
+  String get themeEmeraldHaven => 'Emerald Haven';
+
+  @override
+  String get themeEmeraldHavenMood => '穏やかなトロピカルラグジュアリー';
+
+  @override
+  String get themeRivieraWhite => 'Riviera White';
+
+  @override
+  String get themeRivieraWhiteMood => 'エレガントなラグジュアリー旅行誌';
+
+  @override
+  String get themeCoastalGlass => 'Coastal Glass';
+
+  @override
+  String get themeCoastalGlassMood => 'クリーンでプレミアムなバケーション感';
+
+  @override
+  String get themeChampagneLuxe => 'Champagne Luxe';
+
+  @override
+  String get themeChampagneLuxeMood => 'プライベートコンシェルジュの優雅さ';
+
+  @override
+  String get themeBlackCard => 'Black Card';
+
+  @override
+  String get themeBlackCardMood => 'プライベート航空の威信';
 
   @override
   String get settingsThemeSectionLuxury => '贅沢な映画のような';
 
   @override
   String get settingsThemeSectionReadable => 'クリーンで読みやすい';
+
+  @override
+  String get settingsMapSkinSection => '地図ベース';
+
+  @override
+  String get settingsMapSkinIntro => 'マップタブの地図タイルの見た目を選びます。';
+
+  @override
+  String get mapSkinVoyager => 'Voyager';
+
+  @override
+  String get mapSkinVoyagerMood => 'やわらかな色 — 公園、水、道路';
+
+  @override
+  String get mapSkinOsm => 'OpenStreetMap';
+
+  @override
+  String get mapSkinOsmMood => 'クラシック、自然な色調';
+
+  @override
+  String get mapSkinCartoLight => 'Carto Light';
+
+  @override
+  String get mapSkinCartoLightMood => 'ミニマルで明るい';
+
+  @override
+  String get mapSkinCartoDark => 'Carto Dark';
+
+  @override
+  String get mapSkinCartoDarkMood => '夜向けベースマップ';
+
+  @override
+  String get mapSkinMapboxStreets => 'Mapbox Streets';
+
+  @override
+  String get mapSkinMapboxStreetsMood => '詳細で旅行アプリ風';
+
+  @override
+  String get mapSkinMapboxOutdoors => 'Mapbox Outdoors';
+
+  @override
+  String get mapSkinMapboxOutdoorsMood => '緑と地形を強調';
 
   @override
   String get dark_mode => 'ダークモード';
@@ -719,6 +805,93 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get feedMoodFoodie => '食通';
+
+  @override
+  String get vibeSunsetReady => 'サンセット';
+
+  @override
+  String get vibeViral => 'バイラル';
+
+  @override
+  String get vibeFamilyApproved => 'ファミリー';
+
+  @override
+  String get vibeHiddenGem => '隠れた名所';
+
+  @override
+  String get vibeRainSafe => '雨でもOK';
+
+  @override
+  String get vibeDateNight => 'デート';
+
+  @override
+  String get vibeNightVibe => 'ナイト';
+
+  @override
+  String get vibeFoodie => 'グルメ';
+
+  @override
+  String get vibeLuxury => 'ラグジュアリー';
+
+  @override
+  String get vibeTrending => 'トレンド';
+
+  @override
+  String get vibeLive => 'ライブ';
+
+  @override
+  String get vibeSeasonal => '季節限定';
+
+  @override
+  String get vibeLocalPick => 'ローカル';
+
+  @override
+  String get vibeAdventure => 'アドベンチャー';
+
+  @override
+  String get vibeWellness => 'ウェルネス';
+
+  @override
+  String get vibeBeachDay => 'ビーチ';
+
+  @override
+  String get vibeLuxoraPick => 'Luxora厳選';
+
+  @override
+  String get mapLayersTitle => 'マップレイヤー';
+
+  @override
+  String get mapLayerAll => 'すべて';
+
+  @override
+  String get mapLayerGems => '宝石';
+
+  @override
+  String get mapLayerNight => 'ナイト';
+
+  @override
+  String get mapLayerDateNight => 'デート';
+
+  @override
+  String get mapLayerWeather => '好天';
+
+  @override
+  String get mapLayerItinerary => '旅程';
+
+  @override
+  String get mapExpandMap => '地図を拡大';
+
+  @override
+  String get mapFullscreenTitle => '地図';
+
+  @override
+  String get mapCloseFullscreen => '地図を閉じる';
+
+  @override
+  String get mapItineraryDayLabel => '旅程を表示';
+
+  @override
+  String get mapItineraryCurrentDay => '今日';
 
   @override
   String get feedFamilyMoodHint =>

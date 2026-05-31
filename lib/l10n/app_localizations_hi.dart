@@ -19,13 +19,100 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get settingsThemeIntro =>
-      'लक्जरी सिनेमाई या स्वच्छ पठनीयता - वह चुनें जो आपके दिन के लिए उपयुक्त हो।';
+      'सिनेमाई डार्क या रिसॉर्ट लाइट — अपनी यात्रा का मूड चुनें।';
+
+  @override
+  String get settingsThemeLabel => 'थीम';
+
+  @override
+  String get themeGoldenEmber => 'Golden Ember';
+
+  @override
+  String get themeGoldenEmberMood => 'गर्म अल्ट्रा-लक्ज़री';
+
+  @override
+  String get themeMidnightAmethyst => 'Midnight Amethyst';
+
+  @override
+  String get themeMidnightAmethystMood => 'रहस्यमय और विशेष';
+
+  @override
+  String get themeEmeraldHaven => 'Emerald Haven';
+
+  @override
+  String get themeEmeraldHavenMood => 'शांत उष्णकटिबंधीय विलासिता';
+
+  @override
+  String get themeRivieraWhite => 'Riviera White';
+
+  @override
+  String get themeRivieraWhiteMood => 'शानदार लक्ज़री ट्रैवल मैगज़ीन';
+
+  @override
+  String get themeCoastalGlass => 'Coastal Glass';
+
+  @override
+  String get themeCoastalGlassMood => 'साफ प्रीमियम छुट्टी ऊर्जा';
+
+  @override
+  String get themeChampagneLuxe => 'Champagne Luxe';
+
+  @override
+  String get themeChampagneLuxeMood => 'निजी कॉन्सierge की शान';
+
+  @override
+  String get themeBlackCard => 'Black Card';
+
+  @override
+  String get themeBlackCardMood => 'प्राइवेट एविएशन प्रतिष्ठा';
 
   @override
   String get settingsThemeSectionLuxury => 'लक्जरी सिनेमाई';
 
   @override
   String get settingsThemeSectionReadable => 'स्वच्छ एवं पठनीय';
+
+  @override
+  String get settingsMapSkinSection => 'मानचित्र आधार';
+
+  @override
+  String get settingsMapSkinIntro => 'मानचित्र टैब पर टाइल्स का रूप चुनें।';
+
+  @override
+  String get mapSkinVoyager => 'Voyager';
+
+  @override
+  String get mapSkinVoyagerMood => 'हल्के रंग — पार्क, पानी, सड़कें';
+
+  @override
+  String get mapSkinOsm => 'OpenStreetMap';
+
+  @override
+  String get mapSkinOsmMood => 'क्लासिक, प्राकृतिक रंग';
+
+  @override
+  String get mapSkinCartoLight => 'Carto Light';
+
+  @override
+  String get mapSkinCartoLightMood => 'न्यूनतम और उज्ज्वल';
+
+  @override
+  String get mapSkinCartoDark => 'Carto Dark';
+
+  @override
+  String get mapSkinCartoDarkMood => 'रात के अनुकूल आधार';
+
+  @override
+  String get mapSkinMapboxStreets => 'Mapbox Streets';
+
+  @override
+  String get mapSkinMapboxStreetsMood => 'समृद्ध विवरण, यात्रा ऐप जैसा';
+
+  @override
+  String get mapSkinMapboxOutdoors => 'Mapbox Outdoors';
+
+  @override
+  String get mapSkinMapboxOutdoorsMood => 'हरियाली और भू-आकृति पर जोर';
 
   @override
   String get dark_mode => 'डार्क मोड';
@@ -736,6 +823,93 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get feedMoodFoodie => 'खाने का शौकीन';
+
+  @override
+  String get vibeSunsetReady => 'सूर्यास्त';
+
+  @override
+  String get vibeViral => 'वायरल';
+
+  @override
+  String get vibeFamilyApproved => 'परिवार';
+
+  @override
+  String get vibeHiddenGem => 'छिपा हीरा';
+
+  @override
+  String get vibeRainSafe => 'बारिश-सुरक्षित';
+
+  @override
+  String get vibeDateNight => 'डेट नाइट';
+
+  @override
+  String get vibeNightVibe => 'रात का माहौल';
+
+  @override
+  String get vibeFoodie => 'फ़ूडी';
+
+  @override
+  String get vibeLuxury => 'लक्ज़री';
+
+  @override
+  String get vibeTrending => 'ट्रेंडिंग';
+
+  @override
+  String get vibeLive => 'लाइव';
+
+  @override
+  String get vibeSeasonal => 'मौसमी';
+
+  @override
+  String get vibeLocalPick => 'स्थानीय';
+
+  @override
+  String get vibeAdventure => 'साहसिक';
+
+  @override
+  String get vibeWellness => 'वेलनेस';
+
+  @override
+  String get vibeBeachDay => 'बीच डे';
+
+  @override
+  String get vibeLuxoraPick => 'Luxora पसंद';
+
+  @override
+  String get mapLayersTitle => 'मानचित्र परत';
+
+  @override
+  String get mapLayerAll => 'सभी';
+
+  @override
+  String get mapLayerGems => 'रत्न';
+
+  @override
+  String get mapLayerNight => 'रात';
+
+  @override
+  String get mapLayerDateNight => 'डेट';
+
+  @override
+  String get mapLayerWeather => 'बेहतर मौसम';
+
+  @override
+  String get mapLayerItinerary => 'यात्रा कार्यक्रम';
+
+  @override
+  String get mapExpandMap => 'मानचित्र बड़ा करें';
+
+  @override
+  String get mapFullscreenTitle => 'मानचित्र';
+
+  @override
+  String get mapCloseFullscreen => 'मानचित्र बंद करें';
+
+  @override
+  String get mapItineraryDayLabel => 'इस दिन का कार्यक्रम दिखाएँ';
+
+  @override
+  String get mapItineraryCurrentDay => 'वर्तमान दिन';
 
   @override
   String get feedFamilyMoodHint =>

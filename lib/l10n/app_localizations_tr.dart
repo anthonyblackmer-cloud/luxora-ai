@@ -19,13 +19,102 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get settingsThemeIntro =>
-      'Lüks sinematik veya net okunabilirlik; gününüze uygun olanı seçin.';
+      'Sinematik karanlık veya resort açık — geziniz için ruh hâlini seçin.';
+
+  @override
+  String get settingsThemeLabel => 'Tema';
+
+  @override
+  String get themeGoldenEmber => 'Golden Ember';
+
+  @override
+  String get themeGoldenEmberMood => 'Sıcak ultra lüks';
+
+  @override
+  String get themeMidnightAmethyst => 'Midnight Amethyst';
+
+  @override
+  String get themeMidnightAmethystMood => 'Gizemli ve ayrıcalıklı';
+
+  @override
+  String get themeEmeraldHaven => 'Emerald Haven';
+
+  @override
+  String get themeEmeraldHavenMood => 'Huzurlu tropik lüks';
+
+  @override
+  String get themeRivieraWhite => 'Riviera White';
+
+  @override
+  String get themeRivieraWhiteMood => 'Zarif lüks seyahat dergisi';
+
+  @override
+  String get themeCoastalGlass => 'Coastal Glass';
+
+  @override
+  String get themeCoastalGlassMood => 'Temiz premium tatil enerjisi';
+
+  @override
+  String get themeChampagneLuxe => 'Champagne Luxe';
+
+  @override
+  String get themeChampagneLuxeMood => 'Özel concierge zarafeti';
+
+  @override
+  String get themeBlackCard => 'Black Card';
+
+  @override
+  String get themeBlackCardMood => 'Özel havacılık prestiji';
 
   @override
   String get settingsThemeSectionLuxury => 'Lüks sinema';
 
   @override
   String get settingsThemeSectionReadable => 'Temiz ve okunabilir';
+
+  @override
+  String get settingsMapSkinSection => 'Harita tabanı';
+
+  @override
+  String get settingsMapSkinIntro =>
+      'Harita sekmesindeki harita döşemelerinin görünümünü seçin.';
+
+  @override
+  String get mapSkinVoyager => 'Voyager';
+
+  @override
+  String get mapSkinVoyagerMood => 'Yumuşak renkler — parklar, su, yollar';
+
+  @override
+  String get mapSkinOsm => 'OpenStreetMap';
+
+  @override
+  String get mapSkinOsmMood => 'Klasik, doğal tonlar';
+
+  @override
+  String get mapSkinCartoLight => 'Carto Light';
+
+  @override
+  String get mapSkinCartoLightMood => 'Minimal ve aydınlık';
+
+  @override
+  String get mapSkinCartoDark => 'Carto Dark';
+
+  @override
+  String get mapSkinCartoDarkMood => 'Gece dostu taban';
+
+  @override
+  String get mapSkinMapboxStreets => 'Mapbox Streets';
+
+  @override
+  String get mapSkinMapboxStreetsMood =>
+      'Zengin detay, seyahat uygulaması görünümü';
+
+  @override
+  String get mapSkinMapboxOutdoors => 'Mapbox Outdoors';
+
+  @override
+  String get mapSkinMapboxOutdoorsMood => 'Yeşillik ve arazi vurgusu';
 
   @override
   String get dark_mode => 'Karanlık mod';
@@ -739,6 +828,93 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get feedMoodFoodie => 'Foodie';
+
+  @override
+  String get vibeSunsetReady => 'Gün batımı';
+
+  @override
+  String get vibeViral => 'Viral';
+
+  @override
+  String get vibeFamilyApproved => 'Aile';
+
+  @override
+  String get vibeHiddenGem => 'Gizli mücevher';
+
+  @override
+  String get vibeRainSafe => 'Yağmura dayanıklı';
+
+  @override
+  String get vibeDateNight => 'Randevu gecesi';
+
+  @override
+  String get vibeNightVibe => 'Gece havası';
+
+  @override
+  String get vibeFoodie => 'Foodie';
+
+  @override
+  String get vibeLuxury => 'Lüks';
+
+  @override
+  String get vibeTrending => 'Trend';
+
+  @override
+  String get vibeLive => 'Canlı';
+
+  @override
+  String get vibeSeasonal => 'Mevsimlik';
+
+  @override
+  String get vibeLocalPick => 'Yerel';
+
+  @override
+  String get vibeAdventure => 'Macera';
+
+  @override
+  String get vibeWellness => 'Wellness';
+
+  @override
+  String get vibeBeachDay => 'Plaj günü';
+
+  @override
+  String get vibeLuxoraPick => 'Luxora seçimi';
+
+  @override
+  String get mapLayersTitle => 'HARİTA KATMANI';
+
+  @override
+  String get mapLayerAll => 'Tümü';
+
+  @override
+  String get mapLayerGems => 'Mücevherler';
+
+  @override
+  String get mapLayerNight => 'Gece';
+
+  @override
+  String get mapLayerDateNight => 'Randevu';
+
+  @override
+  String get mapLayerWeather => 'En iyi hava';
+
+  @override
+  String get mapLayerItinerary => 'Program';
+
+  @override
+  String get mapExpandMap => 'Haritayı genişlet';
+
+  @override
+  String get mapFullscreenTitle => 'Harita';
+
+  @override
+  String get mapCloseFullscreen => 'Haritayı kapat';
+
+  @override
+  String get mapItineraryDayLabel => 'Programı göster';
+
+  @override
+  String get mapItineraryCurrentDay => 'Bugün';
 
   @override
   String get feedFamilyMoodHint =>

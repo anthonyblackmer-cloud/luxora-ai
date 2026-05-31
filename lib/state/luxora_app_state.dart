@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:luxora_ai/models/map_basemap_skin.dart';
+import 'package:luxora_ai/services/map_tile_config.dart';
 import 'package:luxora_ai/settings/luxora_language_catalog.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:provider/provider.dart';
@@ -6,6 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 const _localeKey = 'luxora_locale';
 const _themePresetKey = 'luxora_theme_preset';
+const _mapBasemapSkinKey = 'luxora_map_basemap_skin';
 
 class LuxoraAppState extends ChangeNotifier {
   LuxoraAppState() {
@@ -14,10 +17,12 @@ class LuxoraAppState extends ChangeNotifier {
 
   String _locale = 'en';
   LuxThemePreset _themePreset = LuxThemePreset.goldenEmber;
+  MapBasemapSkin _mapBasemapSkin = MapBasemapSkinCatalog.defaultSkin;
   bool _loaded = false;
 
   String get locale => _locale;
   LuxThemePreset get themePreset => _themePreset;
+  MapBasemapSkin get mapBasemapSkin => _mapBasemapSkin;
   LuxThemePalette get themePalette => paletteFor(_themePreset);
   bool get isLoaded => _loaded;
 
@@ -45,11 +50,12 @@ class LuxoraAppState extends ChangeNotifier {
     }
     final rawPreset = prefs.getString(_themePresetKey);
     if (rawPreset != null) {
-      _themePreset = LuxThemePreset.values.firstWhere(
-        (v) => v.name == rawPreset,
-        orElse: () => LuxThemePreset.goldenEmber,
-      );
+      _themePreset = luxThemePresetFromStorage(rawPreset);
     }
+    _mapBasemapSkin = MapBasemapSkinCatalog.fromStored(
+      prefs.getString(_mapBasemapSkinKey),
+      hasMapboxToken: MapTileConfig.hasMapboxToken,
+    );
     _loaded = true;
     notifyListeners();
   }
@@ -70,5 +76,14 @@ class LuxoraAppState extends ChangeNotifier {
     notifyListeners();
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(_themePresetKey, preset.name);
+  }
+
+  Future<void> setMapBasemapSkin(MapBasemapSkin skin) async {
+    if (skin.requiresMapboxToken && !MapTileConfig.hasMapboxToken) return;
+    if (_mapBasemapSkin == skin) return;
+    _mapBasemapSkin = skin;
+    notifyListeners();
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(_mapBasemapSkinKey, skin.name);
   }
 }

@@ -7,18 +7,24 @@ import 'package:luxora_ai/widgets/destin_30a/destin_30a_concierge_cards.dart';
 import 'package:luxora_ai/widgets/naples/naples_concierge_cards.dart';
 import 'package:luxora_ai/widgets/st_augustine/st_augustine_concierge_cards.dart';
 import 'package:go_router/go_router.dart';
+import 'package:luxora_ai/data/trip_plans.dart';
 import 'package:luxora_ai/l10n/catalog_localizer.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_helpers.dart';
 import 'package:luxora_ai/models/lux_place.dart';
+import 'package:luxora_ai/models/trip_plan.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
 import 'package:luxora_ai/services/active_day_flow_store.dart';
+import 'package:luxora_ai/screens/map/lux_map_fullscreen_page.dart';
+import 'package:luxora_ai/services/active_trip_plan_store.dart';
 import 'package:luxora_ai/services/city_pack_registry.dart';
 import 'package:luxora_ai/services/day_flow_codec.dart';
 import 'package:luxora_ai/util/place_distance.dart';
 import 'package:luxora_ai/services/day_flow_planner.dart';
 import 'package:luxora_ai/services/day_flow_rerouter.dart';
 import 'package:luxora_ai/services/discover_radius_controller.dart';
+import 'package:luxora_ai/services/freemium_limits.dart';
+import 'package:luxora_ai/services/freemium_service.dart';
 import 'package:luxora_ai/services/places_repository.dart';
 import 'package:luxora_ai/services/home_base_store.dart';
 import 'package:luxora_ai/services/partner_sponsorship_service.dart';
@@ -26,6 +32,8 @@ import 'package:luxora_ai/services/saved_places_storage.dart';
 import 'package:luxora_ai/services/trip_profile_store.dart';
 import 'package:luxora_ai/services/weather_service.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
+import 'package:luxora_ai/util/itinerary_map_pins.dart';
+import 'package:luxora_ai/util/today_plan_helpers.dart';
 import 'package:luxora_ai/widgets/attraction_detail_sheet.dart';
 import 'package:luxora_ai/widgets/destination_search_sheet.dart';
 import 'package:luxora_ai/widgets/discover_radius_selector.dart';
@@ -34,6 +42,10 @@ import 'package:luxora_ai/widgets/glass_card.dart';
 import 'package:luxora_ai/widgets/florida_keys/keys_concierge_cards.dart';
 import 'package:luxora_ai/widgets/miami/miami_concierge_cards.dart';
 import 'package:luxora_ai/widgets/tampa_bay/tampa_bay_concierge_cards.dart';
+import 'package:luxora_ai/models/map_mood_layer.dart';
+import 'package:luxora_ai/util/map_mood_layer_filter.dart';
+import 'package:luxora_ai/widgets/map_itinerary_day_picker.dart';
+import 'package:luxora_ai/widgets/map_mood_layer_selector.dart';
 import 'package:luxora_ai/widgets/lux_florida_map.dart';
 import 'package:luxora_ai/widgets/golden_hour_card.dart';
 import 'package:luxora_ai/widgets/hotel_intel_map_banner.dart';
@@ -90,7 +102,10 @@ class MapScreen extends StatelessWidget {
                 valueListenable: HomeBaseStore.instance.placeId,
                 builder: (context, homeBaseId, _) {
               return ListenableBuilder(
-                listenable: ActiveDayFlowStore.instance,
+                listenable: Listenable.merge([
+                  ActiveDayFlowStore.instance,
+                  ActiveTripPlanStore.instance,
+                ]),
                 builder: (context, _) {
               return ValueListenableBuilder<TripProfile?>(
                 valueListenable: TripProfileStore.instance.profile,
@@ -104,6 +119,7 @@ class MapScreen extends StatelessWidget {
                     savedIds: savedIds,
                     storedFlow: storedFlow,
                   );
+                  final tripPlan = samplePlanForActiveCity();
 
                   // Map pins: capped (curated + nearest OSM) unioned with the
                   // user's saved + day-flow places so those always render.
@@ -258,6 +274,7 @@ if (CityPackRegistry.instance.active.cityId == 'tampa-bay') ...[
             mapPlaces: mapPlaces,
             pool: places,
             profile: profile,
+            tripPlan: tripPlan,
             homeBase: homeBase,
             savedIds: savedIds,
             gemIds: gemIds,
@@ -320,6 +337,7 @@ class _MapRoutePlanner extends StatefulWidget {
     required this.mapPlaces,
     required this.pool,
     required this.profile,
+    required this.tripPlan,
     required this.homeBase,
     required this.savedIds,
     required this.gemIds,
@@ -336,6 +354,7 @@ class _MapRoutePlanner extends StatefulWidget {
   final List<LuxPlace> mapPlaces;
   final List<LuxPlace> pool;
   final TripProfile? profile;
+  final TripPlan tripPlan;
   final LuxPlace? homeBase;
   final Set<String> savedIds;
   final Set<String> gemIds;
@@ -353,6 +372,10 @@ class _MapRoutePlanner extends StatefulWidget {
 class _MapRoutePlannerState extends State<_MapRoutePlanner> {
   late DayFlow _flow;
   LuxWeather? _weather;
+  MapMoodLayer _mapLayer = MapMoodLayer.all;
+  bool _showItineraryPins = false;
+  bool _itineraryFollowCurrentDay = true;
+  int _itineraryDayIndex = 0;
 
   @override
   void initState() {
@@ -395,12 +418,85 @@ class _MapRoutePlannerState extends State<_MapRoutePlanner> {
       ? widget.fallbackRouteIds
       : _flow.orderedPlaceIds;
 
-  List<LuxPlace> get _mapPlacesWithFlow {
+  List<LuxPlace> get _placesForMap {
+    if (_showItineraryPins) {
+      final day = _selectedItineraryDay;
+      if (day == null) return const [];
+      final data = ItineraryMapPins.resolveDay(
+        day: day,
+        dayFlow: _itineraryConciergeFlow,
+      );
+      return data?.places ?? const [];
+    }
     final byId = {for (final p in widget.mapPlaces) p.id: p};
     for (final b in _flow.blocks) {
       byId[b.place.id] = b.place;
     }
     return byId.values.toList();
+  }
+
+  int get _autoDayIndex {
+    final days = widget.tripPlan.days;
+    if (days.isEmpty) return 0;
+    final autoDay = TodayPlanHelpers.dayIndexForToday(
+      startDateIso: widget.profile?.startDate,
+      dayCount: days.length,
+    );
+    return (autoDay ?? 0).clamp(0, days.length - 1);
+  }
+
+  int get _effectiveItineraryDayIndex => _itineraryFollowCurrentDay
+      ? _autoDayIndex
+      : _itineraryDayIndex.clamp(0, widget.tripPlan.days.length - 1);
+
+  TripDay? get _selectedItineraryDay {
+    final days = widget.tripPlan.days;
+    if (!_showItineraryPins || days.isEmpty) return null;
+    return days[_effectiveItineraryDayIndex];
+  }
+
+  DayFlow? get _itineraryConciergeFlow {
+    if (!_itineraryFollowCurrentDay || _flow.isEmpty) return null;
+    return _flow;
+  }
+
+  List<String> get _itineraryRouteIds {
+    final day = _selectedItineraryDay;
+    if (day == null) return const [];
+    final data = ItineraryMapPins.resolveDay(
+      day: day,
+      dayFlow: _itineraryConciergeFlow,
+    );
+    return data?.routePlaceIds ?? const [];
+  }
+
+  Future<void> _selectItineraryDay(int index) async {
+    if (!FreemiumService.canAccessDay(index)) {
+      await FreemiumService.promptUnlock(
+        context,
+        trigger: FreemiumUnlockTrigger.dayTwoPlus,
+      );
+      return;
+    }
+    setState(() {
+      _itineraryFollowCurrentDay = false;
+      _itineraryDayIndex = index;
+    });
+  }
+
+  void _enableItineraryMode() {
+    setState(() {
+      _showItineraryPins = true;
+      _itineraryFollowCurrentDay = true;
+      _itineraryDayIndex = _autoDayIndex;
+    });
+  }
+
+  void _disableItineraryMode() {
+    setState(() {
+      _showItineraryPins = false;
+      _mapLayer = MapMoodLayer.all;
+    });
   }
 
   Future<void> _persistFlow() async {
@@ -436,9 +532,49 @@ class _MapRoutePlannerState extends State<_MapRoutePlanner> {
     );
   }
 
+  void _openFullscreenMap(
+    BuildContext context, {
+    required List<LuxPlace> places,
+    required List<String> routeIds,
+  }) {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        fullscreenDialog: true,
+        builder: (context) => LuxMapFullscreenPage(
+          hubCenter: widget.mapHubCenter,
+          places: places,
+          routePlaceIds: routeIds,
+          gemPlaceIds: widget.gemIds,
+          sponsoredPlaceIds: PartnerSponsorshipService.sponsoredMapPlaceIds(),
+          radiusMiles: _showItineraryPins ? null : widget.radiusMiles,
+          mapMoodLayer: _showItineraryPins ? MapMoodLayer.all : _mapLayer,
+          showOrlandoHub: !_showItineraryPins,
+          onPlaceTap: widget.onPlaceTap,
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final mapHeight = (MediaQuery.sizeOf(context).height * 0.52).clamp(340.0, 560.0);
+    final filteredPlaces = _showItineraryPins
+        ? _placesForMap
+        : MapMoodLayerFilter.filterPlaces(
+            places: _placesForMap,
+            layer: _mapLayer,
+            gemPlaceIds: widget.gemIds,
+            rainLikely: _rainLikely,
+          );
+    final baseRouteIds =
+        _showItineraryPins && _itineraryRouteIds.isNotEmpty
+            ? _itineraryRouteIds
+            : _routeIds;
+    final routeIds = MapMoodLayerFilter.filterRouteIds(
+      routeIds: baseRouteIds,
+      visiblePlaces: filteredPlaces,
+      fallbackRouteIds: widget.fallbackRouteIds,
+    );
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -451,22 +587,54 @@ class _MapRoutePlannerState extends State<_MapRoutePlanner> {
           weatherLng: widget.weatherLng,
           onPlaceTap: widget.onPlaceTap,
         ),
+        MapMoodLayerSelector(
+          selected: _mapLayer,
+          onSelected: (layer) => setState(() {
+            _showItineraryPins = false;
+            _mapLayer = layer;
+          }),
+          itinerarySelected: _showItineraryPins,
+          onItinerarySelected: (selected) {
+            if (selected) {
+              _enableItineraryMode();
+            } else {
+              _disableItineraryMode();
+            }
+          },
+        ),
+        if (_showItineraryPins && widget.tripPlan.days.isNotEmpty)
+          MapItineraryDayPicker(
+            days: widget.tripPlan.days,
+            followCurrentDay: _itineraryFollowCurrentDay,
+            selectedDayIndex: _effectiveItineraryDayIndex,
+            currentDayIndex: _autoDayIndex,
+            onFollowCurrentDay: () => setState(() {
+              _itineraryFollowCurrentDay = true;
+              _itineraryDayIndex = _autoDayIndex;
+            }),
+            onDaySelected: (index) => unawaited(_selectItineraryDay(index)),
+          ),
+        const SizedBox(height: 12),
         SizedBox(
           height: mapHeight,
           child: GlassCard(
             padding: EdgeInsets.zero,
             glow: true,
             child: LuxFloridaMap(
-              key: ValueKey(
-                '${widget.mapHubCenter.latitude}-${widget.mapHubCenter.longitude}',
-              ),
               hubCenter: widget.mapHubCenter,
-              places: _mapPlacesWithFlow,
-              routePlaceIds: _routeIds,
+              places: filteredPlaces,
+              routePlaceIds: routeIds,
               gemPlaceIds: widget.gemIds,
               sponsoredPlaceIds: PartnerSponsorshipService.sponsoredMapPlaceIds(),
-              radiusMiles: widget.radiusMiles,
+              radiusMiles: _showItineraryPins ? null : widget.radiusMiles,
+              mapMoodLayer:
+                  _showItineraryPins ? MapMoodLayer.all : _mapLayer,
               onPlaceTap: widget.onPlaceTap,
+              onExpandTap: () => _openFullscreenMap(
+                context,
+                places: filteredPlaces,
+                routeIds: routeIds,
+              ),
             ),
           ),
         ),

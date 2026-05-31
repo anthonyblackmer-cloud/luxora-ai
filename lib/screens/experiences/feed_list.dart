@@ -45,8 +45,9 @@ import 'package:luxora_ai/services/freemium_limits.dart';
 import 'package:luxora_ai/services/freemium_service.dart';
 
 import 'package:luxora_ai/widgets/freemium/freemium_unlock_cta.dart';
-
 import 'package:luxora_ai/widgets/glass_card.dart';
+import 'package:luxora_ai/util/place_vibe_resolver.dart';
+import 'package:luxora_ai/widgets/place_vibe_chip.dart';
 
 
 
@@ -652,61 +653,24 @@ class _FeedListState extends State<FeedList> {
 
                         const SizedBox(height: 10),
 
-                        Text(
+                        PlaceVibeChipRow(
+                          vibes: PlaceVibeResolver.forFeedItem(item, place),
+                          compact: true,
+                        ),
 
-                          catalogText(context, item.headline),
-
-                          style: const TextStyle(
-
-                            color: LuxColors.stone300,
-
-                            height: 1.4,
-
+                        if (item.socialProof.trim().isNotEmpty) ...[
+                          const SizedBox(height: 8),
+                          Text(
+                            catalogText(context, item.socialProof),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                              color: LuxColors.feedAccent.withValues(alpha: 0.9),
+                            ),
                           ),
-
-                        ),
-
-                        const SizedBox(height: 8),
-
-                        Row(
-
-                          children: [
-
-                            Icon(
-
-                              Icons.trending_up_rounded,
-
-                              size: 14,
-
-                              color: LuxColors.feedAccent.withValues(alpha: 0.95),
-
-                            ),
-
-                            const SizedBox(width: 6),
-
-                            Expanded(
-
-                              child: Text(
-
-                                catalogText(context, item.socialProof),
-
-                                style: TextStyle(
-
-                                  fontSize: 12,
-
-                                  fontWeight: FontWeight.w700,
-
-                                  color: LuxColors.feedAccent.withValues(alpha: 0.95),
-
-                                ),
-
-                              ),
-
-                            ),
-
-                          ],
-
-                        ),
+                        ],
 
                         const SizedBox(height: 12),
 

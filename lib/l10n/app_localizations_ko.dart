@@ -18,13 +18,100 @@ class AppLocalizationsKo extends AppLocalizations {
   String get appearance => '모습';
 
   @override
-  String get settingsThemeIntro => '럭셔리한 영화적 또는 깔끔한 가독성 — 귀하의 하루에 맞는 것을 선택하세요.';
+  String get settingsThemeIntro => '시네마틱 다크 또는 리조트 라이트 — 여행 분위기를 선택하세요.';
+
+  @override
+  String get settingsThemeLabel => '테마';
+
+  @override
+  String get themeGoldenEmber => 'Golden Ember';
+
+  @override
+  String get themeGoldenEmberMood => '따뜻한 울트라 럭셔리';
+
+  @override
+  String get themeMidnightAmethyst => 'Midnight Amethyst';
+
+  @override
+  String get themeMidnightAmethystMood => '신비롭고 독점적인';
+
+  @override
+  String get themeEmeraldHaven => 'Emerald Haven';
+
+  @override
+  String get themeEmeraldHavenMood => '고요한 열대 럭셔리';
+
+  @override
+  String get themeRivieraWhite => 'Riviera White';
+
+  @override
+  String get themeRivieraWhiteMood => '우아한 럭셔리 여행 매거진';
+
+  @override
+  String get themeCoastalGlass => 'Coastal Glass';
+
+  @override
+  String get themeCoastalGlassMood => '깔끔한 프리미엄 휴양 에너지';
+
+  @override
+  String get themeChampagneLuxe => 'Champagne Luxe';
+
+  @override
+  String get themeChampagneLuxeMood => '프라이빗 컨시어지 우아함';
+
+  @override
+  String get themeBlackCard => 'Black Card';
+
+  @override
+  String get themeBlackCardMood => '프라이빗 항공의 위엄';
 
   @override
   String get settingsThemeSectionLuxury => '럭셔리 시네마틱';
 
   @override
   String get settingsThemeSectionReadable => '깨끗하고 읽기 쉽습니다.';
+
+  @override
+  String get settingsMapSkinSection => '지도 베이스맵';
+
+  @override
+  String get settingsMapSkinIntro => '지도 탭의 타일 모양을 선택하세요.';
+
+  @override
+  String get mapSkinVoyager => 'Voyager';
+
+  @override
+  String get mapSkinVoyagerMood => '부드러운 색 — 공원, 물, 도로';
+
+  @override
+  String get mapSkinOsm => 'OpenStreetMap';
+
+  @override
+  String get mapSkinOsmMood => '클래식, 자연스러운 톤';
+
+  @override
+  String get mapSkinCartoLight => 'Carto Light';
+
+  @override
+  String get mapSkinCartoLightMood => '미니멀하고 밝음';
+
+  @override
+  String get mapSkinCartoDark => 'Carto Dark';
+
+  @override
+  String get mapSkinCartoDarkMood => '야간 친화 베이스맵';
+
+  @override
+  String get mapSkinMapboxStreets => 'Mapbox Streets';
+
+  @override
+  String get mapSkinMapboxStreetsMood => '풍부한 디테일, 여행 앱 느낌';
+
+  @override
+  String get mapSkinMapboxOutdoors => 'Mapbox Outdoors';
+
+  @override
+  String get mapSkinMapboxOutdoorsMood => '녹색과 지형 강조';
 
   @override
   String get dark_mode => '다크 모드';
@@ -719,6 +806,93 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get feedMoodFoodie => '미식가';
+
+  @override
+  String get vibeSunsetReady => '석양';
+
+  @override
+  String get vibeViral => '바이럴';
+
+  @override
+  String get vibeFamilyApproved => '가족';
+
+  @override
+  String get vibeHiddenGem => '숨은 보석';
+
+  @override
+  String get vibeRainSafe => '비 OK';
+
+  @override
+  String get vibeDateNight => '데이트';
+
+  @override
+  String get vibeNightVibe => '나이트';
+
+  @override
+  String get vibeFoodie => '푸디';
+
+  @override
+  String get vibeLuxury => '럭셔리';
+
+  @override
+  String get vibeTrending => '트렌드';
+
+  @override
+  String get vibeLive => '라이브';
+
+  @override
+  String get vibeSeasonal => '시즌';
+
+  @override
+  String get vibeLocalPick => '로컬';
+
+  @override
+  String get vibeAdventure => '모험';
+
+  @override
+  String get vibeWellness => '웰니스';
+
+  @override
+  String get vibeBeachDay => '해변';
+
+  @override
+  String get vibeLuxoraPick => 'Luxora 추천';
+
+  @override
+  String get mapLayersTitle => '지도 레이어';
+
+  @override
+  String get mapLayerAll => '전체';
+
+  @override
+  String get mapLayerGems => '보석';
+
+  @override
+  String get mapLayerNight => '나이트';
+
+  @override
+  String get mapLayerDateNight => '데이트';
+
+  @override
+  String get mapLayerWeather => '좋은 날씨';
+
+  @override
+  String get mapLayerItinerary => '일정';
+
+  @override
+  String get mapExpandMap => '지도 확대';
+
+  @override
+  String get mapFullscreenTitle => '지도';
+
+  @override
+  String get mapCloseFullscreen => '지도 닫기';
+
+  @override
+  String get mapItineraryDayLabel => '일정 표시';
+
+  @override
+  String get mapItineraryCurrentDay => '오늘';
 
   @override
   String get feedFamilyMoodHint => '테마파크, 캐릭터 식사, 쉬운 부모 승리 — 가족 태그로 필터링됩니다.';

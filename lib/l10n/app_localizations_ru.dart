@@ -19,13 +19,102 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get settingsThemeIntro =>
-      'Роскошная кинематографичность или чистая читабельность — выберите то, что подходит вашему дню.';
+      'Кинематографичная тьма или светлый курорт — выберите настроение поездки.';
+
+  @override
+  String get settingsThemeLabel => 'Тема';
+
+  @override
+  String get themeGoldenEmber => 'Golden Ember';
+
+  @override
+  String get themeGoldenEmberMood => 'Тёпкая ультра-роскошь';
+
+  @override
+  String get themeMidnightAmethyst => 'Midnight Amethyst';
+
+  @override
+  String get themeMidnightAmethystMood => 'Загадочный и эксклюзивный';
+
+  @override
+  String get themeEmeraldHaven => 'Emerald Haven';
+
+  @override
+  String get themeEmeraldHavenMood => 'Спокойная тропическая роскошь';
+
+  @override
+  String get themeRivieraWhite => 'Riviera White';
+
+  @override
+  String get themeRivieraWhiteMood => 'Элегантный люксовый travel-журнал';
+
+  @override
+  String get themeCoastalGlass => 'Coastal Glass';
+
+  @override
+  String get themeCoastalGlassMood => 'Чистая премиальная отпускная энергия';
+
+  @override
+  String get themeChampagneLuxe => 'Champagne Luxe';
+
+  @override
+  String get themeChampagneLuxeMood => 'Элегантность частного консьержа';
+
+  @override
+  String get themeBlackCard => 'Black Card';
+
+  @override
+  String get themeBlackCardMood => 'Престиж частной авиации';
 
   @override
   String get settingsThemeSectionLuxury => 'Роскошный кинематограф';
 
   @override
   String get settingsThemeSectionReadable => 'Чистый и читаемый';
+
+  @override
+  String get settingsMapSkinSection => 'Подложка карты';
+
+  @override
+  String get settingsMapSkinIntro =>
+      'Выберите вид плиток карты на вкладке «Карта».';
+
+  @override
+  String get mapSkinVoyager => 'Voyager';
+
+  @override
+  String get mapSkinVoyagerMood => 'Мягкие цвета — парки, вода, дороги';
+
+  @override
+  String get mapSkinOsm => 'OpenStreetMap';
+
+  @override
+  String get mapSkinOsmMood => 'Классика, естественные тона';
+
+  @override
+  String get mapSkinCartoLight => 'Carto Light';
+
+  @override
+  String get mapSkinCartoLightMood => 'Минимализм и яркость';
+
+  @override
+  String get mapSkinCartoDark => 'Carto Dark';
+
+  @override
+  String get mapSkinCartoDarkMood => 'Ночная подложка';
+
+  @override
+  String get mapSkinMapboxStreets => 'Mapbox Streets';
+
+  @override
+  String get mapSkinMapboxStreetsMood =>
+      'Детализированный, как в travel-приложениях';
+
+  @override
+  String get mapSkinMapboxOutdoors => 'Mapbox Outdoors';
+
+  @override
+  String get mapSkinMapboxOutdoorsMood => 'Акцент на зелень и рельеф';
 
   @override
   String get dark_mode => 'Темный режим';
@@ -742,6 +831,93 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get feedMoodFoodie => 'Гурман';
+
+  @override
+  String get vibeSunsetReady => 'Закат';
+
+  @override
+  String get vibeViral => 'Вiral';
+
+  @override
+  String get vibeFamilyApproved => 'Для семьи';
+
+  @override
+  String get vibeHiddenGem => 'Скрытая жемчужина';
+
+  @override
+  String get vibeRainSafe => 'От дождя';
+
+  @override
+  String get vibeDateNight => 'Свидание';
+
+  @override
+  String get vibeNightVibe => 'Ночной вайб';
+
+  @override
+  String get vibeFoodie => 'Гастро';
+
+  @override
+  String get vibeLuxury => 'Люкс';
+
+  @override
+  String get vibeTrending => 'В тренде';
+
+  @override
+  String get vibeLive => 'Сейчас';
+
+  @override
+  String get vibeSeasonal => 'Сезонное';
+
+  @override
+  String get vibeLocalPick => 'Местное';
+
+  @override
+  String get vibeAdventure => 'Приключение';
+
+  @override
+  String get vibeWellness => 'Wellness';
+
+  @override
+  String get vibeBeachDay => 'Пляж';
+
+  @override
+  String get vibeLuxoraPick => 'Выбор Luxora';
+
+  @override
+  String get mapLayersTitle => 'СЛОИ КАРТЫ';
+
+  @override
+  String get mapLayerAll => 'Все';
+
+  @override
+  String get mapLayerGems => 'Жемчужины';
+
+  @override
+  String get mapLayerNight => 'Ночь';
+
+  @override
+  String get mapLayerDateNight => 'Свидание';
+
+  @override
+  String get mapLayerWeather => 'Лучшая погода';
+
+  @override
+  String get mapLayerItinerary => 'Маршрут';
+
+  @override
+  String get mapExpandMap => 'Развернуть карту';
+
+  @override
+  String get mapFullscreenTitle => 'Карта';
+
+  @override
+  String get mapCloseFullscreen => 'Закрыть карту';
+
+  @override
+  String get mapItineraryDayLabel => 'Показать маршрут для';
+
+  @override
+  String get mapItineraryCurrentDay => 'Текущий день';
 
   @override
   String get feedFamilyMoodHint =>

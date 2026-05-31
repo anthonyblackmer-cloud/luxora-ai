@@ -21,6 +21,8 @@ import 'package:luxora_ai/widgets/affiliate_hint.dart';
 import 'package:luxora_ai/widgets/lux_responsive_frame.dart';
 import 'package:luxora_ai/widgets/lux_secondary_app_bar.dart';
 import 'package:luxora_ai/widgets/partner_sponsor_badge.dart';
+import 'package:luxora_ai/util/place_vibe_resolver.dart';
+import 'package:luxora_ai/widgets/place_vibe_chip.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
 import 'package:luxora_ai/services/freemium_limits.dart';
 import 'package:luxora_ai/services/freemium_service.dart';
@@ -384,31 +386,21 @@ class GemsScreen extends StatelessWidget {
                             color: LuxColors.stone500,
                           ),
                         ),
-                        const SizedBox(height: 14),
-                        _GemDetail(
-                          icon: Icons.auto_awesome_rounded,
-                          label: gl.gemWhySpecial,
-                          value: catalogText(context, gem.whySpecial),
+                        const SizedBox(height: 10),
+                        PlaceVibeChipRow(
+                          vibes: PlaceVibeResolver.forGem(gem, place),
+                          compact: true,
                         ),
-                        _GemDetail(
-                          icon: Icons.schedule_rounded,
-                          label: gl.gemBestTime,
-                          value: catalogText(context, gem.bestTime),
-                        ),
-                        _GemDetail(
-                          icon: Icons.people_outline_rounded,
-                          label: gl.gemCrowdLevel,
-                          value: catalogText(context, gem.crowdLevel),
-                        ),
-                        _GemDetail(
-                          icon: Icons.tips_and_updates_outlined,
-                          label: gl.gemInsiderTip,
-                          value: catalogText(context, gem.insiderTip),
-                        ),
-                        _GemDetail(
-                          icon: Icons.visibility_off_outlined,
-                          label: gl.gemLocalNote,
-                          value: catalogText(context, gem.localOnlyNote),
+                        const SizedBox(height: 8),
+                        Text(
+                          catalogText(context, gem.whySpecial),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(
+                            fontSize: 13,
+                            height: 1.35,
+                            color: LuxColors.stone300,
+                          ),
                         ),
                         const SizedBox(height: 12),
                         AffiliateHint(category: gl.affiliateExperiences),
@@ -454,56 +446,6 @@ class _Pill extends StatelessWidget {
           fontWeight: FontWeight.w600,
           color: LuxColors.gemAccent.withValues(alpha: 0.92),
         ),
-      ),
-    );
-  }
-}
-
-class _GemDetail extends StatelessWidget {
-  const _GemDetail({
-    required this.icon,
-    required this.label,
-    required this.value,
-  });
-
-  final IconData icon;
-  final String label;
-  final String value;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 10),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Icon(icon, size: 16, color: LuxColors.gemAccent.withValues(alpha: 0.8)),
-          const SizedBox(width: 8),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  label,
-                  style: const TextStyle(
-                    fontSize: 11,
-                    fontWeight: FontWeight.w700,
-                    color: LuxColors.stone500,
-                  ),
-                ),
-                const SizedBox(height: 2),
-                Text(
-                  value,
-                  style: const TextStyle(
-                    fontSize: 13,
-                    height: 1.35,
-                    color: LuxColors.stone300,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
       ),
     );
   }

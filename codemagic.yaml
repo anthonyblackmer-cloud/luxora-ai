@@ -6,6 +6,7 @@
 #   UNSPLASH_ACCESS_KEY
 #   SUPABASE_URL          e.g. https://YOUR_PROJECT.supabase.co
 #   SUPABASE_ANON_KEY     anon or sb_publishable_ key from Supabase
+#   MAPBOX_ACCESS_TOKEN   public token (pk.…) from Mapbox
 # Do NOT add OPENAI_API_KEY here — it lives only in Supabase Edge Function secrets.
 
 workflows:
@@ -41,7 +42,7 @@ workflows:
           set -euo pipefail
           mkdir -p build
           cat > build/dart_defines.json <<EOF
-          {"UNSPLASH_ACCESS_KEY":"${UNSPLASH_ACCESS_KEY:-}","SUPABASE_URL":"${SUPABASE_URL:-}","SUPABASE_ANON_KEY":"${SUPABASE_ANON_KEY:-}","SUPABASE_CONCIERGE_FUNCTION":"${SUPABASE_CONCIERGE_FUNCTION:-bright-processor}"}
+          {"UNSPLASH_ACCESS_KEY":"${UNSPLASH_ACCESS_KEY:-}","SUPABASE_URL":"${SUPABASE_URL:-}","SUPABASE_ANON_KEY":"${SUPABASE_ANON_KEY:-}","SUPABASE_CONCIERGE_FUNCTION":"${SUPABASE_CONCIERGE_FUNCTION:-bright-processor}","MAPBOX_ACCESS_TOKEN":"${MAPBOX_ACCESS_TOKEN:-}"}
           EOF
           flutter build ipa --release \
             --build-name="$APP_BUILD_NAME" \
@@ -83,7 +84,7 @@ workflows:
           set -euo pipefail
           mkdir -p build
           cat > build/dart_defines.json <<EOF
-          {"UNSPLASH_ACCESS_KEY":"${UNSPLASH_ACCESS_KEY:-}","SUPABASE_URL":"${SUPABASE_URL:-}","SUPABASE_ANON_KEY":"${SUPABASE_ANON_KEY:-}","SUPABASE_CONCIERGE_FUNCTION":"${SUPABASE_CONCIERGE_FUNCTION:-bright-processor}"}
+          {"UNSPLASH_ACCESS_KEY":"${UNSPLASH_ACCESS_KEY:-}","SUPABASE_URL":"${SUPABASE_URL:-}","SUPABASE_ANON_KEY":"${SUPABASE_ANON_KEY:-}","SUPABASE_CONCIERGE_FUNCTION":"${SUPABASE_CONCIERGE_FUNCTION:-bright-processor}","MAPBOX_ACCESS_TOKEN":"${MAPBOX_ACCESS_TOKEN:-}"}
           EOF
           flutter build appbundle --release \
             --build-name="$APP_BUILD_NAME" \

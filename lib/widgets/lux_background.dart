@@ -43,6 +43,18 @@ class LuxBackground extends StatelessWidget {
               right: -80,
               child: _orb(tokens.accent.withValues(alpha: 0.04), 240),
             ),
+            if (tokens.surfaceStyle == LuxThemeSurfaceStyle.frostedGlass) ...[
+              Positioned(
+                top: 80,
+                left: -60,
+                child: _orb(tokens.accentSecondary.withValues(alpha: 0.12), 180),
+              ),
+              Positioned(
+                bottom: -40,
+                right: 20,
+                child: _orb(tokens.accent.withValues(alpha: 0.08), 160),
+              ),
+            ],
           ],
           Material(
             color: Colors.transparent,

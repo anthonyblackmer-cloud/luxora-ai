@@ -139,8 +139,98 @@ abstract class AppLocalizations {
   /// No description provided for @settingsThemeIntro.
   ///
   /// In en, this message translates to:
-  /// **'Luxury cinematic or clean readability — pick what fits your day.'**
+  /// **'Cinematic dark or resort light — pick the mood for your trip.'**
   String get settingsThemeIntro;
+
+  /// No description provided for @settingsThemeLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme'**
+  String get settingsThemeLabel;
+
+  /// No description provided for @themeGoldenEmber.
+  ///
+  /// In en, this message translates to:
+  /// **'Golden Ember'**
+  String get themeGoldenEmber;
+
+  /// No description provided for @themeGoldenEmberMood.
+  ///
+  /// In en, this message translates to:
+  /// **'Warm ultra-luxury'**
+  String get themeGoldenEmberMood;
+
+  /// No description provided for @themeMidnightAmethyst.
+  ///
+  /// In en, this message translates to:
+  /// **'Midnight Amethyst'**
+  String get themeMidnightAmethyst;
+
+  /// No description provided for @themeMidnightAmethystMood.
+  ///
+  /// In en, this message translates to:
+  /// **'Mysterious and exclusive'**
+  String get themeMidnightAmethystMood;
+
+  /// No description provided for @themeEmeraldHaven.
+  ///
+  /// In en, this message translates to:
+  /// **'Emerald Haven'**
+  String get themeEmeraldHaven;
+
+  /// No description provided for @themeEmeraldHavenMood.
+  ///
+  /// In en, this message translates to:
+  /// **'Serene tropical luxury'**
+  String get themeEmeraldHavenMood;
+
+  /// No description provided for @themeRivieraWhite.
+  ///
+  /// In en, this message translates to:
+  /// **'Riviera White'**
+  String get themeRivieraWhite;
+
+  /// No description provided for @themeRivieraWhiteMood.
+  ///
+  /// In en, this message translates to:
+  /// **'Elegant luxury travel magazine'**
+  String get themeRivieraWhiteMood;
+
+  /// No description provided for @themeCoastalGlass.
+  ///
+  /// In en, this message translates to:
+  /// **'Coastal Glass'**
+  String get themeCoastalGlass;
+
+  /// No description provided for @themeCoastalGlassMood.
+  ///
+  /// In en, this message translates to:
+  /// **'Clean premium vacation energy'**
+  String get themeCoastalGlassMood;
+
+  /// No description provided for @themeChampagneLuxe.
+  ///
+  /// In en, this message translates to:
+  /// **'Champagne Luxe'**
+  String get themeChampagneLuxe;
+
+  /// No description provided for @themeChampagneLuxeMood.
+  ///
+  /// In en, this message translates to:
+  /// **'Private concierge elegance'**
+  String get themeChampagneLuxeMood;
+
+  /// No description provided for @themeBlackCard.
+  ///
+  /// In en, this message translates to:
+  /// **'Black Card'**
+  String get themeBlackCard;
+
+  /// No description provided for @themeBlackCardMood.
+  ///
+  /// In en, this message translates to:
+  /// **'Private aviation prestige'**
+  String get themeBlackCardMood;
 
   /// No description provided for @settingsThemeSectionLuxury.
   ///
@@ -153,6 +243,90 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Clean & readable'**
   String get settingsThemeSectionReadable;
+
+  /// No description provided for @settingsMapSkinSection.
+  ///
+  /// In en, this message translates to:
+  /// **'Map basemap'**
+  String get settingsMapSkinSection;
+
+  /// No description provided for @settingsMapSkinIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose the look of map tiles on the Map tab.'**
+  String get settingsMapSkinIntro;
+
+  /// No description provided for @mapSkinVoyager.
+  ///
+  /// In en, this message translates to:
+  /// **'Voyager'**
+  String get mapSkinVoyager;
+
+  /// No description provided for @mapSkinVoyagerMood.
+  ///
+  /// In en, this message translates to:
+  /// **'Soft color — parks, water, roads'**
+  String get mapSkinVoyagerMood;
+
+  /// No description provided for @mapSkinOsm.
+  ///
+  /// In en, this message translates to:
+  /// **'OpenStreetMap'**
+  String get mapSkinOsm;
+
+  /// No description provided for @mapSkinOsmMood.
+  ///
+  /// In en, this message translates to:
+  /// **'Classic, natural tones'**
+  String get mapSkinOsmMood;
+
+  /// No description provided for @mapSkinCartoLight.
+  ///
+  /// In en, this message translates to:
+  /// **'Carto Light'**
+  String get mapSkinCartoLight;
+
+  /// No description provided for @mapSkinCartoLightMood.
+  ///
+  /// In en, this message translates to:
+  /// **'Minimal and bright'**
+  String get mapSkinCartoLightMood;
+
+  /// No description provided for @mapSkinCartoDark.
+  ///
+  /// In en, this message translates to:
+  /// **'Carto Dark'**
+  String get mapSkinCartoDark;
+
+  /// No description provided for @mapSkinCartoDarkMood.
+  ///
+  /// In en, this message translates to:
+  /// **'Night-friendly basemap'**
+  String get mapSkinCartoDarkMood;
+
+  /// No description provided for @mapSkinMapboxStreets.
+  ///
+  /// In en, this message translates to:
+  /// **'Mapbox Streets'**
+  String get mapSkinMapboxStreets;
+
+  /// No description provided for @mapSkinMapboxStreetsMood.
+  ///
+  /// In en, this message translates to:
+  /// **'Rich detail, travel-app polish'**
+  String get mapSkinMapboxStreetsMood;
+
+  /// No description provided for @mapSkinMapboxOutdoors.
+  ///
+  /// In en, this message translates to:
+  /// **'Mapbox Outdoors'**
+  String get mapSkinMapboxOutdoors;
+
+  /// No description provided for @mapSkinMapboxOutdoorsMood.
+  ///
+  /// In en, this message translates to:
+  /// **'Greens and terrain emphasis'**
+  String get mapSkinMapboxOutdoorsMood;
 
   /// No description provided for @dark_mode.
   ///
@@ -1419,6 +1593,180 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Foodie'**
   String get feedMoodFoodie;
+
+  /// No description provided for @vibeSunsetReady.
+  ///
+  /// In en, this message translates to:
+  /// **'Sunset-ready'**
+  String get vibeSunsetReady;
+
+  /// No description provided for @vibeViral.
+  ///
+  /// In en, this message translates to:
+  /// **'Viral'**
+  String get vibeViral;
+
+  /// No description provided for @vibeFamilyApproved.
+  ///
+  /// In en, this message translates to:
+  /// **'Family-approved'**
+  String get vibeFamilyApproved;
+
+  /// No description provided for @vibeHiddenGem.
+  ///
+  /// In en, this message translates to:
+  /// **'Hidden gem'**
+  String get vibeHiddenGem;
+
+  /// No description provided for @vibeRainSafe.
+  ///
+  /// In en, this message translates to:
+  /// **'Rain-safe'**
+  String get vibeRainSafe;
+
+  /// No description provided for @vibeDateNight.
+  ///
+  /// In en, this message translates to:
+  /// **'Date night'**
+  String get vibeDateNight;
+
+  /// No description provided for @vibeNightVibe.
+  ///
+  /// In en, this message translates to:
+  /// **'Night vibe'**
+  String get vibeNightVibe;
+
+  /// No description provided for @vibeFoodie.
+  ///
+  /// In en, this message translates to:
+  /// **'Foodie'**
+  String get vibeFoodie;
+
+  /// No description provided for @vibeLuxury.
+  ///
+  /// In en, this message translates to:
+  /// **'Luxury'**
+  String get vibeLuxury;
+
+  /// No description provided for @vibeTrending.
+  ///
+  /// In en, this message translates to:
+  /// **'Trending'**
+  String get vibeTrending;
+
+  /// No description provided for @vibeLive.
+  ///
+  /// In en, this message translates to:
+  /// **'Live now'**
+  String get vibeLive;
+
+  /// No description provided for @vibeSeasonal.
+  ///
+  /// In en, this message translates to:
+  /// **'Seasonal'**
+  String get vibeSeasonal;
+
+  /// No description provided for @vibeLocalPick.
+  ///
+  /// In en, this message translates to:
+  /// **'Local pick'**
+  String get vibeLocalPick;
+
+  /// No description provided for @vibeAdventure.
+  ///
+  /// In en, this message translates to:
+  /// **'Adventure'**
+  String get vibeAdventure;
+
+  /// No description provided for @vibeWellness.
+  ///
+  /// In en, this message translates to:
+  /// **'Wellness'**
+  String get vibeWellness;
+
+  /// No description provided for @vibeBeachDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Beach day'**
+  String get vibeBeachDay;
+
+  /// No description provided for @vibeLuxoraPick.
+  ///
+  /// In en, this message translates to:
+  /// **'Luxora pick'**
+  String get vibeLuxoraPick;
+
+  /// No description provided for @mapLayersTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'MAP MOOD LAYERS'**
+  String get mapLayersTitle;
+
+  /// No description provided for @mapLayerAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All pins'**
+  String get mapLayerAll;
+
+  /// No description provided for @mapLayerGems.
+  ///
+  /// In en, this message translates to:
+  /// **'Gems'**
+  String get mapLayerGems;
+
+  /// No description provided for @mapLayerNight.
+  ///
+  /// In en, this message translates to:
+  /// **'Night vibe'**
+  String get mapLayerNight;
+
+  /// No description provided for @mapLayerDateNight.
+  ///
+  /// In en, this message translates to:
+  /// **'Date night'**
+  String get mapLayerDateNight;
+
+  /// No description provided for @mapLayerWeather.
+  ///
+  /// In en, this message translates to:
+  /// **'Best weather'**
+  String get mapLayerWeather;
+
+  /// No description provided for @mapLayerItinerary.
+  ///
+  /// In en, this message translates to:
+  /// **'Itinerary'**
+  String get mapLayerItinerary;
+
+  /// No description provided for @mapExpandMap.
+  ///
+  /// In en, this message translates to:
+  /// **'Expand map'**
+  String get mapExpandMap;
+
+  /// No description provided for @mapFullscreenTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Map'**
+  String get mapFullscreenTitle;
+
+  /// No description provided for @mapCloseFullscreen.
+  ///
+  /// In en, this message translates to:
+  /// **'Close map'**
+  String get mapCloseFullscreen;
+
+  /// No description provided for @mapItineraryDayLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Show itinerary for'**
+  String get mapItineraryDayLabel;
+
+  /// No description provided for @mapItineraryCurrentDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Current day'**
+  String get mapItineraryCurrentDay;
 
   /// No description provided for @feedFamilyMoodHint.
   ///

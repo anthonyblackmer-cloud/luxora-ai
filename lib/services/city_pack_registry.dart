@@ -29,6 +29,9 @@ import 'package:luxora_ai/data/ticket_deals_catalog.dart';
 import 'package:luxora_ai/models/city_pack/city_pack.dart';
 import 'package:luxora_ai/models/city_pack/district_pack.dart';
 import 'package:luxora_ai/models/city_pack/state_pack.dart';
+import 'package:luxora_ai/models/lux_hotel.dart';
+import 'package:luxora_ai/models/lux_place.dart';
+import 'package:luxora_ai/models/ticket_deal.dart';
 import 'package:luxora_ai/services/city_pack_loader.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -481,7 +484,12 @@ class CityPackRegistry extends ChangeNotifier {
       hubLat: StAugustineHub.latitude,
       hubLng: StAugustineHub.longitude,
       hubLabel: StAugustineHub.label,
-      content: StAugustineContent,
+      places: StAugustineContent.places,
+      hotels: StAugustineContent.hotels,
+      districts: StAugustineContent.districts,
+      feedItemPlaceIds: StAugustineContent.feedItemPlaceIds,
+      gemPlaceIds: StAugustineContent.gemPlaceIds,
+      itineraryMomentPlaceIds: StAugustineContent.itineraryMomentPlaceIds,
       ticketDeals: stAugustineTicketDealsCatalog,
       defaultRadiusMiles: 30,
       maxRadiusMiles: 60,
@@ -498,7 +506,12 @@ class CityPackRegistry extends ChangeNotifier {
       hubLat: NaplesHub.latitude,
       hubLng: NaplesHub.longitude,
       hubLabel: NaplesHub.label,
-      content: NaplesContent,
+      places: NaplesContent.places,
+      hotels: NaplesContent.hotels,
+      districts: NaplesContent.districts,
+      feedItemPlaceIds: NaplesContent.feedItemPlaceIds,
+      gemPlaceIds: NaplesContent.gemPlaceIds,
+      itineraryMomentPlaceIds: NaplesContent.itineraryMomentPlaceIds,
       ticketDeals: naplesTicketDealsCatalog,
       defaultRadiusMiles: 25,
       maxRadiusMiles: 70,
@@ -515,7 +528,12 @@ class CityPackRegistry extends ChangeNotifier {
       hubLat: Destin30aHub.latitude,
       hubLng: Destin30aHub.longitude,
       hubLabel: Destin30aHub.label,
-      content: Destin30aContent,
+      places: Destin30aContent.places,
+      hotels: Destin30aContent.hotels,
+      districts: Destin30aContent.districts,
+      feedItemPlaceIds: Destin30aContent.feedItemPlaceIds,
+      gemPlaceIds: Destin30aContent.gemPlaceIds,
+      itineraryMomentPlaceIds: Destin30aContent.itineraryMomentPlaceIds,
       ticketDeals: destin30aTicketDealsCatalog,
       defaultRadiusMiles: 35,
       maxRadiusMiles: 80,
@@ -530,14 +548,17 @@ class CityPackRegistry extends ChangeNotifier {
     required double hubLat,
     required double hubLng,
     required String hubLabel,
-    required dynamic content,
-    required List<dynamic> ticketDeals,
+    required List<LuxPlace> places,
+    required List<LuxHotel> hotels,
+    required List<DistrictPack> districts,
+    required Map<String, String> feedItemPlaceIds,
+    required Map<String, String> gemPlaceIds,
+    required Map<String, String> itineraryMomentPlaceIds,
+    required List<TicketDeal> ticketDeals,
     required int defaultRadiusMiles,
     required int maxRadiusMiles,
   }) {
     final existing = _cities[cityId];
-    final places = content.places as List;
-    final hotels = content.hotels as List;
     final pack = CityPack(
       cityId: cityId,
       cityName: cityName,
@@ -558,21 +579,21 @@ class CityPackRegistry extends ChangeNotifier {
             'adventure',
           ],
       featuredExperienceIds: places
-          .where((p) => p.id.toString().contains('-exp-'))
-          .map((p) => p.id as String)
+          .where((p) => p.id.contains('-exp-'))
+          .map((p) => p.id)
           .toList(),
-      featuredHotelIds: hotels.map((h) => h.placeId as String).toList(),
+      featuredHotelIds: hotels.map((h) => h.placeId).toList(),
       featuredRestaurantIds: places
-          .where((p) => p.category.name == 'dining')
-          .map((p) => p.id as String)
+          .where((p) => p.category == LuxPlaceCategory.dining)
+          .map((p) => p.id)
           .toList(),
-      featuredTicketDealIds: ticketDeals.map((d) => d.id as String).toList(),
-      featuredHotelIntelIds: hotels.map((h) => h.id as String).toList(),
-      districts: content.districts,
+      featuredTicketDealIds: ticketDeals.map((d) => d.id).toList(),
+      featuredHotelIntelIds: hotels.map((h) => h.id).toList(),
+      districts: districts,
       experiences: const [],
-      feedItemPlaceIds: content.feedItemPlaceIds,
-      gemPlaceIds: content.gemPlaceIds,
-      itineraryMomentPlaceIds: content.itineraryMomentPlaceIds,
+      feedItemPlaceIds: feedItemPlaceIds,
+      gemPlaceIds: gemPlaceIds,
+      itineraryMomentPlaceIds: itineraryMomentPlaceIds,
       osmAssetPath: existing?.osmAssetPath,
       defaultRadiusMiles: defaultRadiusMiles,
       maxRadiusMiles: maxRadiusMiles,
