@@ -1,8 +1,12 @@
+import 'package:luxora_ai/data/destin_30a/destin_30a_hotels_catalog.dart';
 import 'package:luxora_ai/data/florida_keys/florida_keys_hotels_catalog.dart';
 import 'package:luxora_ai/data/hotels_catalog.dart';
 import 'package:luxora_ai/data/miami/miami_hotels_catalog.dart';
+import 'package:luxora_ai/data/naples/naples_hotels_catalog.dart';
+import 'package:luxora_ai/data/nyc/nyc_hotels_catalog.dart';
+import 'package:luxora_ai/data/st_augustine/st_augustine_hotels_catalog.dart';
 import 'package:luxora_ai/data/tampa_bay/tampa_bay_hotels_catalog.dart';
-import 'package:luxora_ai/l10n/app_localizations.dart';
+import 'package:luxora_ai/data/vegas/vegas_hotels_catalog.dart';import 'package:luxora_ai/l10n/app_localizations.dart';
 import 'package:luxora_ai/models/lux_hotel.dart';
 import 'package:luxora_ai/models/lux_place.dart';
 import 'package:luxora_ai/models/trip_plan.dart';
@@ -92,10 +96,17 @@ abstract final class StayDiningCatalogService {
     final nyc = NycHotelsCatalog.all.where((h) => ids.contains(h.id));
     final vegas = VegasHotelsCatalog.all.where((h) => ids.contains(h.id));
     final tampaBay = TampaBayHotelsCatalog.all.where((h) => ids.contains(h.id));
-    return [...orlando, ...miami, ...keys, ...stAug, ...naplesHotels, ...destin, ...nyc, ...vegas, ...tampaBay]
-        .where((h) => (h.cityPackId ?? 'orlando') == activeCityId)
-        .toList();
-  }
+    return <LuxHotel>[
+      ...orlando,
+      ...miami,
+      ...keys,
+      ...stAug,
+      ...naplesHotels,
+      ...destin,
+      ...nyc,
+      ...vegas,
+      ...tampaBay,
+    ].where((h) => (h.cityPackId ?? 'orlando') == activeCityId).toList();  }
 
   static List<LuxPlace> restaurantsForCategory({
     required RestaurantBrowseCategory category,
