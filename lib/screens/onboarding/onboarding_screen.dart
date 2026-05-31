@@ -12,6 +12,7 @@ import 'package:luxora_ai/data/orlando/orlando_addon_catalog.dart';
 import 'package:luxora_ai/services/city_pack_sync.dart';
 import 'package:luxora_ai/services/city_pack_entitlement_store.dart';
 import 'package:luxora_ai/services/city_picker_actions.dart';
+import 'package:luxora_ai/services/concierge_voice_service.dart';
 import 'package:luxora_ai/services/onboarding_finish_service.dart';
 import 'package:luxora_ai/services/onboarding_preference_mapper.dart';
 import 'package:luxora_ai/services/paywall_service.dart';
@@ -59,11 +60,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       _profile = PaywallService.profileForCity(_profile, cityId);
     }
     unawaited(_loadEntitlements());
+    unawaited(ConciergeVoiceService.instance.initialize());
     CityPackEntitlementStore.instance.addListener(_onEntitlementsChanged);
   }
 
   @override
   void dispose() {
+    unawaited(ConciergeVoiceService.instance.stopSpeaking());
     CityPackEntitlementStore.instance.removeListener(_onEntitlementsChanged);
     _travelerNameController.dispose();
     super.dispose();
@@ -146,6 +149,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     }
 
     if (_step < _stepCount - 1) {
+      if (_step == 0) {
+        FocusManager.instance.primaryFocus?.unfocus();
+      }
       setState(() => _step++);
     } else {
       await _finish();

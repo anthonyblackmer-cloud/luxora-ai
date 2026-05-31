@@ -43,7 +43,7 @@ class TripProfile {
     this.tripName = '',
     this.travelerName = '',
     this.useAutoTripName = true,
-    this.moods = const [TripMood.luxurious, TripMood.relaxing],
+    this.moods = const [],
     this.occasion = TripOccasion.general,
     this.travelerType = TravelerType.couple,
     this.childrenTypes = const [],

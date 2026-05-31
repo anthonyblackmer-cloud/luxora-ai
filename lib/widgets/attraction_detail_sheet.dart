@@ -23,7 +23,6 @@ import 'package:luxora_ai/widgets/travel_stop_intel_card.dart';
 import 'package:luxora_ai/util/destination_share_content.dart';
 import 'package:luxora_ai/util/share_precache_urls.dart';
 import 'package:luxora_ai/widgets/visual_share_icon_button.dart';
-import 'package:luxora_ai/widgets/lux_button.dart';
 import 'package:luxora_ai/widgets/settings/luxora_premium_sheet_shell.dart';
 
 Future<void> showAttractionDetailSheet(
@@ -198,19 +197,6 @@ class _AttractionDetailSheet extends StatelessWidget {
                 _VibeChips(tags: detail.vibeMatch),
                 const SizedBox(height: 14),
                 if (nearby.isNotEmpty) _NearbyGems(places: nearby, l10n: l),
-                const SizedBox(height: 18),
-                LuxButton(
-                  label: l.detailReserve,
-                  icon: Icons.calendar_month_rounded,
-                  onPressed: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text(l.detailReserveSoon),
-                        behavior: SnackBarBehavior.floating,
-                      ),
-                    );
-                  },
-                ),
               ],
             ),
           ),

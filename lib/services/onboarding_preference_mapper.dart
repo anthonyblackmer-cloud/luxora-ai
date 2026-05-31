@@ -134,7 +134,7 @@ abstract final class OnboardingPreferenceMapper {
   }
 
   static TripProfile _syncMoodsAndDiscovery(TripProfile p) {
-    final moods = <TripMood>{...p.moods};
+    final moods = <TripMood>{};
 
     for (final style in p.tripStyles) {
       switch (style) {
@@ -190,7 +190,7 @@ abstract final class OnboardingPreferenceMapper {
     }
 
     return p.copyWith(
-      moods: moods.isEmpty ? p.moods : moods.toList(),
+      moods: moods.isEmpty ? const [TripMood.relaxing] : moods.toList(),
       discoveryStyle: discovery,
     );
   }

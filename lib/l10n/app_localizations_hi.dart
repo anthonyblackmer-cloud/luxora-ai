@@ -19,13 +19,13 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get settingsThemeIntro =>
-      'सिनेमाई लक्ज़री या साफ़ पठनीयता — अपने दिन के अनुसार चुनें।';
+      'लक्जरी सिनेमाई या स्वच्छ पठनीयता - वह चुनें जो आपके दिन के लिए उपयुक्त हो।';
 
   @override
-  String get settingsThemeSectionLuxury => 'सिनेमाई लक्ज़री';
+  String get settingsThemeSectionLuxury => 'लक्जरी सिनेमाई';
 
   @override
-  String get settingsThemeSectionReadable => 'साफ़ और पठनीय';
+  String get settingsThemeSectionReadable => 'स्वच्छ एवं पठनीय';
 
   @override
   String get dark_mode => 'डार्क मोड';
@@ -77,7 +77,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get navConcierge => 'दरबान';
 
   @override
-  String get navAgenda => 'Today';
+  String get navAgenda => 'आज';
 
   @override
   String get navDiscover => 'खोज करना';
@@ -92,7 +92,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get navMore => 'अधिक';
 
   @override
-  String get navRestaurants => 'रेस्तरां';
+  String get navRestaurants => 'रेस्टोरेंट';
 
   @override
   String get navTimeline => 'समय';
@@ -101,113 +101,115 @@ class AppLocalizationsHi extends AppLocalizations {
   String get agendaTabItinerary => 'दिन';
 
   @override
-  String get agendaTabRestaurants => 'रेस्तरां';
+  String get agendaTabRestaurants => 'रेस्टोरेंट';
 
   @override
-  String get restaurantsPageTitle => 'रेस्तरां';
+  String get restaurantsPageTitle => 'रेस्टोरेंट';
 
   @override
   String get restaurantsPageSubtitle =>
-      'Luxora के रेस्तरां देखें — पसंदीदा सहेजें या Concierge से आज की रात का भोजन चुनवाएं।';
+      'भोजन ब्राउज़ करें लक्सोरा जानता है - पसंदीदा सहेजें या दरबान को आज रात का भोजन चुनने दें।';
 
   @override
-  String get restaurantsConciergePick => 'मेरे लिए रेस्तरां चुनें';
+  String get restaurantsConciergePick => 'मेरे लिए एक रेस्तरां चुनें';
 
   @override
   String restaurantsConciergePickDone(String name) {
-    return '$name सहेजा — Concierge से यात्रा में जोड़ने को कहें।';
+    return 'सहेजा गया $name - दरबान से इसे अपनी यात्रा में जोड़ने के लिए कहें।';
   }
 
   @override
   String restaurantsSavedCount(int count) {
-    return 'आपकी यात्रा के लिए $count सहेजे';
+    return 'आपकी यात्रा के लिए $count सहेजी गई';
   }
 
   @override
   String get restaurantsEmptyHint =>
-      'खोज त्रिज्या में कोई रेस्तरां नहीं — मानचित्र पर त्रिज्या बढ़ाएं।';
+      'आपके खोजे गए दायरे में कोई रेस्तरां नहीं - मानचित्र पर दायरा बढ़ाएं।';
 
   @override
-  String get moreCardRestaurantsSub => 'रेस्तरां देखें और Concierge चुनने दें';
+  String get moreCardRestaurantsSub =>
+      'भोजन ब्राउज़ करें और द्वारपाल को आपके लिए चयन करने दें';
 
   @override
-  String get agendaHotelSuggestionsTitle => 'कहाँ ठहरें';
+  String get agendaHotelSuggestionsTitle => 'कहाँ रहा जाए';
 
   @override
   String agendaHotelSuggestionsSubtitle(int budget) {
-    return 'आपके ~$budget USD बजट के लिए AI सुझाव — सभी विकल्प देखने के लिए टैप करें।';
+    return 'AI आपके ~$budget USD ट्रिप बजट से मेल खाता है - सभी विकल्प देखने के लिए टैप करें।';
   }
 
   @override
   String agendaHotelTopPick(String name) {
-    return 'शीर्ष चुनाव: $name';
+    return 'शीर्ष चयन: $name';
   }
 
   @override
-  String get agendaStayDropdownHint => 'होटल चुनें';
+  String get agendaStayDropdownHint => 'एक होटल चुनें';
 
   @override
-  String get agendaDiningDropdownHint => 'रेस्तरां चुनें';
+  String get agendaDiningDropdownHint => 'एक रेस्तरां चुनें';
 
   @override
-  String get agendaDaySelectLabel => 'कौन सा दिन';
+  String get agendaDaySelectLabel => 'जिस दिन';
 
   @override
-  String get agendaDayDiningTitle => 'आज रात कहाँ खाएँ';
+  String get agendaDayDiningTitle => 'आज रात कहाँ खाना है';
 
   @override
   String agendaDayDiningSubtitle(int budget, String tier) {
-    return 'आज की योजना और ~$budget USD बजट ($tier) के अनुसार सुझाव।';
+    return 'आज की योजना के आधार पर आपके ~$budget USD बजट ($tier भोजन) के लिए सुझाव।';
   }
 
   @override
   String get agendaDiningNearStops => 'आज के स्टॉप के पास';
 
   @override
-  String get agendaDiningFitsBudget => 'बजट के अनुकूल';
+  String get agendaDiningFitsBudget => 'आपकी यात्रा के बजट में फिट बैठता है';
 
   @override
-  String get agendaDiningMatchesDay => 'आज के मूड से मेल';
+  String get agendaDiningMatchesDay => 'आज के माहौल से मेल खाता है';
 
   @override
-  String get agendaDiningFoodiePick => 'फूडी पसंद';
+  String get agendaDiningFoodiePick => 'खाने के शौकीन पसंदीदा';
 
   @override
-  String get browseCatRecommended => 'Recommended';
+  String get browseCatRecommended => 'अनुशंसित';
 
   @override
-  String get browseCatDisneyHotels => 'Disney क्षेत्र';
+  String get browseCatDisneyHotels => 'डिज़्नी क्षेत्र';
 
   @override
   String get browseCatBudgetFriendly => 'बजट अनुकूल';
 
   @override
-  String get browseCatUpscaleLuxury => 'लक्ज़री और उच्च श्रेणी';
+  String get browseCatUpscaleLuxury => 'उच्चस्तरीय एवं विलासितापूर्ण';
 
   @override
-  String get browseCatUniversalHotels => 'Universal क्षेत्र';
+  String get browseCatUniversalHotels => 'सार्वभौमिक क्षेत्र';
 
   @override
-  String get browseCatThemeParkDining => 'थीम पार्क रेस्तरां';
+  String get browseCatThemeParkDining => 'थीम पार्क भोजनालय';
 
   @override
-  String get browseCatUpscaleDining => 'फाइन डाइनिंग';
+  String get browseCatUpscaleDining => 'उच्च स्तरीय एवं बढ़िया भोजन';
 
   @override
-  String get browseSearchAllHotels => 'पूरा होटल कैटलॉग खोजें…';
+  String get browseSearchAllHotels => 'संपूर्ण होटल सूची खोजें...';
 
   @override
-  String get browseSearchAllRestaurants => 'पूरा रेस्तरां कैटलॉग खोजें…';
+  String get browseSearchAllRestaurants => 'रेस्तरां की पूरी सूची खोजें...';
 
   @override
   String get browseCategoryEmpty =>
-      'इस श्रेणी में कोई मिलान नहीं — खोजें या त्रिज्या बढ़ाएँ।';
+      'आपके दायरे के लिए इस श्रेणी में कोई मेल नहीं खाता - खोजने का प्रयास करें या खोज को विस्तृत करें।';
 
   @override
-  String get browseFullCatalogHint => 'ऊपर खोज से सभी होटल और रेस्तरां देखें।';
+  String get browseFullCatalogHint =>
+      'संपूर्ण कैटलॉग के लिए ऊपर खोज का उपयोग करें - प्रत्येक होटल और रेस्तरां लक्सोरा जानता है।';
 
   @override
-  String get agendaPageSubtitle => 'What am I doing right now?';
+  String get agendaPageSubtitle => 'मैं अभी क्या कर रहा हूँ?';
 
   @override
   String get navGems => 'रत्न';
@@ -285,7 +287,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get moreCardItinerarySub => 'आपका दिन-ब-दिन सुनहरा पलायन';
 
   @override
-  String get moreCardDiscoverSub => 'ट्रेंडिंग डाइनिंग, अनुभव और लाइव खोज';
+  String get moreCardDiscoverSub => 'ट्रेंडिंग डाइनिंग, अनुभव और लाइव डिस्कवरी';
 
   @override
   String get savedFavoritesTitle => 'पसंदीदा सहेजा गया';
@@ -425,15 +427,15 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String ticketDealsPricesAsOf(String date) {
-    return '$date तक की कीमतें';
+    return 'कीमतें $date तक';
   }
 
   @override
   String get ticketDealsRefreshFailed =>
-      'कीमतें रीफ़्रेश नहीं हो सकीं — कैश किए गए सौदे दिखाए जा रहे हैं।';
+      'कीमतें ताज़ा नहीं की जा सकीं - कैश्ड डील दिखाई जा रही हैं।';
 
   @override
-  String get ticketDealsUpdating => 'कीमतें अपडेट हो रही हैं…';
+  String get ticketDealsUpdating => 'कीमतें अपडेट हो रही हैं...';
 
   @override
   String get ticketNoDeals =>
@@ -667,16 +669,16 @@ class AppLocalizationsHi extends AppLocalizations {
       'फ़्लोरिडा कीज़ ट्रेल और राज्यव्यापी मुख्य आकर्षण';
 
   @override
-  String get radiusDesc25Keys => 'की लार्गो, इस्लामोराडा और ऊपरी रीफ कॉरिडोर';
+  String get radiusDesc25Keys => 'की लार्गो, इस्लामोराडा, और ऊपरी रीफ कॉरिडोर';
 
   @override
   String get radiusDesc50Keys => 'मैराथन, बिग पाइन और मध्य कीज़ समुद्र तट';
 
   @override
-  String get radiusDesc100Keys => 'की वेस्ट तक पूरी ओवरसीज़ हाईवे';
+  String get radiusDesc100Keys => 'की वेस्ट के माध्यम से पूर्ण विदेशी राजमार्ग';
 
   @override
-  String get radiusDescAllKeys => 'पूरी द्वीप श्रृंखला और दिन-यात्रा जल';
+  String get radiusDescAllKeys => 'संपूर्ण द्वीप श्रृंखला और दिन-यात्रा जल';
 
   @override
   String get feedBadge => 'लाइव खोज';
@@ -690,7 +692,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get feedSubtitleFamily =>
-      'Family-friendly picks for your crew — parks, easy wins, and moments that land with kids (and parents).';
+      'आपके दल के लिए परिवार-अनुकूल चयन - पार्क, आसान जीत, और बच्चों (और माता-पिता) के साथ बिताए गए क्षण।';
 
   @override
   String get feedPillTrending => 'रुझान';
@@ -708,7 +710,8 @@ class AppLocalizationsHi extends AppLocalizations {
   String get feedMoodPrompt => 'आप कैसा महसूस करना चाहते हैं?';
 
   @override
-  String get feedMoodPromptFamily => 'आज आपके परिवार के लिए दिन कैसा महसूस हो?';
+  String get feedMoodPromptFamily =>
+      'आज का दिन आपके दल के लिए कैसा महसूस होना चाहिए?';
 
   @override
   String get feedMoodAll => 'सब कुछ';
@@ -736,7 +739,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get feedFamilyMoodHint =>
-      'Theme parks, character meals, and easy parent wins — filtered for family tags.';
+      'थीम पार्क, चरित्र भोजन, और आसान अभिभावक जीत - पारिवारिक टैग के लिए फ़िल्टर किए गए।';
 
   @override
   String get feedEmptyHint =>
@@ -744,7 +747,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get feedEmptyHintFamily =>
-      'No family-tagged cards in this radius — try Adventurous or Everything, or widen the radius.';
+      'इस दायरे में कोई परिवार-टैग कार्ड नहीं - एडवेंचरस या एवरीथिंग आज़माएं, या दायरा बढ़ाएं।';
 
   @override
   String get gemsBadge => 'इनसाइडर क्यूरेशन';
@@ -818,7 +821,7 @@ class AppLocalizationsHi extends AppLocalizations {
       'आपके चयनित दिन के लिए पिन - सोने के हीरे रत्न हैं, सियान मार्कर आज की समयरेखा हैं, सोने की रेखा मूड मार्ग है।';
 
   @override
-  String get mapPlanDayTitle => 'आज का एजेंडा';
+  String get mapPlanDayTitle => 'मेरे दिन की योजना बनाएं';
 
   @override
   String get mapPlanDaySuggested =>
@@ -840,7 +843,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String shareDayLegDrive(String time, String miles) {
-    return 'पिछले स्टॉप से $miles · $time की ड्राइव';
+    return 'पिछले पड़ाव से $time ड्राइव · $miles';
   }
 
   @override
@@ -870,7 +873,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get mapParkingLevelDifficult => 'कठिन';
 
   @override
-  String get mapParkingLevelLimited => 'सीमित · जल्दी पहुँचें';
+  String get mapParkingLevelLimited => 'सीमित · जल्दी पहुंचें';
 
   @override
   String mapParkingAtStop(String level) {
@@ -898,43 +901,43 @@ class AppLocalizationsHi extends AppLocalizations {
       'बारिश की संभावना - इनडोर बैकअप के लिए टैप का मार्ग बदलें।';
 
   @override
-  String get dayFlowSwapTitle => 'यह स्टॉप बदलें';
+  String get dayFlowSwapTitle => 'इस रोक को बदलो';
 
   @override
   String dayFlowSwapSubtitle(String current) {
-    return 'Tell Luxora what you\'d rather do instead of $current.';
+    return 'लक्सोरा को बताएं कि आप $current के बजाय क्या करना चाहेंगे।';
   }
 
   @override
-  String get dayFlowSwapTemplate => 'मैं कुछ ऐसा सोच रहा था…';
+  String get dayFlowSwapTemplate => 'मैं कुछ और सोच रहा था जैसे...';
 
   @override
   String get dayFlowSwapHint =>
-      'e.g. a quiet park this morning, or seafood for dinner';
+      'जैसे आज सुबह एक शांत पार्क, या रात के खाने के लिए समुद्री भोजन';
 
   @override
   String get dayFlowSwapApply => 'मेरा दिन अपडेट करें';
 
   @override
-  String get dayFlowSwapViewPlace => 'View current stop';
+  String get dayFlowSwapViewPlace => 'वर्तमान स्टॉप देखें';
 
   @override
   String dayFlowSwapSuccess(String newStop, String phase) {
-    return 'Updated — $newStop is now your $phase stop.';
+    return 'अपडेट किया गया - $newStop अब आपका $phase स्टॉप है।';
   }
 
   @override
   String get dayFlowSwapNoMatch =>
-      'Couldn\'t find a match nearby — try being more specific.';
+      'आस-पास कोई मिलान नहीं मिल सका - अधिक विशिष्ट होने का प्रयास करें।';
 
   @override
-  String get dayFlowSwapTapToChange => 'Change this stop';
+  String get dayFlowSwapTapToChange => 'इस रोक को बदलो';
 
   @override
-  String get dayFlowSwapHoldSpeak => 'बोलने के लिए दबाए रखें';
+  String get dayFlowSwapHoldSpeak => 'बोलने के लिए रुकें';
 
   @override
-  String get dayFlowSwapListening => 'सुन रहा हूँ…';
+  String get dayFlowSwapListening => 'सुनना…';
 
   @override
   String get rightNowButton => 'हमें अभी क्या करना चाहिए?';
@@ -1025,7 +1028,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get onboardThemeParksOccasionHint =>
-      'Disney और Universal अनलॉक करें — खरीद के तुरंत बाद थीम पार्क अवसर दिखेंगे।';
+      'नीचे थीम-पार्क अवसरों को जोड़ने के लिए डिज़्नी और यूनिवर्सल को अनलॉक करें - आप खरीदारी के तुरंत बाद उन चिप्स को देखेंगे।';
 
   @override
   String get occasionGeneral => 'बस तलाश कर रहा हूँ';
@@ -1046,10 +1049,10 @@ class AppLocalizationsHi extends AppLocalizations {
   String get occasionFamily => 'बच्चों वाला परिवार';
 
   @override
-  String get occasionDisneyAdventure => 'Disney adventure';
+  String get occasionDisneyAdventure => 'डिज्नी साहसिक';
 
   @override
-  String get occasionUniversalAdventure => 'Universal adventure';
+  String get occasionUniversalAdventure => 'सार्वभौमिक साहसिक कार्य';
 
   @override
   String get localSecretTitle => 'स्थानीय रहस्य';
@@ -1168,86 +1171,86 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get conciergeVoiceSoon =>
-      'माइक्रोफ़ोन की अनुमति दें ताकि Luxora सुन सके।';
+      'वॉयस कंसीयज जल्द ही आ रहा है - अभी के लिए, एक क्षण टैप करें या टाइप करें कि आप कैसा महसूस करना चाहते हैं।';
 
   @override
-  String get conciergeVoiceListening => 'Luxora सुन रही है…';
+  String get conciergeVoiceListening => 'लक्सोरा सुन रहा है...';
 
   @override
-  String get conciergeVoiceSpeaking => 'Luxora बोल रही है…';
+  String get conciergeVoiceSpeaking => 'लक्सोरा बोल रही है...';
 
   @override
-  String get conciergeVoiceRelease => 'भेजने के लिए छोड़ें';
+  String get conciergeVoiceRelease => 'भेजने के लिए जारी करें';
 
   @override
-  String get conciergeVoiceSend => 'Luxora को भेजें';
+  String get conciergeVoiceSend => 'लक्सोरा को भेजें';
 
   @override
-  String get conciergeVoiceProcessing => 'Luxora को भेजा जा रहा है…';
+  String get conciergeVoiceProcessing => 'लक्सोरा भेजा जा रहा है...';
 
   @override
   String get conciergeVoiceNoSpeech =>
-      'सुनाई नहीं दिया — दबाकर रखें, बोलें, फिर छोड़ें।';
+      'मैं उसे समझ नहीं पाया - बटन दबाए रखें, बोलें, फिर छोड़ें।';
 
   @override
   String get conciergeVoicePreviewFailed =>
-      'पूर्वावलोकन नहीं चला। वॉल्यूम जाँचें और फिर कोशिश करें।';
+      'पूर्वावलोकन नहीं चलाया जा सका. अपना वॉल्यूम जांचें और पुनः प्रयास करें।';
 
   @override
-  String get conciergeVoiceUnavailable => 'इस डिवाइस पर आवाज़ उपलब्ध नहीं है।';
+  String get conciergeVoiceUnavailable => 'इस डिवाइस पर आवाज़ उपलब्ध नहीं है.';
 
   @override
-  String get conciergeVoiceSettingsTitle => 'Luxora की आवाज़';
+  String get conciergeVoiceSettingsTitle => 'लक्सोरा आवाज';
 
   @override
   String get conciergeVoiceSettingsSubtitle =>
-      'लहजा, स्वर और गति चुनें — आपके डिवाइस की सिस्टम आवाज़ें।';
+      'चुनें कि जब लक्सोरा बोलती है तो उसकी आवाज़ कैसी होगी - उच्चारण, स्वर और गति। आपके डिवाइस की अंतर्निहित आवाज़ों का उपयोग करता है।';
 
   @override
   String get conciergeVoiceRateLabel => 'बोलने की गति';
 
   @override
-  String get conciergeVoiceRateSlow => 'धीमी';
+  String get conciergeVoiceRateSlow => 'धीमा';
 
   @override
-  String get conciergeVoiceRateNatural => 'सामान्य';
+  String get conciergeVoiceRateNatural => 'प्राकृतिक';
 
   @override
   String get conciergeVoiceRateFast => 'तेज़';
 
   @override
-  String get conciergeVoicePreview => 'आवाज़ सुनें';
+  String get conciergeVoicePreview => 'आवाज का पूर्वावलोकन करें';
 
   @override
   String get conciergeVoicePreviewSample =>
-      'नमस्ते — मैं Luxora हूँ। बताइए यह यात्रा कैसी महसूस होनी चाहिए।';
+      'नमस्ते - मैं लक्सोरा हूं। मुझे बताएं कि आप इस यात्रा को कैसा महसूस कराना चाहते हैं।';
 
   @override
   String get conciergeVoiceDeviceNote =>
-      'Download more voices in iPhone Settings → Accessibility → Spoken Content → Voices. Return here and tap Refresh.';
+      'iPhone सेटिंग्स → एक्सेसिबिलिटी → बोली जाने वाली सामग्री → वॉयस में अधिक आवाजें डाउनलोड करें। यहां लौटें और रिफ्रेश पर टैप करें।';
 
   @override
-  String get conciergeVoiceDeviceSection => 'Voices on this iPhone';
+  String get conciergeVoiceDeviceSection => 'इस iPhone पर आवाज़ें';
 
   @override
   String get conciergeVoiceDeviceSectionHint =>
-      'Includes voices you downloaded — tap one to use it for Luxora.';
+      'इसमें आपके द्वारा डाउनलोड की गई आवाजें शामिल हैं - लक्सोरा के लिए इसका उपयोग करने के लिए एक पर टैप करें।';
 
   @override
-  String get conciergeVoiceRefreshList => 'Refresh voice list';
+  String get conciergeVoiceRefreshList => 'ध्वनि सूची ताज़ा करें';
 
   @override
-  String get conciergeVoiceShowAllLanguages => 'Show all languages';
+  String get conciergeVoiceShowAllLanguages => 'सभी भाषाएँ दिखाएँ';
 
   @override
-  String get conciergeVoiceOpenSettings => 'Open iPhone voice settings';
+  String get conciergeVoiceOpenSettings => 'iPhone वॉयस सेटिंग खोलें';
 
   @override
   String get conciergeVoiceNoDeviceVoices =>
-      'No voices found — download packs in Settings, then refresh.';
+      'कोई आवाज नहीं मिली - सेटिंग्स में पैक डाउनलोड करें, फिर रीफ्रेश करें।';
 
   @override
-  String get conciergeVoicePresetSection => 'Quick personas';
+  String get conciergeVoicePresetSection => 'त्वरित व्यक्तित्व';
 
   @override
   String get conciergeVoiceRegionRecommended => 'अनुशंसित';
@@ -1259,7 +1262,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get conciergeVoiceRegionRussian => 'रूसी';
 
   @override
-  String get conciergeVoiceRegionSpanish => 'स्पेनिश';
+  String get conciergeVoiceRegionSpanish => 'स्पैनिश';
 
   @override
   String get conciergeVoiceRegionFrench => 'फ़्रेंच';
@@ -1271,7 +1274,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get conciergeVoiceRegionOther => 'अन्य';
 
   @override
-  String get conciergeVoicePresetMatchApp => 'ऐप भाषा · महिला';
+  String get conciergeVoicePresetMatchApp => 'ऐप की भाषा से मिलान करें · महिला';
 
   @override
   String get conciergeVoicePresetEnUsF => 'अमेरिकी · महिला';
@@ -1286,16 +1289,16 @@ class AppLocalizationsHi extends AppLocalizations {
   String get conciergeVoicePresetEnGbM => 'ब्रिटिश · पुरुष';
 
   @override
-  String get conciergeVoicePresetRuF => 'रूसी · महिला';
+  String get conciergeVoicePresetRuF => 'रूसी · स्त्री';
 
   @override
   String get conciergeVoicePresetRuM => 'रूसी · पुरुष';
 
   @override
-  String get conciergeVoicePresetEsF => 'स्पेनिश · महिला';
+  String get conciergeVoicePresetEsF => 'स्पैनिश · स्त्री';
 
   @override
-  String get conciergeVoicePresetEsM => 'स्पेनिश · पुरुष';
+  String get conciergeVoicePresetEsM => 'स्पैनिश · पुरुष';
 
   @override
   String get conciergeVoicePresetFrF => 'फ़्रेंच · महिला';
@@ -1304,73 +1307,77 @@ class AppLocalizationsHi extends AppLocalizations {
   String get conciergeVoicePresetFrM => 'फ़्रेंच · पुरुष';
 
   @override
-  String get conciergeVoicePresetDeF => 'जर्मन · महिला';
+  String get conciergeVoicePresetDeF => 'जर्मन · स्त्री';
 
   @override
   String get conciergeVoicePresetDeM => 'जर्मन · पुरुष';
 
   @override
-  String get conciergeThinking => 'Luxora सोच रहा है…';
+  String get conciergeThinking => 'लक्सोरा सोच रही है...';
 
   @override
   String get conciergeItinerarySynced =>
-      'मैंने इसे मानचित्र पर आज के एजेंडे और आपकी टाइमलाइन में जोड़ दिया — वही स्टॉप, साझा करने के लिए तैयार।';
+      'मैंने इसे आपके एजेंडे में जोड़ दिया है - मानचित्र पर वही स्टॉप, साझा करने के लिए तैयार हैं।';
 
   @override
-  String get conciergeAgendaUpdatedSnack => 'आपका एजेंडा मानचित्र पर तैयार है';
+  String get conciergeAgendaUpdatedSnack =>
+      'आपका एजेंडा मानचित्र और एजेंडा पर तैयार है';
 
   @override
   String get conciergeAgendaSyncFailed =>
-      'Map and Timeline did not update. Try one clear request, for example: Plan a 4-day Disney and Universal trip.';
+      'मानचित्र व एजेंडा अपडेट नहीं हुआ। उदाहरण के लिए, एक स्पष्ट अनुरोध आज़माएँ: 4-दिवसीय डिज़्नी और यूनिवर्सल यात्रा की योजना बनाएं।';
 
   @override
-  String get conciergeViewAgendaOnMap => 'मानचित्र पर देखें';
+  String get conciergeViewAgendaOnMap => 'एजेंडा देखें';
 
   @override
   String get conciergeAgendaDealsIntro =>
-      'मैंने आपके एजेंडे के स्टॉप से अधिकृत टिकट ऑफ़र मिलाए हैं — गेट पर खरीदने से पहले तुलना करें:';
+      'मैंने आपके एजेंडे में स्टॉप के लिए अधिकृत टिकट सौदों का मिलान किया है - गेट पर खरीदने से पहले तुलना करें:';
 
   @override
-  String get conciergeAgendaDealsSnack => 'आपके एजेंडे से मेल खाते टिकट ऑफ़र';
+  String get conciergeAgendaDealsSnack =>
+      'टिकट सौदे आपके एजेंडे से मेल खाते हैं';
 
   @override
-  String get conciergeViewTicketDeals => 'ऑफ़र देखें';
+  String get conciergeViewTicketDeals => 'सौदे देखें';
 
   @override
   String ticketAgendaMatchLine(String stop, String amount, String source) {
-    return '$stop · अनु. बचत $amount · $source';
+    return '$stop · अनुमानित रूप से $amount के माध्यम से $source बचाएं';
   }
 
   @override
   String ticketAgendaStopsSummary(int count) {
-    return 'आपके एजेंडे के $count स्टॉप पर पार्टनर ऑफ़र हैं — गेट पर खरीदने से पहले अधिकृत ऑफ़र तुलना करें।';
+    return 'आपके एजेंडे में $count स्टॉप में साझेदार सौदे हैं - गेट पर खरीदने से पहले अधिकृत प्रस्तावों की तुलना करें।';
   }
 
   @override
   String ticketAgendaStopsSavings(String amount) {
-    return 'अनुमानित परिवार बचत · $amount';
+    return 'ईएसटी। पारिवारिक बचत · $amount';
   }
 
   @override
-  String get ticketBrowseAgendaDeals => 'अपने एजेंडे के ऑफ़र देखें →';
+  String get ticketBrowseAgendaDeals =>
+      'अपने एजेंडे के लिए सौदे ब्राउज़ करें →';
 
   @override
   String get conciergeFreshThread =>
-      'आपका एजेंडा मानचित्र और टाइमलाइन पर है। मैंने इस चैट को संग्रहित किया और नई शुरू की — दिन बदलें, ऑफ़र खोजें, या कुछ नया पूछें।';
+      'आपका एजेंडा मानचित्र और एजेंडा पर है. मैंने इस चैट को संग्रहीत कर लिया है और नए सिरे से शुरुआत की है - दिन में बदलाव करें, सौदे खोजें, या कुछ नया पूछें।';
 
   @override
-  String get conciergeThreadArchivedSnack => 'चैट संग्रहित — नई बातचीत';
+  String get conciergeThreadArchivedSnack =>
+      'चैट संग्रहीत - ताज़ा थ्रेड शुरू हुआ';
 
   @override
   String get conciergeNewConversationTooltip => 'नई बातचीत';
 
   @override
   String get itinerarySameAsMapAgenda =>
-      'मानचित्र टैब पर आज के एजेंडे जैसा ही प्लान — यहाँ या मानचित्र से पूरा दिन साझा करें।';
+      'आज की द्वारपाल योजना - मानचित्र पर भी पिन की गई। नीचे दिवस कार्ड साझा करें।';
 
   @override
   String get conciergeTicketsFoundIntro =>
-      'मैंने आपकी यात्रा के लिए अधिकृत टिकट ऑफ़र खोजे — सीधे लिंक के लिए टाइमलाइन पर टिकट बुक करें टैप करें।';
+      'मुझे आपकी यात्रा के लिए अधिकृत टिकट सौदे मिले - सीधे लिंक के लिए एजेंडा पर टिकट बुक करें पर टैप करें:';
 
   @override
   String conciergeTicketDealLine(
@@ -1379,34 +1386,34 @@ class AppLocalizationsHi extends AppLocalizations {
     String source,
     String savings,
   ) {
-    return '• $title: $price ($source से, $savings बचत)';
+    return '• $title: $source के माध्यम से $price ($savings बचाएं)';
   }
 
   @override
   String get conciergeTicketsTimelineHint =>
-      'टाइमलाइन पर हर मेल खाते स्टॉप पर रीसेलर लिंक वाला टिकट बुक करें बटन है।';
+      'एजेंडा पर प्रत्येक मिलान स्टॉप में अब पुनर्विक्रेता लिंक के साथ टिकट बुक करें बटन है।';
 
   @override
   String itineraryBookTickets(String amount) {
-    return 'टिकट बुक करें · $amount बचत';
+    return 'टिकट बुक करें · $amount बचाएं';
   }
 
   @override
-  String get itineraryOpenTicketDeal => 'टिकट बुक करें';
+  String get itineraryOpenTicketDeal => 'टिकट बनाओ';
 
   @override
   String conciergeTripSaved(String title) {
-    return '“$title” आपकी यात्राओं में सहेजा — Trips टैब कभी भी खोलें।';
+    return 'आपकी यात्राओं में \"$title\" सहेजा गया - इसे दोबारा देखने के लिए किसी भी समय ट्रिप्स टैब खोलें।';
   }
 
   @override
   String conciergeTripSavedWithStops(String title, int count) {
-    return '“$title” को टाइमलाइन पर $count अनुभवों के साथ सहेजा।';
+    return 'आपकी टाइमलाइन पर $title अनुभवों के साथ \"$count\" सहेजा गया।';
   }
 
   @override
   String conciergeSavedTripsIntro(int count) {
-    return 'आपकी $count सहेजी गई यात्रा(एँ):';
+    return 'आपके पास सहेजी गई यात्राएं $count हैं:';
   }
 
   @override
@@ -1416,46 +1423,46 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get conciergeSavedTripsEmpty =>
-      'अभी कोई सहेजी यात्रा नहीं — पहले योजना बनवाएँ, फिर “मेरी यात्रा सहेजो” कहें।';
+      'आपके पास अभी तक कोई भी यात्रा सहेजी नहीं गई है - मुझसे कुछ योजना बनाने के लिए कहें, फिर कहें \"मेरी यात्रा सहेजें।\"';
 
   @override
   String get conciergeSavedTripsHint =>
-      'कार्ड, शेयर या तारीखें बदलने के लिए Trips टैब खोलें।';
+      'कार्ड देखने, साझा करने या तिथियाँ संपादित करने के लिए यात्राएँ टैब खोलें।';
 
   @override
   String get conciergeAiError =>
-      'Luxora तक नहीं पहुँच सका। कनेक्शन जाँचें और फिर कोशिश करें।';
+      'मैं अभी लक्सोरा नहीं पहुँच सका। अपना कनेक्शन जांचें और पुनः प्रयास करें।';
 
   @override
   String get conciergeAiErrorVoice =>
-      'Sorry — I couldn\'t connect to Luxora\'s concierge just now.';
+      'क्षमा करें - मैं अभी लक्सोरा के दरबान से संपर्क नहीं कर सका।';
 
   @override
   String get conciergeAiNotConfigured =>
-      'Luxora\'s live concierge isn\'t wired up on this build yet — Supabase URL and anon key need to be baked into the app, and the edge function deployed. Map and itinerary still work; see docs/CONCIERGE_AI.md for setup.';
+      'लक्सोरा के लाइव कंसीयज को अभी तक इस बिल्ड पर वायर्ड नहीं किया गया है - सुपाबेस यूआरएल और एनॉन कुंजी को ऐप में बेक किया जाना चाहिए, और एज फ़ंक्शन को तैनात किया जाना चाहिए। मानचित्र और यात्रा कार्यक्रम अभी भी काम करते हैं; सेटअप के लिए docs/CONCIERGE_AI.md देखें।';
 
   @override
   String get conciergeAiOpenAiNotReady =>
-      'Luxora heard you, but the concierge brain isn\'t online yet. Set OPENAI_API_KEY in Supabase secrets for the edge function (bright-processor), then try again.';
+      'लक्सोरा ने आपकी बात सुनी, लेकिन द्वारपाल मस्तिष्क अभी तक ऑनलाइन नहीं है। एज फ़ंक्शन (उज्ज्वल-प्रोसेसर) के लिए सुपरबेस रहस्यों में OPENAI_API_KEY सेट करें, फिर पुनः प्रयास करें।';
 
   @override
   String conciergeAiFunctionNotFound(String function) {
-    return 'Luxora couldn\'t find the concierge edge function \"$function\". Deploy it in Supabase or fix SUPABASE_CONCIERGE_FUNCTION on this build.';
+    return 'लक्सोरा को कंसीयज एज फ़ंक्शन \"$function\" नहीं मिल सका। इसे सुपाबेस में तैनात करें या इस बिल्ड पर SUPABASE_CONCIERGE_FUNCTION को ठीक करें।';
   }
 
   @override
   String get conciergeAiAuthFailed =>
-      'Luxora couldn\'t authenticate with Supabase — double-check SUPABASE_ANON_KEY matches your project.';
+      'लक्सोरा सुपाबेस के साथ प्रमाणित नहीं कर सका - दोबारा जांचें कि SUPABASE_ANON_KEY आपके प्रोजेक्ट से मेल खाता है।';
 
   @override
   String get mapAiPowers => 'एआई मानचित्र शक्तियाँ';
 
   @override
-  String get mapNavLayerTitle => 'स्टॉप घर्षण इंटेल';
+  String get mapNavLayerTitle => 'एआई नेविगेशन परत (अगला)';
 
   @override
   String get mapNavLayerSubtitle =>
-      'योजना में भीड़, पार्किंग और ड्राइव तनाव — और स्पontaneous reroute।';
+      'खोज से परे - इस समय रुकना उचित है या नहीं, इस पर लाइव इंटेलिजेंस।';
 
   @override
   String get mapBookingTitle => 'निर्बाध बुकिंग (साझेदार)';
@@ -1510,25 +1517,25 @@ class AppLocalizationsHi extends AppLocalizations {
       'आपकी यात्रा का अनुभव, गति और बजट वास्तविक समय में मानचित्र को नया आकार देते हैं।';
 
   @override
-  String get mapFutureCrowdTitle => 'भीड़ का अनुमान';
+  String get mapFutureCrowdTitle => 'लाइव भीड़ गर्मी';
 
   @override
   String get mapFutureCrowdDesc =>
-      'Plan my day में हर स्टॉप पर शांत से भरी हुई का अनुमानित समय।';
+      'झरनों, पार्कों और वायरल छतों पर वास्तविक समय घनत्व - अभी इसके लायक है?';
 
   @override
-  String get mapFutureParkingTitle => 'पार्किंग अनुमान';
+  String get mapFutureParkingTitle => 'पार्किंग की कठिनाई';
 
   @override
   String get mapFutureParkingDesc =>
-      'निकलने से पहले valet, गैरेज और आगमन की अनुमानित परेशानी।';
+      'आपके प्रतिबद्ध होने से पहले घर्षण स्कोर - वैलेट, गेराज, या राइडशेयर स्वीट स्पॉट।';
 
   @override
-  String get mapFutureTrafficTitle => 'Drive friction score';
+  String get mapFutureTrafficTitle => 'ड्राइव घर्षण स्कोर';
 
   @override
   String get mapFutureTrafficDesc =>
-      'दिन की योजना में प्रत्येक leg पर तनाव स्कोर — सिर्फ मिनट नहीं।';
+      'तनाव-भारित रूटिंग - न केवल मिनट, बल्कि ड्राइव कैसा महसूस करेगी।';
 
   @override
   String get mapFutureRerouteTitle => 'स्वतःस्फूर्त पुनः मार्ग';
@@ -1574,8 +1581,7 @@ class AppLocalizationsHi extends AppLocalizations {
       'लाइव स्नैपशॉट के लिए यात्रा पर टैप करें - अगला पल, मौसम, सूर्यास्त और समयरेखा।';
 
   @override
-  String get tripsFooter =>
-      'मूड कैटलॉग से यात्रा कवर · साइन इन पर क्लाउड बैकअप';
+  String get tripsFooter => 'मूड कैटलॉग से यात्रा कवर · सुपाबेस सिंक चरण 2';
 
   @override
   String get tripsPlanNew => 'नई यात्रा की योजना बनाएं';
@@ -1605,10 +1611,10 @@ class AppLocalizationsHi extends AppLocalizations {
   String get tripsSaveDates => 'तारीखें सहेजें';
 
   @override
-  String get tripsDatesUpdated => 'तारीखें अपडेट हो गईं';
+  String get tripsDatesUpdated => 'यात्रा की तारीखें अपडेट की गईं';
 
   @override
-  String get tripsDatesFlexible => 'लचीली तारीखें';
+  String get tripsDatesFlexible => 'तारीखें लचीली हैं';
 
   @override
   String get tripsLiveWeather => 'लाइव मौसम';
@@ -1623,7 +1629,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get tripsTimelineSnapshot => 'टाइमलाइन स्नैपशॉट';
 
   @override
-  String get tripsOpenAgenda => 'पूर्ण एजेंडा खोलें';
+  String get tripsOpenAgenda => 'पूरा एजेंडा खोलें';
 
   @override
   String get tripsOpenTimeline => 'पूर्ण टाइमलाइन खोलें';
@@ -1636,89 +1642,89 @@ class AppLocalizationsHi extends AppLocalizations {
       'लक्सोरा के साथ योजना बनाई गई - आपका भावनात्मक रूप से बुद्धिमान फ्लोरिडा साथी।';
 
   @override
-  String get shareCardCta => 'Luxora में अपनी योजना बनाएं';
+  String get shareCardCta => 'लक्सोरा में अपनी योजना बनाएं';
 
   @override
   String get shareCardDownloadHint =>
-      'iOS और Android पर मुफ़्त · luxora.ai/download';
+      'आईओएस और एंड्रॉइड पर निःशुल्क · luxora.ai/download';
 
   @override
   String shareCardShareMessage(String title, String url) {
-    return '$title\n\nLuxora AI के साथ योजना — भावनात्मक रूप से बुद्धिमान Florida यात्रा।\nऐप प्राप्त करें: $url';
+    return '$title\n\nलक्सोरा एआई के साथ योजना बनाई गई - भावनात्मक रूप से बुद्धिमान फ्लोरिडा यात्रा।\nऐप प्राप्त करें: $url';
   }
 
   @override
   String get conciergeLocalTryPlanning =>
-      'बताएं यात्रा कैसी महसूस होनी चाहिए — जैसे «Orlando में 2 आरामदायक दिन springs और food के साथ plan करो»। मैं डिवाइस पर असली agenda बनाऊंगा।';
+      'मुझे बताएं कि आप यात्रा को कैसा महसूस कराना चाहते हैं - उदा. \"झरनों और भोजन के साथ आरामदेह 2-दिवसीय ऑरलैंडो यात्रा की योजना बनाएं।\" मैं आपके डिवाइस पर एक वास्तविक एजेंडा बनाऊंगा (क्लाउड की आवश्यकता नहीं)।';
 
   @override
   String conciergeLocalPlanBuilt(String city, int count) {
-    return 'मैंने $city का आपका दिन बनाया — mood और drive के हिसाब से $count स्टॉप। **Agenda** या **Map** खोलें।';
+    return 'मैंने आपका $city दिन बनाया - $count मूड और ड्राइव के समय के आधार पर रुकना। अपना मार्ग देखने के लिए एजेंडा या मानचित्र खोलें।';
   }
 
   @override
   String get conciergeLocalNoIntent =>
-      'मूड बताएं या कहें «Plan my Orlando day» — मैं डिवाइस पर असली रूट बनाऊंगा।';
+      'आप जो भावना चाहते हैं उसका वर्णन करें - या कहें \"मेरे ऑरलैंडो दिवस की योजना बनाएं\" - और मैं डिवाइस पर एक वास्तविक मार्ग बनाऊंगा।';
 
   @override
-  String get ticketConciergeIntelBadge => 'Concierge intel';
+  String get ticketConciergeIntelBadge => 'द्वारपाल बुद्धि';
 
   @override
   String get ticketConciergeIntelAgenda =>
-      'आपकी agenda से मेल — generic coupons नहीं।';
+      'आपके एजेंडा स्टॉप से ​​मिलान - सामान्य कूपन सूची नहीं।';
 
   @override
-  String get agendaFixAfternoonRain => 'बारिश आ रही है — दोपहर ठीक करें';
+  String get agendaFixAfternoonRain => 'बारिश आ रही है - मेरी दोपहर ठीक करो';
 
   @override
   String agendaRainRerouteDone(int count, int score) {
-    return 'दोपहर अपडेट — $count स्टॉप indoor ले गए।';
+    return 'दोपहर अद्यतन - $count स्टॉप को घर के अंदर ले जाया गया। अवकाश स्कोर $score/100.';
   }
 
   @override
   String get agendaRainRerouteNone =>
-      'आपका plan पहले से इस मौसम के लिए ठीक है।';
+      'आपकी योजना इस मौसम के लिए पहले से ही काम करती है।';
 
   @override
-  String get cloudTripsTitle => 'क्लाउड बैकअप';
+  String get cloudTripsTitle => 'मेघ बैकअप';
 
   @override
   String get cloudTripsSubtitle =>
-      'सहेजी गई यात्राएँ डिवाइसों पर सिंक होती हैं — किसी भी शहर अनलॉक के साथ शामिल।';
+      'जब आप साइन इन करते हैं तो आपकी सहेजी गई यात्राएं सभी डिवाइसों में सिंक हो जाती हैं - किसी भी शहर अनलॉक के साथ शामिल होती हैं।';
 
   @override
   String get cloudTripsMoreSubSignedOut =>
-      'यात्राएँ बैकअप करने के लिए साइन इन करें';
+      'सहेजी गई यात्राओं का बैकअप लेने के लिए साइन इन करें';
 
   @override
   String cloudTripsMoreSubSignedIn(String email) {
-    return '$email के रूप में साइन इन';
+    return '$email के रूप में साइन इन किया गया';
   }
 
   @override
-  String get cloudTripsMoreSubSyncing => 'सिंक हो रहा है…';
+  String get cloudTripsMoreSubSyncing => 'सिंक हो रहा है...';
 
   @override
   String get cloudTripsUnlockRequired =>
-      'क्लाउड बैकअप के लिए city pack अनलॉक करें';
+      'क्लाउड बैकअप सक्षम करने के लिए सिटी पैक अनलॉक करें';
 
   @override
-  String get cloudTripsUnlockCta => 'Concierge अनलॉक करें';
+  String get cloudTripsUnlockCta => 'दरबान को अनलॉक करें';
 
   @override
-  String get cloudTripsEmailHint => 'ईमेल पता';
+  String get cloudTripsEmailHint => 'मेल पता';
 
   @override
   String get cloudTripsSendCode => 'साइन-इन कोड भेजें';
 
   @override
-  String get cloudTripsCodeHint => 'ईमेल से 6-अंकीय कोड';
+  String get cloudTripsCodeHint => 'ईमेल से 6 अंकीय कोड';
 
   @override
-  String get cloudTripsVerify => 'सत्यापित करें और साइन इन';
+  String get cloudTripsVerify => 'सत्यापित करें और साइन इन करें';
 
   @override
-  String get cloudTripsCodeSent => 'साइन-इन कोड के लिए ईमेल देखें';
+  String get cloudTripsCodeSent => 'साइन-इन कोड के लिए अपना ईमेल जांचें';
 
   @override
   String get cloudTripsSignOut => 'साइन आउट';
@@ -1727,24 +1733,24 @@ class AppLocalizationsHi extends AppLocalizations {
   String get cloudTripsSyncNow => 'अभी सिंक करें';
 
   @override
-  String get cloudTripsSyncSuccess => 'यात्राएँ सिंक हो गईं';
+  String get cloudTripsSyncSuccess => 'यात्राएँ समन्वयित हुईं';
 
   @override
-  String get cloudTripsSyncError => 'सिंक विफल — फिर कोशिश करें';
+  String get cloudTripsSyncError => 'समन्वयन विफल - पुनः प्रयास करें';
 
   @override
-  String get cloudTripsBannerTitle => 'अपनी यात्राएँ बैकअप करें';
+  String get cloudTripsBannerTitle => 'अपनी यात्राओं का बैकअप लें';
 
   @override
   String get cloudTripsBannerBody =>
-      'नए फोन पर यात्राएँ पुनर्स्थापित करने के लिए साइन इन करें।';
+      'नए फ़ोन या टैबलेट पर यात्राएँ बहाल करने के लिए साइन इन करें।';
 
   @override
   String get cloudTripsBannerCta => 'क्लाउड बैकअप सेट करें';
 
   @override
   String get cloudTripsNotConfigured =>
-      'क्लाउड बैकअप के लिए Supabase (dev) चाहिए';
+      'क्लाउड बैकअप के लिए सुपाबेस (डेव सेटअप) की आवश्यकता होती है';
 
   @override
   String get paywallFeatureCloudBackup => 'क्लाउड ट्रिप बैकअप';
@@ -1803,11 +1809,11 @@ class AppLocalizationsHi extends AppLocalizations {
   String get detailCrowd => 'भीड़';
 
   @override
-  String get detailTravelIntelTitle => 'यात्रा घर्षण अनुमान';
+  String get detailTravelIntelTitle => 'यात्रा घर्षण दृष्टिकोण';
 
   @override
   String get detailTravelIntelSubtitle =>
-      'श्रेणी, समय और दूरी से अनुमान — लाइव सेंसर नहीं।';
+      'श्रेणी, समय और दूरी से भविष्यवाणी की जाती है - लाइव सेंसर से नहीं।';
 
   @override
   String detailCrowdOutlook(String level) {
@@ -2109,10 +2115,10 @@ class AppLocalizationsHi extends AppLocalizations {
       'ऑरलैंडो और फ्लोरिडा - महसूस करने के लिए क्यूरेट किया गया';
 
   @override
-  String get onboardFinish => 'मेरी यात्रा बनाएँ';
+  String get onboardFinish => 'अपने द्वारपाल से मिलें';
 
   @override
-  String get onboardBuilding => 'आपकी यात्रा बन रही है…';
+  String get onboardBuilding => 'अपनी यात्रा का निर्माण...';
 
   @override
   String get onboardStep1Title => 'जहां सपने सबसे पहले उतरते हैं';
@@ -2131,25 +2137,25 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get onboardCityUnlockNote =>
-      'हर गंतव्य का अपना कॉन्सierge अनलॉक होता है — प्रति शहर एक बार की खरीद। ऑरलैंडो थीम पार्क एक पैक हैं (Disney और Universal एक साथ)।';
+      'प्रत्येक गंतव्य का अपना द्वारपाल अनलॉक होता है - प्रति शहर एक बार की खरीदारी।';
 
   @override
-  String get landingCityLabel => 'आप कहाँ जा रहे हैं?';
+  String get landingCityLabel => 'आप कहां जा रहे हैं?';
 
   @override
   String get paywallSwitchCity => 'गंतव्य';
 
   @override
-  String get cityPickerUnlocked => 'अनलॉक';
+  String get cityPickerUnlocked => 'अनलॉक किया';
 
   @override
   String cityPickerUnlockPrice(String price) {
-    return '$price अनलॉक करें';
+    return 'अनलॉक $price';
   }
 
   @override
   String get cityPickerThemeParksSubtitle =>
-      'Orlando ऐड-ऑन · Disney और Universal एक साथ';
+      'ऑरलैंडो ऐड-ऑन · डिज़्नी और यूनिवर्सल एक साथ';
 
   @override
   String get onboardStep2Title => 'स्वतंत्र महसूस करने का समय';
@@ -2158,29 +2164,29 @@ class AppLocalizationsHi extends AppLocalizations {
   String get onboardStep2Subtitle => 'आपका पलायन कब शुरू होता है?';
 
   @override
-  String get onboardStartDateLabel => 'शुरुआत की तारीख';
+  String get onboardStartDateLabel => 'आरंभ करने की तिथि';
 
   @override
-  String get onboardEndDateLabel => 'अंत की तारीख';
+  String get onboardEndDateLabel => 'अंतिम तिथि';
 
   @override
   String get onboardPickDate => 'चुनने के लिए टैप करें';
 
   @override
-  String get onboardSelectStartDate => 'शुरुआत की तारीख चुनें';
+  String get onboardSelectStartDate => 'आरंभ तिथि चुनें';
 
   @override
-  String get onboardSelectEndDate => 'अंत की तारीख चुनें';
+  String get onboardSelectEndDate => 'अंतिम तिथि चुनें';
 
   @override
   String get onboardDatesHint =>
-      'आप इन्हें कभी भी यात्राएँ टैब से बदल सकते हैं।';
+      'आप इन्हें अपने ट्रिप्स टैब से कभी भी बदल सकते हैं।';
 
   @override
-  String get onboardStepBudgetTitle => 'आराम से योजना बनाएँ';
+  String get onboardStepBudgetTitle => 'आराम से योजना बनाएं';
 
   @override
-  String get onboardStepBudgetSubtitle => 'इस यात्रा के लिए क्या सही लगता है?';
+  String get onboardStepBudgetSubtitle => 'इस पलायन के लिए क्या सही लगता है?';
 
   @override
   String get onboardBudget => 'यात्रा बजट (USD)';
@@ -2373,7 +2379,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get weatherRadarComingSoon => 'लाइव राडार जल्द ही आ रहा है।';
 
   @override
-  String get weatherRadarPlay => 'लूप चलाएँ';
+  String get weatherRadarPlay => 'लूप खेलें';
 
   @override
   String get weatherRadarPause => 'लूप रोकें';
@@ -2382,7 +2388,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get weatherRadarTapToExpand => 'पूर्ण स्क्रीन के लिए टैप करें';
 
   @override
-  String get weatherRadarNow => 'अभी';
+  String get weatherRadarNow => 'अब';
 
   @override
   String weatherRadarMinutesAgo(int minutes) {
@@ -2395,43 +2401,43 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
-  String get weatherRadarStepBack => 'Earlier frame';
+  String get weatherRadarStepBack => 'पहले का फ्रेम';
 
   @override
-  String get weatherRadarStepForward => 'Later frame';
+  String get weatherRadarStepForward => 'बाद में फ्रेम';
 
   @override
-  String get weatherRadarJumpNow => 'Now';
+  String get weatherRadarJumpNow => 'अब';
 
   @override
-  String get weatherRadarJump1h => '−1 hr';
+  String get weatherRadarJump1h => '−1 घंटा';
 
   @override
-  String get weatherRadarJump2h => '−2 hr';
+  String get weatherRadarJump2h => '−2 घंटा';
 
   @override
-  String get weatherRadarJump30m => '+30 min';
+  String get weatherRadarJump30m => '+30 मिनट';
 
   @override
-  String get weatherRadarSpeedSlow => 'Slow';
+  String get weatherRadarSpeedSlow => 'धीमा';
 
   @override
-  String get weatherRadarSpeedNormal => 'Normal';
+  String get weatherRadarSpeedNormal => 'सामान्य';
 
   @override
-  String get weatherRadarSpeedFast => 'Fast';
+  String get weatherRadarSpeedFast => 'तेज़';
 
   @override
   String get weatherRadarLoopNote =>
-      'Radar loop: past ~2 hours in 10‑minute steps, plus short-range nowcast when available — not a 4‑hour forecast.';
+      'रडार लूप: 10 मिनट के चरणों में ~2 घंटे पार करना, साथ ही उपलब्ध होने पर छोटी दूरी का नाउकास्ट - 4 घंटे का पूर्वानुमान नहीं।';
 
   @override
   String get shareMapPreviewCaption =>
-      'मानचित्र पूर्वावलोकन · लाइव दिशाओं के लिए Luxora में खोलें';
+      'मानचित्र पूर्वावलोकन · लाइव दिशा-निर्देशों के लिए लक्सोरा में खुला';
 
   @override
   String get shareRadarPreviewCaption =>
-      'लाइव डॉप्लर राडार · पूरा लूप Luxora में खोलें';
+      'लाइव डॉपलर रडार · पूरे लूप के लिए लक्सोरा में खुला';
 
   @override
   String get weatherMapOverlays => 'मानचित्र ओवरले';
@@ -2702,11 +2708,11 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get hotelLinkUnavailable =>
-      'इस प्रवास के लिए बुकिंग लिंक उपलब्ध नहीं है।';
+      'इस प्रवास के लिए बुकिंग लिंक अभी उपलब्ध नहीं है।';
 
   @override
   String get hotelLinkOpenFailed =>
-      'लिंक नहीं खुल सका — ब्राउज़र में फिर से कोशिश करें।';
+      'लिंक नहीं खुल सका - अपना ब्राउज़र जांचें या पुनः प्रयास करें।';
 
   @override
   String get hotelSave => 'होटल बचाओ';
@@ -2977,24 +2983,24 @@ class AppLocalizationsHi extends AppLocalizations {
   String get onboardStepNameEyebrow => 'आपकी कहानी एक नाम से शुरू होती है';
 
   @override
-  String get onboardStepNameTitle => 'इस यात्रा का नाम क्या रखें?';
+  String get onboardStepNameTitle => 'हमें इस यात्रा को क्या कहना चाहिए?';
 
   @override
   String get onboardStepNameSubtitle =>
-      'Luxora आपके मूड से नाम बना सकती है — या अपना लिखें।';
+      'लक्सोरा आपके वाइब से एक शीर्षक तैयार कर सकता है - या अपना खुद का टाइप कर सकता है।';
 
   @override
-  String get onboardTripNameLuxora => 'Luxora नाम रखे';
+  String get onboardTripNameLuxora => 'लक्सोरा को इसका नाम बताएं';
 
   @override
-  String get onboardTripNameYours => 'मैं नाम दूँगा/दूँगी';
+  String get onboardTripNameYours => 'मैं इसका नाम बताऊंगा';
 
   @override
-  String get onboardTripNameHint => 'हमारी वसंत वर्षगाँठ यात्रा…';
+  String get onboardTripNameHint => 'हमारा वसंत वर्षगाँठ पलायन...';
 
   @override
   String onboardTripNameSuggested(String name) {
-    return 'Luxora सुझाव: $name';
+    return 'लक्सोरा सुझाव देता है: $name';
   }
 
   @override
@@ -3337,36 +3343,36 @@ class AppLocalizationsHi extends AppLocalizations {
       'एकमुश्त खरीदारी · व्यक्तिगत दरबान · कोई सदस्यता नहीं';
 
   @override
-  String get paywallRestorePurchases => 'खरीदारी पुनर्स्थापित करें';
+  String get paywallRestorePurchases => 'खरीदारी वापस लौटाएं';
 
   @override
   String get paywallPurchaseSuccess =>
-      'खरीद पूर्ण — आपका concierge अनलॉक हो गया।';
+      'खरीदारी पूरी हो गई - आपका दरबान अनलॉक हो गया है।';
 
   @override
-  String get paywallPurchasePending => 'खरीद पूरी हो रही है…';
+  String get paywallPurchasePending => 'खरीदारी पूरी हो रही है…';
 
   @override
   String get paywallPurchaseFailed =>
-      'खरीद पूरी नहीं हो सकी। फिर कोशिश करें या restore करें।';
+      'खरीदारी पूरी नहीं हो सकी. पुनः प्रयास करें या खरीदारी बहाल करें.';
 
   @override
-  String get paywallPurchaseCanceled => 'खरीद रद्द।';
+  String get paywallPurchaseCanceled => 'खरीद रद्द कर दी गई.';
 
   @override
-  String get paywallRestoreComplete => 'खरीदारी पुनर्स्थापित।';
+  String get paywallRestoreComplete => 'खरीदारी बहाल हो गई.';
 
   @override
   String get paywallRestoreNone =>
-      'इस Apple/Google खाते के लिए कोई पिछली खरीद नहीं मिली।';
+      'इस Apple ID या Google खाते के लिए कोई पिछली खरीदारी नहीं मिली।';
 
   @override
   String get paywallStoreUnavailable =>
-      'इस डिवाइस पर स्टोर बिलिंग उपलब्ध नहीं।';
+      'इस डिवाइस पर ऐप स्टोर बिलिंग उपलब्ध नहीं है।';
 
   @override
   String get paywallProductUnavailable =>
-      'यह पैक अभी स्टोर में उपलब्ध नहीं है।';
+      'यह पैक अभी तक स्टोर में उपलब्ध नहीं है.';
 
   @override
   String get settingsUnlockConciergeTitle => 'शहर द्वारपाल को अनलॉक करें';
@@ -3376,7 +3382,7 @@ class AppLocalizationsHi extends AppLocalizations {
       'एक बार का सिटी पैक - सदस्यता नहीं';
 
   @override
-  String get settingsOpenConciergeSubtitle => 'अपना AI दरबान टैब खोलें';
+  String get settingsOpenConciergeSubtitle => 'अपना एआई कंसीयज टैब खोलें';
 
   @override
   String get weatherMiamiHumidityIndoor =>
@@ -3456,11 +3462,11 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
-  String get keysWaterIntelTitle => 'कीज़ जल खुफिया';
+  String get keysWaterIntelTitle => 'कीज़ वॉटर इंटेलिजेंस';
 
   @override
   String keysWaterBestTime(String time) {
-    return 'सर्वोत्तम समय: $time';
+    return 'सर्वोत्तम विंडो: $time';
   }
 
   @override
@@ -3469,13 +3475,13 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
-  String get keysWaterSnorkelScore => 'स्नॉर्कल';
+  String get keysWaterSnorkelScore => 'स्नोर्कल';
 
   @override
-  String get keysWaterDivingScore => 'गोताखोरी';
+  String get keysWaterDivingScore => 'गोता लगाना';
 
   @override
-  String get keysWaterBoatingScore => 'नौका';
+  String get keysWaterBoatingScore => 'नाव';
 
   @override
   String get keysWaterFishingScore => 'मछली';
@@ -3494,7 +3500,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String keysMoodRouteStart(String time) {
-    return 'शुरू $time';
+    return 'समय शुरू';
   }
 
   @override
@@ -3509,25 +3515,25 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get paywallOrlandoBaseIncludes =>
-      'ऑरलैंडो में भोजन, छिपे रत्न, होटल और पार्क-रहित अनुभव शामिल हैं। Disney और Universal एक साथ के लिए थीम पार्क पैक जोड़ें।';
+      'ऑरलैंडो अनलॉक में भोजन, छिपे हुए रत्न, होटल और गैर-पार्क अनुभव शामिल हैं। डिज़्नी और यूनिवर्सल के लिए थीम पार्क पैक को एक साथ जोड़ें।';
 
   @override
-  String get paywallAddonThemeParksTitle => 'Disney और Universal पैक';
+  String get paywallAddonThemeParksTitle => 'डिज्नी और यूनिवर्सल पैक';
 
   @override
   String get paywallAddonThemeParksSubtitle =>
-      'Walt Disney World और Universal Orlando — सभी पार्क, डील, रूट और भीड़ intel एक अनलॉक में।';
+      'वॉल्ट डिज़्नी वर्ल्ड और यूनिवर्सल ऑरलैंडो - एक अनलॉक में सभी पार्क, सौदे, मार्ग और भीड़ की जानकारी।';
 
   @override
   String paywallUnlockAddon(String packName, String price) {
-    return '$packName अनलॉक करें · $price';
+    return 'अनलॉक करें $packName · $price';
   }
 
   @override
-  String get paywallAddonUnlocked => 'अनलॉक';
+  String get paywallAddonUnlocked => 'अनलॉक किया';
 
   @override
-  String get paywallAddonRequiresOrlando => 'पहले ऑरलैंडो अनलॉक आवश्यक';
+  String get paywallAddonRequiresOrlando => 'पहले ऑरलैंडो अनलॉक की आवश्यकता है';
 
   @override
   String paywallUnlockAddonPack(String packName) {
@@ -3541,11 +3547,11 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get orlandoThemeParksPromptTitle =>
-      'Orlando के लिए Disney और Universal अनलॉक करें?';
+      'ऑरलैंडो के लिए डिज़्नी और यूनिवर्सल अनलॉक करें?';
 
   @override
   String get orlandoThemeParksPromptBody =>
-      'Walt Disney World और Universal Orlando के लिए थीम पार्क पैक जोड़ें — सभी पार्क, टिकट डील, रूट और भीड़ intel एक अनलॉक में।';
+      'वॉल्ट डिज़्नी वर्ल्ड और यूनिवर्सल ऑरलैंडो के लिए थीम पार्क पैक जोड़ें - एक अनलॉक में सभी पार्क, टिकट सौदे, मार्ग और भीड़ की जानकारी।';
 
   @override
   String orlandoThemeParksPromptUnlock(String price) {
@@ -3556,309 +3562,310 @@ class AppLocalizationsHi extends AppLocalizations {
   String get orlandoThemeParksPromptNotNow => 'अभी नहीं';
 
   @override
-  String get onboardV2Eyebrow => 'Let\'s design your perfect trip';
+  String get onboardV2Eyebrow =>
+      'आइए आपकी संपूर्ण यात्रा की रूपरेखा तैयार करें';
 
   @override
-  String get onboardV2StepTravelerEyebrow => 'Step 1';
+  String get onboardV2StepTravelerEyebrow => 'स्टेप 1';
 
   @override
-  String get onboardV2StepTravelerTitle => 'Who are you traveling with?';
+  String get onboardV2StepTravelerTitle => 'आप किसके साथ यात्रा कर रहे हैं?';
 
   @override
   String get onboardV2StepTravelerSubtitle =>
-      'Luxora tailors stays, dining, and pacing to your crew.';
+      'लक्सोरा टेलर्स आपके दल के लिए ठहरता है, भोजन करता है और उनके साथ घूमता है।';
 
   @override
-  String get onboardV2ChildrenLabel => 'Children traveling?';
+  String get onboardV2ChildrenLabel => 'बच्चे यात्रा कर रहे हैं?';
 
   @override
-  String get onboardV2StepStyleEyebrow => 'Step 2';
+  String get onboardV2StepStyleEyebrow => 'चरण दो';
 
   @override
   String get onboardV2StepStyleTitle =>
-      'What kind of trip are you looking for?';
+      'आप किस प्रकार की यात्रा की तलाश में हैं?';
 
   @override
   String get onboardV2StepStyleSubtitle =>
-      'Choose everything that excites you.';
+      'वह सब कुछ चुनें जो आपको उत्साहित करता हो।';
 
   @override
-  String get onboardV2StepHotelEyebrow => 'Step 3';
+  String get onboardV2StepHotelEyebrow => 'चरण 3';
 
   @override
-  String get onboardV2StepHotelTitle =>
-      'What type of place would you like to stay?';
+  String get onboardV2StepHotelTitle => 'आप किस प्रकार की जगह पर रहना चाहेंगे?';
 
   @override
   String get onboardV2StepHotelSubtitle =>
-      'We will match boutique gems and resort icons.';
+      'हम बुटीक रत्नों और रिसॉर्ट आइकनों का मिलान करेंगे।';
 
   @override
-  String get onboardV2HotelBudgetLabel => 'Hotel budget';
+  String get onboardV2HotelBudgetLabel => 'होटल का बजट';
 
   @override
-  String get onboardV2HotelAmenitiesLabel => 'Must-have amenities';
+  String get onboardV2HotelAmenitiesLabel => 'सुविधाएं होनी चाहिए';
 
   @override
-  String get onboardV2StepFoodEyebrow => 'Step 4';
+  String get onboardV2StepFoodEyebrow => 'चरण 4';
 
   @override
   String get onboardV2StepFoodTitle =>
-      'What types of restaurants do you enjoy?';
+      'आप किस प्रकार के रेस्तरां का आनंद लेते हैं?';
 
   @override
   String get onboardV2StepFoodSubtitle =>
-      'Cuisine and dining style — pick all you love.';
+      'भोजन और भोजन शैली - वह सब चुनें जो आपको पसंद हो।';
 
   @override
-  String get onboardV2CuisineLabel => 'Cuisine types';
+  String get onboardV2CuisineLabel => 'व्यंजन के प्रकार';
 
   @override
-  String get onboardV2DiningStyleLabel => 'Dining style';
+  String get onboardV2DiningStyleLabel => 'भोजन शैली';
 
   @override
-  String get onboardV2StepPaceEyebrow => 'Step 5';
+  String get onboardV2StepPaceEyebrow => 'चरण 5';
 
   @override
-  String get onboardV2StepPaceTitle => 'How would you like your days planned?';
+  String get onboardV2StepPaceTitle =>
+      'आप अपने दिनों की योजना कैसे बनाना चाहेंगे?';
 
   @override
   String get onboardV2StepPaceSubtitle =>
-      'Relaxed mornings or packed adventure — you choose.';
+      'आरामदायक सुबह या भरपूर रोमांच - आप चुनें।';
 
   @override
-  String get onboardV2PaceRelaxedTitle => 'Relaxed';
+  String get onboardV2PaceRelaxedTitle => 'ढील';
 
   @override
-  String get onboardV2PaceRelaxedBody => '2–3 activities per day';
+  String get onboardV2PaceRelaxedBody => 'प्रति दिन 2-3 गतिविधियाँ';
 
   @override
-  String get onboardV2PaceBalancedTitle => 'Balanced';
+  String get onboardV2PaceBalancedTitle => 'संतुलित';
 
   @override
-  String get onboardV2PaceBalancedBody => '4–5 activities per day';
+  String get onboardV2PaceBalancedBody => 'प्रति दिन 4-5 गतिविधियाँ';
 
   @override
-  String get onboardV2PacePackedTitle => 'Packed';
+  String get onboardV2PacePackedTitle => 'पैक्ड';
 
   @override
-  String get onboardV2PacePackedBody => 'Maximize every day';
+  String get onboardV2PacePackedBody => 'हर दिन अधिकतम करें';
 
   @override
-  String get onboardV2StepGoalsEyebrow => 'Step 6';
+  String get onboardV2StepGoalsEyebrow => 'चरण 6';
 
   @override
-  String get onboardV2StepGoalsTitle => 'What matters most on this trip?';
+  String get onboardV2StepGoalsTitle =>
+      'इस यात्रा पर सबसे ज़्यादा क्या मायने रखता है?';
 
   @override
-  String get onboardV2StepGoalsSubtitle => 'Choose up to five priorities.';
+  String get onboardV2StepGoalsSubtitle => 'अधिकतम पाँच प्राथमिकताएँ चुनें।';
 
   @override
-  String get onboardV2StepExperienceEyebrow => 'Step 7';
+  String get onboardV2StepExperienceEyebrow => 'चरण 7';
 
   @override
-  String get onboardV2StepExperienceTitle =>
-      'What experiences would you enjoy?';
+  String get onboardV2StepExperienceTitle => 'आप किन अनुभवों का आनंद लेंगे?';
 
   @override
   String get onboardV2StepExperienceSubtitle =>
-      'We will weave these into your itinerary.';
+      'हम इन्हें आपके यात्रा कार्यक्रम में शामिल करेंगे।';
 
   @override
-  String get onboardV2StepAvoidEyebrow => 'Step 8';
+  String get onboardV2StepAvoidEyebrow => 'चरण 8';
 
   @override
-  String get onboardV2StepAvoidTitle => 'What would you prefer to avoid?';
+  String get onboardV2StepAvoidTitle => 'आप किस चीज़ से बचना पसंद करेंगे?';
 
   @override
   String get onboardV2StepAvoidSubtitle =>
-      'Luxora steers clear of what drains your trip.';
+      'लक्सोरा आपकी यात्रा को प्रभावित करने वाली चीज़ों से दूर रहता है।';
 
   @override
-  String get onboardV2StepEmotionEyebrow => 'Step 9';
+  String get onboardV2StepEmotionEyebrow => 'चरण 9';
 
   @override
   String get onboardV2StepEmotionTitle =>
-      'What would make this trip feel successful?';
+      'इस यात्रा को किस चीज़ से सफल महसूस कराया जाएगा?';
 
   @override
-  String get onboardV2StepEmotionSubtitle => 'Choose one primary feeling.';
+  String get onboardV2StepEmotionSubtitle => 'एक प्राथमिक भावना चुनें.';
 
   @override
-  String get onboardV2StepSummaryEyebrow => 'Your concierge preview';
+  String get onboardV2StepSummaryEyebrow => 'आपका दरबान पूर्वावलोकन';
 
   @override
   String get onboardV2StepSummaryTitle =>
-      'Based on your selections, Luxora recommends';
+      'आपके चयन के आधार पर, लक्सोरा अनुशंसा करता है';
 
   @override
   String get onboardV2StepSummarySubtitle =>
-      'We\'re building your perfect trip now.';
+      'हम अब आपकी संपूर्ण यात्रा का निर्माण कर रहे हैं।';
 
   @override
-  String get onboardSummaryHotels => 'Hotels';
+  String get onboardSummaryHotels => 'होटल';
 
   @override
-  String get onboardSummaryRestaurants => 'Restaurants';
+  String get onboardSummaryRestaurants => 'रेस्टोरेंट';
 
   @override
-  String get onboardSummaryHiddenGems => 'Hidden gems';
+  String get onboardSummaryHiddenGems => 'छुपे हुए रत्न';
 
   @override
-  String get onboardSummaryExperiences => 'Experiences';
+  String get onboardSummaryExperiences => 'अनुभव';
 
   @override
   String get onboardSummaryHotelDefault =>
-      'Curated stays matched to your budget';
+      'क्यूरेटेड ठहराव आपके बजट से मेल खाता है';
 
   @override
   String onboardSummaryHotelType(String type) {
-    return '$type stay';
+    return '$type रहना';
   }
 
   @override
-  String get onboardSummaryRooftopDining => 'Rooftop dining experiences';
+  String get onboardSummaryRooftopDining => 'छत पर भोजन का अनुभव';
 
   @override
   String onboardSummaryCuisine(String cuisine) {
-    return '$cuisine favorites';
+    return '$cuisine पसंदीदा';
   }
 
   @override
   String onboardSummaryPace(String pace) {
-    return '$pace daily pace';
+    return '$pace दैनिक गति';
   }
 
   @override
-  String get onboardSummaryRomantic => 'Romantic sunset experiences';
+  String get onboardSummaryRomantic => 'रोमांटिक सूर्यास्त अनुभव';
 
   @override
   String onboardSummaryEmotion(String emotion) {
-    return '$emotion-focused journey';
+    return '$emotion-केंद्रित यात्रा';
   }
 
   @override
-  String get onboardSummaryPremiumGems => 'Premium hidden gems';
+  String get onboardSummaryPremiumGems => 'प्रीमियम छुपे हुए रत्न';
 
   @override
-  String get agendaSuggestionsForYou => 'Picked for you';
+  String get agendaSuggestionsForYou => 'आपके लिए चुना गया';
 
   @override
-  String get agendaSuggestionsAlternates => 'Also great';
+  String get agendaSuggestionsAlternates => 'बहुत बढ़िया भी';
 
   @override
-  String get agendaSuggestionsBrowseAll => 'Browse all';
+  String get agendaSuggestionsBrowseAll => 'सभी ब्राउज़ करें';
 
   @override
-  String get onboardPrefTravelerSolo => 'Solo';
+  String get onboardPrefTravelerSolo => 'एकल';
 
   @override
-  String get onboardPrefTravelerCouple => 'Couple';
+  String get onboardPrefTravelerCouple => 'युगल';
 
   @override
-  String get onboardPrefTravelerFamily => 'Family';
+  String get onboardPrefTravelerFamily => 'परिवार';
 
   @override
-  String get onboardPrefTravelerFriends => 'Friends';
+  String get onboardPrefTravelerFriends => 'दोस्त';
 
   @override
-  String get onboardPrefTravelerBusiness => 'Business';
+  String get onboardPrefTravelerBusiness => 'व्यापार';
 
   @override
-  String get onboardPrefChildrenNone => 'No children';
+  String get onboardPrefChildrenNone => 'कोई संतान नहीं';
 
   @override
-  String get onboardPrefChildrenToddlers => 'Toddlers';
+  String get onboardPrefChildrenToddlers => 'toddlers';
 
   @override
-  String get onboardPrefChildrenElementary => 'Elementary age';
+  String get onboardPrefChildrenElementary => 'प्रारंभिक आयु';
 
   @override
-  String get onboardPrefChildrenTeenagers => 'Teenagers';
+  String get onboardPrefChildrenTeenagers => 'किशोरों';
 
   @override
-  String get onboardPrefStyleLuxury => 'Luxury';
+  String get onboardPrefStyleLuxury => 'विलासिता';
 
   @override
-  String get onboardPrefStyleRelaxation => 'Relaxation';
+  String get onboardPrefStyleRelaxation => 'विश्राम';
 
   @override
-  String get onboardPrefStyleAdventure => 'Adventure';
+  String get onboardPrefStyleAdventure => 'साहसिक काम';
 
   @override
-  String get onboardPrefStyleThemeParks => 'Theme Parks';
+  String get onboardPrefStyleThemeParks => 'थीम पार्क';
 
   @override
-  String get onboardPrefStyleFoodie => 'Foodie';
+  String get onboardPrefStyleFoodie => 'खाने का शौकीन';
 
   @override
-  String get onboardPrefStyleNightlife => 'Nightlife';
+  String get onboardPrefStyleNightlife => 'नाइटलाइफ़';
 
   @override
-  String get onboardPrefStyleRomance => 'Romance';
+  String get onboardPrefStyleRomance => 'रोमांस';
 
   @override
-  String get onboardPrefStyleShopping => 'Shopping';
+  String get onboardPrefStyleShopping => 'खरीदारी';
 
   @override
-  String get onboardPrefStyleBeaches => 'Beaches';
+  String get onboardPrefStyleBeaches => 'समुद्र तटों';
 
   @override
-  String get onboardPrefStyleWellness => 'Wellness';
+  String get onboardPrefStyleWellness => 'कल्याण';
 
   @override
-  String get onboardPrefStyleNature => 'Nature';
+  String get onboardPrefStyleNature => 'प्रकृति';
 
   @override
-  String get onboardPrefStylePhotography => 'Photography';
+  String get onboardPrefStylePhotography => 'फोटोग्राफी';
 
   @override
-  String get onboardPrefStyleHiddenGems => 'Hidden Gems';
+  String get onboardPrefStyleHiddenGems => 'छुपे हुए रत्न';
 
   @override
-  String get onboardPrefStyleFamilyActivities => 'Family Activities';
+  String get onboardPrefStyleFamilyActivities => 'पारिवारिक गतिविधियाँ';
 
   @override
-  String get onboardPrefStyleLocalExperiences => 'Local Experiences';
+  String get onboardPrefStyleLocalExperiences => 'स्थानीय अनुभव';
 
   @override
-  String get onboardPrefStyleEntertainment => 'Entertainment';
+  String get onboardPrefStyleEntertainment => 'मनोरंजन';
 
   @override
-  String get onboardPrefHotelLuxuryResort => 'Luxury Resort';
+  String get onboardPrefHotelLuxuryResort => 'लक्जरी रिज़ॉर्ट';
 
   @override
-  String get onboardPrefHotelBoutique => 'Boutique Hotel';
+  String get onboardPrefHotelBoutique => 'बुटीक होटल';
 
   @override
-  String get onboardPrefHotelFamilyResort => 'Family Resort';
+  String get onboardPrefHotelFamilyResort => 'पारिवारिक रिज़ॉर्ट';
 
   @override
-  String get onboardPrefHotelBudgetFriendly => 'Budget Friendly';
+  String get onboardPrefHotelBudgetFriendly => 'बजट अनुकूल';
 
   @override
-  String get onboardPrefHotelAdultsOnly => 'Adults Only';
+  String get onboardPrefHotelAdultsOnly => 'केवल वयस्क';
 
   @override
-  String get onboardPrefHotelSpaResort => 'Spa Resort';
+  String get onboardPrefHotelSpaResort => 'स्पा रिज़ॉर्ट';
 
   @override
-  String get onboardPrefHotelBeachfront => 'Beachfront';
+  String get onboardPrefHotelBeachfront => 'समुद्र तट';
 
   @override
-  String get onboardPrefHotelDowntown => 'Downtown';
+  String get onboardPrefHotelDowntown => 'शहर';
 
   @override
-  String get onboardPrefHotelWalkable => 'Walkable Area';
+  String get onboardPrefHotelWalkable => 'चलने योग्य क्षेत्र';
 
   @override
-  String get onboardPrefHotelThemeParkArea => 'Theme Park Area';
+  String get onboardPrefHotelThemeParkArea => 'थीम पार्क क्षेत्र';
 
   @override
-  String get onboardPrefHotelModern => 'Modern Hotel';
+  String get onboardPrefHotelModern => 'आधुनिक होटल';
 
   @override
-  String get onboardPrefHotelHistoric => 'Historic Hotel';
+  String get onboardPrefHotelHistoric => 'ऐतिहासिक होटल';
 
   @override
   String get onboardPrefBudgetOne => '\$';
@@ -3873,356 +3880,358 @@ class AppLocalizationsHi extends AppLocalizations {
   String get onboardPrefBudgetFour => '\$\$\$\$';
 
   @override
-  String get onboardPrefAmenityPool => 'Pool';
+  String get onboardPrefAmenityPool => 'पूल';
 
   @override
-  String get onboardPrefAmenitySpa => 'Spa';
+  String get onboardPrefAmenitySpa => 'स्पा';
 
   @override
-  String get onboardPrefAmenityGym => 'Gym';
+  String get onboardPrefAmenityGym => 'जिम';
 
   @override
-  String get onboardPrefAmenityBreakfast => 'Free Breakfast';
+  String get onboardPrefAmenityBreakfast => 'मुफ़्त नाश्ता';
 
   @override
-  String get onboardPrefAmenityOceanView => 'Ocean View';
+  String get onboardPrefAmenityOceanView => 'महासागर का दृश्य';
 
   @override
-  String get onboardPrefAmenityBalcony => 'Balcony';
+  String get onboardPrefAmenityBalcony => 'बालकनी';
 
   @override
-  String get onboardPrefAmenityKitchen => 'Kitchen';
+  String get onboardPrefAmenityKitchen => 'रसोईघर';
 
   @override
-  String get onboardPrefAmenityShuttle => 'Shuttle Service';
+  String get onboardPrefAmenityShuttle => 'शटल सेवा';
 
   @override
-  String get onboardPrefAmenityPetFriendly => 'Pet Friendly';
+  String get onboardPrefAmenityPetFriendly => 'पालतू पशु का ख्याल रखना';
 
   @override
-  String get onboardPrefCuisineAmerican => 'American';
+  String get onboardPrefCuisineAmerican => 'अमेरिकी';
 
   @override
-  String get onboardPrefCuisineItalian => 'Italian';
+  String get onboardPrefCuisineItalian => 'इतालवी';
 
   @override
-  String get onboardPrefCuisineMexican => 'Mexican';
+  String get onboardPrefCuisineMexican => 'मैक्सिकन';
 
   @override
-  String get onboardPrefCuisineSeafood => 'Seafood';
+  String get onboardPrefCuisineSeafood => 'समुद्री भोजन';
 
   @override
-  String get onboardPrefCuisineSteakhouse => 'Steakhouse';
+  String get onboardPrefCuisineSteakhouse => 'स्टेक हाउस';
 
   @override
-  String get onboardPrefCuisineSushi => 'Sushi';
+  String get onboardPrefCuisineSushi => 'सुशी';
 
   @override
-  String get onboardPrefCuisineCuban => 'Cuban';
+  String get onboardPrefCuisineCuban => 'क्यूबा';
 
   @override
-  String get onboardPrefCuisineMediterranean => 'Mediterranean';
+  String get onboardPrefCuisineMediterranean => 'आभ्यंतरिक';
 
   @override
-  String get onboardPrefCuisineAsian => 'Asian';
+  String get onboardPrefCuisineAsian => 'एशियाई';
 
   @override
-  String get onboardPrefCuisineBbq => 'BBQ';
+  String get onboardPrefCuisineBbq => 'बारबेक्यू';
 
   @override
-  String get onboardPrefCuisineFineDining => 'Fine Dining';
+  String get onboardPrefCuisineFineDining => 'ठीक भोजन';
 
   @override
-  String get onboardPrefCuisineLocalFavorites => 'Local Favorites';
+  String get onboardPrefCuisineLocalFavorites => 'स्थानीय पसंदीदा';
 
   @override
-  String get onboardPrefCuisineFoodTrucks => 'Food Trucks';
+  String get onboardPrefCuisineFoodTrucks => 'खाद्य ट्रक';
 
   @override
-  String get onboardPrefCuisineRooftop => 'Rooftop Dining';
+  String get onboardPrefCuisineRooftop => 'छत पर भोजन';
 
   @override
-  String get onboardPrefCuisineBrunch => 'Brunch';
+  String get onboardPrefCuisineBrunch => 'ब्रंच';
 
   @override
-  String get onboardPrefCuisineDessert => 'Dessert';
+  String get onboardPrefCuisineDessert => 'मिठाई';
 
   @override
-  String get onboardPrefDiningQuick => 'Quick Service';
+  String get onboardPrefDiningQuick => 'त्वरित सेवा';
 
   @override
-  String get onboardPrefDiningCasual => 'Casual Dining';
+  String get onboardPrefDiningCasual => 'आकस्मिक भोजन';
 
   @override
-  String get onboardPrefDiningFamily => 'Family Friendly';
+  String get onboardPrefDiningFamily => 'परिवार के अनुकूल';
 
   @override
-  String get onboardPrefDiningDateNight => 'Date Night';
+  String get onboardPrefDiningDateNight => 'तिथि रात';
 
   @override
-  String get onboardPrefDiningFine => 'Fine Dining';
+  String get onboardPrefDiningFine => 'ठीक भोजन';
 
   @override
-  String get onboardPrefDiningWaterfront => 'Waterfront';
+  String get onboardPrefDiningWaterfront => 'तट';
 
   @override
-  String get onboardPrefDiningHiddenGems => 'Hidden Gems';
+  String get onboardPrefDiningHiddenGems => 'छुपे हुए रत्न';
 
   @override
-  String get onboardPrefDiningLocal => 'Local Favorites';
+  String get onboardPrefDiningLocal => 'स्थानीय पसंदीदा';
 
   @override
-  String get onboardPrefGoalMakeMemories => 'Make Memories';
+  String get onboardPrefGoalMakeMemories => 'यादें बनाएं';
 
   @override
-  String get onboardPrefGoalSaveMoney => 'Save Money';
+  String get onboardPrefGoalSaveMoney => 'पैसे बचाएं';
 
   @override
-  String get onboardPrefGoalAvoidCrowds => 'Avoid Crowds';
+  String get onboardPrefGoalAvoidCrowds => 'भीड़ से बचें';
 
   @override
-  String get onboardPrefGoalLuxury => 'Luxury Experiences';
+  String get onboardPrefGoalLuxury => 'विलासितापूर्ण अनुभव';
 
   @override
-  String get onboardPrefGoalBestFood => 'Best Food';
+  String get onboardPrefGoalBestFood => 'सर्वोत्तम भोजन';
 
   @override
-  String get onboardPrefGoalHiddenGems => 'Hidden Gems';
+  String get onboardPrefGoalHiddenGems => 'छुपे हुए रत्न';
 
   @override
-  String get onboardPrefGoalRelaxation => 'Relaxation';
+  String get onboardPrefGoalRelaxation => 'विश्राम';
 
   @override
-  String get onboardPrefGoalAdventure => 'Adventure';
+  String get onboardPrefGoalAdventure => 'साहसिक काम';
 
   @override
-  String get onboardPrefGoalBestPhotos => 'Best Photos';
+  String get onboardPrefGoalBestPhotos => 'सर्वोत्तम तस्वीरें';
 
   @override
-  String get onboardPrefGoalFamilyTime => 'Family Time';
+  String get onboardPrefGoalFamilyTime => 'परिवार के लिये समय';
 
   @override
-  String get onboardPrefGoalRomance => 'Romance';
+  String get onboardPrefGoalRomance => 'रोमांस';
 
   @override
-  String get onboardPrefGoalNightlife => 'Nightlife';
+  String get onboardPrefGoalNightlife => 'नाइटलाइफ़';
 
   @override
-  String get onboardPrefGoalLocal => 'Local Experiences';
+  String get onboardPrefGoalLocal => 'स्थानीय अनुभव';
 
   @override
-  String get onboardPrefGoalStressFree => 'Stress-Free Planning';
+  String get onboardPrefGoalStressFree => 'तनाव मुक्त योजना';
 
   @override
-  String get onboardPrefExpBoatTours => 'Boat Tours';
+  String get onboardPrefExpBoatTours => 'नाव यात्राएँ';
 
   @override
-  String get onboardPrefExpSunsetCruises => 'Sunset Cruises';
+  String get onboardPrefExpSunsetCruises => 'सूर्यास्त परिभ्रमण';
 
   @override
-  String get onboardPrefExpAirboat => 'Airboat Tours';
+  String get onboardPrefExpAirboat => 'एयरबोट टूर्स';
 
   @override
-  String get onboardPrefExpThemeParks => 'Theme Parks';
+  String get onboardPrefExpThemeParks => 'थीम पार्क';
 
   @override
-  String get onboardPrefExpMuseums => 'Museums';
+  String get onboardPrefExpMuseums => 'संग्रहालय';
 
   @override
-  String get onboardPrefExpLiveShows => 'Live Shows';
+  String get onboardPrefExpLiveShows => 'लाइव शो';
 
   @override
-  String get onboardPrefExpSpas => 'Spas';
+  String get onboardPrefExpSpas => 'स्पा';
 
   @override
-  String get onboardPrefExpShopping => 'Shopping';
+  String get onboardPrefExpShopping => 'खरीदारी';
 
   @override
-  String get onboardPrefExpWaterParks => 'Water Parks';
+  String get onboardPrefExpWaterParks => 'जल पार्क';
 
   @override
-  String get onboardPrefExpGolf => 'Golf';
+  String get onboardPrefExpGolf => 'गोल्फ़';
 
   @override
-  String get onboardPrefExpFishing => 'Fishing';
+  String get onboardPrefExpFishing => 'मछली पकड़ने';
 
   @override
-  String get onboardPrefExpKayaking => 'Kayaking';
+  String get onboardPrefExpKayaking => 'कायाकिंग';
 
   @override
-  String get onboardPrefExpSnorkeling => 'Snorkeling';
+  String get onboardPrefExpSnorkeling => 'स्नॉर्कलिंग';
 
   @override
-  String get onboardPrefExpRooftopBars => 'Rooftop Bars';
+  String get onboardPrefExpRooftopBars => 'छत पर बार्स';
 
   @override
-  String get onboardPrefExpNightclubs => 'Nightclubs';
+  String get onboardPrefExpNightclubs => 'नाइटक्लब';
 
   @override
-  String get onboardPrefExpWildlife => 'Wildlife Experiences';
+  String get onboardPrefExpWildlife => 'वन्यजीव अनुभव';
 
   @override
-  String get onboardPrefExpFoodTours => 'Food Tours';
+  String get onboardPrefExpFoodTours => 'खाद्य पर्यटन';
 
   @override
-  String get onboardPrefExpScenicDrives => 'Scenic Drives';
+  String get onboardPrefExpScenicDrives => 'दर्शनीय ड्राइव';
 
   @override
-  String get onboardPrefAvoidCrowds => 'Crowds';
+  String get onboardPrefAvoidCrowds => 'भीड़';
 
   @override
-  String get onboardPrefAvoidLongLines => 'Long Lines';
+  String get onboardPrefAvoidLongLines => 'लंबी लाइनें';
 
   @override
-  String get onboardPrefAvoidExpensiveRestaurants => 'Expensive Restaurants';
+  String get onboardPrefAvoidExpensiveRestaurants => 'महँगे रेस्तरां';
 
   @override
-  String get onboardPrefAvoidWalking => 'Walking Long Distances';
+  String get onboardPrefAvoidWalking => 'लंबी दूरी तक पैदल चलना';
 
   @override
-  String get onboardPrefAvoidNightlife => 'Nightlife';
+  String get onboardPrefAvoidNightlife => 'नाइटलाइफ़';
 
   @override
-  String get onboardPrefAvoidDriving => 'Driving';
+  String get onboardPrefAvoidDriving => 'ड्राइविंग';
 
   @override
-  String get onboardPrefAvoidTouristTraps => 'Tourist Traps';
+  String get onboardPrefAvoidTouristTraps => 'पर्यटक जाल';
 
   @override
-  String get onboardPrefAvoidEarlyMornings => 'Early Mornings';
+  String get onboardPrefAvoidEarlyMornings => 'जल्दी सुबह';
 
   @override
-  String get onboardPrefAvoidLateNights => 'Late Nights';
+  String get onboardPrefAvoidLateNights => 'देर रात तक';
 
   @override
-  String get onboardPrefAvoidFamilyAttractions => 'Family Attractions';
+  String get onboardPrefAvoidFamilyAttractions => 'पारिवारिक आकर्षण';
 
   @override
-  String get onboardPrefAvoidThemeParks => 'Theme Parks';
+  String get onboardPrefAvoidThemeParks => 'थीम पार्क';
 
   @override
-  String get onboardPrefEmotionRelaxed => 'Relaxed';
+  String get onboardPrefEmotionRelaxed => 'ढील';
 
   @override
-  String get onboardPrefEmotionExcited => 'Excited';
+  String get onboardPrefEmotionExcited => 'उत्साहित';
 
   @override
-  String get onboardPrefEmotionAdventurous => 'Adventurous';
+  String get onboardPrefEmotionAdventurous => 'साहसी';
 
   @override
-  String get onboardPrefEmotionRomantic => 'Romantic';
+  String get onboardPrefEmotionRomantic => 'प्रेम प्रसंगयुक्त';
 
   @override
-  String get onboardPrefEmotionLuxurious => 'Luxurious';
+  String get onboardPrefEmotionLuxurious => 'शान शौकत';
 
   @override
-  String get onboardPrefEmotionFamilyFocused => 'Family-Focused';
+  String get onboardPrefEmotionFamilyFocused => 'परिवार केंद्रित';
 
   @override
-  String get onboardPrefEmotionMemorable => 'Memorable';
+  String get onboardPrefEmotionMemorable => 'अविस्मरणीय';
 
   @override
-  String get onboardPrefEmotionStressFree => 'Stress-Free';
+  String get onboardPrefEmotionStressFree => 'तनाव मुक्त';
 
   @override
-  String get onboardPrefEmotionInspiring => 'Inspiring';
+  String get onboardPrefEmotionInspiring => 'प्रेरणादायक';
 
   @override
-  String get onboardPrefPaceSlow => 'Relaxed';
+  String get onboardPrefPaceSlow => 'ढील';
 
   @override
-  String get onboardPrefPaceBalanced => 'Balanced';
+  String get onboardPrefPaceBalanced => 'संतुलित';
 
   @override
-  String get onboardPrefPacePacked => 'Packed';
+  String get onboardPrefPacePacked => 'पैक्ड';
 
   @override
   String get onboardSummaryHiddenGemsInsight =>
-      'Hidden local restaurants & gems';
+      'छिपे हुए स्थानीय रेस्तरां और रत्न';
 
   @override
   String get onboardBuildFailedHint =>
-      'We saved your preferences, but the itinerary needs another moment. Pull to refresh on Agenda or open Concierge.';
+      'हमने आपकी प्राथमिकताएँ सहेज ली हैं, लेकिन यात्रा कार्यक्रम के लिए एक और क्षण की आवश्यकता है। एजेंडा पर ताज़ा करने या द्वारपाल खोलने के लिए खींचें।';
 
   @override
-  String get onboardV2ChildrenSubtitle => 'Select all age groups that apply.';
+  String get onboardV2ChildrenSubtitle =>
+      'लागू होने वाले सभी आयु समूहों का चयन करें।';
 
   @override
-  String get onboardTravelerNameEyebrow => 'First things first';
+  String get onboardTravelerNameEyebrow => 'सबसे पहली बात';
 
   @override
-  String get onboardTravelerNameTitle => 'What should Luxora call you?';
+  String get onboardTravelerNameTitle =>
+      'लक्सोरा को आपको क्या कहकर बुलाना चाहिए?';
 
   @override
   String get onboardTravelerNameSubtitle =>
-      'Your first name is enough — Luxora will use it when you chat.';
+      'आपका पहला नाम ही काफी है - जब आप चैट करेंगे तो लक्सोरा इसका उपयोग करेगा।';
 
   @override
-  String get onboardTravelerNameLabel => 'Your first name';
+  String get onboardTravelerNameLabel => 'आपका प्रथम नाम';
 
   @override
-  String get onboardTravelerNameHint => 'e.g. Maria';
+  String get onboardTravelerNameHint => 'जैसे मारिया';
 
   @override
   String conciergeWelcomeNamed(String name) {
-    return 'Welcome, $name — your emotionally intelligent Florida companion.\n\nChoose a prompt below, or describe the feeling you want your trip to create.';
+    return 'आपका स्वागत है, $name - आपका भावनात्मक रूप से बुद्धिमान फ़्लोरिडा साथी।\n\nनीचे एक संकेत चुनें, या उस भावना का वर्णन करें जिसे आप अपनी यात्रा में पैदा करना चाहते हैं।';
   }
 
   @override
   String conciergeWelcomeWarmNamed(String name) {
-    return '$name, I\'m here to shape Florida around how you want to feel — not a checklist of sights. What are you craving today?';
+    return '$name, मैं यहां फ्लोरिडा को आकार देने आया हूं कि आप कैसा महसूस करना चाहते हैं - दर्शनीय स्थलों की चेकलिस्ट नहीं। आज आप क्या चाह रहे हैं?';
   }
 
   @override
-  String get onboardLuxoraReplyEyebrow => 'LUXORA';
+  String get onboardLuxoraReplyEyebrow => 'लक्सोरा';
 
   @override
   String onboardLuxoraReplyTitle(String name) {
-    return 'Lovely to meet you, $name.';
+    return 'आपसे मिलकर अच्छा लगा, $name।';
   }
 
   @override
   String onboardLuxoraGuideNamed(String name) {
-    return '$name, I\'m here to guide you and help you create the perfect vacation or adventure for you and your family.';
+    return '$name, मैं आपका मार्गदर्शन करने तथा आपके और आपके परिवार के लिए उत्तम छुट्टियाँ या रोमांच बनाने में मदद करने के लिए यहाँ हूँ।';
   }
 
   @override
   String get onboardLuxoraItineraryPromise =>
-      'When we\'re done here, I\'ll build your itinerary from everything you choose. If you\'d like to change anything later, open the Concierge tab and tell me what to edit — I\'m always listening.';
+      'जब हम यहां काम पूरा कर लेंगे, तो मैं आपके द्वारा चुनी गई हर चीज़ से आपका यात्रा कार्यक्रम बनाऊंगा। यदि आप बाद में कुछ बदलना चाहते हैं, तो कंसीयज टैब खोलें और मुझे बताएं कि क्या संपादित करना है - मैं हमेशा सुन रहा हूं।';
 
   @override
-  String get todayPlanSectionTitle => 'Today\'s plan';
+  String get todayPlanSectionTitle => 'आज की योजना';
 
   @override
-  String get todayNextActivityLabel => 'Up next';
+  String get todayNextActivityLabel => 'आगे';
 
   @override
-  String get todayStaysDiningSection => 'Stays & dining picks';
+  String get todayStaysDiningSection => 'ठहरने और खाने का विकल्प';
 
   @override
   String get todayStaysDiningCollapsedHint =>
-      'Hotel and restaurant ideas — tap to expand';
+      'होटल और रेस्तरां विचार - विस्तार करने के लिए टैप करें';
 
   @override
-  String get todayPlanDetailsTitle => 'Full schedule';
+  String get todayPlanDetailsTitle => 'पूरा शेड्यूल';
 
   @override
   String todayPlanStopCount(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count stops today',
+      other: '$count आज स्टॉप',
       one: '1 stop today',
     );
     return '$_temp0';
   }
 
   @override
-  String get todayRainRerouteTitle => 'Rain reroute';
+  String get todayRainRerouteTitle => 'वर्षा पुनः मार्ग';
 
   @override
-  String get todayExtrasSection => 'Tickets & sharing';
+  String get todayExtrasSection => 'टिकट और साझाकरण';
 
   @override
-  String get todayExtrasCollapsedHint => 'Deals, share card, and more';
+  String get todayExtrasCollapsedHint => 'सौदे, शेयर कार्ड, और बहुत कुछ';
 }

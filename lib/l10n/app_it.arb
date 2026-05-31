@@ -15,11 +15,74 @@
   "affiliateRestaurants": "Prenotazioni ristoranti",
   "affiliateThemeParks": "Biglietti per parchi a tema",
   "affiliateWellness": "Prenotazioni benessere",
+  "agendaDayDiningSubtitle": "Suggerimenti per il tuo budget di ~{budget} USD ({tier} pranzo) in base al piano di oggi.",
+  "@agendaDayDiningSubtitle": {
+    "placeholders": {
+      "budget": {
+        "type": "int"
+      },
+      "tier": {
+        "type": "String"
+      }
+    }
+  },
+  "agendaDayDiningTitle": "Dove mangiare stasera",
+  "agendaDaySelectLabel": "Quale giorno",
+  "agendaDiningDropdownHint": "Seleziona un ristorante",
+  "agendaDiningFitsBudget": "Si adatta al budget del tuo viaggio",
+  "agendaDiningFoodiePick": "Il preferito dai buongustai",
+  "agendaDiningMatchesDay": "Corrisponde all'atmosfera di oggi",
+  "agendaDiningNearStops": "Vicino alle fermate di oggi",
+  "agendaFixAfternoonRain": "Pioggia in arrivo: sistema il mio pomeriggio",
+  "agendaHotelSuggestionsSubtitle": "Adeguato all'intelligenza artificiale al tuo budget di viaggio di ~{budget} USD: tocca per visualizzare tutte le opzioni.",
+  "@agendaHotelSuggestionsSubtitle": {
+    "placeholders": {
+      "budget": {
+        "type": "int"
+      }
+    }
+  },
+  "agendaHotelSuggestionsTitle": "Dove alloggiare",
+  "agendaHotelTopPick": "Scelta migliore: {name}",
+  "@agendaHotelTopPick": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "agendaPageSubtitle": "Cosa sto facendo adesso?",
+  "agendaRainRerouteDone": "Aggiornamento pomeridiano: {count} fermate si sono spostate al chiuso. Punteggio vacanze {score}/100.",
+  "@agendaRainRerouteDone": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "agendaRainRerouteNone": "Il tuo piano funziona già per questo tempo.",
+  "agendaStayDropdownHint": "Seleziona un albergo",
+  "agendaSuggestionsAlternates": "Anche fantastico",
+  "agendaSuggestionsBrowseAll": "Sfoglia tutto",
+  "agendaSuggestionsForYou": "Scelto per te",
+  "agendaTabItinerary": "Giorni",
+  "agendaTabRestaurants": "Ristoranti",
   "appTitle": "Luxora AI",
   "appearance": "Aspetto",
-  "settingsThemeIntro": "Lusso cinematografico o chiarezza leggibile — scegli ciò che si adatta alla tua giornata.",
-  "settingsThemeSectionLuxury": "Lusso cinematografico",
-  "settingsThemeSectionReadable": "Chiaro e leggibile",
+  "browseCatBudgetFriendly": "Economico",
+  "browseCatDisneyHotels": "Zona Disney",
+  "browseCatRecommended": "Raccomandato",
+  "browseCatThemeParkDining": "Pranzo nel parco a tema",
+  "browseCatUniversalHotels": "Zona universale",
+  "browseCatUpscaleDining": "Cucina raffinata e raffinata",
+  "browseCatUpscaleLuxury": "Elegante e lussuoso",
+  "browseCategoryEmpty": "Nessuna corrispondenza in questa categoria per il tuo raggio: prova a cercare o ad ampliare la scoperta.",
+  "browseFullCatalogHint": "Utilizza la ricerca qui sopra per il catalogo completo: tutti gli hotel e ristoranti che Luxora conosce.",
+  "browseSearchAllHotels": "Cerca nel catalogo completo degli hotel…",
+  "browseSearchAllRestaurants": "Cerca nel catalogo completo dei ristoranti…",
   "catBeaches": "Spiagge",
   "catEco": "Ecoturismo",
   "catFamily": "Famiglia",
@@ -34,6 +97,43 @@
   "catSpas": "Terme",
   "catSprings": "Sorgenti",
   "catThemeParks": "Parchi a tema",
+  "cityPickerThemeParksSubtitle": "Componente aggiuntivo Orlando · Disney e Universal insieme",
+  "cityPickerUnlockPrice": "Sblocca {price}",
+  "@cityPickerUnlockPrice": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "cityPickerUnlocked": "Sbloccato",
+  "cloudTripsBannerBody": "Accedi per ripristinare i viaggi su un nuovo telefono o tablet.",
+  "cloudTripsBannerCta": "Configura il backup sul cloud",
+  "cloudTripsBannerTitle": "Fai il backup dei tuoi viaggi",
+  "cloudTripsCodeHint": "Codice di 6 cifre dall'e-mail",
+  "cloudTripsCodeSent": "Controlla la tua email per un codice di accesso",
+  "cloudTripsEmailHint": "Indirizzo e-mail",
+  "cloudTripsMoreSubSignedIn": "Accedi come {email}",
+  "@cloudTripsMoreSubSignedIn": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "cloudTripsMoreSubSignedOut": "Accedi per eseguire il backup dei viaggi salvati",
+  "cloudTripsMoreSubSyncing": "Sincronizzazione…",
+  "cloudTripsNotConfigured": "Il backup sul cloud richiede Supabase (configurazione di sviluppo)",
+  "cloudTripsSendCode": "Invia il codice di accesso",
+  "cloudTripsSignOut": "disconnessione",
+  "cloudTripsSubtitle": "I tuoi viaggi salvati si sincronizzano su tutti i dispositivi quando accedi, incluso con qualsiasi sblocco della città.",
+  "cloudTripsSyncError": "Sincronizzazione non riuscita: riprova",
+  "cloudTripsSyncNow": "Sincronizza ora",
+  "cloudTripsSyncSuccess": "Viaggi sincronizzati",
+  "cloudTripsTitle": "Backup sul cloud",
+  "cloudTripsUnlockCta": "Sblocca portineria",
+  "cloudTripsUnlockRequired": "Sblocca un pacchetto città per abilitare il backup sul cloud",
+  "cloudTripsVerify": "Verifica e accedi",
   "commonCancel": "Cancellare",
   "commonClose": "Vicino",
   "commonContinue": "Continuare",
@@ -42,11 +142,44 @@
   "commonNew": "Nuovo",
   "commonRoadmap": "Tabella di marcia",
   "commonSoon": "Presto",
+  "conciergeAgendaDealsIntro": "Ho abbinato le offerte di biglietti autorizzate alle fermate nella tua agenda: confronta prima di acquistare all'ingresso:",
+  "conciergeAgendaDealsSnack": "Offerte di biglietti adatte alla tua agenda",
+  "conciergeAgendaSyncFailed": "La mappa e l'agenda non sono state aggiornate. Prova una richiesta chiara, ad esempio: pianifica un viaggio Disney e Universal di 4 giorni.",
+  "conciergeAgendaUpdatedSnack": "La tua agenda è pronta su Mappa e Agenda",
+  "conciergeAiAuthFailed": "Luxora non è riuscita ad autenticarsi con Supabase: ricontrolla che SUPABASE_ANON_KEY corrisponda al tuo progetto.",
+  "conciergeAiError": "Non potrei raggiungere Luxora in questo momento. Controlla la connessione e riprova.",
+  "conciergeAiErrorVoice": "Mi spiace, non sono riuscito a connettermi al concierge di Luxora in questo momento.",
+  "conciergeAiFunctionNotFound": "Luxora non è riuscita a trovare la funzione concierge edge \"{function}\". Distribuiscilo in Supabase o correggi SUPABASE_CONCIERGE_FUNCTION su questa build.",
+  "@conciergeAiFunctionNotFound": {
+    "placeholders": {
+      "function": {
+        "type": "String"
+      }
+    }
+  },
+  "conciergeAiNotConfigured": "Il concierge live di Luxora non è ancora collegato a questa build: l'URL Supabase e la chiave anon devono essere inseriti nell'app e la funzione edge implementata. La mappa e l'itinerario funzionano ancora; vedere docs/CONCIERGE_AI.md per la configurazione.",
+  "conciergeAiOpenAiNotReady": "Luxora ti ha sentito, ma il cervello del concierge non è ancora online. Imposta OPENAI_API_KEY nei segreti Supabase per la funzione edge (processore luminoso), quindi riprova.",
   "conciergeBrand": "LUXORA",
+  "conciergeFreshThread": "La tua agenda è su Mappa e Agenda. Ho archiviato questa chat e ho ricominciato da capo: modifica la giornata, trova offerte o chiedi qualcosa di nuovo.",
   "conciergeGreetingAfternoon": "Buon pomeriggio.",
   "conciergeGreetingEvening": "Buonasera.",
   "conciergeGreetingMorning": "Buongiorno.",
   "conciergeInputHint": "Descrivi la sensazione che vuoi che il tuo viaggio susciti...",
+  "conciergeItinerarySynced": "L'ho aggiunto alla tua agenda: stesse fermate sulla mappa, pronte per essere condivise.",
+  "conciergeLocalNoIntent": "Descrivi la sensazione che desideri oppure dì \"Pianifica la mia giornata a Orlando\" e costruirò un vero percorso sul dispositivo.",
+  "conciergeLocalPlanBuilt": "Ho costruito la tua giornata in {city}: {count} fermate sequenziate in base all'umore e al tempo di guida. Apri Agenda o Mappa per vedere il tuo percorso.",
+  "@conciergeLocalPlanBuilt": {
+    "placeholders": {
+      "city": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "conciergeLocalTryPlanning": "Dimmi come vuoi che sia il viaggio, ad es. \"Pianifica un rilassante viaggio di 2 giorni a Orlando con sorgenti e cibo.\" Costruirò una vera agenda sul tuo dispositivo (non è richiesto il cloud).",
+  "conciergeNewConversationTooltip": "Nuova conversazione",
   "conciergePromptAdventure": "Modalità Avventura",
   "conciergePromptDisney": "Disney dopo il tramonto",
   "conciergePromptFamily": "Magia familiare",
@@ -75,7 +208,52 @@
   },
   "conciergeRefineStyle": "Affina il mio stile",
   "conciergeRemembering": "Ricordando per questo viaggio",
+  "conciergeSavedTripLine": "• {title} ({dates}) — {status}",
+  "@conciergeSavedTripLine": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "dates": {
+        "type": "String"
+      },
+      "status": {
+        "type": "String"
+      }
+    }
+  },
+  "conciergeSavedTripsEmpty": "Non hai ancora nessun viaggio salvato: chiedimi di pianificare qualcosa, quindi dì \"salva il mio viaggio\".",
+  "conciergeSavedTripsHint": "Apri la scheda Viaggi per visualizzare le carte, condividere o modificare le date.",
+  "conciergeSavedTripsIntro": "Hai {count} viaggi salvati:",
+  "@conciergeSavedTripsIntro": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "conciergeStyleMemory": "Memoria di stile",
+  "conciergeThinking": "Luxora sta pensando...",
+  "conciergeThreadArchivedSnack": "Chat archiviata: nuovo thread avviato",
+  "conciergeTicketDealLine": "• {title}: {price} tramite {source} (risparmia {savings})",
+  "@conciergeTicketDealLine": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "price": {
+        "type": "String"
+      },
+      "source": {
+        "type": "String"
+      },
+      "savings": {
+        "type": "String"
+      }
+    }
+  },
+  "conciergeTicketsFoundIntro": "Ho trovato offerte di biglietti autorizzate per il tuo viaggio: tocca Prenota biglietti su Agenda per collegamenti diretti:",
+  "conciergeTicketsTimelineHint": "Ogni fermata corrispondente nell'Agenda ora ha un pulsante Prenota biglietti con il collegamento del rivenditore.",
   "conciergeTitle": "Concierge",
   "conciergeTripFeel": "Sensazione di viaggio: \"{feel}\"",
   "@conciergeTripFeel": {
@@ -85,10 +263,92 @@
       }
     }
   },
+  "conciergeTripNameLabel": "Nome del viaggio",
+  "conciergeTripSaved": "Salvato \"{title}\" nei tuoi Viaggi: apri la scheda Viaggi in qualsiasi momento per rivisitarla.",
+  "@conciergeTripSaved": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "conciergeTripSavedWithStops": "Salvato \"{title}\" con {count} esperienze sul tuo diario.",
+  "@conciergeTripSavedWithStops": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "conciergeViewAgendaOnMap": "Visualizza l'agenda",
+  "conciergeViewTicketDeals": "Visualizza le offerte",
+  "conciergeVoiceDeviceNote": "Scarica più voci in Impostazioni iPhone → Accessibilità → Contenuto parlato → Voci. Torna qui e tocca Aggiorna.",
+  "conciergeVoiceDeviceSection": "Voci su questo iPhone",
+  "conciergeVoiceDeviceSectionHint": "Include le voci scaricate: toccane una per usarla per Luxora.",
   "conciergeVoiceHold": "Aspetta a parlare",
-  "conciergeVoiceSoon": "Consenti il microfono così Luxora può ascoltarti.",
+  "conciergeVoiceListening": "Luxora sta ascoltando...",
+  "conciergeVoiceNoDeviceVoices": "Nessuna voce trovata: scarica i pacchetti in Impostazioni, quindi aggiorna.",
+  "conciergeVoiceNoSpeech": "Non l'ho capito: tieni premuto il pulsante, parla, quindi rilascia.",
+  "conciergeVoiceOpenSettings": "Apri le impostazioni vocali dell'iPhone",
+  "conciergeVoicePresetDeF": "Tedesco · Femmina",
+  "conciergeVoicePresetDeM": "Tedesco · Maschio",
+  "conciergeVoicePresetEnGbF": "Britannico · Femmina",
+  "conciergeVoicePresetEnGbM": "Britannico · Maschio",
+  "conciergeVoicePresetEnUsF": "Americana · Femmina",
+  "conciergeVoicePresetEnUsM": "Americano · Maschio",
+  "conciergeVoicePresetEsF": "Spagnolo · Femmina",
+  "conciergeVoicePresetEsM": "Spagnolo · Maschio",
+  "conciergeVoicePresetFrF": "Francese · Femmina",
+  "conciergeVoicePresetFrM": "Francese · Maschio",
+  "conciergeVoicePresetMatchApp": "Lingua dell'app Match · Femmina",
+  "conciergeVoicePresetRuF": "Russo · Femmina",
+  "conciergeVoicePresetRuM": "Russo · Maschio",
+  "conciergeVoicePresetSection": "Personaggi veloci",
+  "conciergeVoicePreview": "Anteprima della voce",
+  "conciergeVoicePreviewFailed": "Impossibile riprodurre un'anteprima. Controlla il volume e riprova.",
+  "conciergeVoicePreviewSample": "Ciao, sono Luxora. Dimmi come vuoi che sia questo viaggio.",
+  "conciergeVoiceProcessing": "Invio a Luxora...",
+  "conciergeVoiceRateFast": "Veloce",
+  "conciergeVoiceRateLabel": "Ritmo di parola",
+  "conciergeVoiceRateNatural": "Naturale",
+  "conciergeVoiceRateSlow": "Lento",
+  "conciergeVoiceRefreshList": "Aggiorna l'elenco delle voci",
+  "conciergeVoiceRegionEnglish": "Inglese",
+  "conciergeVoiceRegionFrench": "francese",
+  "conciergeVoiceRegionGerman": "tedesco",
+  "conciergeVoiceRegionOther": "Altro",
+  "conciergeVoiceRegionRecommended": "Raccomandato",
+  "conciergeVoiceRegionRussian": "russo",
+  "conciergeVoiceRegionSpanish": "spagnolo",
+  "conciergeVoiceRelease": "Rilascia per inviare",
+  "conciergeVoiceSend": "Invia a Luxora",
+  "conciergeVoiceSettingsSubtitle": "Scegli il suono di Luxora quando parla: accento, tono e ritmo. Utilizza le voci integrate del tuo dispositivo.",
+  "conciergeVoiceSettingsTitle": "Voce Luxora",
+  "conciergeVoiceShowAllLanguages": "Mostra tutte le lingue",
+  "conciergeVoiceSoon": "Il concierge vocale sarà presto disponibile: per ora, tocca un momento o digita come vuoi sentirti.",
+  "conciergeVoiceSpeaking": "Luxora sta parlando...",
+  "conciergeVoiceUnavailable": "La voce non è disponibile su questo dispositivo.",
   "conciergeWelcome": "Benvenuto a Luxora, il tuo compagno della Florida emotivamente intelligente.\n\nScegli un suggerimento qui sotto o descrivi l'emozione che desideri che il tuo viaggio susciti.",
+  "conciergeWelcomeNamed": "Benvenuto, {name}, il tuo compagno emotivamente intelligente della Florida.\n\nScegli un suggerimento qui sotto o descrivi l'emozione che desideri che il tuo viaggio susciti.",
+  "@conciergeWelcomeNamed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "conciergeWelcomeWarm": "Sono qui per modellare la Florida in base a come vuoi sentirti, non per una lista di cose da vedere. Di cosa hai voglia oggi?",
+  "conciergeWelcomeWarmNamed": "{name}, sono qui per modellare la Florida in base a come vuoi sentirti, non per un elenco di cose da vedere. Di cosa hai voglia oggi?",
+  "@conciergeWelcomeWarmNamed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "dark_mode": "Modalità oscura",
   "dayFlowAfternoon": "POMERIGGIO",
   "dayFlowEvening": "SERA",
@@ -105,6 +365,34 @@
   "dayFlowReasonMorningPool": "Rilassati lentamente: a bordo piscina o nella spa prima che inizi la giornata.",
   "dayFlowReasonNightOut": "Un ultimo bagliore: una serata fuori.",
   "dayFlowSubtitle": "Una giornata modellata su come vuoi sentirti, non su una lista di controllo.",
+  "dayFlowSwapApply": "Aggiorna la mia giornata",
+  "dayFlowSwapHint": "per esempio. un parco tranquillo stamattina o frutti di mare per cena",
+  "dayFlowSwapHoldSpeak": "Aspetta a parlare",
+  "dayFlowSwapListening": "Ascolto…",
+  "dayFlowSwapNoMatch": "Impossibile trovare una corrispondenza nelle vicinanze: prova a essere più specifico.",
+  "dayFlowSwapSubtitle": "Dì a Luxora cosa preferiresti fare invece di {current}.",
+  "@dayFlowSwapSubtitle": {
+    "placeholders": {
+      "current": {
+        "type": "String"
+      }
+    }
+  },
+  "dayFlowSwapSuccess": "Aggiornato: {newStop} è ora la tua fermata {phase}.",
+  "@dayFlowSwapSuccess": {
+    "placeholders": {
+      "newStop": {
+        "type": "String"
+      },
+      "phase": {
+        "type": "String"
+      }
+    }
+  },
+  "dayFlowSwapTapToChange": "Cambia questa fermata",
+  "dayFlowSwapTemplate": "Stavo pensando a qualcosa di più simile...",
+  "dayFlowSwapTitle": "Cambia questa fermata",
+  "dayFlowSwapViewPlace": "Visualizza la fermata attuale",
   "dayFlowVibeAdventure": "Avventuroso",
   "dayFlowVibeCulture": "Cultura",
   "dayFlowVibeFoodie": "Buongustai",
@@ -115,6 +403,22 @@
   "detailBestTime": "Il momento migliore per andare",
   "detailCostRange": "Fascia di costo",
   "detailCrowd": "Folla",
+  "detailCrowdOutlook": "Folla: {level}",
+  "@detailCrowdOutlook": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "detailDriveFrictionOutlook": "Attrito di guida: {score}/90",
+  "@detailDriveFrictionOutlook": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
   "detailDriveFromHub": "{time} viaggio da {hub}",
   "@detailDriveFromHub": {
     "placeholders": {
@@ -150,6 +454,14 @@
   "detailNearbyGems": "Gemme vicine",
   "detailOpenInMaps": "Apri nelle mappe",
   "detailParkMap": "Mappa del parco",
+  "detailParkingOutlook": "Parcheggio: {level}",
+  "@detailParkingOutlook": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
   "detailPractical": "Dettagli pratici",
   "detailPrice": "Prezzo",
   "detailRemovedSnack": "Rimosso dal tuo itinerario",
@@ -159,6 +471,8 @@
   "detailSaved": "Salvato",
   "detailSavedSnack": "Salvato nel tuo itinerario",
   "detailSetHomeBase": "Imposta come base di partenza",
+  "detailTravelIntelSubtitle": "Previsione in base a categoria, tempo e distanza, non a sensori in tempo reale.",
+  "detailTravelIntelTitle": "Prospettive di attrito del viaggio",
   "detailVibeMatch": "Partita di vibrazioni",
   "detailViewMenuOnline": "Visualizza il menu on-line",
   "detailViewOnMap": "Visualizza sulla mappa",
@@ -213,12 +527,16 @@
   "featuredTicketPartnersTitle": "Partner di biglietti in primo piano",
   "feedBadge": "SCOPERTA DAL VIVO",
   "feedEmptyHint": "Nessuna scheda feed in questo raggio: prova 50 miglia o Tutta la Florida per i punti salienti della costa del Golfo e delle Keys.",
+  "feedEmptyHintFamily": "Nessuna carta con tag famiglia in questo raggio: prova Avventuroso o Tutto, oppure allarga il raggio.",
+  "feedFamilyMoodHint": "Parchi a tema, pasti con personaggi e facili vittorie per i genitori: filtrati per tag familiari.",
   "feedMoodAdventurous": "Avventuroso",
   "feedMoodAll": "Qualunque cosa",
   "feedMoodCalm": "Calma",
+  "feedMoodFamily": "Magia familiare",
   "feedMoodFoodie": "Buongustaio",
   "feedMoodPampered": "Coccolato",
   "feedMoodPrompt": "COME VUOI SENTIRSI?",
+  "feedMoodPromptFamily": "COME DOVREBBE SENTIRSI OGGI PER LA TUA CREW?",
   "feedMoodRomantic": "Romantico",
   "feedMoodSocial": "Ronzio",
   "feedPillCreator": "Scelte del creatore",
@@ -226,6 +544,7 @@
   "feedPillNewOpenings": "Nuove aperture",
   "feedPillTrending": "Tendenza",
   "feedSubtitle": "Cosa sta succedendo in questo momento: luoghi di tendenza, nuove aperture, scelte dei creatori, percorsi stagionali e aggiornamenti in tempo reale.",
+  "feedSubtitleFamily": "Scelte adatte alla famiglia per il tuo equipaggio: parchi, vittorie facili e momenti che arrivano con i bambini (e i genitori).",
   "feedTitle": "Feed dell'esperienza",
   "gemBestTime": "Il momento migliore per andare",
   "gemCrowdLevel": "Livello di folla",
@@ -306,6 +625,8 @@
     }
   },
   "hotelItineraryImpactTitle": "Come questo modella le tue giornate",
+  "hotelLinkOpenFailed": "Impossibile aprire il collegamento: controlla il browser o riprova.",
+  "hotelLinkUnavailable": "Link di prenotazione non ancora disponibile per questo soggiorno.",
   "hotelLuxoraScore": "Luxora",
   "hotelMatchAdults": "Adulti",
   "hotelMatchAttractions": "Attrazioni nella tua lista",
@@ -437,6 +758,14 @@
   "hotelVisitWebsite": "Visita il sito web",
   "hotelWhyRecommendTitle": "Perché Luxora lo consiglia",
   "itineraryBadge": "LA TUA CRONOLOGIA",
+  "itineraryBookTickets": "Prenota i biglietti · Risparmia {amount}",
+  "@itineraryBookTickets": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
   "itineraryDayTab": "Giorno {day} · {label}",
   "@itineraryDayTab": {
     "placeholders": {
@@ -448,9 +777,45 @@
       }
     }
   },
+  "itineraryOpenTicketDeal": "Prenota i biglietti",
+  "itinerarySameAsMapAgenda": "Il piano Concierge di oggi: appuntato anche sulla mappa. Condividi la scheda giornaliera qui sotto.",
   "itineraryTagline": "Ogni momento è connesso: anticipazione incorporata, stress escluso.",
+  "keysMoodRouteStart": "Inizio alle ore {time}",
+  "@keysMoodRouteStart": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "keysMoodRoutesTitle": "Percorsi dell'isola di Keys",
+  "keysWaterBestTime": "Finestra migliore: {time}",
+  "@keysWaterBestTime": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "keysWaterBoatingScore": "Barca",
+  "keysWaterCrowdScore": "Folla",
+  "keysWaterDivingScore": "Tuffo",
+  "keysWaterFishingScore": "Pescare",
+  "keysWaterIntelTitle": "Tasti Intelligenza dell'Acqua",
+  "keysWaterSnorkelScore": "Fare snorkeling",
+  "keysWaterSunsetScore": "Tramonto",
+  "keysWaterTemp": "Acqua: {note}",
+  "@keysWaterTemp": {
+    "placeholders": {
+      "note": {
+        "type": "String"
+      }
+    }
+  },
+  "keysWaterWindScore": "Vento",
   "landingBadge": "FLORIDA · ORLANDO MVP",
   "landingBegin": "Inizia il tuo viaggio",
+  "landingCityLabel": "Dove stai andando?",
   "landingRegionBadge": "Regione di lancio",
   "landingRegionTitle": "Orlando e Florida: curati per il sentimento",
   "landingSubtitle": "Luxora AI è il tuo concierge emotivamente intelligente: gemme nascoste, tramonti sui tetti e momenti pensati per farti sentire indimenticabile prima ancora di fare le valigie.",
@@ -501,19 +866,39 @@
   "mapCrowdLevelModerate": "Moderare",
   "mapCrowdLevelPacked": "Imballato",
   "mapCrowdLevelQuiet": "Tranquillo",
-  "mapFutureCrowdDesc": "Finestre previste da tranquillo a pieno su ogni tappa di Plan my day.",
-  "mapFutureCrowdTitle": "Prospettiva folla",
-  "mapFutureParkingDesc": "Attrito stimato per valet, garage e arrivo prima di partire.",
-  "mapFutureParkingTitle": "Prospettiva parcheggio",
+  "mapDriveFrictionAtStop": "Attrito di guida: {score}/90",
+  "@mapDriveFrictionAtStop": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "mapFutureCrowdDesc": "Densità in tempo reale su sorgenti, parchi e tetti virali: ne vale la pena adesso?",
+  "mapFutureCrowdTitle": "Calore della folla dal vivo",
+  "mapFutureParkingDesc": "Punteggio di attrito prima di impegnarti: parcheggiatore, garage o rideshare punto debole.",
+  "mapFutureParkingTitle": "Difficoltà di parcheggio",
   "mapFutureRerouteDesc": "Cambiamenti climatici o aumento della folla? Un tocco per rimodellare il resto della tua giornata.",
   "mapFutureRerouteTitle": "Reindirizzamento spontaneo",
-  "mapFutureTrafficDesc": "Punteggi di stress per tratta nel piano giornaliero — non solo minuti.",
-  "mapFutureTrafficTitle": "Drive friction score",
+  "mapFutureTrafficDesc": "Percorsi ponderati in base allo stress: non solo minuti, ma come si sentirà la guida.",
+  "mapFutureTrafficTitle": "Guida il punteggio di attrito",
   "mapHotelIntelBannerBody": "Il tuo hotel determina i tempi di guida, il flusso della giornata e dove mangi. Luxora ti aiuta a scegliere, senza pressioni sulla prenotazione.",
   "mapHotelIntelBannerCta": "Esplora l'intelligenza alberghiera",
   "mapHotelIntelBannerTitle": "Scegli la base di partenza giusta",
-  "mapNavLayerSubtitle": "Folla, parcheggio e stress di guida nel piano — più reroute spontanea.",
-  "mapNavLayerTitle": "Intelligenza attrito per tappa",
+  "mapNavLayerSubtitle": "Oltre la scoperta: informazioni in tempo reale per capire se vale la pena fermarsi in questo momento.",
+  "mapNavLayerTitle": "Livello di navigazione AI (successivo)",
+  "mapParkingAtStop": "Parcheggio: {level}",
+  "@mapParkingAtStop": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "mapParkingLevelDifficult": "Difficile",
+  "mapParkingLevelEasy": "Facile",
+  "mapParkingLevelLimited": "Limitato · arriva presto",
+  "mapParkingLevelModerate": "Moderare",
   "mapPlanDayEmpty": "Aggiungi le destinazioni ai segnalibri (♥) e Luxora costruirà un percorso ottimizzato dal tuo hub di Orlando: meno guida, più sensazioni.",
   "mapPlanDayHomeBase": "A partire da {hotel}",
   "@mapPlanDayHomeBase": {
@@ -538,7 +923,7 @@
       }
     }
   },
-  "mapPlanDayTitle": "L'agenda di oggi",
+  "mapPlanDayTitle": "Pianifica la mia giornata",
   "mapRerouteApplied": "Giorno adattato: {count} fermate scambiate con folle più leggere.",
   "@mapRerouteApplied": {
     "placeholders": {
@@ -643,17 +1028,18 @@
   "moodWellness": "Ritiro di benessere",
   "moreCardAboutSub": "Perché stiamo costruendo Luxora",
   "moreCardCityPacksSub": "Sblocca i concierge di destinazione",
+  "moreCardDiscoverSub": "Ristoranti di tendenza, esperienze e scoperte dal vivo",
   "moreCardFavoritesSub": "Destinazioni che hai aggiunto ai segnalibri",
   "moreCardGemsSub": "Scoperte interne alla guardia locale",
   "moreCardHelpSub": "Guide e supporto concierge",
   "moreCardHotelsSub": "L'intelligenza si adatta al tuo umore",
   "moreCardItinerarySub": "La tua fuga d'oro giorno dopo giorno",
-  "moreCardDiscoverSub": "Trend dining, esperienze e scoperta live",
   "moreCardNotificationsSub": "Avvisi di viaggio e aggiornamenti del concierge",
   "moreCardNotificationsTitle": "Notifiche",
   "moreCardPartnersSub": "Esperienze dei partner in primo piano",
   "moreCardProfileSub": "Chi viaggia, come dovrebbe sentirsi",
   "moreCardProfileTitle": "Profilo di viaggio",
+  "moreCardRestaurantsSub": "Sfoglia i ristoranti e lascia che Concierge scelga per te",
   "moreCardSettingsSub": "Tema, pacchetti città e preferenze",
   "moreCardTicketsSub": "Confronta i risparmi dei partner autorizzati",
   "moreCardWeatherSub": "Guida giornaliera basata sulle previsioni",
@@ -662,72 +1048,194 @@
   "moreSectionAccount": "ACCOUNT",
   "moreSectionApp": "APP",
   "moreSectionTravelTools": "STRUMENTI DI VIAGGIO",
+  "navAgenda": "Oggi",
   "navConcierge": "Concierge",
-  "navAgenda": "Today",
   "navDiscover": "Scoprire",
   "navFeed": "Foraggio",
   "navGems": "Gemme",
   "navMap": "Mappa",
   "navMore": "Di più",
   "navRestaurants": "Ristoranti",
-  "agendaTabItinerary": "Giorni",
-  "agendaTabRestaurants": "Ristoranti",
-  "restaurantsPageTitle": "Ristoranti",
-  "restaurantsPageSubtitle": "Sfoglia i ristoranti che Luxora conosce — salva preferiti o lascia scegliere a Concierge.",
-  "restaurantsConciergePick": "Scegli un ristorante per me",
-  "restaurantsConciergePickDone": "Salvato {name} — chiedi a Concierge di aggiungerlo al viaggio.",
-  "restaurantsSavedCount": "{count} salvati per il tuo viaggio",
-  "restaurantsEmptyHint": "Nessun ristorante nel raggio di scoperta — amplia il raggio sulla mappa.",
-  "moreCardRestaurantsSub": "Sfoglia ristoranti e lascia scegliere a Concierge",
-  "agendaHotelSuggestionsTitle": "Dove alloggiare",
-  "agendaHotelSuggestionsSubtitle": "Scelta IA per il budget ~{budget} USD — tocca per tutte le opzioni.",
-  "agendaHotelTopPick": "Scelta top: {name}",
-  "agendaStayDropdownHint": "Scegli un hotel",
-  "agendaDiningDropdownHint": "Scegli un ristorante",
-  "agendaDaySelectLabel": "Quale giorno",
-  "agendaDayDiningTitle": "Dove cenare stasera",
-  "agendaDayDiningSubtitle": "Suggerimenti per ~{budget} USD ({tier}) in base al programma di oggi.",
-  "agendaDiningNearStops": "Vicino alle tappe di oggi",
-  "agendaDiningFitsBudget": "Adatto al budget",
-  "agendaDiningMatchesDay": "Coerente con la giornata",
-  "agendaDiningFoodiePick": "Preferito foodie",
-  "browseCatRecommended": "Recommended",
-  "browseCatDisneyHotels": "Zona Disney",
-  "browseCatBudgetFriendly": "Economici",
-  "browseCatUpscaleLuxury": "Lusso e upscale",
-  "browseCatUniversalHotels": "Zona Universal",
-  "browseCatThemeParkDining": "Ristoranti nei parchi",
-  "browseCatUpscaleDining": "Alta cucina",
-  "browseSearchAllHotels": "Cerca l'intero catalogo hotel…",
-  "browseSearchAllRestaurants": "Cerca l'intero catalogo ristoranti…",
-  "browseCategoryEmpty": "Nessun risultato in questa categoria — prova la ricerca o amplia il raggio.",
-  "browseFullCatalogHint": "Usa la ricerca per il catalogo completo di hotel e ristoranti.",
   "navStays": "Soggiorni",
   "navTicketSavings": "Risparmio",
   "navTimeline": "Cronologia",
-  "agendaPageSubtitle": "What am I doing right now?",
   "navTrips": "Viaggi",
   "notificationsComingSoon": "Le notifiche di viaggio arriveranno in un aggiornamento futuro.",
   "occasionAnniversary": "Anniversario",
   "occasionDateNight": "Appuntamento notturno",
-  "occasionFamily": "Famiglia con bambini",
   "occasionDisneyAdventure": "Avventura Disney",
-  "occasionUniversalAdventure": "Avventura Universal",
+  "occasionFamily": "Famiglia con bambini",
   "occasionGeneral": "Sto solo esplorando",
   "occasionHoneymoon": "Luna di miele",
   "occasionProposal": "Proposta di viaggio",
+  "occasionUniversalAdventure": "Avventura universale",
   "onboardAdventure": "Avventura e vita all'aria aperta",
   "onboardBudget": "Budget del viaggio (USD)",
+  "onboardBuildFailedHint": "Abbiamo salvato le tue preferenze, ma l'itinerario necessita di un altro momento. Tira per aggiornare l'Agenda o aprire Concierge.",
+  "onboardBuilding": "Costruisci il tuo viaggio...",
+  "onboardCityLabel": "Scegli la tua città",
+  "onboardCityUnlockNote": "Ogni destinazione ha il proprio sblocco concierge: acquisto una tantum per città.",
   "onboardCulture": "Cultura e visite turistiche",
+  "onboardDatesHint": "Puoi modificarli in qualsiasi momento dalla scheda Viaggi.",
   "onboardDestination": "Destinazione",
-  "onboardFinish": "Crea il mio viaggio",
-  "onboardBuilding": "Creazione del viaggio…",
+  "onboardEndDateLabel": "Data di fine",
+  "onboardFinish": "Incontra il tuo concierge",
   "onboardFoodie": "Passione gastronomica",
+  "onboardLuxoraGuideNamed": "{name}, sono qui per guidarti e aiutarti a creare la vacanza o l'avventura perfetta per te e la tua famiglia.",
+  "@onboardLuxoraGuideNamed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardLuxoraItineraryPromise": "Quando avremo finito qui, costruirò il tuo itinerario partendo da tutto ciò che sceglierai. Se desideri modificare qualcosa in un secondo momento, apri la scheda Concierge e dimmi cosa modificare: ti ascolto sempre.",
+  "onboardLuxoraReplyEyebrow": "LUXORA",
+  "onboardLuxoraReplyTitle": "Piacere di conoscerti, {name}.",
+  "@onboardLuxoraReplyTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "onboardNightlife": "Interesse per la vita notturna",
   "onboardOccasionLabel": "Qual è l'occasione?",
-  "onboardThemeParksOccasionHint": "Sblocca Disney e Universal per le occasioni nei parchi — le chip compaiono subito dopo l'acquisto.",
+  "onboardPickDate": "Tocca per scegliere",
   "onboardPoolside": "A bordo piscina e tempi di inattività",
+  "onboardPrefAmenityBalcony": "Balcone",
+  "onboardPrefAmenityBreakfast": "Colazione gratuita",
+  "onboardPrefAmenityGym": "Palestra",
+  "onboardPrefAmenityKitchen": "Cucina",
+  "onboardPrefAmenityOceanView": "Vista sull'oceano",
+  "onboardPrefAmenityPetFriendly": "Animali ammessi",
+  "onboardPrefAmenityPool": "Piscina",
+  "onboardPrefAmenityShuttle": "Servizio Navetta",
+  "onboardPrefAmenitySpa": "Centro benessere",
+  "onboardPrefAvoidCrowds": "Folle",
+  "onboardPrefAvoidDriving": "Guida",
+  "onboardPrefAvoidEarlyMornings": "Mattina presto",
+  "onboardPrefAvoidExpensiveRestaurants": "Ristoranti costosi",
+  "onboardPrefAvoidFamilyAttractions": "Attrazioni per famiglie",
+  "onboardPrefAvoidLateNights": "Tarde notti",
+  "onboardPrefAvoidLongLines": "Lunghe file",
+  "onboardPrefAvoidNightlife": "Vita notturna",
+  "onboardPrefAvoidThemeParks": "Parchi a tema",
+  "onboardPrefAvoidTouristTraps": "Trappole per turisti",
+  "onboardPrefAvoidWalking": "Camminare per lunghe distanze",
+  "onboardPrefBudgetFour": "$$$$",
+  "onboardPrefBudgetOne": "$",
+  "onboardPrefBudgetThree": "$$$",
+  "onboardPrefBudgetTwo": "$$",
+  "onboardPrefChildrenElementary": "Età elementare",
+  "onboardPrefChildrenNone": "Niente bambini",
+  "onboardPrefChildrenTeenagers": "Adolescenti",
+  "onboardPrefChildrenToddlers": "Bambini piccoli",
+  "onboardPrefCuisineAmerican": "americano",
+  "onboardPrefCuisineAsian": "asiatico",
+  "onboardPrefCuisineBbq": "barbecue",
+  "onboardPrefCuisineBrunch": "Brunch",
+  "onboardPrefCuisineCuban": "cubano",
+  "onboardPrefCuisineDessert": "Dolci",
+  "onboardPrefCuisineFineDining": "Cucina raffinata",
+  "onboardPrefCuisineFoodTrucks": "Camion del cibo",
+  "onboardPrefCuisineItalian": "Italiano",
+  "onboardPrefCuisineLocalFavorites": "Preferiti locali",
+  "onboardPrefCuisineMediterranean": "mediterraneo",
+  "onboardPrefCuisineMexican": "messicano",
+  "onboardPrefCuisineRooftop": "Pranzo sul tetto",
+  "onboardPrefCuisineSeafood": "Frutti di mare",
+  "onboardPrefCuisineSteakhouse": "Bisteccheria",
+  "onboardPrefCuisineSushi": "Sushi giapponese",
+  "onboardPrefDiningCasual": "Pranzo informale",
+  "onboardPrefDiningDateNight": "Appuntamento notturno",
+  "onboardPrefDiningFamily": "Adatto alle famiglie",
+  "onboardPrefDiningFine": "Cucina raffinata",
+  "onboardPrefDiningHiddenGems": "Gemme nascoste",
+  "onboardPrefDiningLocal": "Preferiti locali",
+  "onboardPrefDiningQuick": "Servizio rapido",
+  "onboardPrefDiningWaterfront": "Lungomare",
+  "onboardPrefEmotionAdventurous": "Avventuroso",
+  "onboardPrefEmotionExcited": "Eccitato",
+  "onboardPrefEmotionFamilyFocused": "Incentrato sulla famiglia",
+  "onboardPrefEmotionInspiring": "Ispirante",
+  "onboardPrefEmotionLuxurious": "Lussuoso",
+  "onboardPrefEmotionMemorable": "Memorabile",
+  "onboardPrefEmotionRelaxed": "Rilassato",
+  "onboardPrefEmotionRomantic": "Romantico",
+  "onboardPrefEmotionStressFree": "Senza stress",
+  "onboardPrefExpAirboat": "Tour in idroscivolante",
+  "onboardPrefExpBoatTours": "Giri in barca",
+  "onboardPrefExpFishing": "Pesca",
+  "onboardPrefExpFoodTours": "Tour gastronomici",
+  "onboardPrefExpGolf": "Golf",
+  "onboardPrefExpKayaking": "Kayak",
+  "onboardPrefExpLiveShows": "Spettacoli dal vivo",
+  "onboardPrefExpMuseums": "Musei",
+  "onboardPrefExpNightclubs": "Discoteche",
+  "onboardPrefExpRooftopBars": "Bar sul tetto",
+  "onboardPrefExpScenicDrives": "Strade panoramiche",
+  "onboardPrefExpShopping": "Acquisti",
+  "onboardPrefExpSnorkeling": "Snorkeling subacqueo",
+  "onboardPrefExpSpas": "Terme",
+  "onboardPrefExpSunsetCruises": "Crociere al tramonto",
+  "onboardPrefExpThemeParks": "Parchi a tema",
+  "onboardPrefExpWaterParks": "Parchi acquatici",
+  "onboardPrefExpWildlife": "Esperienze sulla fauna selvatica",
+  "onboardPrefGoalAdventure": "Avventura",
+  "onboardPrefGoalAvoidCrowds": "Evita la folla",
+  "onboardPrefGoalBestFood": "Il miglior cibo",
+  "onboardPrefGoalBestPhotos": "Le migliori foto",
+  "onboardPrefGoalFamilyTime": "Tempo in famiglia",
+  "onboardPrefGoalHiddenGems": "Gemme nascoste",
+  "onboardPrefGoalLocal": "Esperienze locali",
+  "onboardPrefGoalLuxury": "Esperienze di lusso",
+  "onboardPrefGoalMakeMemories": "Crea ricordi",
+  "onboardPrefGoalNightlife": "Vita notturna",
+  "onboardPrefGoalRelaxation": "Relax",
+  "onboardPrefGoalRomance": "Romanticismo",
+  "onboardPrefGoalSaveMoney": "Risparmia denaro",
+  "onboardPrefGoalStressFree": "Pianificazione senza stress",
+  "onboardPrefHotelAdultsOnly": "Solo adulti",
+  "onboardPrefHotelBeachfront": "Fronte mare",
+  "onboardPrefHotelBoutique": "Albergo di charme",
+  "onboardPrefHotelBudgetFriendly": "Economico",
+  "onboardPrefHotelDowntown": "Centro",
+  "onboardPrefHotelFamilyResort": "Resort per famiglie",
+  "onboardPrefHotelHistoric": "Albergo storico",
+  "onboardPrefHotelLuxuryResort": "Resort di lusso",
+  "onboardPrefHotelModern": "Albergo moderno",
+  "onboardPrefHotelSpaResort": "Stazione termale",
+  "onboardPrefHotelThemeParkArea": "Area del parco a tema",
+  "onboardPrefHotelWalkable": "Zona pedonabile",
+  "onboardPrefPaceBalanced": "Equilibrato",
+  "onboardPrefPacePacked": "Imballato",
+  "onboardPrefPaceSlow": "Rilassato",
+  "onboardPrefStyleAdventure": "Avventura",
+  "onboardPrefStyleBeaches": "Spiagge",
+  "onboardPrefStyleEntertainment": "Divertimento",
+  "onboardPrefStyleFamilyActivities": "Attività familiari",
+  "onboardPrefStyleFoodie": "Buongustaio",
+  "onboardPrefStyleHiddenGems": "Gemme nascoste",
+  "onboardPrefStyleLocalExperiences": "Esperienze locali",
+  "onboardPrefStyleLuxury": "Lusso",
+  "onboardPrefStyleNature": "Natura",
+  "onboardPrefStyleNightlife": "Vita notturna",
+  "onboardPrefStylePhotography": "Fotografia",
+  "onboardPrefStyleRelaxation": "Relax",
+  "onboardPrefStyleRomance": "Romanticismo",
+  "onboardPrefStyleShopping": "Acquisti",
+  "onboardPrefStyleThemeParks": "Parchi a tema",
+  "onboardPrefStyleWellness": "Benessere",
+  "onboardPrefTravelerBusiness": "Attività commerciale",
+  "onboardPrefTravelerCouple": "Coppia",
+  "onboardPrefTravelerFamily": "Famiglia",
+  "onboardPrefTravelerFriends": "Amici",
+  "onboardPrefTravelerSolo": "Da solo",
   "onboardRegion": "Regione",
+  "onboardSelectEndDate": "Scegli la data di fine",
+  "onboardSelectStartDate": "Scegli la data di inizio",
+  "onboardStartDateLabel": "Data di inizio",
   "onboardStep1Subtitle": "Dove sei diretto?",
   "onboardStep1Title": "Dove i sogni atterrano per primi",
   "onboardStep2Subtitle": "Quando inizia la tua fuga?",
@@ -738,17 +1246,130 @@
   "onboardStep4Title": "Il tuo ritmo",
   "onboardStep5Subtitle": "Come vuoi che SENTI questo viaggio?",
   "onboardStep5Title": "Il cuore di Luxora",
+  "onboardStepBudgetSubtitle": "Cosa ti sembra giusto per questa fuga?",
+  "onboardStepBudgetTitle": "Pianifica con facilità",
+  "onboardStepNameEyebrow": "La tua storia inizia con un nome",
+  "onboardStepNameSubtitle": "Luxora può creare un titolo in base alle tue vibrazioni o digitarne uno tuo.",
+  "onboardStepNameTitle": "Come dovremmo chiamare questo viaggio?",
+  "onboardSummaryCuisine": "{cuisine} preferiti",
+  "@onboardSummaryCuisine": {
+    "placeholders": {
+      "cuisine": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardSummaryEmotion": "Viaggio incentrato sulle {emotion}",
+  "@onboardSummaryEmotion": {
+    "placeholders": {
+      "emotion": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardSummaryExperiences": "Esperienze",
+  "onboardSummaryHiddenGems": "Gemme nascoste",
+  "onboardSummaryHiddenGemsInsight": "Ristoranti e gemme locali nascosti",
+  "onboardSummaryHotelDefault": "Soggiorni curati adatti al tuo budget",
+  "onboardSummaryHotelType": "{type} soggiorno",
+  "@onboardSummaryHotelType": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardSummaryHotels": "Alberghi",
+  "onboardSummaryPace": "{pace} ritmo giornaliero",
+  "@onboardSummaryPace": {
+    "placeholders": {
+      "pace": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardSummaryPremiumGems": "Gemme nascoste premium",
+  "onboardSummaryRestaurants": "Ristoranti",
+  "onboardSummaryRomantic": "Esperienze romantiche al tramonto",
+  "onboardSummaryRooftopDining": "Esperienze culinarie sul tetto",
+  "onboardThemeParksOccasionHint": "Sblocca Disney & Universal per aggiungere occasioni nei parchi a tema qui sotto: vedrai i gettoni subito dopo l'acquisto.",
+  "onboardTravelerNameEyebrow": "Per prima cosa",
+  "onboardTravelerNameHint": "per esempio. Maria",
+  "onboardTravelerNameLabel": "Il tuo nome",
+  "onboardTravelerNameSubtitle": "È sufficiente il tuo nome: Luxora lo utilizzerà quando chatti.",
+  "onboardTravelerNameTitle": "Come dovrebbe chiamarti Luxora?",
   "onboardTravelers": "Viaggiatori",
   "onboardTripFeelHint": "Cene al tramonto, mattine tranquille, risate con il mio partner...",
-  "onboardStepNameEyebrow": "La tua storia inizia con un nome",
-  "onboardStepNameTitle": "Come vuoi chiamare questo viaggio?",
-  "onboardStepNameSubtitle": "Luxora può creare un titolo dal tuo stile — oppure scrivi il tuo.",
-  "onboardTripNameLuxora": "Lascia nome a Luxora",
-  "onboardTripNameYours": "Lo chiamo io",
-  "onboardTripNameHint": "La nostra fuga di anniversario…",
+  "onboardTripNameHint": "La nostra fuga per l'anniversario di primavera...",
+  "onboardTripNameLuxora": "Lascia che sia Luxora a dargli un nome",
   "onboardTripNameSuggested": "Luxora suggerisce: {name}",
-  "conciergeTripNameLabel": "Nome del viaggio",
+  "@onboardTripNameSuggested": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardTripNameYours": "Lo nominerò",
+  "onboardV2ChildrenLabel": "Bambini in viaggio?",
+  "onboardV2ChildrenSubtitle": "Seleziona tutte le fasce d'età applicabili.",
+  "onboardV2CuisineLabel": "Tipi di cucina",
+  "onboardV2DiningStyleLabel": "Stile da pranzo",
+  "onboardV2Eyebrow": "Progettiamo il tuo viaggio perfetto",
+  "onboardV2HotelAmenitiesLabel": "Servizi indispensabili",
+  "onboardV2HotelBudgetLabel": "Bilancio dell'hotel",
+  "onboardV2PaceBalancedBody": "4-5 attività al giorno",
+  "onboardV2PaceBalancedTitle": "Equilibrato",
+  "onboardV2PacePackedBody": "Massimizza ogni giorno",
+  "onboardV2PacePackedTitle": "Imballato",
+  "onboardV2PaceRelaxedBody": "2-3 attività al giorno",
+  "onboardV2PaceRelaxedTitle": "Rilassato",
+  "onboardV2StepAvoidEyebrow": "Passaggio 8",
+  "onboardV2StepAvoidSubtitle": "Luxora evita ciò che prosciuga il tuo viaggio.",
+  "onboardV2StepAvoidTitle": "Cosa preferiresti evitare?",
+  "onboardV2StepEmotionEyebrow": "Passaggio 9",
+  "onboardV2StepEmotionSubtitle": "Scegli un sentimento primario.",
+  "onboardV2StepEmotionTitle": "Cosa renderebbe questo viaggio un successo?",
+  "onboardV2StepExperienceEyebrow": "Passaggio 7",
+  "onboardV2StepExperienceSubtitle": "Li intesseremo nel tuo itinerario.",
+  "onboardV2StepExperienceTitle": "Quali esperienze ti piacerebbe?",
+  "onboardV2StepFoodEyebrow": "Passaggio 4",
+  "onboardV2StepFoodSubtitle": "Cucina e stile di ristorazione: scegli tutto ciò che ami.",
+  "onboardV2StepFoodTitle": "Che tipi di ristoranti ti piacciono?",
+  "onboardV2StepGoalsEyebrow": "Passaggio 6",
+  "onboardV2StepGoalsSubtitle": "Scegli fino a cinque priorità.",
+  "onboardV2StepGoalsTitle": "Cosa conta di più in questo viaggio?",
+  "onboardV2StepHotelEyebrow": "Passaggio 3",
+  "onboardV2StepHotelSubtitle": "Abbineremo gemme di boutique e icone di resort.",
+  "onboardV2StepHotelTitle": "Che tipo di posto ti piacerebbe soggiornare?",
+  "onboardV2StepPaceEyebrow": "Passaggio 5",
+  "onboardV2StepPaceSubtitle": "Mattinate rilassate o avventure ricche: scegli tu.",
+  "onboardV2StepPaceTitle": "Come vorresti che fossero programmate le tue giornate?",
+  "onboardV2StepStyleEyebrow": "Passaggio 2",
+  "onboardV2StepStyleSubtitle": "Scegli tutto ciò che ti entusiasma.",
+  "onboardV2StepStyleTitle": "Che tipo di viaggio stai cercando?",
+  "onboardV2StepSummaryEyebrow": "L'anteprima del tuo concierge",
+  "onboardV2StepSummarySubtitle": "Stiamo costruendo il tuo viaggio perfetto adesso.",
+  "onboardV2StepSummaryTitle": "In base alle tue selezioni, Luxora consiglia",
+  "onboardV2StepTravelerEyebrow": "Passaggio 1",
+  "onboardV2StepTravelerSubtitle": "Luxora personalizza i soggiorni, i pasti e il ritmo del tuo equipaggio.",
+  "onboardV2StepTravelerTitle": "Con chi viaggi?",
+  "orlandoThemeParksPromptBody": "Aggiungi il pacchetto parchi a tema per Walt Disney World e Universal Orlando: tutti i parchi, le offerte sui biglietti, i percorsi e le informazioni sulla folla in un unico sblocco.",
+  "orlandoThemeParksPromptNotNow": "Non adesso",
+  "orlandoThemeParksPromptTitle": "Sbloccare Disney e Universal per Orlando?",
+  "orlandoThemeParksPromptUnlock": "Sblocca · {price}",
+  "@orlandoThemeParksPromptUnlock": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
   "partnerOffersTitle": "Offerte dei partner",
+  "paywallAddonRequiresOrlando": "Richiede prima lo sblocco di Orlando",
+  "paywallAddonThemeParksSubtitle": "Walt Disney World e Universal Orlando: tutti i parchi, le offerte, i percorsi e le informazioni sulla folla in un unico sblocco.",
+  "paywallAddonThemeParksTitle": "Pacchetto Disney e universale",
+  "paywallAddonUnlocked": "Sbloccato",
   "paywallBenefitAvoidTrapsBody": "Trova le esperienze effettivamente consigliate dalla gente del posto.",
   "paywallBenefitAvoidTrapsTitle": "Evita le trappole per turisti",
   "paywallBenefitSaveMoneyBody": "Scopri sconti sui biglietti, offerte locali e scelte più intelligenti.",
@@ -767,8 +1388,17 @@
       }
     }
   },
+  "paywallCtaUnlockAddon": "Sblocca {packName}",
+  "@paywallCtaUnlockAddon": {
+    "placeholders": {
+      "packName": {
+        "type": "String"
+      }
+    }
+  },
   "paywallEmotionalLine": "Stai già spendendo migliaia di euro per le tue vacanze. Non lasciare l'esperienza al caso.",
   "paywallFeatureAiConcierge": "Portineria dell'AI",
+  "paywallFeatureCloudBackup": "Backup del viaggio nel cloud",
   "paywallFeatureCrowdIntel": "Intelligenza della folla",
   "paywallFeatureDining": "Consigli per i pasti",
   "paywallFeatureGpsNav": "Navigazione GPS",
@@ -828,39 +1458,6 @@
     }
   },
   "paywallHeadlineMiamiDefault": "VIVI MIAMI IN MODO DIVERSO",
-  "keysWaterIntelTitle": "Intelligence acquatica delle Keys",
-  "keysWaterBestTime": "Finestra migliore: {time}",
-  "@keysWaterBestTime": {
-    "placeholders": {
-      "time": {
-        "type": "String"
-      }
-    }
-  },
-  "keysWaterTemp": "Acqua: {note}",
-  "@keysWaterTemp": {
-    "placeholders": {
-      "note": {
-        "type": "String"
-      }
-    }
-  },
-  "keysWaterSnorkelScore": "Snorkel",
-  "keysWaterDivingScore": "Immersioni",
-  "keysWaterBoatingScore": "Barca",
-  "keysWaterFishingScore": "Pesca",
-  "keysWaterWindScore": "Vento",
-  "keysWaterSunsetScore": "Tramonto",
-  "keysWaterCrowdScore": "Folla",
-  "keysMoodRoutesTitle": "Rotte insulari delle Keys",
-  "keysMoodRouteStart": "Inizio {time}",
-  "@keysMoodRouteStart": {
-    "placeholders": {
-      "time": {
-        "type": "String"
-      }
-    }
-  },
   "paywallHeadlineMiamiWeekend": "NON SPRECARE IL TUO WEEKEND A MIAMI",
   "paywallHeroEyebrow": "IL TUO CONCIERGE PERSONALE",
   "paywallHeroHeadline": "NON SPRECARE LA TUA VACANZA",
@@ -908,10 +1505,41 @@
   "paywallNoMonthlyFees": "Nessun costo mensile",
   "paywallNoSubscription": "Nessun abbonamento",
   "paywallOneTimePurchase": "Acquisto una tantum",
+  "paywallOrlandoAddonsHeading": "Pacchetto parco a tema",
+  "paywallOrlandoBaseIncludes": "Lo sblocco di Orlando include ristoranti, gemme nascoste, hotel ed esperienze non legate ai parchi. Aggiungi insieme il pacchetto parco a tema per Disney e Universal.",
+  "paywallProductUnavailable": "Questo pacchetto non è ancora disponibile nel negozio.",
+  "paywallPurchaseCanceled": "Acquisto annullato.",
+  "paywallPurchaseFailed": "Impossibile completare l'acquisto. Riprova o ripristina gli acquisti.",
+  "paywallPurchasePending": "Completamento dell'acquisto…",
+  "paywallPurchaseSuccess": "Acquisto completato: il tuo concierge è sbloccato.",
+  "paywallRestoreComplete": "Acquisti ripristinati.",
+  "paywallRestoreNone": "Nessun acquisto precedente trovato per questo ID Apple o account Google.",
+  "paywallRestorePurchases": "Ripristina gli acquisti",
   "paywallReview1": "\"Ci ha fatto risparmiare ore di pianificazione.\"",
   "paywallReview2": "\"Ho trovato posti che non avremmo mai scoperto.\"",
   "paywallReview3": "\"Ne vale la pena solo per le gemme nascoste.\"",
   "paywallSocialProofTitle": "Viaggiatori che hanno sbloccato Luxora",
+  "paywallStoreUnavailable": "La fatturazione dell'App Store non è disponibile su questo dispositivo.",
+  "paywallSwitchCity": "Destinazione",
+  "paywallUnlockAddon": "Sblocca {packName} · {price}",
+  "@paywallUnlockAddon": {
+    "placeholders": {
+      "packName": {
+        "type": "String"
+      },
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallUnlockAddonPack": "Sblocca {packName}",
+  "@paywallUnlockAddonPack": {
+    "placeholders": {
+      "packName": {
+        "type": "String"
+      }
+    }
+  },
   "paywallUnlockCityConcierge": "Sblocca il concierge di {cityName}",
   "@paywallUnlockCityConcierge": {
     "placeholders": {
@@ -941,17 +1569,37 @@
   "radius50": "50 miglia",
   "radiusAllFlorida": "Tutta la Florida",
   "radiusDesc100": "Tampa Bay, Daytona, Golfo più profondo",
+  "radiusDesc100Keys": "Tutta l'autostrada d'oltremare attraverso Key West",
   "radiusDesc100Miami": "Everglades, Fort Lauderdale, nel profondo sud della Florida",
   "radiusDesc25": "Gite di un giorno nel centro di Orlando",
+  "radiusDesc25Keys": "Key Largo, Islamorada e corridoio superiore della barriera corallina",
   "radiusDesc25Miami": "South Beach, Brickell e i quartieri centrali",
   "radiusDesc50": "Sorgenti, gite di un giorno sulla costa, Space Coast",
+  "radiusDesc50Keys": "Spiagge di Marathon, Big Pine e Middle Keys",
   "radiusDesc50Miami": "Wynwood, Coconut Grove, Key Biscayne",
   "radiusDescAll": "Keys, Miami, punti salienti in tutto lo stato",
+  "radiusDescAllKeys": "Intera catena di isole e acque per gite di un giorno",
   "radiusDescAllMiami": "Sentiero delle Florida Keys e punti salienti in tutto lo stato",
-  "radiusDesc25Keys": "Key Largo, Islamorada e corridoio della barriera settentrionale",
-  "radiusDesc50Keys": "Marathon, Big Pine e spiagge delle Keys centrali",
-  "radiusDesc100Keys": "Intera Overseas Highway fino a Key West",
-  "radiusDescAllKeys": "Intera catena isolata e acque per gite giornaliere",
+  "restaurantsConciergePick": "Scegli un ristorante per me",
+  "restaurantsConciergePickDone": "{name} salvato: chiedi al Concierge di aggiungerlo al tuo viaggio.",
+  "@restaurantsConciergePickDone": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "restaurantsEmptyHint": "Nessun ristorante nel tuo raggio di scoperta: amplia il raggio sulla mappa.",
+  "restaurantsPageSubtitle": "Sfoglia i ristoranti che Luxora conosce: salva i preferiti o lascia che sia il Concierge a scegliere il pasto di stasera.",
+  "restaurantsPageTitle": "Ristoranti",
+  "restaurantsSavedCount": "{count} risparmiati per il tuo viaggio",
+  "@restaurantsSavedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "rightNowButton": "Cosa dovremmo fare adesso?",
   "rightNowEmpty": "Nessun momento forte nel tuo raggio ancora: amplia, scopri o aggiungi alcuni preferiti ai preferiti.",
   "rightNowFamilyCalm": "Calma durante il pisolino: {minutes} minuti per un facile ripristino della famiglia a {place}.",
@@ -1090,14 +1738,43 @@
     }
   },
   "settings": "Impostazioni",
+  "settingsOpenConciergeSubtitle": "Apri la scheda Concierge AI",
   "settingsStartOverSubtitle": "Inizia un nuovo viaggio da zero",
+  "settingsThemeIntro": "Leggibilità cinematografica di lusso o pulita: scegli ciò che si adatta alla tua giornata.",
+  "settingsThemeSectionLuxury": "Cinematografico di lusso",
+  "settingsThemeSectionReadable": "Pulito e leggibile",
   "settingsUnlockConciergeSubtitle": "Pacchetto città una tantum: non un abbonamento",
-  "settingsOpenConciergeSubtitle": "Apri la scheda concierge IA",
   "settingsUnlockConciergeTitle": "Sblocca il concierge cittadino",
   "settings_language_picker_note": "Le modifiche si applicano immediatamente.",
   "settings_regions_coming_subtitle": "Hub casa e pacchetti città: presto disponibili.",
   "settings_regions_coming_title": "Paesi e città",
+  "shareCardCta": "Organizza il tuo a Luxora",
+  "shareCardDownloadHint": "Gratuito su iOS e Android · luxora.ai/download",
+  "shareCardShareMessage": "{title}\n\nPianificato con Luxora AI: viaggio in Florida emotivamente intelligente.\nOttieni l'app: {url}",
+  "@shareCardShareMessage": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "shareDayLegDrive": "{time} drive · {miles} dalla fermata precedente",
+  "@shareDayLegDrive": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      },
+      "miles": {
+        "type": "String"
+      }
+    }
+  },
   "shareItineraryFooter": "Progettato con Luxora, il tuo compagno della Florida emotivamente intelligente.",
+  "shareMapPreviewCaption": "Anteprima della mappa · ​​aperto a Luxora per indicazioni in tempo reale",
+  "shareRadarPreviewCaption": "Radar Doppler in tempo reale · aperto a Luxora per il giro completo",
   "shareSubject": "Il mio {title}",
   "@shareSubject": {
     "placeholders": {
@@ -1173,16 +1850,56 @@
   "styleNoTraps": "Nessuna trappola per turisti",
   "styleSlowMornings": "Mattine lente",
   "styleWalkable": "Percorribile quando possibile",
+  "ticketAgendaMatchLine": "{stop} · risparmio stimato di {amount} tramite {source}",
+  "@ticketAgendaMatchLine": {
+    "placeholders": {
+      "stop": {
+        "type": "String"
+      },
+      "amount": {
+        "type": "String"
+      },
+      "source": {
+        "type": "String"
+      }
+    }
+  },
+  "ticketAgendaStopsSavings": "Est. risparmi familiari · {amount}",
+  "@ticketAgendaStopsSavings": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "ticketAgendaStopsSummary": "{count} fermate nella tua agenda hanno offerte partner: confronta le offerte autorizzate prima di acquistare all'ingresso.",
+  "@ticketAgendaStopsSummary": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "ticketAiInsightTitle": "Raccomandazione Luxora",
   "ticketBetterOption": "Luxora ha trovato un'opzione migliore.",
+  "ticketBrowseAgendaDeals": "Sfoglia le offerte per la tua agenda →",
   "ticketCalculatorTitle": "Risparmio potenziale",
+  "ticketConciergeIntelAgenda": "Abbinati alle fermate della tua agenda, non a un elenco di coupon generico.",
+  "ticketConciergeIntelBadge": "Informazioni sulla portineria",
   "ticketConfidenceHigh": "Alta fiducia",
   "ticketConfidenceLimited": "Tempo limitato",
   "ticketConfidenceVerified": "Rivenditore verificato",
-  "ticketDealsSectionTitle": "Offerte autorizzate",
   "ticketDealsPricesAsOf": "Prezzi al {date}",
-  "ticketDealsRefreshFailed": "Impossibile aggiornare i prezzi — mostro le offerte in cache.",
-  "ticketDealsUpdating": "Aggiornamento prezzi…",
+  "@ticketDealsPricesAsOf": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "ticketDealsRefreshFailed": "Impossibile aggiornare i prezzi: vengono visualizzate le offerte memorizzate nella cache.",
+  "ticketDealsSectionTitle": "Offerte autorizzate",
+  "ticketDealsUpdating": "Aggiornamento dei prezzi…",
   "ticketDiscountPrice": "Prezzo Luxora",
   "ticketEstimatedFamilySave": "Risparmio familiare stimato: {amount}.",
   "@ticketEstimatedFamilySave": {
@@ -1271,6 +1988,22 @@
       }
     }
   },
+  "todayExtrasCollapsedHint": "Offerte, carte condivise e altro ancora",
+  "todayExtrasSection": "Biglietti e condivisione",
+  "todayNextActivityLabel": "Il prossimo",
+  "todayPlanDetailsTitle": "Programma completo",
+  "todayPlanSectionTitle": "Il piano di oggi",
+  "todayPlanStopCount": "{count, plural, =1{1 stop today} other{{count} fermate oggi}}",
+  "@todayPlanStopCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "todayRainRerouteTitle": "Reindirizzamento in caso di pioggia",
+  "todayStaysDiningCollapsedHint": "Idee per hotel e ristoranti: tocca per espandere",
+  "todayStaysDiningSection": "Soggiorni e scelte gastronomiche",
   "tripStoryBeatClosing": "Luxora ha plasmato i momenti: li hai vissuti.",
   "tripStoryBeatMoods": "Sei venuto per {moods}.",
   "@tripStoryBeatMoods": {
@@ -1298,6 +2031,8 @@
   },
   "tripStoryTitle": "Il racconto del tuo viaggio",
   "tripsBadge": "COLLEZIONI",
+  "tripsDatesFlexible": "Date flessibili",
+  "tripsDatesUpdated": "Date del viaggio aggiornate",
   "tripsDeleteBody": "Questa operazione rimuoverà \"{title}\" dai tuoi viaggi salvati. Questa operazione non può essere annullata.",
   "@tripsDeleteBody": {
     "placeholders": {
@@ -1308,15 +2043,17 @@
   },
   "tripsDeleteTitle": "Eliminare il viaggio?",
   "tripsDeleted": "Viaggio cancellato",
+  "tripsEditDates": "Date del viaggio",
   "tripsEmptyBody": "Pianifica il tuo primo viaggio e apparirà qui, pronto per essere rivisitato in qualsiasi momento.",
   "tripsEmptyTitle": "Nessun viaggio ancora salvato",
-  "tripsFooter": "Copertine dal catalogo mood · backup cloud dopo l’accesso",
+  "tripsFooter": "Copertine di viaggio dal catalogo mood · Sincronizzazione Supabase Fase 2",
   "tripsLiveWeather": "Meteo in diretta",
   "tripsNextUp": "Il prossimo passo",
+  "tripsOpenAgenda": "Apri l'agenda completa",
   "tripsOpenStory": "La tua storia",
-  "tripsOpenAgenda": "Apri agenda completa",
   "tripsOpenTimeline": "Apri la cronologia completa",
   "tripsPlanNew": "Pianifica un nuovo viaggio",
+  "tripsSaveDates": "Salva le date",
   "tripsShare": "Condividere",
   "tripsSubtitle": "Tocca un viaggio per un'istantanea in tempo reale: momento successivo, meteo, tramonto e sequenza temporale.",
   "tripsSunsetWindow": "Finestra al tramonto",
@@ -1456,9 +2193,36 @@
   "weatherPackWater": "Bottiglia d'acqua",
   "weatherPlanImpact": "Impatto sul tuo piano",
   "weatherRadarComingSoon": "Radar live in arrivo.",
-  "weatherRadarPlay": "Avvia loop",
-  "weatherRadarPause": "Pausa loop",
-  "weatherRadarTapToExpand": "Tocca per schermo intero",
+  "weatherRadarJump1h": "-1 ora",
+  "weatherRadarJump2h": "−2 ore",
+  "weatherRadarJump30m": "+30 minuti",
+  "weatherRadarJumpNow": "Ora",
+  "weatherRadarLoopNote": "Circuito radar: ultime circa 2 ore con incrementi di 10 minuti, più nowcast a corto raggio quando disponibile, non una previsione a 4 ore.",
+  "weatherRadarMinutesAgo": "{minutes} minuti fa",
+  "@weatherRadarMinutesAgo": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "weatherRadarMinutesAhead": "+{minutes} min",
+  "@weatherRadarMinutesAhead": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "weatherRadarNow": "Ora",
+  "weatherRadarPause": "Metti in pausa il ciclo",
+  "weatherRadarPlay": "Gioca in loop",
+  "weatherRadarSpeedFast": "Veloce",
+  "weatherRadarSpeedNormal": "Normale",
+  "weatherRadarSpeedSlow": "Lento",
+  "weatherRadarStepBack": "Telaio precedente",
+  "weatherRadarStepForward": "Cornice successiva",
+  "weatherRadarTapToExpand": "Tocca per lo schermo intero",
   "weatherRainNote": "{percent}% di possibilità di pioggia: porta con te uno strato leggero.",
   "@weatherRainNote": {
     "placeholders": {
@@ -1524,613 +2288,5 @@
         "type": "int"
       }
     }
-  },
-  "mapParkingLevelEasy": "Facile",
-  "mapParkingLevelModerate": "Moderato",
-  "mapParkingLevelDifficult": "Difficile",
-  "mapParkingLevelLimited": "Limitato · arriva presto",
-  "mapParkingAtStop": "Parcheggio: {level}",
-  "@mapParkingAtStop": {
-    "placeholders": {
-      "level": {
-        "type": "String"
-      }
-    }
-  },
-  "mapDriveFrictionAtStop": "Stress di guida: {score}/90",
-  "@mapDriveFrictionAtStop": {
-    "placeholders": {
-      "score": {
-        "type": "int"
-      }
-    }
-  },
-  "detailTravelIntelTitle": "Prospettiva attrito viaggio",
-  "detailTravelIntelSubtitle": "Previsione da categoria, ora e distanza — nessun sensore live.",
-  "detailCrowdOutlook": "Folla: {level}",
-  "@detailCrowdOutlook": {
-    "placeholders": {
-      "level": {
-        "type": "String"
-      }
-    }
-  },
-  "detailParkingOutlook": "Parcheggio: {level}",
-  "@detailParkingOutlook": {
-    "placeholders": {
-      "level": {
-        "type": "String"
-      }
-    }
-  },
-  "detailDriveFrictionOutlook": "Stress di guida: {score}/90",
-  "@detailDriveFrictionOutlook": {
-    "placeholders": {
-      "score": {
-        "type": "int"
-      }
-    }
-  },
-  "onboardCityLabel": "Scegli la tua città",
-  "onboardCityUnlockNote": "Ogni destinazione ha il proprio sblocco concierge — acquisto una tantum per città. I parchi di Orlando sono un pack (Disney e Universal insieme).",
-  "landingCityLabel": "Dove stai andando?",
-  "paywallSwitchCity": "Destinazione",
-  "cityPickerUnlocked": "Sbloccato",
-  "cityPickerUnlockPrice": "Sblocca {price}",
-  "@cityPickerUnlockPrice": {
-    "placeholders": {
-      "price": {
-        "type": "String"
-      }
-    }
-  },
-  "paywallOrlandoAddonsHeading": "Pack parchi a tema",
-  "paywallOrlandoBaseIncludes": "Orlando include ristoranti, gemme nascoste, hotel ed esperienze fuori parco. Aggiungi il pack parchi per Disney e Universal insieme.",
-  "paywallUnlockAddon": "Sblocca {packName} · {price}",
-  "@paywallUnlockAddon": {
-    "placeholders": {
-      "packName": {
-        "type": "String"
-      },
-      "price": {
-        "type": "String"
-      }
-    }
-  },
-  "paywallAddonUnlocked": "Sbloccato",
-  "paywallAddonRequiresOrlando": "Richiede prima lo sblocco Orlando",
-  "paywallUnlockAddonPack": "Sblocca {packName}",
-  "@paywallUnlockAddonPack": {
-    "placeholders": {
-      "packName": {
-        "type": "String"
-      }
-    }
-  },
-  "paywallCtaUnlockAddon": "Sblocca {packName}",
-  "@paywallCtaUnlockAddon": {
-    "placeholders": {
-      "packName": {
-        "type": "String"
-      }
-    }
-  },
-  "paywallAddonThemeParksTitle": "Pack Disney e Universal",
-  "paywallAddonThemeParksSubtitle": "Walt Disney World e Universal Orlando — tutti i parchi, offerte, percorsi e intel affollamento in uno sblocco.",
-  "hotelLinkUnavailable": "Link di prenotazione non disponibile per questo soggiorno.",
-  "hotelLinkOpenFailed": "Impossibile aprire il link — riprova nel browser.",
-  "cityPickerThemeParksSubtitle": "Add-on Orlando · Disney e Universal insieme",
-  "orlandoThemeParksPromptTitle": "Sbloccare Disney e Universal per Orlando?",
-  "orlandoThemeParksPromptBody": "Aggiungi il pack parchi per Walt Disney World e Universal Orlando — tutti i parchi, offerte biglietti, percorsi e intel affollamento in uno sblocco.",
-  "orlandoThemeParksPromptUnlock": "Sblocca · {price}",
-  "@orlandoThemeParksPromptUnlock": {
-    "placeholders": {
-      "price": {
-        "type": "String"
-      }
-    }
-  },
-  "orlandoThemeParksPromptNotNow": "Non ora",
-  "conciergeThinking": "Luxora sta pensando…",
-  "conciergeItinerarySynced": "L'ho aggiunto all'agenda di oggi su Mappa e alla Timeline — stesse tappe, pronte da condividere.",
-  "conciergeAgendaUpdatedSnack": "La tua agenda è pronta su Mappa",
-  "conciergeAgendaSyncFailed": "Map and Timeline did not update. Try one clear request, for example: Plan a 4-day Disney and Universal trip.",
-  "conciergeViewAgendaOnMap": "Vai alla Mappa",
-  "conciergeAgendaDealsIntro": "Ho abbinato offerte autorizzate alle tappe della tua agenda — confronta prima di comprare al botteghino:",
-  "conciergeAgendaDealsSnack": "Offerte biglietti abbinati alla tua agenda",
-  "conciergeViewTicketDeals": "Vedi offerte",
-  "ticketAgendaMatchLine": "{stop} · risparmio stim. {amount} via {source}",
-  "ticketAgendaStopsSummary": "{count} tappe della tua agenda hanno offerte partner — confronta le offerte autorizzate prima di comprare al botteghino.",
-  "ticketAgendaStopsSavings": "Risparmio famiglia stim. · {amount}",
-  "ticketBrowseAgendaDeals": "Sfoglia offerte per la tua agenda →",
-  "conciergeFreshThread": "La tua agenda è su Mappa e Timeline. Ho archiviato questa chat e ne ho aperta una nuova — modifica la giornata, trova offerte o chiedi qualcos'altro.",
-  "conciergeThreadArchivedSnack": "Chat archiviata — nuova conversazione",
-  "conciergeNewConversationTooltip": "Nuova conversazione",
-  "itinerarySameAsMapAgenda": "Stesso piano dell'agenda di oggi sulla scheda Mappa — condividi la giornata qui o da Mappa.",
-  "conciergeTicketsFoundIntro": "Ho trovato offerte autorizzate per il tuo viaggio — tocca Prenota biglietti nella Timeline per i link diretti.",
-  "conciergeTicketDealLine": "• {title}: {price} via {source} (risparmio {savings})",
-  "@conciergeTicketDealLine": {
-    "placeholders": {
-      "title": {
-        "type": "String"
-      },
-      "price": {
-        "type": "String"
-      },
-      "source": {
-        "type": "String"
-      },
-      "savings": {
-        "type": "String"
-      }
-    }
-  },
-  "conciergeTicketsTimelineHint": "Ogni tappa corrispondente nella Timeline ha un pulsante Prenota biglietti con il link del rivenditore.",
-  "itineraryBookTickets": "Prenota biglietti · Risparmia {amount}",
-  "@itineraryBookTickets": {
-    "placeholders": {
-      "amount": {
-        "type": "String"
-      }
-    }
-  },
-  "itineraryOpenTicketDeal": "Prenota biglietti",
-  "conciergeTripSaved": "Ho salvato “{title}” in Viaggi — apri la scheda Trips quando vuoi.",
-  "@conciergeTripSaved": {
-    "placeholders": {
-      "title": {
-        "type": "String"
-      }
-    }
-  },
-  "conciergeTripSavedWithStops": "Ho salvato “{title}” con {count} esperienze sulla timeline.",
-  "@conciergeTripSavedWithStops": {
-    "placeholders": {
-      "title": {
-        "type": "String"
-      },
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "conciergeSavedTripsIntro": "Hai {count} viaggio/i salvato/i:",
-  "@conciergeSavedTripsIntro": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "conciergeSavedTripLine": "• {title} ({dates}) — {status}",
-  "@conciergeSavedTripLine": {
-    "placeholders": {
-      "title": {
-        "type": "String"
-      },
-      "dates": {
-        "type": "String"
-      },
-      "status": {
-        "type": "String"
-      }
-    }
-  },
-  "conciergeSavedTripsEmpty": "Non hai ancora viaggi salvati — chiedimi di pianificare qualcosa, poi di “salva il mio viaggio”.",
-  "conciergeSavedTripsHint": "Apri la scheda Trips per vedere le card, condividere o modificare le date.",
-  "conciergeAiError": "Non riesco a raggiungere Luxora. Controlla la connessione e riprova.",
-  "conciergeAiNotConfigured": "Luxora's live concierge isn't wired up on this build yet — Supabase URL and anon key need to be baked into the app, and the edge function deployed. Map and itinerary still work; see docs/CONCIERGE_AI.md for setup.",
-  "conciergeVoiceListening": "Luxora sta ascoltando…",
-  "conciergeVoiceSpeaking": "Luxora sta parlando…",
-  "conciergeVoiceRelease": "Rilascia per inviare",
-  "conciergeVoiceUnavailable": "La voce non è disponibile su questo dispositivo.",
-  "conciergeVoiceSettingsTitle": "Voce di Luxora",
-  "conciergeVoiceSettingsSubtitle": "Scegli accento, tono e ritmo — usa le voci di sistema del dispositivo.",
-  "conciergeVoiceRateLabel": "Ritmo di voce",
-  "conciergeVoiceRateSlow": "Lento",
-  "conciergeVoiceRateNatural": "Naturale",
-  "conciergeVoiceRateFast": "Veloce",
-  "conciergeVoicePreview": "Anteprima voce",
-  "conciergeVoicePreviewSample": "Ciao — sono Luxora. Dimmi come vuoi sentirti in questo viaggio.",
-  "conciergeVoiceDeviceNote": "Download more voices in iPhone Settings → Accessibility → Spoken Content → Voices. Return here and tap Refresh.",
-  "conciergeVoiceRegionRecommended": "Consigliato",
-  "conciergeVoiceRegionEnglish": "Inglese",
-  "conciergeVoiceRegionRussian": "Russo",
-  "conciergeVoiceRegionSpanish": "Spagnolo",
-  "conciergeVoiceRegionFrench": "Francese",
-  "conciergeVoiceRegionGerman": "Tedesco",
-  "conciergeVoiceRegionOther": "Altro",
-  "conciergeVoicePresetMatchApp": "Lingua app · Femminile",
-  "conciergeVoicePresetEnUsF": "Americana · Femminile",
-  "conciergeVoicePresetEnUsM": "Americana · Maschile",
-  "conciergeVoicePresetEnGbF": "Britannica · Femminile",
-  "conciergeVoicePresetEnGbM": "Britannica · Maschile",
-  "conciergeVoicePresetRuF": "Russa · Femminile",
-  "conciergeVoicePresetRuM": "Russo · Maschile",
-  "conciergeVoicePresetEsF": "Spagnola · Femminile",
-  "conciergeVoicePresetEsM": "Spagnola · Maschile",
-  "conciergeVoicePresetFrF": "Francese · Femminile",
-  "conciergeVoicePresetFrM": "Francese · Maschile",
-  "conciergeVoicePresetDeF": "Tedesca · Femminile",
-  "conciergeVoicePresetDeM": "Tedesco · Maschile",
-  "conciergeVoiceNoSpeech": "Non ho capito — tieni premuto, parla e rilascia.",
-  "conciergeVoicePreviewFailed": "Anteprima non riprodotta. Controlla il volume e riprova.",
-  "onboardStartDateLabel": "Data di inizio",
-  "onboardEndDateLabel": "Data di fine",
-  "onboardPickDate": "Tocca per scegliere",
-  "onboardSelectStartDate": "Scegli data di inizio",
-  "onboardSelectEndDate": "Scegli data di fine",
-  "onboardDatesHint": "Puoi modificarle in qualsiasi momento nella scheda Viaggi.",
-  "onboardStepBudgetTitle": "Pianifica con calma",
-  "onboardStepBudgetSubtitle": "Quale budget per questa fuga?",
-  "tripsEditDates": "Date del viaggio",
-  "tripsSaveDates": "Salva date",
-  "tripsDatesUpdated": "Date aggiornate",
-  "tripsDatesFlexible": "Date flessibili",
-  "shareDayLegDrive": "{time} di guida · {miles} dalla tappa precedente",
-  "conciergeVoiceSend": "Invia a Luxora",
-  "conciergeVoiceProcessing": "Invio a Luxora…",
-  "weatherRadarNow": "Adesso",
-  "weatherRadarMinutesAgo": "{minutes} min fa",
-  "weatherRadarMinutesAhead": "+{minutes} min",
-  "weatherRadarStepBack": "Earlier frame",
-  "weatherRadarStepForward": "Later frame",
-  "weatherRadarJumpNow": "Now",
-  "weatherRadarJump1h": "−1 hr",
-  "weatherRadarJump2h": "−2 hr",
-  "weatherRadarJump30m": "+30 min",
-  "weatherRadarSpeedSlow": "Slow",
-  "weatherRadarSpeedNormal": "Normal",
-  "weatherRadarSpeedFast": "Fast",
-  "weatherRadarLoopNote": "Radar loop: past ~2 hours in 10‑minute steps, plus short-range nowcast when available — not a 4‑hour forecast.",
-  "shareMapPreviewCaption": "Anteprima mappa · apri in Luxora per indicazioni live",
-  "shareRadarPreviewCaption": "Radar Doppler live · apri in Luxora per il loop completo",
-  "dayFlowSwapTitle": "Cambia questa tappa",
-  "dayFlowSwapSubtitle": "Dì a Luxora cosa preferiresti al posto di {current}.",
-  "dayFlowSwapTemplate": "Stavo pensando a qualcosa tipo…",
-  "dayFlowSwapHint": "e.g. a quiet park this morning, or seafood for dinner",
-  "dayFlowSwapApply": "Aggiorna la mia giornata",
-  "dayFlowSwapViewPlace": "Vedi tappa attuale",
-  "dayFlowSwapSuccess": "Updated — {newStop} is now your {phase} stop.",
-  "dayFlowSwapNoMatch": "Couldn't find a match nearby — try being more specific.",
-  "dayFlowSwapTapToChange": "Change this stop",
-  "dayFlowSwapHoldSpeak": "Tieni premuto per parlare",
-  "dayFlowSwapListening": "In ascolto…",
-  "conciergeVoiceDeviceSection": "Voci su questo iPhone",
-  "conciergeVoiceDeviceSectionHint": "Includes voices you downloaded — tap one to use it for Luxora.",
-  "conciergeVoiceRefreshList": "Aggiorna elenco voci",
-  "conciergeVoiceShowAllLanguages": "Show all languages",
-  "conciergeVoiceOpenSettings": "Open iPhone voice settings",
-  "conciergeVoiceNoDeviceVoices": "No voices found — download packs in Settings, then refresh.",
-  "conciergeVoicePresetSection": "Profili rapidi",
-  "feedSubtitleFamily": "Scelte per famiglie — parchi, idee facili e momenti che piacciono ai bambini.",
-  "feedMoodPromptFamily": "COME DOVREBBE SENTIRSI OGGI PER LA VOSTRA CREW?",
-  "feedMoodFamily": "Magia in famiglia",
-  "feedFamilyMoodHint": "Theme parks, character meals, and easy parent wins — filtered for family tags.",
-  "feedEmptyHintFamily": "No family-tagged cards in this radius — try Adventurous or Everything, or widen the radius.",
-  "conciergeAiErrorVoice": "Sorry — I couldn't connect to Luxora's concierge just now.",
-  "conciergeAiOpenAiNotReady": "Luxora heard you, but the concierge brain isn't online yet. Set OPENAI_API_KEY in Supabase secrets for the edge function (bright-processor), then try again.",
-  "conciergeAiFunctionNotFound": "Luxora couldn't find the concierge edge function \"{function}\". Deploy it in Supabase or fix SUPABASE_CONCIERGE_FUNCTION on this build.",
-  "conciergeAiAuthFailed": "Luxora couldn't authenticate with Supabase — double-check SUPABASE_ANON_KEY matches your project.",
-  "shareCardCta": "Pianifica il tuo con Luxora",
-  "shareCardDownloadHint": "Gratis su iOS e Android · luxora.ai/download",
-  "shareCardShareMessage": "{title}\n\nPianificato con Luxora AI — viaggio in Florida emotivamente intelligente.\nScarica l’app: {url}",
-  "conciergeLocalTryPlanning": "Dimmi che sensazione vuoi dal viaggio — es. «Pianifica 2 giorni rilassati a Orlando con sorgenti e cibo». Creo un’agenda reale sul dispositivo.",
-  "conciergeLocalPlanBuilt": "Ho creato la tua giornata a {city} — {count} tappe per mood e guida. Apri **Agenda** o **Mappa**.",
-  "conciergeLocalNoIntent": "Descrivi l’atmosfera o di’ «Pianifica la mia giornata a Orlando» — costruisco un percorso reale sul dispositivo.",
-  "ticketConciergeIntelBadge": "Intel concierge",
-  "ticketConciergeIntelAgenda": "Allineato alla tua agenda — non coupon generici.",
-  "agendaFixAfternoonRain": "Pioggia in arrivo — sistema il pomeriggio",
-  "agendaRainRerouteDone": "Pomeriggio aggiornato — {count} tappe spostate al coperto.",
-  "agendaRainRerouteNone": "Il piano funziona già con questo meteo.",
-  "agendaRainScoreNote": "Punteggio vacanza ora {score}/100",
-  "cloudTripsTitle": "Backup cloud",
-  "cloudTripsSubtitle": "I viaggi salvati si sincronizzano tra dispositivi — incluso con ogni sblocco città.",
-  "cloudTripsMoreSubSignedOut": "Accedi per salvare i viaggi",
-  "cloudTripsMoreSubSignedIn": "Accesso come {email}",
-  "@cloudTripsMoreSubSignedIn": {
-    "placeholders": {
-      "email": {
-        "type": "String"
-      }
-    }
-  },
-  "cloudTripsMoreSubSyncing": "Sincronizzazione…",
-  "cloudTripsUnlockRequired": "Sblocca un city pack per il backup cloud",
-  "cloudTripsUnlockCta": "Sblocca concierge",
-  "cloudTripsEmailHint": "Indirizzo email",
-  "cloudTripsSendCode": "Invia codice di accesso",
-  "cloudTripsCodeHint": "Codice a 6 cifre dall’email",
-  "cloudTripsVerify": "Verifica e accedi",
-  "cloudTripsCodeSent": "Controlla l’email per il codice di accesso",
-  "cloudTripsSignOut": "Esci",
-  "cloudTripsSyncNow": "Sincronizza ora",
-  "cloudTripsSyncSuccess": "Viaggi sincronizzati",
-  "cloudTripsSyncError": "Sync fallita — riprova",
-  "cloudTripsBannerTitle": "Backup dei viaggi",
-  "cloudTripsBannerBody": "Accedi per ripristinare i viaggi su un nuovo telefono.",
-  "cloudTripsBannerCta": "Configura backup cloud",
-  "cloudTripsNotConfigured": "Il backup cloud richiede Supabase (setup dev)",
-  "paywallFeatureCloudBackup": "Backup viaggi cloud",
-  "paywallRestorePurchases": "Ripristina acquisti",
-  "paywallPurchaseSuccess": "Acquisto completato — il concierge è sbloccato.",
-  "paywallPurchasePending": "Completamento acquisto…",
-  "paywallPurchaseFailed": "Acquisto non riuscito. Riprova o ripristina gli acquisti.",
-  "paywallPurchaseCanceled": "Acquisto annullato.",
-  "paywallRestoreComplete": "Acquisti ripristinati.",
-  "paywallRestoreNone": "Nessun acquisto precedente per questo account.",
-  "paywallStoreUnavailable": "Fatturazione store non disponibile su questo dispositivo.",
-  "paywallProductUnavailable": "Questo pacchetto non è ancora disponibile nello store.",
-  "onboardV2Eyebrow": "Let's design your perfect trip",
-  "onboardV2StepTravelerEyebrow": "Step 1",
-  "onboardV2StepTravelerTitle": "Who are you traveling with?",
-  "onboardV2StepTravelerSubtitle": "Luxora tailors stays, dining, and pacing to your crew.",
-  "onboardV2ChildrenLabel": "Children traveling?",
-  "onboardV2StepStyleEyebrow": "Step 2",
-  "onboardV2StepStyleTitle": "What kind of trip are you looking for?",
-  "onboardV2StepStyleSubtitle": "Choose everything that excites you.",
-  "onboardV2StepHotelEyebrow": "Step 3",
-  "onboardV2StepHotelTitle": "What type of place would you like to stay?",
-  "onboardV2StepHotelSubtitle": "We will match boutique gems and resort icons.",
-  "onboardV2HotelBudgetLabel": "Hotel budget",
-  "onboardV2HotelAmenitiesLabel": "Must-have amenities",
-  "onboardV2StepFoodEyebrow": "Step 4",
-  "onboardV2StepFoodTitle": "What types of restaurants do you enjoy?",
-  "onboardV2StepFoodSubtitle": "Cuisine and dining style — pick all you love.",
-  "onboardV2CuisineLabel": "Cuisine types",
-  "onboardV2DiningStyleLabel": "Dining style",
-  "onboardV2StepPaceEyebrow": "Step 5",
-  "onboardV2StepPaceTitle": "How would you like your days planned?",
-  "onboardV2StepPaceSubtitle": "Relaxed mornings or packed adventure — you choose.",
-  "onboardV2PaceRelaxedTitle": "Relaxed",
-  "onboardV2PaceRelaxedBody": "2–3 activities per day",
-  "onboardV2PaceBalancedTitle": "Balanced",
-  "onboardV2PaceBalancedBody": "4–5 activities per day",
-  "onboardV2PacePackedTitle": "Packed",
-  "onboardV2PacePackedBody": "Maximize every day",
-  "onboardV2StepGoalsEyebrow": "Step 6",
-  "onboardV2StepGoalsTitle": "What matters most on this trip?",
-  "onboardV2StepGoalsSubtitle": "Choose up to five priorities.",
-  "onboardV2StepExperienceEyebrow": "Step 7",
-  "onboardV2StepExperienceTitle": "What experiences would you enjoy?",
-  "onboardV2StepExperienceSubtitle": "We will weave these into your itinerary.",
-  "onboardV2StepAvoidEyebrow": "Step 8",
-  "onboardV2StepAvoidTitle": "What would you prefer to avoid?",
-  "onboardV2StepAvoidSubtitle": "Luxora steers clear of what drains your trip.",
-  "onboardV2StepEmotionEyebrow": "Step 9",
-  "onboardV2StepEmotionTitle": "What would make this trip feel successful?",
-  "onboardV2StepEmotionSubtitle": "Choose one primary feeling.",
-  "onboardV2StepSummaryEyebrow": "Your concierge preview",
-  "onboardV2StepSummaryTitle": "Based on your selections, Luxora recommends",
-  "onboardV2StepSummarySubtitle": "We're building your perfect trip now.",
-  "onboardSummaryHotels": "Hotels",
-  "onboardSummaryRestaurants": "Restaurants",
-  "onboardSummaryHiddenGems": "Hidden gems",
-  "onboardSummaryExperiences": "Experiences",
-  "onboardSummaryHotelDefault": "Curated stays matched to your budget",
-  "onboardSummaryHotelType": "{type} stay",
-  "@onboardSummaryHotelType": {
-    "placeholders": {
-      "type": {
-        "type": "String"
-      }
-    }
-  },
-  "onboardSummaryRooftopDining": "Rooftop dining experiences",
-  "onboardSummaryCuisine": "{cuisine} favorites",
-  "@onboardSummaryCuisine": {
-    "placeholders": {
-      "cuisine": {
-        "type": "String"
-      }
-    }
-  },
-  "onboardSummaryPace": "{pace} daily pace",
-  "@onboardSummaryPace": {
-    "placeholders": {
-      "pace": {
-        "type": "String"
-      }
-    }
-  },
-  "onboardSummaryRomantic": "Romantic sunset experiences",
-  "onboardSummaryEmotion": "{emotion}-focused journey",
-  "@onboardSummaryEmotion": {
-    "placeholders": {
-      "emotion": {
-        "type": "String"
-      }
-    }
-  },
-  "onboardSummaryPremiumGems": "Premium hidden gems",
-  "agendaSuggestionsForYou": "Picked for you",
-  "agendaSuggestionsAlternates": "Also great",
-  "agendaSuggestionsBrowseAll": "Browse all",
-  "onboardPrefTravelerSolo": "Solo",
-  "onboardPrefTravelerCouple": "Couple",
-  "onboardPrefTravelerFamily": "Family",
-  "onboardPrefTravelerFriends": "Friends",
-  "onboardPrefTravelerBusiness": "Business",
-  "onboardPrefChildrenNone": "No children",
-  "onboardPrefChildrenToddlers": "Toddlers",
-  "onboardPrefChildrenElementary": "Elementary age",
-  "onboardPrefChildrenTeenagers": "Teenagers",
-  "onboardPrefStyleLuxury": "Luxury",
-  "onboardPrefStyleRelaxation": "Relaxation",
-  "onboardPrefStyleAdventure": "Adventure",
-  "onboardPrefStyleThemeParks": "Theme Parks",
-  "onboardPrefStyleFoodie": "Foodie",
-  "onboardPrefStyleNightlife": "Nightlife",
-  "onboardPrefStyleRomance": "Romance",
-  "onboardPrefStyleShopping": "Shopping",
-  "onboardPrefStyleBeaches": "Beaches",
-  "onboardPrefStyleWellness": "Wellness",
-  "onboardPrefStyleNature": "Nature",
-  "onboardPrefStylePhotography": "Photography",
-  "onboardPrefStyleHiddenGems": "Hidden Gems",
-  "onboardPrefStyleFamilyActivities": "Family Activities",
-  "onboardPrefStyleLocalExperiences": "Local Experiences",
-  "onboardPrefStyleEntertainment": "Entertainment",
-  "onboardPrefHotelLuxuryResort": "Luxury Resort",
-  "onboardPrefHotelBoutique": "Boutique Hotel",
-  "onboardPrefHotelFamilyResort": "Family Resort",
-  "onboardPrefHotelBudgetFriendly": "Budget Friendly",
-  "onboardPrefHotelAdultsOnly": "Adults Only",
-  "onboardPrefHotelSpaResort": "Spa Resort",
-  "onboardPrefHotelBeachfront": "Beachfront",
-  "onboardPrefHotelDowntown": "Downtown",
-  "onboardPrefHotelWalkable": "Walkable Area",
-  "onboardPrefHotelThemeParkArea": "Theme Park Area",
-  "onboardPrefHotelModern": "Modern Hotel",
-  "onboardPrefHotelHistoric": "Historic Hotel",
-  "onboardPrefBudgetOne": "$",
-  "onboardPrefBudgetTwo": "$$",
-  "onboardPrefBudgetThree": "$$$",
-  "onboardPrefBudgetFour": "$$$$",
-  "onboardPrefAmenityPool": "Pool",
-  "onboardPrefAmenitySpa": "Spa",
-  "onboardPrefAmenityGym": "Gym",
-  "onboardPrefAmenityBreakfast": "Free Breakfast",
-  "onboardPrefAmenityOceanView": "Ocean View",
-  "onboardPrefAmenityBalcony": "Balcony",
-  "onboardPrefAmenityKitchen": "Kitchen",
-  "onboardPrefAmenityShuttle": "Shuttle Service",
-  "onboardPrefAmenityPetFriendly": "Pet Friendly",
-  "onboardPrefCuisineAmerican": "American",
-  "onboardPrefCuisineItalian": "Italian",
-  "onboardPrefCuisineMexican": "Mexican",
-  "onboardPrefCuisineSeafood": "Seafood",
-  "onboardPrefCuisineSteakhouse": "Steakhouse",
-  "onboardPrefCuisineSushi": "Sushi",
-  "onboardPrefCuisineCuban": "Cuban",
-  "onboardPrefCuisineMediterranean": "Mediterranean",
-  "onboardPrefCuisineAsian": "Asian",
-  "onboardPrefCuisineBbq": "BBQ",
-  "onboardPrefCuisineFineDining": "Fine Dining",
-  "onboardPrefCuisineLocalFavorites": "Local Favorites",
-  "onboardPrefCuisineFoodTrucks": "Food Trucks",
-  "onboardPrefCuisineRooftop": "Rooftop Dining",
-  "onboardPrefCuisineBrunch": "Brunch",
-  "onboardPrefCuisineDessert": "Dessert",
-  "onboardPrefDiningQuick": "Quick Service",
-  "onboardPrefDiningCasual": "Casual Dining",
-  "onboardPrefDiningFamily": "Family Friendly",
-  "onboardPrefDiningDateNight": "Date Night",
-  "onboardPrefDiningFine": "Fine Dining",
-  "onboardPrefDiningWaterfront": "Waterfront",
-  "onboardPrefDiningHiddenGems": "Hidden Gems",
-  "onboardPrefDiningLocal": "Local Favorites",
-  "onboardPrefGoalMakeMemories": "Make Memories",
-  "onboardPrefGoalSaveMoney": "Save Money",
-  "onboardPrefGoalAvoidCrowds": "Avoid Crowds",
-  "onboardPrefGoalLuxury": "Luxury Experiences",
-  "onboardPrefGoalBestFood": "Best Food",
-  "onboardPrefGoalHiddenGems": "Hidden Gems",
-  "onboardPrefGoalRelaxation": "Relaxation",
-  "onboardPrefGoalAdventure": "Adventure",
-  "onboardPrefGoalBestPhotos": "Best Photos",
-  "onboardPrefGoalFamilyTime": "Family Time",
-  "onboardPrefGoalRomance": "Romance",
-  "onboardPrefGoalNightlife": "Nightlife",
-  "onboardPrefGoalLocal": "Local Experiences",
-  "onboardPrefGoalStressFree": "Stress-Free Planning",
-  "onboardPrefExpBoatTours": "Boat Tours",
-  "onboardPrefExpSunsetCruises": "Sunset Cruises",
-  "onboardPrefExpAirboat": "Airboat Tours",
-  "onboardPrefExpThemeParks": "Theme Parks",
-  "onboardPrefExpMuseums": "Museums",
-  "onboardPrefExpLiveShows": "Live Shows",
-  "onboardPrefExpSpas": "Spas",
-  "onboardPrefExpShopping": "Shopping",
-  "onboardPrefExpWaterParks": "Water Parks",
-  "onboardPrefExpGolf": "Golf",
-  "onboardPrefExpFishing": "Fishing",
-  "onboardPrefExpKayaking": "Kayaking",
-  "onboardPrefExpSnorkeling": "Snorkeling",
-  "onboardPrefExpRooftopBars": "Rooftop Bars",
-  "onboardPrefExpNightclubs": "Nightclubs",
-  "onboardPrefExpWildlife": "Wildlife Experiences",
-  "onboardPrefExpFoodTours": "Food Tours",
-  "onboardPrefExpScenicDrives": "Scenic Drives",
-  "onboardPrefAvoidCrowds": "Crowds",
-  "onboardPrefAvoidLongLines": "Long Lines",
-  "onboardPrefAvoidExpensiveRestaurants": "Expensive Restaurants",
-  "onboardPrefAvoidWalking": "Walking Long Distances",
-  "onboardPrefAvoidNightlife": "Nightlife",
-  "onboardPrefAvoidDriving": "Driving",
-  "onboardPrefAvoidTouristTraps": "Tourist Traps",
-  "onboardPrefAvoidEarlyMornings": "Early Mornings",
-  "onboardPrefAvoidLateNights": "Late Nights",
-  "onboardPrefAvoidFamilyAttractions": "Family Attractions",
-  "onboardPrefAvoidThemeParks": "Theme Parks",
-  "onboardPrefEmotionRelaxed": "Relaxed",
-  "onboardPrefEmotionExcited": "Excited",
-  "onboardPrefEmotionAdventurous": "Adventurous",
-  "onboardPrefEmotionRomantic": "Romantic",
-  "onboardPrefEmotionLuxurious": "Luxurious",
-  "onboardPrefEmotionFamilyFocused": "Family-Focused",
-  "onboardPrefEmotionMemorable": "Memorable",
-  "onboardPrefEmotionStressFree": "Stress-Free",
-  "onboardPrefEmotionInspiring": "Inspiring",
-  "onboardPrefPaceSlow": "Relaxed",
-  "onboardPrefPaceBalanced": "Balanced",
-  "onboardPrefPacePacked": "Packed",
-  "onboardSummaryHiddenGemsInsight": "Hidden local restaurants & gems",
-  "onboardBuildFailedHint": "We saved your preferences, but the itinerary needs another moment. Pull to refresh on Agenda or open Concierge.",
-  "onboardV2ChildrenSubtitle": "Select all age groups that apply.",
-  "onboardTravelerNameEyebrow": "First things first",
-  "onboardTravelerNameTitle": "What should Luxora call you?",
-  "onboardTravelerNameSubtitle": "Your first name is enough — Luxora will use it when you chat.",
-  "onboardTravelerNameLabel": "Your first name",
-  "onboardTravelerNameHint": "e.g. Maria",
-  "conciergeWelcomeNamed": "Welcome, {name} — your emotionally intelligent Florida companion.\n\nChoose a prompt below, or describe the feeling you want your trip to create.",
-  "@conciergeWelcomeNamed": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "conciergeWelcomeWarmNamed": "{name}, I'm here to shape Florida around how you want to feel — not a checklist of sights. What are you craving today?",
-  "@conciergeWelcomeWarmNamed": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "onboardLuxoraReplyEyebrow": "LUXORA",
-  "onboardLuxoraReplyTitle": "Lovely to meet you, {name}.",
-  "@onboardLuxoraReplyTitle": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "onboardLuxoraGuideNamed": "{name}, I'm here to guide you and help you create the perfect vacation or adventure for you and your family.",
-  "@onboardLuxoraGuideNamed": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "onboardLuxoraItineraryPromise": "When we're done here, I'll build your itinerary from everything you choose. If you'd like to change anything later, open the Concierge tab and tell me what to edit — I'm always listening.",
-  "todayPlanSectionTitle": "Today's plan",
-  "todayNextActivityLabel": "Up next",
-  "todayStaysDiningSection": "Stays & dining picks",
-  "todayStaysDiningCollapsedHint": "Hotel and restaurant ideas — tap to expand",
-  "todayPlanDetailsTitle": "Full schedule",
-  "todayPlanStopCount": "{count, plural, =1{1 stop today} other{{count} stops today}}",
-  "@todayPlanStopCount": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "todayRainRerouteTitle": "Rain reroute",
-  "todayExtrasSection": "Tickets & sharing",
-  "todayExtrasCollapsedHint": "Deals, share card, and more"
+  }
 }

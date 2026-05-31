@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
+import 'package:luxora_ai/services/onboarding_preference_mapper.dart';
 import 'package:luxora_ai/services/trip_name_generator.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 
@@ -49,7 +50,8 @@ class _TripNameFieldsState extends State<TripNameFields> {
   Widget build(BuildContext context) {
     final l = context.l10n;
     final tokens = luxThemeTokensOf(context);
-    final suggested = TripNameGenerator.suggest(widget.profile);
+    final enriched = OnboardingPreferenceMapper.enrichForPlanning(widget.profile);
+    final suggested = TripNameGenerator.suggest(enriched);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

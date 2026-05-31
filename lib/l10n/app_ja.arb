@@ -15,11 +15,74 @@
   "affiliateRestaurants": "レストランの予約",
   "affiliateThemeParks": "テーマパークのチケット",
   "affiliateWellness": "ウェルネスの予約",
+  "agendaDayDiningSubtitle": "今日のプランに基づいた ~{budget} 米ドルの予算 ({tier} の食事) の提案。",
+  "@agendaDayDiningSubtitle": {
+    "placeholders": {
+      "budget": {
+        "type": "int"
+      },
+      "tier": {
+        "type": "String"
+      }
+    }
+  },
+  "agendaDayDiningTitle": "今夜どこで食べるか",
+  "agendaDaySelectLabel": "どの日",
+  "agendaDiningDropdownHint": "レストランを選択してください",
+  "agendaDiningFitsBudget": "旅行の予算に合わせて",
+  "agendaDiningFoodiePick": "グルメなお気に入り",
+  "agendaDiningMatchesDay": "今日の雰囲気にマッチ",
+  "agendaDiningNearStops": "今日の停留所付近",
+  "agendaFixAfternoonRain": "雨が降ってきた — 午後の準備を整える",
+  "agendaHotelSuggestionsSubtitle": "AI があなたの ~{budget} 米ドルの旅行予算に合わせて調整します。タップするとすべてのオプションが表示されます。",
+  "@agendaHotelSuggestionsSubtitle": {
+    "placeholders": {
+      "budget": {
+        "type": "int"
+      }
+    }
+  },
+  "agendaHotelSuggestionsTitle": "どこに泊まるか",
+  "agendaHotelTopPick": "最有力候補: {name}",
+  "@agendaHotelTopPick": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "agendaPageSubtitle": "私は今何をしているのでしょうか？",
+  "agendaRainRerouteDone": "午後更新 — {count} 個の停留所が屋内に移動しました。休暇スコア {score}/100。",
+  "@agendaRainRerouteDone": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "agendaRainRerouteNone": "あなたの計画はこの天気ではすでに機能しています。",
+  "agendaStayDropdownHint": "ホテルを選択してください",
+  "agendaSuggestionsAlternates": "こちらも素晴らしい",
+  "agendaSuggestionsBrowseAll": "すべて閲覧する",
+  "agendaSuggestionsForYou": "あなたのために選ばれました",
+  "agendaTabItinerary": "日数",
+  "agendaTabRestaurants": "レストラン",
   "appTitle": "Luxora AI",
   "appearance": "外観",
-  "settingsThemeIntro": "シネマティックなラグジュアリーか、読みやすいクリーンさ — その日に合うものを選びましょう。",
-  "settingsThemeSectionLuxury": "シネマティック・ラグジュアリー",
-  "settingsThemeSectionReadable": "クリーンで読みやすい",
+  "browseCatBudgetFriendly": "予算に優しい",
+  "browseCatDisneyHotels": "ディズニーエリア",
+  "browseCatRecommended": "推奨",
+  "browseCatThemeParkDining": "テーマパークでの食事",
+  "browseCatUniversalHotels": "ユニバーサルエリア",
+  "browseCatUpscaleDining": "高級＆高級レストラン",
+  "browseCatUpscaleLuxury": "高級感と高級感",
+  "browseCategoryEmpty": "このカテゴリに一致する半径はありません。検索するか、範囲を広げて検索してください。",
+  "browseFullCatalogHint": "Luxora が知っているすべてのホテルとレストランの完全なカタログについては、上の検索を使用してください。",
+  "browseSearchAllHotels": "ホテルの完全なカタログを検索…",
+  "browseSearchAllRestaurants": "レストランの完全なカタログを検索…",
   "catBeaches": "ビーチ",
   "catEco": "エコツーリズム",
   "catFamily": "家族",
@@ -34,6 +97,43 @@
   "catSpas": "スパ",
   "catSprings": "スプリングス",
   "catThemeParks": "テーマパーク",
+  "cityPickerThemeParksSubtitle": "オーランド アドオン · ディズニーとユニバーサルを一緒に",
+  "cityPickerUnlockPrice": "{price}のロックを解除する",
+  "@cityPickerUnlockPrice": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "cityPickerUnlocked": "ロック解除済み",
+  "cloudTripsBannerBody": "サインインして、新しい携帯電話またはタブレットで旅行を復元します。",
+  "cloudTripsBannerCta": "クラウドバックアップを設定する",
+  "cloudTripsBannerTitle": "旅行をバックアップ",
+  "cloudTripsCodeHint": "メールに記載された6桁のコード",
+  "cloudTripsCodeSent": "メールでサインイン コードを確認してください",
+  "cloudTripsEmailHint": "電子メールアドレス",
+  "cloudTripsMoreSubSignedIn": "{email} としてサインインしました",
+  "@cloudTripsMoreSubSignedIn": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "cloudTripsMoreSubSignedOut": "保存した旅行をバックアップするにはサインインしてください",
+  "cloudTripsMoreSubSyncing": "同期中…",
+  "cloudTripsNotConfigured": "クラウドバックアップにはSupabaseが必要です（開発セットアップ）",
+  "cloudTripsSendCode": "サインインコードを送信する",
+  "cloudTripsSignOut": "サインアウト",
+  "cloudTripsSubtitle": "保存した旅行は、サインインするとデバイス間で同期されます。これは都市のロック解除に含まれます。",
+  "cloudTripsSyncError": "同期に失敗しました - もう一度試してください",
+  "cloudTripsSyncNow": "今すぐ同期する",
+  "cloudTripsSyncSuccess": "旅行が同期されました",
+  "cloudTripsTitle": "クラウドバックアップ",
+  "cloudTripsUnlockCta": "コンシェルジュのロックを解除する",
+  "cloudTripsUnlockRequired": "シティパックのロックを解除してクラウドバックアップを有効にします",
+  "cloudTripsVerify": "確認してサインインする",
   "commonCancel": "キャンセル",
   "commonClose": "近い",
   "commonContinue": "続く",
@@ -42,11 +142,44 @@
   "commonNew": "新しい",
   "commonRoadmap": "ロードマップ",
   "commonSoon": "すぐ",
+  "conciergeAgendaDealsIntro": "公認のチケット取引と予定の停留所を一致させました。ゲートで購入する前に比較してください。",
+  "conciergeAgendaDealsSnack": "あなたの予定に合わせたチケット取引",
+  "conciergeAgendaSyncFailed": "マップとアジェンダが更新されませんでした。明確なリクエストを 1 つ試してください。たとえば、4 日間のディズニーとユニバーサル旅行を計画してください。",
+  "conciergeAgendaUpdatedSnack": "あなたの予定はマップと予定表で準備完了です",
+  "conciergeAiAuthFailed": "Luxora は Supabase で認証できませんでした。SUPABASE_ANON_KEY がプロジェクトと一致していることを再確認してください。",
+  "conciergeAiError": "今はルクソラに行けません。接続を確認して、もう一度試してください。",
+  "conciergeAiErrorVoice": "申し訳ありませんが、今 Luxora のコンシェルジュに接続できませんでした。",
+  "conciergeAiFunctionNotFound": "Luxora はコンシェルジュ エッジ機能「{function}」を見つけられませんでした。 Supabase にデプロイするか、このビルドの SUPABASE_CONCIERGE_FUNCTION を修正してください。",
+  "@conciergeAiFunctionNotFound": {
+    "placeholders": {
+      "function": {
+        "type": "String"
+      }
+    }
+  },
+  "conciergeAiNotConfigured": "Luxora のライブ コンシェルジュはこのビルドではまだ接続されていません。Supabase URL と anon キーをアプリに組み込み、エッジ機能をデプロイする必要があります。地図と旅程は引き続き機能します。セットアップについては docs/CONCIERGE_AI.md を参照してください。",
+  "conciergeAiOpenAiNotReady": "Luxora はあなたの声を聞きましたが、コンシェルジュの脳はまだオンラインになっていません。エッジ機能 (bright-processor) の Supabase シークレットに OPENAI_API_KEY を設定して、再試行してください。",
   "conciergeBrand": "LUXORA",
+  "conciergeFreshThread": "あなたの予定は地図と予定表にあります。このチャットをアーカイブして、その日を微調整したり、取引を見つけたり、何か新しいことを質問したりして、新たに始めました。",
   "conciergeGreetingAfternoon": "こんにちは。",
   "conciergeGreetingEvening": "こんばんは。",
   "conciergeGreetingMorning": "おはよう。",
   "conciergeInputHint": "旅行で感じてほしいことを説明してください…",
+  "conciergeItinerarySynced": "これを予定表に追加しました。同じ停留所が地図上にあり、共有する準備ができています。",
+  "conciergeLocalNoIntent": "希望する雰囲気を説明してください。または「オーランドでの 1 日の計画を立ててください」と言えば、デバイス上で実際のルートを作成します。",
+  "conciergeLocalPlanBuilt": "私はあなたの {city} 日を構築しました — {count} か所の停留所を気分と運転時間に基づいて並べました。アジェンダまたはマップを開いてルートを確認します。",
+  "@conciergeLocalPlanBuilt": {
+    "placeholders": {
+      "city": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "conciergeLocalTryPlanning": "旅行をどのように感じてほしいかを教えてください — 例: 「温泉とグルメを楽しみながら、リラックスした 2 日間のオーランド旅行を計画しましょう。」あなたのデバイス上で実際のアジェンダを作成します (クラウドは必要ありません)。",
+  "conciergeNewConversationTooltip": "新しい会話",
   "conciergePromptAdventure": "アドベンチャーモード",
   "conciergePromptDisney": "ディズニーアフターダーク",
   "conciergePromptFamily": "ファミリーマジック",
@@ -75,7 +208,52 @@
   },
   "conciergeRefineStyle": "自分のスタイルを洗練する",
   "conciergeRemembering": "この旅の思い出に",
+  "conciergeSavedTripLine": "• {title} ({dates}) — {status}",
+  "@conciergeSavedTripLine": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "dates": {
+        "type": "String"
+      },
+      "status": {
+        "type": "String"
+      }
+    }
+  },
+  "conciergeSavedTripsEmpty": "保存された旅行はまだありません。何か計画を立ててから「旅行を保存」と言ってください。",
+  "conciergeSavedTripsHint": "[旅行] タブを開いて、カードを表示、共有、または日付を編集します。",
+  "conciergeSavedTripsIntro": "{count} 件の旅行を保存しました:",
+  "@conciergeSavedTripsIntro": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "conciergeStyleMemory": "スタイルメモリー",
+  "conciergeThinking": "ルクソラは考えている…",
+  "conciergeThreadArchivedSnack": "チャットはアーカイブされました — 新しいスレッドが開始されました",
+  "conciergeTicketDealLine": "• {title}: {source} 経由の {price} ({savings} を節約)",
+  "@conciergeTicketDealLine": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "price": {
+        "type": "String"
+      },
+      "source": {
+        "type": "String"
+      },
+      "savings": {
+        "type": "String"
+      }
+    }
+  },
+  "conciergeTicketsFoundIntro": "あなたの旅行に適した正規のチケット取引を見つけました。直接リンクについては、「アジェンダでチケットを予約」をタップしてください:",
+  "conciergeTicketsTimelineHint": "アジェンダ上の一致する各ストップには、再販業者リンクを含むチケットの予約ボタンが表示されます。",
   "conciergeTitle": "コンシェルジュ",
   "conciergeTripFeel": "旅の気分: 「{feel}」",
   "@conciergeTripFeel": {
@@ -85,10 +263,92 @@
       }
     }
   },
+  "conciergeTripNameLabel": "旅行名",
+  "conciergeTripSaved": "「{title}」を旅行に保存しました — いつでも [旅行] タブを開いて再度アクセスしてください。",
+  "@conciergeTripSaved": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "conciergeTripSavedWithStops": "{count} 件のエクスペリエンスを含む「{title}」をタイムラインに保存しました。",
+  "@conciergeTripSavedWithStops": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "conciergeViewAgendaOnMap": "議題を見る",
+  "conciergeViewTicketDeals": "お得な情報を見る",
+  "conciergeVoiceDeviceNote": "iPhoneの設定→アクセシビリティ→音声コンテンツ→音声でさらに音声をダウンロードします。ここに戻って「更新」をタップします。",
+  "conciergeVoiceDeviceSection": "このiPhoneの音声",
+  "conciergeVoiceDeviceSectionHint": "ダウンロードした音声が含まれています。Luxora で使用するには、1 つをタップします。",
   "conciergeVoiceHold": "押し続けて話す",
-  "conciergeVoiceSoon": "Luxoraが聞けるようにマイクを許可してください。",
+  "conciergeVoiceListening": "ルクソラが聞いています…",
+  "conciergeVoiceNoDeviceVoices": "音声が見つかりません — 設定でパックをダウンロードしてから更新してください。",
+  "conciergeVoiceNoSpeech": "私はそれを聞き取れませんでした - ボタンを押したまま話し、そして放してください。",
+  "conciergeVoiceOpenSettings": "iPhoneの音声設定を開く",
+  "conciergeVoicePresetDeF": "ドイツ人・女性",
+  "conciergeVoicePresetDeM": "ドイツ人・男性",
+  "conciergeVoicePresetEnGbF": "イギリス人・女性",
+  "conciergeVoicePresetEnGbM": "イギリス人・男性",
+  "conciergeVoicePresetEnUsF": "アメリカ人・女性",
+  "conciergeVoicePresetEnUsM": "アメリカ人・男性",
+  "conciergeVoicePresetEsF": "スペイン人・女性",
+  "conciergeVoicePresetEsM": "スペイン人・男性",
+  "conciergeVoicePresetFrF": "フランス人・女性",
+  "conciergeVoicePresetFrM": "フランス人・男性",
+  "conciergeVoicePresetMatchApp": "マッチングアプリ言語・女性",
+  "conciergeVoicePresetRuF": "ロシア人・女性",
+  "conciergeVoicePresetRuM": "ロシア人・男性",
+  "conciergeVoicePresetSection": "クイックペルソナ",
+  "conciergeVoicePreview": "プレビュー音声",
+  "conciergeVoicePreviewFailed": "プレビューを再生できませんでした。音量を確認して、もう一度お試しください。",
+  "conciergeVoicePreviewSample": "こんにちは — 私はルクソラです。この旅行をどのように感じたいか教えてください。",
+  "conciergeVoiceProcessing": "ルクソラに送信中…",
+  "conciergeVoiceRateFast": "速い",
+  "conciergeVoiceRateLabel": "話すペース",
+  "conciergeVoiceRateNatural": "自然",
+  "conciergeVoiceRateSlow": "遅い",
+  "conciergeVoiceRefreshList": "ボイスリストを更新",
+  "conciergeVoiceRegionEnglish": "英語",
+  "conciergeVoiceRegionFrench": "フランス語",
+  "conciergeVoiceRegionGerman": "ドイツ語",
+  "conciergeVoiceRegionOther": "他の",
+  "conciergeVoiceRegionRecommended": "推奨",
+  "conciergeVoiceRegionRussian": "ロシア",
+  "conciergeVoiceRegionSpanish": "スペイン語",
+  "conciergeVoiceRelease": "リリースして送信する",
+  "conciergeVoiceSend": "ルクソラに送る",
+  "conciergeVoiceSettingsSubtitle": "Luxora が話すときにどのように聞こえるか (アクセント、トーン、ペース) を選択します。デバイスの内蔵音声を使用します。",
+  "conciergeVoiceSettingsTitle": "ルクソラの声",
+  "conciergeVoiceShowAllLanguages": "すべての言語を表示",
+  "conciergeVoiceSoon": "音声コンシェルジュが間もなく登場します。今のところは、瞬間をタップするか、感じたいことを入力してください。",
+  "conciergeVoiceSpeaking": "ルクソラが話している…",
+  "conciergeVoiceUnavailable": "このデバイスでは音声を利用できません。",
   "conciergeWelcome": "Luxora へようこそ – 感情的に知的なフロリダの仲間です。\n\n以下のプロンプトを選択するか、旅行で作りたい雰囲気を説明してください。",
+  "conciergeWelcomeNamed": "ようこそ、{name} — 感情的に知的なフロリダの仲間です。\n\n以下のプロンプトを選択するか、旅行で作りたい雰囲気を説明してください。",
+  "@conciergeWelcomeNamed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "conciergeWelcomeWarm": "私がここにいるのは、観光スポットのチェックリストではなく、あなたが感じたいようにフロリダを形作るためです。今日は何が食べたいですか？",
+  "conciergeWelcomeWarmNamed": "{name} さん、私はフロリダをあなたがどう感じたいかを形作るためにここにいます。観光スポットのチェックリストではありません。今日は何が食べたいですか？",
+  "@conciergeWelcomeWarmNamed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "dark_mode": "ダークモード",
   "dayFlowAfternoon": "午後",
   "dayFlowEvening": "夕方",
@@ -105,6 +365,34 @@
   "dayFlowReasonMorningPool": "一日が始まる前に、プールサイドやスパでゆっくりとおくつろぎください。",
   "dayFlowReasonNightOut": "最後の輝き、夜の外出。",
   "dayFlowSubtitle": "チェックリストではなく、自分がどう感じたいかを中心に一日を形作ります。",
+  "dayFlowSwapApply": "私の一日を更新してください",
+  "dayFlowSwapHint": "例えば今朝は静かな公園、または夕食はシーフード",
+  "dayFlowSwapHoldSpeak": "押し続けて話す",
+  "dayFlowSwapListening": "リスニング…",
+  "dayFlowSwapNoMatch": "近くに一致するものが見つかりませんでした。より具体的にしてみてください。",
+  "dayFlowSwapSubtitle": "{current} の代わりに何をしたいかを Luxora に伝えてください。",
+  "@dayFlowSwapSubtitle": {
+    "placeholders": {
+      "current": {
+        "type": "String"
+      }
+    }
+  },
+  "dayFlowSwapSuccess": "更新 — {newStop} が {phase} の停留所になりました。",
+  "@dayFlowSwapSuccess": {
+    "placeholders": {
+      "newStop": {
+        "type": "String"
+      },
+      "phase": {
+        "type": "String"
+      }
+    }
+  },
+  "dayFlowSwapTapToChange": "この停留所を変更します",
+  "dayFlowSwapTemplate": "もっと次のようなことを考えていました…",
+  "dayFlowSwapTitle": "この停留所を変更します",
+  "dayFlowSwapViewPlace": "現在の停留所を表示する",
   "dayFlowVibeAdventure": "冒険好き",
   "dayFlowVibeCulture": "文化",
   "dayFlowVibeFoodie": "食通",
@@ -115,6 +403,22 @@
   "detailBestTime": "旅行に最適な時期",
   "detailCostRange": "コスト範囲",
   "detailCrowd": "群衆",
+  "detailCrowdOutlook": "群衆: {level}",
+  "@detailCrowdOutlook": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "detailDriveFrictionOutlook": "ドライブの摩擦: {score}/90",
+  "@detailDriveFrictionOutlook": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
   "detailDriveFromHub": "{time}から車で {hub}",
   "@detailDriveFromHub": {
     "placeholders": {
@@ -150,6 +454,14 @@
   "detailNearbyGems": "近くの宝石",
   "detailOpenInMaps": "マップで開く",
   "detailParkMap": "園内マップ",
+  "detailParkingOutlook": "駐車場: {level}",
+  "@detailParkingOutlook": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
   "detailPractical": "実践的な詳細",
   "detailPrice": "価格",
   "detailRemovedSnack": "旅程から削除されました",
@@ -159,6 +471,8 @@
   "detailSaved": "保存されました",
   "detailSavedSnack": "旅程に保存されました",
   "detailSetHomeBase": "ホームベースとして設定する",
+  "detailTravelIntelSubtitle": "ライブセンサーではなく、カテゴリ、時間、距離から予測されます。",
+  "detailTravelIntelTitle": "旅行摩擦の見通し",
   "detailVibeMatch": "バイブマッチ",
   "detailViewMenuOnline": "メニューをオンラインで見る",
   "detailViewOnMap": "地図で見る",
@@ -213,12 +527,16 @@
   "featuredTicketPartnersTitle": "注目のチケットパートナー",
   "feedBadge": "ライブディスカバリー",
   "feedEmptyHint": "この半径内にはフィード カードはありません。メキシコ湾岸とキーズのハイライトについては、50 マイルまたはオール フロリダをお試しください。",
+  "feedEmptyHintFamily": "この範囲内にはファミリータグ付きのカードはありません。Adventurous または Everything を試すか、範囲を広げてください。",
+  "feedFamilyMoodHint": "テーマ パーク、キャラクターの食事、簡単な保護者向けの特典 — ファミリー タグでフィルタリングされています。",
   "feedMoodAdventurous": "冒険好き",
   "feedMoodAll": "すべて",
   "feedMoodCalm": "落ち着いた",
+  "feedMoodFamily": "ファミリーマジック",
   "feedMoodFoodie": "食通",
   "feedMoodPampered": "甘やかされた",
   "feedMoodPrompt": "どのように感じたいですか?",
+  "feedMoodPromptFamily": "乗組員にとって今日はどう感じるべきでしょうか?",
   "feedMoodRomantic": "ロマンチック",
   "feedMoodSocial": "ブザー音",
   "feedPillCreator": "クリエイターのおすすめ",
@@ -226,6 +544,7 @@
   "feedPillNewOpenings": "新規出店",
   "feedPillTrending": "トレンド",
   "feedSubtitle": "今何が動いているのか - トレンドのスポット、新規オープン、クリエイターのおすすめ、季節限定のルート、最新情報。",
+  "feedSubtitleFamily": "乗組員のための家族向けの選択肢 - 公園、簡単な勝利、子供たち (および両親) と一緒に着陸する瞬間。",
   "feedTitle": "エクスペリエンスフィード",
   "gemBestTime": "行くのに最適な時期",
   "gemCrowdLevel": "群衆レベル",
@@ -306,6 +625,8 @@
     }
   },
   "hotelItineraryImpactTitle": "これがあなたの日々をどのように形作るか",
+  "hotelLinkOpenFailed": "リンクを開けませんでした。ブラウザを確認するか、もう一度試してください。",
+  "hotelLinkUnavailable": "この滞在では予約リンクがまだ利用できません。",
   "hotelLuxoraScore": "ルクソラ",
   "hotelMatchAdults": "大人",
   "hotelMatchAttractions": "リストにある観光スポット",
@@ -437,6 +758,14 @@
   "hotelVisitWebsite": "ウェブサイトにアクセス",
   "hotelWhyRecommendTitle": "Luxora がこれを推奨する理由",
   "itineraryBadge": "あなたのタイムライン",
+  "itineraryBookTickets": "チケットを予約する · {amount} を節約",
+  "@itineraryBookTickets": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
   "itineraryDayTab": "日 {day} · {label}",
   "@itineraryDayTab": {
     "placeholders": {
@@ -448,9 +777,45 @@
       }
     }
   },
+  "itineraryOpenTicketDeal": "チケットを予約する",
+  "itinerarySameAsMapAgenda": "今日のコンシェルジュ プラン — 地図にも固定されています。以下の日のカードを共有してください。",
   "itineraryTagline": "あらゆる瞬間がつながり、期待が高まり、ストレスがなくなりました。",
+  "keysMoodRouteStart": "{time}を開始",
+  "@keysMoodRouteStart": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "keysMoodRoutesTitle": "キーズ島のルート",
+  "keysWaterBestTime": "最適なウィンドウ: {time}",
+  "@keysWaterBestTime": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "keysWaterBoatingScore": "ボート",
+  "keysWaterCrowdScore": "群衆",
+  "keysWaterDivingScore": "ダイビング",
+  "keysWaterFishingScore": "魚",
+  "keysWaterIntelTitle": "キーズウォーターインテリジェンス",
+  "keysWaterSnorkelScore": "スノーケル",
+  "keysWaterSunsetScore": "日没",
+  "keysWaterTemp": "水: {note}",
+  "@keysWaterTemp": {
+    "placeholders": {
+      "note": {
+        "type": "String"
+      }
+    }
+  },
+  "keysWaterWindScore": "風",
   "landingBadge": "フロリダ・オーランド MVP",
   "landingBegin": "旅を始めましょう",
+  "landingCityLabel": "どこに行くの？",
   "landingRegionBadge": "打ち上げ地域",
   "landingRegionTitle": "オーランドとフロリダ — 気分に合わせて厳選",
   "landingSubtitle": "Luxora AI は、あなたの感情的に知的なコンシェルジュです。隠れた宝石、屋上での夕日、そして荷物をまとめる前から忘れられない気分になる瞬間を提供します。",
@@ -501,19 +866,39 @@
   "mapCrowdLevelModerate": "適度",
   "mapCrowdLevelPacked": "詰め込まれた",
   "mapCrowdLevelQuiet": "静かな",
-  "mapFutureCrowdDesc": "Plan my dayの各停車地で静か〜混雑の予測ウィンドウ。",
-  "mapFutureCrowdTitle": "混雑見通し",
-  "mapFutureParkingDesc": "出発前のバレー・ガレージ・到着の推定負担。",
-  "mapFutureParkingTitle": "駐車見通し",
+  "mapDriveFrictionAtStop": "ドライブの摩擦: {score}/90",
+  "@mapDriveFrictionAtStop": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "mapFutureCrowdDesc": "泉、公園、ウイルスが蔓延する屋上のリアルタイムの密度 - 今すぐに価値があるでしょうか?",
+  "mapFutureCrowdTitle": "ライブの観客の熱気",
+  "mapFutureParkingDesc": "コミットする前の摩擦スコア - 係員付きサービス、ガレージ、またはライドシェアのスイート スポット。",
+  "mapFutureParkingTitle": "駐車の困難さ",
   "mapFutureRerouteDesc": "天候の変化か、それとも観客の急増か？ワンタップで一日の残りの時間を作り直します。",
   "mapFutureRerouteTitle": "自発的な再ルート",
-  "mapFutureTrafficDesc": "日次プラン各 leg のストレススコア — 分だけではありません。",
-  "mapFutureTrafficTitle": "Drive friction score",
+  "mapFutureTrafficDesc": "ストレスを加重したルーティング — 単なる分ではなく、ドライブの感触を考慮します。",
+  "mapFutureTrafficTitle": "ドライブフリクションスコア",
   "mapHotelIntelBannerBody": "ホテルによって、車での移動時間、一日の流れ、食事場所が決まります。 Luxora は、予約にプレッシャーをかけることなく、商品選びをお手伝いします。",
   "mapHotelIntelBannerCta": "ホテル インテリジェンスを探索する",
   "mapHotelIntelBannerTitle": "適切なホームベースを選択する",
-  "mapNavLayerSubtitle": "プラン内の混雑・駐車・運転ストレス — ワンタップ再ルート付き。",
-  "mapNavLayerTitle": "停車地フリクション",
+  "mapNavLayerSubtitle": "発見を超えて - 今すぐ立ち寄る価値があるかどうかについての生きた情報。",
+  "mapNavLayerTitle": "AI ナビゲーション層 (次)",
+  "mapParkingAtStop": "駐車場: {level}",
+  "@mapParkingAtStop": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "mapParkingLevelDifficult": "難しい",
+  "mapParkingLevelEasy": "簡単",
+  "mapParkingLevelLimited": "限定・早めに到着",
+  "mapParkingLevelModerate": "適度",
   "mapPlanDayEmpty": "目的地をブックマーク (♥) すると、Luxora がオーランドのハブから最適化されたルートを構築します。運転は最小限で、気分は最高です。",
   "mapPlanDayHomeBase": "{hotel}から出発",
   "@mapPlanDayHomeBase": {
@@ -538,7 +923,7 @@
       }
     }
   },
-  "mapPlanDayTitle": "今日の予定",
+  "mapPlanDayTitle": "一日の計画を立てる",
   "mapRerouteApplied": "日を調整 — {count} か所の停留所を混雑が少ないものに交換しました。",
   "@mapRerouteApplied": {
     "placeholders": {
@@ -643,17 +1028,18 @@
   "moodWellness": "ウェルネス リトリート",
   "moreCardAboutSub": "私たちが Luxora を構築する理由",
   "moreCardCityPacksSub": "目的地コンシェルジュのロックを解除する",
+  "moreCardDiscoverSub": "トレンドの食事、体験、ライブ発見",
   "moreCardFavoritesSub": "ブックマークした目的地",
   "moreCardGemsSub": "地元住民の警備員が内部関係者を発見",
   "moreCardHelpSub": "ガイドとコンシェルジュによるサポート",
   "moreCardHotelsSub": "気分に合わせてインテリジェントに滞在",
   "moreCardItinerarySub": "日々の黄金の逃避行",
-  "moreCardDiscoverSub": "トレンドのダイニング、体験、ライブ発見",
   "moreCardNotificationsSub": "旅行アラートとコンシェルジュの最新情報",
   "moreCardNotificationsTitle": "通知",
   "moreCardPartnersSub": "注目のパートナー エクスペリエンス",
   "moreCardProfileSub": "誰が旅行するのか、どのように感じるべきなのか",
   "moreCardProfileTitle": "旅行プロフィール",
+  "moreCardRestaurantsSub": "レストランを閲覧し、コンシェルジュに選んでもらいましょう",
   "moreCardSettingsSub": "テーマ、都市パック、環境設定",
   "moreCardTicketsSub": "認定パートナーの節約額を比較する",
   "moreCardWeatherSub": "予報を考慮した日のガイダンス",
@@ -662,72 +1048,194 @@
   "moreSectionAccount": "アカウント",
   "moreSectionApp": "アプリ",
   "moreSectionTravelTools": "トラベルツール",
+  "navAgenda": "今日",
   "navConcierge": "コンシェルジュ",
-  "navAgenda": "Today",
   "navDiscover": "発見する",
   "navFeed": "餌",
   "navGems": "宝石",
   "navMap": "地図",
   "navMore": "もっと",
   "navRestaurants": "レストラン",
-  "agendaTabItinerary": "日数",
-  "agendaTabRestaurants": "レストラン",
-  "restaurantsPageTitle": "レストラン",
-  "restaurantsPageSubtitle": "Luxora が知るレストランを閲覧 — お気に入り保存または Concierge に今夜の食事を選ばせる。",
-  "restaurantsConciergePick": "レストランを選んで",
-  "restaurantsConciergePickDone": "{name} を保存 — Concierge に旅程へ追加を依頼してください。",
-  "restaurantsSavedCount": "旅程用に {count} 件保存",
-  "restaurantsEmptyHint": "発見半径内にレストランがありません — 地図で半径を広げてください。",
-  "moreCardRestaurantsSub": "レストランを閲覧し Concierge に選ばせる",
-  "agendaHotelSuggestionsTitle": "宿泊先",
-  "agendaHotelSuggestionsSubtitle": "約 {budget} の予算に合わせた AI 提案 — タップですべて表示。",
-  "agendaHotelTopPick": "おすすめ：{name}",
-  "agendaStayDropdownHint": "ホテルを選択",
-  "agendaDiningDropdownHint": "レストランを選択",
-  "agendaDaySelectLabel": "何日目",
-  "agendaDayDiningTitle": "今夜のディナー",
-  "agendaDayDiningSubtitle": "今日のプランと約 {budget}（{tier}）に合う提案。",
-  "agendaDiningNearStops": "今日の立ち寄り付近",
-  "agendaDiningFitsBudget": "予算に合う",
-  "agendaDiningMatchesDay": "今日の雰囲気に合う",
-  "agendaDiningFoodiePick": "グルメおすすめ",
-  "browseCatRecommended": "Recommended",
-  "browseCatDisneyHotels": "ディズニーエリア",
-  "browseCatBudgetFriendly": "リーズナブル",
-  "browseCatUpscaleLuxury": "高級・ラグジュアリー",
-  "browseCatUniversalHotels": "ユニバーサルエリア",
-  "browseCatThemeParkDining": "パーク内ダイニング",
-  "browseCatUpscaleDining": "上質なダイニング",
-  "browseSearchAllHotels": "ホテル全カタログを検索…",
-  "browseSearchAllRestaurants": "レストラン全カタログを検索…",
-  "browseCategoryEmpty": "このカテゴリに該当なし — 検索するか範囲を広げてください。",
-  "browseFullCatalogHint": "上の検索で Luxora の全ホテル・レストランを閲覧できます。",
   "navStays": "宿泊",
   "navTicketSavings": "貯蓄",
   "navTimeline": "タイムライン",
-  "agendaPageSubtitle": "What am I doing right now?",
   "navTrips": "旅行",
   "notificationsComingSoon": "旅行通知は将来のアップデートで提供される予定です。",
   "occasionAnniversary": "周年",
   "occasionDateNight": "デートの夜",
+  "occasionDisneyAdventure": "ディズニーアドベンチャー",
   "occasionFamily": "お子様連れのご家族",
-  "occasionDisneyAdventure": "Disneyアドベンチャー",
-  "occasionUniversalAdventure": "Universalアドベンチャー",
   "occasionGeneral": "ただ探索するだけ",
   "occasionHoneymoon": "ハネムーン",
   "occasionProposal": "プロポーズ旅行",
+  "occasionUniversalAdventure": "ユニバーサルアドベンチャー",
   "onboardAdventure": "冒険とアウトドア",
   "onboardBudget": "旅行予算 (USD)",
+  "onboardBuildFailedHint": "あなたの設定を保存しましたが、旅程を作成するにはもう少し時間がかかります。プルしてアジェンダを更新するか、コンシェルジュを開きます。",
+  "onboardBuilding": "旅行を組み立てる…",
+  "onboardCityLabel": "あなたの都市を選択してください",
+  "onboardCityUnlockNote": "各目的地には独自のコンシェルジュによるロック解除があり、都市ごとに 1 回のみ購入できます。",
   "onboardCulture": "文化・観光",
+  "onboardDatesHint": "これらは [旅行] タブでいつでも変更できます。",
   "onboardDestination": "行き先",
-  "onboardFinish": "旅行を作成",
-  "onboardBuilding": "旅行を作成中…",
+  "onboardEndDateLabel": "終了日",
+  "onboardFinish": "コンシェルジュに会いましょう",
   "onboardFoodie": "食通の情熱",
+  "onboardLuxoraGuideNamed": "{name} さん、私はあなたをガイドし、あなたとあなたの家族にとって完璧な休暇や冒険を作るお手伝いをします。",
+  "@onboardLuxoraGuideNamed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardLuxoraItineraryPromise": "ここでの作業が完了したら、選択したすべてのものから旅程を作成します。後で何かを変更したい場合は、[コンシェルジュ] タブを開いて編集内容を教えてください。私はいつでも聞いています。",
+  "onboardLuxoraReplyEyebrow": "ルクソラ",
+  "onboardLuxoraReplyTitle": "初めまして、{name}。",
+  "@onboardLuxoraReplyTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "onboardNightlife": "ナイトライフへの興味",
   "onboardOccasionLabel": "どういう機会ですか？",
-  "onboardThemeParksOccasionHint": "ディズニー＆ユニバーサルを解放するとテーマパークの機会が表示されます — 購入後すぐ下に追加されます。",
+  "onboardPickDate": "タップして選択してください",
   "onboardPoolside": "プールサイドとダウンタイム",
+  "onboardPrefAmenityBalcony": "バルコニー",
+  "onboardPrefAmenityBreakfast": "無料の朝食",
+  "onboardPrefAmenityGym": "ジム",
+  "onboardPrefAmenityKitchen": "台所",
+  "onboardPrefAmenityOceanView": "オーシャンビュー",
+  "onboardPrefAmenityPetFriendly": "ペット可",
+  "onboardPrefAmenityPool": "プール",
+  "onboardPrefAmenityShuttle": "シャトルサービス",
+  "onboardPrefAmenitySpa": "スパ",
+  "onboardPrefAvoidCrowds": "群衆",
+  "onboardPrefAvoidDriving": "運転",
+  "onboardPrefAvoidEarlyMornings": "早朝",
+  "onboardPrefAvoidExpensiveRestaurants": "高価なレストラン",
+  "onboardPrefAvoidFamilyAttractions": "家族向けアトラクション",
+  "onboardPrefAvoidLateNights": "深夜",
+  "onboardPrefAvoidLongLines": "長い行列",
+  "onboardPrefAvoidNightlife": "ナイトライフ",
+  "onboardPrefAvoidThemeParks": "テーマパーク",
+  "onboardPrefAvoidTouristTraps": "ツーリスト・トラップ",
+  "onboardPrefAvoidWalking": "長距離を歩く",
+  "onboardPrefBudgetFour": "$$$$",
+  "onboardPrefBudgetOne": "$",
+  "onboardPrefBudgetThree": "$$$",
+  "onboardPrefBudgetTwo": "$$",
+  "onboardPrefChildrenElementary": "小学生",
+  "onboardPrefChildrenNone": "子供はいません",
+  "onboardPrefChildrenTeenagers": "ティーンエイジャー",
+  "onboardPrefChildrenToddlers": "幼児",
+  "onboardPrefCuisineAmerican": "アメリカ人",
+  "onboardPrefCuisineAsian": "アジア人",
+  "onboardPrefCuisineBbq": "バーベキュー",
+  "onboardPrefCuisineBrunch": "ブランチ",
+  "onboardPrefCuisineCuban": "キューバ人",
+  "onboardPrefCuisineDessert": "デザート",
+  "onboardPrefCuisineFineDining": "高級ダイニング",
+  "onboardPrefCuisineFoodTrucks": "フードトラック",
+  "onboardPrefCuisineItalian": "イタリア語",
+  "onboardPrefCuisineLocalFavorites": "地元のお気に入り",
+  "onboardPrefCuisineMediterranean": "地中海料理",
+  "onboardPrefCuisineMexican": "メキシコ人",
+  "onboardPrefCuisineRooftop": "屋上ダイニング",
+  "onboardPrefCuisineSeafood": "シーフード",
+  "onboardPrefCuisineSteakhouse": "ステーキハウス",
+  "onboardPrefCuisineSushi": "寿司",
+  "onboardPrefDiningCasual": "カジュアルダイニング",
+  "onboardPrefDiningDateNight": "デートナイト",
+  "onboardPrefDiningFamily": "ファミリー向け",
+  "onboardPrefDiningFine": "高級ダイニング",
+  "onboardPrefDiningHiddenGems": "隠された宝石",
+  "onboardPrefDiningLocal": "地元のお気に入り",
+  "onboardPrefDiningQuick": "クイックサービス",
+  "onboardPrefDiningWaterfront": "ウォーターフロント",
+  "onboardPrefEmotionAdventurous": "冒険好き",
+  "onboardPrefEmotionExcited": "興奮した",
+  "onboardPrefEmotionFamilyFocused": "家族中心",
+  "onboardPrefEmotionInspiring": "感動する",
+  "onboardPrefEmotionLuxurious": "豪華な",
+  "onboardPrefEmotionMemorable": "思い出に残る",
+  "onboardPrefEmotionRelaxed": "リラックスした",
+  "onboardPrefEmotionRomantic": "ロマンチック",
+  "onboardPrefEmotionStressFree": "ストレスフリー",
+  "onboardPrefExpAirboat": "エアボートツアー",
+  "onboardPrefExpBoatTours": "ボートツアー",
+  "onboardPrefExpFishing": "釣り",
+  "onboardPrefExpFoodTours": "グルメツアー",
+  "onboardPrefExpGolf": "ゴルフ",
+  "onboardPrefExpKayaking": "カヤック",
+  "onboardPrefExpLiveShows": "ライブショー",
+  "onboardPrefExpMuseums": "美術館・博物館",
+  "onboardPrefExpNightclubs": "ナイトクラブ",
+  "onboardPrefExpRooftopBars": "ルーフトップバー",
+  "onboardPrefExpScenicDrives": "風光明媚なドライブコース",
+  "onboardPrefExpShopping": "買い物",
+  "onboardPrefExpSnorkeling": "シュノーケリング",
+  "onboardPrefExpSpas": "スパ",
+  "onboardPrefExpSunsetCruises": "サンセットクルーズ",
+  "onboardPrefExpThemeParks": "テーマパーク",
+  "onboardPrefExpWaterParks": "ウォーターパーク",
+  "onboardPrefExpWildlife": "野生動物体験",
+  "onboardPrefGoalAdventure": "アドベンチャー",
+  "onboardPrefGoalAvoidCrowds": "混雑を避ける",
+  "onboardPrefGoalBestFood": "最高の食べ物",
+  "onboardPrefGoalBestPhotos": "ベストフォト",
+  "onboardPrefGoalFamilyTime": "家族の時間",
+  "onboardPrefGoalHiddenGems": "隠された宝石",
+  "onboardPrefGoalLocal": "地元の体験",
+  "onboardPrefGoalLuxury": "贅沢な体験",
+  "onboardPrefGoalMakeMemories": "思い出を作る",
+  "onboardPrefGoalNightlife": "ナイトライフ",
+  "onboardPrefGoalRelaxation": "リラクゼーション",
+  "onboardPrefGoalRomance": "ロマンス",
+  "onboardPrefGoalSaveMoney": "お金を節約する",
+  "onboardPrefGoalStressFree": "ストレスフリーなプランニング",
+  "onboardPrefHotelAdultsOnly": "大人限定",
+  "onboardPrefHotelBeachfront": "ビーチフロント",
+  "onboardPrefHotelBoutique": "ブティックホテル",
+  "onboardPrefHotelBudgetFriendly": "予算に優しい",
+  "onboardPrefHotelDowntown": "ダウンタウン",
+  "onboardPrefHotelFamilyResort": "ファミリーリゾート",
+  "onboardPrefHotelHistoric": "歴史あるホテル",
+  "onboardPrefHotelLuxuryResort": "ラグジュアリーリゾート",
+  "onboardPrefHotelModern": "モダンなホテル",
+  "onboardPrefHotelSpaResort": "スパリゾート",
+  "onboardPrefHotelThemeParkArea": "テーマパークエリア",
+  "onboardPrefHotelWalkable": "歩きやすいエリア",
+  "onboardPrefPaceBalanced": "バランスのとれた",
+  "onboardPrefPacePacked": "詰め込まれた",
+  "onboardPrefPaceSlow": "リラックスした",
+  "onboardPrefStyleAdventure": "アドベンチャー",
+  "onboardPrefStyleBeaches": "ビーチ",
+  "onboardPrefStyleEntertainment": "エンターテインメント",
+  "onboardPrefStyleFamilyActivities": "家族向けアクティビティ",
+  "onboardPrefStyleFoodie": "食通",
+  "onboardPrefStyleHiddenGems": "隠された宝石",
+  "onboardPrefStyleLocalExperiences": "地元の体験",
+  "onboardPrefStyleLuxury": "贅沢",
+  "onboardPrefStyleNature": "自然",
+  "onboardPrefStyleNightlife": "ナイトライフ",
+  "onboardPrefStylePhotography": "写真",
+  "onboardPrefStyleRelaxation": "リラクゼーション",
+  "onboardPrefStyleRomance": "ロマンス",
+  "onboardPrefStyleShopping": "買い物",
+  "onboardPrefStyleThemeParks": "テーマパーク",
+  "onboardPrefStyleWellness": "ウェルネス",
+  "onboardPrefTravelerBusiness": "仕事",
+  "onboardPrefTravelerCouple": "カップル",
+  "onboardPrefTravelerFamily": "家族",
+  "onboardPrefTravelerFriends": "友達",
+  "onboardPrefTravelerSolo": "ソロ",
   "onboardRegion": "地域",
+  "onboardSelectEndDate": "終了日を選択してください",
+  "onboardSelectStartDate": "開始日を選択してください",
+  "onboardStartDateLabel": "開始日",
   "onboardStep1Subtitle": "どこに向かっているのですか？",
   "onboardStep1Title": "夢が最初に着く場所",
   "onboardStep2Subtitle": "逃亡はいつ始まりますか？",
@@ -738,17 +1246,130 @@
   "onboardStep4Title": "あなたのリズム",
   "onboardStep5Subtitle": "この旅行をどんな気分にしたいですか?",
   "onboardStep5Title": "ルクソラの中心部",
+  "onboardStepBudgetSubtitle": "この逃避には何が適切だと感じますか?",
+  "onboardStepBudgetTitle": "簡単に計画を立てる",
+  "onboardStepNameEyebrow": "あなたの物語は名前から始まります",
+  "onboardStepNameSubtitle": "Luxora では、あなたの雰囲気からタイトルを作成したり、独自のタイトルを入力したりできます。",
+  "onboardStepNameTitle": "この旅行を何と呼べばいいでしょうか？",
+  "onboardSummaryCuisine": "{cuisine} のお気に入り",
+  "@onboardSummaryCuisine": {
+    "placeholders": {
+      "cuisine": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardSummaryEmotion": "{emotion} に焦点を当てた旅",
+  "@onboardSummaryEmotion": {
+    "placeholders": {
+      "emotion": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardSummaryExperiences": "体験談",
+  "onboardSummaryHiddenGems": "隠れた宝石",
+  "onboardSummaryHiddenGemsInsight": "地元の隠れたレストランと逸品",
+  "onboardSummaryHotelDefault": "予算に合わせて厳選された滞在",
+  "onboardSummaryHotelType": "{type} 滞在",
+  "@onboardSummaryHotelType": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardSummaryHotels": "ホテル",
+  "onboardSummaryPace": "{pace} の 1 日のペース",
+  "@onboardSummaryPace": {
+    "placeholders": {
+      "pace": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardSummaryPremiumGems": "プレミアムな隠れた逸品",
+  "onboardSummaryRestaurants": "レストラン",
+  "onboardSummaryRomantic": "ロマンチックな夕日体験",
+  "onboardSummaryRooftopDining": "屋上でのダイニング体験",
+  "onboardThemeParksOccasionHint": "ディズニーとユニバーサルのロックを解除して、以下のテーマパークのイベントを追加します。これらのチップは購入後すぐに表示されます。",
+  "onboardTravelerNameEyebrow": "まず最初に",
+  "onboardTravelerNameHint": "例えばマリア",
+  "onboardTravelerNameLabel": "あなたの名前",
+  "onboardTravelerNameSubtitle": "下の名前だけで十分です。Luxora はチャット時にその名前を使用します。",
+  "onboardTravelerNameTitle": "ルクソラは何と呼べばいいでしょうか？",
   "onboardTravelers": "旅行者",
   "onboardTripFeelHint": "夕日が沈むディナー、ゆっくりとした朝、パートナーとの笑い…。",
-  "onboardStepNameEyebrow": "物語は名前から始まる",
-  "onboardStepNameTitle": "この旅の名前は？",
-  "onboardStepNameSubtitle": "Luxoraが雰囲気から名前を考えます — または自分で入力。",
-  "onboardTripNameLuxora": "Luxoraに任せる",
-  "onboardTripNameYours": "自分で付ける",
-  "onboardTripNameHint": "春の記念日の旅…",
-  "onboardTripNameSuggested": "Luxoraの提案：{name}",
-  "conciergeTripNameLabel": "旅行名",
+  "onboardTripNameHint": "春の記念日の脱出…",
+  "onboardTripNameLuxora": "ルクソーラに名前を付けましょう",
+  "onboardTripNameSuggested": "Luxora は次のように提案します: {name}",
+  "@onboardTripNameSuggested": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardTripNameYours": "名前をつけておきます",
+  "onboardV2ChildrenLabel": "お子様が旅行中ですか？",
+  "onboardV2ChildrenSubtitle": "該当する年齢層をすべて選択してください。",
+  "onboardV2CuisineLabel": "料理の種類",
+  "onboardV2DiningStyleLabel": "ダイニングスタイル",
+  "onboardV2Eyebrow": "あなたの完璧な旅行をデザインしましょう",
+  "onboardV2HotelAmenitiesLabel": "必須のアメニティ",
+  "onboardV2HotelBudgetLabel": "ホテルの予算",
+  "onboardV2PaceBalancedBody": "1 日あたり 4 ～ 5 つのアクティビティ",
+  "onboardV2PaceBalancedTitle": "バランスのとれた",
+  "onboardV2PacePackedBody": "毎日を最大限に活用する",
+  "onboardV2PacePackedTitle": "詰め込まれた",
+  "onboardV2PaceRelaxedBody": "1 日あたり 2 ～ 3 つのアクティビティ",
+  "onboardV2PaceRelaxedTitle": "リラックスした",
+  "onboardV2StepAvoidEyebrow": "ステップ8",
+  "onboardV2StepAvoidSubtitle": "Luxora は、旅行に無駄なものを一切排除します。",
+  "onboardV2StepAvoidTitle": "避けたいものは何ですか?",
+  "onboardV2StepEmotionEyebrow": "ステップ9",
+  "onboardV2StepEmotionSubtitle": "主な感情を 1 つ選択してください。",
+  "onboardV2StepEmotionTitle": "この旅行が成功したと感じられるものは何ですか?",
+  "onboardV2StepExperienceEyebrow": "ステップ7",
+  "onboardV2StepExperienceSubtitle": "これらをあなたの旅程に織り込みます。",
+  "onboardV2StepExperienceTitle": "どのような体験をしてみたいですか？",
+  "onboardV2StepFoodEyebrow": "ステップ4",
+  "onboardV2StepFoodSubtitle": "料理とダイニング スタイル - 好きなものをすべてお選びください。",
+  "onboardV2StepFoodTitle": "どのような種類のレストランが好きですか?",
+  "onboardV2StepGoalsEyebrow": "ステップ6",
+  "onboardV2StepGoalsSubtitle": "最大 5 つの優先順位を選択します。",
+  "onboardV2StepGoalsTitle": "この旅行で最も重要なことは何ですか?",
+  "onboardV2StepHotelEyebrow": "ステップ3",
+  "onboardV2StepHotelSubtitle": "ブティックの逸品とリゾートのアイコンを組み合わせます。",
+  "onboardV2StepHotelTitle": "どのようなタイプの場所に滞在したいですか?",
+  "onboardV2StepPaceEyebrow": "ステップ5",
+  "onboardV2StepPaceSubtitle": "リラックスした朝も、充実した冒険も、あなた次第です。",
+  "onboardV2StepPaceTitle": "一日の計画をどのように立てますか？",
+  "onboardV2StepStyleEyebrow": "ステップ2",
+  "onboardV2StepStyleSubtitle": "自分がワクワクするものをすべて選んでください。",
+  "onboardV2StepStyleTitle": "どのような旅行をお探しですか?",
+  "onboardV2StepSummaryEyebrow": "コンシェルジュによるプレビュー",
+  "onboardV2StepSummarySubtitle": "私たちは今、あなたの完璧な旅行を構築中です。",
+  "onboardV2StepSummaryTitle": "あなたの選択に基づいて、Luxora が推奨するのは",
+  "onboardV2StepTravelerEyebrow": "ステップ1",
+  "onboardV2StepTravelerSubtitle": "Luxora は、クルーに合わせて宿泊、食事、ペース調整を行います。",
+  "onboardV2StepTravelerTitle": "誰と一緒に旅行していますか?",
+  "orlandoThemeParksPromptBody": "ウォルト ディズニー ワールドとユニバーサル オーランドのテーマ パーク パックを追加すると、すべてのパーク、チケット取引、ルート、混雑情報が 1 回のロックで解除されます。",
+  "orlandoThemeParksPromptNotNow": "今じゃない",
+  "orlandoThemeParksPromptTitle": "オーランドのディズニーとユニバーサルのロックを解除しますか?",
+  "orlandoThemeParksPromptUnlock": "ロックを解除 · {price}",
+  "@orlandoThemeParksPromptUnlock": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
   "partnerOffersTitle": "パートナーのオファー",
+  "paywallAddonRequiresOrlando": "最初にオーランドのロックを解除する必要があります",
+  "paywallAddonThemeParksSubtitle": "ウォルト ディズニー ワールドとユニバーサル オーランド — すべてのパーク、セール、ルート、混雑情報を 1 回のロック解除で利用できます。",
+  "paywallAddonThemeParksTitle": "ディズニー＆ユニバーサルパック",
+  "paywallAddonUnlocked": "ロック解除済み",
   "paywallBenefitAvoidTrapsBody": "地元の人が実際におすすめする体験を見つけてください。",
   "paywallBenefitAvoidTrapsTitle": "観光客の罠を回避する",
   "paywallBenefitSaveMoneyBody": "チケットの節約、地元のお得な情報、賢い選択を見つけてください。",
@@ -767,8 +1388,17 @@
       }
     }
   },
+  "paywallCtaUnlockAddon": "{packName} のロックを解除する",
+  "@paywallCtaUnlockAddon": {
+    "placeholders": {
+      "packName": {
+        "type": "String"
+      }
+    }
+  },
   "paywallEmotionalLine": "あなたはすでに休暇に何千ドルも費やしています。経験を偶然に任せないでください。",
   "paywallFeatureAiConcierge": "AIコンシェルジュ",
+  "paywallFeatureCloudBackup": "クラウドトリップバックアップ",
   "paywallFeatureCrowdIntel": "クラウドインテリジェンス",
   "paywallFeatureDining": "おすすめのダイニング",
   "paywallFeatureGpsNav": "GPSナビゲーション",
@@ -828,39 +1458,6 @@
     }
   },
   "paywallHeadlineMiamiDefault": "マイアミを一味違った体験してみませんか",
-  "keysWaterIntelTitle": "キーズ水域インテリジェンス",
-  "keysWaterBestTime": "最適な時間: {time}",
-  "@keysWaterBestTime": {
-    "placeholders": {
-      "time": {
-        "type": "String"
-      }
-    }
-  },
-  "keysWaterTemp": "水温: {note}",
-  "@keysWaterTemp": {
-    "placeholders": {
-      "note": {
-        "type": "String"
-      }
-    }
-  },
-  "keysWaterSnorkelScore": "シュノーケル",
-  "keysWaterDivingScore": "ダイビング",
-  "keysWaterBoatingScore": "ボート",
-  "keysWaterFishingScore": "釣り",
-  "keysWaterWindScore": "風",
-  "keysWaterSunsetScore": "夕日",
-  "keysWaterCrowdScore": "混雑",
-  "keysMoodRoutesTitle": "キーズ島ルート",
-  "keysMoodRouteStart": "開始 {time}",
-  "@keysMoodRouteStart": {
-    "placeholders": {
-      "time": {
-        "type": "String"
-      }
-    }
-  },
   "paywallHeadlineMiamiWeekend": "マイアミの週末を無駄にしないでください",
   "paywallHeroEyebrow": "あなたの専属コンシェルジュ",
   "paywallHeroHeadline": "休暇を無駄にしないでください",
@@ -908,10 +1505,41 @@
   "paywallNoMonthlyFees": "月額料金なし",
   "paywallNoSubscription": "購読なし",
   "paywallOneTimePurchase": "1回限りの購入",
+  "paywallOrlandoAddonsHeading": "テーマパークパック",
+  "paywallOrlandoBaseIncludes": "オーランドのロック解除には、食事、隠れた宝石、ホテル、公園以外の体験が含まれます。ディズニーとユニバーサルのテーマパーク パックを一緒に追加します。",
+  "paywallProductUnavailable": "このパックはまだストアでは入手できません。",
+  "paywallPurchaseCanceled": "購入はキャンセルされました。",
+  "paywallPurchaseFailed": "購入を完了できませんでした。もう一度試すか、購入を復元してください。",
+  "paywallPurchasePending": "購入を完了しています…",
+  "paywallPurchaseSuccess": "購入が完了しました - コンシェルジュのロックが解除されました。",
+  "paywallRestoreComplete": "購入が復元されました。",
+  "paywallRestoreNone": "この Apple ID または Google アカウントで以前に購入したものは見つかりませんでした。",
+  "paywallRestorePurchases": "購入したものを復元する",
   "paywallReview1": "「計画に費やす時間を節約できました。」",
   "paywallReview2": "「私たちが決して発見できなかった場所を見つけました。」",
   "paywallReview3": "「隠された宝石だけでも価値があります。」",
   "paywallSocialProofTitle": "ルクソラのロックを解除した旅行者",
+  "paywallStoreUnavailable": "このデバイスでは App Store での課金は利用できません。",
+  "paywallSwitchCity": "行き先",
+  "paywallUnlockAddon": "{packName} · {price} のロックを解除します",
+  "@paywallUnlockAddon": {
+    "placeholders": {
+      "packName": {
+        "type": "String"
+      },
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallUnlockAddonPack": "{packName} のロックを解除する",
+  "@paywallUnlockAddonPack": {
+    "placeholders": {
+      "packName": {
+        "type": "String"
+      }
+    }
+  },
   "paywallUnlockCityConcierge": "{cityName} コンシェルジュのロックを解除する",
   "@paywallUnlockCityConcierge": {
     "placeholders": {
@@ -941,17 +1569,37 @@
   "radius50": "50マイル",
   "radiusAllFlorida": "すべてのフロリダ",
   "radiusDesc100": "タンパベイ、デイトナ、湾奥深く",
+  "radiusDesc100Keys": "キーウェストを通る海外高速道路全線",
   "radiusDesc100Miami": "エバーグレーズ、フォートローダーデール、南フロリダ奥地",
   "radiusDesc25": "オーランドコア周辺の日帰り旅行",
+  "radiusDesc25Keys": "キー ラーゴ、イスラモラダ、アッパー リーフ コリドー",
   "radiusDesc25Miami": "サウスビーチ、ブリッケル、および中心地区",
   "radiusDesc50": "泉、海岸日帰り旅行、スペース コースト",
+  "radiusDesc50Keys": "マラソン、ビッグ パイン、ミドル キーズのビーチ",
   "radiusDesc50Miami": "ウィンウッド、ココナッツ グローブ、キー ビスケーン",
   "radiusDescAll": "マイアミ州キーズ、州全体のハイライト",
+  "radiusDescAllKeys": "列島全体と日帰り海域",
   "radiusDescAllMiami": "フロリダキーズのトレイルと州全体のハイライト",
-  "radiusDesc25Keys": "キーラーゴ、イスラモラーダ、北部リーフ回廊",
-  "radiusDesc50Keys": "マラソン、ビッグパイン、中Keysのビーチ",
-  "radiusDesc100Keys": "キーウェストまでの全オーバーシーズハイウェイ",
-  "radiusDescAllKeys": "島チェーン全体と日帰り水域",
+  "restaurantsConciergePick": "私のためにレストランを選んでください",
+  "restaurantsConciergePickDone": "{name} を保存しました — コンシェルジュに旅行に追加するよう依頼してください。",
+  "@restaurantsConciergePickDone": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "restaurantsEmptyHint": "探索範囲内にレストランはありません。地図上の範囲を広げてください。",
+  "restaurantsPageSubtitle": "Luxora が知っているレストランを閲覧する — お気に入りを保存するか、コンシェルジュに今夜の食事を選んでもらいましょう。",
+  "restaurantsPageTitle": "レストラン",
+  "restaurantsSavedCount": "旅行のために {count} 個保存しました",
+  "@restaurantsSavedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "rightNowButton": "私たちは今何をすべきでしょうか？",
   "rightNowEmpty": "まだあなたの周囲に強烈な瞬間はありません。お気に入りをいくつか見つけたり、ブックマークしたりしてください。",
   "rightNowFamilyCalm": "昼寝のような静けさ — {minutes} で家族が簡単にリセットできるまで、あと {place} 分です。",
@@ -1090,14 +1738,43 @@
     }
   },
   "settings": "設定",
+  "settingsOpenConciergeSubtitle": "AI コンシェルジュ タブを開く",
   "settingsStartOverSubtitle": "新たな旅を一から始める",
+  "settingsThemeIntro": "高級感のある映画のようなもの、またはすっきりとした読みやすさ — あなたの一日にぴったりのものをお選びください。",
+  "settingsThemeSectionLuxury": "贅沢な映画のような",
+  "settingsThemeSectionReadable": "クリーンで読みやすい",
   "settingsUnlockConciergeSubtitle": "1 回限りのシティ パック — サブスクリプションではありません",
-  "settingsOpenConciergeSubtitle": "AIコンシェルジュタブを開く",
   "settingsUnlockConciergeTitle": "シティコンシェルジュのロックを解除する",
   "settings_language_picker_note": "変更はすぐに適用されます。",
   "settings_regions_coming_subtitle": "ホームハブパックとシティパックは近日発売予定です。",
   "settings_regions_coming_title": "国と都市",
+  "shareCardCta": "ルクソラで計画を立てましょう",
+  "shareCardDownloadHint": "iOS および Android で無料 · luxora.ai/download",
+  "shareCardShareMessage": "{title}\n\nLuxora AI を使用して計画 - 感情的にインテリジェントなフロリダ旅行。\nアプリを入手: {url}",
+  "@shareCardShareMessage": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "shareDayLegDrive": "前回の目的地から {time} ドライブ · {miles}",
+  "@shareDayLegDrive": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      },
+      "miles": {
+        "type": "String"
+      }
+    }
+  },
   "shareItineraryFooter": "感情的に知的なフロリダのパートナーである Luxora と計画しました。",
+  "shareMapPreviewCaption": "地図のプレビュー · Luxora で開くとライブルートが表示されます",
+  "shareRadarPreviewCaption": "ライブドップラーレーダー · フルループでルクソラでオープン",
   "shareSubject": "私の{title}",
   "@shareSubject": {
     "placeholders": {
@@ -1173,15 +1850,55 @@
   "styleNoTraps": "観光客の罠はありません",
   "styleSlowMornings": "ゆっくりとした朝",
   "styleWalkable": "可能であれば歩いて行ける",
+  "ticketAgendaMatchLine": "{stop} · {source} 経由で {amount} を節約できる見込み",
+  "@ticketAgendaMatchLine": {
+    "placeholders": {
+      "stop": {
+        "type": "String"
+      },
+      "amount": {
+        "type": "String"
+      },
+      "source": {
+        "type": "String"
+      }
+    }
+  },
+  "ticketAgendaStopsSavings": "EST（東部基準時。家族の貯蓄 · {amount}",
+  "@ticketAgendaStopsSavings": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "ticketAgendaStopsSummary": "あなたの予定にある {count} か所の停留所には、パートナーの特典があります。ゲートで購入する前に、正規の特典を比較してください。",
+  "@ticketAgendaStopsSummary": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "ticketAiInsightTitle": "ルクソラのおすすめ",
   "ticketBetterOption": "Luxora はより良い選択肢を見つけました。",
+  "ticketBrowseAgendaDeals": "予定に合わせたセールを閲覧 →",
   "ticketCalculatorTitle": "潜在的な節約効果",
+  "ticketConciergeIntelAgenda": "一般的なクーポン リストではなく、予定に合わせて停止します。",
+  "ticketConciergeIntelBadge": "コンシェルジュ・インテリジェンス",
   "ticketConfidenceHigh": "高い信頼性",
   "ticketConfidenceLimited": "期間限定",
   "ticketConfidenceVerified": "認証済み再販業者",
+  "ticketDealsPricesAsOf": "{date} 時点の価格",
+  "@ticketDealsPricesAsOf": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "ticketDealsRefreshFailed": "価格を更新できませんでした - キャッシュされた取引を表示しています。",
   "ticketDealsSectionTitle": "正規取引",
-  "ticketDealsPricesAsOf": "{date}時点の価格",
-  "ticketDealsRefreshFailed": "価格を更新できませんでした — キャッシュのお得情報を表示中。",
   "ticketDealsUpdating": "価格を更新中…",
   "ticketDiscountPrice": "ルクソラ 価格",
   "ticketEstimatedFamilySave": "家族の推定貯蓄額: {amount}。",
@@ -1271,6 +1988,22 @@
       }
     }
   },
+  "todayExtrasCollapsedHint": "セール、カードの共有など",
+  "todayExtrasSection": "チケットと共有",
+  "todayNextActivityLabel": "次へ",
+  "todayPlanDetailsTitle": "全スケジュール",
+  "todayPlanSectionTitle": "今日の予定",
+  "todayPlanStopCount": "{count, plural, =1{1 stop today} other{{count} つ今日停止します}}",
+  "@todayPlanStopCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "todayRainRerouteTitle": "雨天のルート変更",
+  "todayStaysDiningCollapsedHint": "ホテルとレストランのアイデア — タップして展開します",
+  "todayStaysDiningSection": "宿泊と食事のおすすめ",
   "tripStoryBeatClosing": "Luxora はその瞬間を形作り、あなたはその瞬間を生きました。",
   "tripStoryBeatMoods": "あなたは{moods}を求めて来たのです。",
   "@tripStoryBeatMoods": {
@@ -1298,6 +2031,8 @@
   },
   "tripStoryTitle": "あなたの旅の物語",
   "tripsBadge": "コレクション",
+  "tripsDatesFlexible": "日付は柔軟です",
+  "tripsDatesUpdated": "旅行日程を更新しました",
   "tripsDeleteBody": "これにより、保存された旅行から「{title}」が削除されます。これを元に戻すことはできません。",
   "@tripsDeleteBody": {
     "placeholders": {
@@ -1308,15 +2043,17 @@
   },
   "tripsDeleteTitle": "旅行を削除しますか?",
   "tripsDeleted": "旅行が削除されました",
+  "tripsEditDates": "旅行日程",
   "tripsEmptyBody": "初めての旅行を計画するとここに表示され、いつでも再訪できます。",
   "tripsEmptyTitle": "保存された旅行はまだありません",
-  "tripsFooter": "ムードカタログのカバー · サインインでクラウドバックアップ",
+  "tripsFooter": "ムードカタログからの旅行カバー · Supabase 同期フェーズ 2",
   "tripsLiveWeather": "ライブ天気",
   "tripsNextUp": "次は",
+  "tripsOpenAgenda": "全ての議題を開く",
   "tripsOpenStory": "あなたの物語",
-  "tripsOpenAgenda": "予定全体を開く",
   "tripsOpenTimeline": "完全なタイムラインを開く",
   "tripsPlanNew": "新しい旅行を計画する",
+  "tripsSaveDates": "日付を保存する",
   "tripsShare": "共有",
   "tripsSubtitle": "旅行をタップすると、次の瞬間、天気、日没、タイムラインなどのライブスナップショットが表示されます。",
   "tripsSunsetWindow": "夕焼けの窓",
@@ -1456,9 +2193,36 @@
   "weatherPackWater": "水筒",
   "weatherPlanImpact": "計画への影響",
   "weatherRadarComingSoon": "ライブレーダーは近日公開予定です。",
+  "weatherRadarJump1h": "−1時間",
+  "weatherRadarJump2h": "−2時間",
+  "weatherRadarJump30m": "+30分",
+  "weatherRadarJumpNow": "今",
+  "weatherRadarLoopNote": "レーダー ループ: 過去約 2 時間 (10 分単位)、および利用可能な場合は短距離ナウキャスト (4 時間の予報ではありません)。",
+  "weatherRadarMinutesAgo": "{minutes} 分前",
+  "@weatherRadarMinutesAgo": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "weatherRadarMinutesAhead": "+{minutes}分",
+  "@weatherRadarMinutesAhead": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "weatherRadarNow": "今",
+  "weatherRadarPause": "ループを一時停止する",
   "weatherRadarPlay": "ループ再生",
-  "weatherRadarPause": "ループ一時停止",
-  "weatherRadarTapToExpand": "タップして全画面表示",
+  "weatherRadarSpeedFast": "速い",
+  "weatherRadarSpeedNormal": "普通",
+  "weatherRadarSpeedSlow": "遅い",
+  "weatherRadarStepBack": "前のフレーム",
+  "weatherRadarStepForward": "後のフレーム",
+  "weatherRadarTapToExpand": "タップすると全画面表示になります",
   "weatherRainNote": "{percent}% の降水確率 — 薄手のものを用意してください。",
   "@weatherRainNote": {
     "placeholders": {
@@ -1524,613 +2288,5 @@
         "type": "int"
       }
     }
-  },
-  "mapParkingLevelEasy": "簡単",
-  "mapParkingLevelModerate": "普通",
-  "mapParkingLevelDifficult": "難しい",
-  "mapParkingLevelLimited": "限られ · 早めに到着",
-  "mapParkingAtStop": "駐車: {level}",
-  "@mapParkingAtStop": {
-    "placeholders": {
-      "level": {
-        "type": "String"
-      }
-    }
-  },
-  "mapDriveFrictionAtStop": "ドライブ負担: {score}/90",
-  "@mapDriveFrictionAtStop": {
-    "placeholders": {
-      "score": {
-        "type": "int"
-      }
-    }
-  },
-  "detailTravelIntelTitle": "旅の摩擦見通し",
-  "detailTravelIntelSubtitle": "カテゴリ・時間・距離から予測 — ライブセンサーなし。",
-  "detailCrowdOutlook": "混雑: {level}",
-  "@detailCrowdOutlook": {
-    "placeholders": {
-      "level": {
-        "type": "String"
-      }
-    }
-  },
-  "detailParkingOutlook": "駐車: {level}",
-  "@detailParkingOutlook": {
-    "placeholders": {
-      "level": {
-        "type": "String"
-      }
-    }
-  },
-  "detailDriveFrictionOutlook": "ドライブ負担: {score}/90",
-  "@detailDriveFrictionOutlook": {
-    "placeholders": {
-      "score": {
-        "type": "int"
-      }
-    }
-  },
-  "onboardCityLabel": "都市を選ぶ",
-  "onboardCityUnlockNote": "各目的地には専用のコンシェルジュ解除があります — 都市ごとに一度だけ購入。オーランドのテーマパークは1つのパック（DisneyとUniversalをまとめて）です。",
-  "landingCityLabel": "どこへ行きますか？",
-  "paywallSwitchCity": "目的地",
-  "cityPickerUnlocked": "解除済み",
-  "cityPickerUnlockPrice": "{price} を解除",
-  "@cityPickerUnlockPrice": {
-    "placeholders": {
-      "price": {
-        "type": "String"
-      }
-    }
-  },
-  "paywallOrlandoAddonsHeading": "テーマパークパック",
-  "paywallOrlandoBaseIncludes": "オーランド解除にはダイニング、隠れた名所、ホテル、パーク外の体験が含まれます。DisneyとUniversalをまとめたテーマパークパックを追加。",
-  "paywallUnlockAddon": "{packName}を解除 · {price}",
-  "@paywallUnlockAddon": {
-    "placeholders": {
-      "packName": {
-        "type": "String"
-      },
-      "price": {
-        "type": "String"
-      }
-    }
-  },
-  "paywallAddonUnlocked": "解除済み",
-  "paywallAddonRequiresOrlando": "先にオーランド解除が必要です",
-  "paywallUnlockAddonPack": "{packName}を解除",
-  "@paywallUnlockAddonPack": {
-    "placeholders": {
-      "packName": {
-        "type": "String"
-      }
-    }
-  },
-  "paywallCtaUnlockAddon": "{packName}を解除",
-  "@paywallCtaUnlockAddon": {
-    "placeholders": {
-      "packName": {
-        "type": "String"
-      }
-    }
-  },
-  "paywallAddonThemeParksTitle": "Disney & Universalパック",
-  "paywallAddonThemeParksSubtitle": "Walt Disney WorldとUniversal Orlando — 全パーク、ディール、ルート、混雑インテリを1回の解除で。",
-  "hotelLinkUnavailable": "この宿泊の予約リンクはまだ利用できません。",
-  "hotelLinkOpenFailed": "リンクを開けませんでした — ブラウザでもう一度お試しください。",
-  "cityPickerThemeParksSubtitle": "オーランドアドオン · DisneyとUniversalをまとめて",
-  "orlandoThemeParksPromptTitle": "Orlando向けにDisney & Universalを解除しますか？",
-  "orlandoThemeParksPromptBody": "Walt Disney WorldとUniversal Orlando向けのテーマパークパックを追加 — 全パーク、チケットディール、ルート、混雑intelを1回の解除で。",
-  "orlandoThemeParksPromptUnlock": "解除 · {price}",
-  "@orlandoThemeParksPromptUnlock": {
-    "placeholders": {
-      "price": {
-        "type": "String"
-      }
-    }
-  },
-  "orlandoThemeParksPromptNotNow": "後で",
-  "conciergeThinking": "Luxoraが考えています…",
-  "conciergeItinerarySynced": "今日の予定をマップとタイムラインに反映しました — 同じ立ち寄り先、共有できます。",
-  "conciergeAgendaUpdatedSnack": "マップで予定の準備ができました",
-  "conciergeAgendaSyncFailed": "Map and Timeline did not update. Try one clear request, for example: Plan a 4-day Disney and Universal trip.",
-  "conciergeViewAgendaOnMap": "マップで見る",
-  "conciergeAgendaDealsIntro": "予定の立ち寄り先に正規チケット特典をマッチしました — 現地購入前に比較してください：",
-  "conciergeAgendaDealsSnack": "予定にマッチしたチケット特典",
-  "conciergeViewTicketDeals": "特典を見る",
-  "ticketAgendaMatchLine": "{stop} · 推定{amount}節約 · {source}",
-  "ticketAgendaStopsSummary": "予定の{count}か所にパートナー特典があります — 現地購入前に正規オファーを比較してください。",
-  "ticketAgendaStopsSavings": "家族の推定節約 · {amount}",
-  "ticketBrowseAgendaDeals": "予定向け特典を見る →",
-  "conciergeFreshThread": "予定はマップとタイムラインにあります。このチャットをアーカイブして新しく始めました — 日を調整したり、特典を探したり、新しいことを聞いてください。",
-  "conciergeThreadArchivedSnack": "チャットをアーカイブ — 新しいスレッド",
-  "conciergeNewConversationTooltip": "新しい会話",
-  "itinerarySameAsMapAgenda": "マップの今日の予定と同じプラン — ここまたはマップから一日分を共有できます。",
-  "conciergeTicketsFoundIntro": "認定チケット割引を見つけました — タイムラインの「チケット予約」をタップしてリンクを開いてください。",
-  "conciergeTicketDealLine": "• {title}: {price}（{source}、{savings}お得）",
-  "@conciergeTicketDealLine": {
-    "placeholders": {
-      "title": {
-        "type": "String"
-      },
-      "price": {
-        "type": "String"
-      },
-      "source": {
-        "type": "String"
-      },
-      "savings": {
-        "type": "String"
-      }
-    }
-  },
-  "conciergeTicketsTimelineHint": "該当する各スポットのタイムラインに、販売元リンク付きの「チケット予約」ボタンが表示されます。",
-  "itineraryBookTickets": "チケット予約 · {amount}お得",
-  "@itineraryBookTickets": {
-    "placeholders": {
-      "amount": {
-        "type": "String"
-      }
-    }
-  },
-  "itineraryOpenTicketDeal": "チケット予約",
-  "conciergeTripSaved": "「{title}」を旅行に保存しました — Tripsタブからいつでも開けます。",
-  "@conciergeTripSaved": {
-    "placeholders": {
-      "title": {
-        "type": "String"
-      }
-    }
-  },
-  "conciergeTripSavedWithStops": "「{title}」をタイムラインの{count}件の体験付きで保存しました。",
-  "@conciergeTripSavedWithStops": {
-    "placeholders": {
-      "title": {
-        "type": "String"
-      },
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "conciergeSavedTripsIntro": "保存済みの旅行が{count}件あります：",
-  "@conciergeSavedTripsIntro": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "conciergeSavedTripLine": "• {title}（{dates}）— {status}",
-  "@conciergeSavedTripLine": {
-    "placeholders": {
-      "title": {
-        "type": "String"
-      },
-      "dates": {
-        "type": "String"
-      },
-      "status": {
-        "type": "String"
-      }
-    }
-  },
-  "conciergeSavedTripsEmpty": "保存された旅行はまだありません — プランを頼んでから「旅行を保存して」と言ってください。",
-  "conciergeSavedTripsHint": "Tripsタブでカードの表示、共有、日付の編集ができます。",
-  "conciergeAiError": "Luxoraに接続できませんでした。接続を確認してもう一度お試しください。",
-  "conciergeAiNotConfigured": "Luxora's live concierge isn't wired up on this build yet — Supabase URL and anon key need to be baked into the app, and the edge function deployed. Map and itinerary still work; see docs/CONCIERGE_AI.md for setup.",
-  "conciergeVoiceListening": "Luxoraが聞いています…",
-  "conciergeVoiceSpeaking": "Luxoraが話しています…",
-  "conciergeVoiceRelease": "離して送信",
-  "conciergeVoiceUnavailable": "このデバイスでは音声を利用できません。",
-  "conciergeVoiceSettingsTitle": "Luxoraの声",
-  "conciergeVoiceSettingsSubtitle": "アクセント、トーン、速度を選べます — 端末のシステム音声を使用します。",
-  "conciergeVoiceRateLabel": "話す速度",
-  "conciergeVoiceRateSlow": "ゆっくり",
-  "conciergeVoiceRateNatural": "自然",
-  "conciergeVoiceRateFast": "速い",
-  "conciergeVoicePreview": "声を試聴",
-  "conciergeVoicePreviewSample": "こんにちは — Luxoraです。この旅をどう感じたいか教えてください。",
-  "conciergeVoiceDeviceNote": "Download more voices in iPhone Settings → Accessibility → Spoken Content → Voices. Return here and tap Refresh.",
-  "conciergeVoiceRegionRecommended": "おすすめ",
-  "conciergeVoiceRegionEnglish": "英語",
-  "conciergeVoiceRegionRussian": "ロシア語",
-  "conciergeVoiceRegionSpanish": "スペイン語",
-  "conciergeVoiceRegionFrench": "フランス語",
-  "conciergeVoiceRegionGerman": "ドイツ語",
-  "conciergeVoiceRegionOther": "その他",
-  "conciergeVoicePresetMatchApp": "アプリ言語 · 女性",
-  "conciergeVoicePresetEnUsF": "アメリカ · 女性",
-  "conciergeVoicePresetEnUsM": "アメリカ · 男性",
-  "conciergeVoicePresetEnGbF": "イギリス · 女性",
-  "conciergeVoicePresetEnGbM": "イギリス · 男性",
-  "conciergeVoicePresetRuF": "ロシア · 女性",
-  "conciergeVoicePresetRuM": "ロシア · 男性",
-  "conciergeVoicePresetEsF": "スペイン · 女性",
-  "conciergeVoicePresetEsM": "スペイン · 男性",
-  "conciergeVoicePresetFrF": "フランス · 女性",
-  "conciergeVoicePresetFrM": "フランス · 男性",
-  "conciergeVoicePresetDeF": "ドイツ · 女性",
-  "conciergeVoicePresetDeM": "ドイツ · 男性",
-  "conciergeVoiceNoSpeech": "聞き取れませんでした。押したまま話してから離してください。",
-  "conciergeVoicePreviewFailed": "プレビューを再生できませんでした。音量を確認して再度お試しください。",
-  "onboardStartDateLabel": "開始日",
-  "onboardEndDateLabel": "終了日",
-  "onboardPickDate": "タップして選択",
-  "onboardSelectStartDate": "開始日を選択",
-  "onboardSelectEndDate": "終了日を選択",
-  "onboardDatesHint": "旅行タブからいつでも変更できます。",
-  "onboardStepBudgetTitle": "無理のない計画",
-  "onboardStepBudgetSubtitle": "この旅に合う予算は？",
-  "tripsEditDates": "旅行の日程",
-  "tripsSaveDates": "日程を保存",
-  "tripsDatesUpdated": "日程を更新しました",
-  "tripsDatesFlexible": "日程は未定",
-  "shareDayLegDrive": "前の停留所から {miles} · 車で {time}",
-  "conciergeVoiceSend": "Luxoraに送信",
-  "conciergeVoiceProcessing": "Luxoraに送信中…",
-  "weatherRadarNow": "現在",
-  "weatherRadarMinutesAgo": "{minutes}分前",
-  "weatherRadarMinutesAhead": "+{minutes}分",
-  "weatherRadarStepBack": "Earlier frame",
-  "weatherRadarStepForward": "Later frame",
-  "weatherRadarJumpNow": "Now",
-  "weatherRadarJump1h": "−1 hr",
-  "weatherRadarJump2h": "−2 hr",
-  "weatherRadarJump30m": "+30 min",
-  "weatherRadarSpeedSlow": "Slow",
-  "weatherRadarSpeedNormal": "Normal",
-  "weatherRadarSpeedFast": "Fast",
-  "weatherRadarLoopNote": "Radar loop: past ~2 hours in 10‑minute steps, plus short-range nowcast when available — not a 4‑hour forecast.",
-  "shareMapPreviewCaption": "地図プレビュー · ライブ案内はLuxoraで開く",
-  "shareRadarPreviewCaption": "ライブドップラーレーダー · Luxoraで全ループを表示",
-  "dayFlowSwapTitle": "この停留所を変更",
-  "dayFlowSwapSubtitle": "Tell Luxora what you'd rather do instead of {current}.",
-  "dayFlowSwapTemplate": "もっとこんな感じを考えていました…",
-  "dayFlowSwapHint": "e.g. a quiet park this morning, or seafood for dinner",
-  "dayFlowSwapApply": "今日の予定を更新",
-  "dayFlowSwapViewPlace": "View current stop",
-  "dayFlowSwapSuccess": "Updated — {newStop} is now your {phase} stop.",
-  "dayFlowSwapNoMatch": "Couldn't find a match nearby — try being more specific.",
-  "dayFlowSwapTapToChange": "Change this stop",
-  "dayFlowSwapHoldSpeak": "長押しで話す",
-  "dayFlowSwapListening": "聞いています…",
-  "conciergeVoiceDeviceSection": "Voices on this iPhone",
-  "conciergeVoiceDeviceSectionHint": "Includes voices you downloaded — tap one to use it for Luxora.",
-  "conciergeVoiceRefreshList": "Refresh voice list",
-  "conciergeVoiceShowAllLanguages": "Show all languages",
-  "conciergeVoiceOpenSettings": "Open iPhone voice settings",
-  "conciergeVoiceNoDeviceVoices": "No voices found — download packs in Settings, then refresh.",
-  "conciergeVoicePresetSection": "クイック選択",
-  "feedSubtitleFamily": "Family-friendly picks for your crew — parks, easy wins, and moments that land with kids (and parents).",
-  "feedMoodPromptFamily": "今日は家族みんなでどんな一日に？",
-  "feedMoodFamily": "ファミリーマジック",
-  "feedFamilyMoodHint": "Theme parks, character meals, and easy parent wins — filtered for family tags.",
-  "feedEmptyHintFamily": "No family-tagged cards in this radius — try Adventurous or Everything, or widen the radius.",
-  "conciergeAiErrorVoice": "Sorry — I couldn't connect to Luxora's concierge just now.",
-  "conciergeAiOpenAiNotReady": "Luxora heard you, but the concierge brain isn't online yet. Set OPENAI_API_KEY in Supabase secrets for the edge function (bright-processor), then try again.",
-  "conciergeAiFunctionNotFound": "Luxora couldn't find the concierge edge function \"{function}\". Deploy it in Supabase or fix SUPABASE_CONCIERGE_FUNCTION on this build.",
-  "conciergeAiAuthFailed": "Luxora couldn't authenticate with Supabase — double-check SUPABASE_ANON_KEY matches your project.",
-  "shareCardCta": "Luxoraで計画する",
-  "shareCardDownloadHint": "iOSとAndroidで無料 · luxora.ai/download",
-  "shareCardShareMessage": "{title}\n\nLuxora AIで計画 — 感情知能フロリダ旅行。\nアプリを入手: {url}",
-  "conciergeLocalTryPlanning": "旅の雰囲気を教えてください — 例:「オーランドで2日、泉と食を楽しむプラン」。端末上で本当のagendaを作ります。",
-  "conciergeLocalPlanBuilt": "{city}の1日を作成 — ムードとドライブで{count} stops。**Agenda**または**Map**を開いてください。",
-  "conciergeLocalNoIntent": "雰囲気を伝えるか「Plan my Orlando day」と言ってください — 端末で本当のルートを作ります。",
-  "ticketConciergeIntelBadge": "Concierge intel",
-  "ticketConciergeIntelAgenda": "あなたのagendaに合わせた情報 — 一般的なクーポンではありません。",
-  "agendaFixAfternoonRain": "雨が来ます — 午後を調整",
-  "agendaRainRerouteDone": "午後を更新 — {count} stopsを屋内へ。",
-  "agendaRainRerouteNone": "この天気にプランはすでに適しています。",
-  "agendaRainScoreNote": "Vacation score {score}/100",
-  "cloudTripsTitle": "クラウドバックアップ",
-  "cloudTripsSubtitle": "保存した旅行はサインインで端末間同期 — 都市アンロックに含まれます。",
-  "cloudTripsMoreSubSignedOut": "サインインして旅行をバックアップ",
-  "cloudTripsMoreSubSignedIn": "{email} でサインイン中",
-  "@cloudTripsMoreSubSignedIn": {
-    "placeholders": {
-      "email": {
-        "type": "String"
-      }
-    }
-  },
-  "cloudTripsMoreSubSyncing": "同期中…",
-  "cloudTripsUnlockRequired": "クラウドバックアップには都市パックのアンロックが必要",
-  "cloudTripsUnlockCta": "コンシェルジュをアンロック",
-  "cloudTripsEmailHint": "メールアドレス",
-  "cloudTripsSendCode": "サインインコードを送信",
-  "cloudTripsCodeHint": "メールの6桁コード",
-  "cloudTripsVerify": "確認してサインイン",
-  "cloudTripsCodeSent": "サインインコードをメールで確認してください",
-  "cloudTripsSignOut": "サインアウト",
-  "cloudTripsSyncNow": "今すぐ同期",
-  "cloudTripsSyncSuccess": "旅行を同期しました",
-  "cloudTripsSyncError": "同期に失敗 — 再試行してください",
-  "cloudTripsBannerTitle": "旅行をバックアップ",
-  "cloudTripsBannerBody": "新しい端末で旅行を復元するにはサインイン。",
-  "cloudTripsBannerCta": "クラウドバックアップを設定",
-  "cloudTripsNotConfigured": "クラウドバックアップにはSupabase（dev）が必要",
-  "paywallFeatureCloudBackup": "クラウド旅行バックアップ",
-  "paywallRestorePurchases": "購入を復元",
-  "paywallPurchaseSuccess": "購入完了 — コンシェルジュがアンロックされました。",
-  "paywallPurchasePending": "購入を完了しています…",
-  "paywallPurchaseFailed": "購入を完了できませんでした。再試行するか復元してください。",
-  "paywallPurchaseCanceled": "購入がキャンセルされました。",
-  "paywallRestoreComplete": "購入を復元しました。",
-  "paywallRestoreNone": "このApple/Googleアカウントの以前の購入は見つかりませんでした。",
-  "paywallStoreUnavailable": "このデバイスではストア課金を利用できません。",
-  "paywallProductUnavailable": "このパックはストアでまだ利用できません。",
-  "onboardV2Eyebrow": "Let's design your perfect trip",
-  "onboardV2StepTravelerEyebrow": "Step 1",
-  "onboardV2StepTravelerTitle": "Who are you traveling with?",
-  "onboardV2StepTravelerSubtitle": "Luxora tailors stays, dining, and pacing to your crew.",
-  "onboardV2ChildrenLabel": "Children traveling?",
-  "onboardV2StepStyleEyebrow": "Step 2",
-  "onboardV2StepStyleTitle": "What kind of trip are you looking for?",
-  "onboardV2StepStyleSubtitle": "Choose everything that excites you.",
-  "onboardV2StepHotelEyebrow": "Step 3",
-  "onboardV2StepHotelTitle": "What type of place would you like to stay?",
-  "onboardV2StepHotelSubtitle": "We will match boutique gems and resort icons.",
-  "onboardV2HotelBudgetLabel": "Hotel budget",
-  "onboardV2HotelAmenitiesLabel": "Must-have amenities",
-  "onboardV2StepFoodEyebrow": "Step 4",
-  "onboardV2StepFoodTitle": "What types of restaurants do you enjoy?",
-  "onboardV2StepFoodSubtitle": "Cuisine and dining style — pick all you love.",
-  "onboardV2CuisineLabel": "Cuisine types",
-  "onboardV2DiningStyleLabel": "Dining style",
-  "onboardV2StepPaceEyebrow": "Step 5",
-  "onboardV2StepPaceTitle": "How would you like your days planned?",
-  "onboardV2StepPaceSubtitle": "Relaxed mornings or packed adventure — you choose.",
-  "onboardV2PaceRelaxedTitle": "Relaxed",
-  "onboardV2PaceRelaxedBody": "2–3 activities per day",
-  "onboardV2PaceBalancedTitle": "Balanced",
-  "onboardV2PaceBalancedBody": "4–5 activities per day",
-  "onboardV2PacePackedTitle": "Packed",
-  "onboardV2PacePackedBody": "Maximize every day",
-  "onboardV2StepGoalsEyebrow": "Step 6",
-  "onboardV2StepGoalsTitle": "What matters most on this trip?",
-  "onboardV2StepGoalsSubtitle": "Choose up to five priorities.",
-  "onboardV2StepExperienceEyebrow": "Step 7",
-  "onboardV2StepExperienceTitle": "What experiences would you enjoy?",
-  "onboardV2StepExperienceSubtitle": "We will weave these into your itinerary.",
-  "onboardV2StepAvoidEyebrow": "Step 8",
-  "onboardV2StepAvoidTitle": "What would you prefer to avoid?",
-  "onboardV2StepAvoidSubtitle": "Luxora steers clear of what drains your trip.",
-  "onboardV2StepEmotionEyebrow": "Step 9",
-  "onboardV2StepEmotionTitle": "What would make this trip feel successful?",
-  "onboardV2StepEmotionSubtitle": "Choose one primary feeling.",
-  "onboardV2StepSummaryEyebrow": "Your concierge preview",
-  "onboardV2StepSummaryTitle": "Based on your selections, Luxora recommends",
-  "onboardV2StepSummarySubtitle": "We're building your perfect trip now.",
-  "onboardSummaryHotels": "Hotels",
-  "onboardSummaryRestaurants": "Restaurants",
-  "onboardSummaryHiddenGems": "Hidden gems",
-  "onboardSummaryExperiences": "Experiences",
-  "onboardSummaryHotelDefault": "Curated stays matched to your budget",
-  "onboardSummaryHotelType": "{type} stay",
-  "@onboardSummaryHotelType": {
-    "placeholders": {
-      "type": {
-        "type": "String"
-      }
-    }
-  },
-  "onboardSummaryRooftopDining": "Rooftop dining experiences",
-  "onboardSummaryCuisine": "{cuisine} favorites",
-  "@onboardSummaryCuisine": {
-    "placeholders": {
-      "cuisine": {
-        "type": "String"
-      }
-    }
-  },
-  "onboardSummaryPace": "{pace} daily pace",
-  "@onboardSummaryPace": {
-    "placeholders": {
-      "pace": {
-        "type": "String"
-      }
-    }
-  },
-  "onboardSummaryRomantic": "Romantic sunset experiences",
-  "onboardSummaryEmotion": "{emotion}-focused journey",
-  "@onboardSummaryEmotion": {
-    "placeholders": {
-      "emotion": {
-        "type": "String"
-      }
-    }
-  },
-  "onboardSummaryPremiumGems": "Premium hidden gems",
-  "agendaSuggestionsForYou": "Picked for you",
-  "agendaSuggestionsAlternates": "Also great",
-  "agendaSuggestionsBrowseAll": "Browse all",
-  "onboardPrefTravelerSolo": "Solo",
-  "onboardPrefTravelerCouple": "Couple",
-  "onboardPrefTravelerFamily": "Family",
-  "onboardPrefTravelerFriends": "Friends",
-  "onboardPrefTravelerBusiness": "Business",
-  "onboardPrefChildrenNone": "No children",
-  "onboardPrefChildrenToddlers": "Toddlers",
-  "onboardPrefChildrenElementary": "Elementary age",
-  "onboardPrefChildrenTeenagers": "Teenagers",
-  "onboardPrefStyleLuxury": "Luxury",
-  "onboardPrefStyleRelaxation": "Relaxation",
-  "onboardPrefStyleAdventure": "Adventure",
-  "onboardPrefStyleThemeParks": "Theme Parks",
-  "onboardPrefStyleFoodie": "Foodie",
-  "onboardPrefStyleNightlife": "Nightlife",
-  "onboardPrefStyleRomance": "Romance",
-  "onboardPrefStyleShopping": "Shopping",
-  "onboardPrefStyleBeaches": "Beaches",
-  "onboardPrefStyleWellness": "Wellness",
-  "onboardPrefStyleNature": "Nature",
-  "onboardPrefStylePhotography": "Photography",
-  "onboardPrefStyleHiddenGems": "Hidden Gems",
-  "onboardPrefStyleFamilyActivities": "Family Activities",
-  "onboardPrefStyleLocalExperiences": "Local Experiences",
-  "onboardPrefStyleEntertainment": "Entertainment",
-  "onboardPrefHotelLuxuryResort": "Luxury Resort",
-  "onboardPrefHotelBoutique": "Boutique Hotel",
-  "onboardPrefHotelFamilyResort": "Family Resort",
-  "onboardPrefHotelBudgetFriendly": "Budget Friendly",
-  "onboardPrefHotelAdultsOnly": "Adults Only",
-  "onboardPrefHotelSpaResort": "Spa Resort",
-  "onboardPrefHotelBeachfront": "Beachfront",
-  "onboardPrefHotelDowntown": "Downtown",
-  "onboardPrefHotelWalkable": "Walkable Area",
-  "onboardPrefHotelThemeParkArea": "Theme Park Area",
-  "onboardPrefHotelModern": "Modern Hotel",
-  "onboardPrefHotelHistoric": "Historic Hotel",
-  "onboardPrefBudgetOne": "$",
-  "onboardPrefBudgetTwo": "$$",
-  "onboardPrefBudgetThree": "$$$",
-  "onboardPrefBudgetFour": "$$$$",
-  "onboardPrefAmenityPool": "Pool",
-  "onboardPrefAmenitySpa": "Spa",
-  "onboardPrefAmenityGym": "Gym",
-  "onboardPrefAmenityBreakfast": "Free Breakfast",
-  "onboardPrefAmenityOceanView": "Ocean View",
-  "onboardPrefAmenityBalcony": "Balcony",
-  "onboardPrefAmenityKitchen": "Kitchen",
-  "onboardPrefAmenityShuttle": "Shuttle Service",
-  "onboardPrefAmenityPetFriendly": "Pet Friendly",
-  "onboardPrefCuisineAmerican": "American",
-  "onboardPrefCuisineItalian": "Italian",
-  "onboardPrefCuisineMexican": "Mexican",
-  "onboardPrefCuisineSeafood": "Seafood",
-  "onboardPrefCuisineSteakhouse": "Steakhouse",
-  "onboardPrefCuisineSushi": "Sushi",
-  "onboardPrefCuisineCuban": "Cuban",
-  "onboardPrefCuisineMediterranean": "Mediterranean",
-  "onboardPrefCuisineAsian": "Asian",
-  "onboardPrefCuisineBbq": "BBQ",
-  "onboardPrefCuisineFineDining": "Fine Dining",
-  "onboardPrefCuisineLocalFavorites": "Local Favorites",
-  "onboardPrefCuisineFoodTrucks": "Food Trucks",
-  "onboardPrefCuisineRooftop": "Rooftop Dining",
-  "onboardPrefCuisineBrunch": "Brunch",
-  "onboardPrefCuisineDessert": "Dessert",
-  "onboardPrefDiningQuick": "Quick Service",
-  "onboardPrefDiningCasual": "Casual Dining",
-  "onboardPrefDiningFamily": "Family Friendly",
-  "onboardPrefDiningDateNight": "Date Night",
-  "onboardPrefDiningFine": "Fine Dining",
-  "onboardPrefDiningWaterfront": "Waterfront",
-  "onboardPrefDiningHiddenGems": "Hidden Gems",
-  "onboardPrefDiningLocal": "Local Favorites",
-  "onboardPrefGoalMakeMemories": "Make Memories",
-  "onboardPrefGoalSaveMoney": "Save Money",
-  "onboardPrefGoalAvoidCrowds": "Avoid Crowds",
-  "onboardPrefGoalLuxury": "Luxury Experiences",
-  "onboardPrefGoalBestFood": "Best Food",
-  "onboardPrefGoalHiddenGems": "Hidden Gems",
-  "onboardPrefGoalRelaxation": "Relaxation",
-  "onboardPrefGoalAdventure": "Adventure",
-  "onboardPrefGoalBestPhotos": "Best Photos",
-  "onboardPrefGoalFamilyTime": "Family Time",
-  "onboardPrefGoalRomance": "Romance",
-  "onboardPrefGoalNightlife": "Nightlife",
-  "onboardPrefGoalLocal": "Local Experiences",
-  "onboardPrefGoalStressFree": "Stress-Free Planning",
-  "onboardPrefExpBoatTours": "Boat Tours",
-  "onboardPrefExpSunsetCruises": "Sunset Cruises",
-  "onboardPrefExpAirboat": "Airboat Tours",
-  "onboardPrefExpThemeParks": "Theme Parks",
-  "onboardPrefExpMuseums": "Museums",
-  "onboardPrefExpLiveShows": "Live Shows",
-  "onboardPrefExpSpas": "Spas",
-  "onboardPrefExpShopping": "Shopping",
-  "onboardPrefExpWaterParks": "Water Parks",
-  "onboardPrefExpGolf": "Golf",
-  "onboardPrefExpFishing": "Fishing",
-  "onboardPrefExpKayaking": "Kayaking",
-  "onboardPrefExpSnorkeling": "Snorkeling",
-  "onboardPrefExpRooftopBars": "Rooftop Bars",
-  "onboardPrefExpNightclubs": "Nightclubs",
-  "onboardPrefExpWildlife": "Wildlife Experiences",
-  "onboardPrefExpFoodTours": "Food Tours",
-  "onboardPrefExpScenicDrives": "Scenic Drives",
-  "onboardPrefAvoidCrowds": "Crowds",
-  "onboardPrefAvoidLongLines": "Long Lines",
-  "onboardPrefAvoidExpensiveRestaurants": "Expensive Restaurants",
-  "onboardPrefAvoidWalking": "Walking Long Distances",
-  "onboardPrefAvoidNightlife": "Nightlife",
-  "onboardPrefAvoidDriving": "Driving",
-  "onboardPrefAvoidTouristTraps": "Tourist Traps",
-  "onboardPrefAvoidEarlyMornings": "Early Mornings",
-  "onboardPrefAvoidLateNights": "Late Nights",
-  "onboardPrefAvoidFamilyAttractions": "Family Attractions",
-  "onboardPrefAvoidThemeParks": "Theme Parks",
-  "onboardPrefEmotionRelaxed": "Relaxed",
-  "onboardPrefEmotionExcited": "Excited",
-  "onboardPrefEmotionAdventurous": "Adventurous",
-  "onboardPrefEmotionRomantic": "Romantic",
-  "onboardPrefEmotionLuxurious": "Luxurious",
-  "onboardPrefEmotionFamilyFocused": "Family-Focused",
-  "onboardPrefEmotionMemorable": "Memorable",
-  "onboardPrefEmotionStressFree": "Stress-Free",
-  "onboardPrefEmotionInspiring": "Inspiring",
-  "onboardPrefPaceSlow": "Relaxed",
-  "onboardPrefPaceBalanced": "Balanced",
-  "onboardPrefPacePacked": "Packed",
-  "onboardSummaryHiddenGemsInsight": "Hidden local restaurants & gems",
-  "onboardBuildFailedHint": "We saved your preferences, but the itinerary needs another moment. Pull to refresh on Agenda or open Concierge.",
-  "onboardV2ChildrenSubtitle": "Select all age groups that apply.",
-  "onboardTravelerNameEyebrow": "First things first",
-  "onboardTravelerNameTitle": "What should Luxora call you?",
-  "onboardTravelerNameSubtitle": "Your first name is enough — Luxora will use it when you chat.",
-  "onboardTravelerNameLabel": "Your first name",
-  "onboardTravelerNameHint": "e.g. Maria",
-  "conciergeWelcomeNamed": "Welcome, {name} — your emotionally intelligent Florida companion.\n\nChoose a prompt below, or describe the feeling you want your trip to create.",
-  "@conciergeWelcomeNamed": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "conciergeWelcomeWarmNamed": "{name}, I'm here to shape Florida around how you want to feel — not a checklist of sights. What are you craving today?",
-  "@conciergeWelcomeWarmNamed": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "onboardLuxoraReplyEyebrow": "LUXORA",
-  "onboardLuxoraReplyTitle": "Lovely to meet you, {name}.",
-  "@onboardLuxoraReplyTitle": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "onboardLuxoraGuideNamed": "{name}, I'm here to guide you and help you create the perfect vacation or adventure for you and your family.",
-  "@onboardLuxoraGuideNamed": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "onboardLuxoraItineraryPromise": "When we're done here, I'll build your itinerary from everything you choose. If you'd like to change anything later, open the Concierge tab and tell me what to edit — I'm always listening.",
-  "todayPlanSectionTitle": "Today's plan",
-  "todayNextActivityLabel": "Up next",
-  "todayStaysDiningSection": "Stays & dining picks",
-  "todayStaysDiningCollapsedHint": "Hotel and restaurant ideas — tap to expand",
-  "todayPlanDetailsTitle": "Full schedule",
-  "todayPlanStopCount": "{count, plural, =1{1 stop today} other{{count} stops today}}",
-  "@todayPlanStopCount": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "todayRainRerouteTitle": "Rain reroute",
-  "todayExtrasSection": "Tickets & sharing",
-  "todayExtrasCollapsedHint": "Deals, share card, and more"
+  }
 }

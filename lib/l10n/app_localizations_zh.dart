@@ -18,13 +18,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get appearance => '外观';
 
   @override
-  String get settingsThemeIntro => '电影感奢华或清晰易读——选择适合您一天的风格。';
+  String get settingsThemeIntro => '奢华的电影风格或清晰的可读性——选择适合您一天的选择。';
 
   @override
-  String get settingsThemeSectionLuxury => '电影感奢华';
+  String get settingsThemeSectionLuxury => '豪华影院级';
 
   @override
-  String get settingsThemeSectionReadable => '清晰易读';
+  String get settingsThemeSectionReadable => '干净且可读';
 
   @override
   String get dark_mode => '深色模式';
@@ -75,7 +75,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get navConcierge => '礼宾';
 
   @override
-  String get navAgenda => 'Today';
+  String get navAgenda => '今天';
 
   @override
   String get navDiscover => '发现';
@@ -96,7 +96,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get navTimeline => '行程';
 
   @override
-  String get agendaTabItinerary => '天数';
+  String get agendaTabItinerary => '天';
 
   @override
   String get agendaTabRestaurants => '餐厅';
@@ -105,34 +105,33 @@ class AppLocalizationsZh extends AppLocalizations {
   String get restaurantsPageTitle => '餐厅';
 
   @override
-  String get restaurantsPageSubtitle =>
-      '浏览 Luxora 精选餐厅 — 收藏或让 Concierge 为您选今晚的餐点。';
+  String get restaurantsPageSubtitle => '浏览 Luxora 熟悉的餐饮 — 保存最爱或让礼宾人员挑选今晚的餐点。';
 
   @override
   String get restaurantsConciergePick => '为我选一家餐厅';
 
   @override
   String restaurantsConciergePickDone(String name) {
-    return '已保存 $name — 请 Concierge 加入行程。';
+    return '已保存$name — 请礼宾人员将其添加到您的行程中。';
   }
 
   @override
   String restaurantsSavedCount(int count) {
-    return '已为行程保存 $count 家';
+    return '为您的行程保存了 $count 个';
   }
 
   @override
-  String get restaurantsEmptyHint => '发现范围内暂无餐厅 — 请在地图上扩大范围。';
+  String get restaurantsEmptyHint => '您发现的半径内没有餐馆 - 扩大地图上的半径。';
 
   @override
-  String get moreCardRestaurantsSub => '浏览餐厅并让 Concierge 为您选择';
+  String get moreCardRestaurantsSub => '浏览餐饮并让礼宾人员为您挑选';
 
   @override
-  String get agendaHotelSuggestionsTitle => '住宿推荐';
+  String get agendaHotelSuggestionsTitle => '住宿地点';
 
   @override
   String agendaHotelSuggestionsSubtitle(int budget) {
-    return '根据约 $budget 预算的 AI 匹配 — 点击查看全部。';
+    return 'AI 与您的 ~$budget 美元旅行预算相匹配 - 点击即可查看所有选项。';
   }
 
   @override
@@ -150,60 +149,60 @@ class AppLocalizationsZh extends AppLocalizations {
   String get agendaDaySelectLabel => '哪一天';
 
   @override
-  String get agendaDayDiningTitle => '今晚去哪吃';
+  String get agendaDayDiningTitle => '今晚去哪里吃饭';
 
   @override
   String agendaDayDiningSubtitle(int budget, String tier) {
-    return '根据今日行程与约 $budget 预算（$tier）推荐。';
+    return '根据今天的计划为您提供 ~$budget 美元预算（$tier 餐饮）的建议。';
   }
 
   @override
-  String get agendaDiningNearStops => '靠近今日站点';
+  String get agendaDiningNearStops => '今日停靠点附近';
 
   @override
-  String get agendaDiningFitsBudget => '符合旅行预算';
+  String get agendaDiningFitsBudget => '适合您的旅行预算';
 
   @override
-  String get agendaDiningMatchesDay => '匹配今日氛围';
+  String get agendaDiningMatchesDay => '很符合今天的氛围';
 
   @override
-  String get agendaDiningFoodiePick => '美食家之选';
+  String get agendaDiningFoodiePick => '美食家最爱';
 
   @override
-  String get browseCatRecommended => 'Recommended';
+  String get browseCatRecommended => '受到推崇的';
 
   @override
-  String get browseCatDisneyHotels => '迪士尼区域';
+  String get browseCatDisneyHotels => '迪士尼区';
 
   @override
-  String get browseCatBudgetFriendly => '经济实惠';
+  String get browseCatBudgetFriendly => '预算友好';
 
   @override
-  String get browseCatUpscaleLuxury => '高端奢华';
+  String get browseCatUpscaleLuxury => '高档与奢华';
 
   @override
-  String get browseCatUniversalHotels => '环球区域';
+  String get browseCatUniversalHotels => '通用区';
 
   @override
-  String get browseCatThemeParkDining => '主题乐园餐饮';
+  String get browseCatThemeParkDining => '主题公园餐饮';
 
   @override
-  String get browseCatUpscaleDining => '精致餐饮';
+  String get browseCatUpscaleDining => '高档精致的餐饮';
 
   @override
-  String get browseSearchAllHotels => '搜索完整酒店目录…';
+  String get browseSearchAllHotels => '搜索完整的酒店目录……';
 
   @override
-  String get browseSearchAllRestaurants => '搜索完整餐厅目录…';
+  String get browseSearchAllRestaurants => '搜索完整的餐厅目录...';
 
   @override
-  String get browseCategoryEmpty => '该分类暂无匹配 — 请搜索或扩大发现范围。';
+  String get browseCategoryEmpty => '此类别中没有适合您半径的匹配项 - 尝试搜索或扩大发现范围。';
 
   @override
-  String get browseFullCatalogHint => '使用上方搜索浏览 Luxora 全部酒店与餐厅。';
+  String get browseFullCatalogHint => '使用上面的搜索来获取完整的目录——Luxora 知道的每家酒店和餐厅。';
 
   @override
-  String get agendaPageSubtitle => 'What am I doing right now?';
+  String get agendaPageSubtitle => '我现在在做什么？';
 
   @override
   String get navGems => '秘境';
@@ -278,7 +277,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get moreCardItinerarySub => '您每日的黄金之旅';
 
   @override
-  String get moreCardDiscoverSub => '热门餐饮、体验与实时发现';
+  String get moreCardDiscoverSub => '热门餐饮、体验和现场探索';
 
   @override
   String get savedFavoritesTitle => '已保存的收藏夹';
@@ -414,14 +413,14 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String ticketDealsPricesAsOf(String date) {
-    return '价格更新于 $date';
+    return '截至$date的价格';
   }
 
   @override
-  String get ticketDealsRefreshFailed => '无法刷新价格 — 显示缓存优惠。';
+  String get ticketDealsRefreshFailed => '无法刷新价格 - 显示缓存的交易。';
 
   @override
-  String get ticketDealsUpdating => '正在更新价格…';
+  String get ticketDealsUpdating => '更新价格...';
 
   @override
   String get ticketNoDeals => '此过滤器中没有优惠 - 尝试其他类别。';
@@ -649,16 +648,16 @@ class AppLocalizationsZh extends AppLocalizations {
   String get radiusDescAllMiami => '佛罗里达群岛步道和全州亮点';
 
   @override
-  String get radiusDesc25Keys => '拉哥岛、伊斯拉莫拉达及北部礁带';
+  String get radiusDesc25Keys => '基拉戈岛、伊斯拉莫拉达和上层珊瑚礁走廊';
 
   @override
-  String get radiusDesc50Keys => '马拉松、大松岛及中部群岛海滩';
+  String get radiusDesc50Keys => '马拉松、大松树和中群岛海滩';
 
   @override
-  String get radiusDesc100Keys => '贯穿基韦斯特的全线海外公路';
+  String get radiusDesc100Keys => '穿过基韦斯特的完整海外高速公路';
 
   @override
-  String get radiusDescAllKeys => '全岛链及一日游水域';
+  String get radiusDescAllKeys => '整个岛链和一日游水域';
 
   @override
   String get feedBadge => '实时发现';
@@ -670,8 +669,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get feedSubtitle => '此刻正在发生的事：热门地点、新开业、创作者精选、季节路线和实时更新。';
 
   @override
-  String get feedSubtitleFamily =>
-      'Family-friendly picks for your crew — parks, easy wins, and moments that land with kids (and parents).';
+  String get feedSubtitleFamily => '适合您的船员的家庭友好选择 - 公园、轻松获胜以及与孩子（和父母）一起度过的时光。';
 
   @override
   String get feedPillTrending => '热门';
@@ -689,13 +687,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get feedMoodPrompt => '您想要感觉如何？';
 
   @override
-  String get feedMoodPromptFamily => '今天家人想怎么过？';
+  String get feedMoodPromptFamily => '您的船员今天感觉如何？';
 
   @override
   String get feedMoodAll => '一切';
 
   @override
-  String get feedMoodFamily => '亲子魔法';
+  String get feedMoodFamily => '家庭魔法';
 
   @override
   String get feedMoodRomantic => '浪漫的';
@@ -716,15 +714,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get feedMoodFoodie => '美食家';
 
   @override
-  String get feedFamilyMoodHint =>
-      'Theme parks, character meals, and easy parent wins — filtered for family tags.';
+  String get feedFamilyMoodHint => '主题公园、角色餐以及轻松的家长胜利——根据家庭标签进行过滤。';
 
   @override
   String get feedEmptyHint => '此范围内没有动态卡片。试试 50 mi 或全佛罗里达，查看墨西哥湾海岸和群岛亮点。';
 
   @override
-  String get feedEmptyHintFamily =>
-      'No family-tagged cards in this radius — try Adventurous or Everything, or widen the radius.';
+  String get feedEmptyHintFamily => '此半径内没有带有家族标签的卡牌 - 尝试“冒险”或“一切”，或扩大半径。';
 
   @override
   String get gemsBadge => '内行精选';
@@ -795,7 +791,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get mapSubtitle => '为你精选一天的标记：金色菱形是秘境，青色标记是今日行程，金线是情绪路线。';
 
   @override
-  String get mapPlanDayTitle => '今日行程';
+  String get mapPlanDayTitle => '计划我的一天';
 
   @override
   String get mapPlanDaySuggested => '根据您的旅行心情推荐 - 为地点添加书签，使其成为您的旅行心情。';
@@ -816,7 +812,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String shareDayLegDrive(String time, String miles) {
-    return '距上一站 $miles · 驾车 $time';
+    return '$time 车程 · 距前一站 $miles';
   }
 
   @override
@@ -837,25 +833,25 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get mapParkingLevelEasy => '容易';
+  String get mapParkingLevelEasy => '简单的';
 
   @override
-  String get mapParkingLevelModerate => '适中';
+  String get mapParkingLevelModerate => '缓和';
 
   @override
-  String get mapParkingLevelDifficult => '困难';
+  String get mapParkingLevelDifficult => '难的';
 
   @override
-  String get mapParkingLevelLimited => '有限 · 请早到';
+  String get mapParkingLevelLimited => '数量有限 · 提早到达';
 
   @override
   String mapParkingAtStop(String level) {
-    return '停车：$level';
+    return '停车场：$level';
   }
 
   @override
   String mapDriveFrictionAtStop(int score) {
-    return '驾驶负担：$score/90';
+    return '驱动摩擦：$score/90';
   }
 
   @override
@@ -873,43 +869,41 @@ class AppLocalizationsZh extends AppLocalizations {
   String get mapRerouteRainHint => '可能会下雨——点击重新路由进行室内备份。';
 
   @override
-  String get dayFlowSwapTitle => '更改此站';
+  String get dayFlowSwapTitle => '更改此站点';
 
   @override
   String dayFlowSwapSubtitle(String current) {
-    return 'Tell Luxora what you\'d rather do instead of $current.';
+    return '告诉 Luxora 您更愿意做什么而不是 $current。';
   }
 
   @override
-  String get dayFlowSwapTemplate => '我在想更像这样的…';
+  String get dayFlowSwapTemplate => '我在想更像是……';
 
   @override
-  String get dayFlowSwapHint =>
-      'e.g. a quiet park this morning, or seafood for dinner';
+  String get dayFlowSwapHint => '例如今天早上安静的公园，或者晚餐吃海鲜';
 
   @override
-  String get dayFlowSwapApply => '更新我的行程';
+  String get dayFlowSwapApply => '更新我的一天';
 
   @override
-  String get dayFlowSwapViewPlace => 'View current stop';
+  String get dayFlowSwapViewPlace => '查看当前停靠站';
 
   @override
   String dayFlowSwapSuccess(String newStop, String phase) {
-    return 'Updated — $newStop is now your $phase stop.';
+    return '更新 — $newStop 现在是您的 $phase 停靠点。';
   }
 
   @override
-  String get dayFlowSwapNoMatch =>
-      'Couldn\'t find a match nearby — try being more specific.';
+  String get dayFlowSwapNoMatch => '无法在附近找到匹配项 - 尝试更具体。';
 
   @override
-  String get dayFlowSwapTapToChange => 'Change this stop';
+  String get dayFlowSwapTapToChange => '更改此站点';
 
   @override
   String get dayFlowSwapHoldSpeak => '按住说话';
 
   @override
-  String get dayFlowSwapListening => '正在聆听…';
+  String get dayFlowSwapListening => '正在听……';
 
   @override
   String get rightNowButton => '我们现在应该做什么？';
@@ -999,7 +993,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get onboardThemeParksOccasionHint =>
-      '解锁迪士尼和环球影城后可选择主题乐园场合 — 购买后下方会立即显示。';
+      '解锁迪士尼和环球影城以添加下面的主题公园活动 - 购买后您将立即看到这些筹码。';
 
   @override
   String get occasionGeneral => '只是探索';
@@ -1131,85 +1125,85 @@ class AppLocalizationsZh extends AppLocalizations {
   String get conciergeVoiceHold => '按住说话';
 
   @override
-  String get conciergeVoiceSoon => '请允许麦克风，以便 Luxora 能听你说。';
+  String get conciergeVoiceSoon => '语音礼宾服务即将推出 - 现在，只需轻按某个时刻或输入您想要的感受即可。';
 
   @override
-  String get conciergeVoiceListening => 'Luxora 正在聆听…';
+  String get conciergeVoiceListening => '卢克索拉正在倾听……';
 
   @override
-  String get conciergeVoiceSpeaking => 'Luxora 正在说话…';
+  String get conciergeVoiceSpeaking => '卢克索拉正在讲话……';
 
   @override
-  String get conciergeVoiceRelease => '松开发送';
+  String get conciergeVoiceRelease => '释放发送';
 
   @override
-  String get conciergeVoiceSend => '发送给 Luxora';
+  String get conciergeVoiceSend => '发送至 卢克索拉';
 
   @override
-  String get conciergeVoiceProcessing => '正在发送给 Luxora…';
+  String get conciergeVoiceProcessing => '发送至卢克索拉...';
 
   @override
-  String get conciergeVoiceNoSpeech => '没听清——按住说话，说完再松开。';
+  String get conciergeVoiceNoSpeech => '我没听清——按住按钮，说话，然后松开。';
 
   @override
-  String get conciergeVoicePreviewFailed => '无法播放预览。请检查音量后重试。';
+  String get conciergeVoicePreviewFailed => '无法播放预览。检查音量并重试。';
 
   @override
-  String get conciergeVoiceUnavailable => '此设备不支持语音。';
+  String get conciergeVoiceUnavailable => '此设备上无法使用语音。';
 
   @override
-  String get conciergeVoiceSettingsTitle => 'Luxora 语音';
+  String get conciergeVoiceSettingsTitle => '卢克索拉语音';
 
   @override
-  String get conciergeVoiceSettingsSubtitle => '选择口音、音色和语速 — 使用您设备的系统语音。';
+  String get conciergeVoiceSettingsSubtitle =>
+      '选择 Luxora 说话时的声音 - 口音、语气和语速。使用设备的内置声音。';
 
   @override
-  String get conciergeVoiceRateLabel => '语速';
+  String get conciergeVoiceRateLabel => '说话节奏';
 
   @override
-  String get conciergeVoiceRateSlow => '慢';
+  String get conciergeVoiceRateSlow => '慢的';
 
   @override
-  String get conciergeVoiceRateNatural => '自然';
+  String get conciergeVoiceRateNatural => '自然的';
 
   @override
-  String get conciergeVoiceRateFast => '快';
+  String get conciergeVoiceRateFast => '快速地';
 
   @override
-  String get conciergeVoicePreview => '试听语音';
+  String get conciergeVoicePreview => '预览语音';
 
   @override
-  String get conciergeVoicePreviewSample => '你好 — 我是 Luxora。告诉我你希望这次旅行是什么感觉。';
+  String get conciergeVoicePreviewSample => '你好——我是卢克索拉。告诉我你想要这次旅行的感觉如何。';
 
   @override
   String get conciergeVoiceDeviceNote =>
-      'Download more voices in iPhone Settings → Accessibility → Spoken Content → Voices. Return here and tap Refresh.';
+      '在 iPhone 设置 → 辅助功能 → 语音内容 → 语音中下载更多语音。返回此处并点击刷新。';
 
   @override
-  String get conciergeVoiceDeviceSection => 'Voices on this iPhone';
+  String get conciergeVoiceDeviceSection => '此 iPhone 上的声音';
 
   @override
   String get conciergeVoiceDeviceSectionHint =>
-      'Includes voices you downloaded — tap one to use it for Luxora.';
+      '包括您下载的语音 - 点击其中一个即可将其用于 Luxora。';
 
   @override
-  String get conciergeVoiceRefreshList => 'Refresh voice list';
+  String get conciergeVoiceRefreshList => '刷新语音列表';
 
   @override
-  String get conciergeVoiceShowAllLanguages => 'Show all languages';
+  String get conciergeVoiceShowAllLanguages => '显示所有语言';
 
   @override
-  String get conciergeVoiceOpenSettings => 'Open iPhone voice settings';
+  String get conciergeVoiceOpenSettings => '打开 iPhone 语音设置';
 
   @override
-  String get conciergeVoiceNoDeviceVoices =>
-      'No voices found — download packs in Settings, then refresh.';
+  String get conciergeVoiceNoDeviceVoices => '未找到声音 - 在“设置”中下载包，然后刷新。';
 
   @override
-  String get conciergeVoicePresetSection => '快速人设';
+  String get conciergeVoicePresetSection => '快速人物角色';
 
   @override
-  String get conciergeVoiceRegionRecommended => '推荐';
+  String get conciergeVoiceRegionRecommended => '受到推崇的';
 
   @override
   String get conciergeVoiceRegionEnglish => '英语';
@@ -1230,102 +1224,104 @@ class AppLocalizationsZh extends AppLocalizations {
   String get conciergeVoiceRegionOther => '其他';
 
   @override
-  String get conciergeVoicePresetMatchApp => '匹配应用语言 · 女声';
+  String get conciergeVoicePresetMatchApp => '匹配应用语言 · 女性';
 
   @override
-  String get conciergeVoicePresetEnUsF => '美式 · 女声';
+  String get conciergeVoicePresetEnUsF => '美国 · 女';
 
   @override
-  String get conciergeVoicePresetEnUsM => '美式 · 男声';
+  String get conciergeVoicePresetEnUsM => '美国 · 男';
 
   @override
-  String get conciergeVoicePresetEnGbF => '英式 · 女声';
+  String get conciergeVoicePresetEnGbF => '英国 · 女';
 
   @override
-  String get conciergeVoicePresetEnGbM => '英式 · 男声';
+  String get conciergeVoicePresetEnGbM => '英国 · 男';
 
   @override
-  String get conciergeVoicePresetRuF => '俄语 · 女声';
+  String get conciergeVoicePresetRuF => '俄语 · 女';
 
   @override
-  String get conciergeVoicePresetRuM => '俄语 · 男声';
+  String get conciergeVoicePresetRuM => '俄语 · 男';
 
   @override
-  String get conciergeVoicePresetEsF => '西语 · 女声';
+  String get conciergeVoicePresetEsF => '西班牙语 · 女';
 
   @override
-  String get conciergeVoicePresetEsM => '西语 · 男声';
+  String get conciergeVoicePresetEsM => '西班牙语 · 男';
 
   @override
-  String get conciergeVoicePresetFrF => '法语 · 女声';
+  String get conciergeVoicePresetFrF => '法语 · 女';
 
   @override
-  String get conciergeVoicePresetFrM => '法语 · 男声';
+  String get conciergeVoicePresetFrM => '法国 · 男';
 
   @override
-  String get conciergeVoicePresetDeF => '德语 · 女声';
+  String get conciergeVoicePresetDeF => '德语 · 女';
 
   @override
-  String get conciergeVoicePresetDeM => '德语 · 男声';
+  String get conciergeVoicePresetDeM => '德语 · 男';
 
   @override
-  String get conciergeThinking => 'Luxora 正在思考…';
+  String get conciergeThinking => '卢克索拉正在思考……';
 
   @override
-  String get conciergeItinerarySynced => '已写入地图上的今日行程和时间线 — 相同站点，可分享。';
+  String get conciergeItinerarySynced => '我已将其添加到您的议程中 - 地图上的相同站点，准备分享。';
 
   @override
-  String get conciergeAgendaUpdatedSnack => '地图上的行程已就绪';
+  String get conciergeAgendaUpdatedSnack => '您的议程已在地图和议程上准备好';
 
   @override
   String get conciergeAgendaSyncFailed =>
-      'Map and Timeline did not update. Try one clear request, for example: Plan a 4-day Disney and Universal trip.';
+      '地图和议程未更新。尝试提出一个明确的要求，例如：计划 4 天的迪士尼和环球影城之旅。';
 
   @override
-  String get conciergeViewAgendaOnMap => '在地图上查看';
+  String get conciergeViewAgendaOnMap => '查看议程';
 
   @override
-  String get conciergeAgendaDealsIntro => '我已将授权门票优惠与您行程中的站点匹配 — 请在窗口购票前比较：';
+  String get conciergeAgendaDealsIntro =>
+      '我将授权门票优惠与您议程上的站点进行了匹配 - 在登机口购买之前进行比较：';
 
   @override
-  String get conciergeAgendaDealsSnack => '已匹配您行程的门票优惠';
+  String get conciergeAgendaDealsSnack => '符合您日程的门票优惠';
 
   @override
   String get conciergeViewTicketDeals => '查看优惠';
 
   @override
   String ticketAgendaMatchLine(String stop, String amount, String source) {
-    return '$stop · 预计节省 $amount · $source';
+    return '$stop · 预计通过 $source 节省 $amount';
   }
 
   @override
   String ticketAgendaStopsSummary(int count) {
-    return '您行程中的 $count 个站点有合作伙伴优惠 — 请在窗口购票前比较授权报价。';
+    return '您议程上的 $count 个站点有合作伙伴优惠 - 在登机口购买之前先比较授权优惠。';
   }
 
   @override
   String ticketAgendaStopsSavings(String amount) {
-    return '预计家庭节省 · $amount';
+    return '预计。家庭储蓄·$amount';
   }
 
   @override
-  String get ticketBrowseAgendaDeals => '浏览行程相关优惠 →';
+  String get ticketBrowseAgendaDeals => '浏览适合您议程的优惠 →';
 
   @override
   String get conciergeFreshThread =>
-      '您的行程已在地图和时间线上。我已归档此对话并开始新对话 — 可调整行程、查找优惠或提出新问题。';
+      '您的议程位于地图和议程上。我已经存档了这次聊天并开始了新的生活——调整一天，寻找优惠，或者询问一些新的东西。';
 
   @override
-  String get conciergeThreadArchivedSnack => '对话已归档 — 新对话已开始';
+  String get conciergeThreadArchivedSnack => '聊天记录已存档 — 新线程开始';
 
   @override
   String get conciergeNewConversationTooltip => '新对话';
 
   @override
-  String get itinerarySameAsMapAgenda => '与地图标签上的今日行程相同 — 可在此或从地图分享全天行程。';
+  String get itinerarySameAsMapAgenda => '今天的礼宾计划 — 也固定在地图上。下面分享一下日卡。';
 
   @override
-  String get conciergeTicketsFoundIntro => '我找到了授权票务优惠 — 在时间线点击「预订门票」即可打开链接。';
+  String get conciergeTicketsFoundIntro =>
+      '我找到了适合您旅行的授权机票优惠 - 点击“议程上的预订门票”以获取直接链接：';
 
   @override
   String conciergeTicketDealLine(
@@ -1334,33 +1330,33 @@ class AppLocalizationsZh extends AppLocalizations {
     String source,
     String savings,
   ) {
-    return '• $title：$price（$source，省 $savings）';
+    return '• $title：$price，来自 $source（节省 $savings）';
   }
 
   @override
-  String get conciergeTicketsTimelineHint => '时间线上每个匹配的站点现在都有带经销商链接的「预订门票」按钮。';
+  String get conciergeTicketsTimelineHint => '议程上的每个匹配站点现在都有一个带有经销商链接的订票按钮。';
 
   @override
   String itineraryBookTickets(String amount) {
-    return '预订门票 · 省 $amount';
+    return '预订门票 · 节省 $amount';
   }
 
   @override
-  String get itineraryOpenTicketDeal => '预订门票';
+  String get itineraryOpenTicketDeal => '订票';
 
   @override
   String conciergeTripSaved(String title) {
-    return '已将“$title”保存到行程 — 随时打开 Trips 标签查看。';
+    return '已将“$title”保存到您的行程中 - 随时打开“行程”选项卡即可重新访问它。';
   }
 
   @override
   String conciergeTripSavedWithStops(String title, int count) {
-    return '已将“$title”保存，时间线上有 $count 个体验。';
+    return '在您的时间轴上保存了包含 $count 次体验的“$title”。';
   }
 
   @override
   String conciergeSavedTripsIntro(int count) {
-    return '您有 $count 个已保存行程：';
+    return '您已保存 $count 次行程：';
   }
 
   @override
@@ -1369,43 +1365,42 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get conciergeSavedTripsEmpty => '还没有保存的行程 — 让我先帮您规划，然后说“保存我的行程”。';
+  String get conciergeSavedTripsEmpty => '您还没有任何保存的行程 - 让我计划一些事情，然后说“保存我的行程”。';
 
   @override
-  String get conciergeSavedTripsHint => '打开 Trips 标签查看卡片、分享或编辑日期。';
+  String get conciergeSavedTripsHint => '打开“行程”选项卡可查看卡片、共享或编辑日期。';
 
   @override
-  String get conciergeAiError => '无法连接 Luxora。请检查网络后重试。';
+  String get conciergeAiError => '我现在无法联系卢克索拉。检查您的连接并重试。';
 
   @override
-  String get conciergeAiErrorVoice =>
-      'Sorry — I couldn\'t connect to Luxora\'s concierge just now.';
+  String get conciergeAiErrorVoice => '抱歉，我刚才无法联系 Luxora 的礼宾部。';
 
   @override
   String get conciergeAiNotConfigured =>
-      'Luxora\'s live concierge isn\'t wired up on this build yet — Supabase URL and anon key need to be baked into the app, and the edge function deployed. Map and itinerary still work; see docs/CONCIERGE_AI.md for setup.';
+      'Luxora 的实时礼宾服务尚未在此版本上连接 - Supabase URL 和匿名密钥需要烘焙到应用程序中，并部署边缘功能。地图和行程仍然有效；请参阅 docs/CONCIERGE_AI.md 进行设置。';
 
   @override
   String get conciergeAiOpenAiNotReady =>
-      'Luxora heard you, but the concierge brain isn\'t online yet. Set OPENAI_API_KEY in Supabase secrets for the edge function (bright-processor), then try again.';
+      '卢克索拉听到了你的声音，但礼宾大脑尚未上线。在 Supabase 机密中为边缘函数（bright-processor）设置 OPENAI_API_KEY，然后重试。';
 
   @override
   String conciergeAiFunctionNotFound(String function) {
-    return 'Luxora couldn\'t find the concierge edge function \"$function\". Deploy it in Supabase or fix SUPABASE_CONCIERGE_FUNCTION on this build.';
+    return 'Luxora 找不到礼宾边缘功能“$function”。将其部署在 Supabase 中或修复此版本上的 SUPABASE_CONCIERGE_FUNCTION。';
   }
 
   @override
   String get conciergeAiAuthFailed =>
-      'Luxora couldn\'t authenticate with Supabase — double-check SUPABASE_ANON_KEY matches your project.';
+      'Luxora 无法通过 Supabase 进行身份验证 - 仔细检查 SUPABASE_ANON_KEY 是否与您的项目匹配。';
 
   @override
   String get mapAiPowers => 'AI 地图能力';
 
   @override
-  String get mapNavLayerTitle => '站点摩擦智能';
+  String get mapNavLayerTitle => 'AI 导航层（下一步）';
 
   @override
-  String get mapNavLayerSubtitle => '日程中的人流、停车与驾驶压力 — 加一键改线。';
+  String get mapNavLayerSubtitle => '不止发现，还能实时判断某个停靠点现在是否值得去。';
 
   @override
   String get mapBookingTitle => '无缝预订（合作伙伴）';
@@ -1453,22 +1448,22 @@ class AppLocalizationsZh extends AppLocalizations {
   String get mapCapPersonalDesc => '你的旅行氛围、节奏和预算会实时重塑地图。';
 
   @override
-  String get mapFutureCrowdTitle => '人流展望';
+  String get mapFutureCrowdTitle => '实时人潮热度';
 
   @override
-  String get mapFutureCrowdDesc => 'Plan my day 每站从安静到拥挤的预测窗口。';
+  String get mapFutureCrowdDesc => '泉水、公园和爆红屋顶的实时密度：现在值得去吗？';
 
   @override
-  String get mapFutureParkingTitle => '停车展望';
+  String get mapFutureParkingTitle => '停车难度';
 
   @override
-  String get mapFutureParkingDesc => '出发前对代客泊车、车库与到达摩擦的估算。';
+  String get mapFutureParkingDesc => '出发前的阻力评分：代客泊车、车库，或最合适的网约车上下车点。';
 
   @override
-  String get mapFutureTrafficTitle => 'Drive friction score';
+  String get mapFutureTrafficTitle => '驾驶阻力评分';
 
   @override
-  String get mapFutureTrafficDesc => '日程每段路程的压力分 — 不只是分钟数。';
+  String get mapFutureTrafficDesc => '按压力加权的路线，不只看分钟数，也看车程感受。';
 
   @override
   String get mapFutureRerouteTitle => '即时改线';
@@ -1512,7 +1507,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get tripsSubtitle => '点按旅行查看实时快照：下一个时刻、天气、日落和行程。';
 
   @override
-  String get tripsFooter => '心情目录封面 · 登录后云备份';
+  String get tripsFooter => '旅行封面来自心情目录 · Supabase 同步第 2 阶段';
 
   @override
   String get tripsPlanNew => '计划新的旅行';
@@ -1535,16 +1530,16 @@ class AppLocalizationsZh extends AppLocalizations {
   String get tripsDeleted => '行程已删除';
 
   @override
-  String get tripsEditDates => '行程日期';
+  String get tripsEditDates => '旅行日期';
 
   @override
   String get tripsSaveDates => '保存日期';
 
   @override
-  String get tripsDatesUpdated => '日期已更新';
+  String get tripsDatesUpdated => '旅行日期已更新';
 
   @override
-  String get tripsDatesFlexible => '日期待定';
+  String get tripsDatesFlexible => '日期灵活';
 
   @override
   String get tripsLiveWeather => '实时天气';
@@ -1559,7 +1554,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get tripsTimelineSnapshot => '时间轴快照';
 
   @override
-  String get tripsOpenAgenda => '打开完整日程';
+  String get tripsOpenAgenda => '打开完整议程';
 
   @override
   String get tripsOpenTimeline => '打开完整的时间线';
@@ -1571,86 +1566,86 @@ class AppLocalizationsZh extends AppLocalizations {
   String get shareItineraryFooter => '与 Luxora 一起计划——您高情商的佛罗里达伴侣。';
 
   @override
-  String get shareCardCta => '在 Luxora 规划您的行程';
+  String get shareCardCta => '规划您的卢克索拉之旅';
 
   @override
-  String get shareCardDownloadHint => 'iOS 和 Android 免费 · luxora.ai/download';
+  String get shareCardDownloadHint => 'iOS 和 Android 上免费 · luxora.ai/download';
 
   @override
   String shareCardShareMessage(String title, String url) {
-    return '$title\n\n由 Luxora AI 规划 — 情感智能佛罗里达之旅。\n获取应用: $url';
+    return '$title\n\n与 Luxora AI 一起计划——高情商的佛罗里达旅行。\n获取应用程序：$url';
   }
 
   @override
   String get conciergeLocalTryPlanning =>
-      '告诉我您想要的旅行感觉 — 例如「在奥兰多规划2天放松行程，含泉水和美食」。我会在设备上生成真实 agenda。';
+      '告诉我你想要这次旅行的感觉如何——例如“计划一次轻松的奥兰多 2 天之旅，享受温泉和美食。”我将在您的设备上构建一个真实的议程（不需要云）。';
 
   @override
   String conciergeLocalPlanBuilt(String city, int count) {
-    return '已为您规划$city的一天 — 按心情与车程安排$count站。打开**Agenda**或**Map**查看路线。';
+    return '我为您制定了 $city 日 — $count 个停车点，按心情和驾驶时间排序。打开议程或地图查看您的路线。';
   }
 
   @override
   String get conciergeLocalNoIntent =>
-      '描述旅行氛围，或说「Plan my Orlando day」— 我会在设备上构建真实路线。';
+      '描述您想要的感觉 - 或者说“计划我的奥兰多一天” - 我将在设备上构建一条真实的路线。';
 
   @override
-  String get ticketConciergeIntelBadge => 'Concierge intel';
+  String get ticketConciergeIntelBadge => '礼宾英特尔';
 
   @override
-  String get ticketConciergeIntelAgenda => '匹配您的 agenda — 不是普通优惠券列表。';
+  String get ticketConciergeIntelAgenda => '与您的议程站点相匹配 - 而不是通用的优惠券列表。';
 
   @override
-  String get agendaFixAfternoonRain => '即将下雨 — 调整下午行程';
+  String get agendaFixAfternoonRain => '雨来了——修复我的下午';
 
   @override
   String agendaRainRerouteDone(int count, int score) {
-    return '下午已更新 — $count 站改为室内。';
+    return '下午更新 — $count 个车站移至室内。假期分数$score/100。';
   }
 
   @override
-  String get agendaRainRerouteNone => '您的计划已适合当前天气。';
+  String get agendaRainRerouteNone => '你的计划已经适合这种天气了。';
 
   @override
   String get cloudTripsTitle => '云备份';
 
   @override
-  String get cloudTripsSubtitle => '已保存行程登录后在设备间同步 — 解锁任意城市即包含。';
+  String get cloudTripsSubtitle => '当您登录时，您保存的行程会在设备之间同步 - 包含在任何城市解锁中。';
 
   @override
-  String get cloudTripsMoreSubSignedOut => '登录以备份行程';
+  String get cloudTripsMoreSubSignedOut => '登录以备份已保存的行程';
 
   @override
   String cloudTripsMoreSubSignedIn(String email) {
-    return '已登录 $email';
+    return '以 $email 身份登录';
   }
 
   @override
-  String get cloudTripsMoreSubSyncing => '同步中…';
+  String get cloudTripsMoreSubSyncing => '正在同步...';
 
   @override
   String get cloudTripsUnlockRequired => '解锁城市包以启用云备份';
 
   @override
-  String get cloudTripsUnlockCta => '解锁礼宾';
+  String get cloudTripsUnlockCta => '解锁礼宾服务';
 
   @override
-  String get cloudTripsEmailHint => '电子邮箱';
+  String get cloudTripsEmailHint => '电子邮件';
 
   @override
-  String get cloudTripsSendCode => '发送登录验证码';
+  String get cloudTripsSendCode => '发送登录代码';
 
   @override
-  String get cloudTripsCodeHint => '邮件中的6位验证码';
+  String get cloudTripsCodeHint => '电子邮件中的 6 位数代码';
 
   @override
   String get cloudTripsVerify => '验证并登录';
 
   @override
-  String get cloudTripsCodeSent => '请查收邮件中的登录验证码';
+  String get cloudTripsCodeSent => '检查您的电子邮件中是否有登录代码';
 
   @override
-  String get cloudTripsSignOut => '退出登录';
+  String get cloudTripsSignOut => '登出';
 
   @override
   String get cloudTripsSyncNow => '立即同步';
@@ -1659,22 +1654,22 @@ class AppLocalizationsZh extends AppLocalizations {
   String get cloudTripsSyncSuccess => '行程已同步';
 
   @override
-  String get cloudTripsSyncError => '同步失败 — 请重试';
+  String get cloudTripsSyncError => '同步失败 — 重试';
 
   @override
-  String get cloudTripsBannerTitle => '备份您的行程';
+  String get cloudTripsBannerTitle => '备份您的旅行';
 
   @override
-  String get cloudTripsBannerBody => '登录后可在新手机上恢复行程。';
+  String get cloudTripsBannerBody => '登录以在新手机或平板电脑上恢复行程。';
 
   @override
   String get cloudTripsBannerCta => '设置云备份';
 
   @override
-  String get cloudTripsNotConfigured => '云备份需要 Supabase（开发配置）';
+  String get cloudTripsNotConfigured => '云备份需要 Supabase（开发设置）';
 
   @override
-  String get paywallFeatureCloudBackup => '云端行程备份';
+  String get paywallFeatureCloudBackup => '云旅行备份';
 
   @override
   String shareSubject(String title) {
@@ -1732,21 +1727,21 @@ class AppLocalizationsZh extends AppLocalizations {
   String get detailTravelIntelTitle => '行程摩擦展望';
 
   @override
-  String get detailTravelIntelSubtitle => '按类别、时间与距离预测 — 非实时传感器。';
+  String get detailTravelIntelSubtitle => '根据类别、时间和距离预测——而不是实时传感器。';
 
   @override
   String detailCrowdOutlook(String level) {
-    return '人流：$level';
+    return '人群：$level';
   }
 
   @override
   String detailParkingOutlook(String level) {
-    return '停车：$level';
+    return '停车场：$level';
   }
 
   @override
   String detailDriveFrictionOutlook(int score) {
-    return '驾驶负担：$score/90';
+    return '驱动摩擦：$score/90';
   }
 
   @override
@@ -2020,10 +2015,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get landingRegionTitle => '奥兰多与佛罗里达，为感受而精选';
 
   @override
-  String get onboardFinish => '创建我的行程';
+  String get onboardFinish => '认识你的礼宾';
 
   @override
-  String get onboardBuilding => '正在创建行程…';
+  String get onboardBuilding => '构建您的旅程……';
 
   @override
   String get onboardStep1Title => '梦想最先降落的地方';
@@ -2041,25 +2036,24 @@ class AppLocalizationsZh extends AppLocalizations {
   String get onboardCityLabel => '选择您的城市';
 
   @override
-  String get onboardCityUnlockNote =>
-      '每个目的地都有独立的礼宾解锁 — 按城市一次性购买。奥兰多主题公园为一个套餐（迪士尼和环球影城一起）。';
+  String get onboardCityUnlockNote => '每个目的地都有自己的礼宾服务解锁——每个城市一次性购买。';
 
   @override
-  String get landingCityLabel => '您要去哪里？';
+  String get landingCityLabel => '你要去哪里？';
 
   @override
   String get paywallSwitchCity => '目的地';
 
   @override
-  String get cityPickerUnlocked => '已解锁';
+  String get cityPickerUnlocked => '解锁';
 
   @override
   String cityPickerUnlockPrice(String price) {
-    return '解锁 $price';
+    return '解锁$price';
   }
 
   @override
-  String get cityPickerThemeParksSubtitle => '奥兰多附加包 · 迪士尼和环球影城一起';
+  String get cityPickerThemeParksSubtitle => '奥兰多附加项目 · 迪士尼和环球影城一起';
 
   @override
   String get onboardStep2Title => '该感受自由了';
@@ -2083,13 +2077,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get onboardSelectEndDate => '选择结束日期';
 
   @override
-  String get onboardDatesHint => '可随时在「行程」标签页中修改。';
+  String get onboardDatesHint => '您可以随时从“行程”选项卡更改这些内容。';
 
   @override
-  String get onboardStepBudgetTitle => '轻松规划';
+  String get onboardStepBudgetTitle => '轻松计划';
 
   @override
-  String get onboardStepBudgetSubtitle => '这次旅行适合的预算是？';
+  String get onboardStepBudgetSubtitle => '这次逃亡感觉如何？';
 
   @override
   String get onboardBudget => '旅行预算（USD）';
@@ -2274,13 +2268,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get weatherRadarComingSoon => '实时雷达即将推出。';
 
   @override
-  String get weatherRadarPlay => '播放循环';
+  String get weatherRadarPlay => '循环播放';
 
   @override
   String get weatherRadarPause => '暂停循环';
 
   @override
-  String get weatherRadarTapToExpand => '点击全屏查看';
+  String get weatherRadarTapToExpand => '点击全屏';
 
   @override
   String get weatherRadarNow => '现在';
@@ -2296,41 +2290,41 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get weatherRadarStepBack => 'Earlier frame';
+  String get weatherRadarStepBack => '较早的框架';
 
   @override
-  String get weatherRadarStepForward => 'Later frame';
+  String get weatherRadarStepForward => '稍后的帧';
 
   @override
-  String get weatherRadarJumpNow => 'Now';
+  String get weatherRadarJumpNow => '现在';
 
   @override
-  String get weatherRadarJump1h => '−1 hr';
+  String get weatherRadarJump1h => '−1小时';
 
   @override
-  String get weatherRadarJump2h => '−2 hr';
+  String get weatherRadarJump2h => '−2小时';
 
   @override
-  String get weatherRadarJump30m => '+30 min';
+  String get weatherRadarJump30m => '+30 分钟';
 
   @override
-  String get weatherRadarSpeedSlow => 'Slow';
+  String get weatherRadarSpeedSlow => '慢的';
 
   @override
-  String get weatherRadarSpeedNormal => 'Normal';
+  String get weatherRadarSpeedNormal => '普通的';
 
   @override
-  String get weatherRadarSpeedFast => 'Fast';
+  String get weatherRadarSpeedFast => '快速地';
 
   @override
   String get weatherRadarLoopNote =>
-      'Radar loop: past ~2 hours in 10‑minute steps, plus short-range nowcast when available — not a 4‑hour forecast.';
+      '雷达环路：过去大约 2 小时（以 10 分钟为步长），加上可用的短程临近预报 - 而不是 4 小时预报。';
 
   @override
   String get shareMapPreviewCaption => '地图预览 · 在 Luxora 中打开以获取实时路线';
 
   @override
-  String get shareRadarPreviewCaption => '实时多普勒雷达 · 在 Luxora 中打开查看完整循环';
+  String get shareRadarPreviewCaption => '实时多普勒雷达·在卢克索拉开放用于全环路';
 
   @override
   String get weatherMapOverlays => '地图叠加';
@@ -2590,10 +2584,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get hotelVisitWebsite => '访问网站';
 
   @override
-  String get hotelLinkUnavailable => '此住宿的预订链接尚不可用。';
+  String get hotelLinkUnavailable => '此次住宿的预订链接尚不可用。';
 
   @override
-  String get hotelLinkOpenFailed => '无法打开链接 — 请在浏览器中重试。';
+  String get hotelLinkOpenFailed => '无法打开链接 - 请检查您的浏览器或重试。';
 
   @override
   String get hotelSave => '保存酒店';
@@ -2841,30 +2835,30 @@ class AppLocalizationsZh extends AppLocalizations {
   String get onboardTripFeelHint => '日落晚餐、慢悠悠的早晨、和伴侣一起大笑…';
 
   @override
-  String get onboardStepNameEyebrow => '故事从一个名字开始';
+  String get onboardStepNameEyebrow => '你的故事从一个名字开始';
 
   @override
-  String get onboardStepNameTitle => '这次旅行叫什么？';
+  String get onboardStepNameTitle => '我们应该如何称呼这次旅行呢？';
 
   @override
-  String get onboardStepNameSubtitle => 'Luxora 可根据你的风格起名 — 或自己输入。';
+  String get onboardStepNameSubtitle => 'Luxora 可以根据您的氛围制作一个标题，或者输入您自己的标题。';
 
   @override
-  String get onboardTripNameLuxora => '让 Luxora 起名';
+  String get onboardTripNameLuxora => '让卢克索拉命名吧';
 
   @override
-  String get onboardTripNameYours => '我自己起名';
+  String get onboardTripNameYours => '我来命名它';
 
   @override
-  String get onboardTripNameHint => '我们的春季纪念日之旅…';
+  String get onboardTripNameHint => '我们的春季周年纪念逃亡......';
 
   @override
   String onboardTripNameSuggested(String name) {
-    return 'Luxora 建议：$name';
+    return '卢克索拉建议：$name';
   }
 
   @override
-  String get conciergeTripNameLabel => '旅行名称';
+  String get conciergeTripNameLabel => '行程名称';
 
   @override
   String get moodRomantic => '浪漫';
@@ -3190,28 +3184,28 @@ class AppLocalizationsZh extends AppLocalizations {
   String get paywallRestorePurchases => '恢复购买';
 
   @override
-  String get paywallPurchaseSuccess => '购买完成 — 礼宾已解锁。';
+  String get paywallPurchaseSuccess => '购买完成——您的礼宾服务已解锁。';
 
   @override
-  String get paywallPurchasePending => '正在完成购买…';
+  String get paywallPurchasePending => '完成购买...';
 
   @override
-  String get paywallPurchaseFailed => '无法完成购买。请重试或恢复购买。';
+  String get paywallPurchaseFailed => '购买无法完成。请重试或恢复购买。';
 
   @override
-  String get paywallPurchaseCanceled => '购买已取消。';
+  String get paywallPurchaseCanceled => '购买取消。';
 
   @override
-  String get paywallRestoreComplete => '购买已恢复。';
+  String get paywallRestoreComplete => '恢复购买。';
 
   @override
-  String get paywallRestoreNone => '未找到此 Apple/Google 账户的先前购买。';
+  String get paywallRestoreNone => '未找到该 Apple ID 或 Google 帐户之前的购买记录。';
 
   @override
-  String get paywallStoreUnavailable => '此设备无法使用商店计费。';
+  String get paywallStoreUnavailable => '此设备不支持 App Store 结算。';
 
   @override
-  String get paywallProductUnavailable => '该套餐尚未在商店上架。';
+  String get paywallProductUnavailable => '该包尚未在商店出售。';
 
   @override
   String get settingsUnlockConciergeTitle => '解锁城市礼宾服务';
@@ -3220,7 +3214,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get settingsUnlockConciergeSubtitle => '一次性城市包——不是订阅';
 
   @override
-  String get settingsOpenConciergeSubtitle => '打开 AI 礼宾标签页';
+  String get settingsOpenConciergeSubtitle => '打开您的 AI 礼宾选项卡';
 
   @override
   String get weatherMiamiHumidityIndoor =>
@@ -3296,45 +3290,45 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get keysWaterIntelTitle => '群岛水域情报';
+  String get keysWaterIntelTitle => '水智能关键';
 
   @override
   String keysWaterBestTime(String time) {
-    return '最佳时段：$time';
+    return '最佳窗口：$time';
   }
 
   @override
   String keysWaterTemp(String note) {
-    return '水温：$note';
+    return '水：$note';
   }
 
   @override
-  String get keysWaterSnorkelScore => '浮潜';
+  String get keysWaterSnorkelScore => '通气管';
 
   @override
   String get keysWaterDivingScore => '潜水';
 
   @override
-  String get keysWaterBoatingScore => '乘船';
+  String get keysWaterBoatingScore => '船';
 
   @override
-  String get keysWaterFishingScore => '钓鱼';
+  String get keysWaterFishingScore => '鱼';
 
   @override
-  String get keysWaterWindScore => '风力';
+  String get keysWaterWindScore => '风';
 
   @override
   String get keysWaterSunsetScore => '日落';
 
   @override
-  String get keysWaterCrowdScore => '人流';
+  String get keysWaterCrowdScore => '人群';
 
   @override
-  String get keysMoodRoutesTitle => '群岛主题路线';
+  String get keysMoodRoutesTitle => '基斯岛航线';
 
   @override
   String keysMoodRouteStart(String time) {
-    return '开始 $time';
+    return '开始$time';
   }
 
   @override
@@ -3344,29 +3338,29 @@ class AppLocalizationsZh extends AppLocalizations {
   String get paywallHeadlineMiamiWeekend => '不要浪费你的迈阿密周末';
 
   @override
-  String get paywallOrlandoAddonsHeading => '主题公园套餐';
+  String get paywallOrlandoAddonsHeading => '主题公园包';
 
   @override
   String get paywallOrlandoBaseIncludes =>
-      '奥兰多解锁包括餐饮、隐藏宝石、酒店和园外体验。添加主题公园套餐，迪士尼和环球影城一起解锁。';
+      '奥兰多解锁包括餐饮、隐藏的宝石、酒店和非公园体验。将迪士尼和环球影城的主题公园包添加在一起。';
 
   @override
-  String get paywallAddonThemeParksTitle => '迪士尼和环球影城套餐';
+  String get paywallAddonThemeParksTitle => '迪士尼与环球包';
 
   @override
   String get paywallAddonThemeParksSubtitle =>
-      '华特迪士尼世界和奥兰多环球影城 — 所有园区、优惠、路线和人流情报一次解锁。';
+      '华特迪士尼世界和奥兰多环球影城——一次解锁所有公园、优惠、路线和人群信息。';
 
   @override
   String paywallUnlockAddon(String packName, String price) {
-    return '解锁$packName · $price';
+    return '解锁 $packName · $price';
   }
 
   @override
-  String get paywallAddonUnlocked => '已解锁';
+  String get paywallAddonUnlocked => '解锁';
 
   @override
-  String get paywallAddonRequiresOrlando => '需先解锁奥兰多';
+  String get paywallAddonRequiresOrlando => '需要先解锁奥兰多';
 
   @override
   String paywallUnlockAddonPack(String packName) {
@@ -3379,324 +3373,310 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get orlandoThemeParksPromptTitle => '为奥兰多解锁迪士尼和环球影城？';
+  String get orlandoThemeParksPromptTitle => '解锁奥兰多迪士尼和环球影城？';
 
   @override
   String get orlandoThemeParksPromptBody =>
-      '添加 Walt Disney World 和 Universal Orlando 主题公园套餐 — 所有园区、门票优惠、路线和人流情报一次解锁。';
+      '添加华特迪士尼世界和奥兰多环球影城的主题公园包 - 一次解锁所有公园、门票优惠、路线和人群信息。';
 
   @override
   String orlandoThemeParksPromptUnlock(String price) {
-    return '解锁 · $price';
+    return '解锁·$price';
   }
 
   @override
-  String get orlandoThemeParksPromptNotNow => '以后再说';
+  String get orlandoThemeParksPromptNotNow => '现在不要';
 
   @override
-  String get onboardV2Eyebrow => 'Let\'s design your perfect trip';
+  String get onboardV2Eyebrow => '让我们一起设计您的完美旅程';
 
   @override
-  String get onboardV2StepTravelerEyebrow => 'Step 1';
+  String get onboardV2StepTravelerEyebrow => '步骤1';
 
   @override
-  String get onboardV2StepTravelerTitle => 'Who are you traveling with?';
+  String get onboardV2StepTravelerTitle => '你和谁一起旅行？';
 
   @override
   String get onboardV2StepTravelerSubtitle =>
-      'Luxora tailors stays, dining, and pacing to your crew.';
+      '卢克索拉 (Luxora) 为您的船员量身定制住宿、餐饮和节奏。';
 
   @override
-  String get onboardV2ChildrenLabel => 'Children traveling?';
+  String get onboardV2ChildrenLabel => '孩子出行？';
 
   @override
-  String get onboardV2StepStyleEyebrow => 'Step 2';
+  String get onboardV2StepStyleEyebrow => '步骤2';
 
   @override
-  String get onboardV2StepStyleTitle =>
-      'What kind of trip are you looking for?';
+  String get onboardV2StepStyleTitle => '您正在寻找什么样的旅行？';
 
   @override
-  String get onboardV2StepStyleSubtitle =>
-      'Choose everything that excites you.';
+  String get onboardV2StepStyleSubtitle => '选择一切让你兴奋的事情。';
 
   @override
-  String get onboardV2StepHotelEyebrow => 'Step 3';
+  String get onboardV2StepHotelEyebrow => '步骤3';
 
   @override
-  String get onboardV2StepHotelTitle =>
-      'What type of place would you like to stay?';
+  String get onboardV2StepHotelTitle => '您想入住什么类型的地方？';
 
   @override
-  String get onboardV2StepHotelSubtitle =>
-      'We will match boutique gems and resort icons.';
+  String get onboardV2StepHotelSubtitle => '我们将搭配精品宝石和度假村标志。';
 
   @override
-  String get onboardV2HotelBudgetLabel => 'Hotel budget';
+  String get onboardV2HotelBudgetLabel => '酒店预算';
 
   @override
-  String get onboardV2HotelAmenitiesLabel => 'Must-have amenities';
+  String get onboardV2HotelAmenitiesLabel => '必备设施';
 
   @override
-  String get onboardV2StepFoodEyebrow => 'Step 4';
+  String get onboardV2StepFoodEyebrow => '步骤4';
 
   @override
-  String get onboardV2StepFoodTitle =>
-      'What types of restaurants do you enjoy?';
+  String get onboardV2StepFoodTitle => '您喜欢什么类型的餐厅？';
 
   @override
-  String get onboardV2StepFoodSubtitle =>
-      'Cuisine and dining style — pick all you love.';
+  String get onboardV2StepFoodSubtitle => '美食和用餐风格——选择您喜欢的一切。';
 
   @override
-  String get onboardV2CuisineLabel => 'Cuisine types';
+  String get onboardV2CuisineLabel => '菜品种类';
 
   @override
-  String get onboardV2DiningStyleLabel => 'Dining style';
+  String get onboardV2DiningStyleLabel => '餐饮风格';
 
   @override
-  String get onboardV2StepPaceEyebrow => 'Step 5';
+  String get onboardV2StepPaceEyebrow => '步骤5';
 
   @override
-  String get onboardV2StepPaceTitle => 'How would you like your days planned?';
+  String get onboardV2StepPaceTitle => '您希望您的日子如何计划？';
 
   @override
-  String get onboardV2StepPaceSubtitle =>
-      'Relaxed mornings or packed adventure — you choose.';
+  String get onboardV2StepPaceSubtitle => '轻松的早晨或充实的冒险——您可以选择。';
 
   @override
-  String get onboardV2PaceRelaxedTitle => 'Relaxed';
+  String get onboardV2PaceRelaxedTitle => '轻松';
 
   @override
-  String get onboardV2PaceRelaxedBody => '2–3 activities per day';
+  String get onboardV2PaceRelaxedBody => '每天 2-3 次活动';
 
   @override
-  String get onboardV2PaceBalancedTitle => 'Balanced';
+  String get onboardV2PaceBalancedTitle => '均衡';
 
   @override
-  String get onboardV2PaceBalancedBody => '4–5 activities per day';
+  String get onboardV2PaceBalancedBody => '每天 4-5 次活动';
 
   @override
-  String get onboardV2PacePackedTitle => 'Packed';
+  String get onboardV2PacePackedTitle => '包装好的';
 
   @override
-  String get onboardV2PacePackedBody => 'Maximize every day';
+  String get onboardV2PacePackedBody => '每天最大化';
 
   @override
-  String get onboardV2StepGoalsEyebrow => 'Step 6';
+  String get onboardV2StepGoalsEyebrow => '步骤6';
 
   @override
-  String get onboardV2StepGoalsTitle => 'What matters most on this trip?';
+  String get onboardV2StepGoalsTitle => '这次旅行最重要的是什么？';
 
   @override
-  String get onboardV2StepGoalsSubtitle => 'Choose up to five priorities.';
+  String get onboardV2StepGoalsSubtitle => '选择最多五个优先级。';
 
   @override
-  String get onboardV2StepExperienceEyebrow => 'Step 7';
+  String get onboardV2StepExperienceEyebrow => '步骤7';
 
   @override
-  String get onboardV2StepExperienceTitle =>
-      'What experiences would you enjoy?';
+  String get onboardV2StepExperienceTitle => '您会享受哪些体验？';
 
   @override
-  String get onboardV2StepExperienceSubtitle =>
-      'We will weave these into your itinerary.';
+  String get onboardV2StepExperienceSubtitle => '我们会将这些融入您的行程中。';
 
   @override
-  String get onboardV2StepAvoidEyebrow => 'Step 8';
+  String get onboardV2StepAvoidEyebrow => '步骤8';
 
   @override
-  String get onboardV2StepAvoidTitle => 'What would you prefer to avoid?';
+  String get onboardV2StepAvoidTitle => '您希望避免什么？';
 
   @override
-  String get onboardV2StepAvoidSubtitle =>
-      'Luxora steers clear of what drains your trip.';
+  String get onboardV2StepAvoidSubtitle => '卢克索拉 (Luxora) 会避开那些让您的旅行精疲力尽的事情。';
 
   @override
-  String get onboardV2StepEmotionEyebrow => 'Step 9';
+  String get onboardV2StepEmotionEyebrow => '步骤9';
 
   @override
-  String get onboardV2StepEmotionTitle =>
-      'What would make this trip feel successful?';
+  String get onboardV2StepEmotionTitle => '是什么让这次旅行感到成功？';
 
   @override
-  String get onboardV2StepEmotionSubtitle => 'Choose one primary feeling.';
+  String get onboardV2StepEmotionSubtitle => '选择一种主要感觉。';
 
   @override
-  String get onboardV2StepSummaryEyebrow => 'Your concierge preview';
+  String get onboardV2StepSummaryEyebrow => '您的礼宾预览';
 
   @override
-  String get onboardV2StepSummaryTitle =>
-      'Based on your selections, Luxora recommends';
+  String get onboardV2StepSummaryTitle => '根据您的选择，Luxora 推荐';
 
   @override
-  String get onboardV2StepSummarySubtitle =>
-      'We\'re building your perfect trip now.';
+  String get onboardV2StepSummarySubtitle => '我们现在正在为您打造完美的旅程。';
 
   @override
-  String get onboardSummaryHotels => 'Hotels';
+  String get onboardSummaryHotels => '酒店';
 
   @override
-  String get onboardSummaryRestaurants => 'Restaurants';
+  String get onboardSummaryRestaurants => '餐厅';
 
   @override
-  String get onboardSummaryHiddenGems => 'Hidden gems';
+  String get onboardSummaryHiddenGems => '隐藏的宝石';
 
   @override
-  String get onboardSummaryExperiences => 'Experiences';
+  String get onboardSummaryExperiences => '经验';
 
   @override
-  String get onboardSummaryHotelDefault =>
-      'Curated stays matched to your budget';
+  String get onboardSummaryHotelDefault => '符合您预算的精选住宿';
 
   @override
   String onboardSummaryHotelType(String type) {
-    return '$type stay';
+    return '$type 停留';
   }
 
   @override
-  String get onboardSummaryRooftopDining => 'Rooftop dining experiences';
+  String get onboardSummaryRooftopDining => '屋顶用餐体验';
 
   @override
   String onboardSummaryCuisine(String cuisine) {
-    return '$cuisine favorites';
+    return '最喜欢的$cuisine';
   }
 
   @override
   String onboardSummaryPace(String pace) {
-    return '$pace daily pace';
+    return '$pace 每日配速';
   }
 
   @override
-  String get onboardSummaryRomantic => 'Romantic sunset experiences';
+  String get onboardSummaryRomantic => '浪漫的日落体验';
 
   @override
   String onboardSummaryEmotion(String emotion) {
-    return '$emotion-focused journey';
+    return '以$emotion为中心的旅程';
   }
 
   @override
-  String get onboardSummaryPremiumGems => 'Premium hidden gems';
+  String get onboardSummaryPremiumGems => '优质隐藏宝石';
 
   @override
-  String get agendaSuggestionsForYou => 'Picked for you';
+  String get agendaSuggestionsForYou => '为您挑选的';
 
   @override
-  String get agendaSuggestionsAlternates => 'Also great';
+  String get agendaSuggestionsAlternates => '也很棒';
 
   @override
-  String get agendaSuggestionsBrowseAll => 'Browse all';
+  String get agendaSuggestionsBrowseAll => '浏览全部';
 
   @override
-  String get onboardPrefTravelerSolo => 'Solo';
+  String get onboardPrefTravelerSolo => '独奏';
 
   @override
-  String get onboardPrefTravelerCouple => 'Couple';
+  String get onboardPrefTravelerCouple => '夫妻';
 
   @override
-  String get onboardPrefTravelerFamily => 'Family';
+  String get onboardPrefTravelerFamily => '家庭';
 
   @override
-  String get onboardPrefTravelerFriends => 'Friends';
+  String get onboardPrefTravelerFriends => '朋友们';
 
   @override
-  String get onboardPrefTravelerBusiness => 'Business';
+  String get onboardPrefTravelerBusiness => '商业';
 
   @override
-  String get onboardPrefChildrenNone => 'No children';
+  String get onboardPrefChildrenNone => '没有孩子';
 
   @override
-  String get onboardPrefChildrenToddlers => 'Toddlers';
+  String get onboardPrefChildrenToddlers => '幼儿';
 
   @override
-  String get onboardPrefChildrenElementary => 'Elementary age';
+  String get onboardPrefChildrenElementary => '小学生年龄';
 
   @override
-  String get onboardPrefChildrenTeenagers => 'Teenagers';
+  String get onboardPrefChildrenTeenagers => '青少年';
 
   @override
-  String get onboardPrefStyleLuxury => 'Luxury';
+  String get onboardPrefStyleLuxury => '奢华';
 
   @override
-  String get onboardPrefStyleRelaxation => 'Relaxation';
+  String get onboardPrefStyleRelaxation => '松弛';
 
   @override
-  String get onboardPrefStyleAdventure => 'Adventure';
+  String get onboardPrefStyleAdventure => '冒险';
 
   @override
-  String get onboardPrefStyleThemeParks => 'Theme Parks';
+  String get onboardPrefStyleThemeParks => '主题公园';
 
   @override
-  String get onboardPrefStyleFoodie => 'Foodie';
+  String get onboardPrefStyleFoodie => '美食家';
 
   @override
-  String get onboardPrefStyleNightlife => 'Nightlife';
+  String get onboardPrefStyleNightlife => '夜生活';
 
   @override
-  String get onboardPrefStyleRomance => 'Romance';
+  String get onboardPrefStyleRomance => '浪漫';
 
   @override
-  String get onboardPrefStyleShopping => 'Shopping';
+  String get onboardPrefStyleShopping => '购物';
 
   @override
-  String get onboardPrefStyleBeaches => 'Beaches';
+  String get onboardPrefStyleBeaches => '海滩';
 
   @override
-  String get onboardPrefStyleWellness => 'Wellness';
+  String get onboardPrefStyleWellness => '健康';
 
   @override
-  String get onboardPrefStyleNature => 'Nature';
+  String get onboardPrefStyleNature => '自然';
 
   @override
-  String get onboardPrefStylePhotography => 'Photography';
+  String get onboardPrefStylePhotography => '摄影';
 
   @override
-  String get onboardPrefStyleHiddenGems => 'Hidden Gems';
+  String get onboardPrefStyleHiddenGems => '隐藏的宝石';
 
   @override
-  String get onboardPrefStyleFamilyActivities => 'Family Activities';
+  String get onboardPrefStyleFamilyActivities => '家庭活动';
 
   @override
-  String get onboardPrefStyleLocalExperiences => 'Local Experiences';
+  String get onboardPrefStyleLocalExperiences => '当地体验';
 
   @override
-  String get onboardPrefStyleEntertainment => 'Entertainment';
+  String get onboardPrefStyleEntertainment => '娱乐';
 
   @override
-  String get onboardPrefHotelLuxuryResort => 'Luxury Resort';
+  String get onboardPrefHotelLuxuryResort => '豪华度假村';
 
   @override
-  String get onboardPrefHotelBoutique => 'Boutique Hotel';
+  String get onboardPrefHotelBoutique => '精品酒店';
 
   @override
-  String get onboardPrefHotelFamilyResort => 'Family Resort';
+  String get onboardPrefHotelFamilyResort => '家庭度假村';
 
   @override
-  String get onboardPrefHotelBudgetFriendly => 'Budget Friendly';
+  String get onboardPrefHotelBudgetFriendly => '预算友好';
 
   @override
-  String get onboardPrefHotelAdultsOnly => 'Adults Only';
+  String get onboardPrefHotelAdultsOnly => '仅限成人';
 
   @override
-  String get onboardPrefHotelSpaResort => 'Spa Resort';
+  String get onboardPrefHotelSpaResort => '温泉度假村';
 
   @override
-  String get onboardPrefHotelBeachfront => 'Beachfront';
+  String get onboardPrefHotelBeachfront => '海滨';
 
   @override
-  String get onboardPrefHotelDowntown => 'Downtown';
+  String get onboardPrefHotelDowntown => '市中心';
 
   @override
-  String get onboardPrefHotelWalkable => 'Walkable Area';
+  String get onboardPrefHotelWalkable => '适合步行的区域';
 
   @override
-  String get onboardPrefHotelThemeParkArea => 'Theme Park Area';
+  String get onboardPrefHotelThemeParkArea => '主题公园区';
 
   @override
-  String get onboardPrefHotelModern => 'Modern Hotel';
+  String get onboardPrefHotelModern => '现代酒店';
 
   @override
-  String get onboardPrefHotelHistoric => 'Historic Hotel';
+  String get onboardPrefHotelHistoric => '历史悠久的酒店';
 
   @override
   String get onboardPrefBudgetOne => '\$';
@@ -3711,356 +3691,352 @@ class AppLocalizationsZh extends AppLocalizations {
   String get onboardPrefBudgetFour => '\$\$\$\$';
 
   @override
-  String get onboardPrefAmenityPool => 'Pool';
+  String get onboardPrefAmenityPool => '水池';
 
   @override
-  String get onboardPrefAmenitySpa => 'Spa';
+  String get onboardPrefAmenitySpa => '温泉';
 
   @override
-  String get onboardPrefAmenityGym => 'Gym';
+  String get onboardPrefAmenityGym => '健身房';
 
   @override
-  String get onboardPrefAmenityBreakfast => 'Free Breakfast';
+  String get onboardPrefAmenityBreakfast => '免费早餐';
 
   @override
-  String get onboardPrefAmenityOceanView => 'Ocean View';
+  String get onboardPrefAmenityOceanView => '海景房';
 
   @override
-  String get onboardPrefAmenityBalcony => 'Balcony';
+  String get onboardPrefAmenityBalcony => '阳台';
 
   @override
-  String get onboardPrefAmenityKitchen => 'Kitchen';
+  String get onboardPrefAmenityKitchen => '厨房';
 
   @override
-  String get onboardPrefAmenityShuttle => 'Shuttle Service';
+  String get onboardPrefAmenityShuttle => '班车服务';
 
   @override
-  String get onboardPrefAmenityPetFriendly => 'Pet Friendly';
+  String get onboardPrefAmenityPetFriendly => '允许携带宠物';
 
   @override
-  String get onboardPrefCuisineAmerican => 'American';
+  String get onboardPrefCuisineAmerican => '美国人';
 
   @override
-  String get onboardPrefCuisineItalian => 'Italian';
+  String get onboardPrefCuisineItalian => '意大利语';
 
   @override
-  String get onboardPrefCuisineMexican => 'Mexican';
+  String get onboardPrefCuisineMexican => '墨西哥人';
 
   @override
-  String get onboardPrefCuisineSeafood => 'Seafood';
+  String get onboardPrefCuisineSeafood => '海鲜';
 
   @override
-  String get onboardPrefCuisineSteakhouse => 'Steakhouse';
+  String get onboardPrefCuisineSteakhouse => '牛排馆';
 
   @override
-  String get onboardPrefCuisineSushi => 'Sushi';
+  String get onboardPrefCuisineSushi => '寿司';
 
   @override
-  String get onboardPrefCuisineCuban => 'Cuban';
+  String get onboardPrefCuisineCuban => '古巴人';
 
   @override
-  String get onboardPrefCuisineMediterranean => 'Mediterranean';
+  String get onboardPrefCuisineMediterranean => '地中海';
 
   @override
-  String get onboardPrefCuisineAsian => 'Asian';
+  String get onboardPrefCuisineAsian => '亚洲人';
 
   @override
-  String get onboardPrefCuisineBbq => 'BBQ';
+  String get onboardPrefCuisineBbq => '烧烤';
 
   @override
-  String get onboardPrefCuisineFineDining => 'Fine Dining';
+  String get onboardPrefCuisineFineDining => '精致餐饮';
 
   @override
-  String get onboardPrefCuisineLocalFavorites => 'Local Favorites';
+  String get onboardPrefCuisineLocalFavorites => '本地最爱';
 
   @override
-  String get onboardPrefCuisineFoodTrucks => 'Food Trucks';
+  String get onboardPrefCuisineFoodTrucks => '餐车';
 
   @override
-  String get onboardPrefCuisineRooftop => 'Rooftop Dining';
+  String get onboardPrefCuisineRooftop => '屋顶用餐';
 
   @override
-  String get onboardPrefCuisineBrunch => 'Brunch';
+  String get onboardPrefCuisineBrunch => '早午餐';
 
   @override
-  String get onboardPrefCuisineDessert => 'Dessert';
+  String get onboardPrefCuisineDessert => '甜点';
 
   @override
-  String get onboardPrefDiningQuick => 'Quick Service';
+  String get onboardPrefDiningQuick => '快速服务';
 
   @override
-  String get onboardPrefDiningCasual => 'Casual Dining';
+  String get onboardPrefDiningCasual => '休闲餐饮';
 
   @override
-  String get onboardPrefDiningFamily => 'Family Friendly';
+  String get onboardPrefDiningFamily => '适合家庭入住';
 
   @override
-  String get onboardPrefDiningDateNight => 'Date Night';
+  String get onboardPrefDiningDateNight => '约会之夜';
 
   @override
-  String get onboardPrefDiningFine => 'Fine Dining';
+  String get onboardPrefDiningFine => '精致餐饮';
 
   @override
-  String get onboardPrefDiningWaterfront => 'Waterfront';
+  String get onboardPrefDiningWaterfront => '海滨';
 
   @override
-  String get onboardPrefDiningHiddenGems => 'Hidden Gems';
+  String get onboardPrefDiningHiddenGems => '隐藏的宝石';
 
   @override
-  String get onboardPrefDiningLocal => 'Local Favorites';
+  String get onboardPrefDiningLocal => '本地最爱';
 
   @override
-  String get onboardPrefGoalMakeMemories => 'Make Memories';
+  String get onboardPrefGoalMakeMemories => '留下回忆';
 
   @override
-  String get onboardPrefGoalSaveMoney => 'Save Money';
+  String get onboardPrefGoalSaveMoney => '省钱';
 
   @override
-  String get onboardPrefGoalAvoidCrowds => 'Avoid Crowds';
+  String get onboardPrefGoalAvoidCrowds => '避开人群';
 
   @override
-  String get onboardPrefGoalLuxury => 'Luxury Experiences';
+  String get onboardPrefGoalLuxury => '奢华体验';
 
   @override
-  String get onboardPrefGoalBestFood => 'Best Food';
+  String get onboardPrefGoalBestFood => '最好的食物';
 
   @override
-  String get onboardPrefGoalHiddenGems => 'Hidden Gems';
+  String get onboardPrefGoalHiddenGems => '隐藏的宝石';
 
   @override
-  String get onboardPrefGoalRelaxation => 'Relaxation';
+  String get onboardPrefGoalRelaxation => '松弛';
 
   @override
-  String get onboardPrefGoalAdventure => 'Adventure';
+  String get onboardPrefGoalAdventure => '冒险';
 
   @override
-  String get onboardPrefGoalBestPhotos => 'Best Photos';
+  String get onboardPrefGoalBestPhotos => '最佳照片';
 
   @override
-  String get onboardPrefGoalFamilyTime => 'Family Time';
+  String get onboardPrefGoalFamilyTime => '家庭时光';
 
   @override
-  String get onboardPrefGoalRomance => 'Romance';
+  String get onboardPrefGoalRomance => '浪漫';
 
   @override
-  String get onboardPrefGoalNightlife => 'Nightlife';
+  String get onboardPrefGoalNightlife => '夜生活';
 
   @override
-  String get onboardPrefGoalLocal => 'Local Experiences';
+  String get onboardPrefGoalLocal => '当地体验';
 
   @override
-  String get onboardPrefGoalStressFree => 'Stress-Free Planning';
+  String get onboardPrefGoalStressFree => '无压力的规划';
 
   @override
-  String get onboardPrefExpBoatTours => 'Boat Tours';
+  String get onboardPrefExpBoatTours => '乘船游览';
 
   @override
-  String get onboardPrefExpSunsetCruises => 'Sunset Cruises';
+  String get onboardPrefExpSunsetCruises => '日落巡游';
 
   @override
-  String get onboardPrefExpAirboat => 'Airboat Tours';
+  String get onboardPrefExpAirboat => '汽船之旅';
 
   @override
-  String get onboardPrefExpThemeParks => 'Theme Parks';
+  String get onboardPrefExpThemeParks => '主题公园';
 
   @override
-  String get onboardPrefExpMuseums => 'Museums';
+  String get onboardPrefExpMuseums => '博物馆';
 
   @override
-  String get onboardPrefExpLiveShows => 'Live Shows';
+  String get onboardPrefExpLiveShows => '现场表演';
 
   @override
-  String get onboardPrefExpSpas => 'Spas';
+  String get onboardPrefExpSpas => '水疗中心';
 
   @override
-  String get onboardPrefExpShopping => 'Shopping';
+  String get onboardPrefExpShopping => '购物';
 
   @override
-  String get onboardPrefExpWaterParks => 'Water Parks';
+  String get onboardPrefExpWaterParks => '水上乐园';
 
   @override
-  String get onboardPrefExpGolf => 'Golf';
+  String get onboardPrefExpGolf => '高尔夫球';
 
   @override
-  String get onboardPrefExpFishing => 'Fishing';
+  String get onboardPrefExpFishing => '钓鱼';
 
   @override
-  String get onboardPrefExpKayaking => 'Kayaking';
+  String get onboardPrefExpKayaking => '皮划艇';
 
   @override
-  String get onboardPrefExpSnorkeling => 'Snorkeling';
+  String get onboardPrefExpSnorkeling => '浮潜';
 
   @override
-  String get onboardPrefExpRooftopBars => 'Rooftop Bars';
+  String get onboardPrefExpRooftopBars => '屋顶酒吧';
 
   @override
-  String get onboardPrefExpNightclubs => 'Nightclubs';
+  String get onboardPrefExpNightclubs => '夜总会';
 
   @override
-  String get onboardPrefExpWildlife => 'Wildlife Experiences';
+  String get onboardPrefExpWildlife => '野生动物体验';
 
   @override
-  String get onboardPrefExpFoodTours => 'Food Tours';
+  String get onboardPrefExpFoodTours => '美食之旅';
 
   @override
-  String get onboardPrefExpScenicDrives => 'Scenic Drives';
+  String get onboardPrefExpScenicDrives => '风景驾车';
 
   @override
-  String get onboardPrefAvoidCrowds => 'Crowds';
+  String get onboardPrefAvoidCrowds => '人群';
 
   @override
-  String get onboardPrefAvoidLongLines => 'Long Lines';
+  String get onboardPrefAvoidLongLines => '排长队';
 
   @override
-  String get onboardPrefAvoidExpensiveRestaurants => 'Expensive Restaurants';
+  String get onboardPrefAvoidExpensiveRestaurants => '昂贵的餐厅';
 
   @override
-  String get onboardPrefAvoidWalking => 'Walking Long Distances';
+  String get onboardPrefAvoidWalking => '长距离行走';
 
   @override
-  String get onboardPrefAvoidNightlife => 'Nightlife';
+  String get onboardPrefAvoidNightlife => '夜生活';
 
   @override
-  String get onboardPrefAvoidDriving => 'Driving';
+  String get onboardPrefAvoidDriving => '驾驶';
 
   @override
-  String get onboardPrefAvoidTouristTraps => 'Tourist Traps';
+  String get onboardPrefAvoidTouristTraps => '旅游陷阱';
 
   @override
-  String get onboardPrefAvoidEarlyMornings => 'Early Mornings';
+  String get onboardPrefAvoidEarlyMornings => '清晨';
 
   @override
-  String get onboardPrefAvoidLateNights => 'Late Nights';
+  String get onboardPrefAvoidLateNights => '深夜';
 
   @override
-  String get onboardPrefAvoidFamilyAttractions => 'Family Attractions';
+  String get onboardPrefAvoidFamilyAttractions => '家庭景点';
 
   @override
-  String get onboardPrefAvoidThemeParks => 'Theme Parks';
+  String get onboardPrefAvoidThemeParks => '主题公园';
 
   @override
-  String get onboardPrefEmotionRelaxed => 'Relaxed';
+  String get onboardPrefEmotionRelaxed => '轻松';
 
   @override
-  String get onboardPrefEmotionExcited => 'Excited';
+  String get onboardPrefEmotionExcited => '兴奋的';
 
   @override
-  String get onboardPrefEmotionAdventurous => 'Adventurous';
+  String get onboardPrefEmotionAdventurous => '喜欢冒险';
 
   @override
-  String get onboardPrefEmotionRomantic => 'Romantic';
+  String get onboardPrefEmotionRomantic => '浪漫的';
 
   @override
-  String get onboardPrefEmotionLuxurious => 'Luxurious';
+  String get onboardPrefEmotionLuxurious => '豪华';
 
   @override
-  String get onboardPrefEmotionFamilyFocused => 'Family-Focused';
+  String get onboardPrefEmotionFamilyFocused => '以家庭为中心';
 
   @override
-  String get onboardPrefEmotionMemorable => 'Memorable';
+  String get onboardPrefEmotionMemorable => '难忘';
 
   @override
-  String get onboardPrefEmotionStressFree => 'Stress-Free';
+  String get onboardPrefEmotionStressFree => '无压力';
 
   @override
-  String get onboardPrefEmotionInspiring => 'Inspiring';
+  String get onboardPrefEmotionInspiring => '鼓舞人心';
 
   @override
-  String get onboardPrefPaceSlow => 'Relaxed';
+  String get onboardPrefPaceSlow => '轻松';
 
   @override
-  String get onboardPrefPaceBalanced => 'Balanced';
+  String get onboardPrefPaceBalanced => '均衡';
 
   @override
-  String get onboardPrefPacePacked => 'Packed';
+  String get onboardPrefPacePacked => '包装好的';
 
   @override
-  String get onboardSummaryHiddenGemsInsight =>
-      'Hidden local restaurants & gems';
+  String get onboardSummaryHiddenGemsInsight => '隐藏的当地餐厅和瑰宝';
 
   @override
-  String get onboardBuildFailedHint =>
-      'We saved your preferences, but the itinerary needs another moment. Pull to refresh on Agenda or open Concierge.';
+  String get onboardBuildFailedHint => '我们已保存您的偏好，但行程需要再考虑一下。拉动以刷新议程或打开礼宾服务。';
 
   @override
-  String get onboardV2ChildrenSubtitle => 'Select all age groups that apply.';
+  String get onboardV2ChildrenSubtitle => '选择所有适用的年龄组。';
 
   @override
-  String get onboardTravelerNameEyebrow => 'First things first';
+  String get onboardTravelerNameEyebrow => '首先要事';
 
   @override
-  String get onboardTravelerNameTitle => 'What should Luxora call you?';
+  String get onboardTravelerNameTitle => '卢克索拉应该怎么称呼您？';
 
   @override
-  String get onboardTravelerNameSubtitle =>
-      'Your first name is enough — Luxora will use it when you chat.';
+  String get onboardTravelerNameSubtitle => '您的名字就足够了——Luxora 会在你们聊天时使用它。';
 
   @override
-  String get onboardTravelerNameLabel => 'Your first name';
+  String get onboardTravelerNameLabel => '你的名字';
 
   @override
-  String get onboardTravelerNameHint => 'e.g. Maria';
+  String get onboardTravelerNameHint => '例如玛丽亚';
 
   @override
   String conciergeWelcomeNamed(String name) {
-    return 'Welcome, $name — your emotionally intelligent Florida companion.\n\nChoose a prompt below, or describe the feeling you want your trip to create.';
+    return '欢迎，$name——您高情商的佛罗里达伴侣。\n\n选择下面的提示，或描述您希望旅行营造的感觉。';
   }
 
   @override
   String conciergeWelcomeWarmNamed(String name) {
-    return '$name, I\'m here to shape Florida around how you want to feel — not a checklist of sights. What are you craving today?';
+    return '$name，我来这里是为了按照您想要的感觉塑造佛罗里达，而不是一张景点清单。今天你想吃什么？';
   }
 
   @override
-  String get onboardLuxoraReplyEyebrow => 'LUXORA';
+  String get onboardLuxoraReplyEyebrow => '卢克索拉';
 
   @override
   String onboardLuxoraReplyTitle(String name) {
-    return 'Lovely to meet you, $name.';
+    return '很高兴认识你，$name。';
   }
 
   @override
   String onboardLuxoraGuideNamed(String name) {
-    return '$name, I\'m here to guide you and help you create the perfect vacation or adventure for you and your family.';
+    return '$name，我在这里指导您并帮助您为您和您的家人创造完美的假期或冒险。';
   }
 
   @override
   String get onboardLuxoraItineraryPromise =>
-      'When we\'re done here, I\'ll build your itinerary from everything you choose. If you\'d like to change anything later, open the Concierge tab and tell me what to edit — I\'m always listening.';
+      '当我们完成这里的工作后，我将根据您选择的一切来制定您的行程。如果您想稍后更改任何内容，请打开礼宾选项卡并告诉我要编辑的内容 - 我一直在倾听。';
 
   @override
-  String get todayPlanSectionTitle => 'Today\'s plan';
+  String get todayPlanSectionTitle => '今天的计划';
 
   @override
-  String get todayNextActivityLabel => 'Up next';
+  String get todayNextActivityLabel => '接下来';
 
   @override
-  String get todayStaysDiningSection => 'Stays & dining picks';
+  String get todayStaysDiningSection => '住宿和餐饮精选';
 
   @override
-  String get todayStaysDiningCollapsedHint =>
-      'Hotel and restaurant ideas — tap to expand';
+  String get todayStaysDiningCollapsedHint => '酒店和餐厅创意 — 点击即可扩展';
 
   @override
-  String get todayPlanDetailsTitle => 'Full schedule';
+  String get todayPlanDetailsTitle => '完整日程';
 
   @override
   String todayPlanStopCount(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count stops today',
+      other: '$count 今天停止',
       one: '1 stop today',
     );
     return '$_temp0';
   }
 
   @override
-  String get todayRainRerouteTitle => 'Rain reroute';
+  String get todayRainRerouteTitle => '雨天改道';
 
   @override
-  String get todayExtrasSection => 'Tickets & sharing';
+  String get todayExtrasSection => '门票与分享';
 
   @override
-  String get todayExtrasCollapsedHint => 'Deals, share card, and more';
+  String get todayExtrasCollapsedHint => '优惠、分享卡等';
 }
