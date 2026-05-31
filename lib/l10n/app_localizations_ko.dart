@@ -879,7 +879,8 @@ class AppLocalizationsKo extends AppLocalizations {
   String get mapRerouteNone => '당신의 길은 이미 평온해 보입니다.';
 
   @override
-  String get mapRerouteRainHint => '비가 올 가능성이 높습니다. 실내 백업을 위해 경로 재설정을 탭하세요.';
+  String get mapRerouteRainHint =>
+      '걱정 마세요 — 가까운 대안을 찾아 두었습니다. 오늘도 즐겁고 스트레스 없는 하루로.';
 
   @override
   String get dayFlowSwapTitle => '이 정류장 변경';
@@ -1076,6 +1077,73 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String get localSecretMiamiPantherAlley =>
       '창가에서 주문하고 시계 방향으로 골목을 걷습니다. 오전 8시 45분에 청록색 벽에 가장 좋은 벽화 조명이 비칩니다.';
+
+  @override
+  String get localSecretTampaBayRiverwalkParking =>
+      'Whiting Street 주차장 이용 — 강을 따라 남쪽으로 걸어 부두 근처 통제 구간을 피하세요.';
+
+  @override
+  String get localSecretTampaBayClearwaterSunset =>
+      'Pier 60 혼잡 피하기 — 일몰 40분 전 Sand Key 접근로.';
+
+  @override
+  String get localSecretTampaBayDaliGarden =>
+      '오후 마지막 입장 예약 — 동쪽 정원 전망대는 테라스 혼잡 없이 다리 빛.';
+
+  @override
+  String get localSecretTampaBayPierTiming =>
+      '평일 오후 4시 pier 입장 — 주말 유모차 혼잡 없는 일몰.';
+
+  @override
+  String get localSecretTampaBayYborCourtyard =>
+      '쿠반 샌드위치 포장 — 오후 8시 이후 현지인이 쓰는 벽돌 안뜰에서.';
+
+  @override
+  String get localSecretTampaBaySpongeDocks =>
+      '먼저 부두에서 점심, 스펀지 보트는 그다음 — 평일 오후 1시 이후 투어 감소.';
+
+  @override
+  String get localSecretVegasBellagioFountains =>
+      '쇼 15분 전 잔디 중앙 — 앞 난간은 안무 전체를 가립니다.';
+
+  @override
+  String get localSecretVegasFremontTiming =>
+      '평일 밤 9시 캐노피 아래 — 토요 혼잡 없이 Viva Vision 전체.';
+
+  @override
+  String get localSecretVegasCaesarsEntrance =>
+      '주차장 연결 통로 — 저녁 시간 Strip 병목 회피.';
+
+  @override
+  String get localSecretVegasVenetianWalk =>
+      '정오 실내 운하 산책 — 냉방 Strip 횡단으로 폭염 회피.';
+
+  @override
+  String get nycMoodRoutesTitle => '뉴욕 무드 루트';
+
+  @override
+  String get localSecretNycTimesSquareStrategy =>
+      '7th Ave 골목으로 진입 — 교차로 혼잡을 피하고 브로드웨이 시야 유지.';
+
+  @override
+  String get localSecretNycObservationDeck =>
+      '일몰 전 마지막 시간 예약 — 정오 대기열 없이 골든아워.';
+
+  @override
+  String get localSecretNycCentralParkEntrance =>
+      '72nd Street 횡단로 — Columbus Circle 혼잡 없이 Bethesda까지 빠른 경로.';
+
+  @override
+  String get localSecretNycBroadwayTickets =>
+      'TKTS 오전 줄은 일찍 — 러시 좌석이 관광객 가격보다 유리.';
+
+  @override
+  String get localSecretNycBrooklynBridgePhoto =>
+      'Washington Street DUMBO 오전 8시 — 투어 그룹 전 빈 돌길 프레임.';
+
+  @override
+  String get localSecretNycFerryGoldenHour =>
+      '일몰 시 Staten Island 페리 — 투어 보트 없이 무료 항만 루프.';
 
   @override
   String get momentsTitle => '룩소라 순간';
@@ -1897,7 +1965,7 @@ class AppLocalizationsKo extends AppLocalizations {
       'Luxora AI는 정서적으로 지능적인 컨시어지입니다. 숨겨진 보석, 옥상의 일몰, 그리고 짐을 꾸리기 전에 잊을 수 없는 순간을 선사합니다.';
 
   @override
-  String get landingBegin => '여행을 시작하세요';
+  String get landingBegin => '여행 시작하기';
 
   @override
   String get landingTalk => '룩소라와 대화';
@@ -2061,7 +2129,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get onboardFinish => '컨시어지를 만나보세요';
 
   @override
-  String get onboardBuilding => '여행을 계획하는 중…';
+  String get onboardBuilding => '모험을 만드는 중…';
 
   @override
   String get onboardStep1Title => '꿈이 먼저 닿는 곳';
@@ -3241,7 +3309,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get paywallContinueExploring => '계속 탐색';
 
   @override
-  String get paywallConciergePromise => '일회성 구매 · 개인 컨시어지 · 구독 없음';
+  String get paywallConciergePromise => '구독 없음 · 평생 도시 액세스';
 
   @override
   String get paywallRestorePurchases => '구매 복원';
@@ -3351,6 +3419,21 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get miamiMoodRoutesTitle => '마이애미 무드 루트';
+
+  @override
+  String get tampaBayMoodRoutesTitle => '탬파베이 무드 루트';
+
+  @override
+  String get stAugustineMoodRoutesTitle => '세인트오거스틴 무드 루트';
+
+  @override
+  String get naplesMoodRoutesTitle => '네이플스 무드 루트';
+
+  @override
+  String get destin30aMoodRoutesTitle => '데스틴 & 30A 무드 루트';
+
+  @override
+  String get vegasMoodRoutesTitle => '라스베이거스 무드 루트';
 
   @override
   String miamiMoodRouteStart(String time) {
@@ -3574,13 +3657,16 @@ class AppLocalizationsKo extends AppLocalizations {
   String get onboardV2StepEmotionSubtitle => '하나의 기본 감정을 선택하십시오.';
 
   @override
-  String get onboardV2StepSummaryEyebrow => '컨시어지 미리보기';
+  String get onboardV2StepSummaryEyebrow => 'LUXORA';
 
   @override
-  String get onboardV2StepSummaryTitle => '귀하의 선택에 따라 Luxora는 다음을 권장합니다.';
+  String onboardV2StepSummaryTitle(String name) {
+    return '완벽해요, $name님.';
+  }
 
   @override
-  String get onboardV2StepSummarySubtitle => '우리는 지금 당신의 완벽한 여행을 만들어가고 있습니다.';
+  String get onboardV2StepSummarySubtitle =>
+      '어떤 여행자인지 조금 알게 되었어요.\n\n이제 선호에 맞는 장소, 경험, 레스토랑, 숨은 명소를 추천할게요.\n\n모든 추천은 당신만을 위한 것입니다.\n\n무엇을 발견할 수 있을지 봐요.';
 
   @override
   String get onboardSummaryHotels => '호텔';
@@ -4059,6 +4145,69 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
+  String get onboardWelcomeEyebrow => 'LUXORA';
+
+  @override
+  String get onboardWelcomeTitle => '안녕하세요, Luxora예요.';
+
+  @override
+  String get onboardWelcomeTagline => '당신만의 여행 컨시어지.';
+
+  @override
+  String get onboardWelcomeBody =>
+      '놀라운 장소 발견, 관광객 함정 피하기, 오래 기억할 휴가 만들기를 도와드려요.\n\n잊지 못할 여행을 계획해 봐요.';
+
+  @override
+  String get onboardWelcomeCta => '여행 시작하기';
+
+  @override
+  String get onboardLuxoraGuideBody =>
+      '이제부터 여행의 모든 단계를 함께할게요.\n\n숨은 명소, 훌륭한 음식, 잊을 수 없는 경험, 또는 스트레스 없는 휴가 — 제가 함께합니다.';
+
+  @override
+  String get onboardLuxoraReplyClosing => '함께 완벽한 모험을 만들어 봐요.';
+
+  @override
+  String onboardBuildingTitle(String name) {
+    return '멋진 선택이에요, $name님.';
+  }
+
+  @override
+  String get onboardBuildingBody =>
+      '여행 스타일, 관심사, 페이스, 식사 선호, 휴가 목표에 맞춰 맞춤 일정을 만들고 있어요.\n\n잠시 시간이 걸릴 수 있습니다.';
+
+  @override
+  String get onboardBuildingTagline => '좋은 휴가는 우연히 온다.\n\n위대한 휴가는 계획에서 온다.';
+
+  @override
+  String get onboardItineraryReadyTitle => '모험이 준비됐어요.';
+
+  @override
+  String get onboardItineraryReadyBody =>
+      '설명해 주신 여행에 맞는 경험, 레스토랑, 명소, 숨은 보석을 신중히 골랐어요.\n\n물론 언제든 조정할 수 있어요.\n\n최고의 휴가는 진행되며 변합니다.';
+
+  @override
+  String weatherRerouteLuxoraIntro(String name) {
+    return '$name님, 오늘 일정 일부에 날씨 영향이 있을 수 있어요.';
+  }
+
+  @override
+  String get weatherRerouteLuxoraClosing => '때로는 예상치 못한 일이 최고의 추억을 만듭니다.';
+
+  @override
+  String rightNowLuxoraIntro(String name) {
+    return '$name님, 위치, 현재 날씨, 선호를 바탕으로 — 지금이라면 이걸 추천해요.';
+  }
+
+  @override
+  String get rightNowLuxoraClosing => '믿어 보세요.\n\n정말 마음에 들 거예요.';
+
+  @override
+  String paywallPersonalPitch(String name, String cityName) {
+    return '$name님, 맞춤 휴가 계획이 이미 형태를 갖추고 있어요.\n\n1일차 준비 완료.\n\n나머지 여정이 기다립니다.\n\n$cityName Concierge를 잠금 해제해 전체 일정, 숨은 명소, 로컬 시크릿, 날씨 인텔리전스, 무제한 컨시어지를 이용하세요.\n\n잊지 못할 휴가로 만들어요.';
+  }
+
+  @override
   String get onboardLuxoraReplyEyebrow => '룩소라';
 
   @override
@@ -4068,12 +4217,26 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String onboardLuxoraGuideNamed(String name) {
-    return '$name 님, 저는 귀하와 귀하의 가족을 위한 완벽한 휴가 또는 모험을 만들 수 있도록 안내하고 도와드리기 위해 왔습니다.';
+    return '이제부터 여행의 모든 단계를 함께할게요.\n\n숨은 명소, 훌륭한 음식, 잊을 수 없는 경험, 또는 스트레스 없는 휴가 — 제가 함께합니다.';
   }
 
   @override
-  String get onboardLuxoraItineraryPromise =>
-      '이 작업이 끝나면 귀하가 선택하는 모든 항목을 바탕으로 여행 일정을 구성해 드리겠습니다. 나중에 변경하고 싶은 사항이 있으면 컨시어지 탭을 열고 무엇을 편집할지 알려주세요. 저는 항상 듣고 있습니다.';
+  String get onboardLuxoraItineraryPromise => '함께 완벽한 모험을 만들어 봐요.';
+
+  @override
+  String get onboardReturningEyebrow => '다시 오신 것을 환영합니다';
+
+  @override
+  String onboardReturningTitle(String name) {
+    return '다시 오신 것을 환영합니다, $name님.';
+  }
+
+  @override
+  String get onboardReturningTitleGeneric => '다시 오신 것을 환영합니다.';
+
+  @override
+  String get onboardReturningSubtitle =>
+      '모험을 이어갈 준비가 되셨나요?\n\n선호, 즐겨찾는 장소, 여행 계획을 저장해 두었어요. 이어서 시작해요.\n\n오늘 무엇이 기다리는지 봐요.';
 
   @override
   String get todayPlanSectionTitle => '오늘의 계획';
@@ -4102,11 +4265,134 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get todayRainRerouteTitle => '비 경로 변경';
+  String get todayRainRerouteTitle => '날씨 경로 변경';
 
   @override
   String get todayExtrasSection => '티켓 및 공유';
 
   @override
   String get todayExtrasCollapsedHint => '특가, 공유 카드 등';
+
+  @override
+  String freemiumVacationTitle(String cityName) {
+    return '$cityName 휴가';
+  }
+
+  @override
+  String get freemiumDay1Ready => '✓ 1일차 준비됨';
+
+  @override
+  String get freemiumUnlockFullPlan => '전체 휴가 계획 잠금 해제';
+
+  @override
+  String freemiumLockedDayConcierge(int day) {
+    return '$day일차 · 컨시어지 최적화';
+  }
+
+  @override
+  String get freemiumLockedDayGems => '3일차 · 숨은 보석 루트';
+
+  @override
+  String get freemiumLockedDayWeather => '4일차 · 날씨 대응 계획';
+
+  @override
+  String get freemiumLockedDayDeparture => '5일차 · 출발 전략';
+
+  @override
+  String freemiumConciergeRemaining(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '무료 질문 $count개 남음',
+      one: '무료 질문 1개 남음',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get freemiumConciergeLimitReached =>
+      '무료 컨시어지 한도 도달 — 무제한 계획을 위해 잠금 해제.';
+
+  @override
+  String freemiumLockedHotels(int count) {
+    return '🔒 $count개 이상의 추가 호텔';
+  }
+
+  @override
+  String freemiumLockedRestaurants(int count) {
+    return '🔒 $count개 이상의 추가 레스토랑';
+  }
+
+  @override
+  String freemiumLockedGems(int count) {
+    return '🔒 $count개 이상의 숨은 보석';
+  }
+
+  @override
+  String freemiumLockedSecrets(int count) {
+    return '🔒 $count개 이상의 로컬 시크릿';
+  }
+
+  @override
+  String freemiumLockedExperiences(int count) {
+    return '🔒 $count개 이상의 체험';
+  }
+
+  @override
+  String get freemiumLockedAttractions => '🔒 추가 명소 이용 가능';
+
+  @override
+  String freemiumUnlockExplore(String cityName) {
+    return '계속 탐색하려면 $cityName Concierge 잠금 해제.';
+  }
+
+  @override
+  String freemiumUnlockConcierge(String cityName) {
+    return '$cityName Concierge 잠금 해제';
+  }
+
+  @override
+  String freemiumHeadlineDayTwoPlus(String cityName) {
+    return '다음 날짜가 준비됐습니다 — $cityName 전체 계획 잠금 해제.';
+  }
+
+  @override
+  String get freemiumHeadlineConciergeLimit => '무제한 컨시어지로 계획을 계속하세요.';
+
+  @override
+  String freemiumHeadlineHotels(String cityName) {
+    return '모든 숙소 추천을 위해 $cityName Concierge 잠금 해제.';
+  }
+
+  @override
+  String freemiumHeadlineRestaurants(String cityName) {
+    return '$cityName 전체 레스토랑 컬렉션 잠금 해제.';
+  }
+
+  @override
+  String get freemiumHeadlineGems => '로컬 즐겨찾기와 숨은 보석이 기다립니다.';
+
+  @override
+  String get freemiumHeadlineSecrets => '현지인의 시간·주차 비밀 잠금 해제.';
+
+  @override
+  String freemiumHeadlineExperiences(String cityName) {
+    return '$cityName 전역의 큐레이션 체험 잠금 해제.';
+  }
+
+  @override
+  String get freemiumHeadlineAttractions => '전체 명소 컬렉션 잠금 해제.';
+
+  @override
+  String get freemiumHeadlineHotelMatchmaker =>
+      '모든 숙소를 비교하려면 Hotel Intelligence 잠금 해제.';
+
+  @override
+  String get freemiumHeadlineFullItinerary => '전체 휴가 계획 잠금 해제.';
+
+  @override
+  String get freemiumLocalSecretsTitle => '로컬 시크릿';
+
+  @override
+  String get freemiumLocalSecretsSubtitle => '현지인이 지키는 시간, 주차, 전망 스팟.';
 }

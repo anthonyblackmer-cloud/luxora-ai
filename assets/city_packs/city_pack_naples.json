@@ -1,0 +1,33 @@
+{
+  "cityId": "naples",
+  "cityName": "Naples",
+  "stateId": "florida",
+  "description": "Gulf luxury, white-sand beaches, golf corridors, and Fifth Avenue polish — Naples lifestyle concierge.",
+  "heroImageUrl": "X_LNSoZ7xeM",
+  "mapCenterLat": 26.142,
+  "mapCenterLng": -81.7948,
+  "hubLabel": "Naples, FL",
+  "supportedCategories": [
+    "hotel",
+    "dining",
+    "beach",
+    "luxury",
+    "golf",
+    "wellness",
+    "foodie",
+    "romantic",
+    "family"
+  ],
+  "featuredExperiences": [],
+  "featuredHotels": [],
+  "featuredRestaurants": [],
+  "featuredTicketDeals": [],
+  "featuredHotelIntel": [],
+  "defaultRadiusMiles": 35,
+  "maxRadiusMiles": 75,
+  "districts": [],
+  "experiences": [],
+  "feedItemPlaceIds": {},
+  "gemPlaceIds": {},
+  "itineraryMomentPlaceIds": {}
+}

@@ -10,6 +10,7 @@ import 'package:luxora_ai/services/weather_service.dart';
 import 'package:luxora_ai/widgets/luxora_branded_share_card.dart';
 import 'package:luxora_ai/widgets/visual_share_icon_button.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
+import 'package:luxora_ai/util/traveler_name.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
 import 'package:luxora_ai/widgets/lux_button.dart';
 import 'package:latlong2/latlong.dart';
@@ -98,6 +99,8 @@ class _RightNowPanelState extends State<RightNowPanel> {
               onTap: () => widget.onPlaceTap?.call(_moment!.place),
               narrative: _narrative(context, l, _moment!, _weather),
               secretLine: _secretLine(l, _moment!),
+              introLine: _introLine(l),
+              closingLine: l.rightNowLuxoraClosing,
             ),
           ],
           if (_expanded && !_loading && _moment == null)
@@ -111,6 +114,12 @@ class _RightNowPanelState extends State<RightNowPanel> {
         ],
       ),
     );
+  }
+
+  String? _introLine(AppLocalizations l) {
+    final firstName = TravelerNameDisplay.firstName(widget.profile?.travelerName);
+    if (firstName == null) return null;
+    return l.rightNowLuxoraIntro(firstName);
   }
 
   String? _secretLine(AppLocalizations l, RightNowMoment moment) {
@@ -182,11 +191,15 @@ class _MomentCard extends StatelessWidget {
     required this.narrative,
     required this.onTap,
     this.secretLine,
+    this.introLine,
+    this.closingLine,
   });
 
   final RightNowMoment moment;
   final String narrative;
   final String? secretLine;
+  final String? introLine;
+  final String? closingLine;
   final VoidCallback onTap;
 
   @override
@@ -242,6 +255,18 @@ class _MomentCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  if (introLine != null && introLine!.isNotEmpty) ...[
+                    Text(
+                      introLine!,
+                      style: const TextStyle(
+                        fontSize: 13,
+                        height: 1.4,
+                        color: LuxColors.stone300,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                  ],
                   Text(
                     narrative,
               style: const TextStyle(
@@ -274,6 +299,18 @@ class _MomentCard extends StatelessWidget {
               ),
             ],
             const SizedBox(height: 8),
+            if (closingLine != null && closingLine!.isNotEmpty)
+              Text(
+                closingLine!,
+                style: const TextStyle(
+                  fontSize: 12,
+                  height: 1.4,
+                  fontStyle: FontStyle.italic,
+                  color: LuxColors.gold,
+                ),
+              ),
+            if (closingLine != null && closingLine!.isNotEmpty)
+              const SizedBox(height: 8),
             Text(
               l.rightNowTapForDetails,
               style: TextStyle(fontSize: 11, color: LuxColors.stone500),

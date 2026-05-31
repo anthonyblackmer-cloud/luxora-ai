@@ -866,7 +866,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get mapRerouteNone => '你的路线看起来已经很平静了。';
 
   @override
-  String get mapRerouteRainHint => '可能会下雨——点击重新路由进行室内备份。';
+  String get mapRerouteRainHint => '别担心——我已经在附近找到了替代方案，让你的一天依然轻松愉快。';
 
   @override
   String get dayFlowSwapTitle => '更改此站点';
@@ -1057,6 +1057,65 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String get localSecretMiamiPantherAlley =>
       '在窗口点餐，顺时针沿着小巷行走——早上 8:45 时，最好的壁画光线照射在绿松石色的墙壁上。';
+
+  @override
+  String get localSecretTampaBayRiverwalkParking =>
+      '使用 Whiting Street 车库 — 沿河南行，避开码头附近的活动封路。';
+
+  @override
+  String get localSecretTampaBayClearwaterSunset =>
+      '避开 Pier 60 栏杆人群 — 日落前 40 分钟走 Sand Key 北侧。';
+
+  @override
+  String get localSecretTampaBayDaliGarden => '预订下午最后时段 — 东花园观景台无露台拥挤即可捕捉桥光。';
+
+  @override
+  String get localSecretTampaBayPierTiming =>
+      '工作日下午 4 点 pier 入场 — 无周末婴儿车拥堵的日落。';
+
+  @override
+  String get localSecretTampaBayYborCourtyard =>
+      '古巴三明治外带 — 晚上 8 点后在当地人使用的砖砌庭院用餐。';
+
+  @override
+  String get localSecretTampaBaySpongeDocks =>
+      '先在码头午餐，再看海绵船 — 工作日下午 1 点后 tour 团更少。';
+
+  @override
+  String get localSecretVegasBellagioFountains => '表演前15分钟站在草坪中央——前排栏杆会挡住完整水舞。';
+
+  @override
+  String get localSecretVegasFremontTiming => '工作日晚9点天幕下——完整Viva Vision无周六人潮。';
+
+  @override
+  String get localSecretVegasCaesarsEntrance => '走停车场连廊——晚餐高峰避开Strip人行道拥堵。';
+
+  @override
+  String get localSecretVegasVenetianWalk => '中午室内运河漫步——空调通道穿越Strip避开高温。';
+
+  @override
+  String get nycMoodRoutesTitle => '纽约心情路线';
+
+  @override
+  String get localSecretNycTimesSquareStrategy =>
+      '从第七大道侧街进入——避开十字路口人潮，保留百老汇视野。';
+
+  @override
+  String get localSecretNycObservationDeck => '预订日落前最后时段——黄金光线，避开正午排队。';
+
+  @override
+  String get localSecretNycCentralParkEntrance =>
+      '走72街横穿通道——更快到Bethesda，避开哥伦布圆环 crowd。';
+
+  @override
+  String get localSecretNycBroadwayTickets => 'TKTS当日午场队一早开放——抢票比游客价更划算。';
+
+  @override
+  String get localSecretNycBrooklynBridgePhoto =>
+      'DUMBO华盛顿街早8点——旅游团到来前的空 cobblestone 画面。';
+
+  @override
+  String get localSecretNycFerryGoldenHour => '日落时出发的史泰登岛渡轮——免费港湾环线，无需观光船。';
 
   @override
   String get momentsTitle => '卢克索拉时刻';
@@ -1856,7 +1915,7 @@ class AppLocalizationsZh extends AppLocalizations {
       'Luxora AI 是你的情绪智能礼宾：隐藏秘境、屋顶日落，以及在你打包前就令人难忘的时刻。';
 
   @override
-  String get landingBegin => '开始旅程';
+  String get landingBegin => '开始我的旅程';
 
   @override
   String get landingTalk => '和 Luxora 对话';
@@ -2018,7 +2077,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get onboardFinish => '认识你的礼宾';
 
   @override
-  String get onboardBuilding => '构建您的旅程……';
+  String get onboardBuilding => '正在打造你的冒险…';
 
   @override
   String get onboardStep1Title => '梦想最先降落的地方';
@@ -3178,7 +3237,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get paywallContinueExploring => '继续探索';
 
   @override
-  String get paywallConciergePromise => '一次性购买·私人礼宾·无需订阅';
+  String get paywallConciergePromise => '无订阅 · 终身城市访问';
 
   @override
   String get paywallRestorePurchases => '恢复购买';
@@ -3283,6 +3342,21 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get miamiMoodRoutesTitle => '迈阿密风情路线';
+
+  @override
+  String get tampaBayMoodRoutesTitle => '坦帕湾心情路线';
+
+  @override
+  String get stAugustineMoodRoutesTitle => '圣奥古斯丁心情路线';
+
+  @override
+  String get naplesMoodRoutesTitle => '那不勒斯心情路线';
+
+  @override
+  String get destin30aMoodRoutesTitle => '德斯廷与 30A 心情路线';
+
+  @override
+  String get vegasMoodRoutesTitle => '拉斯维加斯心情路线';
 
   @override
   String miamiMoodRouteStart(String time) {
@@ -3506,13 +3580,16 @@ class AppLocalizationsZh extends AppLocalizations {
   String get onboardV2StepEmotionSubtitle => '选择一种主要感觉。';
 
   @override
-  String get onboardV2StepSummaryEyebrow => '您的礼宾预览';
+  String get onboardV2StepSummaryEyebrow => 'LUXORA';
 
   @override
-  String get onboardV2StepSummaryTitle => '根据您的选择，Luxora 推荐';
+  String onboardV2StepSummaryTitle(String name) {
+    return '太好了，$name。';
+  }
 
   @override
-  String get onboardV2StepSummarySubtitle => '我们现在正在为您打造完美的旅程。';
+  String get onboardV2StepSummarySubtitle =>
+      '我了解了一些你的旅行风格。\n\n现在我会根据你的偏好推荐地点、体验、餐厅和隐藏宝藏。\n\n每条推荐都专为你定制。\n\n看看我们能发现什么。';
 
   @override
   String get onboardSummaryHotels => '酒店';
@@ -3989,6 +4066,69 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
+  String get onboardWelcomeEyebrow => 'LUXORA';
+
+  @override
+  String get onboardWelcomeTitle => '你好，我是 Luxora。';
+
+  @override
+  String get onboardWelcomeTagline => '你的私人旅行礼宾。';
+
+  @override
+  String get onboardWelcomeBody =>
+      '我帮你发现精彩地点、避开游客陷阱，打造值得铭记多年的假期。\n\n让我们开始规划难忘的旅程。';
+
+  @override
+  String get onboardWelcomeCta => '开始我的旅程';
+
+  @override
+  String get onboardLuxoraGuideBody =>
+      '从此刻起，我会在每一步为你指引。\n\n无论是隐藏宝藏、美食、难忘体验，还是轻松无压力的假期——我都在。';
+
+  @override
+  String get onboardLuxoraReplyClosing => '一起创造你的完美冒险。';
+
+  @override
+  String onboardBuildingTitle(String name) {
+    return '太棒了，$name。';
+  }
+
+  @override
+  String get onboardBuildingBody =>
+      '我正在根据你的旅行风格、兴趣、节奏、餐饮偏好和度假目标打造个性化行程。\n\n这可能需要一点时间。';
+
+  @override
+  String get onboardBuildingTagline => '好假期靠偶然。\n\n精彩假期靠计划。';
+
+  @override
+  String get onboardItineraryReadyTitle => '你的冒险已就绪。';
+
+  @override
+  String get onboardItineraryReadyBody =>
+      '我精心挑选了与你描述之旅匹配的体验、餐厅、景点和隐藏宝藏。\n\n当然，我们随时都可以调整。\n\n最好的假期会在进行中不断演变。';
+
+  @override
+  String weatherRerouteLuxoraIntro(String name) {
+    return '$name，天气可能会影响今天部分计划。';
+  }
+
+  @override
+  String get weatherRerouteLuxoraClosing => '有时意外会创造最好的回忆。';
+
+  @override
+  String rightNowLuxoraIntro(String name) {
+    return '$name，根据你的位置、当前天气和偏好——我现在会推荐这个。';
+  }
+
+  @override
+  String get rightNowLuxoraClosing => '相信我的判断。\n\n你会喜欢的。';
+
+  @override
+  String paywallPersonalPitch(String name, String cityName) {
+    return '$name，你的个性化度假计划正在成形。\n\n第1天已就绪。\n\n其余旅程在等待。\n\n解锁 $cityName Concierge，获取完整行程、隐藏宝藏、本地秘密、天气智能和无限礼宾指导。\n\n让这次度假难忘。';
+  }
+
+  @override
   String get onboardLuxoraReplyEyebrow => '卢克索拉';
 
   @override
@@ -3998,12 +4138,26 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String onboardLuxoraGuideNamed(String name) {
-    return '$name，我在这里指导您并帮助您为您和您的家人创造完美的假期或冒险。';
+    return '从此刻起，我会在每一步为你指引。\n\n无论是隐藏宝藏、美食、难忘体验，还是轻松无压力的假期——我都在。';
   }
 
   @override
-  String get onboardLuxoraItineraryPromise =>
-      '当我们完成这里的工作后，我将根据您选择的一切来制定您的行程。如果您想稍后更改任何内容，请打开礼宾选项卡并告诉我要编辑的内容 - 我一直在倾听。';
+  String get onboardLuxoraItineraryPromise => '一起创造你的完美冒险。';
+
+  @override
+  String get onboardReturningEyebrow => '欢迎回来';
+
+  @override
+  String onboardReturningTitle(String name) {
+    return '欢迎回来，$name。';
+  }
+
+  @override
+  String get onboardReturningTitleGeneric => '欢迎回来。';
+
+  @override
+  String get onboardReturningSubtitle =>
+      '准备好继续冒险了吗？\n\n我已保存你的偏好、喜爱地点和旅行计划，可以从上次继续。\n\n看看今天有什么在等你。';
 
   @override
   String get todayPlanSectionTitle => '今天的计划';
@@ -4032,11 +4186,132 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get todayRainRerouteTitle => '雨天改道';
+  String get todayRainRerouteTitle => '天气改道';
 
   @override
   String get todayExtrasSection => '门票与分享';
 
   @override
   String get todayExtrasCollapsedHint => '优惠、分享卡等';
+
+  @override
+  String freemiumVacationTitle(String cityName) {
+    return '您的$cityName假期';
+  }
+
+  @override
+  String get freemiumDay1Ready => '✓ 第 1 天已就绪';
+
+  @override
+  String get freemiumUnlockFullPlan => '解锁完整假期计划';
+
+  @override
+  String freemiumLockedDayConcierge(int day) {
+    return '第 $day 天 · 礼宾优化';
+  }
+
+  @override
+  String get freemiumLockedDayGems => '第 3 天 · 隐藏宝石路线';
+
+  @override
+  String get freemiumLockedDayWeather => '第 4 天 · 天气感知规划';
+
+  @override
+  String get freemiumLockedDayDeparture => '第 5 天 · 离境策略';
+
+  @override
+  String freemiumConciergeRemaining(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '还剩 $count 个免费问题',
+      one: '还剩 1 个免费问题',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get freemiumConciergeLimitReached => '已达免费礼宾上限 — 解锁无限规划。';
+
+  @override
+  String freemiumLockedHotels(int count) {
+    return '🔒 还有 $count+ 家酒店';
+  }
+
+  @override
+  String freemiumLockedRestaurants(int count) {
+    return '🔒 还有 $count+ 家餐厅';
+  }
+
+  @override
+  String freemiumLockedGems(int count) {
+    return '🔒 还有 $count+ 个隐藏宝石';
+  }
+
+  @override
+  String freemiumLockedSecrets(int count) {
+    return '🔒 还有 $count+ 个当地秘密';
+  }
+
+  @override
+  String freemiumLockedExperiences(int count) {
+    return '🔒 还有 $count+ 个体验';
+  }
+
+  @override
+  String get freemiumLockedAttractions => '🔒 更多景点可用';
+
+  @override
+  String freemiumUnlockExplore(String cityName) {
+    return '解锁$cityName Concierge以继续探索。';
+  }
+
+  @override
+  String freemiumUnlockConcierge(String cityName) {
+    return '解锁$cityName Concierge';
+  }
+
+  @override
+  String freemiumHeadlineDayTwoPlus(String cityName) {
+    return '接下来的日程已就绪 — 解锁完整$cityName计划。';
+  }
+
+  @override
+  String get freemiumHeadlineConciergeLimit => '无限礼宾访问，继续规划行程。';
+
+  @override
+  String freemiumHeadlineHotels(String cityName) {
+    return '解锁$cityName Concierge查看全部住宿推荐。';
+  }
+
+  @override
+  String freemiumHeadlineRestaurants(String cityName) {
+    return '解锁$cityName完整餐厅合集。';
+  }
+
+  @override
+  String get freemiumHeadlineGems => '当地精选与隐藏宝石等你发现。';
+
+  @override
+  String get freemiumHeadlineSecrets => '解锁居民才知的时段与停车秘诀。';
+
+  @override
+  String freemiumHeadlineExperiences(String cityName) {
+    return '解锁$cityName全区域精选体验。';
+  }
+
+  @override
+  String get freemiumHeadlineAttractions => '解锁完整景点合集。';
+
+  @override
+  String get freemiumHeadlineHotelMatchmaker => '解锁 Hotel Intelligence 比较所有住宿。';
+
+  @override
+  String get freemiumHeadlineFullItinerary => '解锁完整假期计划。';
+
+  @override
+  String get freemiumLocalSecretsTitle => '当地秘密';
+
+  @override
+  String get freemiumLocalSecretsSubtitle => '当地人私藏的时间、停车与观景点。';
 }

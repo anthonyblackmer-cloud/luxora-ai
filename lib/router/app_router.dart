@@ -63,6 +63,7 @@ GoRouter createAppRouter() {
             child: LuxoraPaywallScreen(
               cityId: cityId,
               addonId: addonId,
+              contextHeadline: state.uri.queryParameters['headline'],
             ),
             transitionsBuilder:
                 (context, animation, secondaryAnimation, child) {

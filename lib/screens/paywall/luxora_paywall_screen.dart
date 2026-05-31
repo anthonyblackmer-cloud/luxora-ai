@@ -29,10 +29,12 @@ class LuxoraPaywallScreen extends StatefulWidget {
     super.key,
     required this.cityId,
     this.addonId,
+    this.contextHeadline,
   });
 
   final String cityId;
   final String? addonId;
+  final String? contextHeadline;
 
   @override
   State<LuxoraPaywallScreen> createState() => _LuxoraPaywallScreenState();
@@ -214,7 +216,7 @@ class _LuxoraPaywallScreenState extends State<LuxoraPaywallScreen> {
   Widget build(BuildContext context) {
     final t = luxThemeTokensOf(context);
     final l = context.l10n;
-    final headline = _headline(l);
+    final headline = widget.contextHeadline ?? _headline(l);
     final heroId = _heroPhotoId();
     final cityLocked = PaywallService.needsUnlock(_offer.cityId);
     final addonLocked = _addonFocus &&

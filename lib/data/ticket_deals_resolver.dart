@@ -1,12 +1,18 @@
 import 'package:luxora_ai/data/florida_keys/florida_keys_ticket_deals.dart';
 import 'package:luxora_ai/data/miami/miami_ticket_deals.dart';
+import 'package:luxora_ai/data/tampa_bay/tampa_bay_ticket_deals.dart';
+import 'package:luxora_ai/data/st_augustine/st_augustine_ticket_deals.dart';
+import 'package:luxora_ai/data/naples/naples_ticket_deals.dart';
+import 'package:luxora_ai/data/destin_30a/destin_30a_ticket_deals.dart';
+import 'package:luxora_ai/data/vegas/vegas_ticket_deals.dart';
+import 'package:luxora_ai/data/nyc/nyc_ticket_deals.dart';
 import 'package:luxora_ai/data/ticket_deals_catalog.dart';
 import 'package:luxora_ai/models/ticket_deal.dart';
 import 'package:luxora_ai/services/city_pack_registry.dart';
 import 'package:luxora_ai/services/orlando_addon_service.dart';
 import 'package:luxora_ai/services/ticket_deals_repository.dart';
 
-/// Unified ticket deal lookup — city pack filters which catalog applies.
+/// Unified ticket deal lookup â€” city pack filters which catalog applies.
 abstract final class TicketDealsResolver {
   static List<TicketDeal> catalogForCity(String cityId) {
     final fromRepo = TicketDealsRepository.instance.dealsForCity(cityId);
@@ -14,6 +20,12 @@ abstract final class TicketDealsResolver {
     return switch (cityId) {
       'miami' => miamiTicketDealsCatalog,
       'florida-keys' => floridaKeysTicketDealsCatalog,
+      'st-augustine' => stAugustineTicketDealsCatalog,
+      'naples' => naplesTicketDealsCatalog,
+      'destin-30a' => destin30aTicketDealsCatalog,
+      'nyc' => nycTicketDealsCatalog,
+      'vegas' => vegasTicketDealsCatalog,
+      'tampa-bay' => tampaBayTicketDealsCatalog,
       _ => ticketDealsCatalog,
     };
   }
@@ -37,7 +49,7 @@ abstract final class TicketDealsResolver {
   }
 
   static TicketDeal? byIdAnyCity(String id) {
-    for (final cityId in ['orlando', 'miami', 'florida-keys']) {
+    for (final cityId in ['orlando', 'miami', 'florida-keys', 'tampa-bay', 'st-augustine', 'naples', 'destin-30a', 'nyc', 'vegas']) {
       for (final d in TicketDealsRepository.instance.dealsForCity(cityId)) {
         if (d.id == id) return d;
       }
@@ -51,6 +63,10 @@ abstract final class TicketDealsResolver {
     for (final d in floridaKeysTicketDealsCatalog) {
       if (d.id == id) return d;
     }
+    for (final d in tampaBayTicketDealsCatalog) {
+      if (d.id == id) return d;
+    }
     return null;
   }
 }
+

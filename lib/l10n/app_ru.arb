@@ -814,7 +814,7 @@
   },
   "keysWaterWindScore": "Ветер",
   "landingBadge": "ФЛОРИДА · ОРЛАНДО MVP",
-  "landingBegin": "Начните свое путешествие",
+  "landingBegin": "Начать мое путешествие",
   "landingCityLabel": "Куда ты идешь?",
   "landingRegionBadge": "Регион запуска",
   "landingRegionTitle": "Орландо и Флорида — созданы для чувств",
@@ -934,7 +934,7 @@
   },
   "mapRerouteButton": "Измените маршрут на более спокойные остановки",
   "mapRerouteNone": "Ваш маршрут уже выглядит спокойным.",
-  "mapRerouteRainHint": "Вероятен дождь — нажмите «Перенаправление» для резервных копий в помещении.",
+  "mapRerouteRainHint": "Не волнуйтесь — я уже нашла альтернативы рядом, чтобы день оставался приятным и без стресса.",
   "mapSubtitle": "Булавки для выбранного вами дня: золотые ромбы — это драгоценные камни, голубые маркеры — это шкала сегодняшнего дня, золотая линия — это маршрут настроения.",
   "mapTitle": "Ваш разумный маршрут",
   "miamiBeachBestTime": "Лучшее время: {time}",
@@ -1072,7 +1072,7 @@
   "onboardAdventure": "Приключения и отдых на природе",
   "onboardBudget": "Бюджет поездки (долл. США)",
   "onboardBuildFailedHint": "Мы сохранили ваши предпочтения, но для маршрута нужен еще один момент. Потяните, чтобы обновить повестку дня или открыть Консьерж.",
-  "onboardBuilding": "Планирование поездки…",
+  "onboardBuilding": "Создаём ваше приключение…",
   "onboardCityLabel": "Выберите свой город",
   "onboardCityUnlockNote": "В каждом пункте назначения есть своя разблокировка консьержа — единоразовая покупка для каждого города.",
   "onboardCulture": "Культура и достопримечательности",
@@ -1081,7 +1081,7 @@
   "onboardEndDateLabel": "Дата окончания",
   "onboardFinish": "Познакомьтесь с вашим консьержем",
   "onboardFoodie": "Гурманская страсть",
-  "onboardLuxoraGuideNamed": "{name}, я здесь, чтобы направить вас и помочь вам создать идеальный отпуск или приключение для вас и вашей семьи.",
+  "onboardLuxoraGuideNamed": "С этого момента я буду сопровождать вас на каждом шаге.\n\nСкрытые жемчужины, отличная еда, незабываемые впечатления или просто отдых без стресса — я рядом.",
   "@onboardLuxoraGuideNamed": {
     "placeholders": {
       "name": {
@@ -1089,7 +1089,7 @@
       }
     }
   },
-  "onboardLuxoraItineraryPromise": "Когда мы закончим, я построю ваш маршрут из всего, что вы выберете. Если вы захотите что-то изменить позже, откройте вкладку «Консьерж» и скажите мне, что редактировать — я всегда выслушаю.",
+  "onboardLuxoraItineraryPromise": "Давайте вместе создадим ваше идеальное приключение.",
   "onboardLuxoraReplyEyebrow": "ЛУКСОРА",
   "onboardLuxoraReplyTitle": "Приятно познакомиться, {name}.",
   "@onboardLuxoraReplyTitle": {
@@ -1348,9 +1348,9 @@
   "onboardV2StepStyleEyebrow": "Шаг 2",
   "onboardV2StepStyleSubtitle": "Выбирайте все, что вас волнует.",
   "onboardV2StepStyleTitle": "Какую поездку вы ищете?",
-  "onboardV2StepSummaryEyebrow": "Предварительный просмотр вашего консьержа",
-  "onboardV2StepSummarySubtitle": "Сейчас мы создаем ваше идеальное путешествие.",
-  "onboardV2StepSummaryTitle": "На основании вашего выбора Luxora рекомендует",
+  "onboardV2StepSummaryEyebrow": "LUXORA",
+  "onboardV2StepSummarySubtitle": "Я немного узнала, какой вы путешественник.\n\nТеперь буду использовать ваши предпочтения, чтобы рекомендовать места, впечатления, рестораны и скрытые жемчужины под ваш стиль.\n\nКаждая рекомендация будет создана специально для вас.\n\nПосмотрим, что мы откроем.",
+  "onboardV2StepSummaryTitle": "Отлично, {name}.",
   "onboardV2StepTravelerEyebrow": "Шаг 1",
   "onboardV2StepTravelerSubtitle": "Луксора шьет номера, обедает и ходит для вашей команды.",
   "onboardV2StepTravelerTitle": "С кем вы путешествуете?",
@@ -1378,7 +1378,7 @@
   "paywallBenefitSaveTimeTitle": "Экономьте время",
   "paywallBenefitTravelSmarterBody": "Получайте рекомендации с учетом погоды, количества людей и стиля вашей поездки.",
   "paywallBenefitTravelSmarterTitle": "Путешествуйте разумнее",
-  "paywallConciergePromise": "Разовая покупка · Личный консьерж · Без подписки",
+  "paywallConciergePromise": "Без подписки · Пожизненный доступ к городу",
   "paywallContinueExploring": "Продолжить исследование",
   "paywallCtaUnlock": "Разблокируйте консьержа {cityName}",
   "@paywallCtaUnlock": {
@@ -2001,7 +2001,7 @@
       }
     }
   },
-  "todayRainRerouteTitle": "Дождь перенаправить",
+  "todayRainRerouteTitle": "Погодный перенос",
   "todayStaysDiningCollapsedHint": "Идеи для отелей и ресторанов — нажмите, чтобы развернуть",
   "todayStaysDiningSection": "Проживание и выбор ресторанов",
   "tripStoryBeatClosing": "Луксора формировала моменты — вы их проживали.",
@@ -2286,6 +2286,221 @@
       },
       "speed": {
         "type": "int"
+      }
+    }
+  },
+  "freemiumVacationTitle": "Ваш отдых в {cityName}",
+  "@freemiumVacationTitle": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumDay1Ready": "✓ День 1 готов",
+  "freemiumUnlockFullPlan": "Разблокировать полный план отпуска",
+  "freemiumLockedDayConcierge": "День {day} · Оптимизация консьержа",
+  "@freemiumLockedDayConcierge": {
+    "placeholders": {
+      "day": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumLockedDayGems": "День 3 · Маршрут скрытых жемчужин",
+  "freemiumLockedDayWeather": "День 4 · План с учётом погоды",
+  "freemiumLockedDayDeparture": "День 5 · Стратегия отъезда",
+  "freemiumConciergeRemaining": "{count, plural, =1{Остался 1 бесплатный вопрос} few{Осталось {count} бесплатных вопроса} many{Осталось {count} бесплатных вопросов} other{Осталось {count} бесплатных вопросов}}",
+  "@freemiumConciergeRemaining": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumConciergeLimitReached": "Бесплатный лимит консьержа исчерпан — разблокируйте безлимитное планирование.",
+  "freemiumLockedHotels": "🔒 Ещё {count}+ отелей доступно",
+  "@freemiumLockedHotels": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumLockedRestaurants": "🔒 Ещё {count}+ ресторанов доступно",
+  "@freemiumLockedRestaurants": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumLockedGems": "🔒 Ещё {count}+ скрытых жемчужин доступно",
+  "@freemiumLockedGems": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumLockedSecrets": "🔒 Ещё {count}+ местных секретов доступно",
+  "@freemiumLockedSecrets": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumLockedExperiences": "🔒 Ещё {count}+ впечатлений доступно",
+  "@freemiumLockedExperiences": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumLockedAttractions": "🔒 Доступно больше достопримечательностей",
+  "freemiumUnlockExplore": "Разблокируйте {cityName} Concierge, чтобы продолжить исследование.",
+  "@freemiumUnlockExplore": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumUnlockConcierge": "Разблокировать {cityName} Concierge",
+  "@freemiumUnlockConcierge": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumHeadlineDayTwoPlus": "Следующие дни готовы — разблокируйте полный план {cityName}.",
+  "@freemiumHeadlineDayTwoPlus": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumHeadlineConciergeLimit": "Продолжайте планирование с безлимитным консьержем.",
+  "freemiumHeadlineHotels": "Разблокируйте {cityName} Concierge для всех рекомендаций отелей.",
+  "@freemiumHeadlineHotels": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumHeadlineRestaurants": "Разблокируйте полную коллекцию ресторанов {cityName}.",
+  "@freemiumHeadlineRestaurants": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumHeadlineGems": "Местные избранное и скрытые жемчужины ждут.",
+  "freemiumHeadlineSecrets": "Разблокируйте секреты времени и парковки местных жителей.",
+  "freemiumHeadlineExperiences": "Разблокируйте кураторские впечатления по всему {cityName}.",
+  "@freemiumHeadlineExperiences": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumHeadlineAttractions": "Разблокируйте полную коллекцию достопримечательностей.",
+  "freemiumHeadlineHotelMatchmaker": "Разблокируйте Hotel Intelligence для сравнения всех отелей.",
+  "freemiumHeadlineFullItinerary": "Разблокируйте полный план отпуска.",
+  "freemiumLocalSecretsTitle": "Местные секреты",
+  "freemiumLocalSecretsSubtitle": "Время, парковка и виды, которые хранят местные.",
+  "localSecretTampaBayRiverwalkParking": "Парковка Whiting Street — идите на юг вдоль реки, чтобы обойти перекрытия у причала.",
+  "localSecretTampaBayClearwaterSunset": "Избегайте толпы Pier 60 — подойдите к Sand Key за 40 минут до заката.",
+  "localSecretTampaBayDaliGarden": "Бронируйте последний дневной вход — восточный сад ловит свет моста без толпы.",
+  "localSecretTampaBayPierTiming": "Пирс в будни в 16:00 — закат без колясок выходного дня.",
+  "localSecretTampaBayYborCourtyard": "Кубинские сэндвичи с собой — ешьте во дворике из кирпича, куда местные идут после 20:00.",
+  "localSecretTampaBaySpongeDocks": "Сначала обед у причала, потом губки — группы редеют в будни после 13:00.",
+  "tampaBayMoodRoutesTitle": "Маршруты настроения Tampa Bay",
+  "stAugustineMoodRoutesTitle": "Маршруты настроения St. Augustine",
+  "naplesMoodRoutesTitle": "Маршруты настроения Naples",
+  "destin30aMoodRoutesTitle": "Маршруты настроения Destin и 30A",
+  "onboardReturningEyebrow": "С ВОЗВРАЩЕНИЕМ",
+  "onboardReturningTitle": "С возвращением, {name}.",
+  "@onboardReturningTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardReturningTitleGeneric": "С возвращением.",
+  "onboardReturningSubtitle": "Готовы продолжить приключение?\n\nЯ сохранила ваши предпочтения, любимые места и планы, чтобы продолжить с того места, где остановились.\n\nПосмотрим, что ждёт вас сегодня.",
+  "vegasMoodRoutesTitle": "Маршруты настроения Las Vegas",
+  "localSecretVegasBellagioFountains": "Встаньте в центре лужайки за 15 мин — переднее ограждение закрывает хореографию.",
+  "localSecretVegasFremontTiming": "Будний 21:00 под крышей — полный Viva Vision без субботней толпы.",
+  "localSecretVegasCaesarsEntrance": "Переход из паркинга — обходите пробку Strip в час ужина.",
+  "localSecretVegasVenetianWalk": "Крытый канал в полдень — кондиционированный переход без жары.",
+  "nycMoodRoutesTitle": "Маршруты настроения Нью-Йорк",
+  "localSecretNycTimesSquareStrategy": "Заходите с боковых улиц 7-й авеню — меньше толпы на перекрёстке, вид на Broadway сохраняется.",
+  "localSecretNycObservationDeck": "Бронируйте последний слот перед закатом — золотой свет без очереди в полдень.",
+  "localSecretNycCentralParkEntrance": "Переход на 72-й улице — быстрее к Bethesda без толпы у Columbus Circle.",
+  "localSecretNycBroadwayTickets": "Утренняя очередь TKTS открывается рано — rush-места выгоднее туристических цен.",
+  "localSecretNycBrooklynBridgePhoto": "Washington Street DUMBO в 8 утра — пустой кадр до туристических групп.",
+  "localSecretNycFerryGoldenHour": "Паром на Staten Island на закате — бесплатный круг по гавани без экскурсионного катера.",
+  "@onboardV2StepSummaryTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardWelcomeEyebrow": "LUXORA",
+  "onboardWelcomeTitle": "Привет, я Luxora.",
+  "onboardWelcomeTagline": "Ваш личный travel-консьерж.",
+  "onboardWelcomeBody": "Я помогу вам открыть невероятные места, избежать туристических ловушек и создать отпуск, который вы будете помнить годами.\n\nДавайте спланируем что-то незабываемое.",
+  "onboardWelcomeCta": "Начать мое путешествие",
+  "onboardLuxoraGuideBody": "С этого момента я буду сопровождать вас на каждом шаге.\n\nСкрытые жемчужины, отличная еда, незабываемые впечатления или просто отдых без стресса — я рядом.",
+  "onboardLuxoraReplyClosing": "Давайте вместе создадим ваше идеальное приключение.",
+  "onboardBuildingTitle": "Прекрасный выбор, {name}.",
+  "@onboardBuildingTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardBuildingBody": "Я составляю персональный маршрут на основе вашего стиля, интересов, темпа, предпочтений в еде и целей отпуска.\n\nЭто может занять минуту.",
+  "onboardBuildingTagline": "Хорошие отпуска случаются случайно.\n\nВеликие отпуска случаются по плану.",
+  "onboardItineraryReadyTitle": "Ваше приключение готово.",
+  "onboardItineraryReadyBody": "Я тщательно подобрала впечатления, рестораны, достопримечательности и скрытые жемчужины под описанную вами поездку.\n\nКонечно, мы можем менять всё по ходу.\n\nЛучшие отпуска развиваются по мере того, как они идут.",
+  "weatherRerouteLuxoraIntro": "{name}, похоже, погода может повлиять на часть сегодняшних планов.",
+  "@weatherRerouteLuxoraIntro": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherRerouteLuxoraClosing": "Иногда неожиданное создаёт лучшие воспоминания.",
+  "rightNowLuxoraIntro": "{name}, исходя из вашего местоположения, текущей погоды и предпочтений — вот что я бы сделала сейчас.",
+  "@rightNowLuxoraIntro": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowLuxoraClosing": "Доверьтесь мне.\n\nДумаю, вам понравится.",
+  "paywallPersonalPitch": "{name}, ваш персональный план отпуска уже обретает форму.\n\nДень 1 готов.\n\nОстальная часть путешествия ждёт.\n\nРазблокируйте {cityName} Concierge для полного маршрута, скрытых жемчужин, местных секретов, погодной аналитики и безлимитного консьержа.\n\nСделаем этот отпуск незабываемым.",
+  "@paywallPersonalPitch": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "cityName": {
+        "type": "String"
       }
     }
   }

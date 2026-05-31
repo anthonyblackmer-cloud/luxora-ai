@@ -1,7 +1,11 @@
 import 'package:latlong2/latlong.dart';
+import 'package:luxora_ai/data/destin_30a/destin_30a_hotels_catalog.dart';
 import 'package:luxora_ai/data/hotels_catalog.dart';
 import 'package:luxora_ai/data/florida_keys/florida_keys_hotels_catalog.dart';
 import 'package:luxora_ai/data/miami/miami_hotels_catalog.dart';
+import 'package:luxora_ai/data/naples/naples_hotels_catalog.dart';
+import 'package:luxora_ai/data/st_augustine/st_augustine_hotels_catalog.dart';
+import 'package:luxora_ai/data/tampa_bay/tampa_bay_hotels_catalog.dart';
 import 'package:luxora_ai/l10n/app_localizations.dart';
 import 'package:luxora_ai/models/lux_hotel.dart';
 import 'package:luxora_ai/models/lux_place.dart';
@@ -22,7 +26,13 @@ abstract final class HotelIntelligenceService {
     final orlando = HotelsCatalog.all.where((h) => ids.contains(h.id));
     final miami = MiamiHotelsCatalog.all.where((h) => ids.contains(h.id));
     final keys = FloridaKeysHotelsCatalog.all.where((h) => ids.contains(h.id));
-    return [...orlando, ...miami, ...keys]
+    final stAug = StAugustineHotelsCatalog.all.where((h) => ids.contains(h.id));
+    final naplesHotels = NaplesHotelsCatalog.all.where((h) => ids.contains(h.id));
+    final destin = Destin30aHotelsCatalog.all.where((h) => ids.contains(h.id));
+    final nyc = NycHotelsCatalog.all.where((h) => ids.contains(h.id));
+    final vegas = VegasHotelsCatalog.all.where((h) => ids.contains(h.id));
+    final tampaBay = TampaBayHotelsCatalog.all.where((h) => ids.contains(h.id));
+    return [...orlando, ...miami, ...keys, ...stAug, ...naplesHotels, ...destin, ...nyc, ...vegas, ...tampaBay]
         .where(OrlandoAddonService.isHotelAccessible)
         .toList();
   }
@@ -30,7 +40,13 @@ abstract final class HotelIntelligenceService {
   static LuxHotel? hotelById(String id) =>
       HotelsCatalog.byId(id) ??
       MiamiHotelsCatalog.byId(id) ??
-      FloridaKeysHotelsCatalog.byId(id);
+      FloridaKeysHotelsCatalog.byId(id) ??
+      StAugustineHotelsCatalog.byId(id) ??
+      NaplesHotelsCatalog.byId(id) ??
+      Destin30aHotelsCatalog.byId(id) ??
+      NycHotelsCatalog.byId(id) ??
+      VegasHotelsCatalog.byId(id) ??
+      TampaBayHotelsCatalog.byId(id);
 
   static LuxPlace? placeFor(LuxHotel hotel) =>
       PlacesRepository.instance.byId(hotel.placeId);

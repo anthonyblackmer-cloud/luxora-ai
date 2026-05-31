@@ -18,6 +18,8 @@ import 'package:luxora_ai/services/concierge_session_memory.dart';
 import 'package:luxora_ai/services/concierge_ticket_sync.dart';
 import 'package:luxora_ai/services/concierge_trip_save_sync.dart';
 import 'package:luxora_ai/services/concierge_voice_service.dart';
+import 'package:luxora_ai/services/freemium_limits.dart';
+import 'package:luxora_ai/services/freemium_service.dart';
 import 'package:luxora_ai/services/saved_trips_store.dart';
 import 'package:luxora_ai/services/trip_profile_store.dart';
 import 'package:luxora_ai/services/trip_profile_storage.dart';
@@ -30,6 +32,7 @@ import 'package:luxora_ai/widgets/glass_card.dart';
 import 'package:luxora_ai/widgets/concierge/concierge_voice_settings_sheet.dart';
 import 'package:luxora_ai/widgets/trip_name_fields.dart';
 import 'package:luxora_ai/widgets/luxora_moment_chips.dart';
+import 'package:luxora_ai/widgets/freemium/freemium_concierge_banner.dart';
 import 'package:luxora_ai/widgets/settings/luxora_premium_sheet_shell.dart';
 
 class ConciergeScreen extends StatefulWidget {
@@ -55,6 +58,7 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
   bool _voiceFinishing = false;
   bool _voiceProcessing = false;
   bool _luxoraSpeaking = false;
+  int _conciergeRemaining = FreemiumLimits.freeConciergeMessages;
   String _voicePartial = '';
   String? _lastItinerarySourceMessage;
   final _voice = ConciergeVoiceService.instance;
@@ -63,7 +67,14 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
   void initState() {
     super.initState();
     unawaited(_voice.initialize());
+    unawaited(_refreshConciergeRemaining());
     WidgetsBinding.instance.addPostFrameCallback((_) => _load());
+  }
+
+  Future<void> _refreshConciergeRemaining() async {
+    final remaining = await FreemiumService.conciergeMessagesRemaining();
+    if (!mounted) return;
+    setState(() => _conciergeRemaining = remaining);
   }
 
   @override
@@ -308,6 +319,15 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
   Future<void> _send(String text, {bool fromVoice = false}) async {
     final trimmed = text.trim();
     if (trimmed.isEmpty || _isThinking) return;
+    if (!await FreemiumService.canSendConciergeMessage()) {
+      await FreemiumService.promptUnlock(
+        context,
+        trigger: FreemiumUnlockTrigger.conciergeLimit,
+      );
+      return;
+    }
+    await FreemiumService.recordConciergeUserMessage();
+    await _refreshConciergeRemaining();
     if (!fromVoice) {
       HapticFeedback.selectionClick();
     }
@@ -679,6 +699,7 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            FreemiumConciergeBanner(remaining: _conciergeRemaining),
             Expanded(
               child: GlassCard(
                 padding: const EdgeInsets.fromLTRB(12, 10, 12, 10),
@@ -815,16 +836,6 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
                   ),
                 ],
               ],
-            ),
-          ),
-          IconButton(
-            tooltip: l.conciergeNewConversationTooltip,
-            onPressed: _apiHistory.isEmpty
-                ? null
-                : () => unawaited(_archiveAndStartFreshThread(l)),
-            icon: Icon(
-              Icons.add_comment_outlined,
-              color: t.accent.withValues(alpha: 0.9),
             ),
           ),
         ],

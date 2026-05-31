@@ -20,6 +20,7 @@ import 'package:luxora_ai/services/vacation_score_service.dart';
 import 'package:luxora_ai/services/weather_service.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/util/today_plan_helpers.dart';
+import 'package:luxora_ai/util/traveler_name.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
 import 'package:luxora_ai/widgets/lux_button.dart';
 import 'package:luxora_ai/widgets/lux_place_image.dart';
@@ -251,6 +252,21 @@ class _TodayDashboardState extends State<TodayDashboard> {
                     ),
                   ),
                   const SizedBox(height: 8),
+                  if (TravelerNameDisplay.firstName(profile?.travelerName) !=
+                      null) ...[
+                    Text(
+                      l.weatherRerouteLuxoraIntro(
+                        TravelerNameDisplay.firstName(profile!.travelerName)!,
+                      ),
+                      style: const TextStyle(
+                        fontSize: 14,
+                        height: 1.4,
+                        fontWeight: FontWeight.w600,
+                        color: LuxColors.cream,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                  ],
                   Row(
                     children: [
                       Icon(
@@ -269,6 +285,16 @@ class _TodayDashboardState extends State<TodayDashboard> {
                         ),
                       ),
                     ],
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    l.weatherRerouteLuxoraClosing,
+                    style: TextStyle(
+                      fontSize: 12,
+                      height: 1.35,
+                      fontStyle: FontStyle.italic,
+                      color: LuxColors.stone400.withValues(alpha: 0.95),
+                    ),
                   ),
                   const SizedBox(height: 12),
                   LuxButton(

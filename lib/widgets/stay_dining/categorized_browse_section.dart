@@ -15,6 +15,9 @@ import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/widgets/attraction_detail_sheet.dart';
 import 'package:luxora_ai/widgets/destination_search_sheet.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
+import 'package:luxora_ai/services/freemium_limits.dart';
+import 'package:luxora_ai/services/freemium_service.dart';
+import 'package:luxora_ai/widgets/freemium/freemium_unlock_cta.dart';
 import 'package:luxora_ai/widgets/hotel_detail_sheet.dart';
 
 /// Scrollable category tabs with 4–5 hotel picks and full-catalog search.
@@ -97,7 +100,7 @@ class _CategorizedHotelSectionState extends State<CategorizedHotelSection>
           const SizedBox(height: 12),
           _SearchAffordance(
             hint: l.browseSearchAllHotels,
-            onTap: () => showDestinationSearchSheet(
+            onTap: () => FreemiumService.openSearchOrPaywall(
               context,
               initialFilter: PlaceSearchFilter.hotels,
             ),
@@ -170,24 +173,36 @@ class _HotelCategoryList extends StatelessWidget {
       );
     }
 
+    final preview = FreemiumService.previewSlice(
+      hotels,
+      FreemiumUnlockTrigger.hotelsPreview,
+    );
+    final locked = FreemiumService.lockedCount(
+      hotels.length,
+      FreemiumUnlockTrigger.hotelsPreview,
+    );
+
     return ValueListenableBuilder<String?>(
       valueListenable: HomeBaseStore.instance.placeId,
       builder: (context, homeBaseId, _) {
-        return ListView.builder(
+        return ListView(
           padding: EdgeInsets.zero,
-          itemCount: hotels.length,
-          itemBuilder: (context, i) {
-            final hotel = hotels[i];
-            return _HotelPickRow(
-              hotel: hotel,
-              isHomeBase: hotel.placeId == homeBaseId,
-              onTap: () {
-                final place = HotelIntelligenceService.placeFor(hotel);
-                if (place == null) return;
-                showHotelDetailSheet(context, hotel: hotel, place: place);
-              },
-            );
-          },
+          children: [
+            for (final hotel in preview)
+              _HotelPickRow(
+                hotel: hotel,
+                isHomeBase: hotel.placeId == homeBaseId,
+                onTap: () {
+                  final place = HotelIntelligenceService.placeFor(hotel);
+                  if (place == null) return;
+                  showHotelDetailSheet(context, hotel: hotel, place: place);
+                },
+              ),
+            FreemiumUnlockCta(
+              trigger: FreemiumUnlockTrigger.hotelsPreview,
+              lockedCount: locked,
+            ),
+          ],
         );
       },
     );
@@ -360,7 +375,7 @@ class _CategorizedRestaurantSectionState extends State<CategorizedRestaurantSect
           const SizedBox(height: 12),
           _SearchAffordance(
             hint: l.browseSearchAllRestaurants,
-            onTap: () => showDestinationSearchSheet(
+            onTap: () => FreemiumService.openSearchOrPaywall(
               context,
               initialFilter: PlaceSearchFilter.restaurants,
             ),
@@ -433,52 +448,66 @@ class _RestaurantCategoryList extends StatelessWidget {
       );
     }
 
-    return ListView.builder(
+    final preview = FreemiumService.previewSlice(
+      places,
+      FreemiumUnlockTrigger.restaurantsPreview,
+    );
+    final locked = FreemiumService.lockedCount(
+      places.length,
+      FreemiumUnlockTrigger.restaurantsPreview,
+    );
+
+    return ListView(
       padding: EdgeInsets.zero,
-      itemCount: places.length,
-      itemBuilder: (context, i) {
-        final place = places[i];
-        final tier = TripBudgetMapper.tierForPlace(place);
-        return InkWell(
-          onTap: () => showAttractionDetailSheet(context, place: place),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8),
-            child: Row(
-              children: [
-                Icon(Icons.dinner_dining_rounded, size: 18, color: tokens.accent),
-                const SizedBox(width: 10),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        place.title,
-                        style: TextStyle(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 13,
-                          color: tokens.textPrimary,
+      children: [
+        for (final place in preview)
+          InkWell(
+            onTap: () => showAttractionDetailSheet(context, place: place),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8),
+              child: Row(
+                children: [
+                  Icon(Icons.dinner_dining_rounded,
+                      size: 18, color: tokens.accent),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          place.title,
+                          style: TextStyle(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 13,
+                            color: tokens.textPrimary,
+                          ),
                         ),
-                      ),
-                      Text(
-                        '${switch (tier) {
-                          DiningPriceTier.budget => l.hotelPriceBudget,
-                          DiningPriceTier.moderate => l.hotelPriceModerate,
-                          DiningPriceTier.upscale => l.hotelPriceUpscale,
-                          DiningPriceTier.luxury => l.hotelPriceLuxury,
-                        }} · ${place.location}',
-                        style: TextStyle(fontSize: 11, color: tokens.textMuted),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ],
+                        Text(
+                          '${switch (TripBudgetMapper.tierForPlace(place)) {
+                            DiningPriceTier.budget => l.hotelPriceBudget,
+                            DiningPriceTier.moderate => l.hotelPriceModerate,
+                            DiningPriceTier.upscale => l.hotelPriceUpscale,
+                            DiningPriceTier.luxury => l.hotelPriceLuxury,
+                          }} · ${place.location}',
+                          style:
+                              TextStyle(fontSize: 11, color: tokens.textMuted),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                Icon(Icons.chevron_right_rounded, color: tokens.textMuted, size: 18),
-              ],
+                  Icon(Icons.chevron_right_rounded,
+                      color: tokens.textMuted, size: 18),
+                ],
+              ),
             ),
           ),
-        );
-      },
+        FreemiumUnlockCta(
+          trigger: FreemiumUnlockTrigger.restaurantsPreview,
+          lockedCount: locked,
+        ),
+      ],
     );
   }
 }

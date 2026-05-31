@@ -814,7 +814,7 @@
   },
   "keysWaterWindScore": "风",
   "landingBadge": "佛罗里达 · 奥兰多 MVP",
-  "landingBegin": "开始旅程",
+  "landingBegin": "开始我的旅程",
   "landingCityLabel": "你要去哪里？",
   "landingRegionBadge": "首发地区",
   "landingRegionTitle": "奥兰多与佛罗里达，为感受而精选",
@@ -934,7 +934,7 @@
   },
   "mapRerouteButton": "更改路线以安排更平静的停靠点",
   "mapRerouteNone": "你的路线看起来已经很平静了。",
-  "mapRerouteRainHint": "可能会下雨——点击重新路由进行室内备份。",
+  "mapRerouteRainHint": "别担心——我已经在附近找到了替代方案，让你的一天依然轻松愉快。",
   "mapSubtitle": "为你精选一天的标记：金色菱形是秘境，青色标记是今日行程，金线是情绪路线。",
   "mapTitle": "你的智能路线",
   "miamiBeachBestTime": "最佳时间：{time}",
@@ -1072,7 +1072,7 @@
   "onboardAdventure": "探险与户外",
   "onboardBudget": "旅行预算（USD）",
   "onboardBuildFailedHint": "我们已保存您的偏好，但行程需要再考虑一下。拉动以刷新议程或打开礼宾服务。",
-  "onboardBuilding": "构建您的旅程……",
+  "onboardBuilding": "正在打造你的冒险…",
   "onboardCityLabel": "选择您的城市",
   "onboardCityUnlockNote": "每个目的地都有自己的礼宾服务解锁——每个城市一次性购买。",
   "onboardCulture": "文化与观光",
@@ -1081,7 +1081,7 @@
   "onboardEndDateLabel": "结束日期",
   "onboardFinish": "认识你的礼宾",
   "onboardFoodie": "美食热情",
-  "onboardLuxoraGuideNamed": "{name}，我在这里指导您并帮助您为您和您的家人创造完美的假期或冒险。",
+  "onboardLuxoraGuideNamed": "从此刻起，我会在每一步为你指引。\n\n无论是隐藏宝藏、美食、难忘体验，还是轻松无压力的假期——我都在。",
   "@onboardLuxoraGuideNamed": {
     "placeholders": {
       "name": {
@@ -1089,7 +1089,7 @@
       }
     }
   },
-  "onboardLuxoraItineraryPromise": "当我们完成这里的工作后，我将根据您选择的一切来制定您的行程。如果您想稍后更改任何内容，请打开礼宾选项卡并告诉我要编辑的内容 - 我一直在倾听。",
+  "onboardLuxoraItineraryPromise": "一起创造你的完美冒险。",
   "onboardLuxoraReplyEyebrow": "卢克索拉",
   "onboardLuxoraReplyTitle": "很高兴认识你，{name}。",
   "@onboardLuxoraReplyTitle": {
@@ -1348,9 +1348,9 @@
   "onboardV2StepStyleEyebrow": "步骤2",
   "onboardV2StepStyleSubtitle": "选择一切让你兴奋的事情。",
   "onboardV2StepStyleTitle": "您正在寻找什么样的旅行？",
-  "onboardV2StepSummaryEyebrow": "您的礼宾预览",
-  "onboardV2StepSummarySubtitle": "我们现在正在为您打造完美的旅程。",
-  "onboardV2StepSummaryTitle": "根据您的选择，Luxora 推荐",
+  "onboardV2StepSummaryEyebrow": "LUXORA",
+  "onboardV2StepSummarySubtitle": "我了解了一些你的旅行风格。\n\n现在我会根据你的偏好推荐地点、体验、餐厅和隐藏宝藏。\n\n每条推荐都专为你定制。\n\n看看我们能发现什么。",
+  "onboardV2StepSummaryTitle": "太好了，{name}。",
   "onboardV2StepTravelerEyebrow": "步骤1",
   "onboardV2StepTravelerSubtitle": "卢克索拉 (Luxora) 为您的船员量身定制住宿、餐饮和节奏。",
   "onboardV2StepTravelerTitle": "你和谁一起旅行？",
@@ -1378,7 +1378,7 @@
   "paywallBenefitSaveTimeTitle": "节省时间",
   "paywallBenefitTravelSmarterBody": "根据天气、人群和您的旅行方式获取建议。",
   "paywallBenefitTravelSmarterTitle": "更智慧的旅行",
-  "paywallConciergePromise": "一次性购买·私人礼宾·无需订阅",
+  "paywallConciergePromise": "无订阅 · 终身城市访问",
   "paywallContinueExploring": "继续探索",
   "paywallCtaUnlock": "解锁{cityName}礼宾服务",
   "@paywallCtaUnlock": {
@@ -2001,7 +2001,7 @@
       }
     }
   },
-  "todayRainRerouteTitle": "雨天改道",
+  "todayRainRerouteTitle": "天气改道",
   "todayStaysDiningCollapsedHint": "酒店和餐厅创意 — 点击即可扩展",
   "todayStaysDiningSection": "住宿和餐饮精选",
   "tripStoryBeatClosing": "卢克索拉塑造了那些时刻——你经历了它们。",
@@ -2286,6 +2286,221 @@
       },
       "speed": {
         "type": "int"
+      }
+    }
+  },
+  "freemiumVacationTitle": "您的{cityName}假期",
+  "@freemiumVacationTitle": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumDay1Ready": "✓ 第 1 天已就绪",
+  "freemiumUnlockFullPlan": "解锁完整假期计划",
+  "freemiumLockedDayConcierge": "第 {day} 天 · 礼宾优化",
+  "@freemiumLockedDayConcierge": {
+    "placeholders": {
+      "day": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumLockedDayGems": "第 3 天 · 隐藏宝石路线",
+  "freemiumLockedDayWeather": "第 4 天 · 天气感知规划",
+  "freemiumLockedDayDeparture": "第 5 天 · 离境策略",
+  "freemiumConciergeRemaining": "{count, plural, =1{还剩 1 个免费问题} other{还剩 {count} 个免费问题}}",
+  "@freemiumConciergeRemaining": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumConciergeLimitReached": "已达免费礼宾上限 — 解锁无限规划。",
+  "freemiumLockedHotels": "🔒 还有 {count}+ 家酒店",
+  "@freemiumLockedHotels": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumLockedRestaurants": "🔒 还有 {count}+ 家餐厅",
+  "@freemiumLockedRestaurants": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumLockedGems": "🔒 还有 {count}+ 个隐藏宝石",
+  "@freemiumLockedGems": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumLockedSecrets": "🔒 还有 {count}+ 个当地秘密",
+  "@freemiumLockedSecrets": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumLockedExperiences": "🔒 还有 {count}+ 个体验",
+  "@freemiumLockedExperiences": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumLockedAttractions": "🔒 更多景点可用",
+  "freemiumUnlockExplore": "解锁{cityName} Concierge以继续探索。",
+  "@freemiumUnlockExplore": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumUnlockConcierge": "解锁{cityName} Concierge",
+  "@freemiumUnlockConcierge": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumHeadlineDayTwoPlus": "接下来的日程已就绪 — 解锁完整{cityName}计划。",
+  "@freemiumHeadlineDayTwoPlus": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumHeadlineConciergeLimit": "无限礼宾访问，继续规划行程。",
+  "freemiumHeadlineHotels": "解锁{cityName} Concierge查看全部住宿推荐。",
+  "@freemiumHeadlineHotels": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumHeadlineRestaurants": "解锁{cityName}完整餐厅合集。",
+  "@freemiumHeadlineRestaurants": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumHeadlineGems": "当地精选与隐藏宝石等你发现。",
+  "freemiumHeadlineSecrets": "解锁居民才知的时段与停车秘诀。",
+  "freemiumHeadlineExperiences": "解锁{cityName}全区域精选体验。",
+  "@freemiumHeadlineExperiences": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumHeadlineAttractions": "解锁完整景点合集。",
+  "freemiumHeadlineHotelMatchmaker": "解锁 Hotel Intelligence 比较所有住宿。",
+  "freemiumHeadlineFullItinerary": "解锁完整假期计划。",
+  "freemiumLocalSecretsTitle": "当地秘密",
+  "freemiumLocalSecretsSubtitle": "当地人私藏的时间、停车与观景点。",
+  "localSecretTampaBayRiverwalkParking": "使用 Whiting Street 车库 — 沿河南行，避开码头附近的活动封路。",
+  "localSecretTampaBayClearwaterSunset": "避开 Pier 60 栏杆人群 — 日落前 40 分钟走 Sand Key 北侧。",
+  "localSecretTampaBayDaliGarden": "预订下午最后时段 — 东花园观景台无露台拥挤即可捕捉桥光。",
+  "localSecretTampaBayPierTiming": "工作日下午 4 点 pier 入场 — 无周末婴儿车拥堵的日落。",
+  "localSecretTampaBayYborCourtyard": "古巴三明治外带 — 晚上 8 点后在当地人使用的砖砌庭院用餐。",
+  "localSecretTampaBaySpongeDocks": "先在码头午餐，再看海绵船 — 工作日下午 1 点后 tour 团更少。",
+  "tampaBayMoodRoutesTitle": "坦帕湾心情路线",
+  "stAugustineMoodRoutesTitle": "圣奥古斯丁心情路线",
+  "naplesMoodRoutesTitle": "那不勒斯心情路线",
+  "destin30aMoodRoutesTitle": "德斯廷与 30A 心情路线",
+  "onboardReturningEyebrow": "欢迎回来",
+  "onboardReturningTitle": "欢迎回来，{name}。",
+  "@onboardReturningTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardReturningTitleGeneric": "欢迎回来。",
+  "onboardReturningSubtitle": "准备好继续冒险了吗？\n\n我已保存你的偏好、喜爱地点和旅行计划，可以从上次继续。\n\n看看今天有什么在等你。",
+  "vegasMoodRoutesTitle": "拉斯维加斯心情路线",
+  "localSecretVegasBellagioFountains": "表演前15分钟站在草坪中央——前排栏杆会挡住完整水舞。",
+  "localSecretVegasFremontTiming": "工作日晚9点天幕下——完整Viva Vision无周六人潮。",
+  "localSecretVegasCaesarsEntrance": "走停车场连廊——晚餐高峰避开Strip人行道拥堵。",
+  "localSecretVegasVenetianWalk": "中午室内运河漫步——空调通道穿越Strip避开高温。",
+  "nycMoodRoutesTitle": "纽约心情路线",
+  "localSecretNycTimesSquareStrategy": "从第七大道侧街进入——避开十字路口人潮，保留百老汇视野。",
+  "localSecretNycObservationDeck": "预订日落前最后时段——黄金光线，避开正午排队。",
+  "localSecretNycCentralParkEntrance": "走72街横穿通道——更快到Bethesda，避开哥伦布圆环 crowd。",
+  "localSecretNycBroadwayTickets": "TKTS当日午场队一早开放——抢票比游客价更划算。",
+  "localSecretNycBrooklynBridgePhoto": "DUMBO华盛顿街早8点——旅游团到来前的空 cobblestone 画面。",
+  "localSecretNycFerryGoldenHour": "日落时出发的史泰登岛渡轮——免费港湾环线，无需观光船。",
+  "@onboardV2StepSummaryTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardWelcomeEyebrow": "LUXORA",
+  "onboardWelcomeTitle": "你好，我是 Luxora。",
+  "onboardWelcomeTagline": "你的私人旅行礼宾。",
+  "onboardWelcomeBody": "我帮你发现精彩地点、避开游客陷阱，打造值得铭记多年的假期。\n\n让我们开始规划难忘的旅程。",
+  "onboardWelcomeCta": "开始我的旅程",
+  "onboardLuxoraGuideBody": "从此刻起，我会在每一步为你指引。\n\n无论是隐藏宝藏、美食、难忘体验，还是轻松无压力的假期——我都在。",
+  "onboardLuxoraReplyClosing": "一起创造你的完美冒险。",
+  "onboardBuildingTitle": "太棒了，{name}。",
+  "@onboardBuildingTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardBuildingBody": "我正在根据你的旅行风格、兴趣、节奏、餐饮偏好和度假目标打造个性化行程。\n\n这可能需要一点时间。",
+  "onboardBuildingTagline": "好假期靠偶然。\n\n精彩假期靠计划。",
+  "onboardItineraryReadyTitle": "你的冒险已就绪。",
+  "onboardItineraryReadyBody": "我精心挑选了与你描述之旅匹配的体验、餐厅、景点和隐藏宝藏。\n\n当然，我们随时都可以调整。\n\n最好的假期会在进行中不断演变。",
+  "weatherRerouteLuxoraIntro": "{name}，天气可能会影响今天部分计划。",
+  "@weatherRerouteLuxoraIntro": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherRerouteLuxoraClosing": "有时意外会创造最好的回忆。",
+  "rightNowLuxoraIntro": "{name}，根据你的位置、当前天气和偏好——我现在会推荐这个。",
+  "@rightNowLuxoraIntro": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowLuxoraClosing": "相信我的判断。\n\n你会喜欢的。",
+  "paywallPersonalPitch": "{name}，你的个性化度假计划正在成形。\n\n第1天已就绪。\n\n其余旅程在等待。\n\n解锁 {cityName} Concierge，获取完整行程、隐藏宝藏、本地秘密、天气智能和无限礼宾指导。\n\n让这次度假难忘。",
+  "@paywallPersonalPitch": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "cityName": {
+        "type": "String"
       }
     }
   }

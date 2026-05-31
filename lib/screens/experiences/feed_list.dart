@@ -41,6 +41,11 @@ import 'package:luxora_ai/widgets/affiliate_hint.dart';
 
 import 'package:luxora_ai/widgets/partner_sponsor_badge.dart';
 
+import 'package:luxora_ai/services/freemium_limits.dart';
+import 'package:luxora_ai/services/freemium_service.dart';
+
+import 'package:luxora_ai/widgets/freemium/freemium_unlock_cta.dart';
+
 import 'package:luxora_ai/widgets/glass_card.dart';
 
 
@@ -165,6 +170,15 @@ class _FeedListState extends State<FeedList> {
 
                 }).toList();
 
+          final lockedFeed = FreemiumService.lockedCount(
+            feed.length,
+            FreemiumUnlockTrigger.experiencesPreview,
+          );
+          final visibleFeed = FreemiumService.previewSlice(
+            feed,
+            FreemiumUnlockTrigger.experiencesPreview,
+          );
+
           final l = context.l10n;
 
           final isFamily = feedTripIsFamily(profile);
@@ -175,7 +189,7 @@ class _FeedListState extends State<FeedList> {
 
         padding: const EdgeInsets.all(20),
 
-        itemCount: feed.length + 1,
+        itemCount: visibleFeed.length + 1 + (lockedFeed > 0 ? 1 : 0),
 
         itemBuilder: (context, i) {
 
@@ -463,7 +477,14 @@ class _FeedListState extends State<FeedList> {
 
 
 
-          final item = feed[i - 1];
+          if (i == visibleFeed.length + 1 && lockedFeed > 0) {
+            return FreemiumUnlockCta(
+              trigger: FreemiumUnlockTrigger.experiencesPreview,
+              lockedCount: lockedFeed,
+            );
+          }
+
+          final item = visibleFeed[i - 1];
 
           final placeId = feedMap[item.id];
 

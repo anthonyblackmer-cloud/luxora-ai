@@ -39,13 +39,13 @@ class CityDestinationPicker extends StatelessWidget {
     final l = context.l10n;
     final tokens = luxThemeTokensOf(context);
     final scheme = Theme.of(context).colorScheme;
-    final offers = PaywallCatalog.selectableOffers
+    final offers = PaywallCatalog.uiSelectableOffers
         .where(
           (o) =>
               limitedCityIds == null || limitedCityIds!.contains(o.cityId),
         )
         .toList();
-    final value = PaywallCatalog.isSupported(selectedCityId)
+    final value = offers.any((o) => o.cityId == selectedCityId)
         ? selectedCityId
         : offers.first.cityId;
     final entries = _buildEntries(offers, showOrlandoThemeParksAddon);

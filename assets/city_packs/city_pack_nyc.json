@@ -2,7 +2,8 @@
   "cityId": "nyc",
   "cityName": "New York City",
   "stateId": "new-york",
-  "description": "Five boroughs of culture, cuisine, and iconic skyline moments.",
+  "description": "Five boroughs of walkable culture, Broadway nights, and subway-smart clusters — a New York insider concierge, not a generic travel app.",
+  "heroImageUrl": "xMMA_mtJ8xM",
   "mapCenterLat": 40.7128,
   "mapCenterLng": -74.006,
   "hubLabel": "New York, NY",
@@ -11,43 +12,31 @@
     "dining",
     "nightlife",
     "culture",
-    "adventure"
+    "adventure",
+    "luxury",
+    "foodie",
+    "romantic",
+    "family",
+    "walkable",
+    "broadway",
+    "museum",
+    "park",
+    "rooftop",
+    "historic",
+    "shopping",
+    "walking",
+    "photo",
+    "subway",
+    "market"
   ],
   "featuredExperiences": [],
   "featuredHotels": [],
   "featuredRestaurants": [],
   "featuredTicketDeals": [],
   "featuredHotelIntel": [],
-  "defaultRadiusMiles": 15,
-  "maxRadiusMiles": 40,
-  "districts": [
-    {
-      "districtId": "nyc-midtown",
-      "cityId": "nyc",
-      "districtName": "Midtown",
-      "districtType": "downtown",
-      "description": "Theater, museums, and classic Manhattan energy.",
-      "mapBounds": {
-        "north": 40.77,
-        "south": 40.74,
-        "east": -73.96,
-        "west": -73.99
-      }
-    },
-    {
-      "districtId": "nyc-soho",
-      "cityId": "nyc",
-      "districtName": "SoHo",
-      "districtType": "arts",
-      "description": "Cast-iron streets and boutique dining.",
-      "mapBounds": {
-        "north": 40.73,
-        "south": 40.72,
-        "east": -73.99,
-        "west": -74.01
-      }
-    }
-  ],
+  "defaultRadiusMiles": 35,
+  "maxRadiusMiles": 75,
+  "districts": [],
   "experiences": [],
   "feedItemPlaceIds": {},
   "gemPlaceIds": {},

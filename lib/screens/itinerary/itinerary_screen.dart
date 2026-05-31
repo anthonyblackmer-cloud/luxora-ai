@@ -18,14 +18,19 @@ import 'package:luxora_ai/widgets/agenda/agenda_collapsible_section.dart';
 import 'package:luxora_ai/widgets/agenda/agenda_day_dropdown.dart';
 import 'package:luxora_ai/widgets/agenda/agenda_dining_suggestions.dart';
 import 'package:luxora_ai/widgets/agenda/agenda_stay_suggestions.dart';
+import 'package:luxora_ai/services/journey_message_flags.dart';
+import 'package:luxora_ai/widgets/agenda/itinerary_ready_banner.dart';
 import 'package:luxora_ai/widgets/agenda/today_dashboard.dart';
 import 'package:luxora_ai/widgets/attraction_detail_sheet.dart';
 import 'package:luxora_ai/widgets/lux_place_image.dart';
 import 'package:luxora_ai/widgets/lux_secondary_app_bar.dart';
 import 'package:luxora_ai/widgets/unsplash_attribution.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
-import 'package:luxora_ai/widgets/ticket_savings_itinerary_banner.dart';
+import 'package:luxora_ai/widgets/freemium/freemium_locked_days_panel.dart';
+import 'package:luxora_ai/services/freemium_service.dart';
+import 'package:luxora_ai/services/freemium_limits.dart';
 import 'package:luxora_ai/widgets/trip_item_ticket_link.dart';
+import 'package:luxora_ai/widgets/ticket_savings_itinerary_banner.dart';
 import 'package:luxora_ai/widgets/visual_share_icon_button.dart';
 
 /// Today tab — focused daily dashboard plus day-by-day plan.
@@ -42,12 +47,20 @@ class ItineraryScreen extends StatefulWidget {
 class _ItineraryScreenState extends State<ItineraryScreen> {
   int _selectedDayIndex = 0;
   bool _manualDayOverride = false;
+  bool _showItineraryReady = false;
 
   @override
   void initState() {
     super.initState();
     PlacesRepository.instance.ensureLocalCatalogLoaded();
     unawaited(_ensureAgendaMediaReady());
+    unawaited(_loadItineraryReadyFlag());
+  }
+
+  Future<void> _loadItineraryReadyFlag() async {
+    final pending = await JourneyMessageFlags.consumeItineraryReadyPending();
+    if (!mounted) return;
+    if (pending) setState(() => _showItineraryReady = true);
   }
 
   Future<void> _ensureAgendaMediaReady() async {
@@ -84,8 +97,12 @@ class _ItineraryScreenState extends State<ItineraryScreen> {
               );
         final rawIndex =
             _manualDayOverride ? _selectedDayIndex : (autoDay ?? _selectedDayIndex);
-        final dayIndex =
+        var dayIndex =
             days.isEmpty ? 0 : rawIndex.clamp(0, days.length - 1);
+        if (!FreemiumService.hasFullAccess() &&
+            dayIndex > FreemiumLimits.freeDayIndex) {
+          dayIndex = FreemiumLimits.freeDayIndex;
+        }
         final selectedDay = days.isEmpty ? null : days[dayIndex];
 
         return ListView(
@@ -112,21 +129,38 @@ class _ItineraryScreenState extends State<ItineraryScreen> {
               ),
               const SizedBox(height: 16),
             ],
+            if (_showItineraryReady)
+              ItineraryReadyBanner(
+                onDismiss: () => setState(() => _showItineraryReady = false),
+              ),
+            if (days.isNotEmpty) ...[
+              FreemiumLockedDaysPanel(days: days),
+              AgendaDayDropdown(
+                days: days,
+                selectedIndex: dayIndex,
+                lockedDayIndices: FreemiumService.hasFullAccess()
+                    ? const {}
+                    : {for (var i = 1; i < days.length; i++) i},
+                onChanged: (index) async {
+                  if (!FreemiumService.canAccessDay(index)) {
+                    await FreemiumService.promptUnlock(
+                      context,
+                      trigger: FreemiumUnlockTrigger.dayTwoPlus,
+                    );
+                    return;
+                  }
+                  setState(() {
+                    _manualDayOverride = true;
+                    _selectedDayIndex = index;
+                  });
+                },
+              ),
+              const SizedBox(height: 16),
+            ],
             TodayDashboard(
               selectedDay: selectedDay,
               profile: profile,
             ),
-            if (days.isNotEmpty) ...[
-              const SizedBox(height: 4),
-              AgendaDayDropdown(
-                days: days,
-                selectedIndex: dayIndex,
-                onChanged: (index) => setState(() {
-                  _manualDayOverride = true;
-                  _selectedDayIndex = index;
-                }),
-              ),
-            ],
             const SizedBox(height: 16),
             Text(
               l.todayPlanDetailsTitle,

@@ -1681,7 +1681,7 @@ abstract class AppLocalizations {
   /// No description provided for @mapRerouteRainHint.
   ///
   /// In en, this message translates to:
-  /// **'Rain likely — tap reroute for indoor backups.'**
+  /// **'Don\'t worry — I\'ve already found a few alternatives nearby so your day stays enjoyable and stress-free.'**
   String get mapRerouteRainHint;
 
   /// No description provided for @dayFlowSwapTitle.
@@ -1994,6 +1994,108 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Order at the window, walk the alley clockwise — best mural light hits the turquoise wall at 8:45 AM.'**
   String get localSecretMiamiPantherAlley;
+
+  /// No description provided for @localSecretTampaBayRiverwalkParking.
+  ///
+  /// In en, this message translates to:
+  /// **'Use the Whiting Street garage — walk south along the river to skip event closures near the wharf.'**
+  String get localSecretTampaBayRiverwalkParking;
+
+  /// No description provided for @localSecretTampaBayClearwaterSunset.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip Pier 60 rail crowds — walk north Sand Key approach 40 minutes before sunset for Gulf color.'**
+  String get localSecretTampaBayClearwaterSunset;
+
+  /// No description provided for @localSecretTampaBayDaliGarden.
+  ///
+  /// In en, this message translates to:
+  /// **'Book the last afternoon entry — east garden overlook catches bridge light without terrace gridlock.'**
+  String get localSecretTampaBayDaliGarden;
+
+  /// No description provided for @localSecretTampaBayPierTiming.
+  ///
+  /// In en, this message translates to:
+  /// **'Weekday 4 PM pier entry — sunset without weekend stroller traffic on the new deck.'**
+  String get localSecretTampaBayPierTiming;
+
+  /// No description provided for @localSecretTampaBayYborCourtyard.
+  ///
+  /// In en, this message translates to:
+  /// **'Order Cuban sandwiches to go — eat in the brick courtyard side street locals use after 8 PM.'**
+  String get localSecretTampaBayYborCourtyard;
+
+  /// No description provided for @localSecretTampaBaySpongeDocks.
+  ///
+  /// In en, this message translates to:
+  /// **'Lunch at the dock first, sponge boats second — tour clusters thin after 1 PM on weekdays.'**
+  String get localSecretTampaBaySpongeDocks;
+
+  /// No description provided for @localSecretVegasBellagioFountains.
+  ///
+  /// In en, this message translates to:
+  /// **'Stand center-lawn 15 minutes before the show — front-rail crowds block the wide choreography view.'**
+  String get localSecretVegasBellagioFountains;
+
+  /// No description provided for @localSecretVegasFremontTiming.
+  ///
+  /// In en, this message translates to:
+  /// **'Weeknight 9 PM under the canopy — full Viva Vision loop without Saturday shoulder crush.'**
+  String get localSecretVegasFremontTiming;
+
+  /// No description provided for @localSecretVegasCaesarsEntrance.
+  ///
+  /// In en, this message translates to:
+  /// **'Use the parking-garage connector — skip Strip sidewalk bottle-neck at peak dinner hours.'**
+  String get localSecretVegasCaesarsEntrance;
+
+  /// No description provided for @localSecretVegasVenetianWalk.
+  ///
+  /// In en, this message translates to:
+  /// **'Indoor canal walk at noon — air-conditioned Strip crossing without heat advisory exposure.'**
+  String get localSecretVegasVenetianWalk;
+
+  /// No description provided for @nycMoodRoutesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'New York City Mood Routes'**
+  String get nycMoodRoutesTitle;
+
+  /// No description provided for @localSecretNycTimesSquareStrategy.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter from 7th Ave side streets — avoid crossroads crush and keep Broadway sightlines open.'**
+  String get localSecretNycTimesSquareStrategy;
+
+  /// No description provided for @localSecretNycObservationDeck.
+  ///
+  /// In en, this message translates to:
+  /// **'Book the last slot before sunset — golden light without midday queue heat.'**
+  String get localSecretNycObservationDeck;
+
+  /// No description provided for @localSecretNycCentralParkEntrance.
+  ///
+  /// In en, this message translates to:
+  /// **'Use the 72nd Street transverse — faster path to Bethesda without Columbus Circle crowds.'**
+  String get localSecretNycCentralParkEntrance;
+
+  /// No description provided for @localSecretNycBroadwayTickets.
+  ///
+  /// In en, this message translates to:
+  /// **'TKTS same-day matinee line opens early — rush seats beat tourist markups.'**
+  String get localSecretNycBroadwayTickets;
+
+  /// No description provided for @localSecretNycBrooklynBridgePhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Washington Street DUMBO at 8 AM — empty cobblestone frame before tour groups arrive.'**
+  String get localSecretNycBrooklynBridgePhoto;
+
+  /// No description provided for @localSecretNycFerryGoldenHour.
+  ///
+  /// In en, this message translates to:
+  /// **'Staten Island Ferry outbound at sunset — free harbor loop without tour boat fees.'**
+  String get localSecretNycFerryGoldenHour;
 
   /// No description provided for @momentsTitle.
   ///
@@ -3449,7 +3551,7 @@ abstract class AppLocalizations {
   /// No description provided for @landingBegin.
   ///
   /// In en, this message translates to:
-  /// **'Begin your journey'**
+  /// **'Begin My Journey'**
   String get landingBegin;
 
   /// No description provided for @landingTalk.
@@ -3773,7 +3875,7 @@ abstract class AppLocalizations {
   /// No description provided for @onboardBuilding.
   ///
   /// In en, this message translates to:
-  /// **'Building your trip…'**
+  /// **'Building your adventure…'**
   String get onboardBuilding;
 
   /// No description provided for @onboardStep1Title.
@@ -5923,7 +6025,7 @@ abstract class AppLocalizations {
   /// No description provided for @paywallConciergePromise.
   ///
   /// In en, this message translates to:
-  /// **'One-time purchase · Personal concierge · No subscription'**
+  /// **'No Subscription · Lifetime city access'**
   String get paywallConciergePromise;
 
   /// No description provided for @paywallRestorePurchases.
@@ -6111,6 +6213,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Miami Mood Routes'**
   String get miamiMoodRoutesTitle;
+
+  /// No description provided for @tampaBayMoodRoutesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Tampa Bay Mood Routes'**
+  String get tampaBayMoodRoutesTitle;
+
+  /// No description provided for @stAugustineMoodRoutesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'St. Augustine Mood Routes'**
+  String get stAugustineMoodRoutesTitle;
+
+  /// No description provided for @naplesMoodRoutesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Naples Mood Routes'**
+  String get naplesMoodRoutesTitle;
+
+  /// No description provided for @destin30aMoodRoutesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Destin & 30A Mood Routes'**
+  String get destin30aMoodRoutesTitle;
+
+  /// No description provided for @vegasMoodRoutesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Las Vegas Mood Routes'**
+  String get vegasMoodRoutesTitle;
 
   /// No description provided for @miamiMoodRouteStart.
   ///
@@ -6517,19 +6649,19 @@ abstract class AppLocalizations {
   /// No description provided for @onboardV2StepSummaryEyebrow.
   ///
   /// In en, this message translates to:
-  /// **'Your concierge preview'**
+  /// **'LUXORA'**
   String get onboardV2StepSummaryEyebrow;
 
   /// No description provided for @onboardV2StepSummaryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Based on your selections, Luxora recommends'**
-  String get onboardV2StepSummaryTitle;
+  /// **'Perfect, {name}.'**
+  String onboardV2StepSummaryTitle(String name);
 
   /// No description provided for @onboardV2StepSummarySubtitle.
   ///
   /// In en, this message translates to:
-  /// **'We\'re building your perfect trip now.'**
+  /// **'I\'ve learned a little about the kind of traveler you are.\n\nNow I\'ll use your preferences to recommend places, experiences, restaurants, and hidden gems that fit your style.\n\nEvery recommendation I make will be tailored specifically to you.\n\nLet\'s see what we can discover.'**
   String get onboardV2StepSummarySubtitle;
 
   /// No description provided for @onboardSummaryHotels.
@@ -7456,6 +7588,108 @@ abstract class AppLocalizations {
   /// **'{name}, I\'m here to shape Florida around how you want to feel — not a checklist of sights. What are you craving today?'**
   String conciergeWelcomeWarmNamed(String name);
 
+  /// No description provided for @onboardWelcomeEyebrow.
+  ///
+  /// In en, this message translates to:
+  /// **'LUXORA'**
+  String get onboardWelcomeEyebrow;
+
+  /// No description provided for @onboardWelcomeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Hi, I\'m Luxora.'**
+  String get onboardWelcomeTitle;
+
+  /// No description provided for @onboardWelcomeTagline.
+  ///
+  /// In en, this message translates to:
+  /// **'Your personal travel concierge.'**
+  String get onboardWelcomeTagline;
+
+  /// No description provided for @onboardWelcomeBody.
+  ///
+  /// In en, this message translates to:
+  /// **'I\'m here to help you discover incredible places, avoid the tourist traps, and create a vacation you\'ll remember for years.\n\nLet\'s start planning something unforgettable.'**
+  String get onboardWelcomeBody;
+
+  /// No description provided for @onboardWelcomeCta.
+  ///
+  /// In en, this message translates to:
+  /// **'Begin My Journey'**
+  String get onboardWelcomeCta;
+
+  /// No description provided for @onboardLuxoraGuideBody.
+  ///
+  /// In en, this message translates to:
+  /// **'From this moment on, I\'ll help guide your trip every step of the way.\n\nWhether you\'re looking for hidden gems, incredible food, unforgettable experiences, or simply a stress-free vacation, I\'ve got you covered.'**
+  String get onboardLuxoraGuideBody;
+
+  /// No description provided for @onboardLuxoraReplyClosing.
+  ///
+  /// In en, this message translates to:
+  /// **'Let\'s create your perfect adventure together.'**
+  String get onboardLuxoraReplyClosing;
+
+  /// No description provided for @onboardBuildingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Wonderful choice, {name}.'**
+  String onboardBuildingTitle(String name);
+
+  /// No description provided for @onboardBuildingBody.
+  ///
+  /// In en, this message translates to:
+  /// **'I\'m building a personalized itinerary based on your travel style, interests, preferred pace, dining preferences, and vacation goals.\n\nThis may take a moment.'**
+  String get onboardBuildingBody;
+
+  /// No description provided for @onboardBuildingTagline.
+  ///
+  /// In en, this message translates to:
+  /// **'Good vacations happen by chance.\n\nGreat vacations happen with a plan.'**
+  String get onboardBuildingTagline;
+
+  /// No description provided for @onboardItineraryReadyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your adventure is ready.'**
+  String get onboardItineraryReadyTitle;
+
+  /// No description provided for @onboardItineraryReadyBody.
+  ///
+  /// In en, this message translates to:
+  /// **'I\'ve carefully selected experiences, restaurants, attractions, and hidden gems that match the trip you described.\n\nOf course, we can adjust anything along the way.\n\nAfter all, the best vacations evolve as they unfold.'**
+  String get onboardItineraryReadyBody;
+
+  /// No description provided for @weatherRerouteLuxoraIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'{name}, it looks like weather conditions may impact part of today\'s plans.'**
+  String weatherRerouteLuxoraIntro(String name);
+
+  /// No description provided for @weatherRerouteLuxoraClosing.
+  ///
+  /// In en, this message translates to:
+  /// **'Sometimes the unexpected creates the best memories.'**
+  String get weatherRerouteLuxoraClosing;
+
+  /// No description provided for @rightNowLuxoraIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'{name}, based on your location, the current weather, and your preferences, here\'s what I would do right now.'**
+  String rightNowLuxoraIntro(String name);
+
+  /// No description provided for @rightNowLuxoraClosing.
+  ///
+  /// In en, this message translates to:
+  /// **'Trust me on this one.\n\nI think you\'re going to love it.'**
+  String get rightNowLuxoraClosing;
+
+  /// No description provided for @paywallPersonalPitch.
+  ///
+  /// In en, this message translates to:
+  /// **'{name}, your personalized vacation plan is already taking shape.\n\nDay 1 is ready.\n\nThe rest of your journey is waiting.\n\nUnlock {cityName} Concierge to access your complete itinerary, hidden gems, local secrets, weather intelligence, and unlimited concierge guidance.\n\nLet\'s make this vacation unforgettable.'**
+  String paywallPersonalPitch(String name, String cityName);
+
   /// No description provided for @onboardLuxoraReplyEyebrow.
   ///
   /// In en, this message translates to:
@@ -7471,14 +7705,38 @@ abstract class AppLocalizations {
   /// No description provided for @onboardLuxoraGuideNamed.
   ///
   /// In en, this message translates to:
-  /// **'{name}, I\'m here to guide you and help you create the perfect vacation or adventure for you and your family.'**
+  /// **'From this moment on, I\'ll help guide your trip every step of the way.\n\nWhether you\'re looking for hidden gems, incredible food, unforgettable experiences, or simply a stress-free vacation, I\'ve got you covered.'**
   String onboardLuxoraGuideNamed(String name);
 
   /// No description provided for @onboardLuxoraItineraryPromise.
   ///
   /// In en, this message translates to:
-  /// **'When we\'re done here, I\'ll build your itinerary from everything you choose. If you\'d like to change anything later, open the Concierge tab and tell me what to edit — I\'m always listening.'**
+  /// **'Let\'s create your perfect adventure together.'**
   String get onboardLuxoraItineraryPromise;
+
+  /// No description provided for @onboardReturningEyebrow.
+  ///
+  /// In en, this message translates to:
+  /// **'WELCOME BACK'**
+  String get onboardReturningEyebrow;
+
+  /// No description provided for @onboardReturningTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome back, {name}.'**
+  String onboardReturningTitle(String name);
+
+  /// No description provided for @onboardReturningTitleGeneric.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome back.'**
+  String get onboardReturningTitleGeneric;
+
+  /// No description provided for @onboardReturningSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Ready to continue your adventure?\n\nI\'ve saved your preferences, favorite places, and trip plans so we can pick up right where we left off.\n\nLet\'s see what\'s waiting for you today.'**
+  String get onboardReturningSubtitle;
 
   /// No description provided for @todayPlanSectionTitle.
   ///
@@ -7519,7 +7777,7 @@ abstract class AppLocalizations {
   /// No description provided for @todayRainRerouteTitle.
   ///
   /// In en, this message translates to:
-  /// **'Rain reroute'**
+  /// **'Weather reroute'**
   String get todayRainRerouteTitle;
 
   /// No description provided for @todayExtrasSection.
@@ -7533,6 +7791,180 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Deals, share card, and more'**
   String get todayExtrasCollapsedHint;
+
+  /// No description provided for @freemiumVacationTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your {cityName} vacation'**
+  String freemiumVacationTitle(String cityName);
+
+  /// No description provided for @freemiumDay1Ready.
+  ///
+  /// In en, this message translates to:
+  /// **'✓ Day 1 ready'**
+  String get freemiumDay1Ready;
+
+  /// No description provided for @freemiumUnlockFullPlan.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock your full vacation plan'**
+  String get freemiumUnlockFullPlan;
+
+  /// No description provided for @freemiumLockedDayConcierge.
+  ///
+  /// In en, this message translates to:
+  /// **'Day {day} · Concierge optimized'**
+  String freemiumLockedDayConcierge(int day);
+
+  /// No description provided for @freemiumLockedDayGems.
+  ///
+  /// In en, this message translates to:
+  /// **'Day 3 · Hidden gems route'**
+  String get freemiumLockedDayGems;
+
+  /// No description provided for @freemiumLockedDayWeather.
+  ///
+  /// In en, this message translates to:
+  /// **'Day 4 · Weather-aware planning'**
+  String get freemiumLockedDayWeather;
+
+  /// No description provided for @freemiumLockedDayDeparture.
+  ///
+  /// In en, this message translates to:
+  /// **'Day 5 · Departure strategy'**
+  String get freemiumLockedDayDeparture;
+
+  /// No description provided for @freemiumConciergeRemaining.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 free question remaining} other{{count} free questions remaining}}'**
+  String freemiumConciergeRemaining(int count);
+
+  /// No description provided for @freemiumConciergeLimitReached.
+  ///
+  /// In en, this message translates to:
+  /// **'Free concierge limit reached — unlock for unlimited planning.'**
+  String get freemiumConciergeLimitReached;
+
+  /// No description provided for @freemiumLockedHotels.
+  ///
+  /// In en, this message translates to:
+  /// **'🔒 {count}+ additional hotels available'**
+  String freemiumLockedHotels(int count);
+
+  /// No description provided for @freemiumLockedRestaurants.
+  ///
+  /// In en, this message translates to:
+  /// **'🔒 {count}+ additional restaurants available'**
+  String freemiumLockedRestaurants(int count);
+
+  /// No description provided for @freemiumLockedGems.
+  ///
+  /// In en, this message translates to:
+  /// **'🔒 {count}+ hidden gems available'**
+  String freemiumLockedGems(int count);
+
+  /// No description provided for @freemiumLockedSecrets.
+  ///
+  /// In en, this message translates to:
+  /// **'🔒 {count}+ local secrets available'**
+  String freemiumLockedSecrets(int count);
+
+  /// No description provided for @freemiumLockedExperiences.
+  ///
+  /// In en, this message translates to:
+  /// **'🔒 {count}+ experiences available'**
+  String freemiumLockedExperiences(int count);
+
+  /// No description provided for @freemiumLockedAttractions.
+  ///
+  /// In en, this message translates to:
+  /// **'🔒 Additional attractions available'**
+  String get freemiumLockedAttractions;
+
+  /// No description provided for @freemiumUnlockExplore.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock {cityName} Concierge to continue exploring.'**
+  String freemiumUnlockExplore(String cityName);
+
+  /// No description provided for @freemiumUnlockConcierge.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock {cityName} Concierge'**
+  String freemiumUnlockConcierge(String cityName);
+
+  /// No description provided for @freemiumHeadlineDayTwoPlus.
+  ///
+  /// In en, this message translates to:
+  /// **'Your next days are ready — unlock the full {cityName} plan.'**
+  String freemiumHeadlineDayTwoPlus(String cityName);
+
+  /// No description provided for @freemiumHeadlineConciergeLimit.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue planning with unlimited concierge access.'**
+  String get freemiumHeadlineConciergeLimit;
+
+  /// No description provided for @freemiumHeadlineHotels.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock {cityName} Concierge for every stay recommendation.'**
+  String freemiumHeadlineHotels(String cityName);
+
+  /// No description provided for @freemiumHeadlineRestaurants.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock the complete restaurant collection for {cityName}.'**
+  String freemiumHeadlineRestaurants(String cityName);
+
+  /// No description provided for @freemiumHeadlineGems.
+  ///
+  /// In en, this message translates to:
+  /// **'Local favorites and insider gems are waiting.'**
+  String get freemiumHeadlineGems;
+
+  /// No description provided for @freemiumHeadlineSecrets.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock resident-only timing and parking secrets.'**
+  String get freemiumHeadlineSecrets;
+
+  /// No description provided for @freemiumHeadlineExperiences.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock curated experiences across {cityName}.'**
+  String freemiumHeadlineExperiences(String cityName);
+
+  /// No description provided for @freemiumHeadlineAttractions.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock the complete attraction collection.'**
+  String get freemiumHeadlineAttractions;
+
+  /// No description provided for @freemiumHeadlineHotelMatchmaker.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock Hotel Intelligence to compare every stay.'**
+  String get freemiumHeadlineHotelMatchmaker;
+
+  /// No description provided for @freemiumHeadlineFullItinerary.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock your full vacation plan.'**
+  String get freemiumHeadlineFullItinerary;
+
+  /// No description provided for @freemiumLocalSecretsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Local secrets'**
+  String get freemiumLocalSecretsTitle;
+
+  /// No description provided for @freemiumLocalSecretsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Insider timing, parking, and viewing spots locals guard.'**
+  String get freemiumLocalSecretsSubtitle;
 }
 
 class _AppLocalizationsDelegate

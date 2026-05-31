@@ -494,7 +494,7 @@
     }
   },
   "mapRerouteNone": "Your route already looks calm.",
-  "mapRerouteRainHint": "Rain likely — tap reroute for indoor backups.",
+  "mapRerouteRainHint": "Don't worry — I've already found a few alternatives nearby so your day stays enjoyable and stress-free.",
   "dayFlowSwapTitle": "Change this stop",
   "dayFlowSwapSubtitle": "Tell Luxora what you'd rather do instead of {current}.",
   "@dayFlowSwapSubtitle": {
@@ -673,6 +673,23 @@
   "localSecretMiamiVizcayaMangrove": "Skip the main terrace rush — enter from the east garden and walk the mangrove boardwalk counter-clockwise.",
   "localSecretMiamiOceanDriveSunrise": "Face east at 7 AM on Lummus — art deco pastels glow before the brunch crowd arrives.",
   "localSecretMiamiPantherAlley": "Order at the window, walk the alley clockwise — best mural light hits the turquoise wall at 8:45 AM.",
+  "localSecretTampaBayRiverwalkParking": "Use the Whiting Street garage — walk south along the river to skip event closures near the wharf.",
+  "localSecretTampaBayClearwaterSunset": "Skip Pier 60 rail crowds — walk north Sand Key approach 40 minutes before sunset for Gulf color.",
+  "localSecretTampaBayDaliGarden": "Book the last afternoon entry — east garden overlook catches bridge light without terrace gridlock.",
+  "localSecretTampaBayPierTiming": "Weekday 4 PM pier entry — sunset without weekend stroller traffic on the new deck.",
+  "localSecretTampaBayYborCourtyard": "Order Cuban sandwiches to go — eat in the brick courtyard side street locals use after 8 PM.",
+  "localSecretTampaBaySpongeDocks": "Lunch at the dock first, sponge boats second — tour clusters thin after 1 PM on weekdays.",
+  "localSecretVegasBellagioFountains": "Stand center-lawn 15 minutes before the show — front-rail crowds block the wide choreography view.",
+  "localSecretVegasFremontTiming": "Weeknight 9 PM under the canopy — full Viva Vision loop without Saturday shoulder crush.",
+  "localSecretVegasCaesarsEntrance": "Use the parking-garage connector — skip Strip sidewalk bottle-neck at peak dinner hours.",
+  "localSecretVegasVenetianWalk": "Indoor canal walk at noon — air-conditioned Strip crossing without heat advisory exposure.",
+  "nycMoodRoutesTitle": "New York City Mood Routes",
+  "localSecretNycTimesSquareStrategy": "Enter from 7th Ave side streets — avoid crossroads crush and keep Broadway sightlines open.",
+  "localSecretNycObservationDeck": "Book the last slot before sunset — golden light without midday queue heat.",
+  "localSecretNycCentralParkEntrance": "Use the 72nd Street transverse — faster path to Bethesda without Columbus Circle crowds.",
+  "localSecretNycBroadwayTickets": "TKTS same-day matinee line opens early — rush seats beat tourist markups.",
+  "localSecretNycBrooklynBridgePhoto": "Washington Street DUMBO at 8 AM — empty cobblestone frame before tour groups arrive.",
+  "localSecretNycFerryGoldenHour": "Staten Island Ferry outbound at sunset — free harbor loop without tour boat fees.",
   "momentsTitle": "LUXORA MOMENTS",
   "momentsSubtitle": "Search for a feeling — not a place.",
   "momentFeelRelaxed": "Feel relaxed",
@@ -1152,7 +1169,7 @@
   "landingTitle1": "The vacation",
   "landingTitle2": "already started.",
   "landingSubtitle": "Luxora AI is your emotionally intelligent concierge — hidden gems, rooftop sunsets, and moments designed to feel unforgettable before you even pack.",
-  "landingBegin": "Begin your journey",
+  "landingBegin": "Begin My Journey",
   "landingTalk": "Talk to Luxora",
   "landingWhy": "Why we’re building this",
   "storyTitle": "Our story",
@@ -1206,7 +1223,7 @@
   "landingRegionBadge": "Launch region",
   "landingRegionTitle": "Orlando & Florida — curated for feeling",
   "onboardFinish": "Build my trip",
-  "onboardBuilding": "Building your trip…",
+  "onboardBuilding": "Building your adventure…",
   "onboardStep1Title": "Where dreams land first",
   "onboardStep1Subtitle": "Where are you headed?",
   "onboardDestination": "Destination",
@@ -1863,7 +1880,7 @@
     }
   },
   "paywallContinueExploring": "Continue Exploring",
-  "paywallConciergePromise": "One-time purchase · Personal concierge · No subscription",
+  "paywallConciergePromise": "No Subscription · Lifetime city access",
   "paywallRestorePurchases": "Restore purchases",
   "paywallPurchaseSuccess": "Purchase complete — your concierge is unlocked.",
   "paywallPurchasePending": "Completing purchase…",
@@ -1930,6 +1947,11 @@
   },
   "miamiNightlifeReservation": "Reservation recommended",
   "miamiMoodRoutesTitle": "Miami Mood Routes",
+  "tampaBayMoodRoutesTitle": "Tampa Bay Mood Routes",
+  "stAugustineMoodRoutesTitle": "St. Augustine Mood Routes",
+  "naplesMoodRoutesTitle": "Naples Mood Routes",
+  "destin30aMoodRoutesTitle": "Destin & 30A Mood Routes",
+  "vegasMoodRoutesTitle": "Las Vegas Mood Routes",
   "miamiMoodRouteStart": "Start around {time}",
   "@miamiMoodRouteStart": {
     "placeholders": {
@@ -2056,9 +2078,16 @@
   "onboardV2StepEmotionEyebrow": "Step 9",
   "onboardV2StepEmotionTitle": "What would make this trip feel successful?",
   "onboardV2StepEmotionSubtitle": "Choose one primary feeling.",
-  "onboardV2StepSummaryEyebrow": "Your concierge preview",
-  "onboardV2StepSummaryTitle": "Based on your selections, Luxora recommends",
-  "onboardV2StepSummarySubtitle": "We're building your perfect trip now.",
+  "onboardV2StepSummaryEyebrow": "LUXORA",
+  "onboardV2StepSummaryTitle": "Perfect, {name}.",
+  "@onboardV2StepSummaryTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardV2StepSummarySubtitle": "I've learned a little about the kind of traveler you are.\n\nNow I'll use your preferences to recommend places, experiences, restaurants, and hidden gems that fit your style.\n\nEvery recommendation I make will be tailored specifically to you.\n\nLet's see what we can discover.",
   "onboardSummaryHotels": "Hotels",
   "onboardSummaryRestaurants": "Restaurants",
   "onboardSummaryHiddenGems": "Hidden gems",
@@ -2255,6 +2284,54 @@
       }
     }
   },
+  "onboardWelcomeEyebrow": "LUXORA",
+  "onboardWelcomeTitle": "Hi, I'm Luxora.",
+  "onboardWelcomeTagline": "Your personal travel concierge.",
+  "onboardWelcomeBody": "I'm here to help you discover incredible places, avoid the tourist traps, and create a vacation you'll remember for years.\n\nLet's start planning something unforgettable.",
+  "onboardWelcomeCta": "Begin My Journey",
+  "onboardLuxoraGuideBody": "From this moment on, I'll help guide your trip every step of the way.\n\nWhether you're looking for hidden gems, incredible food, unforgettable experiences, or simply a stress-free vacation, I've got you covered.",
+  "onboardLuxoraReplyClosing": "Let's create your perfect adventure together.",
+  "onboardBuildingTitle": "Wonderful choice, {name}.",
+  "@onboardBuildingTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardBuildingBody": "I'm building a personalized itinerary based on your travel style, interests, preferred pace, dining preferences, and vacation goals.\n\nThis may take a moment.",
+  "onboardBuildingTagline": "Good vacations happen by chance.\n\nGreat vacations happen with a plan.",
+  "onboardItineraryReadyTitle": "Your adventure is ready.",
+  "onboardItineraryReadyBody": "I've carefully selected experiences, restaurants, attractions, and hidden gems that match the trip you described.\n\nOf course, we can adjust anything along the way.\n\nAfter all, the best vacations evolve as they unfold.",
+  "weatherRerouteLuxoraIntro": "{name}, it looks like weather conditions may impact part of today's plans.",
+  "@weatherRerouteLuxoraIntro": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherRerouteLuxoraClosing": "Sometimes the unexpected creates the best memories.",
+  "rightNowLuxoraIntro": "{name}, based on your location, the current weather, and your preferences, here's what I would do right now.",
+  "@rightNowLuxoraIntro": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowLuxoraClosing": "Trust me on this one.\n\nI think you're going to love it.",
+  "paywallPersonalPitch": "{name}, your personalized vacation plan is already taking shape.\n\nDay 1 is ready.\n\nThe rest of your journey is waiting.\n\nUnlock {cityName} Concierge to access your complete itinerary, hidden gems, local secrets, weather intelligence, and unlimited concierge guidance.\n\nLet's make this vacation unforgettable.",
+  "@paywallPersonalPitch": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
   "onboardLuxoraReplyEyebrow": "LUXORA",
   "onboardLuxoraReplyTitle": "Lovely to meet you, {name}.",
   "@onboardLuxoraReplyTitle": {
@@ -2264,7 +2341,7 @@
       }
     }
   },
-  "onboardLuxoraGuideNamed": "{name}, I'm here to guide you and help you create the perfect vacation or adventure for you and your family.",
+  "onboardLuxoraGuideNamed": "From this moment on, I'll help guide your trip every step of the way.\n\nWhether you're looking for hidden gems, incredible food, unforgettable experiences, or simply a stress-free vacation, I've got you covered.",
   "@onboardLuxoraGuideNamed": {
     "placeholders": {
       "name": {
@@ -2272,7 +2349,18 @@
       }
     }
   },
-  "onboardLuxoraItineraryPromise": "When we're done here, I'll build your itinerary from everything you choose. If you'd like to change anything later, open the Concierge tab and tell me what to edit — I'm always listening.",
+  "onboardLuxoraItineraryPromise": "Let's create your perfect adventure together.",
+  "onboardReturningEyebrow": "WELCOME BACK",
+  "onboardReturningTitle": "Welcome back, {name}.",
+  "@onboardReturningTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardReturningTitleGeneric": "Welcome back.",
+  "onboardReturningSubtitle": "Ready to continue your adventure?\n\nI've saved your preferences, favorite places, and trip plans so we can pick up right where we left off.\n\nLet's see what's waiting for you today.",
   "todayPlanSectionTitle": "Today's plan",
   "todayNextActivityLabel": "Up next",
   "todayStaysDiningSection": "Stays & dining picks",
@@ -2286,7 +2374,134 @@
       }
     }
   },
-  "todayRainRerouteTitle": "Rain reroute",
+  "todayRainRerouteTitle": "Weather reroute",
   "todayExtrasSection": "Tickets & sharing",
-  "todayExtrasCollapsedHint": "Deals, share card, and more"
+  "todayExtrasCollapsedHint": "Deals, share card, and more",
+  "freemiumVacationTitle": "Your {cityName} vacation",
+  "@freemiumVacationTitle": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumDay1Ready": "✓ Day 1 ready",
+  "freemiumUnlockFullPlan": "Unlock your full vacation plan",
+  "freemiumLockedDayConcierge": "Day {day} · Concierge optimized",
+  "@freemiumLockedDayConcierge": {
+    "placeholders": {
+      "day": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumLockedDayGems": "Day 3 · Hidden gems route",
+  "freemiumLockedDayWeather": "Day 4 · Weather-aware planning",
+  "freemiumLockedDayDeparture": "Day 5 · Departure strategy",
+  "freemiumConciergeRemaining": "{count, plural, =1{1 free question remaining} other{{count} free questions remaining}}",
+  "@freemiumConciergeRemaining": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumConciergeLimitReached": "Free concierge limit reached — unlock for unlimited planning.",
+  "freemiumLockedHotels": "🔒 {count}+ additional hotels available",
+  "@freemiumLockedHotels": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumLockedRestaurants": "🔒 {count}+ additional restaurants available",
+  "@freemiumLockedRestaurants": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumLockedGems": "🔒 {count}+ hidden gems available",
+  "@freemiumLockedGems": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumLockedSecrets": "🔒 {count}+ local secrets available",
+  "@freemiumLockedSecrets": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumLockedExperiences": "🔒 {count}+ experiences available",
+  "@freemiumLockedExperiences": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumLockedAttractions": "🔒 Additional attractions available",
+  "freemiumUnlockExplore": "Unlock {cityName} Concierge to continue exploring.",
+  "@freemiumUnlockExplore": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumUnlockConcierge": "Unlock {cityName} Concierge",
+  "@freemiumUnlockConcierge": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumHeadlineDayTwoPlus": "Your next days are ready — unlock the full {cityName} plan.",
+  "@freemiumHeadlineDayTwoPlus": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumHeadlineConciergeLimit": "Continue planning with unlimited concierge access.",
+  "freemiumHeadlineHotels": "Unlock {cityName} Concierge for every stay recommendation.",
+  "@freemiumHeadlineHotels": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumHeadlineRestaurants": "Unlock the complete restaurant collection for {cityName}.",
+  "@freemiumHeadlineRestaurants": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumHeadlineGems": "Local favorites and insider gems are waiting.",
+  "freemiumHeadlineSecrets": "Unlock resident-only timing and parking secrets.",
+  "freemiumHeadlineExperiences": "Unlock curated experiences across {cityName}.",
+  "@freemiumHeadlineExperiences": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumHeadlineAttractions": "Unlock the complete attraction collection.",
+  "freemiumHeadlineHotelMatchmaker": "Unlock Hotel Intelligence to compare every stay.",
+  "freemiumHeadlineFullItinerary": "Unlock your full vacation plan.",
+  "freemiumLocalSecretsTitle": "Local secrets",
+  "freemiumLocalSecretsSubtitle": "Insider timing, parking, and viewing spots locals guard."
 }

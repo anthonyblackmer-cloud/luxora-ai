@@ -1,4 +1,16 @@
 import 'package:flutter/foundation.dart';
+import 'package:luxora_ai/data/nyc/nyc_ticket_deals.dart';
+import 'package:luxora_ai/data/nyc/nyc_hub.dart';
+import 'package:luxora_ai/data/nyc/nyc_content.dart';
+import 'package:luxora_ai/data/destin_30a/destin_30a_ticket_deals.dart';
+import 'package:luxora_ai/data/destin_30a/destin_30a_hub.dart';
+import 'package:luxora_ai/data/destin_30a/destin_30a_content.dart';
+import 'package:luxora_ai/data/naples/naples_ticket_deals.dart';
+import 'package:luxora_ai/data/naples/naples_hub.dart';
+import 'package:luxora_ai/data/naples/naples_content.dart';
+import 'package:luxora_ai/data/st_augustine/st_augustine_ticket_deals.dart';
+import 'package:luxora_ai/data/st_augustine/st_augustine_hub.dart';
+import 'package:luxora_ai/data/st_augustine/st_augustine_content.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:luxora_ai/data/curated_places_catalog.dart';
 import 'package:luxora_ai/data/hotels_catalog.dart';
@@ -7,6 +19,12 @@ import 'package:luxora_ai/data/florida_keys/florida_keys_ticket_deals.dart';
 import 'package:luxora_ai/data/miami/miami_content.dart';
 import 'package:luxora_ai/data/miami/miami_ticket_deals.dart';
 import 'package:luxora_ai/data/orlando_hub.dart';
+import 'package:luxora_ai/data/tampa_bay/tampa_bay_content.dart';
+import 'package:luxora_ai/data/tampa_bay/tampa_bay_hub.dart';
+import 'package:luxora_ai/data/tampa_bay/tampa_bay_ticket_deals.dart';
+import 'package:luxora_ai/data/vegas/vegas_content.dart';
+import 'package:luxora_ai/data/vegas/vegas_hub.dart';
+import 'package:luxora_ai/data/vegas/vegas_ticket_deals.dart';
 import 'package:luxora_ai/data/ticket_deals_catalog.dart';
 import 'package:luxora_ai/models/city_pack/city_pack.dart';
 import 'package:luxora_ai/models/city_pack/district_pack.dart';
@@ -16,7 +34,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 const _activeCityKey = 'luxora_active_city_pack_id';
 
-/// Luxora Engine → active State/City pack — destinations are data, not code forks.
+/// Luxora Engine â†’ active State/City pack â€” destinations are data, not code forks.
 class CityPackRegistry extends ChangeNotifier {
   CityPackRegistry._();
 
@@ -80,10 +98,18 @@ class CityPackRegistry extends ChangeNotifier {
     _loaded = true;
 
     _registerFloridaState();
+    _registerNevadaState();
+    _registerNewYorkState();
     await _loadBundledPacks();
     _mergeOrlandoFromDartCatalog();
     _mergeMiamiFromDartCatalog();
     _mergeFloridaKeysFromDartCatalog();
+    _mergeTampaBayFromDartCatalog();
+    _mergeStAugustineFromDartCatalog();
+    _mergeNaplesFromDartCatalog();
+    _mergeDestin30aFromDartCatalog();
+    _mergeVegasFromDartCatalog();
+    _mergeNycFromDartCatalog();
 
     try {
       final prefs = await SharedPreferences.getInstance();
@@ -92,7 +118,7 @@ class CityPackRegistry extends ChangeNotifier {
         _activeCityId = stored;
       }
     } catch (_) {
-      // SharedPreferences unavailable in unit tests — keep default city.
+      // SharedPreferences unavailable in unit tests â€” keep default city.
     }
   }
 
@@ -133,11 +159,15 @@ class CityPackRegistry extends ChangeNotifier {
   }
 
   Future<void> _loadBundledPacks() async {
-    // Florida Keys is merged from [FloridaKeysContent] — skip JSON so stale web
+    // Florida Keys is merged from [FloridaKeysContent] â€” skip JSON so stale web
     // builds (hot restart without asset rebundle) do not 404 on the new file.
     const assets = [
       'assets/city_packs/city_pack_orlando.json',
       'assets/city_packs/city_pack_miami.json',
+      'assets/city_packs/city_pack_tampa-bay.json',
+      'assets/city_packs/city_pack_destin-30a.json',
+      'assets/city_packs/city_pack_naples.json',
+      'assets/city_packs/city_pack_st-augustine.json',
       'assets/city_packs/city_pack_nyc.json',
       'assets/city_packs/city_pack_vegas.json',
       'assets/city_packs/city_pack_paris.json',
@@ -159,8 +189,8 @@ class CityPackRegistry extends ChangeNotifier {
       const StatePack(
         stateId: 'florida',
         stateName: 'Florida',
-        destinationCount: 3,
-        cityIds: ['orlando', 'miami', 'florida-keys'],
+        destinationCount: 7,
+        cityIds: ['orlando', 'miami', 'florida-keys', 'tampa-bay', 'st-augustine', 'naples', 'destin-30a'],
       ),
     );
   }
@@ -217,7 +247,7 @@ class CityPackRegistry extends ChangeNotifier {
       cityName: 'Miami',
       stateId: 'florida',
       description: existing?.description ??
-          'Luxury beaches, Wynwood art, Brickell nightlife, and Cuban culture — '
+          'Luxury beaches, Wynwood art, Brickell nightlife, and Cuban culture â€” '
           'Miami as a lifestyle concierge, not a theme-park clone.',
       heroImageUrl: existing?.heroImageUrl ?? 'JZYQ_P94T-Q',
       mapCenterLat: 25.7617,
@@ -269,7 +299,7 @@ class CityPackRegistry extends ChangeNotifier {
       cityName: 'Florida Keys',
       stateId: 'florida',
       description: existing?.description ??
-          'From Key Largo reef dives to Key West sunsets — island concierge for boating, '
+          'From Key Largo reef dives to Key West sunsets â€” island concierge for boating, '
           'snorkeling, fishing, and barefoot luxury across the Overseas Highway.',
       heroImageUrl: existing?.heroImageUrl ?? 'AK2vwEobto4',
       mapCenterLat: 24.65,
@@ -309,6 +339,59 @@ class CityPackRegistry extends ChangeNotifier {
       maxRadiusMiles: 120,
     );
     _cities['florida-keys'] = keys;
+  }
+
+  void _mergeTampaBayFromDartCatalog() {
+    final existing = _cities['tampa-bay'];
+    final bayPlaces = TampaBayContent.places;
+    final bayHotels = TampaBayContent.hotels;
+    final tampaBay = CityPack(
+      cityId: 'tampa-bay',
+      cityName: 'Tampa Bay',
+      stateId: 'florida',
+      description: existing?.description ??
+          'Waterfront lifestyle, Gulf beaches, Cuban culture, craft beer, and '
+          'sunset cruises â€” Tampa Bay as a relaxed local concierge, not theme parks.',
+      heroImageUrl: existing?.heroImageUrl ?? 'sWK9wki5zHU',
+      mapCenterLat: TampaBayHub.latitude,
+      mapCenterLng: TampaBayHub.longitude,
+      hubLabel: TampaBayHub.label,
+      supportedCategories: existing?.supportedCategories ??
+          [
+            'hotel',
+            'dining',
+            'beach',
+            'waterfront',
+            'culture',
+            'sports',
+            'brewery',
+            'adventure',
+            'wellness',
+            'foodie',
+            'family',
+          ],
+      featuredExperienceIds: bayPlaces
+          .where((p) => p.id.contains('-exp-'))
+          .map((p) => p.id)
+          .toList(),
+      featuredHotelIds: bayHotels.map((h) => h.placeId).toList(),
+      featuredRestaurantIds: bayPlaces
+          .where((p) => p.category.name == 'dining')
+          .map((p) => p.id)
+          .toList(),
+      featuredTicketDealIds:
+          tampaBayTicketDealsCatalog.map((d) => d.id).toList(),
+      featuredHotelIntelIds: bayHotels.map((h) => h.id).toList(),
+      districts: TampaBayContent.districts,
+      experiences: const [],
+      feedItemPlaceIds: TampaBayContent.feedItemPlaceIds,
+      gemPlaceIds: TampaBayContent.gemPlaceIds,
+      itineraryMomentPlaceIds: TampaBayContent.itineraryMomentPlaceIds,
+      osmAssetPath: existing?.osmAssetPath,
+      defaultRadiusMiles: 35,
+      maxRadiusMiles: 75,
+    );
+    _cities['tampa-bay'] = tampaBay;
   }
 
   static List<DistrictPack> _orlandoDistricts() => [
@@ -388,4 +471,251 @@ class CityPackRegistry extends ChangeNotifier {
         mapCenterLng: OrlandoHub.longitude,
         hubLabel: OrlandoHub.label,
       );
+  void _mergeStAugustineFromDartCatalog() {
+    _mergeCityPack(
+      cityId: StAugustineContent.cityId,
+      cityName: 'St. Augustine',
+      description:
+          'Historic streets, coastal romance, ghost tours, and walkable colonial charm.',
+      heroImageUrl: 'RE1uPSyVuls',
+      hubLat: StAugustineHub.latitude,
+      hubLng: StAugustineHub.longitude,
+      hubLabel: StAugustineHub.label,
+      content: StAugustineContent,
+      ticketDeals: stAugustineTicketDealsCatalog,
+      defaultRadiusMiles: 30,
+      maxRadiusMiles: 60,
+    );
+  }
+
+  void _mergeNaplesFromDartCatalog() {
+    _mergeCityPack(
+      cityId: NaplesContent.cityId,
+      cityName: 'Naples',
+      description:
+          'Gulf luxury, white-sand beaches, golf corridors, and Fifth Avenue polish.',
+      heroImageUrl: 'X_LNSoZ7xeM',
+      hubLat: NaplesHub.latitude,
+      hubLng: NaplesHub.longitude,
+      hubLabel: NaplesHub.label,
+      content: NaplesContent,
+      ticketDeals: naplesTicketDealsCatalog,
+      defaultRadiusMiles: 25,
+      maxRadiusMiles: 70,
+    );
+  }
+
+  void _mergeDestin30aFromDartCatalog() {
+    _mergeCityPack(
+      cityId: Destin30aContent.cityId,
+      cityName: 'Destin & 30A',
+      description:
+          'Emerald Gulf water, Crab Island boats, and Scenic Highway 30A beach days.',
+      heroImageUrl: 'JZYQ_P94T-Q',
+      hubLat: Destin30aHub.latitude,
+      hubLng: Destin30aHub.longitude,
+      hubLabel: Destin30aHub.label,
+      content: Destin30aContent,
+      ticketDeals: destin30aTicketDealsCatalog,
+      defaultRadiusMiles: 35,
+      maxRadiusMiles: 80,
+    );
+  }
+
+  void _mergeCityPack({
+    required String cityId,
+    required String cityName,
+    required String description,
+    required String heroImageUrl,
+    required double hubLat,
+    required double hubLng,
+    required String hubLabel,
+    required dynamic content,
+    required List<dynamic> ticketDeals,
+    required int defaultRadiusMiles,
+    required int maxRadiusMiles,
+  }) {
+    final existing = _cities[cityId];
+    final places = content.places as List;
+    final hotels = content.hotels as List;
+    final pack = CityPack(
+      cityId: cityId,
+      cityName: cityName,
+      stateId: 'florida',
+      description: existing?.description ?? description,
+      heroImageUrl: existing?.heroImageUrl ?? heroImageUrl,
+      mapCenterLat: hubLat,
+      mapCenterLng: hubLng,
+      hubLabel: hubLabel,
+      supportedCategories: existing?.supportedCategories ??
+          [
+            'hotel',
+            'dining',
+            'beach',
+            'culture',
+            'foodie',
+            'family',
+            'adventure',
+          ],
+      featuredExperienceIds: places
+          .where((p) => p.id.toString().contains('-exp-'))
+          .map((p) => p.id as String)
+          .toList(),
+      featuredHotelIds: hotels.map((h) => h.placeId as String).toList(),
+      featuredRestaurantIds: places
+          .where((p) => p.category.name == 'dining')
+          .map((p) => p.id as String)
+          .toList(),
+      featuredTicketDealIds: ticketDeals.map((d) => d.id as String).toList(),
+      featuredHotelIntelIds: hotels.map((h) => h.id as String).toList(),
+      districts: content.districts,
+      experiences: const [],
+      feedItemPlaceIds: content.feedItemPlaceIds,
+      gemPlaceIds: content.gemPlaceIds,
+      itineraryMomentPlaceIds: content.itineraryMomentPlaceIds,
+      osmAssetPath: existing?.osmAssetPath,
+      defaultRadiusMiles: defaultRadiusMiles,
+      maxRadiusMiles: maxRadiusMiles,
+    );
+    _cities[cityId] = pack;
+  }
+
+  void _registerNevadaState() {
+    registerStatePack(
+      const StatePack(
+        stateId: 'nevada',
+        stateName: 'Nevada',
+        heroImageUrl: 'eQ2ElhooTjc',
+        destinationCount: 1,
+        cityIds: ['vegas'],
+      ),
+    );
+  }
+
+  void _mergeVegasFromDartCatalog() {
+    final existing = _cities['vegas'];
+    final vegasPlaces = VegasContent.places;
+    final vegasHotels = VegasContent.hotels;
+    final vegas = CityPack(
+      cityId: 'vegas',
+      cityName: 'Las Vegas',
+      stateId: 'nevada',
+      description: existing?.description ??
+          'Strip spectacle, residency shows, rooftop nights, and desert escapes — '
+          'Vegas insider concierge for heat, shows, and high-energy planning.',
+      heroImageUrl: existing?.heroImageUrl ?? 'eQ2ElhooTjc',
+      mapCenterLat: VegasHub.latitude,
+      mapCenterLng: VegasHub.longitude,
+      hubLabel: VegasHub.label,
+      supportedCategories: existing?.supportedCategories ??
+          [
+            'hotel',
+            'dining',
+            'nightlife',
+            'show',
+            'casino',
+            'pool',
+            'shopping',
+            'luxury',
+            'foodie',
+            'romantic',
+            'adventure',
+            'wellness',
+          ],
+      featuredExperienceIds: vegasPlaces
+          .where((p) => p.id.contains('-exp-'))
+          .map((p) => p.id)
+          .toList(),
+      featuredHotelIds: vegasHotels.map((h) => h.placeId).toList(),
+      featuredRestaurantIds: vegasPlaces
+          .where((p) => p.category.name == 'dining')
+          .map((p) => p.id)
+          .toList(),
+      featuredTicketDealIds:
+          vegasTicketDealsCatalog.map((d) => d.id).toList(),
+      featuredHotelIntelIds: vegasHotels.map((h) => h.id).toList(),
+      districts: VegasContent.districts,
+      experiences: const [],
+      feedItemPlaceIds: VegasContent.feedItemPlaceIds,
+      gemPlaceIds: VegasContent.gemPlaceIds,
+      itineraryMomentPlaceIds: VegasContent.itineraryMomentPlaceIds,
+      osmAssetPath: existing?.osmAssetPath,
+      defaultRadiusMiles: 20,
+      maxRadiusMiles: 60,
+    );
+    _cities['vegas'] = vegas;
+  }
+  void _registerNewYorkState() {
+    registerStatePack(
+      const StatePack(
+        stateId: 'new-york',
+        stateName: 'New York',
+        heroImageUrl: 'xMMA_mtJ8xM',
+        destinationCount: 1,
+        cityIds: ['nyc'],
+      ),
+    );
+  }
+
+  void _mergeNycFromDartCatalog() {
+    final existing = _cities['nyc'];
+    final nycPlaces = NycContent.places;
+    final nycHotels = NycContent.hotels;
+    final nyc = CityPack(
+      cityId: 'nyc',
+      cityName: 'New York City',
+      stateId: 'new-york',
+      description: existing?.description ??
+          'Five boroughs of walkable culture, Broadway nights, and subway-smart clusters — '
+          'New York insider concierge for crowds, weather, and efficient routing.',
+      heroImageUrl: existing?.heroImageUrl ?? 'xMMA_mtJ8xM',
+      mapCenterLat: NycHub.latitude,
+      mapCenterLng: NycHub.longitude,
+      hubLabel: NycHub.label,
+      supportedCategories: existing?.supportedCategories ??
+          [
+            'hotel',
+            'dining',
+            'nightlife',
+            'culture',
+            'adventure',
+            'luxury',
+            'foodie',
+            'romantic',
+            'family',
+            'walkable',
+            'broadway',
+            'museum',
+            'park',
+            'rooftop',
+            'historic',
+            'shopping',
+            'walking',
+            'photo',
+            'subway',
+            'market',
+          ],
+      featuredExperienceIds: nycPlaces
+          .where((p) => p.id.contains('-exp-'))
+          .map((p) => p.id)
+          .toList(),
+      featuredHotelIds: nycHotels.map((h) => h.placeId).toList(),
+      featuredRestaurantIds: nycPlaces
+          .where((p) => p.category.name == 'dining')
+          .map((p) => p.id)
+          .toList(),
+      featuredTicketDealIds:
+          nycTicketDealsCatalog.map((d) => d.id).toList(),
+      featuredHotelIntelIds: nycHotels.map((h) => h.id).toList(),
+      districts: NycContent.districts,
+      experiences: const [],
+      feedItemPlaceIds: NycContent.feedItemPlaceIds,
+      gemPlaceIds: NycContent.gemPlaceIds,
+      itineraryMomentPlaceIds: NycContent.itineraryMomentPlaceIds,
+      osmAssetPath: existing?.osmAssetPath,
+      defaultRadiusMiles: 15,
+      maxRadiusMiles: 40,
+    );
+    _cities['nyc'] = nyc;
+  }
 }

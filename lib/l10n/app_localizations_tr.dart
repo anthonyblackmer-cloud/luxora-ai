@@ -901,7 +901,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get mapRerouteRainHint =>
-      'Yağmur muhtemel — iç mekan yedeklemeleri için yeniden yönlendirmeye dokunun.';
+      'Endişelenme — günün keyifli ve stressiz kalması için yakında alternatifler buldum.';
 
   @override
   String get dayFlowSwapTitle => 'Bu durağı değiştir';
@@ -1099,6 +1099,73 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get localSecretMiamiPantherAlley =>
       'Pencereden sipariş verin, sokakta saat yönünde yürüyün; en iyi duvar ışığı turkuaz duvara sabah 8:45\'te vurur.';
+
+  @override
+  String get localSecretTampaBayRiverwalkParking =>
+      'Whiting Street garajını kullanın — iskele yakınındaki kapanışlardan kaçınmak için nehir boyunca güneye yürüyün.';
+
+  @override
+  String get localSecretTampaBayClearwaterSunset =>
+      'Pier 60 kalabalığından kaçının — gün batımından 40 dk önce Sand Key yaklaşımı.';
+
+  @override
+  String get localSecretTampaBayDaliGarden =>
+      'Son öğleden sonra girişini ayırtın — doğu bahçe köprü ışığını teras kalabalığı olmadan yakalar.';
+
+  @override
+  String get localSecretTampaBayPierTiming =>
+      'Hafta içi 16:00 iskele girişi — hafta sonu bebek arabası trafiği olmadan gün batımı.';
+
+  @override
+  String get localSecretTampaBayYborCourtyard =>
+      'Paket Cuban sandwich — akşam 8\'den sonra yerel halkın kullandığı tuğla avluda yiyin.';
+
+  @override
+  String get localSecretTampaBaySpongeDocks =>
+      'Önce iskelede öğle yemeği, sonra sünger botları — hafta içi 13:00 sonrası turlar seyrekleşir.';
+
+  @override
+  String get localSecretVegasBellagioFountains =>
+      'Gösteriden 15 dk önce çimenin ortasında durun — ön korkuluk koreografiyi keser.';
+
+  @override
+  String get localSecretVegasFremontTiming =>
+      'Hafta içi 21:00 tavan altında — cumartesi kalabalığı olmadan tam Viva Vision.';
+
+  @override
+  String get localSecretVegasCaesarsEntrance =>
+      'Otopark bağlantısını kullanın — akşam yemeği saatinde Strip tıkanıklığından kaçının.';
+
+  @override
+  String get localSecretVegasVenetianWalk =>
+      'Öğlen kapalı kanal yürüyüşü — klimalı Strip geçişi, sıcak uyarısı yok.';
+
+  @override
+  String get nycMoodRoutesTitle => 'New York ruh hali rotaları';
+
+  @override
+  String get localSecretNycTimesSquareStrategy =>
+      '7th Ave yan sokaklarından girin — kavşak kalabalığından kaçının, Broadway görüşünü koruyun.';
+
+  @override
+  String get localSecretNycObservationDeck =>
+      'Gün batımından önce son slotu ayırtın — öğle kuyruğu olmadan altın ışık.';
+
+  @override
+  String get localSecretNycCentralParkEntrance =>
+      '72nd Street geçidini kullanın — Columbus Circle kalabalığı olmadan Bethesda\'ya daha hızlı yol.';
+
+  @override
+  String get localSecretNycBroadwayTickets =>
+      'TKTS sabah kuyruğu erken açılır — rush koltuklar turist fiyatlarını yener.';
+
+  @override
+  String get localSecretNycBrooklynBridgePhoto =>
+      'Washington Street DUMBO saat 8 — tur gruplarından önce boş arnavut kaldırımı kadrajı.';
+
+  @override
+  String get localSecretNycFerryGoldenHour =>
+      'Gün batımında Staten Island feribotu — tur teknesi ücreti olmadan ücretsiz liman turu.';
 
   @override
   String get momentsTitle => 'LUXORA ANLARI';
@@ -1950,7 +2017,7 @@ class AppLocalizationsTr extends AppLocalizations {
       'Luxora AI, duygusal açıdan akıllı kapıcınızdır; gizli mücevherler, çatıdaki gün batımları ve daha bavulunuzu hazırlamadan önce unutulmaz hissetmeniz için tasarlanmış anlar.';
 
   @override
-  String get landingBegin => 'Yolculuğunuza başlayın';
+  String get landingBegin => 'Yolculuğuma başla';
 
   @override
   String get landingTalk => 'Luxora\'yla konuş';
@@ -2125,7 +2192,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get onboardFinish => 'Konsiyerjinizle tanışın';
 
   @override
-  String get onboardBuilding => 'Seyahatinizi oluşturuyoruz…';
+  String get onboardBuilding => 'Macera oluşturuluyor…';
 
   @override
   String get onboardStep1Title => 'Hayallerin ilk indiği yer';
@@ -3349,7 +3416,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get paywallConciergePromise =>
-      'Tek seferlik satın alma · Kişisel konsiyerj · Abonelik yok';
+      'Abonelik yok · Ömür boyu şehir erişimi';
 
   @override
   String get paywallRestorePurchases => 'Satın alınanları geri yükle';
@@ -3464,6 +3531,21 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get miamiMoodRoutesTitle => 'Miami Ruh Hali Rotaları';
+
+  @override
+  String get tampaBayMoodRoutesTitle => 'Tampa Bay ruh hali rotaları';
+
+  @override
+  String get stAugustineMoodRoutesTitle => 'St. Augustine ruh hali rotaları';
+
+  @override
+  String get naplesMoodRoutesTitle => 'Naples ruh hali rotaları';
+
+  @override
+  String get destin30aMoodRoutesTitle => 'Destin ve 30A ruh hali rotaları';
+
+  @override
+  String get vegasMoodRoutesTitle => 'Las Vegas ruh hali rotaları';
 
   @override
   String miamiMoodRouteStart(String time) {
@@ -3700,15 +3782,16 @@ class AppLocalizationsTr extends AppLocalizations {
   String get onboardV2StepEmotionSubtitle => 'Bir birincil duygu seçin.';
 
   @override
-  String get onboardV2StepSummaryEyebrow => 'Konsiyerj önizlemeniz';
+  String get onboardV2StepSummaryEyebrow => 'LUXORA';
 
   @override
-  String get onboardV2StepSummaryTitle =>
-      'Luxora, seçimlerinize göre şunu önerir:';
+  String onboardV2StepSummaryTitle(String name) {
+    return 'Harika, $name.';
+  }
 
   @override
   String get onboardV2StepSummarySubtitle =>
-      'Şimdi mükemmel seyahatinizi inşa ediyoruz.';
+      'Ne tür bir gezgin olduğunu biraz öğrendim.\n\nArtık tercihlerine göre sana uygun yerler, deneyimler, restoranlar ve gizli mücevherler önereceğim.\n\nHer öneri özellikle sana göre olacak.\n\nBakalım neler keşfedebiliriz.';
 
   @override
   String get onboardSummaryHotels => 'Oteller';
@@ -4190,6 +4273,73 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
+  String get onboardWelcomeEyebrow => 'LUXORA';
+
+  @override
+  String get onboardWelcomeTitle => 'Merhaba, ben Luxora.';
+
+  @override
+  String get onboardWelcomeTagline => 'Kişisel seyahat concierge\'in.';
+
+  @override
+  String get onboardWelcomeBody =>
+      'İnanılmaz yerler keşfetmene, turist tuzaklarından kaçınmana ve yıllarca hatırlayacağın bir tatil oluşturmana yardım ediyorum.\n\nUnutulmaz bir şey planlamaya başlayalım.';
+
+  @override
+  String get onboardWelcomeCta => 'Yolculuğuma başla';
+
+  @override
+  String get onboardLuxoraGuideBody =>
+      'Bu andan itibaren yolculuğunda her adımda yanındayım.\n\nGizli mücevherler, harika yemek, unutulmaz deneyimler veya sadece stressiz bir tatil — yanındayım.';
+
+  @override
+  String get onboardLuxoraReplyClosing =>
+      'Birlikte mükemmel maceranı oluşturalım.';
+
+  @override
+  String onboardBuildingTitle(String name) {
+    return 'Harika seçim, $name.';
+  }
+
+  @override
+  String get onboardBuildingBody =>
+      'Seyahat tarzın, ilgi alanların, tempon, yemek tercihlerin ve tatil hedeflerine göre kişiselleştirilmiş bir rota oluşturuyorum.\n\nBu biraz zaman alabilir.';
+
+  @override
+  String get onboardBuildingTagline =>
+      'İyi tatiller tesadüfen olur.\n\nHarika tatiller planla olur.';
+
+  @override
+  String get onboardItineraryReadyTitle => 'Macera hazır.';
+
+  @override
+  String get onboardItineraryReadyBody =>
+      'Anlattığın geziye uygun deneyimler, restoranlar, cazibe merkezleri ve gizli mücevherler seçtim.\n\nTabii ki yolda her şeyi değiştirebiliriz.\n\nEn iyi tatiller ilerledikçe evrilir.';
+
+  @override
+  String weatherRerouteLuxoraIntro(String name) {
+    return '$name, hava koşulları bugünkü planların bir kısmını etkileyebilir.';
+  }
+
+  @override
+  String get weatherRerouteLuxoraClosing =>
+      'Bazen beklenmedik olan en güzel anıları yaratır.';
+
+  @override
+  String rightNowLuxoraIntro(String name) {
+    return '$name, konumuna, hava durumuna ve tercihlerine göre — şimdi bunu yapardım.';
+  }
+
+  @override
+  String get rightNowLuxoraClosing =>
+      'Bana güven.\n\nBayılacağını düşünüyorum.';
+
+  @override
+  String paywallPersonalPitch(String name, String cityName) {
+    return '$name, kişiselleştirilmiş tatil planın şekilleniyor.\n\n1. Gün hazır.\n\nYolculuğunun geri kalanı bekliyor.\n\nTam rota, gizli mücevherler, yerel sırlar, hava zekâsı ve sınırsız concierge için $cityName Concierge\'i aç.\n\nBu tatili unutulmaz yapalım.';
+  }
+
+  @override
   String get onboardLuxoraReplyEyebrow => 'LUXORA';
 
   @override
@@ -4199,12 +4349,27 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String onboardLuxoraGuideNamed(String name) {
-    return '$name, sana rehberlik etmek ve sen ve ailen için mükemmel bir tatil veya macera yaratmana yardım etmek için buradayım.';
+    return 'Bu andan itibaren yolculuğunda her adımda yanındayım.\n\nGizli mücevherler, harika yemek, unutulmaz deneyimler veya sadece stressiz bir tatil — yanındayım.';
   }
 
   @override
   String get onboardLuxoraItineraryPromise =>
-      'Burada işimiz bittiğinde, seçtiğiniz her şeyden seyahat planınızı oluşturacağım. Daha sonra herhangi bir şeyi değiştirmek isterseniz Concierge sekmesini açın ve neyi düzenleyeceğimi bana söyleyin; her zaman dinliyorum.';
+      'Birlikte mükemmel maceranı oluşturalım.';
+
+  @override
+  String get onboardReturningEyebrow => 'TEKRAR HOŞ GELDİN';
+
+  @override
+  String onboardReturningTitle(String name) {
+    return 'Tekrar hoş geldin, $name.';
+  }
+
+  @override
+  String get onboardReturningTitleGeneric => 'Tekrar hoş geldin.';
+
+  @override
+  String get onboardReturningSubtitle =>
+      'Macerana devam etmeye hazır mısın?\n\nTercihlerini, favori yerlerini ve planlarını kaydettim; kaldığımız yerden devam edelim.\n\nBugün seni ne bekliyor bakalım.';
 
   @override
   String get todayPlanSectionTitle => 'Bugünkü plan';
@@ -4234,7 +4399,7 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get todayRainRerouteTitle => 'Yağmur rotasını değiştir';
+  String get todayRainRerouteTitle => 'Hava rotası değişimi';
 
   @override
   String get todayExtrasSection => 'Biletler ve paylaşım';
@@ -4242,4 +4407,133 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get todayExtrasCollapsedHint =>
       'Fırsatlar, paylaşım kartı ve daha fazlası';
+
+  @override
+  String freemiumVacationTitle(String cityName) {
+    return '$cityName tatiliniz';
+  }
+
+  @override
+  String get freemiumDay1Ready => '✓ 1. gün hazır';
+
+  @override
+  String get freemiumUnlockFullPlan => 'Tam tatil planının kilidini aç';
+
+  @override
+  String freemiumLockedDayConcierge(int day) {
+    return 'Gün $day · Concierge optimize';
+  }
+
+  @override
+  String get freemiumLockedDayGems => 'Gün 3 · Gizli mücevher rotası';
+
+  @override
+  String get freemiumLockedDayWeather => 'Gün 4 · Hava durumuna duyarlı plan';
+
+  @override
+  String get freemiumLockedDayDeparture => 'Gün 5 · Ayrılış stratejisi';
+
+  @override
+  String freemiumConciergeRemaining(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ücretsiz soru kaldı',
+      one: '1 ücretsiz soru kaldı',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get freemiumConciergeLimitReached =>
+      'Ücretsiz concierge limitine ulaşıldı — sınırsız planlama için kilidi açın.';
+
+  @override
+  String freemiumLockedHotels(int count) {
+    return '🔒 $count+ ek otel mevcut';
+  }
+
+  @override
+  String freemiumLockedRestaurants(int count) {
+    return '🔒 $count+ ek restoran mevcut';
+  }
+
+  @override
+  String freemiumLockedGems(int count) {
+    return '🔒 $count+ gizli mücevher mevcut';
+  }
+
+  @override
+  String freemiumLockedSecrets(int count) {
+    return '🔒 $count+ yerel sır mevcut';
+  }
+
+  @override
+  String freemiumLockedExperiences(int count) {
+    return '🔒 $count+ deneyim mevcut';
+  }
+
+  @override
+  String get freemiumLockedAttractions => '🔒 Ek cazibe merkezleri mevcut';
+
+  @override
+  String freemiumUnlockExplore(String cityName) {
+    return 'Keşfe devam etmek için $cityName Concierge kilidini açın.';
+  }
+
+  @override
+  String freemiumUnlockConcierge(String cityName) {
+    return '$cityName Concierge kilidini aç';
+  }
+
+  @override
+  String freemiumHeadlineDayTwoPlus(String cityName) {
+    return 'Sonraki günleriniz hazır — tam $cityName planının kilidini açın.';
+  }
+
+  @override
+  String get freemiumHeadlineConciergeLimit =>
+      'Sınırsız concierge erişimiyle planlamaya devam edin.';
+
+  @override
+  String freemiumHeadlineHotels(String cityName) {
+    return 'Her konaklama önerisi için $cityName Concierge kilidini açın.';
+  }
+
+  @override
+  String freemiumHeadlineRestaurants(String cityName) {
+    return '$cityName için tam restoran koleksiyonunun kilidini açın.';
+  }
+
+  @override
+  String get freemiumHeadlineGems =>
+      'Yerel favoriler ve gizli mücevherler bekliyor.';
+
+  @override
+  String get freemiumHeadlineSecrets =>
+      'Yerel sakinlerin zamanlama ve park sırlarının kilidini açın.';
+
+  @override
+  String freemiumHeadlineExperiences(String cityName) {
+    return '$cityName genelinde küratörlü deneyimlerin kilidini açın.';
+  }
+
+  @override
+  String get freemiumHeadlineAttractions =>
+      'Tam cazibe merkezi koleksiyonunun kilidini açın.';
+
+  @override
+  String get freemiumHeadlineHotelMatchmaker =>
+      'Her konaklamayı karşılaştırmak için Hotel Intelligence kilidini açın.';
+
+  @override
+  String get freemiumHeadlineFullItinerary =>
+      'Tam tatil planınızın kilidini açın.';
+
+  @override
+  String get freemiumLocalSecretsTitle => 'Yerel sırlar';
+
+  @override
+  String get freemiumLocalSecretsSubtitle =>
+      'Yerel halkın sakladığı zamanlama, park ve manzara noktaları.';
 }

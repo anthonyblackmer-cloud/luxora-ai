@@ -13,6 +13,7 @@ import 'package:luxora_ai/widgets/lux_place_image.dart';
 import 'package:luxora_ai/widgets/cloud/cloud_trips_banner.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
 import 'package:luxora_ai/widgets/lux_button.dart';
+import 'package:luxora_ai/widgets/lux_secondary_app_bar.dart';
 import 'package:luxora_ai/widgets/trip_dates_editor_sheet.dart';
 import 'package:luxora_ai/widgets/visual_itinerary_share_card.dart';
 
@@ -23,8 +24,12 @@ class TripsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final l = context.l10n;
     final tokens = luxThemeTokensOf(context);
-    return SafeArea(
-      child: Padding(
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      appBar: LuxSecondaryAppBar(title: l.navTrips),
+      body: SafeArea(
+        top: false,
+        child: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -115,6 +120,7 @@ class TripsScreen extends StatelessWidget {
             ),
           ],
         ),
+      ),
       ),
     );
   }

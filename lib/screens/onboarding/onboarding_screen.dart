@@ -16,6 +16,8 @@ import 'package:luxora_ai/services/concierge_voice_service.dart';
 import 'package:luxora_ai/services/onboarding_finish_service.dart';
 import 'package:luxora_ai/services/onboarding_preference_mapper.dart';
 import 'package:luxora_ai/services/paywall_service.dart';
+import 'package:luxora_ai/services/journey_message_flags.dart';
+import 'package:luxora_ai/services/returning_traveler_service.dart';
 import 'package:luxora_ai/services/saved_trips_store.dart';
 import 'package:luxora_ai/services/trip_feel_interpreter.dart';
 import 'package:luxora_ai/services/trip_occasion_interpreter.dart';
@@ -31,8 +33,10 @@ import 'package:luxora_ai/widgets/onboarding/onboarding_catalog.dart';
 import 'package:luxora_ai/widgets/onboarding/onboarding_luxora_reply.dart';
 import 'package:luxora_ai/widgets/onboarding/onboarding_option_grid.dart';
 import 'package:luxora_ai/widgets/onboarding/onboarding_summary_panel.dart';
+import 'package:luxora_ai/widgets/onboarding/onboarding_welcome_step.dart';
 import 'package:luxora_ai/widgets/trip_date_picker_fields.dart';
 import 'package:luxora_ai/widgets/trip_name_fields.dart';
+import 'package:luxora_ai/util/traveler_name.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key, this.initialCityId});
@@ -46,20 +50,21 @@ class OnboardingScreen extends StatefulWidget {
 class _OnboardingScreenState extends State<OnboardingScreen> {
   int _step = 0;
   bool _finishing = false;
+  bool _bootstrapping = true;
+  bool _isReturning = false;
   TripProfile _profile = const TripProfile();
   late final TextEditingController _travelerNameController;
 
-  static const _stepCount = 15;
+  static const _stepCount = 16;
+
+  int get _firstStepIndex =>
+      _isReturning ? ReturningTravelerService.cityStepIndex : 0;
 
   @override
   void initState() {
     super.initState();
     _travelerNameController = TextEditingController();
-    final cityId = widget.initialCityId;
-    if (cityId != null) {
-      _profile = PaywallService.profileForCity(_profile, cityId);
-    }
-    unawaited(_loadEntitlements());
+    unawaited(_bootstrap());
     unawaited(ConciergeVoiceService.instance.initialize());
     CityPackEntitlementStore.instance.addListener(_onEntitlementsChanged);
   }
@@ -74,6 +79,33 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   Future<void> _loadEntitlements() async {
     await CityPackEntitlementStore.instance.load();
+  }
+
+  Future<void> _bootstrap() async {
+    await _loadEntitlements();
+    var profile = const TripProfile();
+    final cityId = widget.initialCityId;
+    if (cityId != null) {
+      profile = PaywallService.profileForCity(profile, cityId);
+    }
+
+    final returning = await ReturningTravelerService.detect();
+    if (!mounted) return;
+
+    setState(() {
+      if (returning != null) {
+        _isReturning = true;
+        _profile = returning.profileForNewTrip;
+        if (cityId != null) {
+          _profile = PaywallService.profileForCity(_profile, cityId);
+        }
+        _travelerNameController.text = returning.travelerName;
+        _step = ReturningTravelerService.cityStepIndex;
+      } else {
+        _profile = profile;
+      }
+      _bootstrapping = false;
+    });
   }
 
   void _onEntitlementsChanged() {
@@ -99,15 +131,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       );
       if (!mounted) return;
 
-      if (PaywallService.needsUnlock(enriched.cityId)) {
-        final ok = await PaywallService.showPaywall(
-          context,
-          cityId: enriched.cityId,
-        );
-        if (!ok || !mounted) return;
-      } else {
-        await CityPackSync.switchCity(enriched.cityId);
-      }
+      await CityPackSync.switchCity(enriched.cityId);
 
       if (enriched.cityId == OrlandoAddonCatalog.parentCityId) {
         await PaywallService.promptOrlandoThemeParksIfNeeded(context);
@@ -130,6 +154,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         );
       }
 
+      if (buildResult != null) {
+        await JourneyMessageFlags.markItineraryReadyPending();
+      }
+
       if (!mounted) return;
       context.go('/agenda');
     } finally {
@@ -140,7 +168,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Future<void> _next() async {
     if (_finishing) return;
 
-    if (_step == 5 &&
+    if (_step == 6 &&
         _profile.cityId == OrlandoAddonCatalog.parentCityId &&
         _profile.tripStyles.contains(TripStyle.themeParks)) {
       final ready = await PaywallService.prepareOrlandoBeforeOccasion(context);
@@ -149,7 +177,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     }
 
     if (_step < _stepCount - 1) {
-      if (_step == 0) {
+      if (_step == 1) {
         FocusManager.instance.primaryFocus?.unfocus();
       }
       setState(() => _step++);
@@ -160,16 +188,16 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   bool get _canContinue {
     return switch (_step) {
-      0 => _profile.travelerName.trim().isNotEmpty,
-      6 => _profile.tripStyles.isNotEmpty,
-      7 => _profile.hotelTypePreferences.isNotEmpty,
-      8 => _profile.cuisinePreferences.isNotEmpty ||
+      1 => _profile.travelerName.trim().isNotEmpty,
+      7 => _profile.tripStyles.isNotEmpty,
+      8 => _profile.hotelTypePreferences.isNotEmpty,
+      9 => _profile.cuisinePreferences.isNotEmpty ||
           _profile.diningPreferences.isNotEmpty,
-      9 => true,
-      10 => _profile.vacationGoals.isNotEmpty,
-      11 => _profile.experiencePreferences.isNotEmpty,
-      12 => true,
+      10 => true,
+      11 => _profile.vacationGoals.isNotEmpty,
+      12 => _profile.experiencePreferences.isNotEmpty,
       13 => true,
+      14 => true,
       _ => true,
     };
   }
@@ -183,7 +211,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         resizeToAvoidBottomInset: !kIsWeb,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
-          leading: _step > 0
+          leading: _step > _firstStepIndex
               ? IconButton(
                   icon: const Icon(Icons.arrow_back_rounded),
                   onPressed: () => setState(() => _step--),
@@ -201,7 +229,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ),
         ),
         body: SafeArea(
-          child: Padding(
+          child: _bootstrapping
+              ? const Center(child: CircularProgressIndicator())
+              : Stack(
+                  children: [
+                    Padding(
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -209,32 +241,46 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(4),
                   child: LinearProgressIndicator(
-                    value: (_step + 1) / _stepCount,
+                    value: _isReturning
+                        ? (_step -
+                                ReturningTravelerService.cityStepIndex +
+                                1) /
+                            (_stepCount -
+                                ReturningTravelerService.cityStepIndex)
+                        : (_step + 1) / _stepCount,
                     minHeight: 4,
                     backgroundColor: Colors.white.withValues(alpha: 0.1),
                     color: LuxColors.gold,
                   ),
                 ),
                 const SizedBox(height: 8),
-                Text(
-                  l.onboardV2Eyebrow,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 11,
-                    fontWeight: FontWeight.w700,
-                    letterSpacing: 2,
-                    color: LuxColors.gold.withValues(alpha: 0.75),
+                if (!_isReturning || _step >= ReturningTravelerService.cityStepIndex)
+                  Text(
+                    _isReturning
+                        ? l.onboardReturningEyebrow
+                        : (_step == 0
+                            ? l.onboardWelcomeEyebrow
+                            : l.onboardV2Eyebrow),
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 11,
+                      fontWeight: FontWeight.w700,
+                      letterSpacing: 2,
+                      color: LuxColors.gold.withValues(alpha: 0.75),
+                    ),
                   ),
-                ),
-                const SizedBox(height: 16),
+                if (!_isReturning || _step >= ReturningTravelerService.cityStepIndex)
+                  const SizedBox(height: 16),
                 Expanded(child: _buildStep(l)),
                 const SizedBox(height: 16),
                 LuxButton(
                   label: _finishing
                       ? l.onboardBuilding
-                      : (_step == _stepCount - 1
-                          ? l.onboardFinish
-                          : l.commonContinue),
+                      : (_step == 0
+                          ? l.onboardWelcomeCta
+                          : (_step == _stepCount - 1
+                              ? l.onboardFinish
+                              : l.commonContinue)),
                   icon: _step >= _stepCount - 2
                       ? Icons.auto_awesome_rounded
                       : Icons.favorite_rounded,
@@ -245,6 +291,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               ],
             ),
           ),
+                    if (_finishing) _buildingOverlay(l),
+                  ],
+                ),
         ),
       ),
     );
@@ -257,20 +306,21 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       child: ListView(
         children: [
           ...switch (_step) {
-            0 => _travelerNameStep(l),
-            1 => _luxoraReplyStep(l),
-            2 => _cityStep(l),
-            3 => _datesStep(l),
-            4 => _travelerStep(l),
-            5 => _tripStyleStep(l),
-            6 => _hotelStep(l),
-            7 => _foodStep(l),
-            8 => _paceStep(l),
-            9 => _goalsStep(l),
-            10 => _experienceStep(l),
-            11 => _avoidStep(l),
-            12 => _emotionStep(l),
-            13 => _summaryStep(l),
+            0 => [OnboardingWelcomeStep(l: l)],
+            1 => _travelerNameStep(l),
+            2 => _luxoraReplyStep(l),
+            3 => _cityStep(l),
+            4 => _datesStep(l),
+            5 => _travelerStep(l),
+            6 => _tripStyleStep(l),
+            7 => _hotelStep(l),
+            8 => _foodStep(l),
+            9 => _paceStep(l),
+            10 => _goalsStep(l),
+            11 => _experienceStep(l),
+            12 => _avoidStep(l),
+            13 => _emotionStep(l),
+            14 => _summaryStep(l),
             _ => _nameStep(l),
           },
         ],
@@ -345,8 +395,27 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         ),
       ];
 
+  List<Widget> _returningWelcomeHeader(AppLocalizations l) {
+    final firstName = TravelerNameDisplay.firstName(_profile.travelerName);
+    final title = firstName != null
+        ? l.onboardReturningTitle(firstName)
+        : l.onboardReturningTitleGeneric;
+    return _header(
+      l.onboardReturningEyebrow,
+      title,
+      l.onboardReturningSubtitle,
+    );
+  }
+
   List<Widget> _cityStep(AppLocalizations l) => [
-        ..._header(l.onboardStep1Title, l.onboardStep1Subtitle, l.onboardCityUnlockNote),
+        if (_isReturning)
+          ..._returningWelcomeHeader(l)
+        else
+          ..._header(
+            l.onboardStep1Title,
+            l.onboardStep1Subtitle,
+            l.onboardCityUnlockNote,
+          ),
         CityDestinationPicker(
           label: l.onboardCityLabel,
           selectedCityId: _profile.cityId,
@@ -694,16 +763,20 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         ),
       ];
 
-  List<Widget> _summaryStep(AppLocalizations l) => [
-        ..._header(
-          l.onboardV2StepSummaryEyebrow,
-          l.onboardV2StepSummaryTitle,
-          l.onboardV2StepSummarySubtitle,
-        ),
-        OnboardingSummaryPanel(
-          profile: OnboardingPreferenceMapper.enrichForPlanning(_profile),
-        ),
-      ];
+  List<Widget> _summaryStep(AppLocalizations l) {
+    final firstName =
+        TravelerNameDisplay.firstName(_profile.travelerName) ?? 'friend';
+    return [
+      ..._header(
+        l.onboardV2StepSummaryEyebrow,
+        l.onboardV2StepSummaryTitle(firstName),
+        l.onboardV2StepSummarySubtitle,
+      ),
+      OnboardingSummaryPanel(
+        profile: OnboardingPreferenceMapper.enrichForPlanning(_profile),
+      ),
+    ];
+  }
 
   List<Widget> _nameStep(AppLocalizations l) => [
         ..._header(
@@ -717,6 +790,65 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           onChanged: (next) => setState(() => _profile = next),
         ),
       ];
+
+  Widget _buildingOverlay(AppLocalizations l) {
+    final firstName =
+        TravelerNameDisplay.firstName(_profile.travelerName) ?? 'friend';
+    return Positioned.fill(
+      child: ColoredBox(
+        color: Colors.black.withValues(alpha: 0.72),
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 28),
+            child: GlassCard(
+              glow: true,
+              padding: const EdgeInsets.all(24),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text(
+                    l.onboardBuildingTitle(firstName),
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                  const SizedBox(height: 14),
+                  Text(
+                    l.onboardBuildingBody,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 14,
+                      height: 1.5,
+                      color: LuxColors.stone300.withValues(alpha: 0.98),
+                    ),
+                  ),
+                  const SizedBox(height: 18),
+                  const Center(
+                    child: SizedBox(
+                      width: 28,
+                      height: 28,
+                      child: CircularProgressIndicator(strokeWidth: 2.5),
+                    ),
+                  ),
+                  const SizedBox(height: 18),
+                  Text(
+                    l.onboardBuildingTagline,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 13,
+                      height: 1.45,
+                      fontStyle: FontStyle.italic,
+                      color: LuxColors.gold.withValues(alpha: 0.9),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 
   Widget _readOnlyField(String label, String value) {
     return Padding(

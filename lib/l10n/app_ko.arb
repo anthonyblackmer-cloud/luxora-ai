@@ -814,7 +814,7 @@
   },
   "keysWaterWindScore": "바람",
   "landingBadge": "플로리다 · 올랜도 MVP",
-  "landingBegin": "여행을 시작하세요",
+  "landingBegin": "여행 시작하기",
   "landingCityLabel": "어디 가세요?",
   "landingRegionBadge": "출시 지역",
   "landingRegionTitle": "올랜도와 플로리다 — 느낌에 맞춰 선별",
@@ -934,7 +934,7 @@
   },
   "mapRerouteButton": "더 조용한 정류장으로 경로 변경",
   "mapRerouteNone": "당신의 길은 이미 평온해 보입니다.",
-  "mapRerouteRainHint": "비가 올 가능성이 높습니다. 실내 백업을 위해 경로 재설정을 탭하세요.",
+  "mapRerouteRainHint": "걱정 마세요 — 가까운 대안을 찾아 두었습니다. 오늘도 즐겁고 스트레스 없는 하루로.",
   "mapSubtitle": "선별된 하루를 위한 핀 — 금색 다이아몬드는 보석, 청록색 마커는 오늘의 타임라인, 금색 선은 기분 경로입니다.",
   "mapTitle": "귀하의 지능형 경로",
   "miamiBeachBestTime": "가장 좋은 시간: {time}",
@@ -1072,7 +1072,7 @@
   "onboardAdventure": "모험과 야외 활동",
   "onboardBudget": "여행 예산(USD)",
   "onboardBuildFailedHint": "귀하의 기본 설정을 저장했지만 여행 일정에 잠시 시간이 더 필요합니다. 끌어서 의제를 새로 고치거나 컨시어지를 엽니다.",
-  "onboardBuilding": "여행을 계획하는 중…",
+  "onboardBuilding": "모험을 만드는 중…",
   "onboardCityLabel": "도시를 선택하세요",
   "onboardCityUnlockNote": "각 목적지에는 자체 컨시어지 잠금 해제 기능이 있습니다. 즉, 도시별로 일회성 구매가 가능합니다.",
   "onboardCulture": "문화 및 관광",
@@ -1081,7 +1081,7 @@
   "onboardEndDateLabel": "종료일",
   "onboardFinish": "컨시어지를 만나보세요",
   "onboardFoodie": "미식가의 열정",
-  "onboardLuxoraGuideNamed": "{name} 님, 저는 귀하와 귀하의 가족을 위한 완벽한 휴가 또는 모험을 만들 수 있도록 안내하고 도와드리기 위해 왔습니다.",
+  "onboardLuxoraGuideNamed": "이제부터 여행의 모든 단계를 함께할게요.\n\n숨은 명소, 훌륭한 음식, 잊을 수 없는 경험, 또는 스트레스 없는 휴가 — 제가 함께합니다.",
   "@onboardLuxoraGuideNamed": {
     "placeholders": {
       "name": {
@@ -1089,7 +1089,7 @@
       }
     }
   },
-  "onboardLuxoraItineraryPromise": "이 작업이 끝나면 귀하가 선택하는 모든 항목을 바탕으로 여행 일정을 구성해 드리겠습니다. 나중에 변경하고 싶은 사항이 있으면 컨시어지 탭을 열고 무엇을 편집할지 알려주세요. 저는 항상 듣고 있습니다.",
+  "onboardLuxoraItineraryPromise": "함께 완벽한 모험을 만들어 봐요.",
   "onboardLuxoraReplyEyebrow": "룩소라",
   "onboardLuxoraReplyTitle": "만나서 반가워요, {name} 님.",
   "@onboardLuxoraReplyTitle": {
@@ -1348,9 +1348,9 @@
   "onboardV2StepStyleEyebrow": "2단계",
   "onboardV2StepStyleSubtitle": "당신을 흥분시키는 모든 것을 선택하십시오.",
   "onboardV2StepStyleTitle": "당신은 어떤 종류의 여행을 찾고 있나요?",
-  "onboardV2StepSummaryEyebrow": "컨시어지 미리보기",
-  "onboardV2StepSummarySubtitle": "우리는 지금 당신의 완벽한 여행을 만들어가고 있습니다.",
-  "onboardV2StepSummaryTitle": "귀하의 선택에 따라 Luxora는 다음을 권장합니다.",
+  "onboardV2StepSummaryEyebrow": "LUXORA",
+  "onboardV2StepSummarySubtitle": "어떤 여행자인지 조금 알게 되었어요.\n\n이제 선호에 맞는 장소, 경험, 레스토랑, 숨은 명소를 추천할게요.\n\n모든 추천은 당신만을 위한 것입니다.\n\n무엇을 발견할 수 있을지 봐요.",
+  "onboardV2StepSummaryTitle": "완벽해요, {name}님.",
   "onboardV2StepTravelerEyebrow": "1단계",
   "onboardV2StepTravelerSubtitle": "Luxora는 직원들에게 숙박, 식사, 보행을 맞춤 제공합니다.",
   "onboardV2StepTravelerTitle": "누구와 함께 여행하시나요?",
@@ -1378,7 +1378,7 @@
   "paywallBenefitSaveTimeTitle": "시간 절약",
   "paywallBenefitTravelSmarterBody": "날씨, 군중, 여행 스타일에 따라 추천을 받아보세요.",
   "paywallBenefitTravelSmarterTitle": "더 스마트하게 여행하세요",
-  "paywallConciergePromise": "일회성 구매 · 개인 컨시어지 · 구독 없음",
+  "paywallConciergePromise": "구독 없음 · 평생 도시 액세스",
   "paywallContinueExploring": "계속 탐색",
   "paywallCtaUnlock": "{cityName} 컨시어지 잠금 해제",
   "@paywallCtaUnlock": {
@@ -2001,7 +2001,7 @@
       }
     }
   },
-  "todayRainRerouteTitle": "비 경로 변경",
+  "todayRainRerouteTitle": "날씨 경로 변경",
   "todayStaysDiningCollapsedHint": "호텔 및 레스토랑 아이디어 - 펼치려면 탭하세요.",
   "todayStaysDiningSection": "숙박 및 다이닝 추천",
   "tripStoryBeatClosing": "Luxora는 순간을 형성했습니다. 여러분은 그 순간을 살아냈습니다.",
@@ -2286,6 +2286,221 @@
       },
       "speed": {
         "type": "int"
+      }
+    }
+  },
+  "freemiumVacationTitle": "{cityName} 휴가",
+  "@freemiumVacationTitle": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumDay1Ready": "✓ 1일차 준비됨",
+  "freemiumUnlockFullPlan": "전체 휴가 계획 잠금 해제",
+  "freemiumLockedDayConcierge": "{day}일차 · 컨시어지 최적화",
+  "@freemiumLockedDayConcierge": {
+    "placeholders": {
+      "day": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumLockedDayGems": "3일차 · 숨은 보석 루트",
+  "freemiumLockedDayWeather": "4일차 · 날씨 대응 계획",
+  "freemiumLockedDayDeparture": "5일차 · 출발 전략",
+  "freemiumConciergeRemaining": "{count, plural, =1{무료 질문 1개 남음} other{무료 질문 {count}개 남음}}",
+  "@freemiumConciergeRemaining": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumConciergeLimitReached": "무료 컨시어지 한도 도달 — 무제한 계획을 위해 잠금 해제.",
+  "freemiumLockedHotels": "🔒 {count}개 이상의 추가 호텔",
+  "@freemiumLockedHotels": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumLockedRestaurants": "🔒 {count}개 이상의 추가 레스토랑",
+  "@freemiumLockedRestaurants": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumLockedGems": "🔒 {count}개 이상의 숨은 보석",
+  "@freemiumLockedGems": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumLockedSecrets": "🔒 {count}개 이상의 로컬 시크릿",
+  "@freemiumLockedSecrets": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumLockedExperiences": "🔒 {count}개 이상의 체험",
+  "@freemiumLockedExperiences": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumLockedAttractions": "🔒 추가 명소 이용 가능",
+  "freemiumUnlockExplore": "계속 탐색하려면 {cityName} Concierge 잠금 해제.",
+  "@freemiumUnlockExplore": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumUnlockConcierge": "{cityName} Concierge 잠금 해제",
+  "@freemiumUnlockConcierge": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumHeadlineDayTwoPlus": "다음 날짜가 준비됐습니다 — {cityName} 전체 계획 잠금 해제.",
+  "@freemiumHeadlineDayTwoPlus": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumHeadlineConciergeLimit": "무제한 컨시어지로 계획을 계속하세요.",
+  "freemiumHeadlineHotels": "모든 숙소 추천을 위해 {cityName} Concierge 잠금 해제.",
+  "@freemiumHeadlineHotels": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumHeadlineRestaurants": "{cityName} 전체 레스토랑 컬렉션 잠금 해제.",
+  "@freemiumHeadlineRestaurants": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumHeadlineGems": "로컬 즐겨찾기와 숨은 보석이 기다립니다.",
+  "freemiumHeadlineSecrets": "현지인의 시간·주차 비밀 잠금 해제.",
+  "freemiumHeadlineExperiences": "{cityName} 전역의 큐레이션 체험 잠금 해제.",
+  "@freemiumHeadlineExperiences": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumHeadlineAttractions": "전체 명소 컬렉션 잠금 해제.",
+  "freemiumHeadlineHotelMatchmaker": "모든 숙소를 비교하려면 Hotel Intelligence 잠금 해제.",
+  "freemiumHeadlineFullItinerary": "전체 휴가 계획 잠금 해제.",
+  "freemiumLocalSecretsTitle": "로컬 시크릿",
+  "freemiumLocalSecretsSubtitle": "현지인이 지키는 시간, 주차, 전망 스팟.",
+  "localSecretTampaBayRiverwalkParking": "Whiting Street 주차장 이용 — 강을 따라 남쪽으로 걸어 부두 근처 통제 구간을 피하세요.",
+  "localSecretTampaBayClearwaterSunset": "Pier 60 혼잡 피하기 — 일몰 40분 전 Sand Key 접근로.",
+  "localSecretTampaBayDaliGarden": "오후 마지막 입장 예약 — 동쪽 정원 전망대는 테라스 혼잡 없이 다리 빛.",
+  "localSecretTampaBayPierTiming": "평일 오후 4시 pier 입장 — 주말 유모차 혼잡 없는 일몰.",
+  "localSecretTampaBayYborCourtyard": "쿠반 샌드위치 포장 — 오후 8시 이후 현지인이 쓰는 벽돌 안뜰에서.",
+  "localSecretTampaBaySpongeDocks": "먼저 부두에서 점심, 스펀지 보트는 그다음 — 평일 오후 1시 이후 투어 감소.",
+  "tampaBayMoodRoutesTitle": "탬파베이 무드 루트",
+  "stAugustineMoodRoutesTitle": "세인트오거스틴 무드 루트",
+  "naplesMoodRoutesTitle": "네이플스 무드 루트",
+  "destin30aMoodRoutesTitle": "데스틴 & 30A 무드 루트",
+  "onboardReturningEyebrow": "다시 오신 것을 환영합니다",
+  "onboardReturningTitle": "다시 오신 것을 환영합니다, {name}님.",
+  "@onboardReturningTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardReturningTitleGeneric": "다시 오신 것을 환영합니다.",
+  "onboardReturningSubtitle": "모험을 이어갈 준비가 되셨나요?\n\n선호, 즐겨찾는 장소, 여행 계획을 저장해 두었어요. 이어서 시작해요.\n\n오늘 무엇이 기다리는지 봐요.",
+  "vegasMoodRoutesTitle": "라스베이거스 무드 루트",
+  "localSecretVegasBellagioFountains": "쇼 15분 전 잔디 중앙 — 앞 난간은 안무 전체를 가립니다.",
+  "localSecretVegasFremontTiming": "평일 밤 9시 캐노피 아래 — 토요 혼잡 없이 Viva Vision 전체.",
+  "localSecretVegasCaesarsEntrance": "주차장 연결 통로 — 저녁 시간 Strip 병목 회피.",
+  "localSecretVegasVenetianWalk": "정오 실내 운하 산책 — 냉방 Strip 횡단으로 폭염 회피.",
+  "nycMoodRoutesTitle": "뉴욕 무드 루트",
+  "localSecretNycTimesSquareStrategy": "7th Ave 골목으로 진입 — 교차로 혼잡을 피하고 브로드웨이 시야 유지.",
+  "localSecretNycObservationDeck": "일몰 전 마지막 시간 예약 — 정오 대기열 없이 골든아워.",
+  "localSecretNycCentralParkEntrance": "72nd Street 횡단로 — Columbus Circle 혼잡 없이 Bethesda까지 빠른 경로.",
+  "localSecretNycBroadwayTickets": "TKTS 오전 줄은 일찍 — 러시 좌석이 관광객 가격보다 유리.",
+  "localSecretNycBrooklynBridgePhoto": "Washington Street DUMBO 오전 8시 — 투어 그룹 전 빈 돌길 프레임.",
+  "localSecretNycFerryGoldenHour": "일몰 시 Staten Island 페리 — 투어 보트 없이 무료 항만 루프.",
+  "@onboardV2StepSummaryTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardWelcomeEyebrow": "LUXORA",
+  "onboardWelcomeTitle": "안녕하세요, Luxora예요.",
+  "onboardWelcomeTagline": "당신만의 여행 컨시어지.",
+  "onboardWelcomeBody": "놀라운 장소 발견, 관광객 함정 피하기, 오래 기억할 휴가 만들기를 도와드려요.\n\n잊지 못할 여행을 계획해 봐요.",
+  "onboardWelcomeCta": "여행 시작하기",
+  "onboardLuxoraGuideBody": "이제부터 여행의 모든 단계를 함께할게요.\n\n숨은 명소, 훌륭한 음식, 잊을 수 없는 경험, 또는 스트레스 없는 휴가 — 제가 함께합니다.",
+  "onboardLuxoraReplyClosing": "함께 완벽한 모험을 만들어 봐요.",
+  "onboardBuildingTitle": "멋진 선택이에요, {name}님.",
+  "@onboardBuildingTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardBuildingBody": "여행 스타일, 관심사, 페이스, 식사 선호, 휴가 목표에 맞춰 맞춤 일정을 만들고 있어요.\n\n잠시 시간이 걸릴 수 있습니다.",
+  "onboardBuildingTagline": "좋은 휴가는 우연히 온다.\n\n위대한 휴가는 계획에서 온다.",
+  "onboardItineraryReadyTitle": "모험이 준비됐어요.",
+  "onboardItineraryReadyBody": "설명해 주신 여행에 맞는 경험, 레스토랑, 명소, 숨은 보석을 신중히 골랐어요.\n\n물론 언제든 조정할 수 있어요.\n\n최고의 휴가는 진행되며 변합니다.",
+  "weatherRerouteLuxoraIntro": "{name}님, 오늘 일정 일부에 날씨 영향이 있을 수 있어요.",
+  "@weatherRerouteLuxoraIntro": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherRerouteLuxoraClosing": "때로는 예상치 못한 일이 최고의 추억을 만듭니다.",
+  "rightNowLuxoraIntro": "{name}님, 위치, 현재 날씨, 선호를 바탕으로 — 지금이라면 이걸 추천해요.",
+  "@rightNowLuxoraIntro": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowLuxoraClosing": "믿어 보세요.\n\n정말 마음에 들 거예요.",
+  "paywallPersonalPitch": "{name}님, 맞춤 휴가 계획이 이미 형태를 갖추고 있어요.\n\n1일차 준비 완료.\n\n나머지 여정이 기다립니다.\n\n{cityName} Concierge를 잠금 해제해 전체 일정, 숨은 명소, 로컬 시크릿, 날씨 인텔리전스, 무제한 컨시어지를 이용하세요.\n\n잊지 못할 휴가로 만들어요.",
+  "@paywallPersonalPitch": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "cityName": {
+        "type": "String"
       }
     }
   }

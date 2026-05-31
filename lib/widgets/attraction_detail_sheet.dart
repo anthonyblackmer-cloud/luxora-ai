@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:luxora_ai/services/nyc_concierge_service.dart';
+import 'package:luxora_ai/services/vegas_concierge_service.dart';
+import 'package:luxora_ai/services/destin_30a_concierge_service.dart';
+import 'package:luxora_ai/services/naples_concierge_service.dart';
+import 'package:luxora_ai/services/st_augustine_concierge_service.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:luxora_ai/data/local_secrets_registry.dart';
@@ -12,6 +17,7 @@ import 'package:luxora_ai/services/home_base_store.dart';
 import 'package:luxora_ai/services/map_launcher.dart';
 import 'package:luxora_ai/services/florida_keys_concierge_service.dart';
 import 'package:luxora_ai/services/miami_concierge_service.dart';
+import 'package:luxora_ai/services/tampa_bay_concierge_service.dart';
 import 'package:luxora_ai/services/places_repository.dart';
 import 'package:luxora_ai/services/saved_places_storage.dart';
 import 'package:luxora_ai/util/place_distance.dart';
@@ -20,6 +26,8 @@ import 'package:luxora_ai/widgets/florida_keys/keys_concierge_cards.dart';
 import 'package:luxora_ai/widgets/miami/miami_concierge_cards.dart';
 import 'package:luxora_ai/widgets/lux_place_image.dart';
 import 'package:luxora_ai/widgets/travel_stop_intel_card.dart';
+import 'package:luxora_ai/services/freemium_limits.dart';
+import 'package:luxora_ai/services/freemium_service.dart';
 import 'package:luxora_ai/util/destination_share_content.dart';
 import 'package:luxora_ai/util/share_precache_urls.dart';
 import 'package:luxora_ai/widgets/visual_share_icon_button.dart';
@@ -147,7 +155,13 @@ class _AttractionDetailSheet extends StatelessWidget {
                 ),
                 const SizedBox(height: 12),
                 TravelStopIntelCard(place: place),
-                if (MiamiBeachIntelligenceService.forPlace(place.id)
+                if (MiamiBeachIntelligenceService.forPlace(place.id) ??
+                    StAugustineBeachIntelligenceService.forPlace(place.id) ??
+                    NaplesBeachIntelligenceService.forPlace(place.id) ??
+                    Destin30aBeachIntelligenceService.forPlace(place.id) ??
+                    NycBeachIntelligenceService.forPlace(place.id) ??
+                    VegasBeachIntelligenceService.forPlace(place.id) ??
+                    TampaBayBeachIntelligenceService.forPlace(place.id)
                     case final beachIntel?) ...[
                   const SizedBox(height: 12),
                   MiamiBeachIntelCard(intel: beachIntel),
@@ -180,10 +194,18 @@ class _AttractionDetailSheet extends StatelessWidget {
                   body: catalogText(context, detail.insiderTips),
                 ),
                 if (_localSecret(l, place) case final secret?)
-                  _SectionCard(
-                    title: l.localSecretTitle,
-                    body: secret,
-                  ),
+                  if (FreemiumService.canViewLocalSecret(place))
+                    _SectionCard(
+                      title: l.localSecretTitle,
+                      body: secret,
+                    )
+                  else
+                    _LockedLocalSecretCard(
+                      onUnlock: () => FreemiumService.promptUnlock(
+                        context,
+                        trigger: FreemiumUnlockTrigger.localSecretsPreview,
+                      ),
+                    ),
                 if (detail.menu.isNotEmpty) ...[
                   const SizedBox(height: 12),
                   _MenuCard(items: detail.menu),
@@ -1091,6 +1113,68 @@ String? _localSecret(AppLocalizations l, LuxPlace place) {
     'localSecretWekiwaSprings' => l.localSecretWekiwaSprings,
     'localSecretDisneySpringsParking' => l.localSecretDisneySpringsParking,
     'localSecretLakeEolaSunset' => l.localSecretLakeEolaSunset,
+    'localSecretMiamiWynwoodAlley' => l.localSecretMiamiWynwoodAlley,
+    'localSecretMiamiLittleHavanaDomino' => l.localSecretMiamiLittleHavanaDomino,
+    'localSecretMiamiVizcayaMangrove' => l.localSecretMiamiVizcayaMangrove,
+    'localSecretMiamiOceanDriveSunrise' => l.localSecretMiamiOceanDriveSunrise,
+    'localSecretMiamiPantherAlley' => l.localSecretMiamiPantherAlley,
+    'localSecretTampaBayRiverwalkParking' =>
+      l.localSecretTampaBayRiverwalkParking,
+    'localSecretTampaBayClearwaterSunset' =>
+      l.localSecretTampaBayClearwaterSunset,
+    'localSecretTampaBayDaliGarden' => l.localSecretTampaBayDaliGarden,
+    'localSecretTampaBayPierTiming' => l.localSecretTampaBayPierTiming,
+    'localSecretTampaBayYborCourtyard' => l.localSecretTampaBayYborCourtyard,
+    'localSecretTampaBaySpongeDocks' => l.localSecretTampaBaySpongeDocks,
+    'localSecretVegasBellagioFountains' => l.localSecretVegasBellagioFountains,
+    'localSecretVegasFremontTiming' => l.localSecretVegasFremontTiming,
+    'localSecretVegasCaesarsEntrance' => l.localSecretVegasCaesarsEntrance,
+    'localSecretVegasVenetianWalk' => l.localSecretVegasVenetianWalk,
+    'localSecretNycTimesSquareStrategy' => l.localSecretNycTimesSquareStrategy,
+    'localSecretNycObservationDeck' => l.localSecretNycObservationDeck,
+    'localSecretNycCentralParkEntrance' => l.localSecretNycCentralParkEntrance,
+    'localSecretNycBroadwayTickets' => l.localSecretNycBroadwayTickets,
+    'localSecretNycBrooklynBridgePhoto' => l.localSecretNycBrooklynBridgePhoto,
+    'localSecretNycFerryGoldenHour' => l.localSecretNycFerryGoldenHour,
     _ => null,
   };
+}
+
+class _LockedLocalSecretCard extends StatelessWidget {
+  const _LockedLocalSecretCard({required this.onUnlock});
+
+  final VoidCallback onUnlock;
+
+  @override
+  Widget build(BuildContext context) {
+    final l = context.l10n;
+    return Material(
+      color: LuxColors.gold.withValues(alpha: 0.08),
+      borderRadius: BorderRadius.circular(14),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(14),
+        onTap: onUnlock,
+        child: Padding(
+          padding: const EdgeInsets.all(14),
+          child: Row(
+            children: [
+              const Icon(Icons.lock_rounded, color: LuxColors.gold, size: 18),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Text(
+                  l.freemiumHeadlineSecrets,
+                  style: const TextStyle(
+                    fontSize: 13,
+                    height: 1.35,
+                    color: LuxColors.stone300,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }

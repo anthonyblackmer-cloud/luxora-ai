@@ -51,8 +51,8 @@ class _OnboardingLuxoraReplyState extends State<OnboardingLuxoraReply> {
     final locale = Localizations.localeOf(context).languageCode;
     final lines = [
       widget.l.onboardLuxoraReplyTitle(firstName),
-      widget.l.onboardLuxoraGuideNamed(firstName),
-      widget.l.onboardLuxoraItineraryPromise,
+      widget.l.onboardLuxoraGuideBody,
+      widget.l.onboardLuxoraReplyClosing,
     ];
 
     await _voice.initialize();
@@ -128,12 +128,12 @@ class _OnboardingLuxoraReplyState extends State<OnboardingLuxoraReply> {
         _UserBubble(text: firstName, maxWidth: width * 0.78),
         const SizedBox(height: 12),
         _LuxoraBubble(
-          text: widget.l.onboardLuxoraGuideNamed(firstName),
+          text: widget.l.onboardLuxoraGuideBody,
           maxWidth: width * 0.85,
         ),
         const SizedBox(height: 12),
         _LuxoraBubble(
-          text: widget.l.onboardLuxoraItineraryPromise,
+          text: widget.l.onboardLuxoraReplyClosing,
           maxWidth: width * 0.85,
         ),
       ],

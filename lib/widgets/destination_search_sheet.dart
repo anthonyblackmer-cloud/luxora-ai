@@ -5,6 +5,7 @@ import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/models/discover_radius.dart';
 import 'package:luxora_ai/models/lux_place.dart';
 import 'package:luxora_ai/services/discover_radius_controller.dart';
+import 'package:luxora_ai/services/freemium_service.dart';
 import 'package:luxora_ai/services/places_repository.dart';
 import 'package:luxora_ai/models/sponsorship_extensions.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
@@ -44,7 +45,7 @@ class DestinationSearchBar extends StatelessWidget {
       borderRadius: BorderRadius.circular(12),
       child: InkWell(
         borderRadius: BorderRadius.circular(12),
-        onTap: () => showDestinationSearchSheet(
+        onTap: () => FreemiumService.openSearchOrPaywall(
           context,
           initialFilter: initialFilter,
         ),

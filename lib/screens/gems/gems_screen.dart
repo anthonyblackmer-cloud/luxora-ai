@@ -22,6 +22,10 @@ import 'package:luxora_ai/widgets/lux_responsive_frame.dart';
 import 'package:luxora_ai/widgets/lux_secondary_app_bar.dart';
 import 'package:luxora_ai/widgets/partner_sponsor_badge.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
+import 'package:luxora_ai/services/freemium_limits.dart';
+import 'package:luxora_ai/services/freemium_service.dart';
+import 'package:luxora_ai/widgets/freemium/freemium_local_secrets_preview.dart';
+import 'package:luxora_ai/widgets/freemium/freemium_unlock_cta.dart';
 
 /// Curated secret discoveries — insider knowledge, not trending social content.
 class GemsScreen extends StatelessWidget {
@@ -31,7 +35,7 @@ class GemsScreen extends StatelessWidget {
     final radius = DiscoverRadiusController.instance.radius;
     final repo = PlacesRepository.instance;
     final gemMap = CityPackRegistry.instance.gemPlaceIds;
-    return CityContentCatalog.hiddenGemsForActive().where((gem) {
+    return CityContentCatalog.curatedGemsForActive().where((gem) {
       final placeId = gemMap[gem.id];
       if (placeId == null) {
         return true;
@@ -129,10 +133,19 @@ class GemsScreen extends StatelessWidget {
           final tags = _profileTags(profile);
           final rankedGems = _rankGems(_gemsForRadius(), tags);
           final matchedCount = rankedGems.where((g) => g.matched).length;
+          final lockedGems = FreemiumService.lockedCount(
+            rankedGems.length,
+            FreemiumUnlockTrigger.hiddenGemsPreview,
+          );
+          final visibleGems = FreemiumService.hasFullAccess()
+              ? rankedGems
+              : rankedGems.take(FreemiumLimits.previewHiddenGems).toList();
+          final extraRows =
+              (lockedGems > 0 ? 1 : 0) + (FreemiumService.hasFullAccess() ? 0 : 1);
 
           return ListView.builder(
         padding: EdgeInsets.all(compact ? 16 : 20),
-        itemCount: rankedGems.length + 1,
+        itemCount: visibleGems.length + 1 + extraRows,
         itemBuilder: (context, i) {
           if (i == 0) {
             final l = context.l10n;
@@ -237,7 +250,21 @@ class GemsScreen extends StatelessWidget {
             );
           }
 
-          final entry = rankedGems[i - 1];
+          if (i == visibleGems.length + 1 && lockedGems > 0) {
+            return FreemiumUnlockCta(
+              trigger: FreemiumUnlockTrigger.hiddenGemsPreview,
+              lockedCount: lockedGems,
+            );
+          }
+
+          if (i == visibleGems.length + 1 + (lockedGems > 0 ? 1 : 0)) {
+            return const Padding(
+              padding: EdgeInsets.only(top: 20),
+              child: FreemiumLocalSecretsPreview(),
+            );
+          }
+
+          final entry = visibleGems[i - 1];
           final gem = entry.gem;
           final gl = context.l10n;
           final gemMap = CityPackRegistry.instance.gemPlaceIds;

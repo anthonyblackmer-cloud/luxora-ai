@@ -2,7 +2,8 @@
   "cityId": "vegas",
   "cityName": "Las Vegas",
   "stateId": "nevada",
-  "description": "Strip spectacle, desert escapes, and world-class dining.",
+  "description": "Strip spectacle, residency shows, rooftop nights, and desert escapes — a Vegas insider concierge, not a generic travel app.",
+  "heroImageUrl": "eQ2ElhooTjc",
   "mapCenterLat": 36.1699,
   "mapCenterLng": -115.1398,
   "hubLabel": "Las Vegas, NV",
@@ -10,44 +11,25 @@
     "hotel",
     "dining",
     "nightlife",
+    "show",
+    "casino",
+    "pool",
+    "shopping",
     "adventure",
-    "wellness"
+    "luxury",
+    "foodie",
+    "romantic",
+    "wellness",
+    "family"
   ],
   "featuredExperiences": [],
   "featuredHotels": [],
   "featuredRestaurants": [],
   "featuredTicketDeals": [],
   "featuredHotelIntel": [],
-  "defaultRadiusMiles": 20,
-  "maxRadiusMiles": 60,
-  "districts": [
-    {
-      "districtId": "vegas-strip",
-      "cityId": "vegas",
-      "districtName": "The Strip",
-      "districtType": "nightlife",
-      "description": "Resort corridor and marquee shows.",
-      "mapBounds": {
-        "north": 36.15,
-        "south": 36.1,
-        "east": -115.15,
-        "west": -115.18
-      }
-    },
-    {
-      "districtId": "vegas-downtown",
-      "cityId": "vegas",
-      "districtName": "Downtown",
-      "districtType": "downtown",
-      "description": "Fremont Street neon and vintage Vegas.",
-      "mapBounds": {
-        "north": 36.18,
-        "south": 36.16,
-        "east": -115.13,
-        "west": -115.15
-      }
-    }
-  ],
+  "defaultRadiusMiles": 35,
+  "maxRadiusMiles": 75,
+  "districts": [],
   "experiences": [],
   "feedItemPlaceIds": {},
   "gemPlaceIds": {},

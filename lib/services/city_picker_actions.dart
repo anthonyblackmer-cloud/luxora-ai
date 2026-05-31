@@ -22,13 +22,7 @@ abstract final class CityPickerActions {
 
     if (pickedId == currentCityId) return;
 
-    if (PaywallService.needsUnlock(pickedId)) {
-      final ok = await PaywallService.showPaywall(context, cityId: pickedId);
-      if (!ok || !context.mounted) return;
-    } else {
-      await CityPackSync.switchCity(pickedId);
-    }
-
+    await CityPackSync.switchCity(pickedId);
     onCitySelected?.call(pickedId);
 
     if (context.mounted &&

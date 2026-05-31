@@ -1,0 +1,33 @@
+{
+  "cityId": "st-augustine",
+  "cityName": "St. Augustine",
+  "stateId": "florida",
+  "description": "Historic streets, coastal romance, ghost tours, and walkable colonial charm — Florida\'s oldest city concierge.",
+  "heroImageUrl": "RE1uPSyVuls",
+  "mapCenterLat": 29.8946,
+  "mapCenterLng": -81.3145,
+  "hubLabel": "St. Augustine, FL",
+  "supportedCategories": [
+    "hotel",
+    "dining",
+    "beach",
+    "historic",
+    "culture",
+    "foodie",
+    "romantic",
+    "adventure",
+    "family"
+  ],
+  "featuredExperiences": [],
+  "featuredHotels": [],
+  "featuredRestaurants": [],
+  "featuredTicketDeals": [],
+  "featuredHotelIntel": [],
+  "defaultRadiusMiles": 35,
+  "maxRadiusMiles": 75,
+  "districts": [],
+  "experiences": [],
+  "feedItemPlaceIds": {},
+  "gemPlaceIds": {},
+  "itineraryMomentPlaceIds": {}
+}

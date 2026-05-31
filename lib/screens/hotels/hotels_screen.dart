@@ -14,6 +14,9 @@ import 'package:luxora_ai/widgets/hotel_detail_sheet.dart';
 import 'package:luxora_ai/widgets/lux_responsive_frame.dart';
 import 'package:luxora_ai/widgets/lux_secondary_app_bar.dart';
 import 'package:luxora_ai/widgets/lux_button.dart';
+import 'package:luxora_ai/services/freemium_limits.dart';
+import 'package:luxora_ai/services/freemium_service.dart';
+import 'package:luxora_ai/widgets/freemium/freemium_unlock_cta.dart';
 import 'package:luxora_ai/widgets/partner_sponsor_badge.dart';
 
 class HotelsScreen extends StatefulWidget {
@@ -48,7 +51,15 @@ class _HotelsScreenState extends State<HotelsScreen> {
   @override
   Widget build(BuildContext context) {
     final l = context.l10n;
-    final hotels = HotelIntelligenceService.allHotels();
+    final allHotels = HotelIntelligenceService.allHotels();
+    final hotels = FreemiumService.previewSlice(
+      allHotels,
+      FreemiumUnlockTrigger.hotelsPreview,
+    );
+    final lockedHotels = FreemiumService.lockedCount(
+      allHotels.length,
+      FreemiumUnlockTrigger.hotelsPreview,
+    );
 
     return Scaffold(
       backgroundColor: Colors.transparent,
@@ -122,7 +133,17 @@ class _HotelsScreenState extends State<HotelsScreen> {
                           LuxButton(
                             label: l.hotelMatchmakerCta,
                             icon: Icons.travel_explore_rounded,
-                            onPressed: () => context.push('/stays/matchmaker'),
+                            onPressed: () async {
+                              if (!FreemiumService.hasFullAccess()) {
+                                await FreemiumService.promptUnlock(
+                                  context,
+                                  trigger: FreemiumUnlockTrigger.hotelMatchmaker,
+                                );
+                                return;
+                              }
+                              if (!context.mounted) return;
+                              context.push('/stays/matchmaker');
+                            },
                           ),
                         ],
                       ),
@@ -176,6 +197,10 @@ class _HotelsScreenState extends State<HotelsScreen> {
                           );
                         },
                       ),
+                    FreemiumUnlockCta(
+                      trigger: FreemiumUnlockTrigger.hotelsPreview,
+                      lockedCount: lockedHotels,
+                    ),
                   ],
                 ),
               ),

@@ -898,7 +898,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get mapRerouteRainHint =>
-      'बारिश की संभावना - इनडोर बैकअप के लिए टैप का मार्ग बदलें।';
+      'चिंता न करें — मैंने पास में विकल्प ढूँढ लिए हैं ताकि आपका दिन सुखद और तनाव-मुक्त रहे।';
 
   @override
   String get dayFlowSwapTitle => 'इस रोक को बदलो';
@@ -1096,6 +1096,73 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get localSecretMiamiPantherAlley =>
       'खिड़की पर ऑर्डर करें, गली में दक्षिणावर्त चलें - सबसे अच्छा भित्ति प्रकाश सुबह 8:45 बजे फ़िरोज़ा दीवार से टकराता है।';
+
+  @override
+  String get localSecretTampaBayRiverwalkParking =>
+      'Whiting Street गैरेज का उपयोग करें — घाट के पास बंद रास्तों से बचने के लिए नदी के किनारे दक्षिण चलें।';
+
+  @override
+  String get localSecretTampaBayClearwaterSunset =>
+      'Pier 60 की भीड़ छोड़ें — सूर्यास्त से 40 मिनट पहले Sand Key पहुँचें।';
+
+  @override
+  String get localSecretTampaBayDaliGarden =>
+      'दोपहर की अंतिम एंट्री बुक करें — पूर्वी garden overlook बिना भीड़ के पुल की रोशनी पकड़ता है।';
+
+  @override
+  String get localSecretTampaBayPierTiming =>
+      'सप्ताह के दिन शाम 4 बजे pier entry — weekend stroller traffic के बिना sunset।';
+
+  @override
+  String get localSecretTampaBayYborCourtyard =>
+      'Cuban sandwich to-go — 8 PM के बाद locals जो side street courtyard इस्तेमाल करते हैं वहाँ खाएँ।';
+
+  @override
+  String get localSecretTampaBaySpongeDocks =>
+      'पहले dock पर lunch, फिर sponge boats — weekday 1 PM के बाद tours कम होते हैं।';
+
+  @override
+  String get localSecretVegasBellagioFountains =>
+      'शो से 15 मिनट पहले बीच वाली घास पर खड़े रहें — सामने की रेल नृत्य दृश्य रोकती है।';
+
+  @override
+  String get localSecretVegasFremontTiming =>
+      'कार्यदिवस रात 9 बजे canopy के नीचे — शनिवार भीड़ के बिना पूरा Viva Vision।';
+
+  @override
+  String get localSecretVegasCaesarsEntrance =>
+      'पार्किंग गैरेज कनेक्टर — डिनर समय Strip भीड़ से बचें।';
+
+  @override
+  String get localSecretVegasVenetianWalk =>
+      'दोपहर में छत वाले नहर वॉक — AC के साथ Strip पार без गर्मी चेतावनी।';
+
+  @override
+  String get nycMoodRoutesTitle => 'न्यू यॉर्क मूड रूट';
+
+  @override
+  String get localSecretNycTimesSquareStrategy =>
+      '7वीं एवेन्यू की गलियों से प्रवेश — चौराहे की भीड़ से बचें, Broadway दृश्य बनाए रखें।';
+
+  @override
+  String get localSecretNycObservationDeck =>
+      'सूर्यास्त से पहले अंतिम स्लॉट बुक करें — दोपहर की कतार के बिना सुनहरी रोशनी।';
+
+  @override
+  String get localSecretNycCentralParkEntrance =>
+      '72nd Street ट्रांसवर्स — Columbus Circle भीड़ के बिना Bethesda तक तेज़ रास्ता।';
+
+  @override
+  String get localSecretNycBroadwayTickets =>
+      'TKTS सुबह की लाइन जल्दी खुलती है — rush सीटें पर्यटक दरों से बेहतर।';
+
+  @override
+  String get localSecretNycBrooklynBridgePhoto =>
+      'Washington Street DUMBO सुबह 8 बजे — टूर समूहों से पहले खाली cobblestone फ्रेम।';
+
+  @override
+  String get localSecretNycFerryGoldenHour =>
+      'सूर्यास्त पर Staten Island फेरी — टूर बोट शुल्क के बिना मुफ्त बंदरगाह लूप।';
 
   @override
   String get momentsTitle => 'लक्सोरा क्षण';
@@ -1946,7 +2013,7 @@ class AppLocalizationsHi extends AppLocalizations {
       'लक्सोरा एआई आपकी भावनात्मक रूप से बुद्धिमान दरबान है - छिपे हुए रत्न, छत पर सूर्यास्त, और आपके पैक करने से पहले अविस्मरणीय महसूस करने के लिए डिज़ाइन किए गए क्षण।';
 
   @override
-  String get landingBegin => 'अपनी यात्रा शुरू करें';
+  String get landingBegin => 'मेरी यात्रा शुरू करें';
 
   @override
   String get landingTalk => 'लक्सोरा से बात करो';
@@ -2118,7 +2185,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get onboardFinish => 'अपने द्वारपाल से मिलें';
 
   @override
-  String get onboardBuilding => 'अपनी यात्रा का निर्माण...';
+  String get onboardBuilding => 'आपका adventure बन रहा है…';
 
   @override
   String get onboardStep1Title => 'जहां सपने सबसे पहले उतरते हैं';
@@ -3340,7 +3407,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get paywallConciergePromise =>
-      'एकमुश्त खरीदारी · व्यक्तिगत दरबान · कोई सदस्यता नहीं';
+      'कोई सब्सक्रिप्शन नहीं · आजीवन शहर एक्सेस';
 
   @override
   String get paywallRestorePurchases => 'खरीदारी वापस लौटाएं';
@@ -3455,6 +3522,21 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get miamiMoodRoutesTitle => 'मियामी मूड रूट';
+
+  @override
+  String get tampaBayMoodRoutesTitle => 'Tampa Bay मूड रूट';
+
+  @override
+  String get stAugustineMoodRoutesTitle => 'St. Augustine मूड रूट';
+
+  @override
+  String get naplesMoodRoutesTitle => 'Naples मूड रूट';
+
+  @override
+  String get destin30aMoodRoutesTitle => 'Destin और 30A मूड रूट';
+
+  @override
+  String get vegasMoodRoutesTitle => 'लास वेगास मूड रूट';
 
   @override
   String miamiMoodRouteStart(String time) {
@@ -3692,15 +3774,16 @@ class AppLocalizationsHi extends AppLocalizations {
   String get onboardV2StepEmotionSubtitle => 'एक प्राथमिक भावना चुनें.';
 
   @override
-  String get onboardV2StepSummaryEyebrow => 'आपका दरबान पूर्वावलोकन';
+  String get onboardV2StepSummaryEyebrow => 'LUXORA';
 
   @override
-  String get onboardV2StepSummaryTitle =>
-      'आपके चयन के आधार पर, लक्सोरा अनुशंसा करता है';
+  String onboardV2StepSummaryTitle(String name) {
+    return 'बढ़िया, $name.';
+  }
 
   @override
   String get onboardV2StepSummarySubtitle =>
-      'हम अब आपकी संपूर्ण यात्रा का निर्माण कर रहे हैं।';
+      'मैंने थोड़ा सीखा है कि आप किस तरह के यात्री हैं।\n\nअब मैं आपकी पसंद के अनुसार स्थान, अनुभव, रेस्तरां और hidden gems सुझाऊँगी।\n\nहर सिफारिश विशेष रूप से आपके लिए होगी।\n\nदेखते हैं क्या खोज सकते हैं।';
 
   @override
   String get onboardSummaryHotels => 'होटल';
@@ -4183,6 +4266,73 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
+  String get onboardWelcomeEyebrow => 'LUXORA';
+
+  @override
+  String get onboardWelcomeTitle => 'नमस्ते, मैं Luxora हूँ।';
+
+  @override
+  String get onboardWelcomeTagline => 'आपकी personal travel concierge.';
+
+  @override
+  String get onboardWelcomeBody =>
+      'मैं अद्भुत जगहें खोजने, tourist traps से बचने और ऐसी छुट्टी बनाने में मदद करती हूँ जिसे आप सालों तक याद रखेंगे।\n\nचलिए कुछ अविस्मरणीय plan करें।';
+
+  @override
+  String get onboardWelcomeCta => 'मेरी यात्रा शुरू करें';
+
+  @override
+  String get onboardLuxoraGuideBody =>
+      'अब से मैं हर कदम पर आपकी मदद करूँगी।\n\nHidden gems, शानदार खाना, अविस्मरणीय अनुभव, या बस stress-free vacation — मैं साथ हूँ।';
+
+  @override
+  String get onboardLuxoraReplyClosing =>
+      'चलिए मिलकर आपका perfect adventure बनाते हैं।';
+
+  @override
+  String onboardBuildingTitle(String name) {
+    return 'शानदार choice, $name.';
+  }
+
+  @override
+  String get onboardBuildingBody =>
+      'मैं आपकी travel style, रुचियों, pace, dining preferences और vacation goals के आधार पर personalized itinerary बना रही हूँ।\n\nइसमें थोड़ा समय लग सकता है।';
+
+  @override
+  String get onboardBuildingTagline =>
+      'अच्छी छुट्टियाँ संयोग से होती हैं।\n\nGreat vacations एक plan से होती हैं।';
+
+  @override
+  String get onboardItineraryReadyTitle => 'आपका adventure तैयार है।';
+
+  @override
+  String get onboardItineraryReadyBody =>
+      'मैंने सावधानी से experiences, restaurants, attractions और hidden gems चुने हैं जो आपकी trip से मेल खाते हैं।\n\nबेशक, हम रास्ते में कुछ भी adjust कर सकते हैं।\n\nBest vacations चलते-चलते evolve होती हैं।';
+
+  @override
+  String weatherRerouteLuxoraIntro(String name) {
+    return '$name, लगता है मौसम आज के कुछ plans को प्रभावित कर सकता है।';
+  }
+
+  @override
+  String get weatherRerouteLuxoraClosing =>
+      'कभी-कभी अप्रत्याशित चीज़ें best memories बनाती हैं।';
+
+  @override
+  String rightNowLuxoraIntro(String name) {
+    return '$name, आपके location, current weather और preferences के आधार पर — अभी मैं यह करूँगी।';
+  }
+
+  @override
+  String get rightNowLuxoraClosing =>
+      'मुझ पर भरोसा करें।\n\nमुझे लगता है आपको पसंद आएगा।';
+
+  @override
+  String paywallPersonalPitch(String name, String cityName) {
+    return '$name, आपका personalized vacation plan पहले से shape ले रहा है।\n\nDay 1 ready है।\n\nबाकी journey इंतज़ार कर रही है।\n\n$cityName Concierge unlock करें — full itinerary, hidden gems, local secrets, weather intelligence और unlimited concierge guidance के लिए।\n\nइस vacation को unforgettable बनाते हैं।';
+  }
+
+  @override
   String get onboardLuxoraReplyEyebrow => 'लक्सोरा';
 
   @override
@@ -4192,12 +4342,27 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String onboardLuxoraGuideNamed(String name) {
-    return '$name, मैं आपका मार्गदर्शन करने तथा आपके और आपके परिवार के लिए उत्तम छुट्टियाँ या रोमांच बनाने में मदद करने के लिए यहाँ हूँ।';
+    return 'अब से मैं हर कदम पर आपकी मदद करूँगी।\n\nHidden gems, शानदार खाना, अविस्मरणीय अनुभव, या बस stress-free vacation — मैं साथ हूँ।';
   }
 
   @override
   String get onboardLuxoraItineraryPromise =>
-      'जब हम यहां काम पूरा कर लेंगे, तो मैं आपके द्वारा चुनी गई हर चीज़ से आपका यात्रा कार्यक्रम बनाऊंगा। यदि आप बाद में कुछ बदलना चाहते हैं, तो कंसीयज टैब खोलें और मुझे बताएं कि क्या संपादित करना है - मैं हमेशा सुन रहा हूं।';
+      'चलिए मिलकर आपका perfect adventure बनाते हैं।';
+
+  @override
+  String get onboardReturningEyebrow => 'वापसी पर स्वागत';
+
+  @override
+  String onboardReturningTitle(String name) {
+    return 'वापसी पर स्वागत है, $name।';
+  }
+
+  @override
+  String get onboardReturningTitleGeneric => 'वापसी पर स्वागत है।';
+
+  @override
+  String get onboardReturningSubtitle =>
+      'अपना adventure जारी रखने के लिए तैयार?\n\nमैंने आपकी preferences, favorite places और trip plans save किए हैं ताकि हम वहीं से शुरू कर सकें।\n\nदेखते हैं आज क्या इंतज़ार कर रहा है।';
 
   @override
   String get todayPlanSectionTitle => 'आज की योजना';
@@ -4227,11 +4392,140 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
-  String get todayRainRerouteTitle => 'वर्षा पुनः मार्ग';
+  String get todayRainRerouteTitle => 'मौसम reroute';
 
   @override
   String get todayExtrasSection => 'टिकट और साझाकरण';
 
   @override
   String get todayExtrasCollapsedHint => 'सौदे, शेयर कार्ड, और बहुत कुछ';
+
+  @override
+  String freemiumVacationTitle(String cityName) {
+    return 'आपकी $cityName छुट्टी';
+  }
+
+  @override
+  String get freemiumDay1Ready => '✓ दिन 1 तैयार';
+
+  @override
+  String get freemiumUnlockFullPlan => 'पूरा vacation plan अनलॉक करें';
+
+  @override
+  String freemiumLockedDayConcierge(int day) {
+    return 'दिन $day · Concierge अनुकूलित';
+  }
+
+  @override
+  String get freemiumLockedDayGems => 'दिन 3 · छिपे हुए रत्न मार्ग';
+
+  @override
+  String get freemiumLockedDayWeather => 'दिन 4 · मौसम-जागरूक योजना';
+
+  @override
+  String get freemiumLockedDayDeparture => 'दिन 5 · प्रस्थान रणनीति';
+
+  @override
+  String freemiumConciergeRemaining(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count मुफ्त प्रश्न शेष',
+      one: '1 मुफ्त प्रश्न शेष',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get freemiumConciergeLimitReached =>
+      'मुफ्त concierge सीमा पूरी — असीमित planning के लिए अनलॉक करें।';
+
+  @override
+  String freemiumLockedHotels(int count) {
+    return '🔒 $count+ और hotels उपलब्ध';
+  }
+
+  @override
+  String freemiumLockedRestaurants(int count) {
+    return '🔒 $count+ और restaurants उपलब्ध';
+  }
+
+  @override
+  String freemiumLockedGems(int count) {
+    return '🔒 $count+ hidden gems उपलब्ध';
+  }
+
+  @override
+  String freemiumLockedSecrets(int count) {
+    return '🔒 $count+ local secrets उपलब्ध';
+  }
+
+  @override
+  String freemiumLockedExperiences(int count) {
+    return '🔒 $count+ experiences उपलब्ध';
+  }
+
+  @override
+  String get freemiumLockedAttractions => '🔒 और attractions उपलब्ध';
+
+  @override
+  String freemiumUnlockExplore(String cityName) {
+    return 'और explore करने के लिए $cityName Concierge अनलॉक करें।';
+  }
+
+  @override
+  String freemiumUnlockConcierge(String cityName) {
+    return '$cityName Concierge अनलॉक करें';
+  }
+
+  @override
+  String freemiumHeadlineDayTwoPlus(String cityName) {
+    return 'आपके अगले दिन तैयार हैं — पूरा $cityName plan अनलॉक करें।';
+  }
+
+  @override
+  String get freemiumHeadlineConciergeLimit =>
+      'असीमित concierge access के साथ planning जारी रखें।';
+
+  @override
+  String freemiumHeadlineHotels(String cityName) {
+    return 'हर stay recommendation के लिए $cityName Concierge अनलॉक करें।';
+  }
+
+  @override
+  String freemiumHeadlineRestaurants(String cityName) {
+    return '$cityName का पूरा restaurant collection अनलॉक करें।';
+  }
+
+  @override
+  String get freemiumHeadlineGems =>
+      'स्थानीय favorites और insider gems इंतज़ार कर रहे हैं।';
+
+  @override
+  String get freemiumHeadlineSecrets =>
+      'निवासियों के timing और parking secrets अनलॉक करें।';
+
+  @override
+  String freemiumHeadlineExperiences(String cityName) {
+    return 'पूरे $cityName में curated experiences अनलॉक करें।';
+  }
+
+  @override
+  String get freemiumHeadlineAttractions =>
+      'पूरा attractions collection अनलॉक करें।';
+
+  @override
+  String get freemiumHeadlineHotelMatchmaker =>
+      'हर stay compare करने के लिए Hotel Intelligence अनलॉक करें।';
+
+  @override
+  String get freemiumHeadlineFullItinerary =>
+      'अपना पूरा vacation plan अनलॉक करें।';
+
+  @override
+  String get freemiumLocalSecretsTitle => 'स्थानीय रहस्य';
+
+  @override
+  String get freemiumLocalSecretsSubtitle =>
+      'Insider timing, parking और viewpoints जो locals संभालते हैं।';
 }

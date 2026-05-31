@@ -1,0 +1,33 @@
+{
+  "cityId": "destin-30a",
+  "cityName": "Destin & 30A",
+  "stateId": "florida",
+  "description": "Emerald Gulf water, Crab Island boats, and 30A bike days — beach-family concierge for Destin and Scenic Highway 30A.",
+  "heroImageUrl": "JZYQ_P94T-Q",
+  "mapCenterLat": 30.3935,
+  "mapCenterLng": -86.4958,
+  "hubLabel": "Destin & 30A, FL",
+  "supportedCategories": [
+    "hotel",
+    "dining",
+    "beach",
+    "water",
+    "family",
+    "luxury",
+    "adventure",
+    "foodie",
+    "local"
+  ],
+  "featuredExperiences": [],
+  "featuredHotels": [],
+  "featuredRestaurants": [],
+  "featuredTicketDeals": [],
+  "featuredHotelIntel": [],
+  "defaultRadiusMiles": 35,
+  "maxRadiusMiles": 75,
+  "districts": [],
+  "experiences": [],
+  "feedItemPlaceIds": {},
+  "gemPlaceIds": {},
+  "itineraryMomentPlaceIds": {}
+}

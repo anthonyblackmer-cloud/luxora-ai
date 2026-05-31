@@ -814,7 +814,7 @@
   },
   "keysWaterWindScore": "हवा",
   "landingBadge": "फ्लोरिडा · ऑरलैंडो एमवीपी",
-  "landingBegin": "अपनी यात्रा शुरू करें",
+  "landingBegin": "मेरी यात्रा शुरू करें",
   "landingCityLabel": "आप कहां जा रहे हैं?",
   "landingRegionBadge": "लॉन्च क्षेत्र",
   "landingRegionTitle": "ऑरलैंडो और फ्लोरिडा - महसूस करने के लिए क्यूरेट किया गया",
@@ -934,7 +934,7 @@
   },
   "mapRerouteButton": "शांत पड़ावों के लिए मार्ग पुनः बदलें",
   "mapRerouteNone": "आपका मार्ग पहले से ही शांत दिखता है.",
-  "mapRerouteRainHint": "बारिश की संभावना - इनडोर बैकअप के लिए टैप का मार्ग बदलें।",
+  "mapRerouteRainHint": "चिंता न करें — मैंने पास में विकल्प ढूँढ लिए हैं ताकि आपका दिन सुखद और तनाव-मुक्त रहे।",
   "mapSubtitle": "आपके चयनित दिन के लिए पिन - सोने के हीरे रत्न हैं, सियान मार्कर आज की समयरेखा हैं, सोने की रेखा मूड मार्ग है।",
   "mapTitle": "आपका बुद्धिमान मार्ग",
   "miamiBeachBestTime": "सर्वोत्तम समय: {time}",
@@ -1072,7 +1072,7 @@
   "onboardAdventure": "साहसिक और आउटडोर",
   "onboardBudget": "यात्रा बजट (USD)",
   "onboardBuildFailedHint": "हमने आपकी प्राथमिकताएँ सहेज ली हैं, लेकिन यात्रा कार्यक्रम के लिए एक और क्षण की आवश्यकता है। एजेंडा पर ताज़ा करने या द्वारपाल खोलने के लिए खींचें।",
-  "onboardBuilding": "अपनी यात्रा का निर्माण...",
+  "onboardBuilding": "आपका adventure बन रहा है…",
   "onboardCityLabel": "अपना शहर चुनें",
   "onboardCityUnlockNote": "प्रत्येक गंतव्य का अपना द्वारपाल अनलॉक होता है - प्रति शहर एक बार की खरीदारी।",
   "onboardCulture": "संस्कृति एवं दर्शनीय स्थल",
@@ -1081,7 +1081,7 @@
   "onboardEndDateLabel": "अंतिम तिथि",
   "onboardFinish": "अपने द्वारपाल से मिलें",
   "onboardFoodie": "खाने का शौक",
-  "onboardLuxoraGuideNamed": "{name}, मैं आपका मार्गदर्शन करने तथा आपके और आपके परिवार के लिए उत्तम छुट्टियाँ या रोमांच बनाने में मदद करने के लिए यहाँ हूँ।",
+  "onboardLuxoraGuideNamed": "अब से मैं हर कदम पर आपकी मदद करूँगी।\n\nHidden gems, शानदार खाना, अविस्मरणीय अनुभव, या बस stress-free vacation — मैं साथ हूँ।",
   "@onboardLuxoraGuideNamed": {
     "placeholders": {
       "name": {
@@ -1089,7 +1089,7 @@
       }
     }
   },
-  "onboardLuxoraItineraryPromise": "जब हम यहां काम पूरा कर लेंगे, तो मैं आपके द्वारा चुनी गई हर चीज़ से आपका यात्रा कार्यक्रम बनाऊंगा। यदि आप बाद में कुछ बदलना चाहते हैं, तो कंसीयज टैब खोलें और मुझे बताएं कि क्या संपादित करना है - मैं हमेशा सुन रहा हूं।",
+  "onboardLuxoraItineraryPromise": "चलिए मिलकर आपका perfect adventure बनाते हैं।",
   "onboardLuxoraReplyEyebrow": "लक्सोरा",
   "onboardLuxoraReplyTitle": "आपसे मिलकर अच्छा लगा, {name}।",
   "@onboardLuxoraReplyTitle": {
@@ -1348,9 +1348,9 @@
   "onboardV2StepStyleEyebrow": "चरण दो",
   "onboardV2StepStyleSubtitle": "वह सब कुछ चुनें जो आपको उत्साहित करता हो।",
   "onboardV2StepStyleTitle": "आप किस प्रकार की यात्रा की तलाश में हैं?",
-  "onboardV2StepSummaryEyebrow": "आपका दरबान पूर्वावलोकन",
-  "onboardV2StepSummarySubtitle": "हम अब आपकी संपूर्ण यात्रा का निर्माण कर रहे हैं।",
-  "onboardV2StepSummaryTitle": "आपके चयन के आधार पर, लक्सोरा अनुशंसा करता है",
+  "onboardV2StepSummaryEyebrow": "LUXORA",
+  "onboardV2StepSummarySubtitle": "मैंने थोड़ा सीखा है कि आप किस तरह के यात्री हैं।\n\nअब मैं आपकी पसंद के अनुसार स्थान, अनुभव, रेस्तरां और hidden gems सुझाऊँगी।\n\nहर सिफारिश विशेष रूप से आपके लिए होगी।\n\nदेखते हैं क्या खोज सकते हैं।",
+  "onboardV2StepSummaryTitle": "बढ़िया, {name}.",
   "onboardV2StepTravelerEyebrow": "स्टेप 1",
   "onboardV2StepTravelerSubtitle": "लक्सोरा टेलर्स आपके दल के लिए ठहरता है, भोजन करता है और उनके साथ घूमता है।",
   "onboardV2StepTravelerTitle": "आप किसके साथ यात्रा कर रहे हैं?",
@@ -1378,7 +1378,7 @@
   "paywallBenefitSaveTimeTitle": "समय की बचत",
   "paywallBenefitTravelSmarterBody": "मौसम, भीड़ और अपनी यात्रा शैली के आधार पर अनुशंसाएँ प्राप्त करें।",
   "paywallBenefitTravelSmarterTitle": "बेहतर यात्रा करें",
-  "paywallConciergePromise": "एकमुश्त खरीदारी · व्यक्तिगत दरबान · कोई सदस्यता नहीं",
+  "paywallConciergePromise": "कोई सब्सक्रिप्शन नहीं · आजीवन शहर एक्सेस",
   "paywallContinueExploring": "अन्वेषण जारी रखें",
   "paywallCtaUnlock": "{cityName} द्वारपाल को अनलॉक करें",
   "@paywallCtaUnlock": {
@@ -2001,7 +2001,7 @@
       }
     }
   },
-  "todayRainRerouteTitle": "वर्षा पुनः मार्ग",
+  "todayRainRerouteTitle": "मौसम reroute",
   "todayStaysDiningCollapsedHint": "होटल और रेस्तरां विचार - विस्तार करने के लिए टैप करें",
   "todayStaysDiningSection": "ठहरने और खाने का विकल्प",
   "tripStoryBeatClosing": "लक्सोरा ने क्षणों को आकार दिया - आपने उन्हें जीया।",
@@ -2286,6 +2286,221 @@
       },
       "speed": {
         "type": "int"
+      }
+    }
+  },
+  "freemiumVacationTitle": "आपकी {cityName} छुट्टी",
+  "@freemiumVacationTitle": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumDay1Ready": "✓ दिन 1 तैयार",
+  "freemiumUnlockFullPlan": "पूरा vacation plan अनलॉक करें",
+  "freemiumLockedDayConcierge": "दिन {day} · Concierge अनुकूलित",
+  "@freemiumLockedDayConcierge": {
+    "placeholders": {
+      "day": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumLockedDayGems": "दिन 3 · छिपे हुए रत्न मार्ग",
+  "freemiumLockedDayWeather": "दिन 4 · मौसम-जागरूक योजना",
+  "freemiumLockedDayDeparture": "दिन 5 · प्रस्थान रणनीति",
+  "freemiumConciergeRemaining": "{count, plural, =1{1 मुफ्त प्रश्न शेष} other{{count} मुफ्त प्रश्न शेष}}",
+  "@freemiumConciergeRemaining": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumConciergeLimitReached": "मुफ्त concierge सीमा पूरी — असीमित planning के लिए अनलॉक करें।",
+  "freemiumLockedHotels": "🔒 {count}+ और hotels उपलब्ध",
+  "@freemiumLockedHotels": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumLockedRestaurants": "🔒 {count}+ और restaurants उपलब्ध",
+  "@freemiumLockedRestaurants": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumLockedGems": "🔒 {count}+ hidden gems उपलब्ध",
+  "@freemiumLockedGems": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumLockedSecrets": "🔒 {count}+ local secrets उपलब्ध",
+  "@freemiumLockedSecrets": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumLockedExperiences": "🔒 {count}+ experiences उपलब्ध",
+  "@freemiumLockedExperiences": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumLockedAttractions": "🔒 और attractions उपलब्ध",
+  "freemiumUnlockExplore": "और explore करने के लिए {cityName} Concierge अनलॉक करें।",
+  "@freemiumUnlockExplore": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumUnlockConcierge": "{cityName} Concierge अनलॉक करें",
+  "@freemiumUnlockConcierge": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumHeadlineDayTwoPlus": "आपके अगले दिन तैयार हैं — पूरा {cityName} plan अनलॉक करें।",
+  "@freemiumHeadlineDayTwoPlus": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumHeadlineConciergeLimit": "असीमित concierge access के साथ planning जारी रखें।",
+  "freemiumHeadlineHotels": "हर stay recommendation के लिए {cityName} Concierge अनलॉक करें।",
+  "@freemiumHeadlineHotels": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumHeadlineRestaurants": "{cityName} का पूरा restaurant collection अनलॉक करें।",
+  "@freemiumHeadlineRestaurants": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumHeadlineGems": "स्थानीय favorites और insider gems इंतज़ार कर रहे हैं।",
+  "freemiumHeadlineSecrets": "निवासियों के timing और parking secrets अनलॉक करें।",
+  "freemiumHeadlineExperiences": "पूरे {cityName} में curated experiences अनलॉक करें।",
+  "@freemiumHeadlineExperiences": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumHeadlineAttractions": "पूरा attractions collection अनलॉक करें।",
+  "freemiumHeadlineHotelMatchmaker": "हर stay compare करने के लिए Hotel Intelligence अनलॉक करें।",
+  "freemiumHeadlineFullItinerary": "अपना पूरा vacation plan अनलॉक करें।",
+  "freemiumLocalSecretsTitle": "स्थानीय रहस्य",
+  "freemiumLocalSecretsSubtitle": "Insider timing, parking और viewpoints जो locals संभालते हैं।",
+  "localSecretTampaBayRiverwalkParking": "Whiting Street गैरेज का उपयोग करें — घाट के पास बंद रास्तों से बचने के लिए नदी के किनारे दक्षिण चलें।",
+  "localSecretTampaBayClearwaterSunset": "Pier 60 की भीड़ छोड़ें — सूर्यास्त से 40 मिनट पहले Sand Key पहुँचें।",
+  "localSecretTampaBayDaliGarden": "दोपहर की अंतिम एंट्री बुक करें — पूर्वी garden overlook बिना भीड़ के पुल की रोशनी पकड़ता है।",
+  "localSecretTampaBayPierTiming": "सप्ताह के दिन शाम 4 बजे pier entry — weekend stroller traffic के बिना sunset।",
+  "localSecretTampaBayYborCourtyard": "Cuban sandwich to-go — 8 PM के बाद locals जो side street courtyard इस्तेमाल करते हैं वहाँ खाएँ।",
+  "localSecretTampaBaySpongeDocks": "पहले dock पर lunch, फिर sponge boats — weekday 1 PM के बाद tours कम होते हैं।",
+  "tampaBayMoodRoutesTitle": "Tampa Bay मूड रूट",
+  "stAugustineMoodRoutesTitle": "St. Augustine मूड रूट",
+  "naplesMoodRoutesTitle": "Naples मूड रूट",
+  "destin30aMoodRoutesTitle": "Destin और 30A मूड रूट",
+  "onboardReturningEyebrow": "वापसी पर स्वागत",
+  "onboardReturningTitle": "वापसी पर स्वागत है, {name}।",
+  "@onboardReturningTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardReturningTitleGeneric": "वापसी पर स्वागत है।",
+  "onboardReturningSubtitle": "अपना adventure जारी रखने के लिए तैयार?\n\nमैंने आपकी preferences, favorite places और trip plans save किए हैं ताकि हम वहीं से शुरू कर सकें।\n\nदेखते हैं आज क्या इंतज़ार कर रहा है।",
+  "vegasMoodRoutesTitle": "लास वेगास मूड रूट",
+  "localSecretVegasBellagioFountains": "शो से 15 मिनट पहले बीच वाली घास पर खड़े रहें — सामने की रेल नृत्य दृश्य रोकती है।",
+  "localSecretVegasFremontTiming": "कार्यदिवस रात 9 बजे canopy के नीचे — शनिवार भीड़ के बिना पूरा Viva Vision।",
+  "localSecretVegasCaesarsEntrance": "पार्किंग गैरेज कनेक्टर — डिनर समय Strip भीड़ से बचें।",
+  "localSecretVegasVenetianWalk": "दोपहर में छत वाले नहर वॉक — AC के साथ Strip पार без गर्मी चेतावनी।",
+  "nycMoodRoutesTitle": "न्यू यॉर्क मूड रूट",
+  "localSecretNycTimesSquareStrategy": "7वीं एवेन्यू की गलियों से प्रवेश — चौराहे की भीड़ से बचें, Broadway दृश्य बनाए रखें।",
+  "localSecretNycObservationDeck": "सूर्यास्त से पहले अंतिम स्लॉट बुक करें — दोपहर की कतार के बिना सुनहरी रोशनी।",
+  "localSecretNycCentralParkEntrance": "72nd Street ट्रांसवर्स — Columbus Circle भीड़ के बिना Bethesda तक तेज़ रास्ता।",
+  "localSecretNycBroadwayTickets": "TKTS सुबह की लाइन जल्दी खुलती है — rush सीटें पर्यटक दरों से बेहतर।",
+  "localSecretNycBrooklynBridgePhoto": "Washington Street DUMBO सुबह 8 बजे — टूर समूहों से पहले खाली cobblestone फ्रेम।",
+  "localSecretNycFerryGoldenHour": "सूर्यास्त पर Staten Island फेरी — टूर बोट शुल्क के बिना मुफ्त बंदरगाह लूप।",
+  "@onboardV2StepSummaryTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardWelcomeEyebrow": "LUXORA",
+  "onboardWelcomeTitle": "नमस्ते, मैं Luxora हूँ।",
+  "onboardWelcomeTagline": "आपकी personal travel concierge.",
+  "onboardWelcomeBody": "मैं अद्भुत जगहें खोजने, tourist traps से बचने और ऐसी छुट्टी बनाने में मदद करती हूँ जिसे आप सालों तक याद रखेंगे।\n\nचलिए कुछ अविस्मरणीय plan करें।",
+  "onboardWelcomeCta": "मेरी यात्रा शुरू करें",
+  "onboardLuxoraGuideBody": "अब से मैं हर कदम पर आपकी मदद करूँगी।\n\nHidden gems, शानदार खाना, अविस्मरणीय अनुभव, या बस stress-free vacation — मैं साथ हूँ।",
+  "onboardLuxoraReplyClosing": "चलिए मिलकर आपका perfect adventure बनाते हैं।",
+  "onboardBuildingTitle": "शानदार choice, {name}.",
+  "@onboardBuildingTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardBuildingBody": "मैं आपकी travel style, रुचियों, pace, dining preferences और vacation goals के आधार पर personalized itinerary बना रही हूँ।\n\nइसमें थोड़ा समय लग सकता है।",
+  "onboardBuildingTagline": "अच्छी छुट्टियाँ संयोग से होती हैं।\n\nGreat vacations एक plan से होती हैं।",
+  "onboardItineraryReadyTitle": "आपका adventure तैयार है।",
+  "onboardItineraryReadyBody": "मैंने सावधानी से experiences, restaurants, attractions और hidden gems चुने हैं जो आपकी trip से मेल खाते हैं।\n\nबेशक, हम रास्ते में कुछ भी adjust कर सकते हैं।\n\nBest vacations चलते-चलते evolve होती हैं।",
+  "weatherRerouteLuxoraIntro": "{name}, लगता है मौसम आज के कुछ plans को प्रभावित कर सकता है।",
+  "@weatherRerouteLuxoraIntro": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherRerouteLuxoraClosing": "कभी-कभी अप्रत्याशित चीज़ें best memories बनाती हैं।",
+  "rightNowLuxoraIntro": "{name}, आपके location, current weather और preferences के आधार पर — अभी मैं यह करूँगी।",
+  "@rightNowLuxoraIntro": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowLuxoraClosing": "मुझ पर भरोसा करें।\n\nमुझे लगता है आपको पसंद आएगा।",
+  "paywallPersonalPitch": "{name}, आपका personalized vacation plan पहले से shape ले रहा है।\n\nDay 1 ready है।\n\nबाकी journey इंतज़ार कर रही है।\n\n{cityName} Concierge unlock करें — full itinerary, hidden gems, local secrets, weather intelligence और unlimited concierge guidance के लिए।\n\nइस vacation को unforgettable बनाते हैं।",
+  "@paywallPersonalPitch": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "cityName": {
+        "type": "String"
       }
     }
   }

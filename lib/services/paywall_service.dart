@@ -59,18 +59,19 @@ abstract final class PaywallService {
     BuildContext context, {
     String? cityId,
     String? addonId,
+    String? contextHeadline,
   }) async {
     final id = cityId ?? CityPackRegistry.instance.active.cityId;
     if (isOrlandoAddon(addonId)) {
       if (!needsAddonUnlock(addonId!)) return true;
-      return _pushPaywall(context, id, addonId: addonId);
+      return _pushPaywall(context, id, addonId: addonId, contextHeadline: contextHeadline);
     }
     if (!needsUnlock(id)) {
       await CityPackSync.switchCity(id);
       return true;
     }
 
-    return _pushPaywall(context, id);
+    return _pushPaywall(context, id, contextHeadline: contextHeadline);
   }
 
   /// Theme-park add-on paywall — Orlando base unlock sold separately.
@@ -179,24 +180,14 @@ abstract final class PaywallService {
   static Future<void> openConciergeEntry(BuildContext context) =>
       talkToLuxora(context);
 
-  /// Primary CTA for "Talk to Luxora" — unlock if needed, then Concierge tab.
+  /// Primary CTA for "Talk to Luxora" — Concierge tab (freemium: 3 free messages).
   static Future<void> talkToLuxora(
     BuildContext context, {
     String? cityId,
     String? fallbackRoute,
   }) async {
     final id = cityId ?? CityPackRegistry.instance.active.cityId;
-    if (needsUnlock(id)) {
-      final ok = await showPaywall(context, cityId: id);
-      if (!ok || !context.mounted) {
-        if (fallbackRoute != null && context.mounted) {
-          context.go(fallbackRoute);
-        }
-        return;
-      }
-    } else {
-      await CityPackSync.switchCity(id);
-    }
+    await CityPackSync.switchCity(id);
 
     if (!context.mounted) return;
     if (id == OrlandoAddonCatalog.parentCityId) {
@@ -211,11 +202,16 @@ abstract final class PaywallService {
     BuildContext context,
     String cityId, {
     String? addonId,
+    String? contextHeadline,
   }) async {
-    final query = addonId == null
-        ? 'city=$cityId'
-        : 'city=$cityId&addon=$addonId';
-    final result = await context.push<bool>('/paywall?$query');
+    final parts = <String>['city=$cityId'];
+    if (addonId != null) parts.add('addon=$addonId');
+    if (contextHeadline != null && contextHeadline.isNotEmpty) {
+      parts.add(
+        'headline=${Uri.encodeComponent(contextHeadline)}',
+      );
+    }
+    final result = await context.push<bool>('/paywall?${parts.join('&')}');
     return result ?? false;
   }
 

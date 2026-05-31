@@ -1,16 +1,24 @@
+import 'package:luxora_ai/data/city_pack_ui_catalog.dart';
+
 /// Store product IDs — must match App Store Connect & Google Play Console.
 ///
 /// Bundle id: `com.luxora.luxoraAi`
 abstract final class IapProductCatalog {
   static const _prefix = 'com.luxora.luxoraAi';
 
-  /// Launch city packs (Phase 1 — do not add new cities here until validated).
-  static const launchCityIds = {'orlando', 'miami', 'florida-keys'};
+  /// City packs offered for new purchase in the UI (Phase 1 growth markets).
+  static const launchCityIds = CityPackUiCatalog.uiVisibleCityIds;
 
   static const cityProducts = <String, String>{
     'orlando': '$_prefix.city.orlando',
     'miami': '$_prefix.city.miami',
     'florida-keys': '$_prefix.city.florida_keys',
+    'tampa-bay': '$_prefix.city.tampa_bay',
+    'st-augustine': '$_prefix.city.st_augustine',
+    'naples': '$_prefix.city.naples',
+    'destin-30a': '$_prefix.city.destin_30a',
+    'vegas': '$_prefix.city.vegas',
+    'nyc': '$_prefix.city.nyc',
   };
 
   static const addonProducts = <String, String>{

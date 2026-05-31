@@ -814,7 +814,7 @@
   },
   "keysWaterWindScore": "Rüzgâr",
   "landingBadge": "FLORIDA · ORLANDO MVP'si",
-  "landingBegin": "Yolculuğunuza başlayın",
+  "landingBegin": "Yolculuğuma başla",
   "landingCityLabel": "Nereye gidiyorsun?",
   "landingRegionBadge": "Başlatma bölgesi",
   "landingRegionTitle": "Orlando ve Florida — duygu için seçilmiş",
@@ -934,7 +934,7 @@
   },
   "mapRerouteButton": "Daha sakin duraklar için yeniden rota çizin",
   "mapRerouteNone": "Rotanız zaten sakin görünüyor.",
-  "mapRerouteRainHint": "Yağmur muhtemel — iç mekan yedeklemeleri için yeniden yönlendirmeye dokunun.",
+  "mapRerouteRainHint": "Endişelenme — günün keyifli ve stressiz kalması için yakında alternatifler buldum.",
   "mapSubtitle": "Seçilmiş gününüz için Pinler - altın pırlantalar Mücevherlerdir, camgöbeği işaretleyiciler bugünün zaman çizelgesidir, altın çizgi ise ruh hali rotasıdır.",
   "mapTitle": "Akıllı rotanız",
   "miamiBeachBestTime": "En iyi zaman: {time}",
@@ -1072,7 +1072,7 @@
   "onboardAdventure": "Macera ve açık hava",
   "onboardBudget": "Seyahat bütçesi (USD)",
   "onboardBuildFailedHint": "Tercihlerinizi kaydettik ancak seyahat planının biraz daha zamana ihtiyacı var. Ajandayı yenilemek veya Concierge'i açmak için çekin.",
-  "onboardBuilding": "Seyahatinizi oluşturuyoruz…",
+  "onboardBuilding": "Macera oluşturuluyor…",
   "onboardCityLabel": "Şehrinizi seçin",
   "onboardCityUnlockNote": "Her destinasyonun kendi konsiyerj kilidi vardır; şehir başına tek seferlik satın alma.",
   "onboardCulture": "Kültür ve gezi",
@@ -1081,7 +1081,7 @@
   "onboardEndDateLabel": "Bitiş tarihi",
   "onboardFinish": "Konsiyerjinizle tanışın",
   "onboardFoodie": "Yemek tutkusu",
-  "onboardLuxoraGuideNamed": "{name}, sana rehberlik etmek ve sen ve ailen için mükemmel bir tatil veya macera yaratmana yardım etmek için buradayım.",
+  "onboardLuxoraGuideNamed": "Bu andan itibaren yolculuğunda her adımda yanındayım.\n\nGizli mücevherler, harika yemek, unutulmaz deneyimler veya sadece stressiz bir tatil — yanındayım.",
   "@onboardLuxoraGuideNamed": {
     "placeholders": {
       "name": {
@@ -1089,7 +1089,7 @@
       }
     }
   },
-  "onboardLuxoraItineraryPromise": "Burada işimiz bittiğinde, seçtiğiniz her şeyden seyahat planınızı oluşturacağım. Daha sonra herhangi bir şeyi değiştirmek isterseniz Concierge sekmesini açın ve neyi düzenleyeceğimi bana söyleyin; her zaman dinliyorum.",
+  "onboardLuxoraItineraryPromise": "Birlikte mükemmel maceranı oluşturalım.",
   "onboardLuxoraReplyEyebrow": "LUXORA",
   "onboardLuxoraReplyTitle": "Seninle tanıştığıma memnun oldum {name}.",
   "@onboardLuxoraReplyTitle": {
@@ -1348,9 +1348,9 @@
   "onboardV2StepStyleEyebrow": "2. Adım",
   "onboardV2StepStyleSubtitle": "Sizi heyecanlandıran her şeyi seçin.",
   "onboardV2StepStyleTitle": "Ne tür bir gezi arıyorsunuz?",
-  "onboardV2StepSummaryEyebrow": "Konsiyerj önizlemeniz",
-  "onboardV2StepSummarySubtitle": "Şimdi mükemmel seyahatinizi inşa ediyoruz.",
-  "onboardV2StepSummaryTitle": "Luxora, seçimlerinize göre şunu önerir:",
+  "onboardV2StepSummaryEyebrow": "LUXORA",
+  "onboardV2StepSummarySubtitle": "Ne tür bir gezgin olduğunu biraz öğrendim.\n\nArtık tercihlerine göre sana uygun yerler, deneyimler, restoranlar ve gizli mücevherler önereceğim.\n\nHer öneri özellikle sana göre olacak.\n\nBakalım neler keşfedebiliriz.",
+  "onboardV2StepSummaryTitle": "Harika, {name}.",
   "onboardV2StepTravelerEyebrow": "1. Adım",
   "onboardV2StepTravelerSubtitle": "Luxora, mürettebatınızın konaklamasını, yemeğini ve temposunu düzenler.",
   "onboardV2StepTravelerTitle": "Kiminle seyahat ediyorsunuz?",
@@ -1378,7 +1378,7 @@
   "paywallBenefitSaveTimeTitle": "Zamandan Tasarruf Edin",
   "paywallBenefitTravelSmarterBody": "Hava durumuna, kalabalığa ve seyahat tarzınıza göre öneriler alın.",
   "paywallBenefitTravelSmarterTitle": "Daha Akıllı Seyahat Edin",
-  "paywallConciergePromise": "Tek seferlik satın alma · Kişisel konsiyerj · Abonelik yok",
+  "paywallConciergePromise": "Abonelik yok · Ömür boyu şehir erişimi",
   "paywallContinueExploring": "Keşfetmeye Devam Edin",
   "paywallCtaUnlock": "{cityName} Konsiyerjinin kilidini açın",
   "@paywallCtaUnlock": {
@@ -2001,7 +2001,7 @@
       }
     }
   },
-  "todayRainRerouteTitle": "Yağmur rotasını değiştir",
+  "todayRainRerouteTitle": "Hava rotası değişimi",
   "todayStaysDiningCollapsedHint": "Otel ve restoran fikirleri — genişletmek için dokunun",
   "todayStaysDiningSection": "Konaklamalar ve yemek seçenekleri",
   "tripStoryBeatClosing": "Luxora anları şekillendirdi; siz onları yaşadınız.",
@@ -2286,6 +2286,221 @@
       },
       "speed": {
         "type": "int"
+      }
+    }
+  },
+  "freemiumVacationTitle": "{cityName} tatiliniz",
+  "@freemiumVacationTitle": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumDay1Ready": "✓ 1. gün hazır",
+  "freemiumUnlockFullPlan": "Tam tatil planının kilidini aç",
+  "freemiumLockedDayConcierge": "Gün {day} · Concierge optimize",
+  "@freemiumLockedDayConcierge": {
+    "placeholders": {
+      "day": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumLockedDayGems": "Gün 3 · Gizli mücevher rotası",
+  "freemiumLockedDayWeather": "Gün 4 · Hava durumuna duyarlı plan",
+  "freemiumLockedDayDeparture": "Gün 5 · Ayrılış stratejisi",
+  "freemiumConciergeRemaining": "{count, plural, =1{1 ücretsiz soru kaldı} other{{count} ücretsiz soru kaldı}}",
+  "@freemiumConciergeRemaining": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumConciergeLimitReached": "Ücretsiz concierge limitine ulaşıldı — sınırsız planlama için kilidi açın.",
+  "freemiumLockedHotels": "🔒 {count}+ ek otel mevcut",
+  "@freemiumLockedHotels": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumLockedRestaurants": "🔒 {count}+ ek restoran mevcut",
+  "@freemiumLockedRestaurants": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumLockedGems": "🔒 {count}+ gizli mücevher mevcut",
+  "@freemiumLockedGems": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumLockedSecrets": "🔒 {count}+ yerel sır mevcut",
+  "@freemiumLockedSecrets": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumLockedExperiences": "🔒 {count}+ deneyim mevcut",
+  "@freemiumLockedExperiences": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "freemiumLockedAttractions": "🔒 Ek cazibe merkezleri mevcut",
+  "freemiumUnlockExplore": "Keşfe devam etmek için {cityName} Concierge kilidini açın.",
+  "@freemiumUnlockExplore": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumUnlockConcierge": "{cityName} Concierge kilidini aç",
+  "@freemiumUnlockConcierge": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumHeadlineDayTwoPlus": "Sonraki günleriniz hazır — tam {cityName} planının kilidini açın.",
+  "@freemiumHeadlineDayTwoPlus": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumHeadlineConciergeLimit": "Sınırsız concierge erişimiyle planlamaya devam edin.",
+  "freemiumHeadlineHotels": "Her konaklama önerisi için {cityName} Concierge kilidini açın.",
+  "@freemiumHeadlineHotels": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumHeadlineRestaurants": "{cityName} için tam restoran koleksiyonunun kilidini açın.",
+  "@freemiumHeadlineRestaurants": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumHeadlineGems": "Yerel favoriler ve gizli mücevherler bekliyor.",
+  "freemiumHeadlineSecrets": "Yerel sakinlerin zamanlama ve park sırlarının kilidini açın.",
+  "freemiumHeadlineExperiences": "{cityName} genelinde küratörlü deneyimlerin kilidini açın.",
+  "@freemiumHeadlineExperiences": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      }
+    }
+  },
+  "freemiumHeadlineAttractions": "Tam cazibe merkezi koleksiyonunun kilidini açın.",
+  "freemiumHeadlineHotelMatchmaker": "Her konaklamayı karşılaştırmak için Hotel Intelligence kilidini açın.",
+  "freemiumHeadlineFullItinerary": "Tam tatil planınızın kilidini açın.",
+  "freemiumLocalSecretsTitle": "Yerel sırlar",
+  "freemiumLocalSecretsSubtitle": "Yerel halkın sakladığı zamanlama, park ve manzara noktaları.",
+  "localSecretTampaBayRiverwalkParking": "Whiting Street garajını kullanın — iskele yakınındaki kapanışlardan kaçınmak için nehir boyunca güneye yürüyün.",
+  "localSecretTampaBayClearwaterSunset": "Pier 60 kalabalığından kaçının — gün batımından 40 dk önce Sand Key yaklaşımı.",
+  "localSecretTampaBayDaliGarden": "Son öğleden sonra girişini ayırtın — doğu bahçe köprü ışığını teras kalabalığı olmadan yakalar.",
+  "localSecretTampaBayPierTiming": "Hafta içi 16:00 iskele girişi — hafta sonu bebek arabası trafiği olmadan gün batımı.",
+  "localSecretTampaBayYborCourtyard": "Paket Cuban sandwich — akşam 8'den sonra yerel halkın kullandığı tuğla avluda yiyin.",
+  "localSecretTampaBaySpongeDocks": "Önce iskelede öğle yemeği, sonra sünger botları — hafta içi 13:00 sonrası turlar seyrekleşir.",
+  "tampaBayMoodRoutesTitle": "Tampa Bay ruh hali rotaları",
+  "stAugustineMoodRoutesTitle": "St. Augustine ruh hali rotaları",
+  "naplesMoodRoutesTitle": "Naples ruh hali rotaları",
+  "destin30aMoodRoutesTitle": "Destin ve 30A ruh hali rotaları",
+  "onboardReturningEyebrow": "TEKRAR HOŞ GELDİN",
+  "onboardReturningTitle": "Tekrar hoş geldin, {name}.",
+  "@onboardReturningTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardReturningTitleGeneric": "Tekrar hoş geldin.",
+  "onboardReturningSubtitle": "Macerana devam etmeye hazır mısın?\n\nTercihlerini, favori yerlerini ve planlarını kaydettim; kaldığımız yerden devam edelim.\n\nBugün seni ne bekliyor bakalım.",
+  "vegasMoodRoutesTitle": "Las Vegas ruh hali rotaları",
+  "localSecretVegasBellagioFountains": "Gösteriden 15 dk önce çimenin ortasında durun — ön korkuluk koreografiyi keser.",
+  "localSecretVegasFremontTiming": "Hafta içi 21:00 tavan altında — cumartesi kalabalığı olmadan tam Viva Vision.",
+  "localSecretVegasCaesarsEntrance": "Otopark bağlantısını kullanın — akşam yemeği saatinde Strip tıkanıklığından kaçının.",
+  "localSecretVegasVenetianWalk": "Öğlen kapalı kanal yürüyüşü — klimalı Strip geçişi, sıcak uyarısı yok.",
+  "nycMoodRoutesTitle": "New York ruh hali rotaları",
+  "localSecretNycTimesSquareStrategy": "7th Ave yan sokaklarından girin — kavşak kalabalığından kaçının, Broadway görüşünü koruyun.",
+  "localSecretNycObservationDeck": "Gün batımından önce son slotu ayırtın — öğle kuyruğu olmadan altın ışık.",
+  "localSecretNycCentralParkEntrance": "72nd Street geçidini kullanın — Columbus Circle kalabalığı olmadan Bethesda'ya daha hızlı yol.",
+  "localSecretNycBroadwayTickets": "TKTS sabah kuyruğu erken açılır — rush koltuklar turist fiyatlarını yener.",
+  "localSecretNycBrooklynBridgePhoto": "Washington Street DUMBO saat 8 — tur gruplarından önce boş arnavut kaldırımı kadrajı.",
+  "localSecretNycFerryGoldenHour": "Gün batımında Staten Island feribotu — tur teknesi ücreti olmadan ücretsiz liman turu.",
+  "@onboardV2StepSummaryTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardWelcomeEyebrow": "LUXORA",
+  "onboardWelcomeTitle": "Merhaba, ben Luxora.",
+  "onboardWelcomeTagline": "Kişisel seyahat concierge'in.",
+  "onboardWelcomeBody": "İnanılmaz yerler keşfetmene, turist tuzaklarından kaçınmana ve yıllarca hatırlayacağın bir tatil oluşturmana yardım ediyorum.\n\nUnutulmaz bir şey planlamaya başlayalım.",
+  "onboardWelcomeCta": "Yolculuğuma başla",
+  "onboardLuxoraGuideBody": "Bu andan itibaren yolculuğunda her adımda yanındayım.\n\nGizli mücevherler, harika yemek, unutulmaz deneyimler veya sadece stressiz bir tatil — yanındayım.",
+  "onboardLuxoraReplyClosing": "Birlikte mükemmel maceranı oluşturalım.",
+  "onboardBuildingTitle": "Harika seçim, {name}.",
+  "@onboardBuildingTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardBuildingBody": "Seyahat tarzın, ilgi alanların, tempon, yemek tercihlerin ve tatil hedeflerine göre kişiselleştirilmiş bir rota oluşturuyorum.\n\nBu biraz zaman alabilir.",
+  "onboardBuildingTagline": "İyi tatiller tesadüfen olur.\n\nHarika tatiller planla olur.",
+  "onboardItineraryReadyTitle": "Macera hazır.",
+  "onboardItineraryReadyBody": "Anlattığın geziye uygun deneyimler, restoranlar, cazibe merkezleri ve gizli mücevherler seçtim.\n\nTabii ki yolda her şeyi değiştirebiliriz.\n\nEn iyi tatiller ilerledikçe evrilir.",
+  "weatherRerouteLuxoraIntro": "{name}, hava koşulları bugünkü planların bir kısmını etkileyebilir.",
+  "@weatherRerouteLuxoraIntro": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherRerouteLuxoraClosing": "Bazen beklenmedik olan en güzel anıları yaratır.",
+  "rightNowLuxoraIntro": "{name}, konumuna, hava durumuna ve tercihlerine göre — şimdi bunu yapardım.",
+  "@rightNowLuxoraIntro": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "rightNowLuxoraClosing": "Bana güven.\n\nBayılacağını düşünüyorum.",
+  "paywallPersonalPitch": "{name}, kişiselleştirilmiş tatil planın şekilleniyor.\n\n1. Gün hazır.\n\nYolculuğunun geri kalanı bekliyor.\n\nTam rota, gizli mücevherler, yerel sırlar, hava zekâsı ve sınırsız concierge için {cityName} Concierge'i aç.\n\nBu tatili unutulmaz yapalım.",
+  "@paywallPersonalPitch": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "cityName": {
+        "type": "String"
       }
     }
   }

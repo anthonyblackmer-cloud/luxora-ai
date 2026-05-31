@@ -56,6 +56,12 @@ flutter:
     - assets/places/osm_places.json
     - assets/city_packs/
     - assets/city_packs/city_pack_florida-keys.json
+    - assets/city_packs/city_pack_tampa-bay.json
+    - assets/city_packs/city_pack_nyc.json
+    - assets/city_packs/city_pack_vegas.json
+    - assets/city_packs/city_pack_destin-30a.json
+    - assets/city_packs/city_pack_naples.json
+    - assets/city_packs/city_pack_st-augustine.json
     - assets/deals/
   fonts:
     - family: Cormorant Garamond

@@ -1,6 +1,7 @@
 import 'package:luxora_ai/data/florida_keys/florida_keys_hotels_catalog.dart';
 import 'package:luxora_ai/data/hotels_catalog.dart';
 import 'package:luxora_ai/data/miami/miami_hotels_catalog.dart';
+import 'package:luxora_ai/data/tampa_bay/tampa_bay_hotels_catalog.dart';
 import 'package:luxora_ai/l10n/app_localizations.dart';
 import 'package:luxora_ai/models/lux_hotel.dart';
 import 'package:luxora_ai/models/lux_place.dart';
@@ -85,7 +86,13 @@ abstract final class StayDiningCatalogService {
     final orlando = HotelsCatalog.all.where((h) => ids.contains(h.id));
     final miami = MiamiHotelsCatalog.all.where((h) => ids.contains(h.id));
     final keys = FloridaKeysHotelsCatalog.all.where((h) => ids.contains(h.id));
-    return [...orlando, ...miami, ...keys]
+    final stAug = StAugustineHotelsCatalog.all.where((h) => ids.contains(h.id));
+    final naplesHotels = NaplesHotelsCatalog.all.where((h) => ids.contains(h.id));
+    final destin = Destin30aHotelsCatalog.all.where((h) => ids.contains(h.id));
+    final nyc = NycHotelsCatalog.all.where((h) => ids.contains(h.id));
+    final vegas = VegasHotelsCatalog.all.where((h) => ids.contains(h.id));
+    final tampaBay = TampaBayHotelsCatalog.all.where((h) => ids.contains(h.id));
+    return [...orlando, ...miami, ...keys, ...stAug, ...naplesHotels, ...destin, ...nyc, ...vegas, ...tampaBay]
         .where((h) => (h.cityPackId ?? 'orlando') == activeCityId)
         .toList();
   }

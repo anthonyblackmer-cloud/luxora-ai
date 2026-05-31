@@ -879,8 +879,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get mapRerouteNone => 'あなたのルートはすでに穏やかに見えます。';
 
   @override
-  String get mapRerouteRainHint =>
-      '雨が降る可能性があります。屋内バックアップの場合は「ルート変更」をタップしてください。';
+  String get mapRerouteRainHint => 'ご安心を — 近くの代替プランを見つけました。今日も快適でストレスのない一日に。';
 
   @override
   String get dayFlowSwapTitle => 'この停留所を変更します';
@@ -1074,6 +1073,68 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get localSecretMiamiPantherAlley =>
       '窓際で注文し、路地を時計回りに歩きます。午前 8 時 45 分に壁画の光がターコイズ色の壁に当たるのが最高です。';
+
+  @override
+  String get localSecretTampaBayRiverwalkParking =>
+      'Whiting Street 駐車場を利用 — 川沿いに南へ歩き、埠頭付近の通行止めを避ける。';
+
+  @override
+  String get localSecretTampaBayClearwaterSunset =>
+      'Pier 60 の混雑を避け — 日没40分前に Sand Key 側へ。';
+
+  @override
+  String get localSecretTampaBayDaliGarden =>
+      '午後最終入場を予約 — 東庭園はテラス混雑なしで橋の光を捉える。';
+
+  @override
+  String get localSecretTampaBayPierTiming => '平日16時ピア入場 — 週末のベビーカー混雑なしのサンセット。';
+
+  @override
+  String get localSecretTampaBayYborCourtyard =>
+      'キューバサンドイッチ持ち帰り — 20時以降地元が使うレンガの中庭で。';
+
+  @override
+  String get localSecretTampaBaySpongeDocks =>
+      'まず埠頭でランチ、次にスポンジボート — 平日13時以降はツアーが少ない。';
+
+  @override
+  String get localSecretVegasBellagioFountains =>
+      'ショー15分前に芝生中央へ — 前の手すりは演出全体を遮ります。';
+
+  @override
+  String get localSecretVegasFremontTiming =>
+      '平日21時キャノピー下 — 土曜の混雑なしでViva Vision全編。';
+
+  @override
+  String get localSecretVegasCaesarsEntrance =>
+      '駐車場連絡通路を利用 — ディナータイムのStrip混雑を回避。';
+
+  @override
+  String get localSecretVegasVenetianWalk => '正午の屋内運河散策 — 冷房のStrip横断で猛暑回避。';
+
+  @override
+  String get nycMoodRoutesTitle => 'ニューヨーク・ムードルート';
+
+  @override
+  String get localSecretNycTimesSquareStrategy =>
+      '7th Aveの横丁から入る — 交差点の混雑を避けBroadwayの視界を確保。';
+
+  @override
+  String get localSecretNycObservationDeck => '日没前の最終枠を予約 — 正午の行列なしでゴールデンアワー。';
+
+  @override
+  String get localSecretNycCentralParkEntrance =>
+      '72nd Street横断路 — Columbus Circleの混雑を避けBethesdaへ最短。';
+
+  @override
+  String get localSecretNycBroadwayTickets => 'TKTS午前の列は早めに — ラッシュ席は観光客料金よりお得。';
+
+  @override
+  String get localSecretNycBrooklynBridgePhoto =>
+      'Washington Street DUMBO 朝8時 — ツアー前の空いた石畳フレーム。';
+
+  @override
+  String get localSecretNycFerryGoldenHour => '日没時のスタテン島フェリー — 観光船なしで無料の港ループ。';
 
   @override
   String get momentsTitle => 'ルクソラの瞬間';
@@ -1895,7 +1956,7 @@ class AppLocalizationsJa extends AppLocalizations {
       'Luxora AI は、あなたの感情的に知的なコンシェルジュです。隠れた宝石、屋上での夕日、そして荷物をまとめる前から忘れられない気分になる瞬間を提供します。';
 
   @override
-  String get landingBegin => '旅を始めましょう';
+  String get landingBegin => '旅を始める';
 
   @override
   String get landingTalk => 'ルクソラと話す';
@@ -2060,7 +2121,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get onboardFinish => 'コンシェルジュに会いましょう';
 
   @override
-  String get onboardBuilding => '旅行を組み立てる…';
+  String get onboardBuilding => '冒険を作成中…';
 
   @override
   String get onboardStep1Title => '夢が最初に着く場所';
@@ -3242,8 +3303,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get paywallContinueExploring => '探検を続ける';
 
   @override
-  String get paywallConciergePromise =>
-      '1 回限りの購入 · パーソナル コンシェルジュ · サブスクリプションなし';
+  String get paywallConciergePromise => 'サブスクなし · 生涯シティアクセス';
 
   @override
   String get paywallRestorePurchases => '購入したものを復元する';
@@ -3354,6 +3414,21 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get miamiMoodRoutesTitle => 'マイアミ ムード ルート';
+
+  @override
+  String get tampaBayMoodRoutesTitle => 'タンパベイ・ムードルート';
+
+  @override
+  String get stAugustineMoodRoutesTitle => 'セントオーガスティン・ムードルート';
+
+  @override
+  String get naplesMoodRoutesTitle => 'ナプレス・ムードルート';
+
+  @override
+  String get destin30aMoodRoutesTitle => 'デスティン＆30A・ムードルート';
+
+  @override
+  String get vegasMoodRoutesTitle => 'ラスベガス・ムードルート';
 
   @override
   String miamiMoodRouteStart(String time) {
@@ -3577,13 +3652,16 @@ class AppLocalizationsJa extends AppLocalizations {
   String get onboardV2StepEmotionSubtitle => '主な感情を 1 つ選択してください。';
 
   @override
-  String get onboardV2StepSummaryEyebrow => 'コンシェルジュによるプレビュー';
+  String get onboardV2StepSummaryEyebrow => 'LUXORA';
 
   @override
-  String get onboardV2StepSummaryTitle => 'あなたの選択に基づいて、Luxora が推奨するのは';
+  String onboardV2StepSummaryTitle(String name) {
+    return '素晴らしいです、$nameさん。';
+  }
 
   @override
-  String get onboardV2StepSummarySubtitle => '私たちは今、あなたの完璧な旅行を構築中です。';
+  String get onboardV2StepSummarySubtitle =>
+      'あなたがどんな旅行者か少しわかりました。\n\nこれからは好みに合わせて場所、体験、レストラン、隠れた名所をおすすめします。\n\nすべてあなた専用の提案です。\n\n一緒に何が見つかるか見てみましょう。';
 
   @override
   String get onboardSummaryHotels => 'ホテル';
@@ -4062,6 +4140,69 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
+  String get onboardWelcomeEyebrow => 'LUXORA';
+
+  @override
+  String get onboardWelcomeTitle => 'こんにちは、Luxoraです。';
+
+  @override
+  String get onboardWelcomeTagline => 'あなた専属のトラベルコンシェルジュ。';
+
+  @override
+  String get onboardWelcomeBody =>
+      '素晴らしい場所の発見、観光客の罠を避けること、何年も思い出に残る休暇づくりをお手伝いします。\n\n忘れられない旅の計画を始めましょう。';
+
+  @override
+  String get onboardWelcomeCta => '旅を始める';
+
+  @override
+  String get onboardLuxoraGuideBody =>
+      'これからは旅のすべての段階でサポートします。\n\n隠れた名所、素晴らしい食、忘れられない体験、またはストレスのない休暇 — お任せください。';
+
+  @override
+  String get onboardLuxoraReplyClosing => '一緒に完璧な冒険を作りましょう。';
+
+  @override
+  String onboardBuildingTitle(String name) {
+    return '素敵な選択です、$nameさん。';
+  }
+
+  @override
+  String get onboardBuildingBody =>
+      '旅行スタイル、興味、ペース、食の好み、休暇の目標に基づいてパーソナライズした旅程を作成しています。\n\n少し時間がかかる場合があります。';
+
+  @override
+  String get onboardBuildingTagline => '良い休暇は偶然生まれる。\n\n最高の休暇は計画から生まれる。';
+
+  @override
+  String get onboardItineraryReadyTitle => '冒険の準備ができました。';
+
+  @override
+  String get onboardItineraryReadyBody =>
+      'あなたの旅に合う体験、レストラン、名所、隠れた名所を慎重に選びました。\n\nもちろん途中でいつでも調整できます。\n\n最高の休暇は進みながら形を変えていきます。';
+
+  @override
+  String weatherRerouteLuxoraIntro(String name) {
+    return '$nameさん、今日の予定の一部に天候の影響が出そうです。';
+  }
+
+  @override
+  String get weatherRerouteLuxoraClosing => '予想外の出来事が最高の思い出になることもあります。';
+
+  @override
+  String rightNowLuxoraIntro(String name) {
+    return '$nameさん、現在地、天気、好みから — 今ならこれをおすすめします。';
+  }
+
+  @override
+  String get rightNowLuxoraClosing => '信じてください。\n\nきっと気に入ると思います。';
+
+  @override
+  String paywallPersonalPitch(String name, String cityName) {
+    return '$nameさん、パーソナライズされた休暇プランが形になってきました。\n\n1日目は準備完了。\n\n残りの旅が待っています。\n\n$cityName Conciergeを解除して、完全な旅程、隠れた名所、ローカルシークレット、天候インテリジェンス、無制限コンシェルジュを。\n\n忘れられない休暇にしましょう。';
+  }
+
+  @override
   String get onboardLuxoraReplyEyebrow => 'ルクソラ';
 
   @override
@@ -4071,12 +4212,26 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String onboardLuxoraGuideNamed(String name) {
-    return '$name さん、私はあなたをガイドし、あなたとあなたの家族にとって完璧な休暇や冒険を作るお手伝いをします。';
+    return 'これからは旅のすべての段階でサポートします。\n\n隠れた名所、素晴らしい食、忘れられない体験、またはストレスのない休暇 — お任せください。';
   }
 
   @override
-  String get onboardLuxoraItineraryPromise =>
-      'ここでの作業が完了したら、選択したすべてのものから旅程を作成します。後で何かを変更したい場合は、[コンシェルジュ] タブを開いて編集内容を教えてください。私はいつでも聞いています。';
+  String get onboardLuxoraItineraryPromise => '一緒に完璧な冒険を作りましょう。';
+
+  @override
+  String get onboardReturningEyebrow => 'おかえりなさい';
+
+  @override
+  String onboardReturningTitle(String name) {
+    return 'おかえりなさい、$nameさん。';
+  }
+
+  @override
+  String get onboardReturningTitleGeneric => 'おかえりなさい。';
+
+  @override
+  String get onboardReturningSubtitle =>
+      '冒険を続ける準備はできましたか？\n\n好み、お気に入りの場所、旅行プランを保存しました。前回の続きから始めましょう。\n\n今日何が待っているか見てみましょう。';
 
   @override
   String get todayPlanSectionTitle => '今日の予定';
@@ -4105,11 +4260,134 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String get todayRainRerouteTitle => '雨天のルート変更';
+  String get todayRainRerouteTitle => '天候ルート変更';
 
   @override
   String get todayExtrasSection => 'チケットと共有';
 
   @override
   String get todayExtrasCollapsedHint => 'セール、カードの共有など';
+
+  @override
+  String freemiumVacationTitle(String cityName) {
+    return '$cityNameのバケーション';
+  }
+
+  @override
+  String get freemiumDay1Ready => '✓ 1日目準備完了';
+
+  @override
+  String get freemiumUnlockFullPlan => 'バケーション全体のプランを解除';
+
+  @override
+  String freemiumLockedDayConcierge(int day) {
+    return '$day日目 · コンシェルジュ最適化';
+  }
+
+  @override
+  String get freemiumLockedDayGems => '3日目 · 隠れた名所ルート';
+
+  @override
+  String get freemiumLockedDayWeather => '4日目 · 天気対応プラン';
+
+  @override
+  String get freemiumLockedDayDeparture => '5日目 · 出発戦略';
+
+  @override
+  String freemiumConciergeRemaining(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '無料質問残り$count件',
+      one: '無料質問残り1件',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get freemiumConciergeLimitReached =>
+      '無料コンシェルジュ上限に達しました — 無制限プランのために解除。';
+
+  @override
+  String freemiumLockedHotels(int count) {
+    return '🔒 あと$count件以上のホテル';
+  }
+
+  @override
+  String freemiumLockedRestaurants(int count) {
+    return '🔒 あと$count件以上のレストラン';
+  }
+
+  @override
+  String freemiumLockedGems(int count) {
+    return '🔒 あと$count件以上の隠れた名所';
+  }
+
+  @override
+  String freemiumLockedSecrets(int count) {
+    return '🔒 あと$count件以上のローカル秘密';
+  }
+
+  @override
+  String freemiumLockedExperiences(int count) {
+    return '🔒 あと$count件以上の体験';
+  }
+
+  @override
+  String get freemiumLockedAttractions => '🔒 さらにアトラクションあり';
+
+  @override
+  String freemiumUnlockExplore(String cityName) {
+    return '$cityName Conciergeを解除して探索を続ける。';
+  }
+
+  @override
+  String freemiumUnlockConcierge(String cityName) {
+    return '$cityName Conciergeを解除';
+  }
+
+  @override
+  String freemiumHeadlineDayTwoPlus(String cityName) {
+    return '次の日程の準備完了 — $cityNameの全プランを解除。';
+  }
+
+  @override
+  String get freemiumHeadlineConciergeLimit => '無制限コンシェルジュで計画を続ける。';
+
+  @override
+  String freemiumHeadlineHotels(String cityName) {
+    return 'すべての宿泊提案のために$cityName Conciergeを解除。';
+  }
+
+  @override
+  String freemiumHeadlineRestaurants(String cityName) {
+    return '$cityNameの全レストランコレクションを解除。';
+  }
+
+  @override
+  String get freemiumHeadlineGems => '地元のおすすめと隠れた名所が待っています。';
+
+  @override
+  String get freemiumHeadlineSecrets => '地元の時間帯と駐車の秘密を解除。';
+
+  @override
+  String freemiumHeadlineExperiences(String cityName) {
+    return '$cityName全体の厳選体験を解除。';
+  }
+
+  @override
+  String get freemiumHeadlineAttractions => '全アトラクションコレクションを解除。';
+
+  @override
+  String get freemiumHeadlineHotelMatchmaker =>
+      'すべての宿を比較するHotel Intelligenceを解除。';
+
+  @override
+  String get freemiumHeadlineFullItinerary => 'バケーション全体のプランを解除。';
+
+  @override
+  String get freemiumLocalSecretsTitle => 'ローカル秘密';
+
+  @override
+  String get freemiumLocalSecretsSubtitle => '地元が守る時間帯、駐車、絶景スポット。';
 }

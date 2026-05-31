@@ -10,11 +10,13 @@ class AgendaDayDropdown extends StatelessWidget {
     required this.days,
     required this.selectedIndex,
     required this.onChanged,
+    this.lockedDayIndices = const {},
   });
 
   final List<TripDay> days;
   final int selectedIndex;
   final ValueChanged<int> onChanged;
+  final Set<int> lockedDayIndices;
 
   @override
   Widget build(BuildContext context) {
@@ -24,16 +26,35 @@ class AgendaDayDropdown extends StatelessWidget {
     final safeIndex = selectedIndex.clamp(0, days.length - 1);
     final selectedDay = days[safeIndex];
 
+    String dayLabel(TripDay day, int index) {
+      final base = l.itineraryDayTab(day.dayNumber, day.label);
+      if (lockedDayIndices.contains(index)) return '🔒 $base';
+      if (index == 0 && lockedDayIndices.isNotEmpty) return '✓ $base';
+      return base;
+    }
+
     return AgendaCompactDropdown(
+      prominent: true,
       label: l.agendaDaySelectLabel,
       icon: Icons.calendar_today_rounded,
       value: '${selectedDay.dayNumber}',
-      items: [
-        for (final day in days)
-          DropdownMenuItem(
-            value: '${day.dayNumber}',
+      selectedItemBuilder: (context) => [
+        for (var i = 0; i < days.length; i++)
+          Align(
+            alignment: Alignment.centerLeft,
             child: Text(
-              l.itineraryDayTab(day.dayNumber, day.label),
+              dayLabel(days[i], i),
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
+            ),
+          ),
+      ],
+      items: [
+        for (var i = 0; i < days.length; i++)
+          DropdownMenuItem(
+            value: '${days[i].dayNumber}',
+            child: Text(
+              dayLabel(days[i], i),
               overflow: TextOverflow.ellipsis,
             ),
           ),

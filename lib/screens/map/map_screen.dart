@@ -1,6 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:luxora_ai/widgets/nyc/nyc_concierge_cards.dart';
+import 'package:luxora_ai/widgets/vegas/vegas_concierge_cards.dart';
+import 'package:luxora_ai/widgets/destin_30a/destin_30a_concierge_cards.dart';
+import 'package:luxora_ai/widgets/naples/naples_concierge_cards.dart';
+import 'package:luxora_ai/widgets/st_augustine/st_augustine_concierge_cards.dart';
 import 'package:go_router/go_router.dart';
 import 'package:luxora_ai/l10n/catalog_localizer.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
@@ -28,6 +33,7 @@ import 'package:luxora_ai/widgets/discover_scope_banner.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
 import 'package:luxora_ai/widgets/florida_keys/keys_concierge_cards.dart';
 import 'package:luxora_ai/widgets/miami/miami_concierge_cards.dart';
+import 'package:luxora_ai/widgets/tampa_bay/tampa_bay_concierge_cards.dart';
 import 'package:luxora_ai/widgets/lux_florida_map.dart';
 import 'package:luxora_ai/widgets/golden_hour_card.dart';
 import 'package:luxora_ai/widgets/hotel_intel_map_banner.dart';
@@ -158,6 +164,79 @@ class MapScreen extends StatelessWidget {
           if (CityPackRegistry.instance.active.cityId == 'florida-keys') ...[
             const SizedBox(height: 14),
             KeysMoodRoutesPanel(
+              onRouteSelected: (route) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(route.title),
+                    behavior: SnackBarBehavior.floating,
+                  ),
+                );
+              },
+            ),
+          ],
+                    if (CityPackRegistry.instance.active.cityId == 'st-augustine') ...[
+            const SizedBox(height: 14),
+            StAugustineMoodRoutesPanel(
+              onRouteSelected: (route) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(route.title),
+                  ),
+                );
+              },
+            ),
+          ],
+          if (CityPackRegistry.instance.active.cityId == 'naples') ...[
+            const SizedBox(height: 14),
+            NaplesMoodRoutesPanel(
+              onRouteSelected: (route) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(route.title),
+                  ),
+                );
+              },
+            ),
+          ],
+          if (CityPackRegistry.instance.active.cityId == 'destin-30a') ...[
+            const SizedBox(height: 14),
+            Destin30aMoodRoutesPanel(
+              onRouteSelected: (route) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(route.title),
+                  ),
+                );
+              },
+            ),
+          ],
+                    if (CityPackRegistry.instance.active.cityId == 'nyc') ...[
+            const SizedBox(height: 14),
+            NycMoodRoutesPanel(
+              onRouteSelected: (route) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(route.title),
+                  ),
+                );
+              },
+            ),
+          ],
+if (CityPackRegistry.instance.active.cityId == 'vegas') ...[
+            const SizedBox(height: 14),
+            VegasMoodRoutesPanel(
+              onRouteSelected: (route) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(route.title),
+                  ),
+                );
+              },
+            ),
+          ],
+if (CityPackRegistry.instance.active.cityId == 'tampa-bay') ...[
+            const SizedBox(height: 14),
+            TampaBayMoodRoutesPanel(
               onRouteSelected: (route) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
