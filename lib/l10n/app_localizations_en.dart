@@ -3184,6 +3184,38 @@ class AppLocalizationsEn extends AppLocalizations {
       'One-time purchase · Personal concierge · No subscription';
 
   @override
+  String get paywallRestorePurchases => 'Restore purchases';
+
+  @override
+  String get paywallPurchaseSuccess =>
+      'Purchase complete — your concierge is unlocked.';
+
+  @override
+  String get paywallPurchasePending => 'Completing purchase…';
+
+  @override
+  String get paywallPurchaseFailed =>
+      'Purchase couldn\'t be completed. Try again or restore purchases.';
+
+  @override
+  String get paywallPurchaseCanceled => 'Purchase canceled.';
+
+  @override
+  String get paywallRestoreComplete => 'Purchases restored.';
+
+  @override
+  String get paywallRestoreNone =>
+      'No previous purchases found for this Apple ID or Google account.';
+
+  @override
+  String get paywallStoreUnavailable =>
+      'App Store billing isn\'t available on this device.';
+
+  @override
+  String get paywallProductUnavailable =>
+      'This pack isn\'t available in the store yet.';
+
+  @override
   String get settingsUnlockConciergeTitle => 'Unlock city concierge';
 
   @override

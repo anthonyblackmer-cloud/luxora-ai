@@ -4,6 +4,8 @@ import 'package:luxora_ai/data/paywall_catalog.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/models/paywall/paywall_city_offer.dart';
 import 'package:luxora_ai/services/city_pack_entitlement_store.dart';
+import 'package:luxora_ai/services/iap_purchase_service.dart';
+import 'package:luxora_ai/services/paywall_service.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 
 /// Dropdown of Luxora destinations plus the Orlando theme-park add-on pack.
@@ -15,12 +17,16 @@ class CityDestinationPicker extends StatelessWidget {
     this.showUnlockStatus = true,
     this.label,
     this.showOrlandoThemeParksAddon = true,
+    this.limitedCityIds,
   });
 
   final String selectedCityId;
   final ValueChanged<String> onChanged;
   final bool showUnlockStatus;
   final String? label;
+
+  /// When set, only these city packs appear (launch IAP listings).
+  final Set<String>? limitedCityIds;
 
   /// Lists [OrlandoAddonCatalog.themeParks] under Orlando when true.
   final bool showOrlandoThemeParksAddon;
@@ -33,7 +39,12 @@ class CityDestinationPicker extends StatelessWidget {
     final l = context.l10n;
     final tokens = luxThemeTokensOf(context);
     final scheme = Theme.of(context).colorScheme;
-    final offers = PaywallCatalog.selectableOffers;
+    final offers = PaywallCatalog.selectableOffers
+        .where(
+          (o) =>
+              limitedCityIds == null || limitedCityIds!.contains(o.cityId),
+        )
+        .toList();
     final value = PaywallCatalog.isSupported(selectedCityId)
         ? selectedCityId
         : offers.first.cityId;
@@ -93,7 +104,11 @@ class CityDestinationPicker extends StatelessWidget {
                             showUnlockStatus: showUnlockStatus,
                             unlockedLabel: l.cityPickerUnlocked,
                             unlockPriceLabel: l.cityPickerUnlockPrice(
-                              OrlandoAddonCatalog.offer.formattedPrice,
+                              IapPurchaseService.instance
+                                      .localizedPriceForAddon(
+                                    OrlandoAddonCatalog.themeParks,
+                                  ) ??
+                                  OrlandoAddonCatalog.offer.formattedPrice,
                             ),
                             title: l.paywallAddonThemeParksTitle,
                             subtitle: l.cityPickerThemeParksSubtitle,
@@ -103,7 +118,10 @@ class CityDestinationPicker extends StatelessWidget {
                             showUnlockStatus: showUnlockStatus,
                             unlockedLabel: l.cityPickerUnlocked,
                             unlockPriceLabel: l.cityPickerUnlockPrice(
-                              entry.cityOffer!.formattedPrice,
+                              PaywallService.storePriceForCity(
+                                    entry.cityOffer!.cityId,
+                                  ) ??
+                                  entry.cityOffer!.formattedPrice,
                             ),
                           ),
                   ),

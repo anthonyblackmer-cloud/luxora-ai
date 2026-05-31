@@ -3044,6 +3044,33 @@ class AppLocalizationsZh extends AppLocalizations {
   String get paywallConciergePromise => '一次性购买·私人礼宾·无需订阅';
 
   @override
+  String get paywallRestorePurchases => '恢复购买';
+
+  @override
+  String get paywallPurchaseSuccess => '购买完成 — 礼宾已解锁。';
+
+  @override
+  String get paywallPurchasePending => '正在完成购买…';
+
+  @override
+  String get paywallPurchaseFailed => '无法完成购买。请重试或恢复购买。';
+
+  @override
+  String get paywallPurchaseCanceled => '购买已取消。';
+
+  @override
+  String get paywallRestoreComplete => '购买已恢复。';
+
+  @override
+  String get paywallRestoreNone => '未找到此 Apple/Google 账户的先前购买。';
+
+  @override
+  String get paywallStoreUnavailable => '此设备无法使用商店计费。';
+
+  @override
+  String get paywallProductUnavailable => '该套餐尚未在商店上架。';
+
+  @override
   String get settingsUnlockConciergeTitle => '解锁城市礼宾服务';
 
   @override

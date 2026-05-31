@@ -5668,6 +5668,60 @@ abstract class AppLocalizations {
   /// **'One-time purchase · Personal concierge · No subscription'**
   String get paywallConciergePromise;
 
+  /// No description provided for @paywallRestorePurchases.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore purchases'**
+  String get paywallRestorePurchases;
+
+  /// No description provided for @paywallPurchaseSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Purchase complete — your concierge is unlocked.'**
+  String get paywallPurchaseSuccess;
+
+  /// No description provided for @paywallPurchasePending.
+  ///
+  /// In en, this message translates to:
+  /// **'Completing purchase…'**
+  String get paywallPurchasePending;
+
+  /// No description provided for @paywallPurchaseFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Purchase couldn\'t be completed. Try again or restore purchases.'**
+  String get paywallPurchaseFailed;
+
+  /// No description provided for @paywallPurchaseCanceled.
+  ///
+  /// In en, this message translates to:
+  /// **'Purchase canceled.'**
+  String get paywallPurchaseCanceled;
+
+  /// No description provided for @paywallRestoreComplete.
+  ///
+  /// In en, this message translates to:
+  /// **'Purchases restored.'**
+  String get paywallRestoreComplete;
+
+  /// No description provided for @paywallRestoreNone.
+  ///
+  /// In en, this message translates to:
+  /// **'No previous purchases found for this Apple ID or Google account.'**
+  String get paywallRestoreNone;
+
+  /// No description provided for @paywallStoreUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'App Store billing isn\'t available on this device.'**
+  String get paywallStoreUnavailable;
+
+  /// No description provided for @paywallProductUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'This pack isn\'t available in the store yet.'**
+  String get paywallProductUnavailable;
+
   /// No description provided for @settingsUnlockConciergeTitle.
   ///
   /// In en, this message translates to:

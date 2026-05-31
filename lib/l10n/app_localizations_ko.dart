@@ -3095,6 +3095,33 @@ class AppLocalizationsKo extends AppLocalizations {
   String get paywallConciergePromise => '일회성 구매 · 개인 컨시어지 · 구독 없음';
 
   @override
+  String get paywallRestorePurchases => '구매 복원';
+
+  @override
+  String get paywallPurchaseSuccess => '구매 완료 — 컨시어지가 잠금 해제되었습니다.';
+
+  @override
+  String get paywallPurchasePending => '구매 완료 중…';
+
+  @override
+  String get paywallPurchaseFailed => '구매를 완료하지 못했습니다. 다시 시도하거나 복원하세요.';
+
+  @override
+  String get paywallPurchaseCanceled => '구매가 취소되었습니다.';
+
+  @override
+  String get paywallRestoreComplete => '구매가 복원되었습니다.';
+
+  @override
+  String get paywallRestoreNone => '이 Apple/Google 계정의 이전 구매를 찾을 수 없습니다.';
+
+  @override
+  String get paywallStoreUnavailable => '이 기기에서는 스토어 결제를 사용할 수 없습니다.';
+
+  @override
+  String get paywallProductUnavailable => '이 팩은 아직 스토어에서 이용할 수 없습니다.';
+
+  @override
   String get settingsUnlockConciergeTitle => '도시 컨시어지 잠금 해제';
 
   @override

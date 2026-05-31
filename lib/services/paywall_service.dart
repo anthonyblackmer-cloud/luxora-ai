@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:luxora_ai/data/iap_product_catalog.dart';
 import 'package:luxora_ai/data/orlando/orlando_addon_catalog.dart';
 import 'package:luxora_ai/data/paywall_catalog.dart';
 import 'package:luxora_ai/models/paywall/paywall_addon_offer.dart';
@@ -8,6 +9,7 @@ import 'package:luxora_ai/models/trip_profile.dart';
 import 'package:luxora_ai/services/city_pack_entitlement_store.dart';
 import 'package:luxora_ai/services/city_pack_registry.dart';
 import 'package:luxora_ai/services/city_pack_sync.dart';
+import 'package:luxora_ai/services/iap_purchase_service.dart';
 import 'package:luxora_ai/services/paywall_personalization.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/services/orlando_addon_service.dart';
@@ -32,6 +34,13 @@ abstract final class PaywallService {
 
   static bool needsUnlock(String cityId) =>
       !CityPackEntitlementStore.instance.isUnlocked(cityId);
+
+  /// Whether this city has a live App Store / Play product (launch packs only).
+  static bool hasStoreListing(String cityId) =>
+      IapProductCatalog.hasStoreProductForCity(cityId);
+
+  static String? storePriceForCity(String cityId) =>
+      IapPurchaseService.instance.localizedPriceForCity(cityId);
 
   static PaywallAddonOffer addonOfferFor(String addonId) =>
       OrlandoAddonCatalog.offerFor(addonId);
@@ -181,18 +190,51 @@ abstract final class PaywallService {
     return result ?? false;
   }
 
-  /// Simulated purchase — wire StoreKit / Play Billing here later.
-  static Future<void> completeUnlock(String cityId) async {
+  /// StoreKit / Play Billing — returns when the transaction completes or fails.
+  static Future<IapPurchaseOutcome> purchaseCityPack(String cityId) async {
+    final outcome = await IapPurchaseService.instance.purchaseCity(cityId);
+    if (outcome == IapPurchaseOutcome.success ||
+        outcome == IapPurchaseOutcome.alreadyOwned) {
+      await CityPackSync.switchCity(cityId);
+    }
+    return outcome;
+  }
+
+  static Future<IapPurchaseOutcome> purchaseAddon(String addonId) async {
+    final outcome = await IapPurchaseService.instance.purchaseAddon(addonId);
+    if (outcome == IapPurchaseOutcome.success ||
+        outcome == IapPurchaseOutcome.alreadyOwned) {
+      await CityPackSync.switchCity(OrlandoAddonCatalog.parentCityId);
+    }
+    return outcome;
+  }
+
+  static Future<IapRestoreOutcome> restorePurchases() =>
+      IapPurchaseService.instance.restorePurchases();
+
+  /// Called after a verified store purchase — not exposed as a paywall shortcut.
+  static Future<void> grantCityEntitlement(String cityId) async {
     await CityPackEntitlementStore.instance.unlockCity(cityId);
+  }
+
+  static Future<void> grantAddonEntitlement(String addonId) async {
+    await CityPackEntitlementStore.instance.unlockAddon(addonId);
+    await TripOccasionCatalog.applyThemeParksUnlockToActiveProfile();
+    _orlandoAddonPromptShown = true;
+  }
+
+  @Deprecated('Use purchaseCityPack — simulated unlock removed from production.')
+  static Future<void> completeUnlock(String cityId) async {
+    assert(IapPurchaseService.allowSimulatedPurchases);
+    await grantCityEntitlement(cityId);
     await CityPackSync.switchCity(cityId);
   }
 
+  @Deprecated('Use purchaseAddon — simulated unlock removed from production.')
   static Future<void> completeAddonUnlock(String addonId) async {
-    await CityPackEntitlementStore.instance
-        .unlockAddon(addonId);
+    assert(IapPurchaseService.allowSimulatedPurchases);
+    await grantAddonEntitlement(addonId);
     await CityPackSync.switchCity(OrlandoAddonCatalog.parentCityId);
-    await TripOccasionCatalog.applyThemeParksUnlockToActiveProfile();
-    _orlandoAddonPromptShown = true;
   }
 
   /// Maps a catalog city id onto trip profile destination fields.

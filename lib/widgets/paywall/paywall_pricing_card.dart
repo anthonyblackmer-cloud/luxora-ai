@@ -10,10 +10,12 @@ class PaywallPricingCard extends StatelessWidget {
     super.key,
     required this.offer,
     this.revealIndex = 4,
+    this.priceLabel,
   });
 
   final PaywallCityOffer offer;
   final int revealIndex;
+  final String? priceLabel;
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +70,7 @@ class PaywallPricingCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Text(
-                      offer.formattedPrice,
+                      priceLabel ?? offer.formattedPrice,
                       style: TextStyle(
                         fontSize: 48,
                         height: 1,

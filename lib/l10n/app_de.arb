@@ -1808,5 +1808,14 @@
   "cloudTripsBannerBody": "Anmelden, um Reisen auf neuem Gerät wiederherzustellen.",
   "cloudTripsBannerCta": "Cloud-Backup einrichten",
   "cloudTripsNotConfigured": "Cloud-Backup erfordert Supabase (Dev-Setup)",
-  "paywallFeatureCloudBackup": "Cloud-Reise-Backup"
+  "paywallFeatureCloudBackup": "Cloud-Reise-Backup",
+  "paywallRestorePurchases": "Käufe wiederherstellen",
+  "paywallPurchaseSuccess": "Kauf abgeschlossen — Ihr Concierge ist freigeschaltet.",
+  "paywallPurchasePending": "Kauf wird abgeschlossen…",
+  "paywallPurchaseFailed": "Kauf fehlgeschlagen. Erneut versuchen oder Käufe wiederherstellen.",
+  "paywallPurchaseCanceled": "Kauf abgebrochen.",
+  "paywallRestoreComplete": "Käufe wiederhergestellt.",
+  "paywallRestoreNone": "Keine früheren Käufe für diese Apple-ID oder dieses Google-Konto.",
+  "paywallStoreUnavailable": "App-Store-Abrechnung auf diesem Gerät nicht verfügbar.",
+  "paywallProductUnavailable": "Dieses Paket ist im Store noch nicht verfügbar."
 }

@@ -1808,5 +1808,14 @@
   "cloudTripsBannerBody": "新しい端末で旅行を復元するにはサインイン。",
   "cloudTripsBannerCta": "クラウドバックアップを設定",
   "cloudTripsNotConfigured": "クラウドバックアップにはSupabase（dev）が必要",
-  "paywallFeatureCloudBackup": "クラウド旅行バックアップ"
+  "paywallFeatureCloudBackup": "クラウド旅行バックアップ",
+  "paywallRestorePurchases": "購入を復元",
+  "paywallPurchaseSuccess": "購入完了 — コンシェルジュがアンロックされました。",
+  "paywallPurchasePending": "購入を完了しています…",
+  "paywallPurchaseFailed": "購入を完了できませんでした。再試行するか復元してください。",
+  "paywallPurchaseCanceled": "購入がキャンセルされました。",
+  "paywallRestoreComplete": "購入を復元しました。",
+  "paywallRestoreNone": "このApple/Googleアカウントの以前の購入は見つかりませんでした。",
+  "paywallStoreUnavailable": "このデバイスではストア課金を利用できません。",
+  "paywallProductUnavailable": "このパックはストアでまだ利用できません。"
 }

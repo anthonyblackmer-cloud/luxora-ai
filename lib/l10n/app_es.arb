@@ -1808,5 +1808,14 @@
   "cloudTripsBannerBody": "Inicia sesión para restaurar viajes en un teléfono nuevo.",
   "cloudTripsBannerCta": "Configurar copia en la nube",
   "cloudTripsNotConfigured": "La nube requiere Supabase (configuración dev)",
-  "paywallFeatureCloudBackup": "Copia de viajes en la nube"
+  "paywallFeatureCloudBackup": "Copia de viajes en la nube",
+  "paywallRestorePurchases": "Restaurar compras",
+  "paywallPurchaseSuccess": "Compra completada — su conserje está desbloqueado.",
+  "paywallPurchasePending": "Completando compra…",
+  "paywallPurchaseFailed": "No se pudo completar la compra. Inténtelo de nuevo o restaure compras.",
+  "paywallPurchaseCanceled": "Compra cancelada.",
+  "paywallRestoreComplete": "Compras restauradas.",
+  "paywallRestoreNone": "No se encontraron compras anteriores para esta cuenta.",
+  "paywallStoreUnavailable": "La facturación de la tienda no está disponible en este dispositivo.",
+  "paywallProductUnavailable": "Este pack aún no está disponible en la tienda."
 }

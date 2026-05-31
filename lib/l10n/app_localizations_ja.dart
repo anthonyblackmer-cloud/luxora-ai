@@ -3098,6 +3098,33 @@ class AppLocalizationsJa extends AppLocalizations {
       '1 回限りの購入 · パーソナル コンシェルジュ · サブスクリプションなし';
 
   @override
+  String get paywallRestorePurchases => '購入を復元';
+
+  @override
+  String get paywallPurchaseSuccess => '購入完了 — コンシェルジュがアンロックされました。';
+
+  @override
+  String get paywallPurchasePending => '購入を完了しています…';
+
+  @override
+  String get paywallPurchaseFailed => '購入を完了できませんでした。再試行するか復元してください。';
+
+  @override
+  String get paywallPurchaseCanceled => '購入がキャンセルされました。';
+
+  @override
+  String get paywallRestoreComplete => '購入を復元しました。';
+
+  @override
+  String get paywallRestoreNone => 'このApple/Googleアカウントの以前の購入は見つかりませんでした。';
+
+  @override
+  String get paywallStoreUnavailable => 'このデバイスではストア課金を利用できません。';
+
+  @override
+  String get paywallProductUnavailable => 'このパックはストアでまだ利用できません。';
+
+  @override
   String get settingsUnlockConciergeTitle => 'シティコンシェルジュのロックを解除する';
 
   @override

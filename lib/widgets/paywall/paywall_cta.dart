@@ -12,14 +12,18 @@ class PaywallCTA extends StatelessWidget {
     required this.offer,
     required this.onUnlock,
     required this.onContinue,
+    this.onRestore,
     this.isLoading = false,
+    this.isRestoring = false,
     this.revealIndex = 6,
   });
 
   final PaywallCityOffer offer;
   final VoidCallback onUnlock;
   final VoidCallback onContinue;
+  final VoidCallback? onRestore;
   final bool isLoading;
+  final bool isRestoring;
   final int revealIndex;
 
   @override
@@ -66,7 +70,7 @@ class PaywallCTA extends StatelessWidget {
           ),
           const SizedBox(height: 14),
           TextButton(
-            onPressed: isLoading ? null : onContinue,
+            onPressed: isLoading || isRestoring ? null : onContinue,
             child: Text(
               l.paywallContinueExploring,
               style: TextStyle(
@@ -78,6 +82,28 @@ class PaywallCTA extends StatelessWidget {
               ),
             ),
           ),
+          if (onRestore != null) ...[
+            TextButton(
+              onPressed: isLoading || isRestoring ? null : onRestore,
+              child: isRestoring
+                  ? SizedBox(
+                      width: 18,
+                      height: 18,
+                      child: CircularProgressIndicator(
+                        strokeWidth: 2,
+                        color: t.textMuted,
+                      ),
+                    )
+                  : Text(
+                      l.paywallRestorePurchases,
+                      style: TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600,
+                        color: t.accent.withValues(alpha: 0.9),
+                      ),
+                    ),
+            ),
+          ],
           const SizedBox(height: 8),
           Text(
             l.paywallConciergePromise,

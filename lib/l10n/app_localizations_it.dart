@@ -3219,6 +3219,38 @@ class AppLocalizationsIt extends AppLocalizations {
       'Acquisto una tantum · Concierge personale · Nessun abbonamento';
 
   @override
+  String get paywallRestorePurchases => 'Ripristina acquisti';
+
+  @override
+  String get paywallPurchaseSuccess =>
+      'Acquisto completato — il concierge è sbloccato.';
+
+  @override
+  String get paywallPurchasePending => 'Completamento acquisto…';
+
+  @override
+  String get paywallPurchaseFailed =>
+      'Acquisto non riuscito. Riprova o ripristina gli acquisti.';
+
+  @override
+  String get paywallPurchaseCanceled => 'Acquisto annullato.';
+
+  @override
+  String get paywallRestoreComplete => 'Acquisti ripristinati.';
+
+  @override
+  String get paywallRestoreNone =>
+      'Nessun acquisto precedente per questo account.';
+
+  @override
+  String get paywallStoreUnavailable =>
+      'Fatturazione store non disponibile su questo dispositivo.';
+
+  @override
+  String get paywallProductUnavailable =>
+      'Questo pacchetto non è ancora disponibile nello store.';
+
+  @override
   String get settingsUnlockConciergeTitle => 'Sblocca il concierge cittadino';
 
   @override

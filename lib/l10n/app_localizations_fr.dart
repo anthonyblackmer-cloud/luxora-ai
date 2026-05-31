@@ -3224,6 +3224,38 @@ class AppLocalizationsFr extends AppLocalizations {
       'Achat unique · Conciergerie personnelle · Pas d\'abonnement';
 
   @override
+  String get paywallRestorePurchases => 'Restaurer les achats';
+
+  @override
+  String get paywallPurchaseSuccess =>
+      'Achat terminé — votre concierge est débloqué.';
+
+  @override
+  String get paywallPurchasePending => 'Finalisation de l’achat…';
+
+  @override
+  String get paywallPurchaseFailed =>
+      'Achat impossible. Réessayez ou restaurez les achats.';
+
+  @override
+  String get paywallPurchaseCanceled => 'Achat annulé.';
+
+  @override
+  String get paywallRestoreComplete => 'Achats restaurés.';
+
+  @override
+  String get paywallRestoreNone =>
+      'Aucun achat précédent pour ce compte Apple ou Google.';
+
+  @override
+  String get paywallStoreUnavailable =>
+      'La facturation App Store n’est pas disponible sur cet appareil.';
+
+  @override
+  String get paywallProductUnavailable =>
+      'Ce pack n’est pas encore disponible dans le store.';
+
+  @override
   String get settingsUnlockConciergeTitle =>
       'Débloquez le concierge de la ville';
 

@@ -3205,6 +3205,38 @@ class AppLocalizationsRu extends AppLocalizations {
       'Разовая покупка · Личный консьерж · Без подписки';
 
   @override
+  String get paywallRestorePurchases => 'Восстановить покупки';
+
+  @override
+  String get paywallPurchaseSuccess =>
+      'Покупка завершена — консьерж разблокирован.';
+
+  @override
+  String get paywallPurchasePending => 'Завершение покупки…';
+
+  @override
+  String get paywallPurchaseFailed =>
+      'Не удалось завершить покупку. Повторите или восстановите покупки.';
+
+  @override
+  String get paywallPurchaseCanceled => 'Покупка отменена.';
+
+  @override
+  String get paywallRestoreComplete => 'Покупки восстановлены.';
+
+  @override
+  String get paywallRestoreNone =>
+      'Предыдущие покупки для этой учётной записи не найдены.';
+
+  @override
+  String get paywallStoreUnavailable =>
+      'Оплата через магазин недоступна на этом устройстве.';
+
+  @override
+  String get paywallProductUnavailable =>
+      'Этот пакет пока недоступен в магазине.';
+
+  @override
   String get settingsUnlockConciergeTitle =>
       'Разблокировать городского консьержа';
 

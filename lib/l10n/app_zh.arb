@@ -1808,5 +1808,14 @@
   "cloudTripsBannerBody": "登录后可在新手机上恢复行程。",
   "cloudTripsBannerCta": "设置云备份",
   "cloudTripsNotConfigured": "云备份需要 Supabase（开发配置）",
-  "paywallFeatureCloudBackup": "云端行程备份"
+  "paywallFeatureCloudBackup": "云端行程备份",
+  "paywallRestorePurchases": "恢复购买",
+  "paywallPurchaseSuccess": "购买完成 — 礼宾已解锁。",
+  "paywallPurchasePending": "正在完成购买…",
+  "paywallPurchaseFailed": "无法完成购买。请重试或恢复购买。",
+  "paywallPurchaseCanceled": "购买已取消。",
+  "paywallRestoreComplete": "购买已恢复。",
+  "paywallRestoreNone": "未找到此 Apple/Google 账户的先前购买。",
+  "paywallStoreUnavailable": "此设备无法使用商店计费。",
+  "paywallProductUnavailable": "该套餐尚未在商店上架。"
 }

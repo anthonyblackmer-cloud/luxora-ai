@@ -1808,5 +1808,14 @@
   "cloudTripsBannerBody": "Войдите, чтобы восстановить поездки на новом телефоне.",
   "cloudTripsBannerCta": "Настроить облачный бэкап",
   "cloudTripsNotConfigured": "Облако требует Supabase (dev-настройка)",
-  "paywallFeatureCloudBackup": "Облачный бэкап поездок"
+  "paywallFeatureCloudBackup": "Облачный бэкап поездок",
+  "paywallRestorePurchases": "Восстановить покупки",
+  "paywallPurchaseSuccess": "Покупка завершена — консьерж разблокирован.",
+  "paywallPurchasePending": "Завершение покупки…",
+  "paywallPurchaseFailed": "Не удалось завершить покупку. Повторите или восстановите покупки.",
+  "paywallPurchaseCanceled": "Покупка отменена.",
+  "paywallRestoreComplete": "Покупки восстановлены.",
+  "paywallRestoreNone": "Предыдущие покупки для этой учётной записи не найдены.",
+  "paywallStoreUnavailable": "Оплата через магазин недоступна на этом устройстве.",
+  "paywallProductUnavailable": "Этот пакет пока недоступен в магазине."
 }

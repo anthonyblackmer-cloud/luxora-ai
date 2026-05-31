@@ -1808,5 +1808,14 @@
   "cloudTripsBannerBody": "Entre para restaurar viagens em um novo telefone.",
   "cloudTripsBannerCta": "Configurar backup na nuvem",
   "cloudTripsNotConfigured": "Backup na nuvem requer Supabase (setup dev)",
-  "paywallFeatureCloudBackup": "Backup de viagens na nuvem"
+  "paywallFeatureCloudBackup": "Backup de viagens na nuvem",
+  "paywallRestorePurchases": "Restaurar compras",
+  "paywallPurchaseSuccess": "Compra concluída — seu concierge está desbloqueado.",
+  "paywallPurchasePending": "Concluindo compra…",
+  "paywallPurchaseFailed": "Não foi possível concluir a compra. Tente novamente ou restaure compras.",
+  "paywallPurchaseCanceled": "Compra cancelada.",
+  "paywallRestoreComplete": "Compras restauradas.",
+  "paywallRestoreNone": "Nenhuma compra anterior para esta conta.",
+  "paywallStoreUnavailable": "Cobrança da loja indisponível neste dispositivo.",
+  "paywallProductUnavailable": "Este pacote ainda não está disponível na loja."
 }

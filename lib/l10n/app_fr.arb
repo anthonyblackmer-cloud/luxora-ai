@@ -1808,5 +1808,14 @@
   "cloudTripsBannerBody": "Connectez-vous pour restaurer vos voyages sur un nouvel appareil.",
   "cloudTripsBannerCta": "Configurer la sauvegarde cloud",
   "cloudTripsNotConfigured": "Le cloud nécessite Supabase (config dev)",
-  "paywallFeatureCloudBackup": "Sauvegarde cloud des voyages"
+  "paywallFeatureCloudBackup": "Sauvegarde cloud des voyages",
+  "paywallRestorePurchases": "Restaurer les achats",
+  "paywallPurchaseSuccess": "Achat terminé — votre concierge est débloqué.",
+  "paywallPurchasePending": "Finalisation de l’achat…",
+  "paywallPurchaseFailed": "Achat impossible. Réessayez ou restaurez les achats.",
+  "paywallPurchaseCanceled": "Achat annulé.",
+  "paywallRestoreComplete": "Achats restaurés.",
+  "paywallRestoreNone": "Aucun achat précédent pour ce compte Apple ou Google.",
+  "paywallStoreUnavailable": "La facturation App Store n’est pas disponible sur cet appareil.",
+  "paywallProductUnavailable": "Ce pack n’est pas encore disponible dans le store."
 }

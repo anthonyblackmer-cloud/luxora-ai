@@ -3209,6 +3209,38 @@ class AppLocalizationsEs extends AppLocalizations {
       'Compra única · Conserje personal · Sin suscripción';
 
   @override
+  String get paywallRestorePurchases => 'Restaurar compras';
+
+  @override
+  String get paywallPurchaseSuccess =>
+      'Compra completada — su conserje está desbloqueado.';
+
+  @override
+  String get paywallPurchasePending => 'Completando compra…';
+
+  @override
+  String get paywallPurchaseFailed =>
+      'No se pudo completar la compra. Inténtelo de nuevo o restaure compras.';
+
+  @override
+  String get paywallPurchaseCanceled => 'Compra cancelada.';
+
+  @override
+  String get paywallRestoreComplete => 'Compras restauradas.';
+
+  @override
+  String get paywallRestoreNone =>
+      'No se encontraron compras anteriores para esta cuenta.';
+
+  @override
+  String get paywallStoreUnavailable =>
+      'La facturación de la tienda no está disponible en este dispositivo.';
+
+  @override
+  String get paywallProductUnavailable =>
+      'Este pack aún no está disponible en la tienda.';
+
+  @override
   String get settingsUnlockConciergeTitle =>
       'Desbloquear el conserje de la ciudad';
 

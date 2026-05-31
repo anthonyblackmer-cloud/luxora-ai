@@ -3206,6 +3206,37 @@ class AppLocalizationsPt extends AppLocalizations {
       'Compra única · Concierge pessoal · Sem assinatura';
 
   @override
+  String get paywallRestorePurchases => 'Restaurar compras';
+
+  @override
+  String get paywallPurchaseSuccess =>
+      'Compra concluída — seu concierge está desbloqueado.';
+
+  @override
+  String get paywallPurchasePending => 'Concluindo compra…';
+
+  @override
+  String get paywallPurchaseFailed =>
+      'Não foi possível concluir a compra. Tente novamente ou restaure compras.';
+
+  @override
+  String get paywallPurchaseCanceled => 'Compra cancelada.';
+
+  @override
+  String get paywallRestoreComplete => 'Compras restauradas.';
+
+  @override
+  String get paywallRestoreNone => 'Nenhuma compra anterior para esta conta.';
+
+  @override
+  String get paywallStoreUnavailable =>
+      'Cobrança da loja indisponível neste dispositivo.';
+
+  @override
+  String get paywallProductUnavailable =>
+      'Este pacote ainda não está disponível na loja.';
+
+  @override
   String get settingsUnlockConciergeTitle =>
       'Desbloqueie o concierge da cidade';
 

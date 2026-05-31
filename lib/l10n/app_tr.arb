@@ -1808,5 +1808,14 @@
   "cloudTripsBannerBody": "Yeni telefonda gezileri geri yüklemek için giriş yapın.",
   "cloudTripsBannerCta": "Bulut yedeği ayarla",
   "cloudTripsNotConfigured": "Bulut yedek Supabase gerektirir (dev kurulum)",
-  "paywallFeatureCloudBackup": "Bulut gezi yedeği"
+  "paywallFeatureCloudBackup": "Bulut gezi yedeği",
+  "paywallRestorePurchases": "Satın alımları geri yükle",
+  "paywallPurchaseSuccess": "Satın alma tamamlandı — concierge kilidi açıldı.",
+  "paywallPurchasePending": "Satın alma tamamlanıyor…",
+  "paywallPurchaseFailed": "Satın alma tamamlanamadı. Tekrar deneyin veya geri yükleyin.",
+  "paywallPurchaseCanceled": "Satın alma iptal edildi.",
+  "paywallRestoreComplete": "Satın alımlar geri yüklendi.",
+  "paywallRestoreNone": "Bu Apple veya Google hesabı için önceki satın alım bulunamadı.",
+  "paywallStoreUnavailable": "Bu cihazda mağaza faturalandırması kullanılamıyor.",
+  "paywallProductUnavailable": "Bu paket mağazada henüz mevcut değil."
 }

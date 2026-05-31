@@ -3192,6 +3192,38 @@ class AppLocalizationsHi extends AppLocalizations {
       'एकमुश्त खरीदारी · व्यक्तिगत दरबान · कोई सदस्यता नहीं';
 
   @override
+  String get paywallRestorePurchases => 'खरीदारी पुनर्स्थापित करें';
+
+  @override
+  String get paywallPurchaseSuccess =>
+      'खरीद पूर्ण — आपका concierge अनलॉक हो गया।';
+
+  @override
+  String get paywallPurchasePending => 'खरीद पूरी हो रही है…';
+
+  @override
+  String get paywallPurchaseFailed =>
+      'खरीद पूरी नहीं हो सकी। फिर कोशिश करें या restore करें।';
+
+  @override
+  String get paywallPurchaseCanceled => 'खरीद रद्द।';
+
+  @override
+  String get paywallRestoreComplete => 'खरीदारी पुनर्स्थापित।';
+
+  @override
+  String get paywallRestoreNone =>
+      'इस Apple/Google खाते के लिए कोई पिछली खरीद नहीं मिली।';
+
+  @override
+  String get paywallStoreUnavailable =>
+      'इस डिवाइस पर स्टोर बिलिंग उपलब्ध नहीं।';
+
+  @override
+  String get paywallProductUnavailable =>
+      'यह पैक अभी स्टोर में उपलब्ध नहीं है।';
+
+  @override
   String get settingsUnlockConciergeTitle => 'शहर द्वारपाल को अनलॉक करें';
 
   @override

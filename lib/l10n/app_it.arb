@@ -1808,5 +1808,14 @@
   "cloudTripsBannerBody": "Accedi per ripristinare i viaggi su un nuovo telefono.",
   "cloudTripsBannerCta": "Configura backup cloud",
   "cloudTripsNotConfigured": "Il backup cloud richiede Supabase (setup dev)",
-  "paywallFeatureCloudBackup": "Backup viaggi cloud"
+  "paywallFeatureCloudBackup": "Backup viaggi cloud",
+  "paywallRestorePurchases": "Ripristina acquisti",
+  "paywallPurchaseSuccess": "Acquisto completato — il concierge è sbloccato.",
+  "paywallPurchasePending": "Completamento acquisto…",
+  "paywallPurchaseFailed": "Acquisto non riuscito. Riprova o ripristina gli acquisti.",
+  "paywallPurchaseCanceled": "Acquisto annullato.",
+  "paywallRestoreComplete": "Acquisti ripristinati.",
+  "paywallRestoreNone": "Nessun acquisto precedente per questo account.",
+  "paywallStoreUnavailable": "Fatturazione store non disponibile su questo dispositivo.",
+  "paywallProductUnavailable": "Questo pacchetto non è ancora disponibile nello store."
 }

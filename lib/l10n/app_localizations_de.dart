@@ -3200,6 +3200,38 @@ class AppLocalizationsDe extends AppLocalizations {
       'Einmaliger Kauf · Persönlicher Concierge · Kein Abonnement';
 
   @override
+  String get paywallRestorePurchases => 'Käufe wiederherstellen';
+
+  @override
+  String get paywallPurchaseSuccess =>
+      'Kauf abgeschlossen — Ihr Concierge ist freigeschaltet.';
+
+  @override
+  String get paywallPurchasePending => 'Kauf wird abgeschlossen…';
+
+  @override
+  String get paywallPurchaseFailed =>
+      'Kauf fehlgeschlagen. Erneut versuchen oder Käufe wiederherstellen.';
+
+  @override
+  String get paywallPurchaseCanceled => 'Kauf abgebrochen.';
+
+  @override
+  String get paywallRestoreComplete => 'Käufe wiederhergestellt.';
+
+  @override
+  String get paywallRestoreNone =>
+      'Keine früheren Käufe für diese Apple-ID oder dieses Google-Konto.';
+
+  @override
+  String get paywallStoreUnavailable =>
+      'App-Store-Abrechnung auf diesem Gerät nicht verfügbar.';
+
+  @override
+  String get paywallProductUnavailable =>
+      'Dieses Paket ist im Store noch nicht verfügbar.';
+
+  @override
   String get settingsUnlockConciergeTitle => 'Stadt-Concierge freischalten';
 
   @override

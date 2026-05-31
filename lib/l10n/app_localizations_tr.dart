@@ -3197,6 +3197,38 @@ class AppLocalizationsTr extends AppLocalizations {
       'Tek seferlik satın alma · Kişisel konsiyerj · Abonelik yok';
 
   @override
+  String get paywallRestorePurchases => 'Satın alımları geri yükle';
+
+  @override
+  String get paywallPurchaseSuccess =>
+      'Satın alma tamamlandı — concierge kilidi açıldı.';
+
+  @override
+  String get paywallPurchasePending => 'Satın alma tamamlanıyor…';
+
+  @override
+  String get paywallPurchaseFailed =>
+      'Satın alma tamamlanamadı. Tekrar deneyin veya geri yükleyin.';
+
+  @override
+  String get paywallPurchaseCanceled => 'Satın alma iptal edildi.';
+
+  @override
+  String get paywallRestoreComplete => 'Satın alımlar geri yüklendi.';
+
+  @override
+  String get paywallRestoreNone =>
+      'Bu Apple veya Google hesabı için önceki satın alım bulunamadı.';
+
+  @override
+  String get paywallStoreUnavailable =>
+      'Bu cihazda mağaza faturalandırması kullanılamıyor.';
+
+  @override
+  String get paywallProductUnavailable =>
+      'Bu paket mağazada henüz mevcut değil.';
+
+  @override
   String get settingsUnlockConciergeTitle => 'Şehir kapıcısının kilidini açın';
 
   @override

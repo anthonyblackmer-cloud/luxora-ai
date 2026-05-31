@@ -1808,5 +1808,14 @@
   "cloudTripsBannerBody": "नए फोन पर यात्राएँ पुनर्स्थापित करने के लिए साइन इन करें।",
   "cloudTripsBannerCta": "क्लाउड बैकअप सेट करें",
   "cloudTripsNotConfigured": "क्लाउड बैकअप के लिए Supabase (dev) चाहिए",
-  "paywallFeatureCloudBackup": "क्लाउड ट्रिप बैकअप"
+  "paywallFeatureCloudBackup": "क्लाउड ट्रिप बैकअप",
+  "paywallRestorePurchases": "खरीदारी पुनर्स्थापित करें",
+  "paywallPurchaseSuccess": "खरीद पूर्ण — आपका concierge अनलॉक हो गया।",
+  "paywallPurchasePending": "खरीद पूरी हो रही है…",
+  "paywallPurchaseFailed": "खरीद पूरी नहीं हो सकी। फिर कोशिश करें या restore करें।",
+  "paywallPurchaseCanceled": "खरीद रद्द।",
+  "paywallRestoreComplete": "खरीदारी पुनर्स्थापित।",
+  "paywallRestoreNone": "इस Apple/Google खाते के लिए कोई पिछली खरीद नहीं मिली।",
+  "paywallStoreUnavailable": "इस डिवाइस पर स्टोर बिलिंग उपलब्ध नहीं।",
+  "paywallProductUnavailable": "यह पैक अभी स्टोर में उपलब्ध नहीं है।"
 }

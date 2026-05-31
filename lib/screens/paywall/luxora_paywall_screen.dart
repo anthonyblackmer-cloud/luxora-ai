@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:luxora_ai/data/iap_product_catalog.dart';
 import 'package:luxora_ai/data/orlando/orlando_addon_catalog.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/models/paywall/paywall_addon_offer.dart';
 import 'package:luxora_ai/models/paywall/paywall_city_offer.dart';
 import 'package:luxora_ai/services/city_pack_entitlement_store.dart';
 import 'package:luxora_ai/services/city_pack_sync.dart';
+import 'package:luxora_ai/services/iap_purchase_service.dart';
 import 'package:luxora_ai/services/paywall_personalization.dart';
 import 'package:luxora_ai/services/paywall_service.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
+import 'package:luxora_ai/util/iap_user_messages.dart';
 import 'package:luxora_ai/widgets/city_destination_picker.dart';
 import 'package:luxora_ai/widgets/paywall/paywall_benefit_cards.dart';
 import 'package:luxora_ai/widgets/paywall/paywall_cta.dart';
@@ -41,6 +44,7 @@ class _LuxoraPaywallScreenState extends State<LuxoraPaywallScreen> {
   PaywallAddonOffer? _addonOffer;
   bool _unlocking = false;
   bool _unlockingAddon = false;
+  bool _restoring = false;
 
   bool get _addonFocus =>
       _addonOffer != null && PaywallService.isOrlandoAddon(_addonOffer!.addonId);
@@ -71,14 +75,25 @@ class _LuxoraPaywallScreenState extends State<LuxoraPaywallScreen> {
 
   Future<void> _unlockCity() async {
     if (_unlocking) return;
+    if (!PaywallService.hasStoreListing(_offer.cityId)) {
+      showIapSnackBar(context, context.l10n.paywallProductUnavailable);
+      return;
+    }
     setState(() => _unlocking = true);
     try {
-      await PaywallService.completeUnlock(_offer.cityId);
+      final outcome = await PaywallService.purchaseCityPack(_offer.cityId);
       if (!mounted) return;
-      if (_offer.cityId == OrlandoAddonCatalog.parentCityId) {
-        await PaywallService.promptOrlandoThemeParksIfNeeded(context);
+      if (outcome == IapPurchaseOutcome.success ||
+          outcome == IapPurchaseOutcome.alreadyOwned) {
+        if (_offer.cityId == OrlandoAddonCatalog.parentCityId) {
+          await PaywallService.promptOrlandoThemeParksIfNeeded(context);
+        }
+        if (mounted) context.pop(true);
+        return;
       }
-      if (mounted) context.pop(true);
+      if (outcome != IapPurchaseOutcome.pending) {
+        showIapSnackBar(context, iapPurchaseMessage(context.l10n, outcome));
+      }
     } finally {
       if (mounted) setState(() => _unlocking = false);
     }
@@ -92,8 +107,16 @@ class _LuxoraPaywallScreenState extends State<LuxoraPaywallScreen> {
     }
     setState(() => _unlockingAddon = true);
     try {
-      await PaywallService.completeAddonUnlock(addonId);
-      if (mounted) setState(() {});
+      final outcome = await PaywallService.purchaseAddon(addonId);
+      if (!mounted) return;
+      if (outcome == IapPurchaseOutcome.success ||
+          outcome == IapPurchaseOutcome.alreadyOwned) {
+        setState(() {});
+        return;
+      }
+      if (outcome != IapPurchaseOutcome.pending) {
+        showIapSnackBar(context, iapPurchaseMessage(context.l10n, outcome));
+      }
     } finally {
       if (mounted) setState(() => _unlockingAddon = false);
     }
@@ -108,10 +131,36 @@ class _LuxoraPaywallScreenState extends State<LuxoraPaywallScreen> {
     }
     setState(() => _unlocking = true);
     try {
-      await PaywallService.completeAddonUnlock(addon.addonId);
-      if (mounted) context.pop(true);
+      final outcome = await PaywallService.purchaseAddon(addon.addonId);
+      if (!mounted) return;
+      if (outcome == IapPurchaseOutcome.success ||
+          outcome == IapPurchaseOutcome.alreadyOwned) {
+        context.pop(true);
+        return;
+      }
+      if (outcome != IapPurchaseOutcome.pending) {
+        showIapSnackBar(context, iapPurchaseMessage(context.l10n, outcome));
+      }
     } finally {
       if (mounted) setState(() => _unlocking = false);
+    }
+  }
+
+  Future<void> _restorePurchases() async {
+    if (_restoring || _unlocking) return;
+    setState(() => _restoring = true);
+    try {
+      final outcome = await PaywallService.restorePurchases();
+      if (!mounted) return;
+      showIapSnackBar(context, iapRestoreMessage(context.l10n, outcome));
+      if (outcome == IapRestoreOutcome.restored) {
+        setState(() {});
+        if (!_addonFocus && !PaywallService.needsUnlock(_offer.cityId)) {
+          context.pop(true);
+        }
+      }
+    } finally {
+      if (mounted) setState(() => _restoring = false);
     }
   }
 
@@ -188,6 +237,7 @@ class _LuxoraPaywallScreenState extends State<LuxoraPaywallScreen> {
                     child: CityDestinationPicker(
                       label: l.paywallSwitchCity,
                       selectedCityId: _offer.cityId,
+                      limitedCityIds: IapProductCatalog.launchCityIds,
                       onChanged: _switchCity,
                     ),
                   ),
@@ -221,7 +271,19 @@ class _LuxoraPaywallScreenState extends State<LuxoraPaywallScreen> {
                         revealIndex: 1,
                       )
                     else if (cityLocked)
-                      PaywallPricingCard(offer: _offer, revealIndex: 4),
+                      ListenableBuilder(
+                        listenable: IapPurchaseService.instance,
+                        builder: (context, _) {
+                          return PaywallPricingCard(
+                            offer: _offer,
+                            revealIndex: 4,
+                            priceLabel: PaywallService.storePriceForCity(
+                                  _offer.cityId,
+                                ) ??
+                                _offer.formattedPrice,
+                          );
+                        },
+                      ),
                     if (_showOrlandoAddons) ...[
                       const SizedBox(height: 28),
                       PaywallOrlandoAddonSection(
@@ -238,7 +300,9 @@ class _LuxoraPaywallScreenState extends State<LuxoraPaywallScreen> {
                         offer: _offer,
                         onUnlock: _unlockCity,
                         onContinue: _continueExploring,
+                        onRestore: _restorePurchases,
                         isLoading: _unlocking,
+                        isRestoring: _restoring,
                         revealIndex: 7,
                       ),
                     ] else if (addonLocked && _addonOffer != null) ...[
