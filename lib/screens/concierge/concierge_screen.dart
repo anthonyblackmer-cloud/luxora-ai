@@ -306,10 +306,12 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
     _scrollToEnd();
 
     if (!ConciergeAiService.isConfigured) {
+      final locale = Localizations.localeOf(context).languageCode;
       final local = await ConciergeLocalResponder.respond(
         l: l,
         userMessage: trimmed,
         profile: _profile,
+        localeName: locale,
       );
       if (!mounted) return;
       setState(() {
@@ -363,14 +365,20 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
         lastSyncedPlanningMessage: _lastItinerarySourceMessage,
         tripFeel: _profile?.tripFeel,
       );
+      final promisedSync =
+          ConciergeAgendaChatFormat.assistantPromisedAgendaSync(reply);
       final shouldSync = ConciergeTripSaveSync.shouldRebuildItinerary(
             planningMessage,
           ) ||
-          ConciergeAgendaChatFormat.assistantPromisedAgendaSync(reply);
+          promisedSync;
       final sync = shouldSync
           ? await ConciergeItinerarySync.applyAfterChat(
               userMessage: planningMessage,
               profile: _profile,
+              forceRebuild: promisedSync &&
+                  !ConciergeTripSaveSync.shouldRebuildItinerary(
+                    planningMessage,
+                  ),
             )
           : null;
       if (sync != null) {

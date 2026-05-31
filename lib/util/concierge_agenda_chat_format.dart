@@ -53,9 +53,11 @@ abstract final class ConciergeAgendaChatFormat {
 
   /// Model replied as if Map/Timeline were updated — client must sync to match.
   static bool assistantPromisedAgendaSync(String reply) {
-    final lower = reply.toLowerCase();
+    final lower = reply.toLowerCase().replaceAll('ё', 'е');
     if (lower.contains('map') &&
-        (lower.contains('timeline') || lower.contains('agenda'))) {
+        (lower.contains('timeline') ||
+            lower.contains('agenda') ||
+            lower.contains('карт'))) {
       return true;
     }
     if (lower.contains('added to') &&
@@ -64,11 +66,33 @@ abstract final class ConciergeAgendaChatFormat {
             lower.contains('map'))) {
       return true;
     }
-    return lower.contains('ready on map') ||
+    if (lower.contains('ready on map') ||
         lower.contains('on map and') ||
         lower.contains('your agenda is') ||
         lower.contains('built your day') ||
-        lower.contains('sequenced your day');
+        lower.contains('sequenced your day')) {
+      return true;
+    }
+    // Russian / multilingual concierge replies
+    if (RegExp(
+      r'(добавил|добавила|обновил|обновила|сохранил|сохранила|построил|построила|составил|составила)',
+    ).hasMatch(lower)) {
+      if (lower.contains('карт') ||
+          lower.contains('маршрут') ||
+          lower.contains('расписан') ||
+          lower.contains('agenda') ||
+          lower.contains('timeline') ||
+          lower.contains('map')) {
+        return true;
+      }
+    }
+    if (lower.contains('готов') &&
+        (lower.contains('карт') ||
+            lower.contains('маршрут') ||
+            lower.contains('agenda'))) {
+      return true;
+    }
+    return false;
   }
 
   /// Best user text to feed the itinerary engine for this exchange.

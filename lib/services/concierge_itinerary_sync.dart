@@ -40,10 +40,13 @@ abstract final class ConciergeItinerarySync {
   static Future<ConciergeItinerarySyncResult?> applyAfterChat({
     required String userMessage,
     TripProfile? profile,
+    bool forceRebuild = false,
   }) async {
     final trimmed = userMessage.trim();
     if (trimmed.isEmpty) return null;
-    if (!ConciergeTripSaveSync.shouldRebuildItinerary(trimmed)) return null;
+    if (!forceRebuild && !ConciergeTripSaveSync.shouldRebuildItinerary(trimmed)) {
+      return null;
+    }
 
     await PlacesRepository.instance.initialize();
 

@@ -78,15 +78,122 @@ abstract final class ConciergeTripSaveSync {
     'itinerary',
   ];
 
+  /// Non-English save / list / planning cues (Concierge UI is multilingual).
+  static const _savePhrasesIntl = [
+    // Russian
+    'сохрани мою поездку',
+    'сохрани поездку',
+    'сохранить поездку',
+    'сохраните поездку',
+    'сохрани в поездки',
+    'сохранить в поездки',
+    'добавь в поездки',
+    'добавить в поездки',
+    'запомни поездку',
+    // Spanish
+    'guarda mi viaje',
+    'guardar mi viaje',
+    'guardar viaje',
+    // French
+    'enregistre mon voyage',
+    'enregistrer mon voyage',
+    // German
+    'speichere meine reise',
+    'reise speichern',
+    // Portuguese
+    'salvar minha viagem',
+    'salve minha viagem',
+    // Italian
+    'salva il mio viaggio',
+    'salva la mia vacanza',
+    // Chinese
+    '保存我的行程',
+    '保存行程',
+    // Japanese
+    '旅行を保存',
+    // Korean
+    '여행 저장',
+  ];
+
+  static const _listPhrasesIntl = [
+    'мои поездки',
+    'сохранённые поездки',
+    'сохраненные поездки',
+    'покажи поездки',
+    'какие поездки',
+    'mis viajes guardados',
+    'mes voyages enregistrés',
+    'meine gespeicherten reisen',
+    'minhas viagens salvas',
+  ];
+
+  static const _planningPhrasesIntl = [
+    // Russian
+    'спланируй',
+    'спланировать',
+    'составь маршрут',
+    'составить маршрут',
+    'маршрут на',
+    'маршрут в',
+    'расписание на',
+    'расписание для',
+    'план на',
+    'план поездки',
+    'поездку в',
+    'день в',
+    'дней в',
+    // Spanish
+    'planifica mi',
+    'planificar',
+    'itinerario para',
+    // French
+    'planifie mon',
+    'planifier',
+    'itinéraire pour',
+    // German
+    'plane meine',
+    'plane meinen',
+    'reise planen',
+    // Portuguese
+    'planeje minha',
+    'planejar',
+    // Italian
+    'pianifica il',
+    'pianifica la',
+    // Chinese / Japanese / Korean (common loanwords + verbs)
+    '规划',
+    '行程',
+    'プラン',
+    '일정',
+  ];
+
   static bool wantsSaveTrip(String message) {
-    final lower = message.toLowerCase();
-    return _savePhrases.any(lower.contains);
+    final lower = _normalize(message);
+    if (_savePhrases.any(lower.contains)) return true;
+    if (_savePhrasesIntl.any(lower.contains)) return true;
+    if (_russianSaveIntent(lower)) return true;
+    return false;
+  }
+
+  static bool _russianSaveIntent(String lower) {
+    if (!lower.contains('сохран') && !lower.contains('запомни')) {
+      return false;
+    }
+    return lower.contains('поезд') ||
+        lower.contains('trips') ||
+        lower.contains('trip');
   }
 
   static bool wantsListSavedTrips(String message) {
-    final lower = message.toLowerCase();
+    final lower = _normalize(message);
     if (_listPhrases.any(lower.contains)) return true;
-    return RegExp(r'\b(show|list|what|which)\b.*\btrips?\b').hasMatch(lower);
+    if (_listPhrasesIntl.any(lower.contains)) return true;
+    if (RegExp(r'\b(show|list|what|which)\b.*\btrips?\b').hasMatch(lower)) {
+      return true;
+    }
+    return RegExp(
+      r'(покажи|какие|список).{0,24}(поездк|trips)',
+    ).hasMatch(lower);
   }
 
   static bool shouldSkipItineraryRebuild(String message) {
@@ -105,12 +212,21 @@ abstract final class ConciergeTripSaveSync {
   }
 
   static bool hasPlanningIntent(String message) {
-    final lower = message.toLowerCase();
+    final lower = _normalize(message);
     if (_planningPhrases.any(lower.contains)) return true;
-    return RegExp(
+    if (_planningPhrasesIntl.any(lower.contains)) return true;
+    if (RegExp(
       r'\b(\d+|one|two|three|four|five|six|seven)[\s-]*(day|night)',
+    ).hasMatch(lower)) {
+      return true;
+    }
+    return RegExp(
+      r'(\d+|один|два|три|четыре|пять|шесть|семь)[\s-]*(день|дня|дней|ноч)',
     ).hasMatch(lower);
   }
+
+  static String _normalize(String message) =>
+      message.toLowerCase().replaceAll('ё', 'е').trim();
 
   static Future<ConciergeTripSaveResult> saveCurrentTrip({
     TripProfile? profile,

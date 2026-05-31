@@ -21,12 +21,30 @@ abstract final class ConciergeLocalResponder {
     required AppLocalizations l,
     required String userMessage,
     TripProfile? profile,
+    String localeName = 'en',
   }) async {
     final trimmed = userMessage.trim();
     if (trimmed.isEmpty) {
       return ConciergeLocalRespondResult(
         reply: l.conciergeLocalNoIntent,
       );
+    }
+
+    if (ConciergeTripSaveSync.wantsSaveTrip(trimmed)) {
+      final save = await ConciergeTripSaveSync.saveCurrentTrip(
+        profile: profile,
+        localeName: localeName,
+        l: l,
+      );
+      return ConciergeLocalRespondResult(reply: save.chatMessage);
+    }
+
+    if (ConciergeTripSaveSync.wantsListSavedTrips(trimmed)) {
+      final summary = await ConciergeTripSaveSync.listSavedTripsSummary(
+        l: l,
+        cityId: profile?.cityId,
+      );
+      return ConciergeLocalRespondResult(reply: summary);
     }
 
     if (ConciergeTripSaveSync.shouldRebuildItinerary(trimmed)) {
