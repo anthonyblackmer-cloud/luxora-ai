@@ -359,7 +359,7 @@ class _MapRoutePlannerState extends State<_MapRoutePlanner> {
 
   @override
   Widget build(BuildContext context) {
-    final mapHeight = (MediaQuery.sizeOf(context).height * 0.46).clamp(320.0, 520.0);
+    final mapHeight = (MediaQuery.sizeOf(context).height * 0.52).clamp(340.0, 560.0);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
