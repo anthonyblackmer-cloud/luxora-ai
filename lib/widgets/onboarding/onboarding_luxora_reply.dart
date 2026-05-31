@@ -58,24 +58,12 @@ class _OnboardingLuxoraReplyState extends State<OnboardingLuxoraReply> {
     await _voice.initialize();
     if (!mounted) return;
     setState(() => _speaking = true);
-    _speakLineAt(0, lines, locale);
-  }
-
-  void _speakLineAt(int index, List<String> lines, String locale) {
-    if (!mounted || index >= lines.length) {
-      if (mounted) setState(() => _speaking = false);
-      return;
-    }
-
-    unawaited(
-      _voice.speak(
-        lines[index],
-        languageCode: locale,
-        onComplete: () {
-          if (!mounted) return;
-          _speakLineAt(index + 1, lines, locale);
-        },
-      ),
+    await _voice.speak(
+      ConciergeVoiceService.scriptFromLines(lines),
+      languageCode: locale,
+      onComplete: () {
+        if (mounted) setState(() => _speaking = false);
+      },
     );
   }
 

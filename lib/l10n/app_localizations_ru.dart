@@ -1473,6 +1473,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get conciergeVoicePreview => 'Предварительный просмотр голоса';
 
   @override
+  String get conciergeVoicePreviewCurrent => 'Прослушать текущий голос';
+
+  @override
   String get conciergeVoicePreviewSample =>
       'Здравствуйте, я Луксора. Расскажи мне, какие ощущения ты хочешь от этой поездки.';
 
@@ -1526,7 +1529,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get conciergeVoicePresetMatchApp =>
-      'Выберите язык приложения · Женский';
+      'По умолчанию Luxora · Kate (Premium)';
 
   @override
   String get conciergeVoicePresetEnUsF => 'Американский · Женский';

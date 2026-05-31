@@ -2661,6 +2661,12 @@ abstract class AppLocalizations {
   /// **'Preview voice'**
   String get conciergeVoicePreview;
 
+  /// No description provided for @conciergeVoicePreviewCurrent.
+  ///
+  /// In en, this message translates to:
+  /// **'Preview current voice'**
+  String get conciergeVoicePreviewCurrent;
+
   /// No description provided for @conciergeVoicePreviewSample.
   ///
   /// In en, this message translates to:
@@ -2760,7 +2766,7 @@ abstract class AppLocalizations {
   /// No description provided for @conciergeVoicePresetMatchApp.
   ///
   /// In en, this message translates to:
-  /// **'Match app language · Female'**
+  /// **'Luxora default · Kate (Premium)'**
   String get conciergeVoicePresetMatchApp;
 
   /// No description provided for @conciergeVoicePresetEnUsF.

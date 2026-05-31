@@ -1407,6 +1407,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get conciergeVoicePreview => '预览语音';
 
   @override
+  String get conciergeVoicePreviewCurrent => '预览当前语音';
+
+  @override
   String get conciergeVoicePreviewSample => '你好——我是卢克索拉。告诉我你想要这次旅行的感觉如何。';
 
   @override
@@ -1457,7 +1460,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get conciergeVoiceRegionOther => '其他';
 
   @override
-  String get conciergeVoicePresetMatchApp => '匹配应用语言 · 女性';
+  String get conciergeVoicePresetMatchApp => 'Luxora 默认 · Kate（Premium）';
 
   @override
   String get conciergeVoicePresetEnUsF => '美国 · 女';

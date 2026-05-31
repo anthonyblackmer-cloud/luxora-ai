@@ -1463,6 +1463,9 @@ class AppLocalizationsHi extends AppLocalizations {
   String get conciergeVoicePreview => 'आवाज का पूर्वावलोकन करें';
 
   @override
+  String get conciergeVoicePreviewCurrent => 'वर्तमान आवाज़ का पूर्वावलोकन';
+
+  @override
   String get conciergeVoicePreviewSample =>
       'नमस्ते - मैं लक्सोरा हूं। मुझे बताएं कि आप इस यात्रा को कैसा महसूस कराना चाहते हैं।';
 
@@ -1515,7 +1518,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get conciergeVoiceRegionOther => 'अन्य';
 
   @override
-  String get conciergeVoicePresetMatchApp => 'ऐप की भाषा से मिलान करें · महिला';
+  String get conciergeVoicePresetMatchApp => 'Luxora डिफ़ॉल्ट · Kate (Premium)';
 
   @override
   String get conciergeVoicePresetEnUsF => 'अमेरिकी · महिला';

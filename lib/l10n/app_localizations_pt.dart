@@ -1473,6 +1473,9 @@ class AppLocalizationsPt extends AppLocalizations {
   String get conciergeVoicePreview => 'Visualizar voz';
 
   @override
+  String get conciergeVoicePreviewCurrent => 'Ouvir voz atual';
+
+  @override
   String get conciergeVoicePreviewSample =>
       'Olá, sou Luxora. Diga-me como você deseja que seja esta viagem.';
 
@@ -1526,8 +1529,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get conciergeVoiceRegionOther => 'Outro';
 
   @override
-  String get conciergeVoicePresetMatchApp =>
-      'Corresponder idioma do app · Feminino';
+  String get conciergeVoicePresetMatchApp => 'Padrão Luxora · Kate (Premium)';
 
   @override
   String get conciergeVoicePresetEnUsF => 'Americana · Mulher';

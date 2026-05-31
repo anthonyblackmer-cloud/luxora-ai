@@ -2,6 +2,20 @@ import 'package:luxora_ai/services/concierge_voice_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
+  group('ConciergeVoiceService.scriptFromLines', () {
+    test('joins non-empty lines with pauses', () {
+      expect(
+        ConciergeVoiceService.scriptFromLines([
+          'Hi, I\'m Luxora.',
+          'Your concierge.',
+          '',
+          'Let\'s plan.',
+        ]),
+        'Hi, I\'m Luxora. Your concierge. Let\'s plan.',
+      );
+    });
+  });
+
   group('mergeVoiceTranscripts', () {
     test('prefers final transcript over partial and fallback', () {
       expect(

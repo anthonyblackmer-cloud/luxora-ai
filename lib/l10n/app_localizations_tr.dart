@@ -1468,6 +1468,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get conciergeVoicePreview => 'Sesi önizle';
 
   @override
+  String get conciergeVoicePreviewCurrent => 'Mevcut sesi dinle';
+
+  @override
   String get conciergeVoicePreviewSample =>
       'Merhaba - ben Luxora. Bana bu yolculuğun nasıl hissettirmesini istediğini söyle.';
 
@@ -1520,7 +1523,8 @@ class AppLocalizationsTr extends AppLocalizations {
   String get conciergeVoiceRegionOther => 'Diğer';
 
   @override
-  String get conciergeVoicePresetMatchApp => 'Uygulama dilini eşleştir · Kadın';
+  String get conciergeVoicePresetMatchApp =>
+      'Luxora varsayılan · Kate (Premium)';
 
   @override
   String get conciergeVoicePresetEnUsF => 'Amerikalı · Kadın';

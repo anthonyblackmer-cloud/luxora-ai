@@ -15,7 +15,7 @@ class ConciergeVoiceSettingsStore extends ChangeNotifier {
 
   String _presetId = ConciergeVoicePresets.defaultId;
   String? _deviceVoiceKeyValue;
-  double _speechRate = 0.46;
+  double _speechRate = 0.43;
   bool _loaded = false;
 
   String get presetId => _presetId;
@@ -31,7 +31,7 @@ class ConciergeVoiceSettingsStore extends ChangeNotifier {
     final prefs = await SharedPreferences.getInstance();
     _presetId = prefs.getString(_presetKey) ?? ConciergeVoicePresets.defaultId;
     _deviceVoiceKeyValue = prefs.getString(_deviceVoiceKey);
-    _speechRate = prefs.getDouble(_rateKey) ?? 0.46;
+    _speechRate = prefs.getDouble(_rateKey) ?? 0.43;
     if (!ConciergeVoicePresets.all.any((p) => p.id == _presetId)) {
       _presetId = ConciergeVoicePresets.defaultId;
     }

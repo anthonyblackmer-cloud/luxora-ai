@@ -41,6 +41,7 @@ class _ConciergeVoiceSettingsSheetState extends State<ConciergeVoiceSettingsShee
   final _settings = ConciergeVoiceSettingsStore.instance;
   final _voice = ConciergeVoiceService.instance;
   bool _previewing = false;
+  String? _previewingKey;
   bool _refreshing = false;
   bool _showAllLanguages = false;
   List<ConciergeDeviceVoice> _deviceVoices = const [];
@@ -67,15 +68,56 @@ class _ConciergeVoiceSettingsSheetState extends State<ConciergeVoiceSettingsShee
     }
   }
 
-  Future<void> _preview(AppLocalizations l) async {
-    if (_previewing) return;
-    setState(() => _previewing = true);
-    try {
-      final locale = Localizations.localeOf(context).languageCode;
-      final ok = await _voice.previewVoice(
+  Future<void> _previewCurrent(AppLocalizations l) async {
+    await _preview(
+      l,
+      previewKey: 'current',
+      preview: () => _voice.previewVoice(
         sample: l.conciergeVoicePreviewSample,
-        languageCode: locale,
-      );
+        languageCode: Localizations.localeOf(context).languageCode,
+      ),
+    );
+  }
+
+  Future<void> _previewPreset(AppLocalizations l, String presetId) async {
+    await _preview(
+      l,
+      previewKey: 'preset:$presetId',
+      preview: () => _voice.previewSample(
+        sample: l.conciergeVoicePreviewSample,
+        languageCode: Localizations.localeOf(context).languageCode,
+        presetId: presetId,
+      ),
+    );
+  }
+
+  Future<void> _previewDeviceVoice(
+    AppLocalizations l,
+    ConciergeDeviceVoice voice,
+  ) async {
+    await _preview(
+      l,
+      previewKey: 'device:${voice.storageKey}',
+      preview: () => _voice.previewSample(
+        sample: l.conciergeVoicePreviewSample,
+        languageCode: Localizations.localeOf(context).languageCode,
+        deviceVoice: voice,
+      ),
+    );
+  }
+
+  Future<void> _preview(
+    AppLocalizations l, {
+    required String previewKey,
+    required Future<bool> Function() preview,
+  }) async {
+    if (_previewing) return;
+    setState(() {
+      _previewing = true;
+      _previewingKey = previewKey;
+    });
+    try {
+      final ok = await preview();
       if (!mounted) return;
       if (!ok) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -86,7 +128,12 @@ class _ConciergeVoiceSettingsSheetState extends State<ConciergeVoiceSettingsShee
         );
       }
     } finally {
-      if (mounted) setState(() => _previewing = false);
+      if (mounted) {
+        setState(() {
+          _previewing = false;
+          _previewingKey = null;
+        });
+      }
     }
   }
 
@@ -118,7 +165,68 @@ class _ConciergeVoiceSettingsSheetState extends State<ConciergeVoiceSettingsShee
                     color: t.textMuted,
                   ),
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: 14),
+                OutlinedButton.icon(
+                  onPressed: _previewing && _previewingKey != 'current'
+                      ? null
+                      : () => _previewCurrent(l),
+                  icon: _previewing && _previewingKey == 'current'
+                      ? SizedBox(
+                          width: 16,
+                          height: 16,
+                          child: CircularProgressIndicator(
+                            strokeWidth: 2,
+                            color: t.accent,
+                          ),
+                        )
+                      : Icon(Icons.volume_up_rounded, color: t.accent),
+                  label: Text(l.conciergeVoicePreviewCurrent),
+                  style: OutlinedButton.styleFrom(
+                    foregroundColor: t.accent,
+                    side: BorderSide(color: t.accent.withValues(alpha: 0.45)),
+                    minimumSize: const Size.fromHeight(48),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(14),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 22),
+                Text(
+                  l.conciergeVoicePresetSection,
+                  style: TextStyle(
+                    fontSize: 11,
+                    fontWeight: FontWeight.w800,
+                    letterSpacing: 1.4,
+                    color: t.textMuted.withValues(alpha: 0.9),
+                  ),
+                ),
+                const SizedBox(height: 8),
+                for (final entry in grouped.entries) ...[
+                  Text(
+                    entry.key,
+                    style: TextStyle(
+                      fontSize: 10,
+                      fontWeight: FontWeight.w700,
+                      letterSpacing: 1.2,
+                      color: t.textMuted.withValues(alpha: 0.75),
+                    ),
+                  ),
+                  const SizedBox(height: 6),
+                  for (final preset in entry.value)
+                    _VoicePresetTile(
+                      label: preset.label(l),
+                      selected: !_settings.usesCustomDeviceVoice &&
+                          _settings.presetId == preset.id,
+                      previewing:
+                          _previewing && _previewingKey == 'preset:${preset.id}',
+                      onTap: () => _settings.setPreset(preset.id),
+                      onPreview: _previewing
+                          ? null
+                          : () => _previewPreset(l, preset.id),
+                    ),
+                  const SizedBox(height: 10),
+                ],
+                const SizedBox(height: 8),
                 Text(
                   l.conciergeVoiceRateLabel,
                   style: TextStyle(
@@ -136,7 +244,7 @@ class _ConciergeVoiceSettingsSheetState extends State<ConciergeVoiceSettingsShee
                       label: Text(l.conciergeVoiceRateSlow),
                     ),
                     ButtonSegment(
-                      value: 0.46,
+                      value: 0.43,
                       label: Text(l.conciergeVoiceRateNatural),
                     ),
                     ButtonSegment(
@@ -218,7 +326,12 @@ class _ConciergeVoiceSettingsSheetState extends State<ConciergeVoiceSettingsShee
                       label: voice.displayLabel(qualityHint: voice.qualityHint),
                       subtitle: voice.locale,
                       selected: _settings.deviceVoiceKey == voice.storageKey,
+                      previewing: _previewing &&
+                          _previewingKey == 'device:${voice.storageKey}',
                       onTap: () => _settings.setDeviceVoice(voice.storageKey),
+                      onPreview: _previewing
+                          ? null
+                          : () => _previewDeviceVoice(l, voice),
                     ),
                 if (!kIsWeb &&
                     (defaultTargetPlatform == TargetPlatform.iOS ||
@@ -230,59 +343,6 @@ class _ConciergeVoiceSettingsSheetState extends State<ConciergeVoiceSettingsShee
                     label: Text(l.conciergeVoiceOpenSettings),
                   ),
                 ],
-                const SizedBox(height: 16),
-                Text(
-                  l.conciergeVoicePresetSection,
-                  style: TextStyle(
-                    fontSize: 11,
-                    fontWeight: FontWeight.w800,
-                    letterSpacing: 1.4,
-                    color: t.textMuted.withValues(alpha: 0.9),
-                  ),
-                ),
-                const SizedBox(height: 8),
-                for (final entry in grouped.entries) ...[
-                  Text(
-                    entry.key,
-                    style: TextStyle(
-                      fontSize: 10,
-                      fontWeight: FontWeight.w700,
-                      letterSpacing: 1.2,
-                      color: t.textMuted.withValues(alpha: 0.75),
-                    ),
-                  ),
-                  const SizedBox(height: 6),
-                  for (final preset in entry.value)
-                    _VoicePresetTile(
-                      label: preset.label(l),
-                      selected: !_settings.usesCustomDeviceVoice &&
-                          _settings.presetId == preset.id,
-                      onTap: () => _settings.setPreset(preset.id),
-                    ),
-                  const SizedBox(height: 10),
-                ],
-                OutlinedButton.icon(
-                  onPressed: _previewing ? null : () => _preview(l),
-                  icon: _previewing
-                      ? SizedBox(
-                          width: 16,
-                          height: 16,
-                          child: CircularProgressIndicator(
-                            strokeWidth: 2,
-                            color: t.accent,
-                          ),
-                        )
-                      : Icon(Icons.volume_up_rounded, color: t.accent),
-                  label: Text(l.conciergeVoicePreview),
-                  style: OutlinedButton.styleFrom(
-                    foregroundColor: t.accent,
-                    side: BorderSide(color: t.accent.withValues(alpha: 0.45)),
-                    minimumSize: const Size.fromHeight(48),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(14),
-                    ),
-                  ),
-                ),
                 const SizedBox(height: 8),
                 Text(
                   l.conciergeVoiceDeviceNote,
@@ -307,29 +367,32 @@ class _VoicePresetTile extends StatelessWidget {
     required this.selected,
     required this.onTap,
     this.subtitle,
+    this.onPreview,
+    this.previewing = false,
   });
 
   final String label;
   final String? subtitle;
   final bool selected;
   final VoidCallback onTap;
+  final VoidCallback? onPreview;
+  final bool previewing;
 
   @override
   Widget build(BuildContext context) {
     final t = luxThemeTokensOf(context);
+    final l = AppLocalizations.of(context);
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
       child: Material(
-        color: selected
-            ? t.accent.withValues(alpha: 0.12)
-            : t.panelFill,
+        color: selected ? t.accent.withValues(alpha: 0.12) : t.panelFill,
         borderRadius: BorderRadius.circular(14),
         child: InkWell(
           onTap: onTap,
           borderRadius: BorderRadius.circular(14),
           child: Container(
             width: double.infinity,
-            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+            padding: const EdgeInsets.fromLTRB(14, 10, 8, 10),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(14),
               border: Border.all(
@@ -364,8 +427,35 @@ class _VoicePresetTile extends StatelessWidget {
                     ],
                   ),
                 ),
+                IconButton(
+                  tooltip: l.conciergeVoicePreview,
+                  onPressed: onPreview,
+                  icon: previewing
+                      ? SizedBox(
+                          width: 18,
+                          height: 18,
+                          child: CircularProgressIndicator(
+                            strokeWidth: 2,
+                            color: t.accent,
+                          ),
+                        )
+                      : Icon(
+                          Icons.volume_up_rounded,
+                          color: onPreview == null
+                              ? t.textMuted.withValues(alpha: 0.35)
+                              : t.accent,
+                          size: 22,
+                        ),
+                ),
                 if (selected)
-                  Icon(Icons.check_circle_rounded, color: t.accent, size: 20),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 4),
+                    child: Icon(
+                      Icons.check_circle_rounded,
+                      color: t.accent,
+                      size: 20,
+                    ),
+                  ),
               ],
             ),
           ),

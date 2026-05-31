@@ -1442,6 +1442,9 @@ class AppLocalizationsKo extends AppLocalizations {
   String get conciergeVoicePreview => '음성 미리보기';
 
   @override
+  String get conciergeVoicePreviewCurrent => '현재 음성 미리듣기';
+
+  @override
   String get conciergeVoicePreviewSample =>
       '안녕하세요 — 저는 Luxora입니다. 이번 여행이 어떤 느낌이었으면 좋겠는지 말해주세요.';
 
@@ -1494,7 +1497,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get conciergeVoiceRegionOther => '다른';
 
   @override
-  String get conciergeVoicePresetMatchApp => '앱 언어 일치 · 여성';
+  String get conciergeVoicePresetMatchApp => 'Luxora 기본 · Kate (Premium)';
 
   @override
   String get conciergeVoicePresetEnUsF => '미국인 · 여성';

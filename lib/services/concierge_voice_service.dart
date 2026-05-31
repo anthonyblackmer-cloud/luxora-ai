@@ -54,10 +54,12 @@ class ConciergeVoiceService {
   bool _sttAvailable = false;
   bool _listening = false;
   bool _speaking = false;
+  int _speakGeneration = 0;
   int _listenGeneration = 0;
   String _lastHeard = '';
   String _lastPartial = '';
   String _lastFinal = '';
+  Completer<void>? _speakCompleter;
   List<_DeviceVoice> _deviceVoices = const [];
 
   VoidCallback? _onSessionEnded;
@@ -120,11 +122,16 @@ class ConciergeVoiceService {
       }
       await _tts.setPitch(1.02);
       await _tts.setVolume(1.0);
-      _tts.setCompletionHandler(() {
+      _tts.setCompletionHandler(() async {
         _speaking = false;
+        if (defaultTargetPlatform == TargetPlatform.iOS) {
+          // Let the last syllables finish before chaining another utterance.
+          await Future<void>.delayed(const Duration(milliseconds: 220));
+        }
         final done = _onSpeakComplete;
         _onSpeakComplete = null;
         done?.call();
+        _finishSpeakWait();
         if (defaultTargetPlatform == TargetPlatform.iOS) {
           unawaited(_prepareIosAudioAfterSpeech());
         }
@@ -151,52 +158,121 @@ class ConciergeVoiceService {
     _initialized = true;
   }
 
+  static String scriptFromLines(Iterable<String> lines) {
+    final parts = <String>[];
+    for (final raw in lines) {
+      final line = _normalizeForSpeech(raw);
+      if (line.isNotEmpty) parts.add(line);
+    }
+    return parts.join(' ');
+  }
+
+  static String _normalizeForSpeech(String text) {
+    return text
+        .replaceAll('\n', ' ')
+        .replaceAll('…', '.')
+        .replaceAll(RegExp(r'\s+'), ' ')
+        .trim();
+  }
+
   /// Speaks [text] with the selected Luxora voice preset. Returns false on failure.
   Future<bool> speak(
     String text, {
     required String languageCode,
     VoidCallback? onComplete,
   }) async {
-    final trimmed = text.trim();
+    final trimmed = _normalizeForSpeech(text);
     if (trimmed.isEmpty || kIsWeb) return false;
+    final generation = ++_speakGeneration;
     try {
       await initialize();
       await _endSttSession();
       await stopSpeaking();
+      if (generation != _speakGeneration) return false;
       await _configureIosAudioForSpeaking();
       await _applyVoice(languageCode: languageCode);
-      _onSpeakComplete = onComplete;
+      _speakCompleter = Completer<void>();
+      _onSpeakComplete = () {
+        if (generation != _speakGeneration) return;
+        onComplete?.call();
+        _finishSpeakWait();
+      };
       _speaking = true;
       final result = await _tts.speak(trimmed);
+      if (generation != _speakGeneration) return false;
       if (result != 1) {
         _speaking = false;
-        final done = _onSpeakComplete;
         _onSpeakComplete = null;
-        done?.call();
+        _finishSpeakWait();
         return false;
       }
-      return true;
+      await _waitForSpeechEnd(trimmed, generation);
+      return generation == _speakGeneration;
     } catch (_) {
       _speaking = false;
-      final done = _onSpeakComplete;
       _onSpeakComplete = null;
-      done?.call();
+      _finishSpeakWait();
       return false;
     }
+  }
+
+  Future<void> _waitForSpeechEnd(String text, int generation) async {
+    final completer = _speakCompleter;
+    if (completer == null) return;
+    final seconds = (text.length / 10).ceil().clamp(12, 180);
+    try {
+      await completer.future.timeout(Duration(seconds: seconds));
+    } catch (_) {
+      if (generation == _speakGeneration) {
+        _speaking = false;
+      }
+    }
+  }
+
+  void _finishSpeakWait() {
+    final completer = _speakCompleter;
+    if (completer != null && !completer.isCompleted) {
+      completer.complete();
+    }
+    _speakCompleter = null;
   }
 
   Future<bool> previewVoice({
     required String sample,
     required String languageCode,
   }) =>
-      speak(sample, languageCode: languageCode);
+      previewSample(sample: sample, languageCode: languageCode);
+
+  /// Plays [sample] with a specific device voice or persona without saving it.
+  Future<bool> previewSample({
+    required String sample,
+    required String languageCode,
+    ConciergeDeviceVoice? deviceVoice,
+    String? presetId,
+  }) async {
+    if (kIsWeb || sample.trim().isEmpty) return false;
+    await initialize();
+    await _endSttSession();
+    await stopSpeaking();
+    await _configureIosAudioForSpeaking();
+    await _tts.setSpeechRate(_settings.speechRate);
+    if (_deviceVoices.isEmpty) {
+      _deviceVoices = await _loadDeviceVoices();
+    }
+    await _applyVoiceSelection(
+      languageCode: languageCode,
+      deviceVoice: deviceVoice,
+      preset: presetId == null ? null : ConciergeVoicePresets.byId(presetId),
+    );
+    return speak(sample, languageCode: languageCode);
+  }
 
   Future<void> stopSpeaking() async {
+    _speakGeneration++;
     _speaking = false;
-    final done = _onSpeakComplete;
     _onSpeakComplete = null;
+    _finishSpeakWait();
     await _tts.stop();
-    done?.call();
   }
 
   Future<void> _prepareIosAudioAfterSpeech() async {
@@ -366,14 +442,101 @@ class ConciergeVoiceService {
       if (custom != null && await _setDeviceVoice(custom)) return;
     }
 
-    final preset = _settings.preset;
-    final locale = preset.matchesAppLanguage
-        ? ConciergeVoicePresets.localeForAppLanguage(languageCode)
-        : preset.ttsLocale;
+    await _applyVoiceSelection(languageCode: languageCode);
+  }
 
-    final picked = _pickDeviceVoice(preset, locale);
+  Future<void> _applyVoiceSelection({
+    required String languageCode,
+    ConciergeDeviceVoice? deviceVoice,
+    ConciergeVoicePreset? preset,
+  }) async {
+    if (deviceVoice != null) {
+      if (await _setDeviceVoice(deviceVoice)) return;
+      await _tts.setLanguage(deviceVoice.locale);
+      return;
+    }
+
+    final active = preset ?? _settings.preset;
+    final locale = active.matchesAppLanguage
+        ? ConciergeVoicePresets.localeForAppLanguage(languageCode)
+        : active.ttsLocale;
+
+    if (active.matchesAppLanguage) {
+      final luxora = _pickLuxoraDefaultVoice(locale);
+      if (luxora != null && await _setDeviceVoiceInternal(luxora)) return;
+    }
+
+    final picked = _pickDeviceVoice(active, locale);
     if (picked != null && await _setDeviceVoiceInternal(picked)) return;
     await _tts.setLanguage(locale);
+  }
+
+  _DeviceVoice? _pickLuxoraDefaultVoice(String locale) {
+    if (_deviceVoices.isEmpty) return null;
+
+    bool isPremiumOrEnhanced(String name) {
+      final n = name.toLowerCase();
+      return n.contains('premium') || n.contains('enhanced');
+    }
+
+    bool isKate(String name) => name.toLowerCase().contains('kate');
+
+    bool isPremiumFemale(_DeviceVoice voice) =>
+        _matchesGender(voice.name, ConciergeVoiceGender.female) &&
+        isPremiumOrEnhanced(voice.name) &&
+        !_isCompactVoice(voice.name);
+
+    _DeviceVoice? bestKate(Iterable<_DeviceVoice> voices) {
+      _DeviceVoice? katePremium;
+      _DeviceVoice? kateAny;
+      for (final voice in voices) {
+        if (!isKate(voice.name) || _isCompactVoice(voice.name)) continue;
+        if (!_matchesGender(voice.name, ConciergeVoiceGender.female)) continue;
+        kateAny ??= voice;
+        if (isPremiumOrEnhanced(voice.name)) {
+          katePremium = voice;
+          break;
+        }
+      }
+      return katePremium ?? kateAny;
+    }
+
+    final englishPool = _deviceVoices
+        .where((v) => v.locale.toLowerCase().startsWith('en'))
+        .where((v) => !_isCompactVoice(v.name))
+        .toList();
+    final kate = bestKate(englishPool);
+    if (kate != null) return kate;
+
+    final target = locale.toLowerCase();
+    final lang = target.split('-').first;
+    final localePool = _deviceVoices.where((v) {
+      final l = v.locale.toLowerCase();
+      if (l == target) return true;
+      if (target.contains('-gb')) {
+        return l.contains('gb') || l.contains('uk');
+      }
+      if (target.contains('-us')) {
+        return l.contains('us') || (lang == 'en' && !l.contains('gb'));
+      }
+      return l.startsWith(lang);
+    }).where((v) => !_isCompactVoice(v.name)).toList();
+
+    final localeKate = bestKate(localePool);
+    if (localeKate != null) return localeKate;
+
+    for (final voice in localePool) {
+      if (isPremiumFemale(voice)) return voice;
+    }
+    for (final voice in englishPool) {
+      if (isPremiumFemale(voice)) return voice;
+    }
+
+    if (localePool.isEmpty) return null;
+    return _bestVoiceFromPool(
+      localePool,
+      ConciergeVoicePresets.byId('match_app'),
+    );
   }
 
   ConciergeDeviceVoice? _voiceForStorageKey(String key) {
@@ -432,34 +595,54 @@ class ConciergeVoiceService {
       return l.startsWith(lang);
     }
 
-    final pool = _deviceVoices.where(localeMatches).toList();
-    if (pool.isEmpty) return null;
+    final pool = _deviceVoices
+        .where(localeMatches)
+        .where((voice) => !_isCompactVoice(voice.name))
+        .toList();
+    if (pool.isEmpty) {
+      final fallback = _deviceVoices.where(localeMatches).toList();
+      if (fallback.isEmpty) return null;
+      return _bestVoiceFromPool(fallback, preset);
+    }
 
-    pool.sort((a, b) {
-      int rank(String name) {
-        final n = name.toLowerCase();
-        if (n.contains('premium') || n.contains('enhanced')) return 0;
-        if (n.contains('compact')) return 2;
-        return 1;
-      }
+    return _bestVoiceFromPool(pool, preset);
+  }
 
-      final byQuality = rank(a.name).compareTo(rank(b.name));
-      if (byQuality != 0) return byQuality;
-      return a.name.compareTo(b.name);
-    });
+  bool _isCompactVoice(String name) {
+    final n = name.toLowerCase();
+    return n.contains('compact') || n.contains('low quality');
+  }
+
+  _DeviceVoice? _bestVoiceFromPool(
+    List<_DeviceVoice> pool,
+    ConciergeVoicePreset preset,
+  ) {
+    final sorted = List<_DeviceVoice>.from(pool)
+      ..sort((a, b) {
+        int rank(String name) {
+          final n = name.toLowerCase();
+          if (n.contains('premium') || n.contains('enhanced')) return 0;
+          if (n.contains('compact')) return 2;
+          return 1;
+        }
+
+        final byQuality = rank(a.name).compareTo(rank(b.name));
+        if (byQuality != 0) return byQuality;
+        return a.name.compareTo(b.name);
+      });
 
     for (final hint in preset.nameHints) {
       final h = hint.toLowerCase();
-      for (final voice in pool) {
+      for (final voice in sorted) {
         if (voice.name.toLowerCase().contains(h)) return voice;
       }
     }
 
-    for (final voice in pool) {
+    for (final voice in sorted) {
       if (_matchesGender(voice.name, preset.gender)) return voice;
     }
 
-    return pool.first;
+    return sorted.first;
   }
 
   bool _matchesGender(String name, ConciergeVoiceGender gender) {

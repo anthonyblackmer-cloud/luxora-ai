@@ -60,6 +60,7 @@ abstract final class ConciergeVoicePresets {
       id: 'match_app',
       ttsLocale: '',
       gender: ConciergeVoiceGender.female,
+      nameHints: ['kate', 'samantha', 'nicky'],
     ),
     ConciergeVoicePreset(
       id: 'en_us_f',
