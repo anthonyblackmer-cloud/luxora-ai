@@ -43,3 +43,47 @@ create policy "Public read active places"
   on public.places
   for select
   using (is_active = true);
+
+-- 004 — premium cloud backup for saved trips (per-user, RLS)
+create table if not exists public.user_saved_trips (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references auth.users (id) on delete cascade,
+  trip_id text not null,
+  dedupe_key text not null,
+  payload jsonb not null,
+  updated_at timestamptz not null default now(),
+  unique (user_id, trip_id)
+);
+
+create index if not exists user_saved_trips_user_idx
+  on public.user_saved_trips (user_id);
+
+create index if not exists user_saved_trips_dedupe_idx
+  on public.user_saved_trips (user_id, dedupe_key);
+
+alter table public.user_saved_trips enable row level security;
+
+drop policy if exists "Users read own saved trips" on public.user_saved_trips;
+drop policy if exists "Users insert own saved trips" on public.user_saved_trips;
+drop policy if exists "Users update own saved trips" on public.user_saved_trips;
+drop policy if exists "Users delete own saved trips" on public.user_saved_trips;
+
+create policy "Users read own saved trips"
+  on public.user_saved_trips
+  for select
+  using (auth.uid() = user_id);
+
+create policy "Users insert own saved trips"
+  on public.user_saved_trips
+  for insert
+  with check (auth.uid() = user_id);
+
+create policy "Users update own saved trips"
+  on public.user_saved_trips
+  for update
+  using (auth.uid() = user_id);
+
+create policy "Users delete own saved trips"
+  on public.user_saved_trips
+  for delete
+  using (auth.uid() = user_id);

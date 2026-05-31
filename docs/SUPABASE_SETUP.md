@@ -43,6 +43,17 @@ Dashboard → **SQL Editor** → paste and run the full contents of:
 
 This creates the `places` table and allows the app to read active rows with the anon key.
 
+It also creates `user_saved_trips` with row-level security so signed-in users can back up and restore their saved trips (premium feature — requires a city pack unlock in the app).
+
+### Enable email OTP auth
+
+Dashboard → **Authentication** → **Providers** → **Email**:
+
+1. Enable **Email** provider
+2. Enable **Email OTP** (one-time password / magic code)
+
+Users sign in from **More → Cloud backup** with a 6-digit code sent to their email.
+
 ## 4. Deploy Concierge AI (edge function)
 
 ### Option A — Supabase CLI (recommended)
@@ -68,6 +79,7 @@ Project ref is the short id in your dashboard URL: `https://supabase.com/dashboa
 1. Restart the app (hot restart is not enough after changing dart-defines).
 2. Debug console should show: `Supabase: connected (https://...)`
 3. Open **Concierge** → send a message → real GPT reply (not the setup banner).
+4. Unlock a city pack → **More → Cloud backup** → sign in with email OTP → saved trips sync.
 
 ## Troubleshooting
 
@@ -77,5 +89,6 @@ Project ref is the short id in your dashboard URL: `https://supabase.com/dashboa
 | `SupabaseBootstrap` error in console | Check URL/key; project must be running |
 | 503 OPENAI_API_KEY | Set secret on edge function |
 | Places not syncing | Run `setup_all.sql`; table can be empty until you seed rows |
+| Cloud backup fails | Run full `setup_all.sql` (includes `user_saved_trips`); enable Email OTP auth |
 
 See also: `docs/CONCIERGE_AI.md`, `docs/DISCOVER_RADIUS.md`.

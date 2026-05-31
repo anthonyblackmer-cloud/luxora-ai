@@ -2609,7 +2609,7 @@ abstract class AppLocalizations {
   /// No description provided for @tripsFooter.
   ///
   /// In en, this message translates to:
-  /// **'Trip covers from mood catalog · Supabase sync Phase 2'**
+  /// **'Trip covers from mood catalog · Cloud backup when signed in'**
   String get tripsFooter;
 
   /// No description provided for @tripsPlanNew.
@@ -2719,6 +2719,198 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Planned with Luxora — your emotionally intelligent Florida companion.'**
   String get shareItineraryFooter;
+
+  /// No description provided for @shareCardCta.
+  ///
+  /// In en, this message translates to:
+  /// **'Plan yours in Luxora'**
+  String get shareCardCta;
+
+  /// No description provided for @shareCardDownloadHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Free on iOS & Android · luxora.ai/download'**
+  String get shareCardDownloadHint;
+
+  /// No description provided for @shareCardShareMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'{title}\n\nPlanned with Luxora AI — emotionally intelligent Florida travel.\nGet the app: {url}'**
+  String shareCardShareMessage(String title, String url);
+
+  /// No description provided for @conciergeLocalTryPlanning.
+  ///
+  /// In en, this message translates to:
+  /// **'Tell me how you want the trip to feel — e.g. \"Plan a relaxed 2-day Orlando trip with springs and food.\" I\'ll build a real agenda on your device (no cloud required).'**
+  String get conciergeLocalTryPlanning;
+
+  /// No description provided for @conciergeLocalPlanBuilt.
+  ///
+  /// In en, this message translates to:
+  /// **'I built your {city} day — {count} stops sequenced by mood and drive time. Open Agenda or Map to see your route.'**
+  String conciergeLocalPlanBuilt(String city, int count);
+
+  /// No description provided for @conciergeLocalNoIntent.
+  ///
+  /// In en, this message translates to:
+  /// **'Describe the feeling you want — or say \"Plan my Orlando day\" — and I\'ll build a real route on-device.'**
+  String get conciergeLocalNoIntent;
+
+  /// No description provided for @ticketConciergeIntelBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'Concierge intel'**
+  String get ticketConciergeIntelBadge;
+
+  /// No description provided for @ticketConciergeIntelAgenda.
+  ///
+  /// In en, this message translates to:
+  /// **'Matched to your agenda stops — not a generic coupon list.'**
+  String get ticketConciergeIntelAgenda;
+
+  /// No description provided for @agendaFixAfternoonRain.
+  ///
+  /// In en, this message translates to:
+  /// **'Rain incoming — fix my afternoon'**
+  String get agendaFixAfternoonRain;
+
+  /// No description provided for @agendaRainRerouteDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Afternoon updated — {count} stops moved indoors. Vacation score {score}/100.'**
+  String agendaRainRerouteDone(int count, int score);
+
+  /// No description provided for @agendaRainRerouteNone.
+  ///
+  /// In en, this message translates to:
+  /// **'Your plan already works for this weather.'**
+  String get agendaRainRerouteNone;
+
+  /// No description provided for @cloudTripsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Cloud backup'**
+  String get cloudTripsTitle;
+
+  /// No description provided for @cloudTripsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your saved trips sync across devices when you sign in — included with any city unlock.'**
+  String get cloudTripsSubtitle;
+
+  /// No description provided for @cloudTripsMoreSubSignedOut.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in to back up saved trips'**
+  String get cloudTripsMoreSubSignedOut;
+
+  /// No description provided for @cloudTripsMoreSubSignedIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Signed in as {email}'**
+  String cloudTripsMoreSubSignedIn(String email);
+
+  /// No description provided for @cloudTripsMoreSubSyncing.
+  ///
+  /// In en, this message translates to:
+  /// **'Syncing…'**
+  String get cloudTripsMoreSubSyncing;
+
+  /// No description provided for @cloudTripsUnlockRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock a city pack to enable cloud backup'**
+  String get cloudTripsUnlockRequired;
+
+  /// No description provided for @cloudTripsUnlockCta.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock concierge'**
+  String get cloudTripsUnlockCta;
+
+  /// No description provided for @cloudTripsEmailHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Email address'**
+  String get cloudTripsEmailHint;
+
+  /// No description provided for @cloudTripsSendCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Send sign-in code'**
+  String get cloudTripsSendCode;
+
+  /// No description provided for @cloudTripsCodeHint.
+  ///
+  /// In en, this message translates to:
+  /// **'6-digit code from email'**
+  String get cloudTripsCodeHint;
+
+  /// No description provided for @cloudTripsVerify.
+  ///
+  /// In en, this message translates to:
+  /// **'Verify & sign in'**
+  String get cloudTripsVerify;
+
+  /// No description provided for @cloudTripsCodeSent.
+  ///
+  /// In en, this message translates to:
+  /// **'Check your email for a sign-in code'**
+  String get cloudTripsCodeSent;
+
+  /// No description provided for @cloudTripsSignOut.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign out'**
+  String get cloudTripsSignOut;
+
+  /// No description provided for @cloudTripsSyncNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Sync now'**
+  String get cloudTripsSyncNow;
+
+  /// No description provided for @cloudTripsSyncSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Trips synced'**
+  String get cloudTripsSyncSuccess;
+
+  /// No description provided for @cloudTripsSyncError.
+  ///
+  /// In en, this message translates to:
+  /// **'Sync failed — try again'**
+  String get cloudTripsSyncError;
+
+  /// No description provided for @cloudTripsBannerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Back up your trips'**
+  String get cloudTripsBannerTitle;
+
+  /// No description provided for @cloudTripsBannerBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in to restore trips on a new phone or tablet.'**
+  String get cloudTripsBannerBody;
+
+  /// No description provided for @cloudTripsBannerCta.
+  ///
+  /// In en, this message translates to:
+  /// **'Set up cloud backup'**
+  String get cloudTripsBannerCta;
+
+  /// No description provided for @cloudTripsNotConfigured.
+  ///
+  /// In en, this message translates to:
+  /// **'Cloud backup requires Supabase (dev setup)'**
+  String get cloudTripsNotConfigured;
+
+  /// No description provided for @paywallFeatureCloudBackup.
+  ///
+  /// In en, this message translates to:
+  /// **'Cloud Trip Backup'**
+  String get paywallFeatureCloudBackup;
 
   /// No description provided for @shareSubject.
   ///

@@ -6,6 +6,7 @@ import 'package:luxora_ai/settings/luxora_language_catalog.dart';
 import 'package:luxora_ai/state/luxora_app_state.dart';
 import 'package:luxora_ai/theme/lux_breakpoints.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
+import 'package:luxora_ai/widgets/cloud/cloud_trips_more_tile.dart';
 import 'package:luxora_ai/widgets/more/luxora_more_grid_tile.dart';
 import 'package:luxora_ai/widgets/more_destination_picker.dart';
 import 'package:luxora_ai/widgets/settings/luxora_language_picker_sheet.dart';
@@ -160,6 +161,8 @@ class MoreScreen extends StatelessWidget {
               padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
               sliver: SliverList(
                 delegate: SliverChildListDelegate.fixed([
+                  CloudTripsMoreTile(compact: compactTiles),
+                  const SizedBox(height: 10),
                   LuxoraMoreListTile(
                     compact: compactTiles,
                     icon: Icons.person_outline_rounded,

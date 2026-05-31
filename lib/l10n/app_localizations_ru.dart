@@ -1469,7 +1469,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get tripsFooter =>
-      'Обложки поездок из каталога настроений · Supabase sync Phase 2';
+      'Обложки из каталога настроений · облачный бэкап после входа';
 
   @override
   String get tripsPlanNew => 'Планируйте новую поездку';
@@ -1528,6 +1528,119 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get shareItineraryFooter =>
       'Спланировано с Луксорой — вашим эмоционально умным компаньоном из Флориды.';
+
+  @override
+  String get shareCardCta => 'Спланируйте с Luxora';
+
+  @override
+  String get shareCardDownloadHint =>
+      'Бесплатно на iOS и Android · luxora.ai/download';
+
+  @override
+  String shareCardShareMessage(String title, String url) {
+    return '$title\n\nСпланировано с Luxora AI — эмоционально умное путешествие по Флориде.\nСкачать приложение: $url';
+  }
+
+  @override
+  String get conciergeLocalTryPlanning =>
+      'Опишите, каким должен быть поезд — напр. «Спланируй 2 спокойных дня в Орландо с источниками и едой». Я построю реальную agenda на устройстве.';
+
+  @override
+  String conciergeLocalPlanBuilt(String city, int count) {
+    return 'Я собрал ваш день в $city — $count остановок по настроению и дороге. Откройте **Agenda** или **Карту**.';
+  }
+
+  @override
+  String get conciergeLocalNoIntent =>
+      'Опишите настроение или скажите «Спланируй мой день в Орlando» — построю маршрут на устройстве.';
+
+  @override
+  String get ticketConciergeIntelBadge => 'Intel консьержа';
+
+  @override
+  String get ticketConciergeIntelAgenda =>
+      'Под вашу agenda — не общий список купонов.';
+
+  @override
+  String get agendaFixAfternoonRain =>
+      'Дождь — перестроить вторую половину дня';
+
+  @override
+  String agendaRainRerouteDone(int count, int score) {
+    return 'День обновлён — $count остановок перенесены в помещение.';
+  }
+
+  @override
+  String get agendaRainRerouteNone => 'План уже подходит под эту погоду.';
+
+  @override
+  String get cloudTripsTitle => 'Облачный бэкап';
+
+  @override
+  String get cloudTripsSubtitle =>
+      'Сохранённые поездки синхронизируются между устройствами — включено при разблокировке города.';
+
+  @override
+  String get cloudTripsMoreSubSignedOut => 'Войдите, чтобы сохранить поездки';
+
+  @override
+  String cloudTripsMoreSubSignedIn(String email) {
+    return 'Вход: $email';
+  }
+
+  @override
+  String get cloudTripsMoreSubSyncing => 'Синхронизация…';
+
+  @override
+  String get cloudTripsUnlockRequired =>
+      'Разблокируйте city pack для облачного бэкапа';
+
+  @override
+  String get cloudTripsUnlockCta => 'Разблокировать консьержа';
+
+  @override
+  String get cloudTripsEmailHint => 'Адрес электронной почты';
+
+  @override
+  String get cloudTripsSendCode => 'Отправить код входа';
+
+  @override
+  String get cloudTripsCodeHint => '6-значный код из письма';
+
+  @override
+  String get cloudTripsVerify => 'Подтвердить и войти';
+
+  @override
+  String get cloudTripsCodeSent => 'Проверьте почту — там код входа';
+
+  @override
+  String get cloudTripsSignOut => 'Выйти';
+
+  @override
+  String get cloudTripsSyncNow => 'Синхронизировать';
+
+  @override
+  String get cloudTripsSyncSuccess => 'Поездки синхронизированы';
+
+  @override
+  String get cloudTripsSyncError => 'Ошибка синхронизации — повторите';
+
+  @override
+  String get cloudTripsBannerTitle => 'Сохраните поездки';
+
+  @override
+  String get cloudTripsBannerBody =>
+      'Войдите, чтобы восстановить поездки на новом телефоне.';
+
+  @override
+  String get cloudTripsBannerCta => 'Настроить облачный бэкап';
+
+  @override
+  String get cloudTripsNotConfigured =>
+      'Облако требует Supabase (dev-настройка)';
+
+  @override
+  String get paywallFeatureCloudBackup => 'Облачный бэкап поездок';
 
   @override
   String shareSubject(String title) {

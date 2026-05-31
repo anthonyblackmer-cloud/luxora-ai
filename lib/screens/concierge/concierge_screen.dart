@@ -13,6 +13,7 @@ import 'package:luxora_ai/services/concierge_ai_service.dart';
 import 'package:luxora_ai/services/concierge_context_builder.dart';
 import 'package:luxora_ai/services/concierge_conversation_archive.dart';
 import 'package:luxora_ai/services/concierge_itinerary_sync.dart';
+import 'package:luxora_ai/services/concierge_local_responder.dart';
 import 'package:luxora_ai/services/concierge_session_memory.dart';
 import 'package:luxora_ai/services/concierge_ticket_sync.dart';
 import 'package:luxora_ai/services/concierge_trip_save_sync.dart';
@@ -88,8 +89,7 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
       if (!ConciergeAiService.isConfigured) {
         _messages.add((
           user: false,
-          text: conciergeAiUserMessage(l, ConciergeAiException.notConfigured())
-              .chatText,
+          text: l.conciergeLocalTryPlanning,
         ));
       }
     });
@@ -306,13 +306,34 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
     _scrollToEnd();
 
     if (!ConciergeAiService.isConfigured) {
+      final local = await ConciergeLocalResponder.respond(
+        l: l,
+        userMessage: trimmed,
+        profile: _profile,
+      );
       if (!mounted) return;
-      final msg = conciergeAiUserMessage(l, ConciergeAiException.notConfigured());
       setState(() {
         _isThinking = false;
-        _messages.add((user: false, text: msg.chatText));
+        _messages.add((user: false, text: local.reply));
+        final sync = local.sync;
+        if (sync != null) {
+          _profile = sync.profile;
+          _tripFeel = sync.profile.tripFeel;
+          _lastItinerarySourceMessage = trimmed;
+        }
       });
-      if (fromVoice) unawaited(_speakLuxora(msg.voiceText));
+      if (local.sync != null) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (!mounted) return;
+          LuxSnackBar.show(
+            context,
+            message: l.conciergeAgendaUpdatedSnack,
+            actionLabel: l.conciergeViewAgendaOnMap,
+            onAction: () => context.go('/agenda'),
+          );
+        });
+      }
+      if (fromVoice) unawaited(_speakLuxora(local.reply));
       _scrollToEnd();
       return;
     }

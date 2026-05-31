@@ -1459,7 +1459,8 @@ class AppLocalizationsHi extends AppLocalizations {
       'लाइव स्नैपशॉट के लिए यात्रा पर टैप करें - अगला पल, मौसम, सूर्यास्त और समयरेखा।';
 
   @override
-  String get tripsFooter => 'मूड कैटलॉग से यात्रा कवर · सुपाबेस सिंक चरण 2';
+  String get tripsFooter =>
+      'मूड कैटलॉग से यात्रा कवर · साइन इन पर क्लाउड बैकअप';
 
   @override
   String get tripsPlanNew => 'नई यात्रा की योजना बनाएं';
@@ -1518,6 +1519,120 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get shareItineraryFooter =>
       'लक्सोरा के साथ योजना बनाई गई - आपका भावनात्मक रूप से बुद्धिमान फ्लोरिडा साथी।';
+
+  @override
+  String get shareCardCta => 'Luxora में अपनी योजना बनाएं';
+
+  @override
+  String get shareCardDownloadHint =>
+      'iOS और Android पर मुफ़्त · luxora.ai/download';
+
+  @override
+  String shareCardShareMessage(String title, String url) {
+    return '$title\n\nLuxora AI के साथ योजना — भावनात्मक रूप से बुद्धिमान Florida यात्रा।\nऐप प्राप्त करें: $url';
+  }
+
+  @override
+  String get conciergeLocalTryPlanning =>
+      'बताएं यात्रा कैसी महसूस होनी चाहिए — जैसे «Orlando में 2 आरामदायक दिन springs और food के साथ plan करो»। मैं डिवाइस पर असली agenda बनाऊंगा।';
+
+  @override
+  String conciergeLocalPlanBuilt(String city, int count) {
+    return 'मैंने $city का आपका दिन बनाया — mood और drive के हिसाब से $count स्टॉप। **Agenda** या **Map** खोलें।';
+  }
+
+  @override
+  String get conciergeLocalNoIntent =>
+      'मूड बताएं या कहें «Plan my Orlando day» — मैं डिवाइस पर असली रूट बनाऊंगा।';
+
+  @override
+  String get ticketConciergeIntelBadge => 'Concierge intel';
+
+  @override
+  String get ticketConciergeIntelAgenda =>
+      'आपकी agenda से मेल — generic coupons नहीं।';
+
+  @override
+  String get agendaFixAfternoonRain => 'बारिश आ रही है — दोपहर ठीक करें';
+
+  @override
+  String agendaRainRerouteDone(int count, int score) {
+    return 'दोपहर अपडेट — $count स्टॉप indoor ले गए।';
+  }
+
+  @override
+  String get agendaRainRerouteNone =>
+      'आपका plan पहले से इस मौसम के लिए ठीक है।';
+
+  @override
+  String get cloudTripsTitle => 'क्लाउड बैकअप';
+
+  @override
+  String get cloudTripsSubtitle =>
+      'सहेजी गई यात्राएँ डिवाइसों पर सिंक होती हैं — किसी भी शहर अनलॉक के साथ शामिल।';
+
+  @override
+  String get cloudTripsMoreSubSignedOut =>
+      'यात्राएँ बैकअप करने के लिए साइन इन करें';
+
+  @override
+  String cloudTripsMoreSubSignedIn(String email) {
+    return '$email के रूप में साइन इन';
+  }
+
+  @override
+  String get cloudTripsMoreSubSyncing => 'सिंक हो रहा है…';
+
+  @override
+  String get cloudTripsUnlockRequired =>
+      'क्लाउड बैकअप के लिए city pack अनलॉक करें';
+
+  @override
+  String get cloudTripsUnlockCta => 'Concierge अनलॉक करें';
+
+  @override
+  String get cloudTripsEmailHint => 'ईमेल पता';
+
+  @override
+  String get cloudTripsSendCode => 'साइन-इन कोड भेजें';
+
+  @override
+  String get cloudTripsCodeHint => 'ईमेल से 6-अंकीय कोड';
+
+  @override
+  String get cloudTripsVerify => 'सत्यापित करें और साइन इन';
+
+  @override
+  String get cloudTripsCodeSent => 'साइन-इन कोड के लिए ईमेल देखें';
+
+  @override
+  String get cloudTripsSignOut => 'साइन आउट';
+
+  @override
+  String get cloudTripsSyncNow => 'अभी सिंक करें';
+
+  @override
+  String get cloudTripsSyncSuccess => 'यात्राएँ सिंक हो गईं';
+
+  @override
+  String get cloudTripsSyncError => 'सिंक विफल — फिर कोशिश करें';
+
+  @override
+  String get cloudTripsBannerTitle => 'अपनी यात्राएँ बैकअप करें';
+
+  @override
+  String get cloudTripsBannerBody =>
+      'नए फोन पर यात्राएँ पुनर्स्थापित करने के लिए साइन इन करें।';
+
+  @override
+  String get cloudTripsBannerCta => 'क्लाउड बैकअप सेट करें';
+
+  @override
+  String get cloudTripsNotConfigured =>
+      'क्लाउड बैकअप के लिए Supabase (dev) चाहिए';
+
+  @override
+  String get paywallFeatureCloudBackup => 'क्लाउड ट्रिप बैकअप';
 
   @override
   String shareSubject(String title) {

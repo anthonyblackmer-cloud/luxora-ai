@@ -1461,7 +1461,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get tripsFooter =>
-      'Ruh hali kataloğundan gezi kapakları · Supabase senkronizasyonu Aşama 2';
+      'Ruh hali kataloğundan kapaklar · giriş yapınca bulut yedek';
 
   @override
   String get tripsPlanNew => 'Yeni bir gezi planlayın';
@@ -1520,6 +1520,120 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get shareItineraryFooter =>
       'Duygusal açıdan zeki Florida arkadaşınız Luxora ile planlandı.';
+
+  @override
+  String get shareCardCta => 'Luxora ile planlayın';
+
+  @override
+  String get shareCardDownloadHint =>
+      'iOS ve Android’de ücretsiz · luxora.ai/download';
+
+  @override
+  String shareCardShareMessage(String title, String url) {
+    return '$title\n\nLuxora AI ile planlandı — duygusal açıdan zeki Florida seyahati.\nUygulamayı edinin: $url';
+  }
+
+  @override
+  String get conciergeLocalTryPlanning =>
+      'Seyahatin nasıl hissettirmesini istediğinizi söyleyin — örn. «Orlando’da 2 rahat gün, kaynaklar ve yemek planla». Cihazda gerçek bir agenda oluştururum.';
+
+  @override
+  String conciergeLocalPlanBuilt(String city, int count) {
+    return '$city gününüzü oluşturdum — ruh hali ve sürüşe göre $count durak. **Agenda** veya **Harita**yı açın.';
+  }
+
+  @override
+  String get conciergeLocalNoIntent =>
+      'Ruh halini anlatın veya «Orlando günümü planla» deyin — cihazda gerçek rota kurarım.';
+
+  @override
+  String get ticketConciergeIntelBadge => 'Concierge intel';
+
+  @override
+  String get ticketConciergeIntelAgenda =>
+      'Agendanıza uygun — genel kupon listesi değil.';
+
+  @override
+  String get agendaFixAfternoonRain =>
+      'Yağmur geliyor — öğleden sonrayı düzelt';
+
+  @override
+  String agendaRainRerouteDone(int count, int score) {
+    return 'Öğleden sonra güncellendi — $count durak iç mekâna alındı.';
+  }
+
+  @override
+  String get agendaRainRerouteNone => 'Planınız bu hava için zaten uygun.';
+
+  @override
+  String get cloudTripsTitle => 'Bulut yedek';
+
+  @override
+  String get cloudTripsSubtitle =>
+      'Kayıtlı geziler cihazlar arasında senkronize olur — her şehir kilidiyle birlikte.';
+
+  @override
+  String get cloudTripsMoreSubSignedOut =>
+      'Gezileri yedeklemek için giriş yapın';
+
+  @override
+  String cloudTripsMoreSubSignedIn(String email) {
+    return '$email olarak giriş yapıldı';
+  }
+
+  @override
+  String get cloudTripsMoreSubSyncing => 'Senkronize ediliyor…';
+
+  @override
+  String get cloudTripsUnlockRequired =>
+      'Bulut yedek için city pack kilidini açın';
+
+  @override
+  String get cloudTripsUnlockCta => 'Concierge kilidini aç';
+
+  @override
+  String get cloudTripsEmailHint => 'E-posta adresi';
+
+  @override
+  String get cloudTripsSendCode => 'Giriş kodu gönder';
+
+  @override
+  String get cloudTripsCodeHint => 'E-postadaki 6 haneli kod';
+
+  @override
+  String get cloudTripsVerify => 'Doğrula ve giriş yap';
+
+  @override
+  String get cloudTripsCodeSent => 'Giriş kodu için e-postanızı kontrol edin';
+
+  @override
+  String get cloudTripsSignOut => 'Çıkış yap';
+
+  @override
+  String get cloudTripsSyncNow => 'Şimdi senkronize et';
+
+  @override
+  String get cloudTripsSyncSuccess => 'Geziler senkronize edildi';
+
+  @override
+  String get cloudTripsSyncError => 'Senkronizasyon başarısız — tekrar deneyin';
+
+  @override
+  String get cloudTripsBannerTitle => 'Gezilerinizi yedekleyin';
+
+  @override
+  String get cloudTripsBannerBody =>
+      'Yeni telefonda gezileri geri yüklemek için giriş yapın.';
+
+  @override
+  String get cloudTripsBannerCta => 'Bulut yedeği ayarla';
+
+  @override
+  String get cloudTripsNotConfigured =>
+      'Bulut yedek Supabase gerektirir (dev kurulum)';
+
+  @override
+  String get paywallFeatureCloudBackup => 'Bulut gezi yedeği';
 
   @override
   String shareSubject(String title) {

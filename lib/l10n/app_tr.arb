@@ -1267,7 +1267,7 @@
   "tripsDeleted": "Gezi silindi",
   "tripsEmptyBody": "İlk seyahatinizi planlayın ve istediğiniz zaman tekrar ziyaret etmeye hazır olarak burada görünsün.",
   "tripsEmptyTitle": "Henüz kayıtlı gezi yok",
-  "tripsFooter": "Ruh hali kataloğundan gezi kapakları · Supabase senkronizasyonu Aşama 2",
+  "tripsFooter": "Ruh hali kataloğundan kapaklar · giriş yapınca bulut yedek",
   "tripsLiveWeather": "Canlı hava durumu",
   "tripsNextUp": "Sonraki",
   "tripsOpenStory": "Hikayeniz",
@@ -1608,28 +1608,71 @@
   "conciergeTicketDealLine": "• {title}: {price} ({source} üzerinden, {savings} tasarruf)",
   "@conciergeTicketDealLine": {
     "placeholders": {
-      "title": { "type": "String" },
-      "price": { "type": "String" },
-      "source": { "type": "String" },
-      "savings": { "type": "String" }
+      "title": {
+        "type": "String"
+      },
+      "price": {
+        "type": "String"
+      },
+      "source": {
+        "type": "String"
+      },
+      "savings": {
+        "type": "String"
+      }
     }
   },
   "conciergeTicketsTimelineHint": "Timeline'daki her eşleşen durakta bayi bağlantılı Bilet al düğmesi var.",
   "itineraryBookTickets": "Bilet al · {amount} tasarruf",
   "@itineraryBookTickets": {
     "placeholders": {
-      "amount": { "type": "String" }
+      "amount": {
+        "type": "String"
+      }
     }
   },
   "itineraryOpenTicketDeal": "Bilet al",
   "conciergeTripSaved": "“{title}” Geziler'e kaydedildi — Trips sekmesini istediğiniz zaman açın.",
-  "@conciergeTripSaved": { "placeholders": { "title": { "type": "String" } } },
+  "@conciergeTripSaved": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
   "conciergeTripSavedWithStops": "“{title}”, timeline'da {count} deneyimle kaydedildi.",
-  "@conciergeTripSavedWithStops": { "placeholders": { "title": { "type": "String" }, "count": { "type": "int" } } },
+  "@conciergeTripSavedWithStops": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "conciergeSavedTripsIntro": "{count} kayıtlı gezi(zi)niz var:",
-  "@conciergeSavedTripsIntro": { "placeholders": { "count": { "type": "int" } } },
+  "@conciergeSavedTripsIntro": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "conciergeSavedTripLine": "• {title} ({dates}) — {status}",
-  "@conciergeSavedTripLine": { "placeholders": { "title": { "type": "String" }, "dates": { "type": "String" }, "status": { "type": "String" } } },
+  "@conciergeSavedTripLine": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "dates": {
+        "type": "String"
+      },
+      "status": {
+        "type": "String"
+      }
+    }
+  },
   "conciergeSavedTripsEmpty": "Henüz kayıtlı gezi yok — önce plan isteyin, sonra “gezimi kaydet” deyin.",
   "conciergeSavedTripsHint": "Kartları görmek, paylaşmak veya tarihleri düzenlemek için Trips sekmesini açın.",
   "conciergeAiError": "Luxora'ya ulaşılamadı. Bağlantınızı kontrol edip tekrar deneyin.",
@@ -1725,5 +1768,45 @@
   "conciergeAiErrorVoice": "Sorry — I couldn't connect to Luxora's concierge just now.",
   "conciergeAiOpenAiNotReady": "Luxora heard you, but the concierge brain isn't online yet. Set OPENAI_API_KEY in Supabase secrets for the edge function (bright-processor), then try again.",
   "conciergeAiFunctionNotFound": "Luxora couldn't find the concierge edge function \"{function}\". Deploy it in Supabase or fix SUPABASE_CONCIERGE_FUNCTION on this build.",
-  "conciergeAiAuthFailed": "Luxora couldn't authenticate with Supabase — double-check SUPABASE_ANON_KEY matches your project."
+  "conciergeAiAuthFailed": "Luxora couldn't authenticate with Supabase — double-check SUPABASE_ANON_KEY matches your project.",
+  "shareCardCta": "Luxora ile planlayın",
+  "shareCardDownloadHint": "iOS ve Android’de ücretsiz · luxora.ai/download",
+  "shareCardShareMessage": "{title}\n\nLuxora AI ile planlandı — duygusal açıdan zeki Florida seyahati.\nUygulamayı edinin: {url}",
+  "conciergeLocalTryPlanning": "Seyahatin nasıl hissettirmesini istediğinizi söyleyin — örn. «Orlando’da 2 rahat gün, kaynaklar ve yemek planla». Cihazda gerçek bir agenda oluştururum.",
+  "conciergeLocalPlanBuilt": "{city} gününüzü oluşturdum — ruh hali ve sürüşe göre {count} durak. **Agenda** veya **Harita**yı açın.",
+  "conciergeLocalNoIntent": "Ruh halini anlatın veya «Orlando günümü planla» deyin — cihazda gerçek rota kurarım.",
+  "ticketConciergeIntelBadge": "Concierge intel",
+  "ticketConciergeIntelAgenda": "Agendanıza uygun — genel kupon listesi değil.",
+  "agendaFixAfternoonRain": "Yağmur geliyor — öğleden sonrayı düzelt",
+  "agendaRainRerouteDone": "Öğleden sonra güncellendi — {count} durak iç mekâna alındı.",
+  "agendaRainRerouteNone": "Planınız bu hava için zaten uygun.",
+  "agendaRainScoreNote": "Tatil skoru şimdi {score}/100",
+  "cloudTripsTitle": "Bulut yedek",
+  "cloudTripsSubtitle": "Kayıtlı geziler cihazlar arasında senkronize olur — her şehir kilidiyle birlikte.",
+  "cloudTripsMoreSubSignedOut": "Gezileri yedeklemek için giriş yapın",
+  "cloudTripsMoreSubSignedIn": "{email} olarak giriş yapıldı",
+  "@cloudTripsMoreSubSignedIn": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "cloudTripsMoreSubSyncing": "Senkronize ediliyor…",
+  "cloudTripsUnlockRequired": "Bulut yedek için city pack kilidini açın",
+  "cloudTripsUnlockCta": "Concierge kilidini aç",
+  "cloudTripsEmailHint": "E-posta adresi",
+  "cloudTripsSendCode": "Giriş kodu gönder",
+  "cloudTripsCodeHint": "E-postadaki 6 haneli kod",
+  "cloudTripsVerify": "Doğrula ve giriş yap",
+  "cloudTripsCodeSent": "Giriş kodu için e-postanızı kontrol edin",
+  "cloudTripsSignOut": "Çıkış yap",
+  "cloudTripsSyncNow": "Şimdi senkronize et",
+  "cloudTripsSyncSuccess": "Geziler senkronize edildi",
+  "cloudTripsSyncError": "Senkronizasyon başarısız — tekrar deneyin",
+  "cloudTripsBannerTitle": "Gezilerinizi yedekleyin",
+  "cloudTripsBannerBody": "Yeni telefonda gezileri geri yüklemek için giriş yapın.",
+  "cloudTripsBannerCta": "Bulut yedeği ayarla",
+  "cloudTripsNotConfigured": "Bulut yedek Supabase gerektirir (dev kurulum)",
+  "paywallFeatureCloudBackup": "Bulut gezi yedeği"
 }

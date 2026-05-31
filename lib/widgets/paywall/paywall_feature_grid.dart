@@ -23,6 +23,7 @@ class PaywallFeatureGrid extends StatelessWidget {
         (Icons.key_rounded, (l) => l.paywallFeatureLocalSecrets),
         (Icons.restaurant_rounded, (l) => l.paywallFeatureDining),
         (Icons.all_inclusive_rounded, (l) => l.paywallFeatureUnlimitedPlanning),
+        (Icons.cloud_done_rounded, (l) => l.paywallFeatureCloudBackup),
       ];
 
   @override

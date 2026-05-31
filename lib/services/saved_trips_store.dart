@@ -1,8 +1,10 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 import 'package:luxora_ai/data/saved_trips.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
+import 'package:luxora_ai/services/cloud_trips_sync_service.dart';
 import 'package:luxora_ai/services/trip_profile_store.dart';
 import 'package:luxora_ai/util/trip_date_format.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -61,11 +63,15 @@ class SavedTripsStore {
   /// Inserts or replaces a trip with the same [SavedTripSummary.dedupeKey].
   Future<void> upsert(SavedTripSummary trip) async {
     await load();
+    final stamped = trip.copyWith(
+      updatedAtMs: DateTime.now().millisecondsSinceEpoch,
+    );
     final filtered = trips.value
-        .where((t) => t.dedupeKey != trip.dedupeKey && t.id != trip.id)
+        .where((t) => t.dedupeKey != stamped.dedupeKey && t.id != stamped.id)
         .toList();
-    trips.value = [trip, ...filtered];
+    trips.value = [stamped, ...filtered];
     await _persist();
+    unawaited(CloudTripsSyncService.instance.pushTripIfEnabled(stamped));
   }
 
   /// Saves or refreshes the onboarding trip card without creating duplicates.
@@ -127,6 +133,7 @@ class SavedTripsStore {
       id: existing.userCreated
           ? SavedTripSummary.idForProfile(profileForId)
           : existing.id,
+      updatedAtMs: DateTime.now().millisecondsSinceEpoch,
     );
 
     final withoutOld = trips.value.where((t) => t.id != tripId).toList();
@@ -135,11 +142,36 @@ class SavedTripsStore {
         .toList();
     trips.value = [updated, ...withoutDupes];
     await _persist();
+    unawaited(CloudTripsSyncService.instance.pushTripIfEnabled(updated));
   }
+
+  /// Merges remote cloud trips into the local list (newer [updatedAtMs] wins).
+  Future<void> mergeFromCloud(List<SavedTripSummary> remote) async {
+    await load();
+    if (remote.isEmpty) return;
+
+    final showcase =
+        trips.value.where((trip) => !trip.userCreated).toList();
+    final localUser =
+        trips.value.where((trip) => trip.userCreated).toList();
+    final mergedByDedupe = <String, SavedTripSummary>{};
+
+    for (final trip in [...localUser, ...remote]) {
+      final existing = mergedByDedupe[trip.dedupeKey];
+      if (existing == null || trip.updatedAtMs >= existing.updatedAtMs) {
+        mergedByDedupe[trip.dedupeKey] = trip;
+      }
+    }
+
+    trips.value = _dedupe([...showcase, ...mergedByDedupe.values]);
+    await _persist();
+  }
+
   Future<void> remove(String id) async {
     await load();
     trips.value = trips.value.where((t) => t.id != id).toList();
     await _persist();
+    unawaited(CloudTripsSyncService.instance.deleteTripIfEnabled(id));
   }
 
   List<SavedTripSummary> _decode(String raw) {

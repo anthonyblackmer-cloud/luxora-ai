@@ -1475,7 +1475,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get tripsFooter =>
-      'Couvertures de voyage du catalogue d’ambiances · synchronisation Supabase Phase 2';
+      'Couvertures du catalogue d’ambiances · sauvegarde cloud une fois connecté';
 
   @override
   String get tripsPlanNew => 'Planifier un nouveau voyage';
@@ -1534,6 +1534,121 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get shareItineraryFooter =>
       'Prévu avec Luxora, votre compagnon de Floride émotionnellement intelligent.';
+
+  @override
+  String get shareCardCta => 'Planifiez le vôtre avec Luxora';
+
+  @override
+  String get shareCardDownloadHint =>
+      'Gratuit sur iOS et Android · luxora.ai/download';
+
+  @override
+  String shareCardShareMessage(String title, String url) {
+    return '$title\n\nPlanifié avec Luxora AI — voyage en Floride émotionnellement intelligent.\nTélécharger l’app : $url';
+  }
+
+  @override
+  String get conciergeLocalTryPlanning =>
+      'Dites-moi ce que vous voulez ressentir — ex. « Planifie 2 jours détente à Orlando avec sources et food ». Je crée une vraie agenda sur l’appareil.';
+
+  @override
+  String conciergeLocalPlanBuilt(String city, int count) {
+    return 'J’ai créé votre journée à $city — $count arrêts selon l’ambiance et la route. Ouvrez **Agenda** ou **Carte**.';
+  }
+
+  @override
+  String get conciergeLocalNoIntent =>
+      'Décrivez l’ambiance ou dites « Planifie ma journée à Orlando » — je construis un vrai parcours sur l’appareil.';
+
+  @override
+  String get ticketConciergeIntelBadge => 'Intel concierge';
+
+  @override
+  String get ticketConciergeIntelAgenda =>
+      'Aligné sur votre agenda — pas une liste de coupons générique.';
+
+  @override
+  String get agendaFixAfternoonRain =>
+      'Pluie en vue — réorganiser l’après-midi';
+
+  @override
+  String agendaRainRerouteDone(int count, int score) {
+    return 'Après-midi mis à jour — $count arrêts déplacés à l’intérieur.';
+  }
+
+  @override
+  String get agendaRainRerouteNone => 'Votre plan convient déjà à ce temps.';
+
+  @override
+  String get cloudTripsTitle => 'Sauvegarde cloud';
+
+  @override
+  String get cloudTripsSubtitle =>
+      'Vos voyages enregistrés se synchronisent entre appareils — inclus avec tout déblocage ville.';
+
+  @override
+  String get cloudTripsMoreSubSignedOut =>
+      'Connectez-vous pour sauvegarder vos voyages';
+
+  @override
+  String cloudTripsMoreSubSignedIn(String email) {
+    return 'Connecté en tant que $email';
+  }
+
+  @override
+  String get cloudTripsMoreSubSyncing => 'Synchronisation…';
+
+  @override
+  String get cloudTripsUnlockRequired =>
+      'Débloquez un city pack pour activer le cloud';
+
+  @override
+  String get cloudTripsUnlockCta => 'Débloquer le concierge';
+
+  @override
+  String get cloudTripsEmailHint => 'Adresse e-mail';
+
+  @override
+  String get cloudTripsSendCode => 'Envoyer le code de connexion';
+
+  @override
+  String get cloudTripsCodeHint => 'Code à 6 chiffres reçu par e-mail';
+
+  @override
+  String get cloudTripsVerify => 'Vérifier et se connecter';
+
+  @override
+  String get cloudTripsCodeSent =>
+      'Vérifiez votre e-mail pour le code de connexion';
+
+  @override
+  String get cloudTripsSignOut => 'Se déconnecter';
+
+  @override
+  String get cloudTripsSyncNow => 'Synchroniser maintenant';
+
+  @override
+  String get cloudTripsSyncSuccess => 'Voyages synchronisés';
+
+  @override
+  String get cloudTripsSyncError => 'Échec de sync — réessayez';
+
+  @override
+  String get cloudTripsBannerTitle => 'Sauvegardez vos voyages';
+
+  @override
+  String get cloudTripsBannerBody =>
+      'Connectez-vous pour restaurer vos voyages sur un nouvel appareil.';
+
+  @override
+  String get cloudTripsBannerCta => 'Configurer la sauvegarde cloud';
+
+  @override
+  String get cloudTripsNotConfigured =>
+      'Le cloud nécessite Supabase (config dev)';
+
+  @override
+  String get paywallFeatureCloudBackup => 'Sauvegarde cloud des voyages';
 
   @override
   String shareSubject(String title) {

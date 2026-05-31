@@ -140,6 +140,27 @@ class _TicketDealCardState extends State<TicketDealCard>
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.auto_awesome_rounded,
+                          size: 14,
+                          color: LuxColors.gold.withValues(alpha: 0.85),
+                        ),
+                        const SizedBox(width: 6),
+                        Expanded(
+                          child: Text(
+                            l.ticketConciergeIntelBadge,
+                            style: TextStyle(
+                              fontSize: 11,
+                              fontWeight: FontWeight.w800,
+                              letterSpacing: 1.1,
+                              color: LuxColors.gold.withValues(alpha: 0.9),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                     if (deal.hasDiscount)
                       Text(
                         l.ticketBetterOption,

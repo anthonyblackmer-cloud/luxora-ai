@@ -5,6 +5,9 @@ import 'package:luxora_ai/services/active_trip_plan_store.dart';
 import 'package:luxora_ai/services/city_pack_entitlement_store.dart';
 import 'package:luxora_ai/services/city_pack_registry.dart';
 import 'package:luxora_ai/services/city_pack_sync.dart';
+import 'package:luxora_ai/services/cloud_trips_auth_service.dart';
+import 'package:luxora_ai/services/cloud_trips_entitlement.dart';
+import 'package:luxora_ai/services/cloud_trips_sync_service.dart';
 import 'package:luxora_ai/services/discover_radius_controller.dart';
 import 'package:luxora_ai/services/home_base_store.dart';
 import 'package:luxora_ai/services/places_repository.dart';
@@ -36,6 +39,11 @@ abstract final class AppBootstrap {
     ]);
 
     await SupabaseBootstrap.initialize();
+    await CloudTripsAuthService.instance.initialize();
+    if (CloudTripsAuthService.instance.isSignedIn &&
+        CloudTripsEntitlement.canUseCloud) {
+      unawaited(CloudTripsSyncService.instance.syncAll());
+    }
     await PlacesRepository.instance.initialize();
     await CityPackSync.bootstrapAfterLoad();
   }

@@ -89,7 +89,7 @@ class _AgendaDealsBanner extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                l.ticketRecommendedSavings,
+                l.ticketConciergeIntelBadge,
                 style: TextStyle(
                   fontSize: 11,
                   fontWeight: FontWeight.w800,
@@ -97,7 +97,16 @@ class _AgendaDealsBanner extends StatelessWidget {
                   color: LuxColors.gold.withValues(alpha: 0.9),
                 ),
               ),
-              const SizedBox(height: 6),
+              const SizedBox(height: 4),
+              Text(
+                l.ticketConciergeIntelAgenda,
+                style: TextStyle(
+                  fontSize: 12,
+                  height: 1.35,
+                  color: LuxColors.stone400.withValues(alpha: 0.95),
+                ),
+              ),
+              const SizedBox(height: 8),
               Text(
                 l.ticketAgendaStopsSummary(matches.length),
                 style: const TextStyle(

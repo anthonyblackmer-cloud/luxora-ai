@@ -1473,7 +1473,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get tripsFooter =>
-      'Copertine di viaggio dal catalogo mood · Sincronizzazione Supabase Fase 2';
+      'Copertine dal catalogo mood · backup cloud dopo l’accesso';
 
   @override
   String get tripsPlanNew => 'Pianifica un nuovo viaggio';
@@ -1532,6 +1532,119 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get shareItineraryFooter =>
       'Progettato con Luxora, il tuo compagno della Florida emotivamente intelligente.';
+
+  @override
+  String get shareCardCta => 'Pianifica il tuo con Luxora';
+
+  @override
+  String get shareCardDownloadHint =>
+      'Gratis su iOS e Android · luxora.ai/download';
+
+  @override
+  String shareCardShareMessage(String title, String url) {
+    return '$title\n\nPianificato con Luxora AI — viaggio in Florida emotivamente intelligente.\nScarica l’app: $url';
+  }
+
+  @override
+  String get conciergeLocalTryPlanning =>
+      'Dimmi che sensazione vuoi dal viaggio — es. «Pianifica 2 giorni rilassati a Orlando con sorgenti e cibo». Creo un’agenda reale sul dispositivo.';
+
+  @override
+  String conciergeLocalPlanBuilt(String city, int count) {
+    return 'Ho creato la tua giornata a $city — $count tappe per mood e guida. Apri **Agenda** o **Mappa**.';
+  }
+
+  @override
+  String get conciergeLocalNoIntent =>
+      'Descrivi l’atmosfera o di’ «Pianifica la mia giornata a Orlando» — costruisco un percorso reale sul dispositivo.';
+
+  @override
+  String get ticketConciergeIntelBadge => 'Intel concierge';
+
+  @override
+  String get ticketConciergeIntelAgenda =>
+      'Allineato alla tua agenda — non coupon generici.';
+
+  @override
+  String get agendaFixAfternoonRain =>
+      'Pioggia in arrivo — sistema il pomeriggio';
+
+  @override
+  String agendaRainRerouteDone(int count, int score) {
+    return 'Pomeriggio aggiornato — $count tappe spostate al coperto.';
+  }
+
+  @override
+  String get agendaRainRerouteNone => 'Il piano funziona già con questo meteo.';
+
+  @override
+  String get cloudTripsTitle => 'Backup cloud';
+
+  @override
+  String get cloudTripsSubtitle =>
+      'I viaggi salvati si sincronizzano tra dispositivi — incluso con ogni sblocco città.';
+
+  @override
+  String get cloudTripsMoreSubSignedOut => 'Accedi per salvare i viaggi';
+
+  @override
+  String cloudTripsMoreSubSignedIn(String email) {
+    return 'Accesso come $email';
+  }
+
+  @override
+  String get cloudTripsMoreSubSyncing => 'Sincronizzazione…';
+
+  @override
+  String get cloudTripsUnlockRequired =>
+      'Sblocca un city pack per il backup cloud';
+
+  @override
+  String get cloudTripsUnlockCta => 'Sblocca concierge';
+
+  @override
+  String get cloudTripsEmailHint => 'Indirizzo email';
+
+  @override
+  String get cloudTripsSendCode => 'Invia codice di accesso';
+
+  @override
+  String get cloudTripsCodeHint => 'Codice a 6 cifre dall’email';
+
+  @override
+  String get cloudTripsVerify => 'Verifica e accedi';
+
+  @override
+  String get cloudTripsCodeSent => 'Controlla l’email per il codice di accesso';
+
+  @override
+  String get cloudTripsSignOut => 'Esci';
+
+  @override
+  String get cloudTripsSyncNow => 'Sincronizza ora';
+
+  @override
+  String get cloudTripsSyncSuccess => 'Viaggi sincronizzati';
+
+  @override
+  String get cloudTripsSyncError => 'Sync fallita — riprova';
+
+  @override
+  String get cloudTripsBannerTitle => 'Backup dei viaggi';
+
+  @override
+  String get cloudTripsBannerBody =>
+      'Accedi per ripristinare i viaggi su un nuovo telefono.';
+
+  @override
+  String get cloudTripsBannerCta => 'Configura backup cloud';
+
+  @override
+  String get cloudTripsNotConfigured =>
+      'Il backup cloud richiede Supabase (setup dev)';
+
+  @override
+  String get paywallFeatureCloudBackup => 'Backup viaggi cloud';
 
   @override
   String shareSubject(String title) {

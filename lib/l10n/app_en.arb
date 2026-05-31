@@ -641,7 +641,7 @@
   "tripsBadge": "COLLECTIONS",
   "tripsTitle": "Saved trips",
   "tripsSubtitle": "Tap a trip for a live snapshot — next moment, weather, sunset, and timeline.",
-  "tripsFooter": "Trip covers from mood catalog · Supabase sync Phase 2",
+  "tripsFooter": "Trip covers from mood catalog · Cloud backup when signed in",
   "tripsPlanNew": "Plan a new trip",
   "tripsEmptyTitle": "No saved trips yet",
   "tripsEmptyBody": "Plan your first trip and it will appear here, ready to revisit anytime.",
@@ -663,6 +663,59 @@
   "tripsOpenTimeline": "Open full timeline",
   "tripsShare": "Share",
   "shareItineraryFooter": "Planned with Luxora — your emotionally intelligent Florida companion.",
+  "shareCardCta": "Plan yours in Luxora",
+  "shareCardDownloadHint": "Free on iOS & Android · luxora.ai/download",
+  "shareCardShareMessage": "{title}\n\nPlanned with Luxora AI — emotionally intelligent Florida travel.\nGet the app: {url}",
+  "@shareCardShareMessage": {
+    "placeholders": {
+      "title": { "type": "String" },
+      "url": { "type": "String" }
+    }
+  },
+  "conciergeLocalTryPlanning": "Tell me how you want the trip to feel — e.g. \"Plan a relaxed 2-day Orlando trip with springs and food.\" I'll build a real agenda on your device (no cloud required).",
+  "conciergeLocalPlanBuilt": "I built your {city} day — {count} stops sequenced by mood and drive time. Open Agenda or Map to see your route.",
+  "@conciergeLocalPlanBuilt": {
+    "placeholders": {
+      "city": { "type": "String" },
+      "count": { "type": "int" }
+    }
+  },
+  "conciergeLocalNoIntent": "Describe the feeling you want — or say \"Plan my Orlando day\" — and I'll build a real route on-device.",
+  "ticketConciergeIntelBadge": "Concierge intel",
+  "ticketConciergeIntelAgenda": "Matched to your agenda stops — not a generic coupon list.",
+  "agendaFixAfternoonRain": "Rain incoming — fix my afternoon",
+  "agendaRainRerouteDone": "Afternoon updated — {count} stops moved indoors. Vacation score {score}/100.",
+  "@agendaRainRerouteDone": {
+    "placeholders": {
+      "count": { "type": "int" },
+      "score": { "type": "int" }
+    }
+  },
+  "agendaRainRerouteNone": "Your plan already works for this weather.",
+  "cloudTripsTitle": "Cloud backup",
+  "cloudTripsSubtitle": "Your saved trips sync across devices when you sign in — included with any city unlock.",
+  "cloudTripsMoreSubSignedOut": "Sign in to back up saved trips",
+  "cloudTripsMoreSubSignedIn": "Signed in as {email}",
+  "@cloudTripsMoreSubSignedIn": {
+    "placeholders": { "email": { "type": "String" } }
+  },
+  "cloudTripsMoreSubSyncing": "Syncing…",
+  "cloudTripsUnlockRequired": "Unlock a city pack to enable cloud backup",
+  "cloudTripsUnlockCta": "Unlock concierge",
+  "cloudTripsEmailHint": "Email address",
+  "cloudTripsSendCode": "Send sign-in code",
+  "cloudTripsCodeHint": "6-digit code from email",
+  "cloudTripsVerify": "Verify & sign in",
+  "cloudTripsCodeSent": "Check your email for a sign-in code",
+  "cloudTripsSignOut": "Sign out",
+  "cloudTripsSyncNow": "Sync now",
+  "cloudTripsSyncSuccess": "Trips synced",
+  "cloudTripsSyncError": "Sync failed — try again",
+  "cloudTripsBannerTitle": "Back up your trips",
+  "cloudTripsBannerBody": "Sign in to restore trips on a new phone or tablet.",
+  "cloudTripsBannerCta": "Set up cloud backup",
+  "cloudTripsNotConfigured": "Cloud backup requires Supabase (dev setup)",
+  "paywallFeatureCloudBackup": "Cloud Trip Backup",
   "shareSubject": "My {title}",
   "@shareSubject": {
     "placeholders": { "title": { "type": "String" } }

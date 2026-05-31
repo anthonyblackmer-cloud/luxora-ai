@@ -1267,7 +1267,7 @@
   "tripsDeleted": "यात्रा हटा दी गई",
   "tripsEmptyBody": "अपनी पहली यात्रा की योजना बनाएं और वह यहां दिखाई देगी, किसी भी समय दोबारा आने के लिए तैयार।",
   "tripsEmptyTitle": "अभी तक कोई सहेजी गई यात्रा नहीं",
-  "tripsFooter": "मूड कैटलॉग से यात्रा कवर · सुपाबेस सिंक चरण 2",
+  "tripsFooter": "मूड कैटलॉग से यात्रा कवर · साइन इन पर क्लाउड बैकअप",
   "tripsLiveWeather": "लाइव मौसम",
   "tripsNextUp": "अगला",
   "tripsOpenStory": "आपकी कहानी",
@@ -1608,28 +1608,71 @@
   "conciergeTicketDealLine": "• {title}: {price} ({source} से, {savings} बचत)",
   "@conciergeTicketDealLine": {
     "placeholders": {
-      "title": { "type": "String" },
-      "price": { "type": "String" },
-      "source": { "type": "String" },
-      "savings": { "type": "String" }
+      "title": {
+        "type": "String"
+      },
+      "price": {
+        "type": "String"
+      },
+      "source": {
+        "type": "String"
+      },
+      "savings": {
+        "type": "String"
+      }
     }
   },
   "conciergeTicketsTimelineHint": "टाइमलाइन पर हर मेल खाते स्टॉप पर रीसेलर लिंक वाला टिकट बुक करें बटन है।",
   "itineraryBookTickets": "टिकट बुक करें · {amount} बचत",
   "@itineraryBookTickets": {
     "placeholders": {
-      "amount": { "type": "String" }
+      "amount": {
+        "type": "String"
+      }
     }
   },
   "itineraryOpenTicketDeal": "टिकट बुक करें",
   "conciergeTripSaved": "“{title}” आपकी यात्राओं में सहेजा — Trips टैब कभी भी खोलें।",
-  "@conciergeTripSaved": { "placeholders": { "title": { "type": "String" } } },
+  "@conciergeTripSaved": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
   "conciergeTripSavedWithStops": "“{title}” को टाइमलाइन पर {count} अनुभवों के साथ सहेजा।",
-  "@conciergeTripSavedWithStops": { "placeholders": { "title": { "type": "String" }, "count": { "type": "int" } } },
+  "@conciergeTripSavedWithStops": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "conciergeSavedTripsIntro": "आपकी {count} सहेजी गई यात्रा(एँ):",
-  "@conciergeSavedTripsIntro": { "placeholders": { "count": { "type": "int" } } },
+  "@conciergeSavedTripsIntro": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "conciergeSavedTripLine": "• {title} ({dates}) — {status}",
-  "@conciergeSavedTripLine": { "placeholders": { "title": { "type": "String" }, "dates": { "type": "String" }, "status": { "type": "String" } } },
+  "@conciergeSavedTripLine": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "dates": {
+        "type": "String"
+      },
+      "status": {
+        "type": "String"
+      }
+    }
+  },
   "conciergeSavedTripsEmpty": "अभी कोई सहेजी यात्रा नहीं — पहले योजना बनवाएँ, फिर “मेरी यात्रा सहेजो” कहें।",
   "conciergeSavedTripsHint": "कार्ड, शेयर या तारीखें बदलने के लिए Trips टैब खोलें।",
   "conciergeAiError": "Luxora तक नहीं पहुँच सका। कनेक्शन जाँचें और फिर कोशिश करें।",
@@ -1725,5 +1768,45 @@
   "conciergeAiErrorVoice": "Sorry — I couldn't connect to Luxora's concierge just now.",
   "conciergeAiOpenAiNotReady": "Luxora heard you, but the concierge brain isn't online yet. Set OPENAI_API_KEY in Supabase secrets for the edge function (bright-processor), then try again.",
   "conciergeAiFunctionNotFound": "Luxora couldn't find the concierge edge function \"{function}\". Deploy it in Supabase or fix SUPABASE_CONCIERGE_FUNCTION on this build.",
-  "conciergeAiAuthFailed": "Luxora couldn't authenticate with Supabase — double-check SUPABASE_ANON_KEY matches your project."
+  "conciergeAiAuthFailed": "Luxora couldn't authenticate with Supabase — double-check SUPABASE_ANON_KEY matches your project.",
+  "shareCardCta": "Luxora में अपनी योजना बनाएं",
+  "shareCardDownloadHint": "iOS और Android पर मुफ़्त · luxora.ai/download",
+  "shareCardShareMessage": "{title}\n\nLuxora AI के साथ योजना — भावनात्मक रूप से बुद्धिमान Florida यात्रा।\nऐप प्राप्त करें: {url}",
+  "conciergeLocalTryPlanning": "बताएं यात्रा कैसी महसूस होनी चाहिए — जैसे «Orlando में 2 आरामदायक दिन springs और food के साथ plan करो»। मैं डिवाइस पर असली agenda बनाऊंगा।",
+  "conciergeLocalPlanBuilt": "मैंने {city} का आपका दिन बनाया — mood और drive के हिसाब से {count} स्टॉप। **Agenda** या **Map** खोलें।",
+  "conciergeLocalNoIntent": "मूड बताएं या कहें «Plan my Orlando day» — मैं डिवाइस पर असली रूट बनाऊंगा।",
+  "ticketConciergeIntelBadge": "Concierge intel",
+  "ticketConciergeIntelAgenda": "आपकी agenda से मेल — generic coupons नहीं।",
+  "agendaFixAfternoonRain": "बारिश आ रही है — दोपहर ठीक करें",
+  "agendaRainRerouteDone": "दोपहर अपडेट — {count} स्टॉप indoor ले गए।",
+  "agendaRainRerouteNone": "आपका plan पहले से इस मौसम के लिए ठीक है।",
+  "agendaRainScoreNote": "Vacation score अब {score}/100",
+  "cloudTripsTitle": "क्लाउड बैकअप",
+  "cloudTripsSubtitle": "सहेजी गई यात्राएँ डिवाइसों पर सिंक होती हैं — किसी भी शहर अनलॉक के साथ शामिल।",
+  "cloudTripsMoreSubSignedOut": "यात्राएँ बैकअप करने के लिए साइन इन करें",
+  "cloudTripsMoreSubSignedIn": "{email} के रूप में साइन इन",
+  "@cloudTripsMoreSubSignedIn": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "cloudTripsMoreSubSyncing": "सिंक हो रहा है…",
+  "cloudTripsUnlockRequired": "क्लाउड बैकअप के लिए city pack अनलॉक करें",
+  "cloudTripsUnlockCta": "Concierge अनलॉक करें",
+  "cloudTripsEmailHint": "ईमेल पता",
+  "cloudTripsSendCode": "साइन-इन कोड भेजें",
+  "cloudTripsCodeHint": "ईमेल से 6-अंकीय कोड",
+  "cloudTripsVerify": "सत्यापित करें और साइन इन",
+  "cloudTripsCodeSent": "साइन-इन कोड के लिए ईमेल देखें",
+  "cloudTripsSignOut": "साइन आउट",
+  "cloudTripsSyncNow": "अभी सिंक करें",
+  "cloudTripsSyncSuccess": "यात्राएँ सिंक हो गईं",
+  "cloudTripsSyncError": "सिंक विफल — फिर कोशिश करें",
+  "cloudTripsBannerTitle": "अपनी यात्राएँ बैकअप करें",
+  "cloudTripsBannerBody": "नए फोन पर यात्राएँ पुनर्स्थापित करने के लिए साइन इन करें।",
+  "cloudTripsBannerCta": "क्लाउड बैकअप सेट करें",
+  "cloudTripsNotConfigured": "क्लाउड बैकअप के लिए Supabase (dev) चाहिए",
+  "paywallFeatureCloudBackup": "क्लाउड ट्रिप बैकअप"
 }

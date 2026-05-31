@@ -1267,7 +1267,7 @@
   "tripsDeleted": "Reise gelöscht",
   "tripsEmptyBody": "Planen Sie Ihre erste Reise und sie wird hier angezeigt und kann jederzeit erneut besucht werden.",
   "tripsEmptyTitle": "Noch keine gespeicherten Reisen",
-  "tripsFooter": "Reise-Cover aus dem Stimmungskatalog · Supabase-Sync Phase 2",
+  "tripsFooter": "Reise-Cover aus dem Stimmungskatalog · Cloud-Backup nach Anmeldung",
   "tripsLiveWeather": "Live-Wetter",
   "tripsNextUp": "Als nächstes",
   "tripsOpenStory": "Deine Geschichte",
@@ -1608,28 +1608,71 @@
   "conciergeTicketDealLine": "• {title}: {price} über {source} (spare {savings})",
   "@conciergeTicketDealLine": {
     "placeholders": {
-      "title": { "type": "String" },
-      "price": { "type": "String" },
-      "source": { "type": "String" },
-      "savings": { "type": "String" }
+      "title": {
+        "type": "String"
+      },
+      "price": {
+        "type": "String"
+      },
+      "source": {
+        "type": "String"
+      },
+      "savings": {
+        "type": "String"
+      }
     }
   },
   "conciergeTicketsTimelineHint": "Jeder passende Stopp in der Timeline hat einen Button Tickets buchen mit Reseller-Link.",
   "itineraryBookTickets": "Tickets buchen · Spare {amount}",
   "@itineraryBookTickets": {
     "placeholders": {
-      "amount": { "type": "String" }
+      "amount": {
+        "type": "String"
+      }
     }
   },
   "itineraryOpenTicketDeal": "Tickets buchen",
   "conciergeTripSaved": "„{title}“ in Reisen gespeichert — öffne den Tab Trips jederzeit.",
-  "@conciergeTripSaved": { "placeholders": { "title": { "type": "String" } } },
+  "@conciergeTripSaved": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
   "conciergeTripSavedWithStops": "„{title}“ mit {count} Erlebnissen auf deiner Timeline gespeichert.",
-  "@conciergeTripSavedWithStops": { "placeholders": { "title": { "type": "String" }, "count": { "type": "int" } } },
+  "@conciergeTripSavedWithStops": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "conciergeSavedTripsIntro": "Du hast {count} gespeicherte Reise(n):",
-  "@conciergeSavedTripsIntro": { "placeholders": { "count": { "type": "int" } } },
+  "@conciergeSavedTripsIntro": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "conciergeSavedTripLine": "• {title} ({dates}) — {status}",
-  "@conciergeSavedTripLine": { "placeholders": { "title": { "type": "String" }, "dates": { "type": "String" }, "status": { "type": "String" } } },
+  "@conciergeSavedTripLine": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "dates": {
+        "type": "String"
+      },
+      "status": {
+        "type": "String"
+      }
+    }
+  },
   "conciergeSavedTripsEmpty": "Noch keine gespeicherten Reisen — lass mich etwas planen, dann sag „speichere meine Reise“.",
   "conciergeSavedTripsHint": "Öffne den Tab Trips für Karten, Teilen oder Datumsbearbeitung.",
   "conciergeAiError": "Luxora ist gerade nicht erreichbar. Verbindung prüfen und erneut versuchen.",
@@ -1725,5 +1768,45 @@
   "conciergeAiErrorVoice": "Entschuldigung — ich konnte gerade nicht mit Luxoras Concierge verbinden.",
   "conciergeAiOpenAiNotReady": "Luxora heard you, but the concierge brain isn't online yet. Set OPENAI_API_KEY in Supabase secrets for the edge function (bright-processor), then try again.",
   "conciergeAiFunctionNotFound": "Luxora couldn't find the concierge edge function \"{function}\". Deploy it in Supabase or fix SUPABASE_CONCIERGE_FUNCTION on this build.",
-  "conciergeAiAuthFailed": "Luxora couldn't authenticate with Supabase — double-check SUPABASE_ANON_KEY matches your project."
+  "conciergeAiAuthFailed": "Luxora couldn't authenticate with Supabase — double-check SUPABASE_ANON_KEY matches your project.",
+  "shareCardCta": "Planen Sie mit Luxora",
+  "shareCardDownloadHint": "Kostenlos für iOS & Android · luxora.ai/download",
+  "shareCardShareMessage": "{title}\n\nGeplant mit Luxora AI — emotional intelligente Florida-Reise.\nApp holen: {url}",
+  "conciergeLocalTryPlanning": "Sagen Sie mir, wie sich die Reise anfühlen soll — z. B. „Plane einen entspannten 2-Tage-Orlando-Trip mit Quellen und Essen.“ Ich erstelle eine echte Agenda auf dem Gerät.",
+  "conciergeLocalPlanBuilt": "Ich habe Ihren {city}-Tag erstellt — {count} Stopps nach Stimmung und Fahrzeit. Öffnen Sie **Agenda** oder **Karte** für Ihre Route.",
+  "conciergeLocalNoIntent": "Beschreiben Sie Ihre Reisestimmung oder sagen Sie „Plane meinen Tag in Orlando“ — ich baue eine echte Route auf dem Gerät.",
+  "ticketConciergeIntelBadge": "Concierge-Intel",
+  "ticketConciergeIntelAgenda": "Abgestimmt auf Ihre Agenda — keine generische Gutscheinliste.",
+  "agendaFixAfternoonRain": "Regen kommt — Nachmittag anpassen",
+  "agendaRainRerouteDone": "Nachmittag aktualisiert — {count} Stopps nach drinnen verlegt.",
+  "agendaRainRerouteNone": "Ihr Plan passt bereits zu diesem Wetter.",
+  "agendaRainScoreNote": "Urlaubs-Score jetzt {score}/100",
+  "cloudTripsTitle": "Cloud-Backup",
+  "cloudTripsSubtitle": "Gespeicherte Reisen synchronisieren sich geräteübergreifend — bei jedem City-Unlock inklusive.",
+  "cloudTripsMoreSubSignedOut": "Anmelden, um Reisen zu sichern",
+  "cloudTripsMoreSubSignedIn": "Angemeldet als {email}",
+  "@cloudTripsMoreSubSignedIn": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "cloudTripsMoreSubSyncing": "Synchronisiere…",
+  "cloudTripsUnlockRequired": "City-Pack freischalten für Cloud-Backup",
+  "cloudTripsUnlockCta": "Concierge freischalten",
+  "cloudTripsEmailHint": "E-Mail-Adresse",
+  "cloudTripsSendCode": "Anmeldecode senden",
+  "cloudTripsCodeHint": "6-stelliger Code aus der E-Mail",
+  "cloudTripsVerify": "Bestätigen & anmelden",
+  "cloudTripsCodeSent": "Prüfen Sie Ihre E-Mail auf den Anmeldecode",
+  "cloudTripsSignOut": "Abmelden",
+  "cloudTripsSyncNow": "Jetzt synchronisieren",
+  "cloudTripsSyncSuccess": "Reisen synchronisiert",
+  "cloudTripsSyncError": "Sync fehlgeschlagen — erneut versuchen",
+  "cloudTripsBannerTitle": "Reisen sichern",
+  "cloudTripsBannerBody": "Anmelden, um Reisen auf neuem Gerät wiederherzustellen.",
+  "cloudTripsBannerCta": "Cloud-Backup einrichten",
+  "cloudTripsNotConfigured": "Cloud-Backup erfordert Supabase (Dev-Setup)",
+  "paywallFeatureCloudBackup": "Cloud-Reise-Backup"
 }

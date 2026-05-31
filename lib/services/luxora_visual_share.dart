@@ -3,6 +3,7 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:luxora_ai/data/luxora_links.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -54,12 +55,13 @@ abstract final class LuxoraVisualShare {
 
       final png = Uint8List.view(bytes.buffer);
       final l = context.l10n;
+      final message = l.shareCardShareMessage(subject, LuxoraLinks.download);
       await SharePlus.instance.share(
         ShareParams(
           files: [
             XFile.fromData(png, mimeType: 'image/png', name: fileName),
           ],
-          text: subject,
+          text: message,
           subject: l.shareSubject(subject),
         ),
       );
@@ -84,12 +86,13 @@ abstract final class LuxoraVisualShare {
 
     final png = Uint8List.view(bytes.buffer);
     final l = context.l10n;
+    final message = l.shareCardShareMessage(subject, LuxoraLinks.download);
     await SharePlus.instance.share(
       ShareParams(
         files: [
           XFile.fromData(png, mimeType: 'image/png', name: fileName),
         ],
-        text: subject,
+        text: message,
         subject: l.shareSubject(subject),
       ),
     );

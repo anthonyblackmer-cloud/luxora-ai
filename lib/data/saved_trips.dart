@@ -20,6 +20,7 @@ class SavedTripSummary {
     this.timelineSnapshot,
     this.liveWeatherNote,
     this.userCreated = false,
+    this.updatedAtMs = 0,
   });
 
   final String id;
@@ -44,6 +45,9 @@ class SavedTripSummary {
   /// True when this trip was generated from a user onboarding flow (vs. a
   /// seeded showcase trip).
   final bool userCreated;
+
+  /// Milliseconds since epoch — used for cloud merge conflict resolution.
+  final int updatedAtMs;
 
   String get statusLine {
     final parts = <String>[
@@ -92,6 +96,7 @@ class SavedTripSummary {
     String? timelineSnapshot,
     String? liveWeatherNote,
     bool? userCreated,
+    int? updatedAtMs,
   }) {
     return SavedTripSummary(
       id: id ?? this.id,
@@ -110,6 +115,7 @@ class SavedTripSummary {
       timelineSnapshot: timelineSnapshot ?? this.timelineSnapshot,
       liveWeatherNote: liveWeatherNote ?? this.liveWeatherNote,
       userCreated: userCreated ?? this.userCreated,
+      updatedAtMs: updatedAtMs ?? this.updatedAtMs,
     );
   }
 
@@ -141,6 +147,7 @@ class SavedTripSummary {
       timelineStatus: 'Building itinerary',
       cityId: profile.cityId,
       userCreated: true,
+      updatedAtMs: DateTime.now().millisecondsSinceEpoch,
     );
   }
 
@@ -173,6 +180,7 @@ class SavedTripSummary {
         'timelineSnapshot': timelineSnapshot,
         'liveWeatherNote': liveWeatherNote,
         'userCreated': userCreated,
+        'updatedAtMs': updatedAtMs,
       };
 
   factory SavedTripSummary.fromJson(Map<String, dynamic> json) {
@@ -195,6 +203,7 @@ class SavedTripSummary {
       timelineSnapshot: json['timelineSnapshot'] as String?,
       liveWeatherNote: json['liveWeatherNote'] as String?,
       userCreated: json['userCreated'] as bool? ?? false,
+      updatedAtMs: json['updatedAtMs'] as int? ?? 0,
     );
   }
 }

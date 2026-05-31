@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:luxora_ai/data/luxora_links.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/widgets/luxora_share_section.dart';
@@ -188,7 +189,56 @@ class LuxoraBrandedShareCard extends StatelessWidget {
                 ),
               ),
           ],
-          const SizedBox(height: 14),
+          const SizedBox(height: 16),
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              gradient: LinearGradient(
+                colors: [
+                  LuxColors.gold.withValues(alpha: 0.18),
+                  LuxColors.gold.withValues(alpha: 0.08),
+                ],
+              ),
+              border: Border.all(
+                color: LuxColors.gold.withValues(alpha: 0.42),
+              ),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  l.shareCardCta,
+                  style: const TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w700,
+                    color: LuxColors.cream,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  l.shareCardDownloadHint,
+                  style: TextStyle(
+                    fontSize: 11,
+                    height: 1.35,
+                    color: LuxColors.stone400.withValues(alpha: 0.98),
+                  ),
+                ),
+                const SizedBox(height: 6),
+                Text(
+                  LuxoraLinks.download,
+                  style: TextStyle(
+                    fontSize: 11,
+                    fontWeight: FontWeight.w700,
+                    letterSpacing: 0.3,
+                    color: LuxColors.gold.withValues(alpha: 0.95),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 12),
           Text(
             footerText,
             style: TextStyle(

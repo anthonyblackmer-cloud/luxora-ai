@@ -9,6 +9,7 @@ import 'package:luxora_ai/services/city_pack_registry.dart';
 import 'package:luxora_ai/services/places_repository.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/util/day_flow_share_content.dart';
+import 'package:luxora_ai/widgets/agenda_weather_action_bar.dart';
 import 'package:luxora_ai/widgets/attraction_detail_sheet.dart';
 import 'package:luxora_ai/widgets/lux_place_image.dart';
 import 'package:luxora_ai/widgets/lux_secondary_app_bar.dart';
@@ -116,6 +117,7 @@ class ItineraryScreen extends StatelessWidget {
                 ),
               ],
               const SizedBox(height: 16),
+              const AgendaWeatherActionBar(),
               const TicketSavingsItineraryBanner(),
               DecoratedBox(
                 decoration: BoxDecoration(

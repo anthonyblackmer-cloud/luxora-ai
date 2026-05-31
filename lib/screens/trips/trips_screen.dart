@@ -10,6 +10,7 @@ import 'package:luxora_ai/services/trip_cover_resolver.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/widgets/attraction_detail_sheet.dart';
 import 'package:luxora_ai/widgets/lux_place_image.dart';
+import 'package:luxora_ai/widgets/cloud/cloud_trips_banner.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
 import 'package:luxora_ai/widgets/lux_button.dart';
 import 'package:luxora_ai/widgets/trip_dates_editor_sheet.dart';
@@ -84,6 +85,7 @@ class TripsScreen extends StatelessWidget {
                   }
                   return ListView(
                     children: [
+                      const CloudTripsBanner(),
                       for (final trip in visible)
                         Padding(
                           padding: const EdgeInsets.only(bottom: 14),

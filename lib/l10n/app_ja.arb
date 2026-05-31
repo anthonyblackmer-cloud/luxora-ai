@@ -1267,7 +1267,7 @@
   "tripsDeleted": "旅行が削除されました",
   "tripsEmptyBody": "初めての旅行を計画するとここに表示され、いつでも再訪できます。",
   "tripsEmptyTitle": "保存された旅行はまだありません",
-  "tripsFooter": "ムードカタログからの旅行カバー · Supabase 同期フェーズ 2",
+  "tripsFooter": "ムードカタログのカバー · サインインでクラウドバックアップ",
   "tripsLiveWeather": "ライブ天気",
   "tripsNextUp": "次は",
   "tripsOpenStory": "あなたの物語",
@@ -1608,28 +1608,71 @@
   "conciergeTicketDealLine": "• {title}: {price}（{source}、{savings}お得）",
   "@conciergeTicketDealLine": {
     "placeholders": {
-      "title": { "type": "String" },
-      "price": { "type": "String" },
-      "source": { "type": "String" },
-      "savings": { "type": "String" }
+      "title": {
+        "type": "String"
+      },
+      "price": {
+        "type": "String"
+      },
+      "source": {
+        "type": "String"
+      },
+      "savings": {
+        "type": "String"
+      }
     }
   },
   "conciergeTicketsTimelineHint": "該当する各スポットのタイムラインに、販売元リンク付きの「チケット予約」ボタンが表示されます。",
   "itineraryBookTickets": "チケット予約 · {amount}お得",
   "@itineraryBookTickets": {
     "placeholders": {
-      "amount": { "type": "String" }
+      "amount": {
+        "type": "String"
+      }
     }
   },
   "itineraryOpenTicketDeal": "チケット予約",
   "conciergeTripSaved": "「{title}」を旅行に保存しました — Tripsタブからいつでも開けます。",
-  "@conciergeTripSaved": { "placeholders": { "title": { "type": "String" } } },
+  "@conciergeTripSaved": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
   "conciergeTripSavedWithStops": "「{title}」をタイムラインの{count}件の体験付きで保存しました。",
-  "@conciergeTripSavedWithStops": { "placeholders": { "title": { "type": "String" }, "count": { "type": "int" } } },
+  "@conciergeTripSavedWithStops": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "conciergeSavedTripsIntro": "保存済みの旅行が{count}件あります：",
-  "@conciergeSavedTripsIntro": { "placeholders": { "count": { "type": "int" } } },
+  "@conciergeSavedTripsIntro": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "conciergeSavedTripLine": "• {title}（{dates}）— {status}",
-  "@conciergeSavedTripLine": { "placeholders": { "title": { "type": "String" }, "dates": { "type": "String" }, "status": { "type": "String" } } },
+  "@conciergeSavedTripLine": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "dates": {
+        "type": "String"
+      },
+      "status": {
+        "type": "String"
+      }
+    }
+  },
   "conciergeSavedTripsEmpty": "保存された旅行はまだありません — プランを頼んでから「旅行を保存して」と言ってください。",
   "conciergeSavedTripsHint": "Tripsタブでカードの表示、共有、日付の編集ができます。",
   "conciergeAiError": "Luxoraに接続できませんでした。接続を確認してもう一度お試しください。",
@@ -1725,5 +1768,45 @@
   "conciergeAiErrorVoice": "Sorry — I couldn't connect to Luxora's concierge just now.",
   "conciergeAiOpenAiNotReady": "Luxora heard you, but the concierge brain isn't online yet. Set OPENAI_API_KEY in Supabase secrets for the edge function (bright-processor), then try again.",
   "conciergeAiFunctionNotFound": "Luxora couldn't find the concierge edge function \"{function}\". Deploy it in Supabase or fix SUPABASE_CONCIERGE_FUNCTION on this build.",
-  "conciergeAiAuthFailed": "Luxora couldn't authenticate with Supabase — double-check SUPABASE_ANON_KEY matches your project."
+  "conciergeAiAuthFailed": "Luxora couldn't authenticate with Supabase — double-check SUPABASE_ANON_KEY matches your project.",
+  "shareCardCta": "Luxoraで計画する",
+  "shareCardDownloadHint": "iOSとAndroidで無料 · luxora.ai/download",
+  "shareCardShareMessage": "{title}\n\nLuxora AIで計画 — 感情知能フロリダ旅行。\nアプリを入手: {url}",
+  "conciergeLocalTryPlanning": "旅の雰囲気を教えてください — 例:「オーランドで2日、泉と食を楽しむプラン」。端末上で本当のagendaを作ります。",
+  "conciergeLocalPlanBuilt": "{city}の1日を作成 — ムードとドライブで{count} stops。**Agenda**または**Map**を開いてください。",
+  "conciergeLocalNoIntent": "雰囲気を伝えるか「Plan my Orlando day」と言ってください — 端末で本当のルートを作ります。",
+  "ticketConciergeIntelBadge": "Concierge intel",
+  "ticketConciergeIntelAgenda": "あなたのagendaに合わせた情報 — 一般的なクーポンではありません。",
+  "agendaFixAfternoonRain": "雨が来ます — 午後を調整",
+  "agendaRainRerouteDone": "午後を更新 — {count} stopsを屋内へ。",
+  "agendaRainRerouteNone": "この天気にプランはすでに適しています。",
+  "agendaRainScoreNote": "Vacation score {score}/100",
+  "cloudTripsTitle": "クラウドバックアップ",
+  "cloudTripsSubtitle": "保存した旅行はサインインで端末間同期 — 都市アンロックに含まれます。",
+  "cloudTripsMoreSubSignedOut": "サインインして旅行をバックアップ",
+  "cloudTripsMoreSubSignedIn": "{email} でサインイン中",
+  "@cloudTripsMoreSubSignedIn": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "cloudTripsMoreSubSyncing": "同期中…",
+  "cloudTripsUnlockRequired": "クラウドバックアップには都市パックのアンロックが必要",
+  "cloudTripsUnlockCta": "コンシェルジュをアンロック",
+  "cloudTripsEmailHint": "メールアドレス",
+  "cloudTripsSendCode": "サインインコードを送信",
+  "cloudTripsCodeHint": "メールの6桁コード",
+  "cloudTripsVerify": "確認してサインイン",
+  "cloudTripsCodeSent": "サインインコードをメールで確認してください",
+  "cloudTripsSignOut": "サインアウト",
+  "cloudTripsSyncNow": "今すぐ同期",
+  "cloudTripsSyncSuccess": "旅行を同期しました",
+  "cloudTripsSyncError": "同期に失敗 — 再試行してください",
+  "cloudTripsBannerTitle": "旅行をバックアップ",
+  "cloudTripsBannerBody": "新しい端末で旅行を復元するにはサインイン。",
+  "cloudTripsBannerCta": "クラウドバックアップを設定",
+  "cloudTripsNotConfigured": "クラウドバックアップにはSupabase（dev）が必要",
+  "paywallFeatureCloudBackup": "クラウド旅行バックアップ"
 }

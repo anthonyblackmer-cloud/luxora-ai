@@ -1267,7 +1267,7 @@
   "tripsDeleted": "行程已删除",
   "tripsEmptyBody": "计划您的第一次旅行，它会出现在这里，供您随时重游。",
   "tripsEmptyTitle": "尚未保存行程",
-  "tripsFooter": "旅行封面来自心情目录 · Supabase 同步第 2 阶段",
+  "tripsFooter": "心情目录封面 · 登录后云备份",
   "tripsLiveWeather": "实时天气",
   "tripsNextUp": "接下来",
   "tripsOpenStory": "你的故事",
@@ -1608,28 +1608,71 @@
   "conciergeTicketDealLine": "• {title}：{price}（{source}，省 {savings}）",
   "@conciergeTicketDealLine": {
     "placeholders": {
-      "title": { "type": "String" },
-      "price": { "type": "String" },
-      "source": { "type": "String" },
-      "savings": { "type": "String" }
+      "title": {
+        "type": "String"
+      },
+      "price": {
+        "type": "String"
+      },
+      "source": {
+        "type": "String"
+      },
+      "savings": {
+        "type": "String"
+      }
     }
   },
   "conciergeTicketsTimelineHint": "时间线上每个匹配的站点现在都有带经销商链接的「预订门票」按钮。",
   "itineraryBookTickets": "预订门票 · 省 {amount}",
   "@itineraryBookTickets": {
     "placeholders": {
-      "amount": { "type": "String" }
+      "amount": {
+        "type": "String"
+      }
     }
   },
   "itineraryOpenTicketDeal": "预订门票",
   "conciergeTripSaved": "已将“{title}”保存到行程 — 随时打开 Trips 标签查看。",
-  "@conciergeTripSaved": { "placeholders": { "title": { "type": "String" } } },
+  "@conciergeTripSaved": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
   "conciergeTripSavedWithStops": "已将“{title}”保存，时间线上有 {count} 个体验。",
-  "@conciergeTripSavedWithStops": { "placeholders": { "title": { "type": "String" }, "count": { "type": "int" } } },
+  "@conciergeTripSavedWithStops": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "conciergeSavedTripsIntro": "您有 {count} 个已保存行程：",
-  "@conciergeSavedTripsIntro": { "placeholders": { "count": { "type": "int" } } },
+  "@conciergeSavedTripsIntro": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "conciergeSavedTripLine": "• {title}（{dates}）— {status}",
-  "@conciergeSavedTripLine": { "placeholders": { "title": { "type": "String" }, "dates": { "type": "String" }, "status": { "type": "String" } } },
+  "@conciergeSavedTripLine": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "dates": {
+        "type": "String"
+      },
+      "status": {
+        "type": "String"
+      }
+    }
+  },
   "conciergeSavedTripsEmpty": "还没有保存的行程 — 让我先帮您规划，然后说“保存我的行程”。",
   "conciergeSavedTripsHint": "打开 Trips 标签查看卡片、分享或编辑日期。",
   "conciergeAiError": "无法连接 Luxora。请检查网络后重试。",
@@ -1725,5 +1768,45 @@
   "conciergeAiErrorVoice": "Sorry — I couldn't connect to Luxora's concierge just now.",
   "conciergeAiOpenAiNotReady": "Luxora heard you, but the concierge brain isn't online yet. Set OPENAI_API_KEY in Supabase secrets for the edge function (bright-processor), then try again.",
   "conciergeAiFunctionNotFound": "Luxora couldn't find the concierge edge function \"{function}\". Deploy it in Supabase or fix SUPABASE_CONCIERGE_FUNCTION on this build.",
-  "conciergeAiAuthFailed": "Luxora couldn't authenticate with Supabase — double-check SUPABASE_ANON_KEY matches your project."
+  "conciergeAiAuthFailed": "Luxora couldn't authenticate with Supabase — double-check SUPABASE_ANON_KEY matches your project.",
+  "shareCardCta": "在 Luxora 规划您的行程",
+  "shareCardDownloadHint": "iOS 和 Android 免费 · luxora.ai/download",
+  "shareCardShareMessage": "{title}\n\n由 Luxora AI 规划 — 情感智能佛罗里达之旅。\n获取应用: {url}",
+  "conciergeLocalTryPlanning": "告诉我您想要的旅行感觉 — 例如「在奥兰多规划2天放松行程，含泉水和美食」。我会在设备上生成真实 agenda。",
+  "conciergeLocalPlanBuilt": "已为您规划{city}的一天 — 按心情与车程安排{count}站。打开**Agenda**或**Map**查看路线。",
+  "conciergeLocalNoIntent": "描述旅行氛围，或说「Plan my Orlando day」— 我会在设备上构建真实路线。",
+  "ticketConciergeIntelBadge": "Concierge intel",
+  "ticketConciergeIntelAgenda": "匹配您的 agenda — 不是普通优惠券列表。",
+  "agendaFixAfternoonRain": "即将下雨 — 调整下午行程",
+  "agendaRainRerouteDone": "下午已更新 — {count} 站改为室内。",
+  "agendaRainRerouteNone": "您的计划已适合当前天气。",
+  "agendaRainScoreNote": "度假评分 {score}/100",
+  "cloudTripsTitle": "云备份",
+  "cloudTripsSubtitle": "已保存行程登录后在设备间同步 — 解锁任意城市即包含。",
+  "cloudTripsMoreSubSignedOut": "登录以备份行程",
+  "cloudTripsMoreSubSignedIn": "已登录 {email}",
+  "@cloudTripsMoreSubSignedIn": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "cloudTripsMoreSubSyncing": "同步中…",
+  "cloudTripsUnlockRequired": "解锁城市包以启用云备份",
+  "cloudTripsUnlockCta": "解锁礼宾",
+  "cloudTripsEmailHint": "电子邮箱",
+  "cloudTripsSendCode": "发送登录验证码",
+  "cloudTripsCodeHint": "邮件中的6位验证码",
+  "cloudTripsVerify": "验证并登录",
+  "cloudTripsCodeSent": "请查收邮件中的登录验证码",
+  "cloudTripsSignOut": "退出登录",
+  "cloudTripsSyncNow": "立即同步",
+  "cloudTripsSyncSuccess": "行程已同步",
+  "cloudTripsSyncError": "同步失败 — 请重试",
+  "cloudTripsBannerTitle": "备份您的行程",
+  "cloudTripsBannerBody": "登录后可在新手机上恢复行程。",
+  "cloudTripsBannerCta": "设置云备份",
+  "cloudTripsNotConfigured": "云备份需要 Supabase（开发配置）",
+  "paywallFeatureCloudBackup": "云端行程备份"
 }

@@ -1427,7 +1427,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get tripsSubtitle => '다음 순간, 날씨, 일몰, 타임라인 등 실시간 스냅샷을 보려면 여행을 탭하세요.';
 
   @override
-  String get tripsFooter => '무드 카탈로그의 여행 커버 · Supabase 동기화 2단계';
+  String get tripsFooter => '무드 카탈로그 커버 · 로그인 시 클라우드 백업';
 
   @override
   String get tripsPlanNew => '새로운 여행을 계획해보세요';
@@ -1484,6 +1484,112 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get shareItineraryFooter => '감정적으로 지능적인 플로리다 동반자인 Luxora와 함께 계획하세요.';
+
+  @override
+  String get shareCardCta => 'Luxora에서 계획하기';
+
+  @override
+  String get shareCardDownloadHint => 'iOS 및 Android 무료 · luxora.ai/download';
+
+  @override
+  String shareCardShareMessage(String title, String url) {
+    return '$title\n\nLuxora AI로 계획 — 감성 지능 Florida 여행.\n앱 받기: $url';
+  }
+
+  @override
+  String get conciergeLocalTryPlanning =>
+      '원하는 여행 분위기를 알려주세요 — 예: «올랜도에서 2일 휴식, springs와 맛집». 기기에서 실제 agenda를 만듭니다.';
+
+  @override
+  String conciergeLocalPlanBuilt(String city, int count) {
+    return '$city 하루를 만들었습니다 — mood와 drive 기준 $count stops. **Agenda** 또는 **Map**을 여세요.';
+  }
+
+  @override
+  String get conciergeLocalNoIntent =>
+      '분위기를 설명하거나 «Plan my Orlando day»라고 하세요 — 기기에서 실제 경로를 만듭니다.';
+
+  @override
+  String get ticketConciergeIntelBadge => 'Concierge intel';
+
+  @override
+  String get ticketConciergeIntelAgenda => 'agenda에 맞춘 정보 — 일반 쿠폰 목록이 아닙니다.';
+
+  @override
+  String get agendaFixAfternoonRain => '비 예보 — 오후 일정 조정';
+
+  @override
+  String agendaRainRerouteDone(int count, int score) {
+    return '오후 업데이트 — $count stops 실내로 이동.';
+  }
+
+  @override
+  String get agendaRainRerouteNone => '이 날씨에 이미 맞는 일정입니다.';
+
+  @override
+  String get cloudTripsTitle => '클라우드 백업';
+
+  @override
+  String get cloudTripsSubtitle => '저장된 여행은 로그인 시 기기 간 동기화 — 도시 잠금 해제에 포함.';
+
+  @override
+  String get cloudTripsMoreSubSignedOut => '로그인하여 여행 백업';
+
+  @override
+  String cloudTripsMoreSubSignedIn(String email) {
+    return '$email(으)로 로그인됨';
+  }
+
+  @override
+  String get cloudTripsMoreSubSyncing => '동기화 중…';
+
+  @override
+  String get cloudTripsUnlockRequired => '클라우드 백업을 위해 도시 팩 잠금 해제';
+
+  @override
+  String get cloudTripsUnlockCta => '컨시어지 잠금 해제';
+
+  @override
+  String get cloudTripsEmailHint => '이메일 주소';
+
+  @override
+  String get cloudTripsSendCode => '로그인 코드 보내기';
+
+  @override
+  String get cloudTripsCodeHint => '이메일의 6자리 코드';
+
+  @override
+  String get cloudTripsVerify => '확인 후 로그인';
+
+  @override
+  String get cloudTripsCodeSent => '로그인 코드를 이메일에서 확인하세요';
+
+  @override
+  String get cloudTripsSignOut => '로그아웃';
+
+  @override
+  String get cloudTripsSyncNow => '지금 동기화';
+
+  @override
+  String get cloudTripsSyncSuccess => '여행 동기화 완료';
+
+  @override
+  String get cloudTripsSyncError => '동기화 실패 — 다시 시도';
+
+  @override
+  String get cloudTripsBannerTitle => '여행 백업';
+
+  @override
+  String get cloudTripsBannerBody => '새 기기에서 여행을 복원하려면 로그인하세요.';
+
+  @override
+  String get cloudTripsBannerCta => '클라우드 백업 설정';
+
+  @override
+  String get cloudTripsNotConfigured => '클라우드 백업에 Supabase(dev) 필요';
+
+  @override
+  String get paywallFeatureCloudBackup => '클라우드 여행 백업';
 
   @override
   String shareSubject(String title) {

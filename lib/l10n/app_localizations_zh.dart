@@ -1398,7 +1398,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get tripsSubtitle => '点按旅行查看实时快照：下一个时刻、天气、日落和行程。';
 
   @override
-  String get tripsFooter => '旅行封面来自心情目录 · Supabase 同步第 2 阶段';
+  String get tripsFooter => '心情目录封面 · 登录后云备份';
 
   @override
   String get tripsPlanNew => '计划新的旅行';
@@ -1455,6 +1455,112 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get shareItineraryFooter => '与 Luxora 一起计划——您高情商的佛罗里达伴侣。';
+
+  @override
+  String get shareCardCta => '在 Luxora 规划您的行程';
+
+  @override
+  String get shareCardDownloadHint => 'iOS 和 Android 免费 · luxora.ai/download';
+
+  @override
+  String shareCardShareMessage(String title, String url) {
+    return '$title\n\n由 Luxora AI 规划 — 情感智能佛罗里达之旅。\n获取应用: $url';
+  }
+
+  @override
+  String get conciergeLocalTryPlanning =>
+      '告诉我您想要的旅行感觉 — 例如「在奥兰多规划2天放松行程，含泉水和美食」。我会在设备上生成真实 agenda。';
+
+  @override
+  String conciergeLocalPlanBuilt(String city, int count) {
+    return '已为您规划$city的一天 — 按心情与车程安排$count站。打开**Agenda**或**Map**查看路线。';
+  }
+
+  @override
+  String get conciergeLocalNoIntent =>
+      '描述旅行氛围，或说「Plan my Orlando day」— 我会在设备上构建真实路线。';
+
+  @override
+  String get ticketConciergeIntelBadge => 'Concierge intel';
+
+  @override
+  String get ticketConciergeIntelAgenda => '匹配您的 agenda — 不是普通优惠券列表。';
+
+  @override
+  String get agendaFixAfternoonRain => '即将下雨 — 调整下午行程';
+
+  @override
+  String agendaRainRerouteDone(int count, int score) {
+    return '下午已更新 — $count 站改为室内。';
+  }
+
+  @override
+  String get agendaRainRerouteNone => '您的计划已适合当前天气。';
+
+  @override
+  String get cloudTripsTitle => '云备份';
+
+  @override
+  String get cloudTripsSubtitle => '已保存行程登录后在设备间同步 — 解锁任意城市即包含。';
+
+  @override
+  String get cloudTripsMoreSubSignedOut => '登录以备份行程';
+
+  @override
+  String cloudTripsMoreSubSignedIn(String email) {
+    return '已登录 $email';
+  }
+
+  @override
+  String get cloudTripsMoreSubSyncing => '同步中…';
+
+  @override
+  String get cloudTripsUnlockRequired => '解锁城市包以启用云备份';
+
+  @override
+  String get cloudTripsUnlockCta => '解锁礼宾';
+
+  @override
+  String get cloudTripsEmailHint => '电子邮箱';
+
+  @override
+  String get cloudTripsSendCode => '发送登录验证码';
+
+  @override
+  String get cloudTripsCodeHint => '邮件中的6位验证码';
+
+  @override
+  String get cloudTripsVerify => '验证并登录';
+
+  @override
+  String get cloudTripsCodeSent => '请查收邮件中的登录验证码';
+
+  @override
+  String get cloudTripsSignOut => '退出登录';
+
+  @override
+  String get cloudTripsSyncNow => '立即同步';
+
+  @override
+  String get cloudTripsSyncSuccess => '行程已同步';
+
+  @override
+  String get cloudTripsSyncError => '同步失败 — 请重试';
+
+  @override
+  String get cloudTripsBannerTitle => '备份您的行程';
+
+  @override
+  String get cloudTripsBannerBody => '登录后可在新手机上恢复行程。';
+
+  @override
+  String get cloudTripsBannerCta => '设置云备份';
+
+  @override
+  String get cloudTripsNotConfigured => '云备份需要 Supabase（开发配置）';
+
+  @override
+  String get paywallFeatureCloudBackup => '云端行程备份';
 
   @override
   String shareSubject(String title) {

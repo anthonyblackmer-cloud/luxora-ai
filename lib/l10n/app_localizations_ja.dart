@@ -1425,7 +1425,7 @@ class AppLocalizationsJa extends AppLocalizations {
       '旅行をタップすると、次の瞬間、天気、日没、タイムラインなどのライブスナップショットが表示されます。';
 
   @override
-  String get tripsFooter => 'ムードカタログからの旅行カバー · Supabase 同期フェーズ 2';
+  String get tripsFooter => 'ムードカタログのカバー · サインインでクラウドバックアップ';
 
   @override
   String get tripsPlanNew => '新しい旅行を計画する';
@@ -1482,6 +1482,113 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get shareItineraryFooter => '感情的に知的なフロリダのパートナーである Luxora と計画しました。';
+
+  @override
+  String get shareCardCta => 'Luxoraで計画する';
+
+  @override
+  String get shareCardDownloadHint => 'iOSとAndroidで無料 · luxora.ai/download';
+
+  @override
+  String shareCardShareMessage(String title, String url) {
+    return '$title\n\nLuxora AIで計画 — 感情知能フロリダ旅行。\nアプリを入手: $url';
+  }
+
+  @override
+  String get conciergeLocalTryPlanning =>
+      '旅の雰囲気を教えてください — 例:「オーランドで2日、泉と食を楽しむプラン」。端末上で本当のagendaを作ります。';
+
+  @override
+  String conciergeLocalPlanBuilt(String city, int count) {
+    return '$cityの1日を作成 — ムードとドライブで$count stops。**Agenda**または**Map**を開いてください。';
+  }
+
+  @override
+  String get conciergeLocalNoIntent =>
+      '雰囲気を伝えるか「Plan my Orlando day」と言ってください — 端末で本当のルートを作ります。';
+
+  @override
+  String get ticketConciergeIntelBadge => 'Concierge intel';
+
+  @override
+  String get ticketConciergeIntelAgenda =>
+      'あなたのagendaに合わせた情報 — 一般的なクーポンではありません。';
+
+  @override
+  String get agendaFixAfternoonRain => '雨が来ます — 午後を調整';
+
+  @override
+  String agendaRainRerouteDone(int count, int score) {
+    return '午後を更新 — $count stopsを屋内へ。';
+  }
+
+  @override
+  String get agendaRainRerouteNone => 'この天気にプランはすでに適しています。';
+
+  @override
+  String get cloudTripsTitle => 'クラウドバックアップ';
+
+  @override
+  String get cloudTripsSubtitle => '保存した旅行はサインインで端末間同期 — 都市アンロックに含まれます。';
+
+  @override
+  String get cloudTripsMoreSubSignedOut => 'サインインして旅行をバックアップ';
+
+  @override
+  String cloudTripsMoreSubSignedIn(String email) {
+    return '$email でサインイン中';
+  }
+
+  @override
+  String get cloudTripsMoreSubSyncing => '同期中…';
+
+  @override
+  String get cloudTripsUnlockRequired => 'クラウドバックアップには都市パックのアンロックが必要';
+
+  @override
+  String get cloudTripsUnlockCta => 'コンシェルジュをアンロック';
+
+  @override
+  String get cloudTripsEmailHint => 'メールアドレス';
+
+  @override
+  String get cloudTripsSendCode => 'サインインコードを送信';
+
+  @override
+  String get cloudTripsCodeHint => 'メールの6桁コード';
+
+  @override
+  String get cloudTripsVerify => '確認してサインイン';
+
+  @override
+  String get cloudTripsCodeSent => 'サインインコードをメールで確認してください';
+
+  @override
+  String get cloudTripsSignOut => 'サインアウト';
+
+  @override
+  String get cloudTripsSyncNow => '今すぐ同期';
+
+  @override
+  String get cloudTripsSyncSuccess => '旅行を同期しました';
+
+  @override
+  String get cloudTripsSyncError => '同期に失敗 — 再試行してください';
+
+  @override
+  String get cloudTripsBannerTitle => '旅行をバックアップ';
+
+  @override
+  String get cloudTripsBannerBody => '新しい端末で旅行を復元するにはサインイン。';
+
+  @override
+  String get cloudTripsBannerCta => 'クラウドバックアップを設定';
+
+  @override
+  String get cloudTripsNotConfigured => 'クラウドバックアップにはSupabase（dev）が必要';
+
+  @override
+  String get paywallFeatureCloudBackup => 'クラウド旅行バックアップ';
 
   @override
   String shareSubject(String title) {
