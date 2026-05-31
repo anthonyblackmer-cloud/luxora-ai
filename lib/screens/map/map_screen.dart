@@ -10,13 +10,7 @@ import 'package:luxora_ai/models/trip_profile.dart';
 import 'package:luxora_ai/services/active_day_flow_store.dart';
 import 'package:luxora_ai/services/city_pack_registry.dart';
 import 'package:luxora_ai/services/day_flow_codec.dart';
-import 'package:luxora_ai/util/day_flow_share_content.dart';
-import 'package:luxora_ai/util/day_flow_labels.dart';
 import 'package:luxora_ai/util/place_distance.dart';
-import 'package:luxora_ai/widgets/visual_share_icon_button.dart';
-import 'package:luxora_ai/services/crowd_prediction_service.dart';
-import 'package:luxora_ai/services/drive_friction_service.dart';
-import 'package:luxora_ai/widgets/travel_stop_intel_card.dart';
 import 'package:luxora_ai/services/day_flow_planner.dart';
 import 'package:luxora_ai/services/day_flow_rerouter.dart';
 import 'package:luxora_ai/services/discover_radius_controller.dart';
@@ -28,7 +22,6 @@ import 'package:luxora_ai/services/trip_profile_store.dart';
 import 'package:luxora_ai/services/weather_service.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/widgets/attraction_detail_sheet.dart';
-import 'package:luxora_ai/widgets/day_flow_swap_sheet.dart';
 import 'package:luxora_ai/widgets/destination_search_sheet.dart';
 import 'package:luxora_ai/widgets/discover_radius_selector.dart';
 import 'package:luxora_ai/widgets/discover_scope_banner.dart';
@@ -239,7 +232,7 @@ class MapScreen extends StatelessWidget {
   }
 }
 
-/// Map + weather + day plan with crowd outlook and one-tap reroute.
+/// Map, weather intel, and route pins — day agenda lives on the Agenda tab.
 class _MapRoutePlanner extends StatefulWidget {
   const _MapRoutePlanner({
     super.key,
@@ -281,7 +274,6 @@ class _MapRoutePlanner extends StatefulWidget {
 class _MapRoutePlannerState extends State<_MapRoutePlanner> {
   late DayFlow _flow;
   LuxWeather? _weather;
-  String? _rerouteMessage;
 
   @override
   void initState() {
@@ -295,7 +287,6 @@ class _MapRoutePlannerState extends State<_MapRoutePlanner> {
     super.didUpdateWidget(oldWidget);
     if (!_sameFlow(oldWidget.initialFlow, widget.initialFlow)) {
       _flow = widget.initialFlow;
-      _rerouteMessage = null;
     }
     if (oldWidget.weatherLat != widget.weatherLat ||
         oldWidget.weatherLng != widget.weatherLng) {
@@ -340,7 +331,6 @@ class _MapRoutePlannerState extends State<_MapRoutePlanner> {
   }
 
   void _reroute() {
-    final l = context.l10n;
     final result = DayFlowRerouter.apply(
       flow: _flow,
       pool: widget.pool,
@@ -348,12 +338,7 @@ class _MapRoutePlannerState extends State<_MapRoutePlanner> {
       rainLikely: _rainLikely,
       savedIds: widget.savedIds,
     );
-    setState(() {
-      _flow = result.flow;
-      _rerouteMessage = result.changed
-          ? l.mapRerouteApplied(result.swappedStopCount)
-          : l.mapRerouteNone;
-    });
+    setState(() => _flow = result.flow);
     unawaited(_persistFlow());
   }
 
@@ -372,27 +357,10 @@ class _MapRoutePlannerState extends State<_MapRoutePlanner> {
     );
   }
 
-  void _swapStop(int blockIndex) {
-    showDayFlowSwapSheet(
-      context,
-      flow: _flow,
-      blockIndex: blockIndex,
-      pool: widget.pool,
-      profile: widget.profile,
-      savedIds: widget.savedIds,
-      onApply: (flow, message) {
-        setState(() {
-          _flow = flow;
-          _rerouteMessage = message;
-        });
-        unawaited(_persistFlow());
-      },
-      onViewPlace: widget.onPlaceTap,
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
+    final mapHeight = (MediaQuery.sizeOf(context).height * 0.46).clamp(320.0, 520.0);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -404,8 +372,8 @@ class _MapRoutePlannerState extends State<_MapRoutePlanner> {
           weatherLng: widget.weatherLng,
           onPlaceTap: widget.onPlaceTap,
         ),
-        AspectRatio(
-          aspectRatio: 16 / 10,
+        SizedBox(
+          height: mapHeight,
           child: GlassCard(
             padding: EdgeInsets.zero,
             glow: true,
@@ -444,383 +412,7 @@ class _MapRoutePlannerState extends State<_MapRoutePlanner> {
           profile: widget.profile,
           bookmarkCount: widget.savedIds.length,
         ),
-        _PlanMyDay(
-          flow: _flow,
-          rainLikely: _rainLikely,
-          rerouteMessage: _rerouteMessage,
-          onReroute: _flow.isEmpty ? null : _reroute,
-          onChangeStop: _flow.isEmpty ? null : _swapStop,
-          onTapStop: widget.onPlaceTap,
-        ),
       ],
-    );
-  }
-}
-
-/// The "Plan my day" card — renders the Day Flow as a time-of-day timeline
-/// (morning → night) with a one-line rationale per stop, so the plan reads
-/// like a concierge sequenced it around how the traveler wants to feel.
-class _PlanMyDay extends StatelessWidget {
-  const _PlanMyDay({
-    required this.flow,
-    required this.onTapStop,
-    this.rainLikely = false,
-    this.rerouteMessage,
-    this.onReroute,
-    this.onChangeStop,
-  });
-
-  final DayFlow flow;
-  final bool rainLikely;
-  final String? rerouteMessage;
-  final VoidCallback? onReroute;
-  final void Function(int blockIndex)? onChangeStop;
-  final void Function(LuxPlace place) onTapStop;
-
-  @override
-  Widget build(BuildContext context) {
-    final l = context.l10n;
-    final hasFlow = !flow.isEmpty;
-    return GlassCard(
-      glow: hasFlow,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              const Icon(Icons.route_rounded, color: LuxColors.gold, size: 20),
-              const SizedBox(width: 8),
-              Expanded(
-                child: Text(
-                  l.mapPlanDayTitle,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w700,
-                    fontSize: 16,
-                  ),
-                ),
-              ),
-              if (hasFlow)
-                VisualShareIconButton(
-                  subject: l.mapPlanDayTitle,
-                  fileName: 'luxora_day_agenda.png',
-                  shareWidth: 420,
-                  color: LuxColors.gold,
-                  background: LuxColors.gold.withValues(alpha: 0.12),
-                  cardBuilder: (ctx) => buildDayAgendaShareCard(ctx, flow),
-                ),
-            ],
-          ),
-          const SizedBox(height: 8),
-          if (!hasFlow)
-            Text(
-              l.mapPlanDayEmpty,
-              style: const TextStyle(
-                fontSize: 13,
-                height: 1.4,
-                color: LuxColors.stone400,
-              ),
-            )
-          else ...[
-            Text(
-              l.dayFlowSubtitle,
-              style: const TextStyle(
-                fontSize: 12,
-                fontStyle: FontStyle.italic,
-                color: LuxColors.stone400,
-                height: 1.35,
-              ),
-            ),
-            if (flow.emphases.isNotEmpty) ...[
-              const SizedBox(height: 10),
-              Wrap(
-                spacing: 6,
-                runSpacing: 6,
-                children: [
-                  for (final e in flow.emphases)
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 10,
-                        vertical: 4,
-                      ),
-                      decoration: BoxDecoration(
-                        color: LuxColors.gold.withValues(alpha: 0.12),
-                        borderRadius: BorderRadius.circular(20),
-                        border: Border.all(
-                          color: LuxColors.gold.withValues(alpha: 0.3),
-                        ),
-                      ),
-                      child: Text(
-                        dayFlowVibeLabel(l, e),
-                        style: const TextStyle(
-                          fontSize: 11,
-                          fontWeight: FontWeight.w700,
-                          color: LuxColors.gold,
-                        ),
-                      ),
-                    ),
-                ],
-              ),
-            ],
-            const SizedBox(height: 10),
-            Text(
-              l.mapPlanDaySummary(
-                flow.stopCount,
-                flow.milesLabel,
-                flow.driveTimeLabel,
-              ),
-              style: const TextStyle(
-                fontSize: 13,
-                fontWeight: FontWeight.w600,
-                color: LuxColors.gold,
-              ),
-            ),
-            if (flow.homeBase != null)
-              Padding(
-                padding: const EdgeInsets.only(top: 6),
-                child: Row(
-                  children: [
-                    const Icon(
-                      Icons.home_rounded,
-                      size: 14,
-                      color: LuxColors.stone400,
-                    ),
-                    const SizedBox(width: 6),
-                    Expanded(
-                      child: Text(
-                        l.mapPlanDayHomeBase(
-                          catalogText(context, flow.homeBase!.title),
-                        ),
-                        style: const TextStyle(
-                          fontSize: 12,
-                          color: LuxColors.stone400,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            if (onReroute != null) ...[
-              const SizedBox(height: 12),
-              if (rainLikely)
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 8),
-                  child: Row(
-                    children: [
-                      const Icon(
-                        Icons.umbrella_rounded,
-                        size: 14,
-                        color: LuxColors.gold,
-                      ),
-                      const SizedBox(width: 6),
-                      Expanded(
-                        child: Text(
-                          l.mapRerouteRainHint,
-                          style: const TextStyle(
-                            fontSize: 12,
-                            height: 1.3,
-                            color: LuxColors.stone400,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              OutlinedButton.icon(
-                onPressed: onReroute,
-                icon: const Icon(Icons.alt_route_rounded, size: 18),
-                label: Text(l.mapRerouteButton),
-                style: OutlinedButton.styleFrom(
-                  foregroundColor: LuxColors.gold,
-                  side: BorderSide(
-                    color: LuxColors.gold.withValues(alpha: 0.45),
-                  ),
-                ),
-              ),
-              if (rerouteMessage != null)
-                Padding(
-                  padding: const EdgeInsets.only(top: 8),
-                  child: Text(
-                    rerouteMessage!,
-                    style: const TextStyle(
-                      fontSize: 12,
-                      height: 1.35,
-                      color: LuxColors.stone400,
-                    ),
-                  ),
-                ),
-            ],
-            const SizedBox(height: 14),
-            for (final (index, block) in flow.blocks.indexed)
-              _DayFlowRow(
-                block: block,
-                legOrigin: index == 0
-                    ? flow.start
-                    : LatLng(
-                        flow.blocks[index - 1].place.latitude,
-                        flow.blocks[index - 1].place.longitude,
-                      ),
-                isLast: index == flow.blocks.length - 1,
-                onTap: onChangeStop != null
-                    ? () => onChangeStop!(index)
-                    : () => onTapStop(block.place),
-                onViewPlace: () => onTapStop(block.place),
-              ),
-          ],
-        ],
-      ),
-    );
-  }
-}
-
-class _DayFlowRow extends StatelessWidget {
-  const _DayFlowRow({
-    required this.block,
-    required this.legOrigin,
-    required this.isLast,
-    required this.onTap,
-    required this.onViewPlace,
-  });
-
-  final DayBlock block;
-  final LatLng legOrigin;
-  final bool isLast;
-  final VoidCallback onTap;
-  final VoidCallback onViewPlace;
-
-  @override
-  Widget build(BuildContext context) {
-    final l = context.l10n;
-    final at = CrowdPredictionService.timeForPhase(block.phase);
-    final friction = DriveFrictionService.scoreForLeg(
-      from: legOrigin,
-      to: block.place,
-      atLocal: at,
-    );
-    final intelLines = travelStopIntelLines(
-      l,
-      place: block.place,
-      atLocal: at,
-      driveFriction: friction,
-    );
-    return InkWell(
-      borderRadius: BorderRadius.circular(10),
-      onTap: onTap,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 6),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Column(
-              children: [
-                Container(
-                  width: 28,
-                  height: 28,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: LuxColors.gold.withValues(alpha: 0.16),
-                    border: Border.all(
-                      color: LuxColors.gold.withValues(alpha: 0.4),
-                    ),
-                  ),
-                  child: Icon(
-                    dayFlowPhaseIcon(block.phase),
-                    size: 15,
-                    color: LuxColors.gold,
-                  ),
-                ),
-                if (!isLast)
-                  Container(
-                    width: 2,
-                    height: 52,
-                    margin: const EdgeInsets.symmetric(vertical: 2),
-                    color: LuxColors.gold.withValues(alpha: 0.22),
-                  ),
-              ],
-            ),
-            const SizedBox(width: 12),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(top: 1),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      dayFlowPhaseLabel(l, block.phase),
-                      style: TextStyle(
-                        fontSize: 10,
-                        fontWeight: FontWeight.w800,
-                        letterSpacing: 1.5,
-                        color: LuxColors.gold.withValues(alpha: 0.85),
-                      ),
-                    ),
-                    const SizedBox(height: 2),
-                    Text(
-                      catalogText(context, block.place.title),
-                      style: const TextStyle(
-                        fontSize: 14,
-                        color: LuxColors.cream,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    const SizedBox(height: 2),
-                    Text(
-                      dayFlowReasonLabel(l, block.reason),
-                      style: const TextStyle(
-                        fontSize: 12,
-                        height: 1.3,
-                        color: LuxColors.stone400,
-                      ),
-                    ),
-                    const SizedBox(height: 4),
-                    for (final line in intelLines)
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 2),
-                        child: Text(
-                          line,
-                          style: TextStyle(
-                            fontSize: 11,
-                            height: 1.25,
-                            color: LuxColors.stone500.withValues(alpha: 0.95),
-                          ),
-                        ),
-                      ),
-                  ],
-                ),
-              ),
-            ),
-            const SizedBox(width: 8),
-            Column(
-              children: [
-                IconButton(
-                  tooltip: l.dayFlowSwapTapToChange,
-                  onPressed: onTap,
-                  icon: Icon(
-                    Icons.edit_note_rounded,
-                    size: 20,
-                    color: LuxColors.gold.withValues(alpha: 0.85),
-                  ),
-                  visualDensity: VisualDensity.compact,
-                  padding: EdgeInsets.zero,
-                  constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
-                ),
-                IconButton(
-                  tooltip: l.dayFlowSwapViewPlace,
-                  onPressed: onViewPlace,
-                  icon: Icon(
-                    Icons.open_in_new_rounded,
-                    size: 18,
-                    color: LuxColors.stone500.withValues(alpha: 0.9),
-                  ),
-                  visualDensity: VisualDensity.compact,
-                  padding: EdgeInsets.zero,
-                  constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
     );
   }
 }
