@@ -47,7 +47,7 @@ class MapScreen extends StatelessWidget {
   static void _openAffiliateCategory(BuildContext context, int index) {
     final route = switch (index) {
       0 => '/stays/matchmaker',
-      1 || 2 || 6 => '/experiences',
+      1 || 2 || 6 => '/discover',
       3 || 4 => '/ticket-savings',
       5 => '/partner-offers',
       _ => '/partner-offers',

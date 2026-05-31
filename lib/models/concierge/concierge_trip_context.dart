@@ -7,6 +7,7 @@ class ConciergeTripContext {
     required this.locale,
     this.tripFeel,
     this.tripName,
+    this.travelerName,
     this.moods = const [],
     this.stylePrefs = const [],
     this.budgetUsd,
@@ -24,6 +25,7 @@ class ConciergeTripContext {
   final String locale;
   final String? tripFeel;
   final String? tripName;
+  final String? travelerName;
   final List<String> moods;
   final List<String> stylePrefs;
   final int? budgetUsd;
@@ -43,6 +45,8 @@ class ConciergeTripContext {
           'tripFeel': tripFeel!.trim(),
         if (tripName != null && tripName!.trim().isNotEmpty)
           'tripName': tripName!.trim(),
+        if (travelerName != null && travelerName!.trim().isNotEmpty)
+          'travelerName': travelerName!.trim(),
         if (moods.isNotEmpty) 'moods': moods,
         if (stylePrefs.isNotEmpty) 'stylePrefs': stylePrefs,
         if (budgetUsd != null) 'budgetUsd': budgetUsd,

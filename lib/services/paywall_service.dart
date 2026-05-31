@@ -85,8 +85,16 @@ abstract final class PaywallService {
       );
 
   /// After Orlando is selected and unlocked, ask whether to add Disney & Universal.
-  static Future<void> promptOrlandoThemeParksIfNeeded(BuildContext context) async {
-    if (_orlandoAddonPromptVisible || _orlandoAddonPromptShown) return;
+  ///
+  /// When [force] is true (onboarding before occasion chips), the prompt runs even
+  /// if it was already dismissed earlier in the same session.
+  static Future<void> promptOrlandoThemeParksIfNeeded(
+    BuildContext context, {
+    bool force = false,
+  }) async {
+    if (!force && (_orlandoAddonPromptVisible || _orlandoAddonPromptShown)) {
+      return;
+    }
     if (!CityPackEntitlementStore.instance
         .isUnlocked(OrlandoAddonCatalog.parentCityId)) {
       return;
@@ -144,6 +152,27 @@ abstract final class PaywallService {
       _orlandoAddonPromptVisible = false;
       _orlandoAddonPromptShown = true;
     }
+  }
+
+  /// Ensures Orlando city + optional theme-park add-on are offered before occasion
+  /// selection during onboarding.
+  static Future<bool> prepareOrlandoBeforeOccasion(BuildContext context) async {
+    await CityPackEntitlementStore.instance.load();
+
+    if (needsUnlock(OrlandoAddonCatalog.parentCityId)) {
+      if (!context.mounted) return false;
+      final ok = await showPaywall(
+        context,
+        cityId: OrlandoAddonCatalog.parentCityId,
+      );
+      if (!ok) return false;
+    } else {
+      await CityPackSync.switchCity(OrlandoAddonCatalog.parentCityId);
+    }
+
+    if (!context.mounted) return false;
+    await promptOrlandoThemeParksIfNeeded(context, force: true);
+    return true;
   }
 
   /// Settings entry — show paywall when locked, otherwise open the Concierge tab.

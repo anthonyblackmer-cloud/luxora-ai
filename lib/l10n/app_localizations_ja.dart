@@ -76,7 +76,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get navConcierge => 'コンシェルジュ';
 
   @override
-  String get navAgenda => '予定';
+  String get navAgenda => 'Today';
 
   @override
   String get navDiscover => '発見する';
@@ -204,7 +204,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get browseFullCatalogHint => '上の検索で Luxora の全ホテル・レストランを閲覧できます。';
 
   @override
-  String get agendaPageSubtitle => '旅の全体像 — 日ごとの立ち寄り、チケット割引、今日のコンシェルジュプラン。';
+  String get agendaPageSubtitle => 'What am I doing right now?';
 
   @override
   String get navGems => '宝石';
@@ -1006,6 +1006,10 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get onboardOccasionLabel => 'どういう機会ですか？';
+
+  @override
+  String get onboardThemeParksOccasionHint =>
+      'ディズニー＆ユニバーサルを解放するとテーマパークの機会が表示されます — 購入後すぐ下に追加されます。';
 
   @override
   String get occasionGeneral => 'ただ探索するだけ';
@@ -3448,4 +3452,675 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get orlandoThemeParksPromptNotNow => '後で';
+
+  @override
+  String get onboardV2Eyebrow => 'Let\'s design your perfect trip';
+
+  @override
+  String get onboardV2StepTravelerEyebrow => 'Step 1';
+
+  @override
+  String get onboardV2StepTravelerTitle => 'Who are you traveling with?';
+
+  @override
+  String get onboardV2StepTravelerSubtitle =>
+      'Luxora tailors stays, dining, and pacing to your crew.';
+
+  @override
+  String get onboardV2ChildrenLabel => 'Children traveling?';
+
+  @override
+  String get onboardV2StepStyleEyebrow => 'Step 2';
+
+  @override
+  String get onboardV2StepStyleTitle =>
+      'What kind of trip are you looking for?';
+
+  @override
+  String get onboardV2StepStyleSubtitle =>
+      'Choose everything that excites you.';
+
+  @override
+  String get onboardV2StepHotelEyebrow => 'Step 3';
+
+  @override
+  String get onboardV2StepHotelTitle =>
+      'What type of place would you like to stay?';
+
+  @override
+  String get onboardV2StepHotelSubtitle =>
+      'We will match boutique gems and resort icons.';
+
+  @override
+  String get onboardV2HotelBudgetLabel => 'Hotel budget';
+
+  @override
+  String get onboardV2HotelAmenitiesLabel => 'Must-have amenities';
+
+  @override
+  String get onboardV2StepFoodEyebrow => 'Step 4';
+
+  @override
+  String get onboardV2StepFoodTitle =>
+      'What types of restaurants do you enjoy?';
+
+  @override
+  String get onboardV2StepFoodSubtitle =>
+      'Cuisine and dining style — pick all you love.';
+
+  @override
+  String get onboardV2CuisineLabel => 'Cuisine types';
+
+  @override
+  String get onboardV2DiningStyleLabel => 'Dining style';
+
+  @override
+  String get onboardV2StepPaceEyebrow => 'Step 5';
+
+  @override
+  String get onboardV2StepPaceTitle => 'How would you like your days planned?';
+
+  @override
+  String get onboardV2StepPaceSubtitle =>
+      'Relaxed mornings or packed adventure — you choose.';
+
+  @override
+  String get onboardV2PaceRelaxedTitle => 'Relaxed';
+
+  @override
+  String get onboardV2PaceRelaxedBody => '2–3 activities per day';
+
+  @override
+  String get onboardV2PaceBalancedTitle => 'Balanced';
+
+  @override
+  String get onboardV2PaceBalancedBody => '4–5 activities per day';
+
+  @override
+  String get onboardV2PacePackedTitle => 'Packed';
+
+  @override
+  String get onboardV2PacePackedBody => 'Maximize every day';
+
+  @override
+  String get onboardV2StepGoalsEyebrow => 'Step 6';
+
+  @override
+  String get onboardV2StepGoalsTitle => 'What matters most on this trip?';
+
+  @override
+  String get onboardV2StepGoalsSubtitle => 'Choose up to five priorities.';
+
+  @override
+  String get onboardV2StepExperienceEyebrow => 'Step 7';
+
+  @override
+  String get onboardV2StepExperienceTitle =>
+      'What experiences would you enjoy?';
+
+  @override
+  String get onboardV2StepExperienceSubtitle =>
+      'We will weave these into your itinerary.';
+
+  @override
+  String get onboardV2StepAvoidEyebrow => 'Step 8';
+
+  @override
+  String get onboardV2StepAvoidTitle => 'What would you prefer to avoid?';
+
+  @override
+  String get onboardV2StepAvoidSubtitle =>
+      'Luxora steers clear of what drains your trip.';
+
+  @override
+  String get onboardV2StepEmotionEyebrow => 'Step 9';
+
+  @override
+  String get onboardV2StepEmotionTitle =>
+      'What would make this trip feel successful?';
+
+  @override
+  String get onboardV2StepEmotionSubtitle => 'Choose one primary feeling.';
+
+  @override
+  String get onboardV2StepSummaryEyebrow => 'Your concierge preview';
+
+  @override
+  String get onboardV2StepSummaryTitle =>
+      'Based on your selections, Luxora recommends';
+
+  @override
+  String get onboardV2StepSummarySubtitle =>
+      'We\'re building your perfect trip now.';
+
+  @override
+  String get onboardSummaryHotels => 'Hotels';
+
+  @override
+  String get onboardSummaryRestaurants => 'Restaurants';
+
+  @override
+  String get onboardSummaryHiddenGems => 'Hidden gems';
+
+  @override
+  String get onboardSummaryExperiences => 'Experiences';
+
+  @override
+  String get onboardSummaryHotelDefault =>
+      'Curated stays matched to your budget';
+
+  @override
+  String onboardSummaryHotelType(String type) {
+    return '$type stay';
+  }
+
+  @override
+  String get onboardSummaryRooftopDining => 'Rooftop dining experiences';
+
+  @override
+  String onboardSummaryCuisine(String cuisine) {
+    return '$cuisine favorites';
+  }
+
+  @override
+  String onboardSummaryPace(String pace) {
+    return '$pace daily pace';
+  }
+
+  @override
+  String get onboardSummaryRomantic => 'Romantic sunset experiences';
+
+  @override
+  String onboardSummaryEmotion(String emotion) {
+    return '$emotion-focused journey';
+  }
+
+  @override
+  String get onboardSummaryPremiumGems => 'Premium hidden gems';
+
+  @override
+  String get agendaSuggestionsForYou => 'Picked for you';
+
+  @override
+  String get agendaSuggestionsAlternates => 'Also great';
+
+  @override
+  String get agendaSuggestionsBrowseAll => 'Browse all';
+
+  @override
+  String get onboardPrefTravelerSolo => 'Solo';
+
+  @override
+  String get onboardPrefTravelerCouple => 'Couple';
+
+  @override
+  String get onboardPrefTravelerFamily => 'Family';
+
+  @override
+  String get onboardPrefTravelerFriends => 'Friends';
+
+  @override
+  String get onboardPrefTravelerBusiness => 'Business';
+
+  @override
+  String get onboardPrefChildrenNone => 'No children';
+
+  @override
+  String get onboardPrefChildrenToddlers => 'Toddlers';
+
+  @override
+  String get onboardPrefChildrenElementary => 'Elementary age';
+
+  @override
+  String get onboardPrefChildrenTeenagers => 'Teenagers';
+
+  @override
+  String get onboardPrefStyleLuxury => 'Luxury';
+
+  @override
+  String get onboardPrefStyleRelaxation => 'Relaxation';
+
+  @override
+  String get onboardPrefStyleAdventure => 'Adventure';
+
+  @override
+  String get onboardPrefStyleThemeParks => 'Theme Parks';
+
+  @override
+  String get onboardPrefStyleFoodie => 'Foodie';
+
+  @override
+  String get onboardPrefStyleNightlife => 'Nightlife';
+
+  @override
+  String get onboardPrefStyleRomance => 'Romance';
+
+  @override
+  String get onboardPrefStyleShopping => 'Shopping';
+
+  @override
+  String get onboardPrefStyleBeaches => 'Beaches';
+
+  @override
+  String get onboardPrefStyleWellness => 'Wellness';
+
+  @override
+  String get onboardPrefStyleNature => 'Nature';
+
+  @override
+  String get onboardPrefStylePhotography => 'Photography';
+
+  @override
+  String get onboardPrefStyleHiddenGems => 'Hidden Gems';
+
+  @override
+  String get onboardPrefStyleFamilyActivities => 'Family Activities';
+
+  @override
+  String get onboardPrefStyleLocalExperiences => 'Local Experiences';
+
+  @override
+  String get onboardPrefStyleEntertainment => 'Entertainment';
+
+  @override
+  String get onboardPrefHotelLuxuryResort => 'Luxury Resort';
+
+  @override
+  String get onboardPrefHotelBoutique => 'Boutique Hotel';
+
+  @override
+  String get onboardPrefHotelFamilyResort => 'Family Resort';
+
+  @override
+  String get onboardPrefHotelBudgetFriendly => 'Budget Friendly';
+
+  @override
+  String get onboardPrefHotelAdultsOnly => 'Adults Only';
+
+  @override
+  String get onboardPrefHotelSpaResort => 'Spa Resort';
+
+  @override
+  String get onboardPrefHotelBeachfront => 'Beachfront';
+
+  @override
+  String get onboardPrefHotelDowntown => 'Downtown';
+
+  @override
+  String get onboardPrefHotelWalkable => 'Walkable Area';
+
+  @override
+  String get onboardPrefHotelThemeParkArea => 'Theme Park Area';
+
+  @override
+  String get onboardPrefHotelModern => 'Modern Hotel';
+
+  @override
+  String get onboardPrefHotelHistoric => 'Historic Hotel';
+
+  @override
+  String get onboardPrefBudgetOne => '\$';
+
+  @override
+  String get onboardPrefBudgetTwo => '\$\$';
+
+  @override
+  String get onboardPrefBudgetThree => '\$\$\$';
+
+  @override
+  String get onboardPrefBudgetFour => '\$\$\$\$';
+
+  @override
+  String get onboardPrefAmenityPool => 'Pool';
+
+  @override
+  String get onboardPrefAmenitySpa => 'Spa';
+
+  @override
+  String get onboardPrefAmenityGym => 'Gym';
+
+  @override
+  String get onboardPrefAmenityBreakfast => 'Free Breakfast';
+
+  @override
+  String get onboardPrefAmenityOceanView => 'Ocean View';
+
+  @override
+  String get onboardPrefAmenityBalcony => 'Balcony';
+
+  @override
+  String get onboardPrefAmenityKitchen => 'Kitchen';
+
+  @override
+  String get onboardPrefAmenityShuttle => 'Shuttle Service';
+
+  @override
+  String get onboardPrefAmenityPetFriendly => 'Pet Friendly';
+
+  @override
+  String get onboardPrefCuisineAmerican => 'American';
+
+  @override
+  String get onboardPrefCuisineItalian => 'Italian';
+
+  @override
+  String get onboardPrefCuisineMexican => 'Mexican';
+
+  @override
+  String get onboardPrefCuisineSeafood => 'Seafood';
+
+  @override
+  String get onboardPrefCuisineSteakhouse => 'Steakhouse';
+
+  @override
+  String get onboardPrefCuisineSushi => 'Sushi';
+
+  @override
+  String get onboardPrefCuisineCuban => 'Cuban';
+
+  @override
+  String get onboardPrefCuisineMediterranean => 'Mediterranean';
+
+  @override
+  String get onboardPrefCuisineAsian => 'Asian';
+
+  @override
+  String get onboardPrefCuisineBbq => 'BBQ';
+
+  @override
+  String get onboardPrefCuisineFineDining => 'Fine Dining';
+
+  @override
+  String get onboardPrefCuisineLocalFavorites => 'Local Favorites';
+
+  @override
+  String get onboardPrefCuisineFoodTrucks => 'Food Trucks';
+
+  @override
+  String get onboardPrefCuisineRooftop => 'Rooftop Dining';
+
+  @override
+  String get onboardPrefCuisineBrunch => 'Brunch';
+
+  @override
+  String get onboardPrefCuisineDessert => 'Dessert';
+
+  @override
+  String get onboardPrefDiningQuick => 'Quick Service';
+
+  @override
+  String get onboardPrefDiningCasual => 'Casual Dining';
+
+  @override
+  String get onboardPrefDiningFamily => 'Family Friendly';
+
+  @override
+  String get onboardPrefDiningDateNight => 'Date Night';
+
+  @override
+  String get onboardPrefDiningFine => 'Fine Dining';
+
+  @override
+  String get onboardPrefDiningWaterfront => 'Waterfront';
+
+  @override
+  String get onboardPrefDiningHiddenGems => 'Hidden Gems';
+
+  @override
+  String get onboardPrefDiningLocal => 'Local Favorites';
+
+  @override
+  String get onboardPrefGoalMakeMemories => 'Make Memories';
+
+  @override
+  String get onboardPrefGoalSaveMoney => 'Save Money';
+
+  @override
+  String get onboardPrefGoalAvoidCrowds => 'Avoid Crowds';
+
+  @override
+  String get onboardPrefGoalLuxury => 'Luxury Experiences';
+
+  @override
+  String get onboardPrefGoalBestFood => 'Best Food';
+
+  @override
+  String get onboardPrefGoalHiddenGems => 'Hidden Gems';
+
+  @override
+  String get onboardPrefGoalRelaxation => 'Relaxation';
+
+  @override
+  String get onboardPrefGoalAdventure => 'Adventure';
+
+  @override
+  String get onboardPrefGoalBestPhotos => 'Best Photos';
+
+  @override
+  String get onboardPrefGoalFamilyTime => 'Family Time';
+
+  @override
+  String get onboardPrefGoalRomance => 'Romance';
+
+  @override
+  String get onboardPrefGoalNightlife => 'Nightlife';
+
+  @override
+  String get onboardPrefGoalLocal => 'Local Experiences';
+
+  @override
+  String get onboardPrefGoalStressFree => 'Stress-Free Planning';
+
+  @override
+  String get onboardPrefExpBoatTours => 'Boat Tours';
+
+  @override
+  String get onboardPrefExpSunsetCruises => 'Sunset Cruises';
+
+  @override
+  String get onboardPrefExpAirboat => 'Airboat Tours';
+
+  @override
+  String get onboardPrefExpThemeParks => 'Theme Parks';
+
+  @override
+  String get onboardPrefExpMuseums => 'Museums';
+
+  @override
+  String get onboardPrefExpLiveShows => 'Live Shows';
+
+  @override
+  String get onboardPrefExpSpas => 'Spas';
+
+  @override
+  String get onboardPrefExpShopping => 'Shopping';
+
+  @override
+  String get onboardPrefExpWaterParks => 'Water Parks';
+
+  @override
+  String get onboardPrefExpGolf => 'Golf';
+
+  @override
+  String get onboardPrefExpFishing => 'Fishing';
+
+  @override
+  String get onboardPrefExpKayaking => 'Kayaking';
+
+  @override
+  String get onboardPrefExpSnorkeling => 'Snorkeling';
+
+  @override
+  String get onboardPrefExpRooftopBars => 'Rooftop Bars';
+
+  @override
+  String get onboardPrefExpNightclubs => 'Nightclubs';
+
+  @override
+  String get onboardPrefExpWildlife => 'Wildlife Experiences';
+
+  @override
+  String get onboardPrefExpFoodTours => 'Food Tours';
+
+  @override
+  String get onboardPrefExpScenicDrives => 'Scenic Drives';
+
+  @override
+  String get onboardPrefAvoidCrowds => 'Crowds';
+
+  @override
+  String get onboardPrefAvoidLongLines => 'Long Lines';
+
+  @override
+  String get onboardPrefAvoidExpensiveRestaurants => 'Expensive Restaurants';
+
+  @override
+  String get onboardPrefAvoidWalking => 'Walking Long Distances';
+
+  @override
+  String get onboardPrefAvoidNightlife => 'Nightlife';
+
+  @override
+  String get onboardPrefAvoidDriving => 'Driving';
+
+  @override
+  String get onboardPrefAvoidTouristTraps => 'Tourist Traps';
+
+  @override
+  String get onboardPrefAvoidEarlyMornings => 'Early Mornings';
+
+  @override
+  String get onboardPrefAvoidLateNights => 'Late Nights';
+
+  @override
+  String get onboardPrefAvoidFamilyAttractions => 'Family Attractions';
+
+  @override
+  String get onboardPrefAvoidThemeParks => 'Theme Parks';
+
+  @override
+  String get onboardPrefEmotionRelaxed => 'Relaxed';
+
+  @override
+  String get onboardPrefEmotionExcited => 'Excited';
+
+  @override
+  String get onboardPrefEmotionAdventurous => 'Adventurous';
+
+  @override
+  String get onboardPrefEmotionRomantic => 'Romantic';
+
+  @override
+  String get onboardPrefEmotionLuxurious => 'Luxurious';
+
+  @override
+  String get onboardPrefEmotionFamilyFocused => 'Family-Focused';
+
+  @override
+  String get onboardPrefEmotionMemorable => 'Memorable';
+
+  @override
+  String get onboardPrefEmotionStressFree => 'Stress-Free';
+
+  @override
+  String get onboardPrefEmotionInspiring => 'Inspiring';
+
+  @override
+  String get onboardPrefPaceSlow => 'Relaxed';
+
+  @override
+  String get onboardPrefPaceBalanced => 'Balanced';
+
+  @override
+  String get onboardPrefPacePacked => 'Packed';
+
+  @override
+  String get onboardSummaryHiddenGemsInsight =>
+      'Hidden local restaurants & gems';
+
+  @override
+  String get onboardBuildFailedHint =>
+      'We saved your preferences, but the itinerary needs another moment. Pull to refresh on Agenda or open Concierge.';
+
+  @override
+  String get onboardV2ChildrenSubtitle => 'Select all age groups that apply.';
+
+  @override
+  String get onboardTravelerNameEyebrow => 'First things first';
+
+  @override
+  String get onboardTravelerNameTitle => 'What should Luxora call you?';
+
+  @override
+  String get onboardTravelerNameSubtitle =>
+      'Your first name is enough — Luxora will use it when you chat.';
+
+  @override
+  String get onboardTravelerNameLabel => 'Your first name';
+
+  @override
+  String get onboardTravelerNameHint => 'e.g. Maria';
+
+  @override
+  String conciergeWelcomeNamed(String name) {
+    return 'Welcome, $name — your emotionally intelligent Florida companion.\n\nChoose a prompt below, or describe the feeling you want your trip to create.';
+  }
+
+  @override
+  String conciergeWelcomeWarmNamed(String name) {
+    return '$name, I\'m here to shape Florida around how you want to feel — not a checklist of sights. What are you craving today?';
+  }
+
+  @override
+  String get onboardLuxoraReplyEyebrow => 'LUXORA';
+
+  @override
+  String onboardLuxoraReplyTitle(String name) {
+    return 'Lovely to meet you, $name.';
+  }
+
+  @override
+  String onboardLuxoraGuideNamed(String name) {
+    return '$name, I\'m here to guide you and help you create the perfect vacation or adventure for you and your family.';
+  }
+
+  @override
+  String get onboardLuxoraItineraryPromise =>
+      'When we\'re done here, I\'ll build your itinerary from everything you choose. If you\'d like to change anything later, open the Concierge tab and tell me what to edit — I\'m always listening.';
+
+  @override
+  String get todayPlanSectionTitle => 'Today\'s plan';
+
+  @override
+  String get todayNextActivityLabel => 'Up next';
+
+  @override
+  String get todayStaysDiningSection => 'Stays & dining picks';
+
+  @override
+  String get todayStaysDiningCollapsedHint =>
+      'Hotel and restaurant ideas — tap to expand';
+
+  @override
+  String get todayPlanDetailsTitle => 'Full schedule';
+
+  @override
+  String todayPlanStopCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count stops today',
+      one: '1 stop today',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get todayRainRerouteTitle => 'Rain reroute';
+
+  @override
+  String get todayExtrasSection => 'Tickets & sharing';
+
+  @override
+  String get todayExtrasCollapsedHint => 'Deals, share card, and more';
 }

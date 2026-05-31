@@ -4,6 +4,7 @@ import 'package:luxora_ai/models/discover_radius.dart';
 import 'package:luxora_ai/models/lux_hotel.dart';
 import 'package:luxora_ai/models/lux_place.dart';
 import 'package:luxora_ai/models/trip_plan.dart';
+import 'package:luxora_ai/models/trip_preferences.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
 import 'package:luxora_ai/services/city_pack_registry.dart';
 import 'package:luxora_ai/services/discover_radius_controller.dart';
@@ -41,31 +42,24 @@ abstract final class AgendaRecommendationService {
     TripPlan? plan,
     required AppLocalizations l,
   }) {
-    final input = _matchInputFromProfile(profile, plan);
+    final target = TripBudgetMapper.hotelPriceRange(profile);
+    final input = _matchInputFromProfile(profile, plan, target);
     final matches = HotelIntelligenceService.match(input: input, l: l);
     if (matches.isNotEmpty) {
-      return [for (final m in matches) m.hotel];
+      final filtered = _filterHotelsByBudget(matches.map((m) => m.hotel), profile, target);
+      if (filtered.isNotEmpty) return filtered;
     }
-
-    final target = TripBudgetMapper.hotelPriceRange(profile);
     final activeCityId = CityPackRegistry.instance.active.cityId;
     final scored = <(LuxHotel, int)>[];
     for (final hotel in HotelIntelligenceService.allHotels()) {
       if ((hotel.cityPackId ?? 'orlando') != activeCityId) continue;
       var score = hotel.luxoraScore;
-      final diff = (TripBudgetMapper.hotelTierRank(hotel.priceRange) -
-              TripBudgetMapper.hotelTierRank(target))
-          .abs();
-      score += switch (diff) {
-        0 => 30,
-        1 => 18,
-        2 => 6,
-        _ => -10,
-      };
+      score += TripBudgetMapper.hotelBudgetFitScore(hotel.priceRange, target);
       if (profile.kids > 0) score += (hotel.familyScore - 50) ~/ 4;
       if (profile.moods.contains(TripMood.romantic)) {
         score += (hotel.romanceScore - 50) ~/ 4;
       }
+      score += _hotelPreferenceBoost(profile, hotel);
       scored.add((hotel, score));
     }
     scored.sort((a, b) => b.$2.compareTo(a.$2));
@@ -137,6 +131,8 @@ abstract final class AgendaRecommendationService {
       }
 
       if (place.source == LuxPlaceSource.curated) score += 6;
+      score += _restaurantPreferenceBoost(profile, place);
+      score -= _avoidPenalty(profile, place);
 
       scored.add(
         AgendaRestaurantSuggestion(
@@ -151,24 +147,49 @@ abstract final class AgendaRecommendationService {
     return scored.take(_maxRestaurantsPerDay).toList();
   }
 
+  static List<LuxHotel> _filterHotelsByBudget(
+    Iterable<LuxHotel> hotels,
+    TripProfile profile,
+    HotelPriceRange target,
+  ) {
+    final budgetFriendly =
+        profile.hotelTypePreferences.contains(HotelTypePreference.budgetFriendly);
+    final maxTierDelta = budgetFriendly ? 0 : 1;
+    final filtered = hotels.where((hotel) {
+      final delta =
+          TripBudgetMapper.hotelTierRank(hotel.priceRange) -
+          TripBudgetMapper.hotelTierRank(target);
+      return delta <= maxTierDelta;
+    }).toList();
+    return filtered;
+  }
+
   static HotelMatchmakerInput _matchInputFromProfile(
     TripProfile profile,
     TripPlan? plan,
+    HotelPriceRange target,
   ) {
+    final budgetFriendly =
+        profile.hotelTypePreferences.contains(HotelTypePreference.budgetFriendly);
     return HotelMatchmakerInput(
-      budget: TripBudgetMapper.hotelPriceRange(profile),
+      budget: target,
       adults: profile.adults,
       kids: profile.kids,
-      luxuryLevel: switch (profile.luxuryLevel) {
-        LuxuryLevel.comfortable => 2,
-        LuxuryLevel.premium => 3,
-        LuxuryLevel.ultraLuxury => 5,
-      },
+      luxuryLevel: budgetFriendly
+          ? 1
+          : switch (profile.luxuryLevel) {
+              LuxuryLevel.comfortable => 2,
+              LuxuryLevel.premium => 3,
+              LuxuryLevel.ultraLuxury => 5,
+            },
       plannedAttractions: _attractionsFromPlan(plan),
       preferredVibes: [
         for (final mood in profile.moods) mood.name,
         if (profile.foodieInterest >= 60) 'foodie',
         if (profile.nightlifeInterest >= 60) 'nightlife',
+        ...profile.hotelTypePreferences.map((e) => e.name),
+        ...profile.tripStyles.map((e) => e.name),
+        profile.desiredTripEmotion.name,
       ],
     );
   }
@@ -240,5 +261,89 @@ abstract final class AgendaRecommendationService {
     if (places.isEmpty) return PlaceDistance.hubCenter;
     final last = places.last;
     return LatLng(last.latitude, last.longitude);
+  }
+
+  static int _hotelPreferenceBoost(TripProfile profile, LuxHotel hotel) {
+    var boost = 0;
+    final blob =
+        '${hotel.name} ${hotel.neighborhood} ${hotel.emotionalDescription}'
+            .toLowerCase();
+    for (final pref in profile.hotelTypePreferences) {
+      boost += switch (pref) {
+        HotelTypePreference.luxuryResort =>
+          hotel.priceRange == HotelPriceRange.luxury ? 12 : 0,
+        HotelTypePreference.boutiqueHotel =>
+          blob.contains('boutique') ? 14 : 0,
+        HotelTypePreference.familyResort =>
+          (hotel.familyScore - 50) ~/ 5,
+        HotelTypePreference.budgetFriendly => switch (hotel.priceRange) {
+          HotelPriceRange.budget => 28,
+          HotelPriceRange.moderate => 4,
+          HotelPriceRange.upscale => -45,
+          HotelPriceRange.luxury => -60,
+        },
+        HotelTypePreference.beachfront =>
+          hotel.beachAccessScore > 60 ? 12 : 0,
+        HotelTypePreference.themeParkArea =>
+          hotel.plannedAttractionTags.isNotEmpty ? 10 : 0,
+        HotelTypePreference.walkableArea =>
+          hotel.walkabilityScore > 60 ? 10 : 0,
+        HotelTypePreference.spaResort => blob.contains('spa') ? 10 : 0,
+        _ => 0,
+      };
+    }
+    for (final amenity in profile.hotelAmenities) {
+      if (blob.contains(amenity.name.replaceAll('_', ' '))) boost += 4;
+      if (amenity == HotelAmenity.pool && blob.contains('pool')) boost += 6;
+      if (amenity == HotelAmenity.spa && blob.contains('spa')) boost += 6;
+    }
+    return boost;
+  }
+
+  static double _restaurantPreferenceBoost(TripProfile profile, LuxPlace place) {
+    var boost = 0.0;
+    final tags = place.moodTags.map((t) => t.toLowerCase()).toSet();
+    final blob = '${place.title} ${place.location}'.toLowerCase();
+    for (final cuisine in profile.cuisinePreferences) {
+      if (tags.contains(cuisine.name) || blob.contains(cuisine.name)) {
+        boost += 12;
+      }
+    }
+    for (final style in profile.diningPreferences) {
+      boost += switch (style) {
+        DiningPreference.fineDining =>
+          tags.contains('luxury') || tags.contains('fine-dining') ? 10 : 0,
+        DiningPreference.hiddenGems =>
+          tags.contains('hidden') || tags.contains('local') ? 12 : 0,
+        DiningPreference.dateNight =>
+          tags.contains('romantic') ? 10 : 0,
+        DiningPreference.waterfront =>
+          blob.contains('water') || tags.contains('beach') ? 10 : 0,
+        DiningPreference.familyFriendly =>
+          tags.contains('family') ? 8 : 0,
+        _ => 0,
+      };
+    }
+    if (profile.vacationGoals.contains(VacationGoal.bestFood)) boost += 8;
+    return boost;
+  }
+
+  static double _avoidPenalty(TripProfile profile, LuxPlace place) {
+    var penalty = 0.0;
+    final tags = place.moodTags.map((t) => t.toLowerCase()).toSet();
+    for (final avoid in profile.avoidPreferences) {
+      penalty += switch (avoid) {
+        AvoidPreference.touristTraps =>
+          tags.contains('trending') || tags.contains('iconic') ? 8 : 0,
+        AvoidPreference.expensiveRestaurants =>
+          tags.contains('luxury') ? 6 : 0,
+        AvoidPreference.nightlife =>
+          tags.contains('nightlife') ? 10 : 0,
+        AvoidPreference.familyAttractions =>
+          tags.contains('family') ? 6 : 0,
+        _ => 0,
+      };
+    }
+    return penalty;
   }
 }

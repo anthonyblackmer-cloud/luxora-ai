@@ -253,7 +253,7 @@ abstract class AppLocalizations {
   /// No description provided for @navAgenda.
   ///
   /// In en, this message translates to:
-  /// **'Agenda'**
+  /// **'Today'**
   String get navAgenda;
 
   /// No description provided for @navDiscover.
@@ -487,7 +487,7 @@ abstract class AppLocalizations {
   /// No description provided for @agendaPageSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Your full trip — day-by-day stops, ticket deals, and today\'s Concierge plan.'**
+  /// **'What am I doing right now?'**
   String get agendaPageSubtitle;
 
   /// No description provided for @navGems.
@@ -1874,6 +1874,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'What\'s the occasion?'**
   String get onboardOccasionLabel;
+
+  /// No description provided for @onboardThemeParksOccasionHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock Disney & Universal to add theme-park occasions below — you\'ll see those chips right after purchase.'**
+  String get onboardThemeParksOccasionHint;
 
   /// No description provided for @occasionGeneral.
   ///
@@ -6273,6 +6279,1260 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Not now'**
   String get orlandoThemeParksPromptNotNow;
+
+  /// No description provided for @onboardV2Eyebrow.
+  ///
+  /// In en, this message translates to:
+  /// **'Let\'s design your perfect trip'**
+  String get onboardV2Eyebrow;
+
+  /// No description provided for @onboardV2StepTravelerEyebrow.
+  ///
+  /// In en, this message translates to:
+  /// **'Step 1'**
+  String get onboardV2StepTravelerEyebrow;
+
+  /// No description provided for @onboardV2StepTravelerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Who are you traveling with?'**
+  String get onboardV2StepTravelerTitle;
+
+  /// No description provided for @onboardV2StepTravelerSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Luxora tailors stays, dining, and pacing to your crew.'**
+  String get onboardV2StepTravelerSubtitle;
+
+  /// No description provided for @onboardV2ChildrenLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Children traveling?'**
+  String get onboardV2ChildrenLabel;
+
+  /// No description provided for @onboardV2StepStyleEyebrow.
+  ///
+  /// In en, this message translates to:
+  /// **'Step 2'**
+  String get onboardV2StepStyleEyebrow;
+
+  /// No description provided for @onboardV2StepStyleTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What kind of trip are you looking for?'**
+  String get onboardV2StepStyleTitle;
+
+  /// No description provided for @onboardV2StepStyleSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose everything that excites you.'**
+  String get onboardV2StepStyleSubtitle;
+
+  /// No description provided for @onboardV2StepHotelEyebrow.
+  ///
+  /// In en, this message translates to:
+  /// **'Step 3'**
+  String get onboardV2StepHotelEyebrow;
+
+  /// No description provided for @onboardV2StepHotelTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What type of place would you like to stay?'**
+  String get onboardV2StepHotelTitle;
+
+  /// No description provided for @onboardV2StepHotelSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'We will match boutique gems and resort icons.'**
+  String get onboardV2StepHotelSubtitle;
+
+  /// No description provided for @onboardV2HotelBudgetLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Hotel budget'**
+  String get onboardV2HotelBudgetLabel;
+
+  /// No description provided for @onboardV2HotelAmenitiesLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Must-have amenities'**
+  String get onboardV2HotelAmenitiesLabel;
+
+  /// No description provided for @onboardV2StepFoodEyebrow.
+  ///
+  /// In en, this message translates to:
+  /// **'Step 4'**
+  String get onboardV2StepFoodEyebrow;
+
+  /// No description provided for @onboardV2StepFoodTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What types of restaurants do you enjoy?'**
+  String get onboardV2StepFoodTitle;
+
+  /// No description provided for @onboardV2StepFoodSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Cuisine and dining style — pick all you love.'**
+  String get onboardV2StepFoodSubtitle;
+
+  /// No description provided for @onboardV2CuisineLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cuisine types'**
+  String get onboardV2CuisineLabel;
+
+  /// No description provided for @onboardV2DiningStyleLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Dining style'**
+  String get onboardV2DiningStyleLabel;
+
+  /// No description provided for @onboardV2StepPaceEyebrow.
+  ///
+  /// In en, this message translates to:
+  /// **'Step 5'**
+  String get onboardV2StepPaceEyebrow;
+
+  /// No description provided for @onboardV2StepPaceTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'How would you like your days planned?'**
+  String get onboardV2StepPaceTitle;
+
+  /// No description provided for @onboardV2StepPaceSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Relaxed mornings or packed adventure — you choose.'**
+  String get onboardV2StepPaceSubtitle;
+
+  /// No description provided for @onboardV2PaceRelaxedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Relaxed'**
+  String get onboardV2PaceRelaxedTitle;
+
+  /// No description provided for @onboardV2PaceRelaxedBody.
+  ///
+  /// In en, this message translates to:
+  /// **'2–3 activities per day'**
+  String get onboardV2PaceRelaxedBody;
+
+  /// No description provided for @onboardV2PaceBalancedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Balanced'**
+  String get onboardV2PaceBalancedTitle;
+
+  /// No description provided for @onboardV2PaceBalancedBody.
+  ///
+  /// In en, this message translates to:
+  /// **'4–5 activities per day'**
+  String get onboardV2PaceBalancedBody;
+
+  /// No description provided for @onboardV2PacePackedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Packed'**
+  String get onboardV2PacePackedTitle;
+
+  /// No description provided for @onboardV2PacePackedBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Maximize every day'**
+  String get onboardV2PacePackedBody;
+
+  /// No description provided for @onboardV2StepGoalsEyebrow.
+  ///
+  /// In en, this message translates to:
+  /// **'Step 6'**
+  String get onboardV2StepGoalsEyebrow;
+
+  /// No description provided for @onboardV2StepGoalsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What matters most on this trip?'**
+  String get onboardV2StepGoalsTitle;
+
+  /// No description provided for @onboardV2StepGoalsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose up to five priorities.'**
+  String get onboardV2StepGoalsSubtitle;
+
+  /// No description provided for @onboardV2StepExperienceEyebrow.
+  ///
+  /// In en, this message translates to:
+  /// **'Step 7'**
+  String get onboardV2StepExperienceEyebrow;
+
+  /// No description provided for @onboardV2StepExperienceTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What experiences would you enjoy?'**
+  String get onboardV2StepExperienceTitle;
+
+  /// No description provided for @onboardV2StepExperienceSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'We will weave these into your itinerary.'**
+  String get onboardV2StepExperienceSubtitle;
+
+  /// No description provided for @onboardV2StepAvoidEyebrow.
+  ///
+  /// In en, this message translates to:
+  /// **'Step 8'**
+  String get onboardV2StepAvoidEyebrow;
+
+  /// No description provided for @onboardV2StepAvoidTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What would you prefer to avoid?'**
+  String get onboardV2StepAvoidTitle;
+
+  /// No description provided for @onboardV2StepAvoidSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Luxora steers clear of what drains your trip.'**
+  String get onboardV2StepAvoidSubtitle;
+
+  /// No description provided for @onboardV2StepEmotionEyebrow.
+  ///
+  /// In en, this message translates to:
+  /// **'Step 9'**
+  String get onboardV2StepEmotionEyebrow;
+
+  /// No description provided for @onboardV2StepEmotionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What would make this trip feel successful?'**
+  String get onboardV2StepEmotionTitle;
+
+  /// No description provided for @onboardV2StepEmotionSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose one primary feeling.'**
+  String get onboardV2StepEmotionSubtitle;
+
+  /// No description provided for @onboardV2StepSummaryEyebrow.
+  ///
+  /// In en, this message translates to:
+  /// **'Your concierge preview'**
+  String get onboardV2StepSummaryEyebrow;
+
+  /// No description provided for @onboardV2StepSummaryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Based on your selections, Luxora recommends'**
+  String get onboardV2StepSummaryTitle;
+
+  /// No description provided for @onboardV2StepSummarySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'We\'re building your perfect trip now.'**
+  String get onboardV2StepSummarySubtitle;
+
+  /// No description provided for @onboardSummaryHotels.
+  ///
+  /// In en, this message translates to:
+  /// **'Hotels'**
+  String get onboardSummaryHotels;
+
+  /// No description provided for @onboardSummaryRestaurants.
+  ///
+  /// In en, this message translates to:
+  /// **'Restaurants'**
+  String get onboardSummaryRestaurants;
+
+  /// No description provided for @onboardSummaryHiddenGems.
+  ///
+  /// In en, this message translates to:
+  /// **'Hidden gems'**
+  String get onboardSummaryHiddenGems;
+
+  /// No description provided for @onboardSummaryExperiences.
+  ///
+  /// In en, this message translates to:
+  /// **'Experiences'**
+  String get onboardSummaryExperiences;
+
+  /// No description provided for @onboardSummaryHotelDefault.
+  ///
+  /// In en, this message translates to:
+  /// **'Curated stays matched to your budget'**
+  String get onboardSummaryHotelDefault;
+
+  /// No description provided for @onboardSummaryHotelType.
+  ///
+  /// In en, this message translates to:
+  /// **'{type} stay'**
+  String onboardSummaryHotelType(String type);
+
+  /// No description provided for @onboardSummaryRooftopDining.
+  ///
+  /// In en, this message translates to:
+  /// **'Rooftop dining experiences'**
+  String get onboardSummaryRooftopDining;
+
+  /// No description provided for @onboardSummaryCuisine.
+  ///
+  /// In en, this message translates to:
+  /// **'{cuisine} favorites'**
+  String onboardSummaryCuisine(String cuisine);
+
+  /// No description provided for @onboardSummaryPace.
+  ///
+  /// In en, this message translates to:
+  /// **'{pace} daily pace'**
+  String onboardSummaryPace(String pace);
+
+  /// No description provided for @onboardSummaryRomantic.
+  ///
+  /// In en, this message translates to:
+  /// **'Romantic sunset experiences'**
+  String get onboardSummaryRomantic;
+
+  /// No description provided for @onboardSummaryEmotion.
+  ///
+  /// In en, this message translates to:
+  /// **'{emotion}-focused journey'**
+  String onboardSummaryEmotion(String emotion);
+
+  /// No description provided for @onboardSummaryPremiumGems.
+  ///
+  /// In en, this message translates to:
+  /// **'Premium hidden gems'**
+  String get onboardSummaryPremiumGems;
+
+  /// No description provided for @agendaSuggestionsForYou.
+  ///
+  /// In en, this message translates to:
+  /// **'Picked for you'**
+  String get agendaSuggestionsForYou;
+
+  /// No description provided for @agendaSuggestionsAlternates.
+  ///
+  /// In en, this message translates to:
+  /// **'Also great'**
+  String get agendaSuggestionsAlternates;
+
+  /// No description provided for @agendaSuggestionsBrowseAll.
+  ///
+  /// In en, this message translates to:
+  /// **'Browse all'**
+  String get agendaSuggestionsBrowseAll;
+
+  /// No description provided for @onboardPrefTravelerSolo.
+  ///
+  /// In en, this message translates to:
+  /// **'Solo'**
+  String get onboardPrefTravelerSolo;
+
+  /// No description provided for @onboardPrefTravelerCouple.
+  ///
+  /// In en, this message translates to:
+  /// **'Couple'**
+  String get onboardPrefTravelerCouple;
+
+  /// No description provided for @onboardPrefTravelerFamily.
+  ///
+  /// In en, this message translates to:
+  /// **'Family'**
+  String get onboardPrefTravelerFamily;
+
+  /// No description provided for @onboardPrefTravelerFriends.
+  ///
+  /// In en, this message translates to:
+  /// **'Friends'**
+  String get onboardPrefTravelerFriends;
+
+  /// No description provided for @onboardPrefTravelerBusiness.
+  ///
+  /// In en, this message translates to:
+  /// **'Business'**
+  String get onboardPrefTravelerBusiness;
+
+  /// No description provided for @onboardPrefChildrenNone.
+  ///
+  /// In en, this message translates to:
+  /// **'No children'**
+  String get onboardPrefChildrenNone;
+
+  /// No description provided for @onboardPrefChildrenToddlers.
+  ///
+  /// In en, this message translates to:
+  /// **'Toddlers'**
+  String get onboardPrefChildrenToddlers;
+
+  /// No description provided for @onboardPrefChildrenElementary.
+  ///
+  /// In en, this message translates to:
+  /// **'Elementary age'**
+  String get onboardPrefChildrenElementary;
+
+  /// No description provided for @onboardPrefChildrenTeenagers.
+  ///
+  /// In en, this message translates to:
+  /// **'Teenagers'**
+  String get onboardPrefChildrenTeenagers;
+
+  /// No description provided for @onboardPrefStyleLuxury.
+  ///
+  /// In en, this message translates to:
+  /// **'Luxury'**
+  String get onboardPrefStyleLuxury;
+
+  /// No description provided for @onboardPrefStyleRelaxation.
+  ///
+  /// In en, this message translates to:
+  /// **'Relaxation'**
+  String get onboardPrefStyleRelaxation;
+
+  /// No description provided for @onboardPrefStyleAdventure.
+  ///
+  /// In en, this message translates to:
+  /// **'Adventure'**
+  String get onboardPrefStyleAdventure;
+
+  /// No description provided for @onboardPrefStyleThemeParks.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme Parks'**
+  String get onboardPrefStyleThemeParks;
+
+  /// No description provided for @onboardPrefStyleFoodie.
+  ///
+  /// In en, this message translates to:
+  /// **'Foodie'**
+  String get onboardPrefStyleFoodie;
+
+  /// No description provided for @onboardPrefStyleNightlife.
+  ///
+  /// In en, this message translates to:
+  /// **'Nightlife'**
+  String get onboardPrefStyleNightlife;
+
+  /// No description provided for @onboardPrefStyleRomance.
+  ///
+  /// In en, this message translates to:
+  /// **'Romance'**
+  String get onboardPrefStyleRomance;
+
+  /// No description provided for @onboardPrefStyleShopping.
+  ///
+  /// In en, this message translates to:
+  /// **'Shopping'**
+  String get onboardPrefStyleShopping;
+
+  /// No description provided for @onboardPrefStyleBeaches.
+  ///
+  /// In en, this message translates to:
+  /// **'Beaches'**
+  String get onboardPrefStyleBeaches;
+
+  /// No description provided for @onboardPrefStyleWellness.
+  ///
+  /// In en, this message translates to:
+  /// **'Wellness'**
+  String get onboardPrefStyleWellness;
+
+  /// No description provided for @onboardPrefStyleNature.
+  ///
+  /// In en, this message translates to:
+  /// **'Nature'**
+  String get onboardPrefStyleNature;
+
+  /// No description provided for @onboardPrefStylePhotography.
+  ///
+  /// In en, this message translates to:
+  /// **'Photography'**
+  String get onboardPrefStylePhotography;
+
+  /// No description provided for @onboardPrefStyleHiddenGems.
+  ///
+  /// In en, this message translates to:
+  /// **'Hidden Gems'**
+  String get onboardPrefStyleHiddenGems;
+
+  /// No description provided for @onboardPrefStyleFamilyActivities.
+  ///
+  /// In en, this message translates to:
+  /// **'Family Activities'**
+  String get onboardPrefStyleFamilyActivities;
+
+  /// No description provided for @onboardPrefStyleLocalExperiences.
+  ///
+  /// In en, this message translates to:
+  /// **'Local Experiences'**
+  String get onboardPrefStyleLocalExperiences;
+
+  /// No description provided for @onboardPrefStyleEntertainment.
+  ///
+  /// In en, this message translates to:
+  /// **'Entertainment'**
+  String get onboardPrefStyleEntertainment;
+
+  /// No description provided for @onboardPrefHotelLuxuryResort.
+  ///
+  /// In en, this message translates to:
+  /// **'Luxury Resort'**
+  String get onboardPrefHotelLuxuryResort;
+
+  /// No description provided for @onboardPrefHotelBoutique.
+  ///
+  /// In en, this message translates to:
+  /// **'Boutique Hotel'**
+  String get onboardPrefHotelBoutique;
+
+  /// No description provided for @onboardPrefHotelFamilyResort.
+  ///
+  /// In en, this message translates to:
+  /// **'Family Resort'**
+  String get onboardPrefHotelFamilyResort;
+
+  /// No description provided for @onboardPrefHotelBudgetFriendly.
+  ///
+  /// In en, this message translates to:
+  /// **'Budget Friendly'**
+  String get onboardPrefHotelBudgetFriendly;
+
+  /// No description provided for @onboardPrefHotelAdultsOnly.
+  ///
+  /// In en, this message translates to:
+  /// **'Adults Only'**
+  String get onboardPrefHotelAdultsOnly;
+
+  /// No description provided for @onboardPrefHotelSpaResort.
+  ///
+  /// In en, this message translates to:
+  /// **'Spa Resort'**
+  String get onboardPrefHotelSpaResort;
+
+  /// No description provided for @onboardPrefHotelBeachfront.
+  ///
+  /// In en, this message translates to:
+  /// **'Beachfront'**
+  String get onboardPrefHotelBeachfront;
+
+  /// No description provided for @onboardPrefHotelDowntown.
+  ///
+  /// In en, this message translates to:
+  /// **'Downtown'**
+  String get onboardPrefHotelDowntown;
+
+  /// No description provided for @onboardPrefHotelWalkable.
+  ///
+  /// In en, this message translates to:
+  /// **'Walkable Area'**
+  String get onboardPrefHotelWalkable;
+
+  /// No description provided for @onboardPrefHotelThemeParkArea.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme Park Area'**
+  String get onboardPrefHotelThemeParkArea;
+
+  /// No description provided for @onboardPrefHotelModern.
+  ///
+  /// In en, this message translates to:
+  /// **'Modern Hotel'**
+  String get onboardPrefHotelModern;
+
+  /// No description provided for @onboardPrefHotelHistoric.
+  ///
+  /// In en, this message translates to:
+  /// **'Historic Hotel'**
+  String get onboardPrefHotelHistoric;
+
+  /// No description provided for @onboardPrefBudgetOne.
+  ///
+  /// In en, this message translates to:
+  /// **'\$'**
+  String get onboardPrefBudgetOne;
+
+  /// No description provided for @onboardPrefBudgetTwo.
+  ///
+  /// In en, this message translates to:
+  /// **'\$\$'**
+  String get onboardPrefBudgetTwo;
+
+  /// No description provided for @onboardPrefBudgetThree.
+  ///
+  /// In en, this message translates to:
+  /// **'\$\$\$'**
+  String get onboardPrefBudgetThree;
+
+  /// No description provided for @onboardPrefBudgetFour.
+  ///
+  /// In en, this message translates to:
+  /// **'\$\$\$\$'**
+  String get onboardPrefBudgetFour;
+
+  /// No description provided for @onboardPrefAmenityPool.
+  ///
+  /// In en, this message translates to:
+  /// **'Pool'**
+  String get onboardPrefAmenityPool;
+
+  /// No description provided for @onboardPrefAmenitySpa.
+  ///
+  /// In en, this message translates to:
+  /// **'Spa'**
+  String get onboardPrefAmenitySpa;
+
+  /// No description provided for @onboardPrefAmenityGym.
+  ///
+  /// In en, this message translates to:
+  /// **'Gym'**
+  String get onboardPrefAmenityGym;
+
+  /// No description provided for @onboardPrefAmenityBreakfast.
+  ///
+  /// In en, this message translates to:
+  /// **'Free Breakfast'**
+  String get onboardPrefAmenityBreakfast;
+
+  /// No description provided for @onboardPrefAmenityOceanView.
+  ///
+  /// In en, this message translates to:
+  /// **'Ocean View'**
+  String get onboardPrefAmenityOceanView;
+
+  /// No description provided for @onboardPrefAmenityBalcony.
+  ///
+  /// In en, this message translates to:
+  /// **'Balcony'**
+  String get onboardPrefAmenityBalcony;
+
+  /// No description provided for @onboardPrefAmenityKitchen.
+  ///
+  /// In en, this message translates to:
+  /// **'Kitchen'**
+  String get onboardPrefAmenityKitchen;
+
+  /// No description provided for @onboardPrefAmenityShuttle.
+  ///
+  /// In en, this message translates to:
+  /// **'Shuttle Service'**
+  String get onboardPrefAmenityShuttle;
+
+  /// No description provided for @onboardPrefAmenityPetFriendly.
+  ///
+  /// In en, this message translates to:
+  /// **'Pet Friendly'**
+  String get onboardPrefAmenityPetFriendly;
+
+  /// No description provided for @onboardPrefCuisineAmerican.
+  ///
+  /// In en, this message translates to:
+  /// **'American'**
+  String get onboardPrefCuisineAmerican;
+
+  /// No description provided for @onboardPrefCuisineItalian.
+  ///
+  /// In en, this message translates to:
+  /// **'Italian'**
+  String get onboardPrefCuisineItalian;
+
+  /// No description provided for @onboardPrefCuisineMexican.
+  ///
+  /// In en, this message translates to:
+  /// **'Mexican'**
+  String get onboardPrefCuisineMexican;
+
+  /// No description provided for @onboardPrefCuisineSeafood.
+  ///
+  /// In en, this message translates to:
+  /// **'Seafood'**
+  String get onboardPrefCuisineSeafood;
+
+  /// No description provided for @onboardPrefCuisineSteakhouse.
+  ///
+  /// In en, this message translates to:
+  /// **'Steakhouse'**
+  String get onboardPrefCuisineSteakhouse;
+
+  /// No description provided for @onboardPrefCuisineSushi.
+  ///
+  /// In en, this message translates to:
+  /// **'Sushi'**
+  String get onboardPrefCuisineSushi;
+
+  /// No description provided for @onboardPrefCuisineCuban.
+  ///
+  /// In en, this message translates to:
+  /// **'Cuban'**
+  String get onboardPrefCuisineCuban;
+
+  /// No description provided for @onboardPrefCuisineMediterranean.
+  ///
+  /// In en, this message translates to:
+  /// **'Mediterranean'**
+  String get onboardPrefCuisineMediterranean;
+
+  /// No description provided for @onboardPrefCuisineAsian.
+  ///
+  /// In en, this message translates to:
+  /// **'Asian'**
+  String get onboardPrefCuisineAsian;
+
+  /// No description provided for @onboardPrefCuisineBbq.
+  ///
+  /// In en, this message translates to:
+  /// **'BBQ'**
+  String get onboardPrefCuisineBbq;
+
+  /// No description provided for @onboardPrefCuisineFineDining.
+  ///
+  /// In en, this message translates to:
+  /// **'Fine Dining'**
+  String get onboardPrefCuisineFineDining;
+
+  /// No description provided for @onboardPrefCuisineLocalFavorites.
+  ///
+  /// In en, this message translates to:
+  /// **'Local Favorites'**
+  String get onboardPrefCuisineLocalFavorites;
+
+  /// No description provided for @onboardPrefCuisineFoodTrucks.
+  ///
+  /// In en, this message translates to:
+  /// **'Food Trucks'**
+  String get onboardPrefCuisineFoodTrucks;
+
+  /// No description provided for @onboardPrefCuisineRooftop.
+  ///
+  /// In en, this message translates to:
+  /// **'Rooftop Dining'**
+  String get onboardPrefCuisineRooftop;
+
+  /// No description provided for @onboardPrefCuisineBrunch.
+  ///
+  /// In en, this message translates to:
+  /// **'Brunch'**
+  String get onboardPrefCuisineBrunch;
+
+  /// No description provided for @onboardPrefCuisineDessert.
+  ///
+  /// In en, this message translates to:
+  /// **'Dessert'**
+  String get onboardPrefCuisineDessert;
+
+  /// No description provided for @onboardPrefDiningQuick.
+  ///
+  /// In en, this message translates to:
+  /// **'Quick Service'**
+  String get onboardPrefDiningQuick;
+
+  /// No description provided for @onboardPrefDiningCasual.
+  ///
+  /// In en, this message translates to:
+  /// **'Casual Dining'**
+  String get onboardPrefDiningCasual;
+
+  /// No description provided for @onboardPrefDiningFamily.
+  ///
+  /// In en, this message translates to:
+  /// **'Family Friendly'**
+  String get onboardPrefDiningFamily;
+
+  /// No description provided for @onboardPrefDiningDateNight.
+  ///
+  /// In en, this message translates to:
+  /// **'Date Night'**
+  String get onboardPrefDiningDateNight;
+
+  /// No description provided for @onboardPrefDiningFine.
+  ///
+  /// In en, this message translates to:
+  /// **'Fine Dining'**
+  String get onboardPrefDiningFine;
+
+  /// No description provided for @onboardPrefDiningWaterfront.
+  ///
+  /// In en, this message translates to:
+  /// **'Waterfront'**
+  String get onboardPrefDiningWaterfront;
+
+  /// No description provided for @onboardPrefDiningHiddenGems.
+  ///
+  /// In en, this message translates to:
+  /// **'Hidden Gems'**
+  String get onboardPrefDiningHiddenGems;
+
+  /// No description provided for @onboardPrefDiningLocal.
+  ///
+  /// In en, this message translates to:
+  /// **'Local Favorites'**
+  String get onboardPrefDiningLocal;
+
+  /// No description provided for @onboardPrefGoalMakeMemories.
+  ///
+  /// In en, this message translates to:
+  /// **'Make Memories'**
+  String get onboardPrefGoalMakeMemories;
+
+  /// No description provided for @onboardPrefGoalSaveMoney.
+  ///
+  /// In en, this message translates to:
+  /// **'Save Money'**
+  String get onboardPrefGoalSaveMoney;
+
+  /// No description provided for @onboardPrefGoalAvoidCrowds.
+  ///
+  /// In en, this message translates to:
+  /// **'Avoid Crowds'**
+  String get onboardPrefGoalAvoidCrowds;
+
+  /// No description provided for @onboardPrefGoalLuxury.
+  ///
+  /// In en, this message translates to:
+  /// **'Luxury Experiences'**
+  String get onboardPrefGoalLuxury;
+
+  /// No description provided for @onboardPrefGoalBestFood.
+  ///
+  /// In en, this message translates to:
+  /// **'Best Food'**
+  String get onboardPrefGoalBestFood;
+
+  /// No description provided for @onboardPrefGoalHiddenGems.
+  ///
+  /// In en, this message translates to:
+  /// **'Hidden Gems'**
+  String get onboardPrefGoalHiddenGems;
+
+  /// No description provided for @onboardPrefGoalRelaxation.
+  ///
+  /// In en, this message translates to:
+  /// **'Relaxation'**
+  String get onboardPrefGoalRelaxation;
+
+  /// No description provided for @onboardPrefGoalAdventure.
+  ///
+  /// In en, this message translates to:
+  /// **'Adventure'**
+  String get onboardPrefGoalAdventure;
+
+  /// No description provided for @onboardPrefGoalBestPhotos.
+  ///
+  /// In en, this message translates to:
+  /// **'Best Photos'**
+  String get onboardPrefGoalBestPhotos;
+
+  /// No description provided for @onboardPrefGoalFamilyTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Family Time'**
+  String get onboardPrefGoalFamilyTime;
+
+  /// No description provided for @onboardPrefGoalRomance.
+  ///
+  /// In en, this message translates to:
+  /// **'Romance'**
+  String get onboardPrefGoalRomance;
+
+  /// No description provided for @onboardPrefGoalNightlife.
+  ///
+  /// In en, this message translates to:
+  /// **'Nightlife'**
+  String get onboardPrefGoalNightlife;
+
+  /// No description provided for @onboardPrefGoalLocal.
+  ///
+  /// In en, this message translates to:
+  /// **'Local Experiences'**
+  String get onboardPrefGoalLocal;
+
+  /// No description provided for @onboardPrefGoalStressFree.
+  ///
+  /// In en, this message translates to:
+  /// **'Stress-Free Planning'**
+  String get onboardPrefGoalStressFree;
+
+  /// No description provided for @onboardPrefExpBoatTours.
+  ///
+  /// In en, this message translates to:
+  /// **'Boat Tours'**
+  String get onboardPrefExpBoatTours;
+
+  /// No description provided for @onboardPrefExpSunsetCruises.
+  ///
+  /// In en, this message translates to:
+  /// **'Sunset Cruises'**
+  String get onboardPrefExpSunsetCruises;
+
+  /// No description provided for @onboardPrefExpAirboat.
+  ///
+  /// In en, this message translates to:
+  /// **'Airboat Tours'**
+  String get onboardPrefExpAirboat;
+
+  /// No description provided for @onboardPrefExpThemeParks.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme Parks'**
+  String get onboardPrefExpThemeParks;
+
+  /// No description provided for @onboardPrefExpMuseums.
+  ///
+  /// In en, this message translates to:
+  /// **'Museums'**
+  String get onboardPrefExpMuseums;
+
+  /// No description provided for @onboardPrefExpLiveShows.
+  ///
+  /// In en, this message translates to:
+  /// **'Live Shows'**
+  String get onboardPrefExpLiveShows;
+
+  /// No description provided for @onboardPrefExpSpas.
+  ///
+  /// In en, this message translates to:
+  /// **'Spas'**
+  String get onboardPrefExpSpas;
+
+  /// No description provided for @onboardPrefExpShopping.
+  ///
+  /// In en, this message translates to:
+  /// **'Shopping'**
+  String get onboardPrefExpShopping;
+
+  /// No description provided for @onboardPrefExpWaterParks.
+  ///
+  /// In en, this message translates to:
+  /// **'Water Parks'**
+  String get onboardPrefExpWaterParks;
+
+  /// No description provided for @onboardPrefExpGolf.
+  ///
+  /// In en, this message translates to:
+  /// **'Golf'**
+  String get onboardPrefExpGolf;
+
+  /// No description provided for @onboardPrefExpFishing.
+  ///
+  /// In en, this message translates to:
+  /// **'Fishing'**
+  String get onboardPrefExpFishing;
+
+  /// No description provided for @onboardPrefExpKayaking.
+  ///
+  /// In en, this message translates to:
+  /// **'Kayaking'**
+  String get onboardPrefExpKayaking;
+
+  /// No description provided for @onboardPrefExpSnorkeling.
+  ///
+  /// In en, this message translates to:
+  /// **'Snorkeling'**
+  String get onboardPrefExpSnorkeling;
+
+  /// No description provided for @onboardPrefExpRooftopBars.
+  ///
+  /// In en, this message translates to:
+  /// **'Rooftop Bars'**
+  String get onboardPrefExpRooftopBars;
+
+  /// No description provided for @onboardPrefExpNightclubs.
+  ///
+  /// In en, this message translates to:
+  /// **'Nightclubs'**
+  String get onboardPrefExpNightclubs;
+
+  /// No description provided for @onboardPrefExpWildlife.
+  ///
+  /// In en, this message translates to:
+  /// **'Wildlife Experiences'**
+  String get onboardPrefExpWildlife;
+
+  /// No description provided for @onboardPrefExpFoodTours.
+  ///
+  /// In en, this message translates to:
+  /// **'Food Tours'**
+  String get onboardPrefExpFoodTours;
+
+  /// No description provided for @onboardPrefExpScenicDrives.
+  ///
+  /// In en, this message translates to:
+  /// **'Scenic Drives'**
+  String get onboardPrefExpScenicDrives;
+
+  /// No description provided for @onboardPrefAvoidCrowds.
+  ///
+  /// In en, this message translates to:
+  /// **'Crowds'**
+  String get onboardPrefAvoidCrowds;
+
+  /// No description provided for @onboardPrefAvoidLongLines.
+  ///
+  /// In en, this message translates to:
+  /// **'Long Lines'**
+  String get onboardPrefAvoidLongLines;
+
+  /// No description provided for @onboardPrefAvoidExpensiveRestaurants.
+  ///
+  /// In en, this message translates to:
+  /// **'Expensive Restaurants'**
+  String get onboardPrefAvoidExpensiveRestaurants;
+
+  /// No description provided for @onboardPrefAvoidWalking.
+  ///
+  /// In en, this message translates to:
+  /// **'Walking Long Distances'**
+  String get onboardPrefAvoidWalking;
+
+  /// No description provided for @onboardPrefAvoidNightlife.
+  ///
+  /// In en, this message translates to:
+  /// **'Nightlife'**
+  String get onboardPrefAvoidNightlife;
+
+  /// No description provided for @onboardPrefAvoidDriving.
+  ///
+  /// In en, this message translates to:
+  /// **'Driving'**
+  String get onboardPrefAvoidDriving;
+
+  /// No description provided for @onboardPrefAvoidTouristTraps.
+  ///
+  /// In en, this message translates to:
+  /// **'Tourist Traps'**
+  String get onboardPrefAvoidTouristTraps;
+
+  /// No description provided for @onboardPrefAvoidEarlyMornings.
+  ///
+  /// In en, this message translates to:
+  /// **'Early Mornings'**
+  String get onboardPrefAvoidEarlyMornings;
+
+  /// No description provided for @onboardPrefAvoidLateNights.
+  ///
+  /// In en, this message translates to:
+  /// **'Late Nights'**
+  String get onboardPrefAvoidLateNights;
+
+  /// No description provided for @onboardPrefAvoidFamilyAttractions.
+  ///
+  /// In en, this message translates to:
+  /// **'Family Attractions'**
+  String get onboardPrefAvoidFamilyAttractions;
+
+  /// No description provided for @onboardPrefAvoidThemeParks.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme Parks'**
+  String get onboardPrefAvoidThemeParks;
+
+  /// No description provided for @onboardPrefEmotionRelaxed.
+  ///
+  /// In en, this message translates to:
+  /// **'Relaxed'**
+  String get onboardPrefEmotionRelaxed;
+
+  /// No description provided for @onboardPrefEmotionExcited.
+  ///
+  /// In en, this message translates to:
+  /// **'Excited'**
+  String get onboardPrefEmotionExcited;
+
+  /// No description provided for @onboardPrefEmotionAdventurous.
+  ///
+  /// In en, this message translates to:
+  /// **'Adventurous'**
+  String get onboardPrefEmotionAdventurous;
+
+  /// No description provided for @onboardPrefEmotionRomantic.
+  ///
+  /// In en, this message translates to:
+  /// **'Romantic'**
+  String get onboardPrefEmotionRomantic;
+
+  /// No description provided for @onboardPrefEmotionLuxurious.
+  ///
+  /// In en, this message translates to:
+  /// **'Luxurious'**
+  String get onboardPrefEmotionLuxurious;
+
+  /// No description provided for @onboardPrefEmotionFamilyFocused.
+  ///
+  /// In en, this message translates to:
+  /// **'Family-Focused'**
+  String get onboardPrefEmotionFamilyFocused;
+
+  /// No description provided for @onboardPrefEmotionMemorable.
+  ///
+  /// In en, this message translates to:
+  /// **'Memorable'**
+  String get onboardPrefEmotionMemorable;
+
+  /// No description provided for @onboardPrefEmotionStressFree.
+  ///
+  /// In en, this message translates to:
+  /// **'Stress-Free'**
+  String get onboardPrefEmotionStressFree;
+
+  /// No description provided for @onboardPrefEmotionInspiring.
+  ///
+  /// In en, this message translates to:
+  /// **'Inspiring'**
+  String get onboardPrefEmotionInspiring;
+
+  /// No description provided for @onboardPrefPaceSlow.
+  ///
+  /// In en, this message translates to:
+  /// **'Relaxed'**
+  String get onboardPrefPaceSlow;
+
+  /// No description provided for @onboardPrefPaceBalanced.
+  ///
+  /// In en, this message translates to:
+  /// **'Balanced'**
+  String get onboardPrefPaceBalanced;
+
+  /// No description provided for @onboardPrefPacePacked.
+  ///
+  /// In en, this message translates to:
+  /// **'Packed'**
+  String get onboardPrefPacePacked;
+
+  /// No description provided for @onboardSummaryHiddenGemsInsight.
+  ///
+  /// In en, this message translates to:
+  /// **'Hidden local restaurants & gems'**
+  String get onboardSummaryHiddenGemsInsight;
+
+  /// No description provided for @onboardBuildFailedHint.
+  ///
+  /// In en, this message translates to:
+  /// **'We saved your preferences, but the itinerary needs another moment. Pull to refresh on Agenda or open Concierge.'**
+  String get onboardBuildFailedHint;
+
+  /// No description provided for @onboardV2ChildrenSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Select all age groups that apply.'**
+  String get onboardV2ChildrenSubtitle;
+
+  /// No description provided for @onboardTravelerNameEyebrow.
+  ///
+  /// In en, this message translates to:
+  /// **'First things first'**
+  String get onboardTravelerNameEyebrow;
+
+  /// No description provided for @onboardTravelerNameTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What should Luxora call you?'**
+  String get onboardTravelerNameTitle;
+
+  /// No description provided for @onboardTravelerNameSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your first name is enough — Luxora will use it when you chat.'**
+  String get onboardTravelerNameSubtitle;
+
+  /// No description provided for @onboardTravelerNameLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Your first name'**
+  String get onboardTravelerNameLabel;
+
+  /// No description provided for @onboardTravelerNameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. Maria'**
+  String get onboardTravelerNameHint;
+
+  /// No description provided for @conciergeWelcomeNamed.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome, {name} — your emotionally intelligent Florida companion.\n\nChoose a prompt below, or describe the feeling you want your trip to create.'**
+  String conciergeWelcomeNamed(String name);
+
+  /// No description provided for @conciergeWelcomeWarmNamed.
+  ///
+  /// In en, this message translates to:
+  /// **'{name}, I\'m here to shape Florida around how you want to feel — not a checklist of sights. What are you craving today?'**
+  String conciergeWelcomeWarmNamed(String name);
+
+  /// No description provided for @onboardLuxoraReplyEyebrow.
+  ///
+  /// In en, this message translates to:
+  /// **'LUXORA'**
+  String get onboardLuxoraReplyEyebrow;
+
+  /// No description provided for @onboardLuxoraReplyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Lovely to meet you, {name}.'**
+  String onboardLuxoraReplyTitle(String name);
+
+  /// No description provided for @onboardLuxoraGuideNamed.
+  ///
+  /// In en, this message translates to:
+  /// **'{name}, I\'m here to guide you and help you create the perfect vacation or adventure for you and your family.'**
+  String onboardLuxoraGuideNamed(String name);
+
+  /// No description provided for @onboardLuxoraItineraryPromise.
+  ///
+  /// In en, this message translates to:
+  /// **'When we\'re done here, I\'ll build your itinerary from everything you choose. If you\'d like to change anything later, open the Concierge tab and tell me what to edit — I\'m always listening.'**
+  String get onboardLuxoraItineraryPromise;
+
+  /// No description provided for @todayPlanSectionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Today\'s plan'**
+  String get todayPlanSectionTitle;
+
+  /// No description provided for @todayNextActivityLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Up next'**
+  String get todayNextActivityLabel;
+
+  /// No description provided for @todayStaysDiningSection.
+  ///
+  /// In en, this message translates to:
+  /// **'Stays & dining picks'**
+  String get todayStaysDiningSection;
+
+  /// No description provided for @todayStaysDiningCollapsedHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Hotel and restaurant ideas — tap to expand'**
+  String get todayStaysDiningCollapsedHint;
+
+  /// No description provided for @todayPlanDetailsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Full schedule'**
+  String get todayPlanDetailsTitle;
+
+  /// No description provided for @todayPlanStopCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 stop today} other{{count} stops today}}'**
+  String todayPlanStopCount(int count);
+
+  /// No description provided for @todayRainRerouteTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Rain reroute'**
+  String get todayRainRerouteTitle;
+
+  /// No description provided for @todayExtrasSection.
+  ///
+  /// In en, this message translates to:
+  /// **'Tickets & sharing'**
+  String get todayExtrasSection;
+
+  /// No description provided for @todayExtrasCollapsedHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Deals, share card, and more'**
+  String get todayExtrasCollapsedHint;
 }
 
 class _AppLocalizationsDelegate

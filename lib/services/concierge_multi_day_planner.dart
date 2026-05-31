@@ -3,6 +3,7 @@ import 'package:luxora_ai/data/paywall_catalog.dart';
 import 'package:luxora_ai/models/lux_place.dart';
 import 'package:luxora_ai/models/orlando/orlando_park_mood_route.dart';
 import 'package:luxora_ai/models/trip_plan.dart';
+import 'package:luxora_ai/models/trip_preferences.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
 import 'package:luxora_ai/services/concierge_theme_park_planner.dart';
 import 'package:luxora_ai/services/crowd_prediction_service.dart';
@@ -194,6 +195,25 @@ abstract final class ConciergeMultiDayPlanner {
     );
 
     final title = TripNameGenerator.resolve(profile);
+
+    if (explore.days.isEmpty || explore.flows.isEmpty) {
+      return ConciergeMultiDayPlan(
+        plan: TripPlan(
+          id: 'concierge-$cityId-empty',
+          title: title,
+          days: const [],
+        ),
+        activeFlow: DayFlow(
+          blocks: const [],
+          start: homeBase != null
+              ? LatLng(homeBase.latitude, homeBase.longitude)
+              : PlaceDistance.hubCenter,
+          totalMiles: 0,
+          homeBase: homeBase,
+        ),
+        flowsByDay: const [],
+      );
+    }
 
     return ConciergeMultiDayPlan(
       plan: TripPlan(
@@ -407,6 +427,25 @@ abstract final class ConciergeMultiDayPlanner {
       if (usedIds.contains(place.id)) continue;
 
       var score = profile.foodieInterest.toDouble();
+      for (final cuisine in profile.cuisinePreferences) {
+        if (place.moodTags.any((t) => t.toLowerCase().contains(cuisine.name)) ||
+            place.title.toLowerCase().contains(cuisine.name)) {
+          score += 14;
+        }
+      }
+      for (final style in profile.diningPreferences) {
+        score += switch (style) {
+          DiningPreference.fineDining =>
+            place.moodTags.any((t) => t.contains('luxury')) ? 12 : 0,
+          DiningPreference.dateNight =>
+            place.moodTags.any((t) => t.contains('romantic')) ? 12 : 0,
+          DiningPreference.hiddenGems =>
+            place.moodTags.any((t) => t.contains('hidden')) ? 10 : 0,
+          DiningPreference.waterfront =>
+            place.location.toLowerCase().contains('water') ? 10 : 0,
+          _ => 0,
+        };
+      }
       if (savedIds.contains(place.id)) score += 35;
       if (place.source == LuxPlaceSource.curated) score += 10;
       if (place.moodTags.any((t) => const {'foodie', 'dining', 'romantic'}.contains(t))) {

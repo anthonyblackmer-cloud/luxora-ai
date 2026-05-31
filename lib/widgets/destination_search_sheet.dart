@@ -28,9 +28,14 @@ Future<void> showDestinationSearchSheet(
 
 /// Tappable search affordance — opens [showDestinationSearchSheet].
 class DestinationSearchBar extends StatelessWidget {
-  const DestinationSearchBar({super.key, this.hint = 'Search destinations…'});
+  const DestinationSearchBar({
+    super.key,
+    this.hint = 'Search destinations…',
+    this.initialFilter = PlaceSearchFilter.all,
+  });
 
   final String hint;
+  final PlaceSearchFilter initialFilter;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +44,10 @@ class DestinationSearchBar extends StatelessWidget {
       borderRadius: BorderRadius.circular(12),
       child: InkWell(
         borderRadius: BorderRadius.circular(12),
-        onTap: () => showDestinationSearchSheet(context),
+        onTap: () => showDestinationSearchSheet(
+          context,
+          initialFilter: initialFilter,
+        ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
           child: Row(

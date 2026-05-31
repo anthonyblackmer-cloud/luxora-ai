@@ -53,13 +53,27 @@ Billing permission is added by the `in_app_purchase` plugin.
 
 ### Dev without stores
 
-For local dev on web/desktop only:
+**Web / Edge (debug)** — paywall is bypassed automatically (no store billing on web).
+
+**Mobile/desktop debug** — either:
+
+```bash
+flutter run --dart-define=BYPASS_PAYWALL=true
+```
+
+or simulate purchases when the store is unavailable:
 
 ```bash
 flutter run --dart-define=SIMULATE_IAP=true
 ```
 
-Requires `kDebugMode`. Never use in release builds.
+To test the real paywall UI on web debug:
+
+```bash
+flutter run -d edge --dart-define=BYPASS_PAYWALL=false
+```
+
+Requires `kDebugMode`. Never use bypass flags in release builds.
 
 ## Verification
 

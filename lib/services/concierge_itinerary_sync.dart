@@ -1,4 +1,5 @@
 import 'package:luxora_ai/models/discover_radius.dart';
+import 'package:luxora_ai/models/lux_place.dart';
 import 'package:luxora_ai/models/ticket_deal.dart';
 import 'package:luxora_ai/models/trip_plan.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
@@ -110,16 +111,16 @@ abstract final class ConciergeItinerarySync {
 
     final cityId = _resolveCityId(enriched);
 
-    final multiDay = ConciergeMultiDayPlanner.build(
-      profile: enriched,
+    final multiDay = _buildMultiDay(
+      enriched: enriched,
       pool: pool,
-      userMessage: trimmed,
+      trimmed: trimmed,
       cityId: cityId,
       homeBase: homeBase,
       savedIds: savedIds,
       repo: repo,
     );
-    if (multiDay.activeFlow.isEmpty || multiDay.plan.days.isEmpty) {
+    if (multiDay == null) {
       return null;
     }
 
@@ -171,6 +172,45 @@ abstract final class ConciergeItinerarySync {
     if (active.isNotEmpty) return active;
     return profile.cityId.isNotEmpty ? profile.cityId : 'orlando';
   }
+
+  static ConciergeMultiDayPlan? _buildMultiDay({
+    required TripProfile enriched,
+    required List<LuxPlace> pool,
+    required String trimmed,
+    required String cityId,
+    required LuxPlace? homeBase,
+    required Set<String> savedIds,
+    required PlacesRepository repo,
+  }) {
+    var multiDay = ConciergeMultiDayPlanner.build(
+      profile: enriched,
+      pool: pool,
+      userMessage: trimmed,
+      cityId: cityId,
+      homeBase: homeBase,
+      savedIds: savedIds,
+      repo: repo,
+    );
+    if (!_planIsEmpty(multiDay)) return multiDay;
+
+    final widePool = repo.placesWithinRadius(DiscoverRadius.miles100);
+    if (widePool.length <= pool.length) return null;
+
+    multiDay = ConciergeMultiDayPlanner.build(
+      profile: enriched,
+      pool: widePool,
+      userMessage: trimmed,
+      cityId: cityId,
+      homeBase: homeBase,
+      savedIds: savedIds,
+      repo: repo,
+    );
+    if (_planIsEmpty(multiDay)) return null;
+    return multiDay;
+  }
+
+  static bool _planIsEmpty(ConciergeMultiDayPlan plan) =>
+      plan.activeFlow.isEmpty || plan.plan.days.isEmpty;
 
   static String timelineSnapshot(DayFlow flow, {TripPlan? plan}) {
     if (plan != null && plan.days.length > 1) {

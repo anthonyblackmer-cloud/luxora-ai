@@ -1,4 +1,5 @@
 import 'package:luxora_ai/models/trip_occasion.dart';
+import 'package:luxora_ai/models/trip_preferences.dart';
 
 enum TripMood {
   romantic,
@@ -40,9 +41,22 @@ class TripProfile {
     this.discoveryStyle = DiscoveryStyle.balanced,
     this.tripFeel = '',
     this.tripName = '',
+    this.travelerName = '',
     this.useAutoTripName = true,
     this.moods = const [TripMood.luxurious, TripMood.relaxing],
     this.occasion = TripOccasion.general,
+    this.travelerType = TravelerType.couple,
+    this.childrenTypes = const [],
+    this.tripStyles = const [],
+    this.hotelTypePreferences = const [],
+    this.hotelBudgetLevel = HotelBudgetLevel.two,
+    this.hotelAmenities = const [],
+    this.cuisinePreferences = const [],
+    this.diningPreferences = const [],
+    this.vacationGoals = const [],
+    this.experiencePreferences = const [],
+    this.avoidPreferences = const [],
+    this.desiredTripEmotion = DesiredTripEmotion.memorable,
   });
 
   final String cityId;
@@ -80,12 +94,32 @@ class TripProfile {
   final String tripFeel;
   final String tripName;
 
+  /// Traveler's first name — Luxora uses this in concierge chat.
+  final String travelerName;
+
   /// When true, [TripNameGenerator] crafts the title from mood and occasion.
   final bool useAutoTripName;
   final List<TripMood> moods;
 
   /// Anniversary, honeymoon, family, etc. — drives couple/family engines.
   final TripOccasion occasion;
+
+  // —— Onboarding 2.0 concierge memory ——
+
+  final TravelerType travelerType;
+
+  /// Age bands for children on a family trip — empty means no children.
+  final List<ChildrenType> childrenTypes;
+  final List<TripStyle> tripStyles;
+  final List<HotelTypePreference> hotelTypePreferences;
+  final HotelBudgetLevel hotelBudgetLevel;
+  final List<HotelAmenity> hotelAmenities;
+  final List<CuisinePreference> cuisinePreferences;
+  final List<DiningPreference> diningPreferences;
+  final List<VacationGoal> vacationGoals;
+  final List<ExperiencePreference> experiencePreferences;
+  final List<AvoidPreference> avoidPreferences;
+  final DesiredTripEmotion desiredTripEmotion;
 
   TripProfile copyWith({
     String? cityId,
@@ -108,9 +142,22 @@ class TripProfile {
     DiscoveryStyle? discoveryStyle,
     String? tripFeel,
     String? tripName,
+    String? travelerName,
     bool? useAutoTripName,
     List<TripMood>? moods,
     TripOccasion? occasion,
+    TravelerType? travelerType,
+    List<ChildrenType>? childrenTypes,
+    List<TripStyle>? tripStyles,
+    List<HotelTypePreference>? hotelTypePreferences,
+    HotelBudgetLevel? hotelBudgetLevel,
+    List<HotelAmenity>? hotelAmenities,
+    List<CuisinePreference>? cuisinePreferences,
+    List<DiningPreference>? diningPreferences,
+    List<VacationGoal>? vacationGoals,
+    List<ExperiencePreference>? experiencePreferences,
+    List<AvoidPreference>? avoidPreferences,
+    DesiredTripEmotion? desiredTripEmotion,
   }) {
     return TripProfile(
       cityId: cityId ?? this.cityId,
@@ -134,9 +181,24 @@ class TripProfile {
       discoveryStyle: discoveryStyle ?? this.discoveryStyle,
       tripFeel: tripFeel ?? this.tripFeel,
       tripName: tripName ?? this.tripName,
+      travelerName: travelerName ?? this.travelerName,
       useAutoTripName: useAutoTripName ?? this.useAutoTripName,
       moods: moods ?? this.moods,
       occasion: occasion ?? this.occasion,
+      travelerType: travelerType ?? this.travelerType,
+      childrenTypes: childrenTypes ?? this.childrenTypes,
+      tripStyles: tripStyles ?? this.tripStyles,
+      hotelTypePreferences:
+          hotelTypePreferences ?? this.hotelTypePreferences,
+      hotelBudgetLevel: hotelBudgetLevel ?? this.hotelBudgetLevel,
+      hotelAmenities: hotelAmenities ?? this.hotelAmenities,
+      cuisinePreferences: cuisinePreferences ?? this.cuisinePreferences,
+      diningPreferences: diningPreferences ?? this.diningPreferences,
+      vacationGoals: vacationGoals ?? this.vacationGoals,
+      experiencePreferences:
+          experiencePreferences ?? this.experiencePreferences,
+      avoidPreferences: avoidPreferences ?? this.avoidPreferences,
+      desiredTripEmotion: desiredTripEmotion ?? this.desiredTripEmotion,
     );
   }
 }

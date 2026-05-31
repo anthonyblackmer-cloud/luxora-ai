@@ -22,7 +22,7 @@
   "commonDelete": "Delete",
   "settingsStartOverSubtitle": "Start a fresh trip from scratch",
   "navConcierge": "Concierge",
-  "navAgenda": "Agenda",
+  "navAgenda": "Today",
   "navDiscover": "Discover",
   "navMap": "Map",
   "navTrips": "Trips",
@@ -36,22 +36,38 @@
   "restaurantsConciergePick": "Pick a restaurant for me",
   "restaurantsConciergePickDone": "Saved {name} — ask Concierge to add it to your trip.",
   "@restaurantsConciergePickDone": {
-    "placeholders": { "name": { "type": "String" } }
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
   },
   "restaurantsSavedCount": "{count} saved for your trip",
   "@restaurantsSavedCount": {
-    "placeholders": { "count": { "type": "int" } }
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
   },
   "restaurantsEmptyHint": "No restaurants in your discover radius — widen radius on the map.",
   "moreCardRestaurantsSub": "Browse dining and let Concierge pick for you",
   "agendaHotelSuggestionsTitle": "Where to stay",
   "agendaHotelSuggestionsSubtitle": "AI-matched to your ~{budget} USD trip budget — tap to see all options.",
   "@agendaHotelSuggestionsSubtitle": {
-    "placeholders": { "budget": { "type": "int" } }
+    "placeholders": {
+      "budget": {
+        "type": "int"
+      }
+    }
   },
   "agendaHotelTopPick": "Top pick: {name}",
   "@agendaHotelTopPick": {
-    "placeholders": { "name": { "type": "String" } }
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
   },
   "agendaStayDropdownHint": "Select a hotel",
   "agendaDiningDropdownHint": "Select a restaurant",
@@ -60,8 +76,12 @@
   "agendaDayDiningSubtitle": "Suggestions for your ~{budget} USD budget ({tier} dining) based on today's plan.",
   "@agendaDayDiningSubtitle": {
     "placeholders": {
-      "budget": { "type": "int" },
-      "tier": { "type": "String" }
+      "budget": {
+        "type": "int"
+      },
+      "tier": {
+        "type": "String"
+      }
     }
   },
   "agendaDiningNearStops": "Near today's stops",
@@ -79,10 +99,9 @@
   "browseSearchAllRestaurants": "Search the full restaurant catalog…",
   "browseCategoryEmpty": "No matches in this category for your radius — try search or widen discover.",
   "browseFullCatalogHint": "Use search above for the complete catalog — every hotel and restaurant Luxora knows.",
-  "agendaPageSubtitle": "Your full trip — day-by-day stops, ticket deals, and today's Concierge plan.",
+  "agendaPageSubtitle": "What am I doing right now?",
   "navGems": "Gems",
   "navFeed": "Feed",
-  "navTrips": "Trips",
   "navTicketSavings": "Savings",
   "navStays": "Stays",
   "morePageTitle": "More",
@@ -117,34 +136,62 @@
   "ticketSavingsSubtitle": "Luxora surfaces authorized resellers, bundles, and promotions so you feel like a luxury advisor — not a coupon site.",
   "ticketSavingsBadge": "SAVE {percent}%",
   "@ticketSavingsBadge": {
-    "placeholders": { "percent": { "type": "int" } }
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
   },
   "ticketOfficialPrice": "Official",
   "ticketDiscountPrice": "Luxora price",
   "ticketSaveAmount": "Save {amount}",
   "@ticketSaveAmount": {
-    "placeholders": { "amount": { "type": "String" } }
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
   },
   "ticketSaveAmountLabel": "Savings",
   "ticketSavePerTicket": "You could save {amount} per ticket.",
   "@ticketSavePerTicket": {
-    "placeholders": { "amount": { "type": "String" } }
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
   },
   "ticketFamilySave": "Estimated family savings: {amount}.",
   "@ticketFamilySave": {
-    "placeholders": { "amount": { "type": "String" } }
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
   },
   "ticketEstimatedFamilySave": "Estimated family savings: {amount}.",
   "@ticketEstimatedFamilySave": {
-    "placeholders": { "amount": { "type": "String" } }
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
   },
   "ticketSource": "Source: {source}",
   "@ticketSource": {
-    "placeholders": { "source": { "type": "String" } }
+    "placeholders": {
+      "source": {
+        "type": "String"
+      }
+    }
   },
   "ticketExpires": "Offer through {date}",
   "@ticketExpires": {
-    "placeholders": { "date": { "type": "String" } }
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
   },
   "ticketBetterOption": "Luxora found a better option.",
   "ticketOverpaying": "You may be overpaying at gate price.",
@@ -168,7 +215,11 @@
   "ticketDealsSectionTitle": "Authorized deals",
   "ticketDealsPricesAsOf": "Prices as of {date}",
   "@ticketDealsPricesAsOf": {
-    "placeholders": { "date": { "type": "String" } }
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
   },
   "ticketDealsRefreshFailed": "Couldn't refresh prices — showing cached deals.",
   "ticketDealsUpdating": "Updating prices…",
@@ -189,7 +240,11 @@
   "conciergeTitle": "Concierge",
   "conciergeTripFeel": "Trip feel: “{feel}”",
   "@conciergeTripFeel": {
-    "placeholders": { "feel": { "type": "String" } }
+    "placeholders": {
+      "feel": {
+        "type": "String"
+      }
+    }
   },
   "conciergeWelcome": "Welcome to Luxora — your emotionally intelligent Florida companion.\n\nChoose a prompt below, or describe the feeling you want your trip to create.",
   "conciergeQuickPrompts": "Quick prompts",
@@ -204,11 +259,19 @@
   "conciergeRecallReturning": "Welcome back.",
   "conciergeRecallStyle": "I remember you like {prefs}.",
   "@conciergeRecallStyle": {
-    "placeholders": { "prefs": { "type": "String" } }
+    "placeholders": {
+      "prefs": {
+        "type": "String"
+      }
+    }
   },
   "conciergeRecallFeelLine": "And you wanted this trip to feel: “{feel}”.",
   "@conciergeRecallFeelLine": {
-    "placeholders": { "feel": { "type": "String" } }
+    "placeholders": {
+      "feel": {
+        "type": "String"
+      }
+    }
   },
   "conciergePromptRomantic": "Romantic getaway",
   "conciergePromptWellness": "Wellness reset",
@@ -223,19 +286,31 @@
   "discoverFromOrlando": "From Orlando",
   "discoverFromHub": "From {hub}",
   "@discoverFromHub": {
-    "placeholders": { "hub": { "type": "String" } }
+    "placeholders": {
+      "hub": {
+        "type": "String"
+      }
+    }
   },
   "discoverSearchScopeAll": "Searching all Florida in catalog",
   "discoverSearchScopeRadius": "Within {radius} of Orlando",
   "discoverSearchScopeRadiusHub": "Within {radius} of {hub}",
   "@discoverSearchScopeRadiusHub": {
     "placeholders": {
-      "radius": { "type": "String" },
-      "hub": { "type": "String" }
+      "radius": {
+        "type": "String"
+      },
+      "hub": {
+        "type": "String"
+      }
     }
   },
   "@discoverSearchScopeRadius": {
-    "placeholders": { "radius": { "type": "String" } }
+    "placeholders": {
+      "radius": {
+        "type": "String"
+      }
+    }
   },
   "discoverSearchEmpty": "No matches in this radius — try a shorter name, widen your distance chip on Map or Feed, or search “beach”, “Disney”, or “springs”.",
   "discoverFilterAll": "All",
@@ -248,20 +323,34 @@
   "scopeDestinationsRadiusHub": "{count} destinations · within {radius} of {hub}",
   "@scopeDestinationsRadiusHub": {
     "placeholders": {
-      "count": { "type": "int" },
-      "radius": { "type": "String" },
-      "hub": { "type": "String" }
+      "count": {
+        "type": "int"
+      },
+      "radius": {
+        "type": "String"
+      },
+      "hub": {
+        "type": "String"
+      }
     }
   },
   "@scopeDestinationsRadius": {
     "placeholders": {
-      "count": { "type": "int" },
-      "radius": { "type": "String" }
+      "count": {
+        "type": "int"
+      },
+      "radius": {
+        "type": "String"
+      }
     }
   },
   "scopeDestinationsAll": "{count} destinations · all Florida",
   "@scopeDestinationsAll": {
-    "placeholders": { "count": { "type": "int" } }
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
   },
   "radius25": "25 mi",
   "radius50": "50 mi",
@@ -313,7 +402,11 @@
   "gemsMatchedBadge": "Your style",
   "gemsMatchedNote": "{count, plural, =1{1 gem matched to your style} other{{count} gems matched to your style}}",
   "@gemsMatchedNote": {
-    "placeholders": { "count": { "type": "int" } }
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
   },
   "gemWhySpecial": "Why it’s special",
   "gemBestTime": "Best time to go",
@@ -329,20 +422,34 @@
   "mapPlanDaySummary": "{count} stops · {miles} · {time} drive",
   "@mapPlanDaySummary": {
     "placeholders": {
-      "count": { "type": "int" },
-      "miles": { "type": "String" },
-      "time": { "type": "String" }
+      "count": {
+        "type": "int"
+      },
+      "miles": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
     }
   },
   "mapPlanDayHomeBase": "Starting from {hotel}",
   "@mapPlanDayHomeBase": {
-    "placeholders": { "hotel": { "type": "String" } }
+    "placeholders": {
+      "hotel": {
+        "type": "String"
+      }
+    }
   },
   "shareDayLegDrive": "{time} drive · {miles} from previous stop",
   "@shareDayLegDrive": {
     "placeholders": {
-      "time": { "type": "String" },
-      "miles": { "type": "String" }
+      "time": {
+        "type": "String"
+      },
+      "miles": {
+        "type": "String"
+      }
     }
   },
   "mapCrowdLevelQuiet": "Quiet",
@@ -351,7 +458,11 @@
   "mapCrowdLevelPacked": "Packed",
   "mapCrowdAtStop": "Crowd: {level}",
   "@mapCrowdAtStop": {
-    "placeholders": { "level": { "type": "String" } }
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
   },
   "mapParkingLevelEasy": "Easy",
   "mapParkingLevelModerate": "Moderate",
@@ -359,23 +470,39 @@
   "mapParkingLevelLimited": "Limited · arrive early",
   "mapParkingAtStop": "Parking: {level}",
   "@mapParkingAtStop": {
-    "placeholders": { "level": { "type": "String" } }
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
   },
   "mapDriveFrictionAtStop": "Drive friction: {score}/90",
   "@mapDriveFrictionAtStop": {
-    "placeholders": { "score": { "type": "int" } }
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
   },
   "mapRerouteButton": "Reroute for calmer stops",
   "mapRerouteApplied": "Day adjusted — {count} stops swapped for lighter crowds.",
   "@mapRerouteApplied": {
-    "placeholders": { "count": { "type": "int" } }
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
   },
   "mapRerouteNone": "Your route already looks calm.",
   "mapRerouteRainHint": "Rain likely — tap reroute for indoor backups.",
   "dayFlowSwapTitle": "Change this stop",
   "dayFlowSwapSubtitle": "Tell Luxora what you'd rather do instead of {current}.",
   "@dayFlowSwapSubtitle": {
-    "placeholders": { "current": { "type": "String" } }
+    "placeholders": {
+      "current": {
+        "type": "String"
+      }
+    }
   },
   "dayFlowSwapTemplate": "I was thinking something more like…",
   "dayFlowSwapHint": "e.g. a quiet park this morning, or seafood for dinner",
@@ -384,8 +511,12 @@
   "dayFlowSwapSuccess": "Updated — {newStop} is now your {phase} stop.",
   "@dayFlowSwapSuccess": {
     "placeholders": {
-      "newStop": { "type": "String" },
-      "phase": { "type": "String" }
+      "newStop": {
+        "type": "String"
+      },
+      "phase": {
+        "type": "String"
+      }
     }
   },
   "dayFlowSwapNoMatch": "Couldn't find a match nearby — try being more specific.",
@@ -399,66 +530,114 @@
   "rightNowScenicCoffee": "You're {minutes} minutes from {district}. The weather is perfect — grab coffee at {place}, then stroll {walkArea} before crowds arrive ({crowd} crowds).",
   "@rightNowScenicCoffee": {
     "placeholders": {
-      "minutes": { "type": "int" },
-      "district": { "type": "String" },
-      "place": { "type": "String" },
-      "walkArea": { "type": "String" },
-      "crowd": { "type": "String" }
+      "minutes": {
+        "type": "int"
+      },
+      "district": {
+        "type": "String"
+      },
+      "place": {
+        "type": "String"
+      },
+      "walkArea": {
+        "type": "String"
+      },
+      "crowd": {
+        "type": "String"
+      }
     }
   },
   "rightNowPerfectWeather": "You're {minutes} minutes from {district}. Skies look great — head to {place} while crowds are still {crowd}.",
   "@rightNowPerfectWeather": {
     "placeholders": {
-      "minutes": { "type": "int" },
-      "district": { "type": "String" },
-      "place": { "type": "String" },
-      "crowd": { "type": "String" }
+      "minutes": {
+        "type": "int"
+      },
+      "district": {
+        "type": "String"
+      },
+      "place": {
+        "type": "String"
+      },
+      "crowd": {
+        "type": "String"
+      }
     }
   },
   "rightNowGoldenHour": "Golden hour is coming — leave in about {minutes} minutes for {place} ({crowd} by sunset).",
   "@rightNowGoldenHour": {
     "placeholders": {
-      "minutes": { "type": "int" },
-      "place": { "type": "String" },
-      "crowd": { "type": "String" }
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      },
+      "crowd": {
+        "type": "String"
+      }
     }
   },
   "rightNowRainyIndoor": "Rain on the radar — {minutes} minutes to a cozy indoor pick: {place}.",
   "@rightNowRainyIndoor": {
     "placeholders": {
-      "minutes": { "type": "int" },
-      "place": { "type": "String" }
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      }
     }
   },
   "rightNowFamilyCalm": "Nap-window calm — {minutes} minutes to an easy family reset at {place}.",
   "@rightNowFamilyCalm": {
     "placeholders": {
-      "minutes": { "type": "int" },
-      "place": { "type": "String" }
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      }
     }
   },
   "rightNowRomantic": "Date-night energy — {minutes} minutes to {place} before the rush.",
   "@rightNowRomantic": {
     "placeholders": {
-      "minutes": { "type": "int" },
-      "place": { "type": "String" }
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      }
     }
   },
   "rightNowQuietGem": "Quiet window — {minutes} minutes to {place} ({crowd} right now).",
   "@rightNowQuietGem": {
     "placeholders": {
-      "minutes": { "type": "int" },
-      "place": { "type": "String" },
-      "crowd": { "type": "String" }
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      },
+      "crowd": {
+        "type": "String"
+      }
     }
   },
   "goldenHourTitle": "Golden hour",
   "goldenHourLeaveBy": "Leave by {time} ({minutes} min drive) for {place} — arrive ~15 minutes before sunset.",
   "@goldenHourLeaveBy": {
     "placeholders": {
-      "time": { "type": "String" },
-      "minutes": { "type": "int" },
-      "place": { "type": "String" }
+      "time": {
+        "type": "String"
+      },
+      "minutes": {
+        "type": "int"
+      },
+      "place": {
+        "type": "String"
+      }
     }
   },
   "goldenHourKindBeach": "Beach sunset window",
@@ -467,9 +646,14 @@
   "vacationScoreTitle": "Vacation score",
   "vacationScoreSubtitle": "Today feels like a {score}/100 kind of day.",
   "@vacationScoreSubtitle": {
-    "placeholders": { "score": { "type": "int" } }
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
   },
   "onboardOccasionLabel": "What's the occasion?",
+  "onboardThemeParksOccasionHint": "Unlock Disney & Universal to add theme-park occasions below — you'll see those chips right after purchase.",
   "occasionGeneral": "Just exploring",
   "occasionAnniversary": "Anniversary",
   "occasionHoneymoon": "Honeymoon",
@@ -505,15 +689,27 @@
   "tripStoryTitle": "Your trip story",
   "tripStoryHeading": "{title} — your Florida story",
   "@tripStoryHeading": {
-    "placeholders": { "title": { "type": "String" } }
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
   },
   "tripStoryBeatMoods": "You came for {moods}.",
   "@tripStoryBeatMoods": {
-    "placeholders": { "moods": { "type": "String" } }
+    "placeholders": {
+      "moods": {
+        "type": "String"
+      }
+    }
   },
   "tripStoryBeatTitle": "This chapter: {title}.",
   "@tripStoryBeatTitle": {
-    "placeholders": { "title": { "type": "String" } }
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
   },
   "tripStoryBeatClosing": "Luxora shaped the moments — you lived them.",
   "tripsOpenStory": "Your story",
@@ -574,21 +770,31 @@
   "ticketAgendaMatchLine": "{stop} · est. save {amount} via {source}",
   "@ticketAgendaMatchLine": {
     "placeholders": {
-      "stop": { "type": "String" },
-      "amount": { "type": "String" },
-      "source": { "type": "String" }
+      "stop": {
+        "type": "String"
+      },
+      "amount": {
+        "type": "String"
+      },
+      "source": {
+        "type": "String"
+      }
     }
   },
   "ticketAgendaStopsSummary": "{count} stops on your agenda have partner deals — compare authorized offers before you buy at the gate.",
   "@ticketAgendaStopsSummary": {
     "placeholders": {
-      "count": { "type": "int" }
+      "count": {
+        "type": "int"
+      }
     }
   },
   "ticketAgendaStopsSavings": "Est. family savings · {amount}",
   "@ticketAgendaStopsSavings": {
     "placeholders": {
-      "amount": { "type": "String" }
+      "amount": {
+        "type": "String"
+      }
     }
   },
   "ticketBrowseAgendaDeals": "Browse deals for your agenda →",
@@ -600,45 +806,69 @@
   "conciergeTicketDealLine": "• {title}: {price} via {source} (save {savings})",
   "@conciergeTicketDealLine": {
     "placeholders": {
-      "title": { "type": "String" },
-      "price": { "type": "String" },
-      "source": { "type": "String" },
-      "savings": { "type": "String" }
+      "title": {
+        "type": "String"
+      },
+      "price": {
+        "type": "String"
+      },
+      "source": {
+        "type": "String"
+      },
+      "savings": {
+        "type": "String"
+      }
     }
   },
   "conciergeTicketsTimelineHint": "Each matching stop on Agenda now has a Book tickets button with the reseller link.",
   "itineraryBookTickets": "Book tickets · Save {amount}",
   "@itineraryBookTickets": {
     "placeholders": {
-      "amount": { "type": "String" }
+      "amount": {
+        "type": "String"
+      }
     }
   },
   "itineraryOpenTicketDeal": "Book tickets",
   "conciergeTripSaved": "Saved “{title}” to your Trips — open the Trips tab anytime to revisit it.",
   "@conciergeTripSaved": {
     "placeholders": {
-      "title": { "type": "String" }
+      "title": {
+        "type": "String"
+      }
     }
   },
   "conciergeTripSavedWithStops": "Saved “{title}” with {count} experiences on your timeline.",
   "@conciergeTripSavedWithStops": {
     "placeholders": {
-      "title": { "type": "String" },
-      "count": { "type": "int" }
+      "title": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
     }
   },
   "conciergeSavedTripsIntro": "You have {count} saved trip(s):",
   "@conciergeSavedTripsIntro": {
     "placeholders": {
-      "count": { "type": "int" }
+      "count": {
+        "type": "int"
+      }
     }
   },
   "conciergeSavedTripLine": "• {title} ({dates}) — {status}",
   "@conciergeSavedTripLine": {
     "placeholders": {
-      "title": { "type": "String" },
-      "dates": { "type": "String" },
-      "status": { "type": "String" }
+      "title": {
+        "type": "String"
+      },
+      "dates": {
+        "type": "String"
+      },
+      "status": {
+        "type": "String"
+      }
     }
   },
   "conciergeSavedTripsEmpty": "You don't have any saved trips yet — ask me to plan something, then say “save my trip.”",
@@ -649,7 +879,11 @@
   "conciergeAiOpenAiNotReady": "Luxora heard you, but the concierge brain isn't online yet. Set OPENAI_API_KEY in Supabase secrets for the edge function (bright-processor), then try again.",
   "conciergeAiFunctionNotFound": "Luxora couldn't find the concierge edge function \"{function}\". Deploy it in Supabase or fix SUPABASE_CONCIERGE_FUNCTION on this build.",
   "@conciergeAiFunctionNotFound": {
-    "placeholders": { "function": { "type": "String" } }
+    "placeholders": {
+      "function": {
+        "type": "String"
+      }
+    }
   },
   "conciergeAiAuthFailed": "Luxora couldn't authenticate with Supabase — double-check SUPABASE_ANON_KEY matches your project.",
   "mapAiPowers": "AI map powers",
@@ -680,7 +914,11 @@
   "mapFutureRerouteDesc": "Weather shift or crowd spike? One tap to reshape the rest of your day.",
   "affiliateReserve": "Reserve · {category} · premium partner (soon)",
   "@affiliateReserve": {
-    "placeholders": { "category": { "type": "String" } }
+    "placeholders": {
+      "category": {
+        "type": "String"
+      }
+    }
   },
   "affiliateHotels": "Hotels & staycations",
   "affiliateExperiences": "Experiences & tours",
@@ -699,7 +937,11 @@
   "tripsDeleteTitle": "Delete trip?",
   "tripsDeleteBody": "This removes “{title}” from your saved trips. This can’t be undone.",
   "@tripsDeleteBody": {
-    "placeholders": { "title": { "type": "String" } }
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
   },
   "tripsDeleted": "Trip deleted",
   "tripsEditDates": "Trip dates",
@@ -719,16 +961,24 @@
   "shareCardShareMessage": "{title}\n\nPlanned with Luxora AI — emotionally intelligent Florida travel.\nGet the app: {url}",
   "@shareCardShareMessage": {
     "placeholders": {
-      "title": { "type": "String" },
-      "url": { "type": "String" }
+      "title": {
+        "type": "String"
+      },
+      "url": {
+        "type": "String"
+      }
     }
   },
   "conciergeLocalTryPlanning": "Tell me how you want the trip to feel — e.g. \"Plan a relaxed 2-day Orlando trip with springs and food.\" I'll build a real agenda on your device (no cloud required).",
   "conciergeLocalPlanBuilt": "I built your {city} day — {count} stops sequenced by mood and drive time. Open Agenda or Map to see your route.",
   "@conciergeLocalPlanBuilt": {
     "placeholders": {
-      "city": { "type": "String" },
-      "count": { "type": "int" }
+      "city": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
     }
   },
   "conciergeLocalNoIntent": "Describe the feeling you want — or say \"Plan my Orlando day\" — and I'll build a real route on-device.",
@@ -738,8 +988,12 @@
   "agendaRainRerouteDone": "Afternoon updated — {count} stops moved indoors. Vacation score {score}/100.",
   "@agendaRainRerouteDone": {
     "placeholders": {
-      "count": { "type": "int" },
-      "score": { "type": "int" }
+      "count": {
+        "type": "int"
+      },
+      "score": {
+        "type": "int"
+      }
     }
   },
   "agendaRainRerouteNone": "Your plan already works for this weather.",
@@ -748,7 +1002,11 @@
   "cloudTripsMoreSubSignedOut": "Sign in to back up saved trips",
   "cloudTripsMoreSubSignedIn": "Signed in as {email}",
   "@cloudTripsMoreSubSignedIn": {
-    "placeholders": { "email": { "type": "String" } }
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
   },
   "cloudTripsMoreSubSyncing": "Syncing…",
   "cloudTripsUnlockRequired": "Unlock a city pack to enable cloud backup",
@@ -769,15 +1027,23 @@
   "paywallFeatureCloudBackup": "Cloud Trip Backup",
   "shareSubject": "My {title}",
   "@shareSubject": {
-    "placeholders": { "title": { "type": "String" } }
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
   },
   "itineraryBadge": "YOUR AGENDA",
   "itineraryTagline": "Every moment connected — anticipation built in, stress left out.",
   "itineraryDayTab": "Day {day} · {label}",
   "@itineraryDayTab": {
     "placeholders": {
-      "day": { "type": "int" },
-      "label": { "type": "String" }
+      "day": {
+        "type": "int"
+      },
+      "label": {
+        "type": "String"
+      }
     }
   },
   "detailWhySpecial": "Why It’s Special",
@@ -796,15 +1062,27 @@
   "detailTravelIntelSubtitle": "Predicted from category, time, and distance — not live sensors.",
   "detailCrowdOutlook": "Crowd: {level}",
   "@detailCrowdOutlook": {
-    "placeholders": { "level": { "type": "String" } }
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
   },
   "detailParkingOutlook": "Parking: {level}",
   "@detailParkingOutlook": {
-    "placeholders": { "level": { "type": "String" } }
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
   },
   "detailDriveFrictionOutlook": "Drive friction: {score}/90",
   "@detailDriveFrictionOutlook": {
-    "placeholders": { "score": { "type": "int" } }
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
   },
   "detailPrice": "Price",
   "detailLocation": "Location",
@@ -819,12 +1097,20 @@
   "detailDriveFromHub": "{time} drive from {hub}",
   "@detailDriveFromHub": {
     "placeholders": {
-      "time": { "type": "String" },
-      "hub": { "type": "String" }
+      "time": {
+        "type": "String"
+      },
+      "hub": {
+        "type": "String"
+      }
     }
   },
   "@detailDriveFromOrlando": {
-    "placeholders": { "time": { "type": "String" } }
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
   },
   "detailSaveToItinerary": "Save to itinerary",
   "detailSaved": "Saved",
@@ -847,12 +1133,20 @@
   "milesFromHub": "{distance} from {hub}",
   "@milesFromHub": {
     "placeholders": {
-      "distance": { "type": "String" },
-      "hub": { "type": "String" }
+      "distance": {
+        "type": "String"
+      },
+      "hub": {
+        "type": "String"
+      }
     }
   },
   "@milesFromOrlando": {
-    "placeholders": { "distance": { "type": "String" } }
+    "placeholders": {
+      "distance": {
+        "type": "String"
+      }
+    }
   },
   "landingBadge": "FLORIDA · ORLANDO MVP",
   "landingTitle1": "The vacation",
@@ -925,7 +1219,9 @@
   "cityPickerUnlockPrice": "Unlock {price}",
   "@cityPickerUnlockPrice": {
     "placeholders": {
-      "price": { "type": "String" }
+      "price": {
+        "type": "String"
+      }
     }
   },
   "cityPickerThemeParksSubtitle": "Orlando add-on · Disney & Universal together",
@@ -967,15 +1263,27 @@
   "dayFlowReasonNightOut": "One last glow — a night out.",
   "weatherToday": "Right now in {place}",
   "@weatherToday": {
-    "placeholders": { "place": { "type": "String" } }
+    "placeholders": {
+      "place": {
+        "type": "String"
+      }
+    }
   },
   "weatherSunset": "Sunset {time}",
   "@weatherSunset": {
-    "placeholders": { "time": { "type": "String" } }
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
   },
   "weatherRainNote": "{percent}% chance of rain — pack a light layer.",
   "@weatherRainNote": {
-    "placeholders": { "percent": { "type": "int" } }
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
   },
   "weatherConditionClear": "Clear",
   "weatherConditionPartlyCloudy": "Partly cloudy",
@@ -990,15 +1298,23 @@
   "weatherConciergeAdviceTitle": "Luxora Weather Advice",
   "weatherFeelsLike": "Feels like {temp}",
   "@weatherFeelsLike": {
-    "placeholders": { "temp": { "type": "String" } }
+    "placeholders": {
+      "temp": {
+        "type": "String"
+      }
+    }
   },
   "weatherHumidity": "Humidity",
   "weatherWind": "Wind",
   "weatherWindValue": "{dir} at {speed} mph",
   "@weatherWindValue": {
     "placeholders": {
-      "dir": { "type": "String" },
-      "speed": { "type": "int" }
+      "dir": {
+        "type": "String"
+      },
+      "speed": {
+        "type": "int"
+      }
     }
   },
   "weatherUv": "UV index",
@@ -1006,11 +1322,19 @@
   "weatherVisibility": "Visibility",
   "weatherVisibilityMiles": "{miles} mi",
   "@weatherVisibilityMiles": {
-    "placeholders": { "miles": { "type": "String" } }
+    "placeholders": {
+      "miles": {
+        "type": "String"
+      }
+    }
   },
   "weatherSunrise": "Sunrise {time}",
   "@weatherSunrise": {
-    "placeholders": { "time": { "type": "String" } }
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
   },
   "weatherStatRain": "Rain",
   "weatherWhatToBring": "What to Bring Today",
@@ -1025,11 +1349,19 @@
   "weatherRadarNow": "Now",
   "weatherRadarMinutesAgo": "{minutes} min ago",
   "@weatherRadarMinutesAgo": {
-    "placeholders": { "minutes": { "type": "int" } }
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
   },
   "weatherRadarMinutesAhead": "+{minutes} min",
   "@weatherRadarMinutesAhead": {
-    "placeholders": { "minutes": { "type": "int" } }
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
   },
   "weatherRadarStepBack": "Earlier frame",
   "weatherRadarStepForward": "Later frame",
@@ -1055,13 +1387,21 @@
   "weatherSunsetRec": "Sunset recommendation",
   "weatherOutdoorAtRisk": "{count} outdoor stops may be affected",
   "@weatherOutdoorAtRisk": {
-    "placeholders": { "count": { "type": "int" } }
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
   },
   "weatherIndoorBackup": "Indoor backup ideas",
   "weatherAdviceLightJacket": "Bring a light jacket this evening.",
   "weatherAdviceOutdoorBefore": "Plan outdoor activities before {time}.",
   "@weatherAdviceOutdoorBefore": {
-    "placeholders": { "time": { "type": "String" } }
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
   },
   "weatherAdviceHighUv": "High UV today — bring sunscreen and avoid long direct sun exposure midday.",
   "weatherAdviceRainLater": "Rain risk increases later today, so move indoor experiences to the afternoon.",
@@ -1070,7 +1410,11 @@
   "weatherAdviceDefault": "Skies look manageable — follow your plan and keep a light layer handy.",
   "weatherSunsetRecRooftop": "Clear skies near {time} — rooftop dinner or a lake walk could shine.",
   "@weatherSunsetRecRooftop": {
-    "placeholders": { "time": { "type": "String" } }
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
   },
   "weatherPackSunscreen": "Sunscreen",
   "weatherPackSunglasses": "Sunglasses",
@@ -1084,26 +1428,44 @@
   "weatherImpactRainLater": "Rain risk rises after {time}. Consider moving {outdoorStop} earlier and saving {indoorStop} for later.",
   "@weatherImpactRainLater": {
     "placeholders": {
-      "time": { "type": "String" },
-      "outdoorStop": { "type": "String" },
-      "indoorStop": { "type": "String" }
+      "time": {
+        "type": "String"
+      },
+      "outdoorStop": {
+        "type": "String"
+      },
+      "indoorStop": {
+        "type": "String"
+      }
     }
   },
   "weatherImpactHeat": "High heat midday — plan outdoor walks before {time}.",
   "@weatherImpactHeat": {
-    "placeholders": { "time": { "type": "String" } }
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
   },
   "weatherImpactClear": "Skies look friendly for your outdoor plans this morning.",
   "weatherImpactMixed": "{count} outdoor stops may need timing tweaks today.",
   "@weatherImpactMixed": {
-    "placeholders": { "count": { "type": "int" } }
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
   },
   "weatherImpactNoPlanRain": "Rain is in the mix — build your day with indoor anchors first.",
   "weatherImpactNoPlanClear": "Best outdoor window looks like {start}–{end} before heat or showers build.",
   "@weatherImpactNoPlanClear": {
     "placeholders": {
-      "start": { "type": "String" },
-      "end": { "type": "String" }
+      "start": {
+        "type": "String"
+      },
+      "end": {
+        "type": "String"
+      }
     }
   },
   "weatherImpactNoPlanDefault": "Weather looks steady — tap Plan My Day when you're ready to sequence stops.",
@@ -1131,7 +1493,11 @@
   "hotelMatchResultsTitle": "Your top 3 matches",
   "hotelMatchWhyTitle": "Match score {score}",
   "@hotelMatchWhyTitle": {
-    "placeholders": { "score": { "type": "int" } }
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
   },
   "hotelMatchBestForLabel": "Best for:",
   "hotelMatchItineraryLabel": "Itinerary:",
@@ -1148,8 +1514,12 @@
   "hotelItineraryImpactBody": "Rough drive from hub: {driveTime}. Travel friction score: {friction}/90 (lower is calmer).",
   "@hotelItineraryImpactBody": {
     "placeholders": {
-      "driveTime": { "type": "String" },
-      "friction": { "type": "int" }
+      "driveTime": {
+        "type": "String"
+      },
+      "friction": {
+        "type": "int"
+      }
     }
   },
   "hotelAddHomeBase": "Add as Home Base",
@@ -1167,7 +1537,11 @@
   "hotelCompareSubtitle": "Side-by-side concierge view — up to three hotels.",
   "hotelCompareSelected": "{count} selected",
   "@hotelCompareSelected": {
-    "placeholders": { "count": { "type": "int" } }
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
   },
   "hotelComparePrice": "Price range",
   "hotelCompareDriveImpact": "Drive impact",
@@ -1189,11 +1563,19 @@
   "hotelReasonCloseStops": "Close to planned stops on your timeline.",
   "hotelReasonSavesDrive": "Saves drive time vs. a generic hub — about {time} from center.",
   "@hotelReasonSavesDrive": {
-    "placeholders": { "time": { "type": "String" } }
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
   },
   "hotelReasonFitsBudget": "Fits a {range} comfort zone without overspending on the wrong resort.",
   "@hotelReasonFitsBudget": {
-    "placeholders": { "range": { "type": "String" } }
+    "placeholders": {
+      "range": {
+        "type": "String"
+      }
+    }
   },
   "hotelReasonBetterGroup": "Better suited to your group type and energy level.",
   "hotelReasonNearbyDining": "Strong nearby dining for effortless evenings.",
@@ -1202,15 +1584,23 @@
   "hotelMatchWhyMulti": "Based on your {attractions} itinerary, {hotel} reduces drive time and keeps evenings easy.",
   "@hotelMatchWhyMulti": {
     "placeholders": {
-      "attractions": { "type": "String" },
-      "hotel": { "type": "String" }
+      "attractions": {
+        "type": "String"
+      },
+      "hotel": {
+        "type": "String"
+      }
     }
   },
   "hotelMatchWhySingle": "{hotel} in {neighborhood} fits how you want this trip to feel.",
   "@hotelMatchWhySingle": {
     "placeholders": {
-      "hotel": { "type": "String" },
-      "neighborhood": { "type": "String" }
+      "hotel": {
+        "type": "String"
+      },
+      "neighborhood": {
+        "type": "String"
+      }
     }
   },
   "hotelMatchBestForFamily": "Families who want pool days without sacrificing park access.",
@@ -1218,13 +1608,21 @@
   "hotelMatchBestForGroup": "Groups balancing comfort, access, and calm logistics.",
   "hotelMatchImpactDisney": "Shorter Disney runs — about {time} to the parks from your door.",
   "@hotelMatchImpactDisney": {
-    "placeholders": { "time": { "type": "String" } }
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
   },
   "hotelMatchImpactUniversal": "Universal Express perks or water-taxi access can reclaim hours from your day.",
   "hotelMatchImpactWalkable": "Walk to dinner — less parking stress after long park days.",
   "hotelMatchImpactDefault": "Keeps average drives around {time} so your day flow stays relaxed.",
   "@hotelMatchImpactDefault": {
-    "placeholders": { "time": { "type": "String" } }
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
   },
   "hotelMatchTradeoffLuxuryBudget": "Premium resort pricing — budget more for the room, less elsewhere.",
   "hotelMatchTradeoffCarNeeded": "You'll rely on a car or rideshare — not a walk-everywhere base.",
@@ -1233,7 +1631,11 @@
   "hotelMatchTradeoffDefault": "Every stay has tradeoffs — Luxora picked this for your priorities first.",
   "hotelNearbyDefault": "Dining and experiences around {neighborhood}.",
   "@hotelNearbyDefault": {
-    "placeholders": { "neighborhood": { "type": "String" } }
+    "placeholders": {
+      "neighborhood": {
+        "type": "String"
+      }
+    }
   },
   "mapHotelIntelBannerTitle": "Choose the right home base",
   "mapHotelIntelBannerBody": "Your hotel shapes drive times, day flow, and where you eat. Luxora helps you pick — without booking pressure.",
@@ -1324,7 +1726,6 @@
   "styleNatureWellness": "Nature + wellness only",
   "styleAestheticDining": "Aesthetic dining",
   "styleFamilyEasy": "Family-easy logistics",
-
   "paywallHeroEyebrow": "YOUR PERSONAL CONCIERGE",
   "paywallHeroHeadline": "DON'T WASTE YOUR VACATION",
   "paywallHeroSubheadline": "Luxora plans the trip so you can enjoy it.",
@@ -1332,31 +1733,41 @@
   "paywallHeadlineCouples": "Your perfect {cityName} getaway starts here.",
   "@paywallHeadlineCouples": {
     "placeholders": {
-      "cityName": {"type": "String"}
+      "cityName": {
+        "type": "String"
+      }
     }
   },
   "paywallHeadlineFamily": "Spend less time planning and more time making memories in {cityName}.",
   "@paywallHeadlineFamily": {
     "placeholders": {
-      "cityName": {"type": "String"}
+      "cityName": {
+        "type": "String"
+      }
     }
   },
   "paywallHeadlineLuxury": "Experience {cityName} differently.",
   "@paywallHeadlineLuxury": {
     "placeholders": {
-      "cityName": {"type": "String"}
+      "cityName": {
+        "type": "String"
+      }
     }
   },
   "paywallHeadlineAdventure": "Discover the {cityName} most tourists never see.",
   "@paywallHeadlineAdventure": {
     "placeholders": {
-      "cityName": {"type": "String"}
+      "cityName": {
+        "type": "String"
+      }
     }
   },
   "paywallHeadlineFoodie": "Taste {cityName} like a local insider.",
   "@paywallHeadlineFoodie": {
     "placeholders": {
-      "cityName": {"type": "String"}
+      "cityName": {
+        "type": "String"
+      }
     }
   },
   "paywallWhatYouUnlock": "What You Unlock",
@@ -1392,7 +1803,9 @@
   "paywallUnlockCityConcierge": "Unlock {cityName} Concierge",
   "@paywallUnlockCityConcierge": {
     "placeholders": {
-      "cityName": {"type": "String"}
+      "cityName": {
+        "type": "String"
+      }
     }
   },
   "paywallOneTimePurchase": "One-Time Purchase",
@@ -1401,27 +1814,39 @@
   "paywallLifetimeAccess": "Lifetime {cityName} Access",
   "@paywallLifetimeAccess": {
     "placeholders": {
-      "cityName": {"type": "String"}
+      "cityName": {
+        "type": "String"
+      }
     }
   },
   "paywallFutureUpdatesIncluded": "Future {cityName} Updates Included",
   "@paywallFutureUpdatesIncluded": {
     "placeholders": {
-      "cityName": {"type": "String"}
+      "cityName": {
+        "type": "String"
+      }
     }
   },
   "paywallMostVacationsCost": "Most {cityName} vacations cost {minUsd}–{maxUsd}+",
   "@paywallMostVacationsCost": {
     "placeholders": {
-      "cityName": {"type": "String"},
-      "minUsd": {"type": "String"},
-      "maxUsd": {"type": "String"}
+      "cityName": {
+        "type": "String"
+      },
+      "minUsd": {
+        "type": "String"
+      },
+      "maxUsd": {
+        "type": "String"
+      }
     }
   },
   "paywallLuxoraPriceLine": "{price} One Time",
   "@paywallLuxoraPriceLine": {
     "placeholders": {
-      "price": {"type": "String"}
+      "price": {
+        "type": "String"
+      }
     }
   },
   "paywallLessThanDinner": "Less than the cost of a vacation dinner.",
@@ -1432,7 +1857,9 @@
   "paywallCtaUnlock": "Unlock {cityName} Concierge",
   "@paywallCtaUnlock": {
     "placeholders": {
-      "cityName": {"type": "String"}
+      "cityName": {
+        "type": "String"
+      }
     }
   },
   "paywallContinueExploring": "Continue Exploring",
@@ -1449,7 +1876,6 @@
   "settingsUnlockConciergeTitle": "Unlock city concierge",
   "settingsUnlockConciergeSubtitle": "One-time city pack — not a subscription",
   "settingsOpenConciergeSubtitle": "Open your AI concierge tab",
-
   "weatherMiamiHumidityIndoor": "High humidity today. Hit the beach or pool earlier, then Wynwood or Brickell for indoor dining and galleries during the hottest hours.",
   "weatherMiamiHeatAdvisory": "Heat advisory conditions — light fabrics, hydration, and shade breaks between outdoor stops.",
   "weatherMiamiBeachMorning": "Strong UV on the sand — sunscreen, hat, and beach time before midday.",
@@ -1457,16 +1883,19 @@
   "weatherMiamiRainReroute": "Rain window ahead — swap outdoor plans for {indoorSpot} or gallery time.",
   "@weatherMiamiRainReroute": {
     "placeholders": {
-      "indoorSpot": {"type": "String"}
+      "indoorSpot": {
+        "type": "String"
+      }
     }
   },
   "weatherMiamiSunsetWaterfront": "Sunset looks strong — waterfront or rooftop with an east-to-west view.",
-
   "miamiBeachIntelTitle": "Beach Intelligence",
   "miamiBeachBestTime": "Best time: {time}",
   "@miamiBeachBestTime": {
     "placeholders": {
-      "time": {"type": "String"}
+      "time": {
+        "type": "String"
+      }
     }
   },
   "miamiBeachFamilyScore": "Family",
@@ -1477,20 +1906,26 @@
   "miamiBeachParking": "Parking: {level}",
   "@miamiBeachParking": {
     "placeholders": {
-      "level": {"type": "String"}
+      "level": {
+        "type": "String"
+      }
     }
   },
   "miamiNightlifeTitle": "Nightlife Concierge",
   "miamiNightlifeDressCode": "Dress code: {code}",
   "@miamiNightlifeDressCode": {
     "placeholders": {
-      "code": {"type": "String"}
+      "code": {
+        "type": "String"
+      }
     }
   },
   "miamiNightlifeArrival": "Best arrival: {time}",
   "@miamiNightlifeArrival": {
     "placeholders": {
-      "time": {"type": "String"}
+      "time": {
+        "type": "String"
+      }
     }
   },
   "miamiNightlifeReservation": "Reservation recommended",
@@ -1498,20 +1933,26 @@
   "miamiMoodRouteStart": "Start around {time}",
   "@miamiMoodRouteStart": {
     "placeholders": {
-      "time": {"type": "String"}
+      "time": {
+        "type": "String"
+      }
     }
   },
   "keysWaterIntelTitle": "Keys Water Intelligence",
   "keysWaterBestTime": "Best window: {time}",
   "@keysWaterBestTime": {
     "placeholders": {
-      "time": {"type": "String"}
+      "time": {
+        "type": "String"
+      }
     }
   },
   "keysWaterTemp": "Water: {note}",
   "@keysWaterTemp": {
     "placeholders": {
-      "note": {"type": "String"}
+      "note": {
+        "type": "String"
+      }
     }
   },
   "keysWaterSnorkelScore": "Snorkel",
@@ -1525,7 +1966,9 @@
   "keysMoodRouteStart": "Start {time}",
   "@keysMoodRouteStart": {
     "placeholders": {
-      "time": {"type": "String"}
+      "time": {
+        "type": "String"
+      }
     }
   },
   "paywallHeadlineMiamiDefault": "EXPERIENCE MIAMI DIFFERENTLY",
@@ -1537,8 +1980,12 @@
   "paywallUnlockAddon": "Unlock {packName} · {price}",
   "@paywallUnlockAddon": {
     "placeholders": {
-      "packName": {"type": "String"},
-      "price": {"type": "String"}
+      "packName": {
+        "type": "String"
+      },
+      "price": {
+        "type": "String"
+      }
     }
   },
   "paywallAddonUnlocked": "Unlocked",
@@ -1546,13 +1993,17 @@
   "paywallUnlockAddonPack": "Unlock {packName}",
   "@paywallUnlockAddonPack": {
     "placeholders": {
-      "packName": {"type": "String"}
+      "packName": {
+        "type": "String"
+      }
     }
   },
   "paywallCtaUnlockAddon": "Unlock {packName}",
   "@paywallCtaUnlockAddon": {
     "placeholders": {
-      "packName": {"type": "String"}
+      "packName": {
+        "type": "String"
+      }
     }
   },
   "orlandoThemeParksPromptTitle": "Unlock Disney & Universal for Orlando?",
@@ -1560,8 +2011,282 @@
   "orlandoThemeParksPromptUnlock": "Unlock · {price}",
   "@orlandoThemeParksPromptUnlock": {
     "placeholders": {
-      "price": {"type": "String"}
+      "price": {
+        "type": "String"
+      }
     }
   },
-  "orlandoThemeParksPromptNotNow": "Not now"
+  "orlandoThemeParksPromptNotNow": "Not now",
+  "onboardV2Eyebrow": "Let's design your perfect trip",
+  "onboardV2StepTravelerEyebrow": "Step 1",
+  "onboardV2StepTravelerTitle": "Who are you traveling with?",
+  "onboardV2StepTravelerSubtitle": "Luxora tailors stays, dining, and pacing to your crew.",
+  "onboardV2ChildrenLabel": "Children traveling?",
+  "onboardV2StepStyleEyebrow": "Step 2",
+  "onboardV2StepStyleTitle": "What kind of trip are you looking for?",
+  "onboardV2StepStyleSubtitle": "Choose everything that excites you.",
+  "onboardV2StepHotelEyebrow": "Step 3",
+  "onboardV2StepHotelTitle": "What type of place would you like to stay?",
+  "onboardV2StepHotelSubtitle": "We will match boutique gems and resort icons.",
+  "onboardV2HotelBudgetLabel": "Hotel budget",
+  "onboardV2HotelAmenitiesLabel": "Must-have amenities",
+  "onboardV2StepFoodEyebrow": "Step 4",
+  "onboardV2StepFoodTitle": "What types of restaurants do you enjoy?",
+  "onboardV2StepFoodSubtitle": "Cuisine and dining style — pick all you love.",
+  "onboardV2CuisineLabel": "Cuisine types",
+  "onboardV2DiningStyleLabel": "Dining style",
+  "onboardV2StepPaceEyebrow": "Step 5",
+  "onboardV2StepPaceTitle": "How would you like your days planned?",
+  "onboardV2StepPaceSubtitle": "Relaxed mornings or packed adventure — you choose.",
+  "onboardV2PaceRelaxedTitle": "Relaxed",
+  "onboardV2PaceRelaxedBody": "2–3 activities per day",
+  "onboardV2PaceBalancedTitle": "Balanced",
+  "onboardV2PaceBalancedBody": "4–5 activities per day",
+  "onboardV2PacePackedTitle": "Packed",
+  "onboardV2PacePackedBody": "Maximize every day",
+  "onboardV2StepGoalsEyebrow": "Step 6",
+  "onboardV2StepGoalsTitle": "What matters most on this trip?",
+  "onboardV2StepGoalsSubtitle": "Choose up to five priorities.",
+  "onboardV2StepExperienceEyebrow": "Step 7",
+  "onboardV2StepExperienceTitle": "What experiences would you enjoy?",
+  "onboardV2StepExperienceSubtitle": "We will weave these into your itinerary.",
+  "onboardV2StepAvoidEyebrow": "Step 8",
+  "onboardV2StepAvoidTitle": "What would you prefer to avoid?",
+  "onboardV2StepAvoidSubtitle": "Luxora steers clear of what drains your trip.",
+  "onboardV2StepEmotionEyebrow": "Step 9",
+  "onboardV2StepEmotionTitle": "What would make this trip feel successful?",
+  "onboardV2StepEmotionSubtitle": "Choose one primary feeling.",
+  "onboardV2StepSummaryEyebrow": "Your concierge preview",
+  "onboardV2StepSummaryTitle": "Based on your selections, Luxora recommends",
+  "onboardV2StepSummarySubtitle": "We're building your perfect trip now.",
+  "onboardSummaryHotels": "Hotels",
+  "onboardSummaryRestaurants": "Restaurants",
+  "onboardSummaryHiddenGems": "Hidden gems",
+  "onboardSummaryExperiences": "Experiences",
+  "onboardSummaryHotelDefault": "Curated stays matched to your budget",
+  "onboardSummaryHotelType": "{type} stay",
+  "@onboardSummaryHotelType": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardSummaryRooftopDining": "Rooftop dining experiences",
+  "onboardSummaryCuisine": "{cuisine} favorites",
+  "@onboardSummaryCuisine": {
+    "placeholders": {
+      "cuisine": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardSummaryPace": "{pace} daily pace",
+  "@onboardSummaryPace": {
+    "placeholders": {
+      "pace": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardSummaryRomantic": "Romantic sunset experiences",
+  "onboardSummaryEmotion": "{emotion}-focused journey",
+  "@onboardSummaryEmotion": {
+    "placeholders": {
+      "emotion": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardSummaryPremiumGems": "Premium hidden gems",
+  "agendaSuggestionsForYou": "Picked for you",
+  "agendaSuggestionsAlternates": "Also great",
+  "agendaSuggestionsBrowseAll": "Browse all",
+  "onboardPrefTravelerSolo": "Solo",
+  "onboardPrefTravelerCouple": "Couple",
+  "onboardPrefTravelerFamily": "Family",
+  "onboardPrefTravelerFriends": "Friends",
+  "onboardPrefTravelerBusiness": "Business",
+  "onboardPrefChildrenNone": "No children",
+  "onboardPrefChildrenToddlers": "Toddlers",
+  "onboardPrefChildrenElementary": "Elementary age",
+  "onboardPrefChildrenTeenagers": "Teenagers",
+  "onboardPrefStyleLuxury": "Luxury",
+  "onboardPrefStyleRelaxation": "Relaxation",
+  "onboardPrefStyleAdventure": "Adventure",
+  "onboardPrefStyleThemeParks": "Theme Parks",
+  "onboardPrefStyleFoodie": "Foodie",
+  "onboardPrefStyleNightlife": "Nightlife",
+  "onboardPrefStyleRomance": "Romance",
+  "onboardPrefStyleShopping": "Shopping",
+  "onboardPrefStyleBeaches": "Beaches",
+  "onboardPrefStyleWellness": "Wellness",
+  "onboardPrefStyleNature": "Nature",
+  "onboardPrefStylePhotography": "Photography",
+  "onboardPrefStyleHiddenGems": "Hidden Gems",
+  "onboardPrefStyleFamilyActivities": "Family Activities",
+  "onboardPrefStyleLocalExperiences": "Local Experiences",
+  "onboardPrefStyleEntertainment": "Entertainment",
+  "onboardPrefHotelLuxuryResort": "Luxury Resort",
+  "onboardPrefHotelBoutique": "Boutique Hotel",
+  "onboardPrefHotelFamilyResort": "Family Resort",
+  "onboardPrefHotelBudgetFriendly": "Budget Friendly",
+  "onboardPrefHotelAdultsOnly": "Adults Only",
+  "onboardPrefHotelSpaResort": "Spa Resort",
+  "onboardPrefHotelBeachfront": "Beachfront",
+  "onboardPrefHotelDowntown": "Downtown",
+  "onboardPrefHotelWalkable": "Walkable Area",
+  "onboardPrefHotelThemeParkArea": "Theme Park Area",
+  "onboardPrefHotelModern": "Modern Hotel",
+  "onboardPrefHotelHistoric": "Historic Hotel",
+  "onboardPrefBudgetOne": "$",
+  "onboardPrefBudgetTwo": "$$",
+  "onboardPrefBudgetThree": "$$$",
+  "onboardPrefBudgetFour": "$$$$",
+  "onboardPrefAmenityPool": "Pool",
+  "onboardPrefAmenitySpa": "Spa",
+  "onboardPrefAmenityGym": "Gym",
+  "onboardPrefAmenityBreakfast": "Free Breakfast",
+  "onboardPrefAmenityOceanView": "Ocean View",
+  "onboardPrefAmenityBalcony": "Balcony",
+  "onboardPrefAmenityKitchen": "Kitchen",
+  "onboardPrefAmenityShuttle": "Shuttle Service",
+  "onboardPrefAmenityPetFriendly": "Pet Friendly",
+  "onboardPrefCuisineAmerican": "American",
+  "onboardPrefCuisineItalian": "Italian",
+  "onboardPrefCuisineMexican": "Mexican",
+  "onboardPrefCuisineSeafood": "Seafood",
+  "onboardPrefCuisineSteakhouse": "Steakhouse",
+  "onboardPrefCuisineSushi": "Sushi",
+  "onboardPrefCuisineCuban": "Cuban",
+  "onboardPrefCuisineMediterranean": "Mediterranean",
+  "onboardPrefCuisineAsian": "Asian",
+  "onboardPrefCuisineBbq": "BBQ",
+  "onboardPrefCuisineFineDining": "Fine Dining",
+  "onboardPrefCuisineLocalFavorites": "Local Favorites",
+  "onboardPrefCuisineFoodTrucks": "Food Trucks",
+  "onboardPrefCuisineRooftop": "Rooftop Dining",
+  "onboardPrefCuisineBrunch": "Brunch",
+  "onboardPrefCuisineDessert": "Dessert",
+  "onboardPrefDiningQuick": "Quick Service",
+  "onboardPrefDiningCasual": "Casual Dining",
+  "onboardPrefDiningFamily": "Family Friendly",
+  "onboardPrefDiningDateNight": "Date Night",
+  "onboardPrefDiningFine": "Fine Dining",
+  "onboardPrefDiningWaterfront": "Waterfront",
+  "onboardPrefDiningHiddenGems": "Hidden Gems",
+  "onboardPrefDiningLocal": "Local Favorites",
+  "onboardPrefGoalMakeMemories": "Make Memories",
+  "onboardPrefGoalSaveMoney": "Save Money",
+  "onboardPrefGoalAvoidCrowds": "Avoid Crowds",
+  "onboardPrefGoalLuxury": "Luxury Experiences",
+  "onboardPrefGoalBestFood": "Best Food",
+  "onboardPrefGoalHiddenGems": "Hidden Gems",
+  "onboardPrefGoalRelaxation": "Relaxation",
+  "onboardPrefGoalAdventure": "Adventure",
+  "onboardPrefGoalBestPhotos": "Best Photos",
+  "onboardPrefGoalFamilyTime": "Family Time",
+  "onboardPrefGoalRomance": "Romance",
+  "onboardPrefGoalNightlife": "Nightlife",
+  "onboardPrefGoalLocal": "Local Experiences",
+  "onboardPrefGoalStressFree": "Stress-Free Planning",
+  "onboardPrefExpBoatTours": "Boat Tours",
+  "onboardPrefExpSunsetCruises": "Sunset Cruises",
+  "onboardPrefExpAirboat": "Airboat Tours",
+  "onboardPrefExpThemeParks": "Theme Parks",
+  "onboardPrefExpMuseums": "Museums",
+  "onboardPrefExpLiveShows": "Live Shows",
+  "onboardPrefExpSpas": "Spas",
+  "onboardPrefExpShopping": "Shopping",
+  "onboardPrefExpWaterParks": "Water Parks",
+  "onboardPrefExpGolf": "Golf",
+  "onboardPrefExpFishing": "Fishing",
+  "onboardPrefExpKayaking": "Kayaking",
+  "onboardPrefExpSnorkeling": "Snorkeling",
+  "onboardPrefExpRooftopBars": "Rooftop Bars",
+  "onboardPrefExpNightclubs": "Nightclubs",
+  "onboardPrefExpWildlife": "Wildlife Experiences",
+  "onboardPrefExpFoodTours": "Food Tours",
+  "onboardPrefExpScenicDrives": "Scenic Drives",
+  "onboardPrefAvoidCrowds": "Crowds",
+  "onboardPrefAvoidLongLines": "Long Lines",
+  "onboardPrefAvoidExpensiveRestaurants": "Expensive Restaurants",
+  "onboardPrefAvoidWalking": "Walking Long Distances",
+  "onboardPrefAvoidNightlife": "Nightlife",
+  "onboardPrefAvoidDriving": "Driving",
+  "onboardPrefAvoidTouristTraps": "Tourist Traps",
+  "onboardPrefAvoidEarlyMornings": "Early Mornings",
+  "onboardPrefAvoidLateNights": "Late Nights",
+  "onboardPrefAvoidFamilyAttractions": "Family Attractions",
+  "onboardPrefAvoidThemeParks": "Theme Parks",
+  "onboardPrefEmotionRelaxed": "Relaxed",
+  "onboardPrefEmotionExcited": "Excited",
+  "onboardPrefEmotionAdventurous": "Adventurous",
+  "onboardPrefEmotionRomantic": "Romantic",
+  "onboardPrefEmotionLuxurious": "Luxurious",
+  "onboardPrefEmotionFamilyFocused": "Family-Focused",
+  "onboardPrefEmotionMemorable": "Memorable",
+  "onboardPrefEmotionStressFree": "Stress-Free",
+  "onboardPrefEmotionInspiring": "Inspiring",
+  "onboardPrefPaceSlow": "Relaxed",
+  "onboardPrefPaceBalanced": "Balanced",
+  "onboardPrefPacePacked": "Packed",
+  "onboardSummaryHiddenGemsInsight": "Hidden local restaurants & gems",
+  "onboardBuildFailedHint": "We saved your preferences, but the itinerary needs another moment. Pull to refresh on Agenda or open Concierge.",
+  "onboardV2ChildrenSubtitle": "Select all age groups that apply.",
+  "onboardTravelerNameEyebrow": "First things first",
+  "onboardTravelerNameTitle": "What should Luxora call you?",
+  "onboardTravelerNameSubtitle": "Your first name is enough — Luxora will use it when you chat.",
+  "onboardTravelerNameLabel": "Your first name",
+  "onboardTravelerNameHint": "e.g. Maria",
+  "conciergeWelcomeNamed": "Welcome, {name} — your emotionally intelligent Florida companion.\n\nChoose a prompt below, or describe the feeling you want your trip to create.",
+  "@conciergeWelcomeNamed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "conciergeWelcomeWarmNamed": "{name}, I'm here to shape Florida around how you want to feel — not a checklist of sights. What are you craving today?",
+  "@conciergeWelcomeWarmNamed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardLuxoraReplyEyebrow": "LUXORA",
+  "onboardLuxoraReplyTitle": "Lovely to meet you, {name}.",
+  "@onboardLuxoraReplyTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardLuxoraGuideNamed": "{name}, I'm here to guide you and help you create the perfect vacation or adventure for you and your family.",
+  "@onboardLuxoraGuideNamed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardLuxoraItineraryPromise": "When we're done here, I'll build your itinerary from everything you choose. If you'd like to change anything later, open the Concierge tab and tell me what to edit — I'm always listening.",
+  "todayPlanSectionTitle": "Today's plan",
+  "todayNextActivityLabel": "Up next",
+  "todayStaysDiningSection": "Stays & dining picks",
+  "todayStaysDiningCollapsedHint": "Hotel and restaurant ideas — tap to expand",
+  "todayPlanDetailsTitle": "Full schedule",
+  "todayPlanStopCount": "{count, plural, =1{1 stop today} other{{count} stops today}}",
+  "@todayPlanStopCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "todayRainRerouteTitle": "Rain reroute",
+  "todayExtrasSection": "Tickets & sharing",
+  "todayExtrasCollapsedHint": "Deals, share card, and more"
 }

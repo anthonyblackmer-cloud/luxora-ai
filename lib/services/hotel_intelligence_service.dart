@@ -12,6 +12,7 @@ import 'package:luxora_ai/services/city_pack_registry.dart';
 import 'package:luxora_ai/services/map_launcher.dart';
 import 'package:luxora_ai/services/orlando_addon_service.dart';
 import 'package:luxora_ai/services/places_repository.dart';
+import 'package:luxora_ai/services/trip_budget_mapper.dart';
 import 'package:luxora_ai/util/place_distance.dart';
 
 /// Hotel-aware concierge intelligence — matching, comparison, and reasoning.
@@ -109,37 +110,59 @@ abstract final class HotelIntelligenceService {
     // Trust rule: never boost by sponsor tier — scores are trip-fit only.
     var score = hotel.luxoraScore;
 
+    final targetTier = input.budget != null ? _priceTier(input.budget!) : 2;
+    final hotelTier = _priceTier(hotel.priceRange);
+    final tierDelta = hotelTier - targetTier;
+    final boostScale = tierDelta <= 0
+        ? 1.0
+        : tierDelta == 1
+            ? 0.3
+            : 0.08;
+
     if (input.budget != null) {
-      score += _budgetFit(hotel.priceRange, input.budget!) * 12;
+      score += TripBudgetMapper.hotelBudgetFitScore(
+        hotel.priceRange,
+        input.budget!,
+      );
     }
 
-    score += (input.luxuryLevel * 4 - (5 - _priceTier(hotel.priceRange)) * 4)
-        .clamp(-15, 20);
+    if (input.budget == HotelPriceRange.budget &&
+        hotel.priceRange == HotelPriceRange.budget) {
+      score += 18;
+    }
+    if (hotel.bestForTags.contains(HotelBestForTag.budgetFriendly) &&
+        input.budget == HotelPriceRange.budget) {
+      score += 14;
+    }
+
+    score += (input.luxuryLevel * 4 - (5 - hotelTier) * 4).clamp(-15, 20);
 
     if (input.hasKids) {
-      score += (hotel.familyScore - 50) ~/ 3;
+      score += (((hotel.familyScore - 50) ~/ 3) * boostScale).round();
     }
     if (input.isCouple) {
-      score += (hotel.romanceScore - 50) ~/ 3;
+      score += (((hotel.romanceScore - 50) ~/ 3) * boostScale).round();
     }
 
     var attractionHits = 0;
     for (final tag in input.plannedAttractions) {
       if (hotel.plannedAttractionTags.contains(tag)) {
-        score += 22;
+        score += (22 * boostScale).round();
         attractionHits++;
       } else if (_attractionMatchesBestFor(tag, hotel)) {
-        score += 18;
+        score += (18 * boostScale).round();
         attractionHits++;
       }
     }
     if (input.plannedAttractions.isNotEmpty && attractionHits == 0) {
-      score -= 28;
+      score -= targetTier == 1 ? 8 : 28;
     }
 
     for (final vibe in input.preferredVibes) {
       if (_vibeMatchesTag(vibe, hotel)) score += 8;
-      if (hotel.plannedAttractionTags.contains(vibe)) score += 6;
+      if (hotel.plannedAttractionTags.contains(vibe)) {
+        score += (6 * boostScale).round();
+      }
     }
 
     if (input.transport == HotelTransportPreference.walkableArea) {
@@ -224,6 +247,11 @@ abstract final class HotelIntelligenceService {
     }
     if (v.contains('quiet') &&
         hotel.bestForTags.contains(HotelBestForTag.quietEscape)) {
+      return true;
+    }
+    if (v.contains('budgetfriendly') &&
+        (hotel.bestForTags.contains(HotelBestForTag.budgetFriendly) ||
+            hotel.priceRange == HotelPriceRange.budget)) {
       return true;
     }
     return false;

@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:luxora_ai/data/orlando/orlando_addon_catalog.dart';
+import 'package:luxora_ai/services/paywall_bypass.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 const _unlockedCitiesKey = 'luxora_unlocked_city_pack_ids';
@@ -19,9 +20,11 @@ class CityPackEntitlementStore extends ChangeNotifier {
   Set<String> get unlockedCityIds => Set.unmodifiable(_unlocked);
   Set<String> get unlockedAddonIds => Set.unmodifiable(_unlockedAddons);
 
-  bool isUnlocked(String cityId) => _unlocked.contains(cityId);
+  bool isUnlocked(String cityId) =>
+      PaywallBypass.enabled || _unlocked.contains(cityId);
 
   bool isAddonUnlocked(String addonId) {
+    if (PaywallBypass.enabled) return true;
     if (_unlockedAddons.contains(OrlandoAddonCatalog.themeParks)) {
       return true;
     }

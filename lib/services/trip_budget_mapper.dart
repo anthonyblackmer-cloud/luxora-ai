@@ -1,5 +1,6 @@
 import 'package:luxora_ai/models/lux_hotel.dart';
 import 'package:luxora_ai/models/lux_place.dart';
+import 'package:luxora_ai/models/trip_preferences.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
 
 /// Inferred dining price band — curated places lack live menu prices.
@@ -13,13 +14,54 @@ enum DiningPriceTier {
 /// Maps onboarding budget + luxury level to hotel and dining tiers.
 abstract final class TripBudgetMapper {
   static HotelPriceRange hotelPriceRange(TripProfile profile) {
-    final fromBudget = _hotelTierFromBudgetUsd(profile.budgetUsd);
-    final fromLuxury = switch (profile.luxuryLevel) {
-      LuxuryLevel.comfortable => HotelPriceRange.moderate,
-      LuxuryLevel.premium => HotelPriceRange.upscale,
-      LuxuryLevel.ultraLuxury => HotelPriceRange.luxury,
+    var target = switch (profile.hotelBudgetLevel) {
+      HotelBudgetLevel.one => HotelPriceRange.budget,
+      HotelBudgetLevel.two => HotelPriceRange.moderate,
+      HotelBudgetLevel.three => HotelPriceRange.upscale,
+      HotelBudgetLevel.four => HotelPriceRange.luxury,
     };
-    return _higherTier(fromBudget, fromLuxury);
+
+    final budgetConstrained =
+        profile.hotelTypePreferences.contains(HotelTypePreference.budgetFriendly) ||
+        profile.vacationGoals.contains(VacationGoal.saveMoney);
+
+    if (profile.hotelTypePreferences.contains(HotelTypePreference.budgetFriendly)) {
+      target = _lowerTier(target, HotelPriceRange.budget);
+    }
+    if (profile.vacationGoals.contains(VacationGoal.saveMoney)) {
+      target = _lowerTier(target, HotelPriceRange.moderate);
+    }
+
+    if (!budgetConstrained) {
+      if (profile.hotelTypePreferences.contains(HotelTypePreference.luxuryResort) ||
+          profile.hotelTypePreferences.contains(HotelTypePreference.adultsOnly)) {
+        target = _higherTier(target, HotelPriceRange.upscale);
+      }
+      final fromLuxury = switch (profile.luxuryLevel) {
+        LuxuryLevel.comfortable => HotelPriceRange.moderate,
+        LuxuryLevel.premium => HotelPriceRange.upscale,
+        LuxuryLevel.ultraLuxury => HotelPriceRange.luxury,
+      };
+      target = _higherTier(target, fromLuxury);
+    }
+
+    return target;
+  }
+
+  /// Trip-fit score for a hotel vs the profile's target tier (higher = better).
+  static int hotelBudgetFitScore(HotelPriceRange hotel, HotelPriceRange target) {
+    final diff = hotelTierRank(hotel) - hotelTierRank(target);
+    final abs = diff.abs();
+    var score = switch (abs) {
+      0 => 30,
+      1 => 18,
+      2 => 6,
+      _ => -10,
+    };
+    if (diff > 0) {
+      score -= diff * 22;
+    }
+    return score;
   }
 
   static DiningPriceTier diningPriceTier(TripProfile profile) {
@@ -74,13 +116,6 @@ abstract final class TripBudgetMapper {
     };
   }
 
-  static HotelPriceRange _hotelTierFromBudgetUsd(int budgetUsd) {
-    if (budgetUsd >= 15000) return HotelPriceRange.luxury;
-    if (budgetUsd >= 8000) return HotelPriceRange.upscale;
-    if (budgetUsd >= 4000) return HotelPriceRange.moderate;
-    return HotelPriceRange.budget;
-  }
-
   static DiningPriceTier _diningTierFromBudgetUsd(int budgetUsd) {
     if (budgetUsd >= 15000) return DiningPriceTier.luxury;
     if (budgetUsd >= 8000) return DiningPriceTier.upscale;
@@ -90,6 +125,9 @@ abstract final class TripBudgetMapper {
 
   static HotelPriceRange _higherTier(HotelPriceRange a, HotelPriceRange b) =>
       hotelTierRank(a) >= hotelTierRank(b) ? a : b;
+
+  static HotelPriceRange _lowerTier(HotelPriceRange a, HotelPriceRange b) =>
+      hotelTierRank(a) <= hotelTierRank(b) ? a : b;
 
   static DiningPriceTier _higherDiningTier(DiningPriceTier a, DiningPriceTier b) =>
       diningTierRank(a) >= diningTierRank(b) ? a : b;

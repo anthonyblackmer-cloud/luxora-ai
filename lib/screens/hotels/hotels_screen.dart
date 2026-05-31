@@ -7,6 +7,7 @@ import 'package:luxora_ai/services/hotel_intelligence_service.dart';
 import 'package:luxora_ai/services/partner_sponsorship_service.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
+import 'package:luxora_ai/widgets/destination_search_sheet.dart';
 import 'package:luxora_ai/widgets/hotel_card.dart';
 import 'package:luxora_ai/widgets/hotel_compare_sheet.dart';
 import 'package:luxora_ai/widgets/hotel_detail_sheet.dart';
@@ -85,6 +86,11 @@ class _HotelsScreenState extends State<HotelsScreen> {
                         height: 1.45,
                         fontSize: 13,
                       ),
+                    ),
+                    const SizedBox(height: 16),
+                    DestinationSearchBar(
+                      hint: l.browseSearchAllHotels,
+                      initialFilter: PlaceSearchFilter.hotels,
                     ),
                     const SizedBox(height: 16),
                     GlassCard(

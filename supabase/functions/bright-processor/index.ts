@@ -26,6 +26,8 @@ type TripContext = {
   region: string;
   locale: string;
   tripFeel?: string;
+  tripName?: string;
+  travelerName?: string;
   moods?: string[];
   stylePrefs?: string[];
   budgetUsd?: number;
@@ -67,9 +69,18 @@ function buildSystemPrompt(ctx: TripContext): string {
     "Never invent ticket prices or reseller URLs — use only ticketDeals figures and sourceName values from context.",
     "If theme parks come up and they may not have the add-on, mention Gems and non-park magic too.",
     "",
+  ];
+
+  if (ctx.travelerName?.trim()) {
+    lines.push(
+      `The traveler's first name is ${ctx.travelerName.trim()}. Address them by name naturally — not in every sentence, but warmly when greeting or encouraging.`,
+    );
+  }
+
+  lines.push(
     `Active destination: ${ctx.cityName}, ${ctx.region} (pack: ${ctx.cityId}).`,
     `Respond in locale: ${ctx.locale}.`,
-  ];
+  );
 
   if (ctx.tripFeel?.trim()) {
     lines.push(`Trip feel they want: "${ctx.tripFeel.trim()}".`);

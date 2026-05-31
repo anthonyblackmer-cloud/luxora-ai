@@ -102,10 +102,10 @@ class MoreScreen extends StatelessWidget {
                   LuxoraMoreGridTile(
                     animationIndex: 0,
                     compact: compactTiles,
-                    icon: Icons.auto_awesome_outlined,
-                    title: l.navDiscover,
-                    subtitle: l.moreCardDiscoverSub,
-                    onTap: () => context.push('/experiences'),
+                    icon: Icons.luggage_outlined,
+                    title: l.navTrips,
+                    subtitle: l.tripsSubtitle,
+                    onTap: () => context.push('/trips'),
                   ),
                   LuxoraMoreGridTile(
                     animationIndex: 1,

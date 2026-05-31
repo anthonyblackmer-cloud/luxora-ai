@@ -1,12 +1,13 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:luxora_ai/models/unsplash_photo.dart';
 import 'package:luxora_ai/services/unsplash_api_client.dart';
 import 'package:luxora_ai/services/unsplash_config.dart';
 
 /// In-memory registry of Unsplash metadata (not image bytes).
-class UnsplashPhotoRegistry {
+class UnsplashPhotoRegistry extends ChangeNotifier {
   UnsplashPhotoRegistry._();
   static final UnsplashPhotoRegistry instance = UnsplashPhotoRegistry._();
 
@@ -30,6 +31,7 @@ class UnsplashPhotoRegistry {
       _byId[photo.id] = photo;
     }
     _loaded = true;
+    notifyListeners();
 
     if (UnsplashConfig.hasAccessKey) {
       unawaited(_refreshFromApi(list.map((p) => p.id)));
@@ -43,6 +45,7 @@ class UnsplashPhotoRegistry {
         final fresh = await client.getPhoto(id);
         _byId[id] = fresh;
       }
+      notifyListeners();
     } catch (_) {
       // Keep bundled metadata when refresh fails.
     }

@@ -158,7 +158,7 @@ abstract final class HotelsCatalog {
       externalId: 'clarion-idrive-orlando',
       lastUpdated: DateTime(2026, 5, 29),
       nearbyDiningPlaceIds: [],
-      plannedAttractionTags: ['universal', 'budget', 'idrive'],
+      plannedAttractionTags: ['budget', 'idrive'],
     ),
     LuxHotel(
       id: 'hotel-intel-portofino-bay',
@@ -379,7 +379,7 @@ abstract final class HotelsCatalog {
       bookingPartner: 'ihg',
       externalId: 'holiday-inn-express-idrive',
       lastUpdated: DateTime(2026, 5, 29),
-      plannedAttractionTags: ['universal', 'budget', 'idrive'],
+      plannedAttractionTags: ['budget', 'idrive'],
     ),
   ];
 

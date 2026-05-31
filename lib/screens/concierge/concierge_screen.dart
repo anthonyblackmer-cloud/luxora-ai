@@ -25,6 +25,7 @@ import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/util/concierge_agenda_chat_format.dart';
 import 'package:luxora_ai/util/lux_snack_bar.dart';
 import 'package:luxora_ai/util/concierge_ai_user_message.dart';
+import 'package:luxora_ai/util/traveler_name.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
 import 'package:luxora_ai/widgets/concierge/concierge_voice_settings_sheet.dart';
 import 'package:luxora_ai/widgets/trip_name_fields.dart';
@@ -81,11 +82,15 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
     if (!mounted) return;
     final l = AppLocalizations.of(context);
     final recall = _recallLine(l, profile, prefs, returning: lastVisit != null);
+    final firstName = TravelerNameDisplay.firstName(profile?.travelerName);
+    final welcome = firstName == null
+        ? l.conciergeWelcome
+        : l.conciergeWelcomeNamed(firstName);
     setState(() {
       _profile = profile;
       _tripFeel = profile?.tripFeel;
       _stylePrefs = prefs;
-      _messages.add((user: false, text: l.conciergeWelcome));
+      _messages.add((user: false, text: welcome));
       if (recall != null) {
         _messages.add((user: false, text: recall));
       }
@@ -577,6 +582,14 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
     return l.conciergeGreetingEvening;
   }
 
+  String _welcomeWarmLine(AppLocalizations l) {
+    final firstName = TravelerNameDisplay.firstName(_profile?.travelerName);
+    final warm = firstName == null
+        ? l.conciergeWelcomeWarm
+        : l.conciergeWelcomeWarmNamed(firstName);
+    return '${_greeting(l)} $warm';
+  }
+
   Future<void> _showStyleRefineSheet(AppLocalizations l) async {
     final t = luxThemeTokensOf(context);
     await showModalBottomSheet<void>(
@@ -826,7 +839,7 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
           border: Border.all(color: t.borderSubtle),
         ),
         child: Text(
-          '${_greeting(l)} ${l.conciergeWelcomeWarm}',
+          _welcomeWarmLine(l),
           style: TextStyle(
             fontSize: 15,
             height: 1.42,
