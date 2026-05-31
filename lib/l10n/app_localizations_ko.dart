@@ -2331,6 +2331,32 @@ class AppLocalizationsKo extends AppLocalizations {
   String get paywallSwitchCity => '목적지';
 
   @override
+  String get paywallUnlockingDestination => 'Unlocking for this trip';
+
+  @override
+  String paywallUnifiedPriceHeadline(String price) {
+    return 'Every City Pack unlocks for $price each';
+  }
+
+  @override
+  String get paywallUnifiedPriceBody =>
+      'Orlando, Miami, Florida Keys — plus the Disney & Universal pack. One-time purchase each at the same price. No subscription.';
+
+  @override
+  String paywallSelectedPackToday(String packName) {
+    return 'Unlocking today: $packName';
+  }
+
+  @override
+  String paywallAddonUnifiedHeadline(String price) {
+    return 'Disney & Universal — $price one time';
+  }
+
+  @override
+  String get paywallAddonUnifiedBody =>
+      'Same simple pricing as every Florida city pack — one unlock, lifetime access.';
+
+  @override
   String get cityPickerUnlocked => '잠금 해제됨';
 
   @override
@@ -3395,6 +3421,22 @@ class AppLocalizationsKo extends AppLocalizations {
   String get paywallBenefitTravelSmarterBody => '날씨, 군중, 여행 스타일에 따라 추천을 받아보세요.';
 
   @override
+  String paywallValueStory(String cityName, String price) {
+    return 'Every Florida city pack — including Disney & Universal — unlocks for $price. You\'re getting the full concierge for $cityName: itineraries, hidden gems, hotel intel, and unlimited AI guidance.';
+  }
+
+  @override
+  String get paywallRoiHook =>
+      'One bad meal, overpriced ticket booth, or wasted afternoon costs more than this one-time unlock.';
+
+  @override
+  String get paywallPeaceOfMindTitle => 'Peace of mind, built in';
+
+  @override
+  String get paywallPeaceOfMindBody =>
+      'You\'re not buying another subscription. You\'re buying a smarter vacation — planned before you land and supported while you\'re there.';
+
+  @override
   String get paywallLockedPreviewTitle => '컨시어지 안에서 기다리기';
 
   @override
@@ -3466,6 +3508,9 @@ class AppLocalizationsKo extends AppLocalizations {
   String get paywallSocialProofTitle => '룩소라를 잠금 해제한 여행자';
 
   @override
+  String get paywallSocialProofHeading => 'Worth it before they even landed';
+
+  @override
   String get paywallReview1 => '\"계획 시간을 절약했습니다.\"';
 
   @override
@@ -3487,6 +3532,10 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get paywallRestorePurchases => '구매 복원';
+
+  @override
+  String get paywallRestorePreviewDisabled =>
+      'Restore is disabled in preview mode — use a full build to test restore.';
 
   @override
   String get paywallPurchaseSuccess => '구매 완료 — 컨시어지가 잠금 해제되었습니다.';

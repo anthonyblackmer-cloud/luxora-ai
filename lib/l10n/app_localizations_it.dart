@@ -2413,6 +2413,32 @@ class AppLocalizationsIt extends AppLocalizations {
   String get paywallSwitchCity => 'Destinazione';
 
   @override
+  String get paywallUnlockingDestination => 'Unlocking for this trip';
+
+  @override
+  String paywallUnifiedPriceHeadline(String price) {
+    return 'Every City Pack unlocks for $price each';
+  }
+
+  @override
+  String get paywallUnifiedPriceBody =>
+      'Orlando, Miami, Florida Keys — plus the Disney & Universal pack. One-time purchase each at the same price. No subscription.';
+
+  @override
+  String paywallSelectedPackToday(String packName) {
+    return 'Unlocking today: $packName';
+  }
+
+  @override
+  String paywallAddonUnifiedHeadline(String price) {
+    return 'Disney & Universal — $price one time';
+  }
+
+  @override
+  String get paywallAddonUnifiedBody =>
+      'Same simple pricing as every Florida city pack — one unlock, lifetime access.';
+
+  @override
   String get cityPickerUnlocked => 'Sbloccato';
 
   @override
@@ -3520,6 +3546,22 @@ class AppLocalizationsIt extends AppLocalizations {
       'Ricevi consigli basati sul meteo, sulla folla e sul tuo stile di viaggio.';
 
   @override
+  String paywallValueStory(String cityName, String price) {
+    return 'Every Florida city pack — including Disney & Universal — unlocks for $price. You\'re getting the full concierge for $cityName: itineraries, hidden gems, hotel intel, and unlimited AI guidance.';
+  }
+
+  @override
+  String get paywallRoiHook =>
+      'One bad meal, overpriced ticket booth, or wasted afternoon costs more than this one-time unlock.';
+
+  @override
+  String get paywallPeaceOfMindTitle => 'Peace of mind, built in';
+
+  @override
+  String get paywallPeaceOfMindBody =>
+      'You\'re not buying another subscription. You\'re buying a smarter vacation — planned before you land and supported while you\'re there.';
+
+  @override
   String get paywallLockedPreviewTitle =>
       'Aspettando all\'interno del tuo concierge';
 
@@ -3597,6 +3639,9 @@ class AppLocalizationsIt extends AppLocalizations {
       'Viaggiatori che hanno sbloccato Luxora';
 
   @override
+  String get paywallSocialProofHeading => 'Worth it before they even landed';
+
+  @override
   String get paywallReview1 =>
       '\"Ci ha fatto risparmiare ore di pianificazione.\"';
 
@@ -3622,6 +3667,10 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get paywallRestorePurchases => 'Ripristina gli acquisti';
+
+  @override
+  String get paywallRestorePreviewDisabled =>
+      'Restore is disabled in preview mode — use a full build to test restore.';
 
   @override
   String get paywallPurchaseSuccess =>

@@ -12,7 +12,7 @@ abstract final class OrlandoAddonService {
 
   static bool needsThemeParksUnlock() =>
       !CityPackEntitlementStore.instance
-          .isAddonUnlocked(OrlandoAddonCatalog.themeParks);
+          .hasStoredAddonUnlock(OrlandoAddonCatalog.themeParks);
 
   static bool canAccessThemeParks() {
     if (!CityPackEntitlementStore.instance

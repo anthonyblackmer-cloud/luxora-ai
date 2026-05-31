@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:luxora_ai/l10n/app_localizations.dart';
@@ -9,6 +10,8 @@ import 'package:luxora_ai/settings/luxora_language_catalog.dart';
 import 'package:luxora_ai/state/luxora_app_state.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/services/city_pack_registry.dart';
+import 'package:luxora_ai/data/orlando/orlando_addon_catalog.dart';
+import 'package:luxora_ai/data/paywall_catalog.dart';
 import 'package:luxora_ai/services/paywall_service.dart';
 import 'package:luxora_ai/widgets/concierge/concierge_voice_settings_sheet.dart';
 import 'package:luxora_ai/widgets/settings/luxora_language_picker_sheet.dart';
@@ -190,6 +193,94 @@ class LuxoraSettingsSheet extends StatelessWidget {
               },
             ),
             const SizedBox(height: 16),
+            if (kDebugMode) ...[
+              palette.sectionDivider(),
+              Text(
+                'Debug',
+                style: TextStyle(
+                  fontSize: 11,
+                  fontWeight: FontWeight.w800,
+                  letterSpacing: 1.6,
+                  color: theme.colorScheme.onSurfaceVariant,
+                ),
+              ),
+              const SizedBox(height: 8),
+              ListTile(
+                contentPadding: EdgeInsets.zero,
+                leading: Icon(
+                  Icons.lock_open_rounded,
+                  color: theme.colorScheme.primary,
+                ),
+                title: const Text(
+                  'Preview paywall',
+                  style: TextStyle(fontWeight: FontWeight.w600),
+                ),
+                subtitle: Text(
+                  'Open the unlock screen for ${PaywallCatalog.offerFor(activeCityId).cityName}',
+                  style: subtitleStyle,
+                ),
+                trailing: const Icon(Icons.chevron_right_rounded),
+                onTap: () async {
+                  await PaywallService.resetEntitlementsForPreview();
+                  await PaywallService.openPaywallPreview(
+                    context,
+                    cityId: activeCityId,
+                  );
+                  if (context.mounted) Navigator.of(context).pop();
+                },
+              ),
+              ListTile(
+                contentPadding: EdgeInsets.zero,
+                leading: Icon(
+                  Icons.attractions_outlined,
+                  color: theme.colorScheme.primary,
+                ),
+                title: const Text(
+                  'Preview theme parks add-on',
+                  style: TextStyle(fontWeight: FontWeight.w600),
+                ),
+                subtitle: Text(
+                  'Orlando Disney & Universal paywall',
+                  style: subtitleStyle,
+                ),
+                trailing: const Icon(Icons.chevron_right_rounded),
+                onTap: () async {
+                  await PaywallService.resetEntitlementsForPreview();
+                  await PaywallService.openPaywallPreview(
+                    context,
+                    cityId: OrlandoAddonCatalog.parentCityId,
+                    addonId: OrlandoAddonCatalog.themeParks,
+                  );
+                  if (context.mounted) Navigator.of(context).pop();
+                },
+              ),
+              ListTile(
+                contentPadding: EdgeInsets.zero,
+                leading: Icon(
+                  Icons.restart_alt_rounded,
+                  color: theme.colorScheme.error.withValues(alpha: 0.85),
+                ),
+                title: const Text(
+                  'Reset unlocks (debug)',
+                  style: TextStyle(fontWeight: FontWeight.w600),
+                ),
+                subtitle: Text(
+                  'Clear city pack entitlements to test freemium locks',
+                  style: subtitleStyle,
+                ),
+                onTap: () async {
+                  await PaywallService.resetEntitlementsForPreview();
+                  if (context.mounted) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Unlocks cleared — freemium locks active'),
+                      ),
+                    );
+                  }
+                },
+              ),
+              const SizedBox(height: 8),
+            ],
             palette.sectionDivider(),
             InkWell(
               onTap: () => LuxoraLanguagePickerSheet.show(context),

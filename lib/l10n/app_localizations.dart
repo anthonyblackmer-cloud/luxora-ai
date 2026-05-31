@@ -4274,6 +4274,42 @@ abstract class AppLocalizations {
   /// **'Destination'**
   String get paywallSwitchCity;
 
+  /// No description provided for @paywallUnlockingDestination.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlocking for this trip'**
+  String get paywallUnlockingDestination;
+
+  /// No description provided for @paywallUnifiedPriceHeadline.
+  ///
+  /// In en, this message translates to:
+  /// **'Every City Pack unlocks for {price} each'**
+  String paywallUnifiedPriceHeadline(String price);
+
+  /// No description provided for @paywallUnifiedPriceBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Orlando, Miami, Florida Keys — plus the Disney & Universal pack. One-time purchase each at the same price. No subscription.'**
+  String get paywallUnifiedPriceBody;
+
+  /// No description provided for @paywallSelectedPackToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlocking today: {packName}'**
+  String paywallSelectedPackToday(String packName);
+
+  /// No description provided for @paywallAddonUnifiedHeadline.
+  ///
+  /// In en, this message translates to:
+  /// **'Disney & Universal — {price} one time'**
+  String paywallAddonUnifiedHeadline(String price);
+
+  /// No description provided for @paywallAddonUnifiedBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Same simple pricing as every Florida city pack — one unlock, lifetime access.'**
+  String get paywallAddonUnifiedBody;
+
   /// No description provided for @cityPickerUnlocked.
   ///
   /// In en, this message translates to:
@@ -6057,13 +6093,13 @@ abstract class AppLocalizations {
   /// No description provided for @paywallHeroSubheadline.
   ///
   /// In en, this message translates to:
-  /// **'Luxora plans the trip so you can enjoy it.'**
+  /// **'Your AI concierge plans every day, finds the gems, and keeps you out of tourist traps — so you actually enjoy the trip.'**
   String get paywallHeroSubheadline;
 
   /// No description provided for @paywallEmotionalLine.
   ///
   /// In en, this message translates to:
-  /// **'You\'re already spending thousands on your vacation. Don\'t leave the experience to chance.'**
+  /// **'You\'re already spending thousands on flights, hotels, and tickets. Don\'t waste the trip on bad restaurants, crowded traps, and last-minute guesswork.'**
   String get paywallEmotionalLine;
 
   /// No description provided for @paywallHeadlineCouples.
@@ -6177,50 +6213,74 @@ abstract class AppLocalizations {
   /// No description provided for @paywallBenefitSaveTimeTitle.
   ///
   /// In en, this message translates to:
-  /// **'Save Time'**
+  /// **'Save Hours of Planning'**
   String get paywallBenefitSaveTimeTitle;
 
   /// No description provided for @paywallBenefitSaveTimeBody.
   ///
   /// In en, this message translates to:
-  /// **'Skip hours of research and planning.'**
+  /// **'Skip the spreadsheets and endless tabs. Luxora builds day-by-day routes tailored to your style in minutes.'**
   String get paywallBenefitSaveTimeBody;
 
   /// No description provided for @paywallBenefitSaveMoneyTitle.
   ///
   /// In en, this message translates to:
-  /// **'Save Money'**
+  /// **'Save Real Money'**
   String get paywallBenefitSaveMoneyTitle;
 
   /// No description provided for @paywallBenefitSaveMoneyBody.
   ///
   /// In en, this message translates to:
-  /// **'Discover ticket savings, local deals, and smarter choices.'**
+  /// **'Ticket deals, smarter dining picks, and crowd-aware timing — small choices that add up on a Florida vacation.'**
   String get paywallBenefitSaveMoneyBody;
 
   /// No description provided for @paywallBenefitAvoidTrapsTitle.
   ///
   /// In en, this message translates to:
-  /// **'Avoid Tourist Traps'**
+  /// **'Skip Tourist Traps'**
   String get paywallBenefitAvoidTrapsTitle;
 
   /// No description provided for @paywallBenefitAvoidTrapsBody.
   ///
   /// In en, this message translates to:
-  /// **'Find experiences locals actually recommend.'**
+  /// **'Get the spots locals love — not the overpriced stops every guidebook pushes to first-time visitors.'**
   String get paywallBenefitAvoidTrapsBody;
 
   /// No description provided for @paywallBenefitTravelSmarterTitle.
   ///
   /// In en, this message translates to:
-  /// **'Travel Smarter'**
+  /// **'Travel With Confidence'**
   String get paywallBenefitTravelSmarterTitle;
 
   /// No description provided for @paywallBenefitTravelSmarterBody.
   ///
   /// In en, this message translates to:
-  /// **'Get recommendations based on weather, crowds, and your trip style.'**
+  /// **'Weather shifts, crowd spikes, and \"what should we do now?\" — your concierge adapts before and during the trip.'**
   String get paywallBenefitTravelSmarterBody;
+
+  /// No description provided for @paywallValueStory.
+  ///
+  /// In en, this message translates to:
+  /// **'Every Florida city pack — including Disney & Universal — unlocks for {price}. You\'re getting the full concierge for {cityName}: itineraries, hidden gems, hotel intel, and unlimited AI guidance.'**
+  String paywallValueStory(String cityName, String price);
+
+  /// No description provided for @paywallRoiHook.
+  ///
+  /// In en, this message translates to:
+  /// **'One bad meal, overpriced ticket booth, or wasted afternoon costs more than this one-time unlock.'**
+  String get paywallRoiHook;
+
+  /// No description provided for @paywallPeaceOfMindTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Peace of mind, built in'**
+  String get paywallPeaceOfMindTitle;
+
+  /// No description provided for @paywallPeaceOfMindBody.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'re not buying another subscription. You\'re buying a smarter vacation — planned before you land and supported while you\'re there.'**
+  String get paywallPeaceOfMindBody;
 
   /// No description provided for @paywallLockedPreviewTitle.
   ///
@@ -6303,7 +6363,7 @@ abstract class AppLocalizations {
   /// No description provided for @paywallLifetimeAccess.
   ///
   /// In en, this message translates to:
-  /// **'Lifetime {cityName} Access'**
+  /// **'Lifetime {cityName} access — yours forever, no monthly bill'**
   String paywallLifetimeAccess(String cityName);
 
   /// No description provided for @paywallFutureUpdatesIncluded.
@@ -6331,7 +6391,7 @@ abstract class AppLocalizations {
   /// No description provided for @paywallLessThanDinner.
   ///
   /// In en, this message translates to:
-  /// **'Less than the cost of a vacation dinner.'**
+  /// **'Less than one forgettable tourist-trap dinner — for planning that pays off all week.'**
   String get paywallLessThanDinner;
 
   /// No description provided for @paywallSocialProofTitle.
@@ -6339,6 +6399,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Travelers Who Unlocked Luxora'**
   String get paywallSocialProofTitle;
+
+  /// No description provided for @paywallSocialProofHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Worth it before they even landed'**
+  String get paywallSocialProofHeading;
 
   /// No description provided for @paywallReview1.
   ///
@@ -6373,7 +6439,7 @@ abstract class AppLocalizations {
   /// No description provided for @paywallConciergePromise.
   ///
   /// In en, this message translates to:
-  /// **'No Subscription · Lifetime city access'**
+  /// **'One payment · Lifetime city access · No subscription · Future updates included'**
   String get paywallConciergePromise;
 
   /// No description provided for @paywallRestorePurchases.
@@ -6381,6 +6447,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Restore purchases'**
   String get paywallRestorePurchases;
+
+  /// No description provided for @paywallRestorePreviewDisabled.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore is disabled in preview mode — use a full build to test restore.'**
+  String get paywallRestorePreviewDisabled;
 
   /// No description provided for @paywallPurchaseSuccess.
   ///

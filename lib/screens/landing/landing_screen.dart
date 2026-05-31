@@ -127,6 +127,7 @@ class _LandingScreenState extends State<LandingScreen> {
                       CityDestinationPicker(
                         label: l.landingCityLabel,
                         selectedCityId: _cityId,
+                        showUnlockStatus: false,
                         onChanged: (id) => CityPickerActions.handleSelection(
                           context,
                           pickedId: id,

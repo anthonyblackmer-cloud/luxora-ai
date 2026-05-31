@@ -7,14 +7,31 @@
       "type": "dart",
       "program": "lib/main.dart",
       "toolArgs": [
-        "--dart-define-from-file=config/unsplash.local.json"
+        "--dart-define-from-file=config/unsplash.local.json",
+        "--dart-define=BYPASS_PAYWALL=false",
+        "--dart-define=PREVIEW_PAYWALL=true"
+      ]
+    },
+    {
+      "name": "Luxora AI (paywall preview)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "toolArgs": [
+        "--dart-define-from-file=config/unsplash.local.json",
+        "--dart-define=BYPASS_PAYWALL=false",
+        "--dart-define=PREVIEW_PAYWALL=true"
       ]
     },
     {
       "name": "Luxora AI (no API key)",
       "request": "launch",
       "type": "dart",
-      "program": "lib/main.dart"
+      "program": "lib/main.dart",
+      "toolArgs": [
+        "--dart-define=BYPASS_PAYWALL=false",
+        "--dart-define=PREVIEW_PAYWALL=true"
+      ]
     }
   ]
 }

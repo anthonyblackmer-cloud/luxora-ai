@@ -21,10 +21,17 @@ class CityPackEntitlementStore extends ChangeNotifier {
   Set<String> get unlockedAddonIds => Set.unmodifiable(_unlockedAddons);
 
   bool isUnlocked(String cityId) =>
-      PaywallBypass.enabled || _unlocked.contains(cityId);
+      PaywallBypass.enabled || hasStoredCityUnlock(cityId);
+
+  /// Purchased unlock only — ignores debug bypass flags.
+  bool hasStoredCityUnlock(String cityId) => _unlocked.contains(cityId);
 
   bool isAddonUnlocked(String addonId) {
     if (PaywallBypass.enabled) return true;
+    return hasStoredAddonUnlock(addonId);
+  }
+
+  bool hasStoredAddonUnlock(String addonId) {
     if (_unlockedAddons.contains(OrlandoAddonCatalog.themeParks)) {
       return true;
     }
@@ -90,6 +97,12 @@ class CityPackEntitlementStore extends ChangeNotifier {
       ..remove(OrlandoAddonCatalog.legacyDisneyWorld)
       ..remove(OrlandoAddonCatalog.legacyUniversalOrlando)
       ..add(OrlandoAddonCatalog.themeParks);
+  }
+
+  /// Dev / preview reset — not exposed in production UI except debug settings.
+  Future<void> resetForDebugPreview() async {
+    assert(kDebugMode);
+    await clearAll();
   }
 
   /// Dev / preview reset — not exposed in UI.

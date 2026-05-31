@@ -2383,6 +2383,32 @@ class AppLocalizationsEn extends AppLocalizations {
   String get paywallSwitchCity => 'Destination';
 
   @override
+  String get paywallUnlockingDestination => 'Unlocking for this trip';
+
+  @override
+  String paywallUnifiedPriceHeadline(String price) {
+    return 'Every City Pack unlocks for $price each';
+  }
+
+  @override
+  String get paywallUnifiedPriceBody =>
+      'Orlando, Miami, Florida Keys — plus the Disney & Universal pack. One-time purchase each at the same price. No subscription.';
+
+  @override
+  String paywallSelectedPackToday(String packName) {
+    return 'Unlocking today: $packName';
+  }
+
+  @override
+  String paywallAddonUnifiedHeadline(String price) {
+    return 'Disney & Universal — $price one time';
+  }
+
+  @override
+  String get paywallAddonUnifiedBody =>
+      'Same simple pricing as every Florida city pack — one unlock, lifetime access.';
+
+  @override
   String get cityPickerUnlocked => 'Unlocked';
 
   @override
@@ -3380,11 +3406,11 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get paywallHeroSubheadline =>
-      'Luxora plans the trip so you can enjoy it.';
+      'Your AI concierge plans every day, finds the gems, and keeps you out of tourist traps — so you actually enjoy the trip.';
 
   @override
   String get paywallEmotionalLine =>
-      'You\'re already spending thousands on your vacation. Don\'t leave the experience to chance.';
+      'You\'re already spending thousands on flights, hotels, and tickets. Don\'t waste the trip on bad restaurants, crowded traps, and last-minute guesswork.';
 
   @override
   String paywallHeadlineCouples(String cityName) {
@@ -3451,32 +3477,48 @@ class AppLocalizationsEn extends AppLocalizations {
   String get paywallWhyTravelersUnlock => 'Why Travelers Unlock Luxora';
 
   @override
-  String get paywallBenefitSaveTimeTitle => 'Save Time';
+  String get paywallBenefitSaveTimeTitle => 'Save Hours of Planning';
 
   @override
   String get paywallBenefitSaveTimeBody =>
-      'Skip hours of research and planning.';
+      'Skip the spreadsheets and endless tabs. Luxora builds day-by-day routes tailored to your style in minutes.';
 
   @override
-  String get paywallBenefitSaveMoneyTitle => 'Save Money';
+  String get paywallBenefitSaveMoneyTitle => 'Save Real Money';
 
   @override
   String get paywallBenefitSaveMoneyBody =>
-      'Discover ticket savings, local deals, and smarter choices.';
+      'Ticket deals, smarter dining picks, and crowd-aware timing — small choices that add up on a Florida vacation.';
 
   @override
-  String get paywallBenefitAvoidTrapsTitle => 'Avoid Tourist Traps';
+  String get paywallBenefitAvoidTrapsTitle => 'Skip Tourist Traps';
 
   @override
   String get paywallBenefitAvoidTrapsBody =>
-      'Find experiences locals actually recommend.';
+      'Get the spots locals love — not the overpriced stops every guidebook pushes to first-time visitors.';
 
   @override
-  String get paywallBenefitTravelSmarterTitle => 'Travel Smarter';
+  String get paywallBenefitTravelSmarterTitle => 'Travel With Confidence';
 
   @override
   String get paywallBenefitTravelSmarterBody =>
-      'Get recommendations based on weather, crowds, and your trip style.';
+      'Weather shifts, crowd spikes, and \"what should we do now?\" — your concierge adapts before and during the trip.';
+
+  @override
+  String paywallValueStory(String cityName, String price) {
+    return 'Every Florida city pack — including Disney & Universal — unlocks for $price. You\'re getting the full concierge for $cityName: itineraries, hidden gems, hotel intel, and unlimited AI guidance.';
+  }
+
+  @override
+  String get paywallRoiHook =>
+      'One bad meal, overpriced ticket booth, or wasted afternoon costs more than this one-time unlock.';
+
+  @override
+  String get paywallPeaceOfMindTitle => 'Peace of mind, built in';
+
+  @override
+  String get paywallPeaceOfMindBody =>
+      'You\'re not buying another subscription. You\'re buying a smarter vacation — planned before you land and supported while you\'re there.';
 
   @override
   String get paywallLockedPreviewTitle => 'Waiting Inside Your Concierge';
@@ -3522,7 +3564,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String paywallLifetimeAccess(String cityName) {
-    return 'Lifetime $cityName Access';
+    return 'Lifetime $cityName access — yours forever, no monthly bill';
   }
 
   @override
@@ -3546,10 +3588,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get paywallLessThanDinner =>
-      'Less than the cost of a vacation dinner.';
+      'Less than one forgettable tourist-trap dinner — for planning that pays off all week.';
 
   @override
   String get paywallSocialProofTitle => 'Travelers Who Unlocked Luxora';
+
+  @override
+  String get paywallSocialProofHeading => 'Worth it before they even landed';
 
   @override
   String get paywallReview1 => '\"Saved us hours of planning.\"';
@@ -3571,10 +3616,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get paywallConciergePromise =>
-      'No Subscription · Lifetime city access';
+      'One payment · Lifetime city access · No subscription · Future updates included';
 
   @override
   String get paywallRestorePurchases => 'Restore purchases';
+
+  @override
+  String get paywallRestorePreviewDisabled =>
+      'Restore is disabled in preview mode — use a full build to test restore.';
 
   @override
   String get paywallPurchaseSuccess =>

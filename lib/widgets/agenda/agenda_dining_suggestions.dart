@@ -5,6 +5,7 @@ import 'package:luxora_ai/models/lux_place.dart';
 import 'package:luxora_ai/models/trip_plan.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
 import 'package:luxora_ai/services/agenda_recommendation_service.dart';
+import 'package:luxora_ai/services/freemium_service.dart';
 import 'package:luxora_ai/services/city_pack_registry.dart';
 import 'package:luxora_ai/services/discover_radius_controller.dart';
 import 'package:luxora_ai/services/places_repository.dart';
@@ -153,7 +154,7 @@ class _AgendaDiningSuggestionsState extends State<AgendaDiningSuggestions> {
             Align(
               alignment: Alignment.centerLeft,
               child: TextButton(
-                onPressed: () => showDestinationSearchSheet(
+                onPressed: () => FreemiumService.openSearchOrPaywall(
                   context,
                   initialFilter: PlaceSearchFilter.restaurants,
                 ),

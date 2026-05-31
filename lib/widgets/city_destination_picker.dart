@@ -208,7 +208,7 @@ class _CityMenuRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final unlocked =
-        CityPackEntitlementStore.instance.isUnlocked(offer.cityId);
+        CityPackEntitlementStore.instance.hasStoredCityUnlock(offer.cityId);
     final tokens = luxThemeTokensOf(context);
 
     return Row(
@@ -254,7 +254,7 @@ class _ThemeParksMenuRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final unlocked = CityPackEntitlementStore.instance
-        .isAddonUnlocked(OrlandoAddonCatalog.themeParks);
+        .hasStoredAddonUnlock(OrlandoAddonCatalog.themeParks);
     final tokens = luxThemeTokensOf(context);
 
     return Row(

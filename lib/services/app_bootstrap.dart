@@ -11,6 +11,7 @@ import 'package:luxora_ai/services/cloud_trips_sync_service.dart';
 import 'package:luxora_ai/services/discover_radius_controller.dart';
 import 'package:luxora_ai/services/home_base_store.dart';
 import 'package:luxora_ai/services/iap_purchase_service.dart';
+import 'package:luxora_ai/services/paywall_bypass.dart';
 import 'package:luxora_ai/services/places_repository.dart';
 import 'package:luxora_ai/services/saved_places_storage.dart';
 import 'package:luxora_ai/services/saved_trips_store.dart';
@@ -23,6 +24,10 @@ import 'package:luxora_ai/services/unsplash_photo_registry.dart';
 abstract final class AppBootstrap {
   static Future<void> prepareForFirstFrame() async {
     await CityPackRegistry.instance.load();
+    await CityPackEntitlementStore.instance.load();
+    if (PaywallBypass.forcePreviewMode) {
+      await CityPackEntitlementStore.instance.resetForDebugPreview();
+    }
     PlacesRepository.instance.ensureLocalCatalogLoaded();
   }
 

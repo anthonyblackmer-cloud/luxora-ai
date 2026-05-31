@@ -1,1 +1,166 @@
-{}
+{
+  "de": [
+    "paywallUnlockingDestination",
+    "paywallUnifiedPriceHeadline",
+    "paywallUnifiedPriceBody",
+    "paywallSelectedPackToday",
+    "paywallAddonUnifiedHeadline",
+    "paywallAddonUnifiedBody",
+    "paywallValueStory",
+    "paywallRoiHook",
+    "paywallPeaceOfMindTitle",
+    "paywallPeaceOfMindBody",
+    "paywallSocialProofHeading",
+    "paywallRestorePreviewDisabled"
+  ],
+
+  "es": [
+    "paywallUnlockingDestination",
+    "paywallUnifiedPriceHeadline",
+    "paywallUnifiedPriceBody",
+    "paywallSelectedPackToday",
+    "paywallAddonUnifiedHeadline",
+    "paywallAddonUnifiedBody",
+    "paywallValueStory",
+    "paywallRoiHook",
+    "paywallPeaceOfMindTitle",
+    "paywallPeaceOfMindBody",
+    "paywallSocialProofHeading",
+    "paywallRestorePreviewDisabled"
+  ],
+
+  "fr": [
+    "paywallUnlockingDestination",
+    "paywallUnifiedPriceHeadline",
+    "paywallUnifiedPriceBody",
+    "paywallSelectedPackToday",
+    "paywallAddonUnifiedHeadline",
+    "paywallAddonUnifiedBody",
+    "paywallValueStory",
+    "paywallRoiHook",
+    "paywallPeaceOfMindTitle",
+    "paywallPeaceOfMindBody",
+    "paywallSocialProofHeading",
+    "paywallRestorePreviewDisabled"
+  ],
+
+  "hi": [
+    "paywallUnlockingDestination",
+    "paywallUnifiedPriceHeadline",
+    "paywallUnifiedPriceBody",
+    "paywallSelectedPackToday",
+    "paywallAddonUnifiedHeadline",
+    "paywallAddonUnifiedBody",
+    "paywallValueStory",
+    "paywallRoiHook",
+    "paywallPeaceOfMindTitle",
+    "paywallPeaceOfMindBody",
+    "paywallSocialProofHeading",
+    "paywallRestorePreviewDisabled"
+  ],
+
+  "it": [
+    "paywallUnlockingDestination",
+    "paywallUnifiedPriceHeadline",
+    "paywallUnifiedPriceBody",
+    "paywallSelectedPackToday",
+    "paywallAddonUnifiedHeadline",
+    "paywallAddonUnifiedBody",
+    "paywallValueStory",
+    "paywallRoiHook",
+    "paywallPeaceOfMindTitle",
+    "paywallPeaceOfMindBody",
+    "paywallSocialProofHeading",
+    "paywallRestorePreviewDisabled"
+  ],
+
+  "ja": [
+    "paywallUnlockingDestination",
+    "paywallUnifiedPriceHeadline",
+    "paywallUnifiedPriceBody",
+    "paywallSelectedPackToday",
+    "paywallAddonUnifiedHeadline",
+    "paywallAddonUnifiedBody",
+    "paywallValueStory",
+    "paywallRoiHook",
+    "paywallPeaceOfMindTitle",
+    "paywallPeaceOfMindBody",
+    "paywallSocialProofHeading",
+    "paywallRestorePreviewDisabled"
+  ],
+
+  "ko": [
+    "paywallUnlockingDestination",
+    "paywallUnifiedPriceHeadline",
+    "paywallUnifiedPriceBody",
+    "paywallSelectedPackToday",
+    "paywallAddonUnifiedHeadline",
+    "paywallAddonUnifiedBody",
+    "paywallValueStory",
+    "paywallRoiHook",
+    "paywallPeaceOfMindTitle",
+    "paywallPeaceOfMindBody",
+    "paywallSocialProofHeading",
+    "paywallRestorePreviewDisabled"
+  ],
+
+  "pt": [
+    "paywallUnlockingDestination",
+    "paywallUnifiedPriceHeadline",
+    "paywallUnifiedPriceBody",
+    "paywallSelectedPackToday",
+    "paywallAddonUnifiedHeadline",
+    "paywallAddonUnifiedBody",
+    "paywallValueStory",
+    "paywallRoiHook",
+    "paywallPeaceOfMindTitle",
+    "paywallPeaceOfMindBody",
+    "paywallSocialProofHeading",
+    "paywallRestorePreviewDisabled"
+  ],
+
+  "ru": [
+    "paywallUnlockingDestination",
+    "paywallUnifiedPriceHeadline",
+    "paywallUnifiedPriceBody",
+    "paywallSelectedPackToday",
+    "paywallAddonUnifiedHeadline",
+    "paywallAddonUnifiedBody",
+    "paywallValueStory",
+    "paywallRoiHook",
+    "paywallPeaceOfMindTitle",
+    "paywallPeaceOfMindBody",
+    "paywallSocialProofHeading",
+    "paywallRestorePreviewDisabled"
+  ],
+
+  "tr": [
+    "paywallUnlockingDestination",
+    "paywallUnifiedPriceHeadline",
+    "paywallUnifiedPriceBody",
+    "paywallSelectedPackToday",
+    "paywallAddonUnifiedHeadline",
+    "paywallAddonUnifiedBody",
+    "paywallValueStory",
+    "paywallRoiHook",
+    "paywallPeaceOfMindTitle",
+    "paywallPeaceOfMindBody",
+    "paywallSocialProofHeading",
+    "paywallRestorePreviewDisabled"
+  ],
+
+  "zh": [
+    "paywallUnlockingDestination",
+    "paywallUnifiedPriceHeadline",
+    "paywallUnifiedPriceBody",
+    "paywallSelectedPackToday",
+    "paywallAddonUnifiedHeadline",
+    "paywallAddonUnifiedBody",
+    "paywallValueStory",
+    "paywallRoiHook",
+    "paywallPeaceOfMindTitle",
+    "paywallPeaceOfMindBody",
+    "paywallSocialProofHeading",
+    "paywallRestorePreviewDisabled"
+  ]
+}

@@ -63,6 +63,21 @@ class _ItineraryScreenState extends State<ItineraryScreen> {
     if (pending) setState(() => _showItineraryReady = true);
   }
 
+  Future<void> _selectAgendaDay(int index) async {
+    if (!FreemiumService.canAccessDay(index)) {
+      await FreemiumService.promptUnlock(
+        context,
+        trigger: FreemiumUnlockTrigger.dayTwoPlus,
+      );
+      if (mounted) setState(() {});
+      return;
+    }
+    setState(() {
+      _manualDayOverride = true;
+      _selectedDayIndex = index;
+    });
+  }
+
   Future<void> _ensureAgendaMediaReady() async {
     await Future.wait([
       UnsplashPhotoRegistry.instance.ensureLoaded(),
@@ -134,26 +149,19 @@ class _ItineraryScreenState extends State<ItineraryScreen> {
                 onDismiss: () => setState(() => _showItineraryReady = false),
               ),
             if (days.isNotEmpty) ...[
-              FreemiumLockedDaysPanel(days: days),
+              FreemiumLockedDaysPanel(
+                days: days,
+                onLockedDayTap: (index) => unawaited(_selectAgendaDay(index)),
+              ),
               AgendaDayDropdown(
                 days: days,
                 selectedIndex: dayIndex,
                 lockedDayIndices: FreemiumService.hasFullAccess()
                     ? const {}
                     : {for (var i = 1; i < days.length; i++) i},
-                onChanged: (index) async {
-                  if (!FreemiumService.canAccessDay(index)) {
-                    await FreemiumService.promptUnlock(
-                      context,
-                      trigger: FreemiumUnlockTrigger.dayTwoPlus,
-                    );
-                    return;
-                  }
-                  setState(() {
-                    _manualDayOverride = true;
-                    _selectedDayIndex = index;
-                  });
-                },
+                onLockedDaySelected: (index) =>
+                    unawaited(_selectAgendaDay(index)),
+                onChanged: (index) => unawaited(_selectAgendaDay(index)),
               ),
               const SizedBox(height: 16),
             ],

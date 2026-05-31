@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:luxora_ai/data/iap_product_catalog.dart';
 import 'package:luxora_ai/services/city_pack_entitlement_store.dart';
+import 'package:luxora_ai/services/paywall_bypass.dart';
 import 'package:luxora_ai/services/paywall_service.dart';
 
 enum IapPurchaseOutcome {
@@ -85,7 +86,9 @@ class IapPurchaseService extends ChangeNotifier {
     );
 
     await refreshProducts();
-    unawaited(restorePurchases(silent: true));
+    if (!PaywallBypass.forcePreviewMode) {
+      unawaited(restorePurchases(silent: true));
+    }
     notifyListeners();
   }
 
@@ -138,6 +141,9 @@ class IapPurchaseService extends ChangeNotifier {
   }
 
   Future<IapRestoreOutcome> restorePurchases({bool silent = false}) async {
+    if (PaywallBypass.forcePreviewMode && !silent) {
+      return IapRestoreOutcome.noneFound;
+    }
     if (!_storeAvailable) {
       if (allowSimulatedPurchases) return IapRestoreOutcome.noneFound;
       return IapRestoreOutcome.storeUnavailable;
@@ -258,7 +264,10 @@ class IapPurchaseService extends ChangeNotifier {
             }
           case PurchaseStatus.purchased:
           case PurchaseStatus.restored:
-            await _deliverPurchase(purchase);
+            final userInitiated = purchase.productID == _pendingProductId;
+            if (!PaywallBypass.forcePreviewMode || userInitiated) {
+              await _deliverPurchase(purchase);
+            }
             if (purchase.productID == _pendingProductId) {
               _pendingPurchase?.complete(IapPurchaseOutcome.success);
             }

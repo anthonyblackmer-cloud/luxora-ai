@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
+import 'package:luxora_ai/services/freemium_limits.dart';
 import 'package:luxora_ai/services/freemium_service.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 
@@ -15,25 +16,50 @@ class FreemiumConciergeBanner extends StatelessWidget {
 
     final l = context.l10n;
     final tokens = luxThemeTokensOf(context);
-    final label = remaining <= 0
+    final atLimit = remaining <= 0;
+    final label = atLimit
         ? l.freemiumConciergeLimitReached
         : l.freemiumConciergeRemaining(remaining);
 
     return Padding(
       padding: const EdgeInsets.fromLTRB(20, 8, 20, 0),
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-        decoration: BoxDecoration(
-          color: tokens.accent.withValues(alpha: 0.1),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: tokens.accent.withValues(alpha: 0.25)),
-        ),
-        child: Text(
-          label,
-          style: TextStyle(
-            fontSize: 12,
-            fontWeight: FontWeight.w600,
-            color: tokens.textPrimary,
+          onTap: atLimit
+              ? () => FreemiumService.promptUnlock(
+                    context,
+                    trigger: FreemiumUnlockTrigger.conciergeLimit,
+                  )
+              : null,
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+            decoration: BoxDecoration(
+              color: tokens.accent.withValues(alpha: 0.1),
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: tokens.accent.withValues(alpha: 0.25)),
+            ),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    label,
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                      color: tokens.textPrimary,
+                    ),
+                  ),
+                ),
+                if (atLimit)
+                  Icon(
+                    Icons.lock_open_rounded,
+                    size: 16,
+                    color: tokens.accent.withValues(alpha: 0.9),
+                  ),
+              ],
+            ),
           ),
         ),
       ),

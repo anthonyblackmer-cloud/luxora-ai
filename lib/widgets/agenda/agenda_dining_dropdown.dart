@@ -3,6 +3,7 @@ import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/models/trip_plan.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
 import 'package:luxora_ai/services/agenda_recommendation_service.dart';
+import 'package:luxora_ai/services/freemium_service.dart';
 import 'package:luxora_ai/services/city_pack_registry.dart';
 import 'package:luxora_ai/services/discover_radius_controller.dart';
 import 'package:luxora_ai/services/places_repository.dart';
@@ -117,7 +118,7 @@ class _AgendaDiningDropdownState extends State<AgendaDiningDropdown> {
               onChanged: (value) async {
                 if (value == null) return;
                 if (value == AgendaDiningDropdown.searchToken) {
-                  await showDestinationSearchSheet(
+                  await FreemiumService.openSearchOrPaywall(
                     context,
                     initialFilter: PlaceSearchFilter.restaurants,
                   );

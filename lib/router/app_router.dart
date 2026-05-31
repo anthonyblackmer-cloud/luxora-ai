@@ -22,13 +22,13 @@ import 'package:luxora_ai/screens/trips/trips_screen.dart';
 import 'package:luxora_ai/shell/main_shell.dart';
 import 'package:luxora_ai/widgets/lux_background.dart';
 
-final _rootKey = GlobalKey<NavigatorState>();
+final luxoraRootNavigatorKey = GlobalKey<NavigatorState>();
 
 Widget _luxPage(Widget child) => LuxBackground(child: child);
 
 GoRouter createAppRouter() {
   return GoRouter(
-    navigatorKey: _rootKey,
+    navigatorKey: luxoraRootNavigatorKey,
     initialLocation: '/',
     redirect: (context, state) {
       if (state.uri.path == '/experiences') return '/discover';
@@ -53,7 +53,7 @@ GoRouter createAppRouter() {
         builder: (context, state) => _luxPage(const WhyLuxoraScreen()),
       ),
       GoRoute(
-        parentNavigatorKey: _rootKey,
+        parentNavigatorKey: luxoraRootNavigatorKey,
         path: '/paywall',
         pageBuilder: (context, state) {
           final cityId = state.uri.queryParameters['city'] ?? 'orlando';
@@ -84,22 +84,22 @@ GoRouter createAppRouter() {
       ),
       // Secondary full-screen routes (outside bottom nav shell).
       GoRoute(
-        parentNavigatorKey: _rootKey,
+        parentNavigatorKey: luxoraRootNavigatorKey,
         path: '/gems',
         builder: (context, state) => _luxPage(const GemsScreen()),
       ),
       GoRoute(
-        parentNavigatorKey: _rootKey,
+        parentNavigatorKey: luxoraRootNavigatorKey,
         path: '/ticket-savings',
         builder: (context, state) => _luxPage(const TicketSavingsScreen()),
       ),
       GoRoute(
-        parentNavigatorKey: _rootKey,
+        parentNavigatorKey: luxoraRootNavigatorKey,
         path: '/stays',
         builder: (context, state) => _luxPage(const HotelsScreen()),
         routes: [
           GoRoute(
-            parentNavigatorKey: _rootKey,
+            parentNavigatorKey: luxoraRootNavigatorKey,
             path: 'matchmaker',
             builder: (context, state) =>
                 _luxPage(const HotelMatchmakerScreen()),
@@ -107,22 +107,22 @@ GoRouter createAppRouter() {
         ],
       ),
       GoRoute(
-        parentNavigatorKey: _rootKey,
+        parentNavigatorKey: luxoraRootNavigatorKey,
         path: '/trips',
         builder: (context, state) => _luxPage(const TripsScreen()),
       ),
       GoRoute(
-        parentNavigatorKey: _rootKey,
+        parentNavigatorKey: luxoraRootNavigatorKey,
         path: '/saved-favorites',
         builder: (context, state) => _luxPage(const SavedFavoritesScreen()),
       ),
       GoRoute(
-        parentNavigatorKey: _rootKey,
+        parentNavigatorKey: luxoraRootNavigatorKey,
         path: '/restaurants',
         builder: (context, state) => _luxPage(const RestaurantsScreen()),
       ),
       GoRoute(
-        parentNavigatorKey: _rootKey,
+        parentNavigatorKey: luxoraRootNavigatorKey,
         path: '/partner-offers',
         builder: (context, state) => _luxPage(const PartnerOffersScreen()),
       ),

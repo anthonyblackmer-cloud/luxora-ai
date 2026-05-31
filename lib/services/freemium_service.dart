@@ -1,8 +1,10 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:luxora_ai/data/local_secrets_registry.dart';
 import 'package:luxora_ai/data/paywall_catalog.dart';
 import 'package:luxora_ai/l10n/app_localizations.dart';
 import 'package:luxora_ai/models/lux_place.dart';
+import 'package:luxora_ai/services/city_pack_entitlement_store.dart';
 import 'package:luxora_ai/services/city_pack_registry.dart';
 import 'package:luxora_ai/services/freemium_limits.dart';
 import 'package:luxora_ai/services/paywall_bypass.dart';
@@ -16,9 +18,9 @@ abstract final class FreemiumService {
   static const _conciergeCountKey = 'luxora_freemium_concierge_user_msgs';
 
   static bool hasFullAccess([String? cityId]) {
-    if (PaywallBypass.enabled) return true;
+    if (PaywallBypass.forcePreviewMode) return false;
     final id = cityId ?? CityPackRegistry.instance.active.cityId;
-    return !PaywallService.needsUnlock(id);
+    return CityPackEntitlementStore.instance.hasStoredCityUnlock(id);
   }
 
   static bool canAccessDay(int dayIndex, [String? cityId]) =>
@@ -71,6 +73,15 @@ abstract final class FreemiumService {
     final prefs = await SharedPreferences.getInstance();
     final used = prefs.getInt(_conciergeCountKey) ?? 0;
     await prefs.setInt(_conciergeCountKey, used + 1);
+  }
+
+  /// Debug preview — clears concierge free-tier counters.
+  static Future<void> resetPreviewState() async {
+    assert(kDebugMode);
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.remove(_conciergeCountKey);
+    } catch (_) {}
   }
 
   static String contextualHeadline(
@@ -142,7 +153,10 @@ abstract final class FreemiumService {
     String? cityId,
   }) async {
     final id = cityId ?? CityPackRegistry.instance.active.cityId;
-    if (hasFullAccess(id)) return true;
+    if (CityPackEntitlementStore.instance.hasStoredCityUnlock(id) &&
+        !PaywallBypass.forcePreviewMode) {
+      return true;
+    }
     final l = AppLocalizations.of(context);
     final cityName = PaywallCatalog.offerFor(id).cityName;
     final headline = trigger == null

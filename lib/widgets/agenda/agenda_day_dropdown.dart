@@ -10,12 +10,14 @@ class AgendaDayDropdown extends StatelessWidget {
     required this.days,
     required this.selectedIndex,
     required this.onChanged,
+    this.onLockedDaySelected,
     this.lockedDayIndices = const {},
   });
 
   final List<TripDay> days;
   final int selectedIndex;
   final ValueChanged<int> onChanged;
+  final ValueChanged<int>? onLockedDaySelected;
   final Set<int> lockedDayIndices;
 
   @override
@@ -64,7 +66,12 @@ class AgendaDayDropdown extends StatelessWidget {
         final dayNum = int.tryParse(value);
         if (dayNum == null) return;
         final index = days.indexWhere((d) => d.dayNumber == dayNum);
-        if (index >= 0) onChanged(index);
+        if (index < 0) return;
+        if (lockedDayIndices.contains(index)) {
+          onLockedDaySelected?.call(index);
+          return;
+        }
+        onChanged(index);
       },
     );
   }

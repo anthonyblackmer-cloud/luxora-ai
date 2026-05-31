@@ -1290,6 +1290,33 @@
   "onboardCityUnlockNote": "Each destination has its own concierge unlock — one-time purchase per city. Orlando theme parks are one add-on pack (Disney & Universal together).",
   "landingCityLabel": "Where are you going?",
   "paywallSwitchCity": "Destination",
+  "paywallUnlockingDestination": "Unlocking for this trip",
+  "paywallUnifiedPriceHeadline": "Every City Pack unlocks for {price} each",
+  "@paywallUnifiedPriceHeadline": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallUnifiedPriceBody": "Orlando, Miami, Florida Keys — plus the Disney & Universal pack. One-time purchase each at the same price. No subscription.",
+  "paywallSelectedPackToday": "Unlocking today: {packName}",
+  "@paywallSelectedPackToday": {
+    "placeholders": {
+      "packName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallAddonUnifiedHeadline": "Disney & Universal — {price} one time",
+  "@paywallAddonUnifiedHeadline": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallAddonUnifiedBody": "Same simple pricing as every Florida city pack — one unlock, lifetime access.",
   "cityPickerUnlocked": "Unlocked",
   "cityPickerUnlockPrice": "Unlock {price}",
   "@cityPickerUnlockPrice": {
@@ -1803,8 +1830,8 @@
   "styleFamilyEasy": "Family-easy logistics",
   "paywallHeroEyebrow": "YOUR PERSONAL CONCIERGE",
   "paywallHeroHeadline": "DON'T WASTE YOUR VACATION",
-  "paywallHeroSubheadline": "Luxora plans the trip so you can enjoy it.",
-  "paywallEmotionalLine": "You're already spending thousands on your vacation. Don't leave the experience to chance.",
+  "paywallHeroSubheadline": "Your AI concierge plans every day, finds the gems, and keeps you out of tourist traps — so you actually enjoy the trip.",
+  "paywallEmotionalLine": "You're already spending thousands on flights, hotels, and tickets. Don't waste the trip on bad restaurants, crowded traps, and last-minute guesswork.",
   "paywallHeadlineCouples": "Your perfect {cityName} getaway starts here.",
   "@paywallHeadlineCouples": {
     "placeholders": {
@@ -1858,14 +1885,28 @@
   "paywallFeatureDining": "Dining Recommendations",
   "paywallFeatureUnlimitedPlanning": "Unlimited City Planning",
   "paywallWhyTravelersUnlock": "Why Travelers Unlock Luxora",
-  "paywallBenefitSaveTimeTitle": "Save Time",
-  "paywallBenefitSaveTimeBody": "Skip hours of research and planning.",
-  "paywallBenefitSaveMoneyTitle": "Save Money",
-  "paywallBenefitSaveMoneyBody": "Discover ticket savings, local deals, and smarter choices.",
-  "paywallBenefitAvoidTrapsTitle": "Avoid Tourist Traps",
-  "paywallBenefitAvoidTrapsBody": "Find experiences locals actually recommend.",
-  "paywallBenefitTravelSmarterTitle": "Travel Smarter",
-  "paywallBenefitTravelSmarterBody": "Get recommendations based on weather, crowds, and your trip style.",
+  "paywallBenefitSaveTimeTitle": "Save Hours of Planning",
+  "paywallBenefitSaveTimeBody": "Skip the spreadsheets and endless tabs. Luxora builds day-by-day routes tailored to your style in minutes.",
+  "paywallBenefitSaveMoneyTitle": "Save Real Money",
+  "paywallBenefitSaveMoneyBody": "Ticket deals, smarter dining picks, and crowd-aware timing — small choices that add up on a Florida vacation.",
+  "paywallBenefitAvoidTrapsTitle": "Skip Tourist Traps",
+  "paywallBenefitAvoidTrapsBody": "Get the spots locals love — not the overpriced stops every guidebook pushes to first-time visitors.",
+  "paywallBenefitTravelSmarterTitle": "Travel With Confidence",
+  "paywallBenefitTravelSmarterBody": "Weather shifts, crowd spikes, and \"what should we do now?\" — your concierge adapts before and during the trip.",
+  "paywallValueStory": "Every Florida city pack — including Disney & Universal — unlocks for {price}. You're getting the full concierge for {cityName}: itineraries, hidden gems, hotel intel, and unlimited AI guidance.",
+  "@paywallValueStory": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      },
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallRoiHook": "One bad meal, overpriced ticket booth, or wasted afternoon costs more than this one-time unlock.",
+  "paywallPeaceOfMindTitle": "Peace of mind, built in",
+  "paywallPeaceOfMindBody": "You're not buying another subscription. You're buying a smarter vacation — planned before you land and supported while you're there.",
   "paywallLockedPreviewTitle": "Waiting Inside Your Concierge",
   "paywallLockedPreviewSubtitle": "Unlock to reveal routes and secrets tailored to your trip.",
   "paywallLockedDateNight": "Romantic Date Night Routes",
@@ -1886,7 +1927,7 @@
   "paywallOneTimePurchase": "One-Time Purchase",
   "paywallNoSubscription": "No Subscription",
   "paywallNoMonthlyFees": "No Monthly Fees",
-  "paywallLifetimeAccess": "Lifetime {cityName} Access",
+  "paywallLifetimeAccess": "Lifetime {cityName} access — yours forever, no monthly bill",
   "@paywallLifetimeAccess": {
     "placeholders": {
       "cityName": {
@@ -1924,8 +1965,9 @@
       }
     }
   },
-  "paywallLessThanDinner": "Less than the cost of a vacation dinner.",
+  "paywallLessThanDinner": "Less than one forgettable tourist-trap dinner — for planning that pays off all week.",
   "paywallSocialProofTitle": "Travelers Who Unlocked Luxora",
+  "paywallSocialProofHeading": "Worth it before they even landed",
   "paywallReview1": "\"Saved us hours of planning.\"",
   "paywallReview2": "\"Found places we never would have discovered.\"",
   "paywallReview3": "\"Worth it for the hidden gems alone.\"",
@@ -1938,8 +1980,9 @@
     }
   },
   "paywallContinueExploring": "Continue Exploring",
-  "paywallConciergePromise": "No Subscription · Lifetime city access",
+  "paywallConciergePromise": "One payment · Lifetime city access · No subscription · Future updates included",
   "paywallRestorePurchases": "Restore purchases",
+  "paywallRestorePreviewDisabled": "Restore is disabled in preview mode — use a full build to test restore.",
   "paywallPurchaseSuccess": "Purchase complete — your concierge is unlocked.",
   "paywallPurchasePending": "Completing purchase…",
   "paywallPurchaseFailed": "Purchase couldn't be completed. Try again or restore purchases.",

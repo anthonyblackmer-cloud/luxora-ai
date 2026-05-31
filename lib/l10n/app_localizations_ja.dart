@@ -2322,6 +2322,32 @@ class AppLocalizationsJa extends AppLocalizations {
   String get paywallSwitchCity => '行き先';
 
   @override
+  String get paywallUnlockingDestination => 'Unlocking for this trip';
+
+  @override
+  String paywallUnifiedPriceHeadline(String price) {
+    return 'Every City Pack unlocks for $price each';
+  }
+
+  @override
+  String get paywallUnifiedPriceBody =>
+      'Orlando, Miami, Florida Keys — plus the Disney & Universal pack. One-time purchase each at the same price. No subscription.';
+
+  @override
+  String paywallSelectedPackToday(String packName) {
+    return 'Unlocking today: $packName';
+  }
+
+  @override
+  String paywallAddonUnifiedHeadline(String price) {
+    return 'Disney & Universal — $price one time';
+  }
+
+  @override
+  String get paywallAddonUnifiedBody =>
+      'Same simple pricing as every Florida city pack — one unlock, lifetime access.';
+
+  @override
   String get cityPickerUnlocked => 'ロック解除済み';
 
   @override
@@ -3387,6 +3413,22 @@ class AppLocalizationsJa extends AppLocalizations {
       '天気、混雑状況、旅行スタイルに基づいておすすめ情報を入手します。';
 
   @override
+  String paywallValueStory(String cityName, String price) {
+    return 'Every Florida city pack — including Disney & Universal — unlocks for $price. You\'re getting the full concierge for $cityName: itineraries, hidden gems, hotel intel, and unlimited AI guidance.';
+  }
+
+  @override
+  String get paywallRoiHook =>
+      'One bad meal, overpriced ticket booth, or wasted afternoon costs more than this one-time unlock.';
+
+  @override
+  String get paywallPeaceOfMindTitle => 'Peace of mind, built in';
+
+  @override
+  String get paywallPeaceOfMindBody =>
+      'You\'re not buying another subscription. You\'re buying a smarter vacation — planned before you land and supported while you\'re there.';
+
+  @override
   String get paywallLockedPreviewTitle => 'コンシェルジュの中でお待ちしています';
 
   @override
@@ -3459,6 +3501,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get paywallSocialProofTitle => 'ルクソラのロックを解除した旅行者';
 
   @override
+  String get paywallSocialProofHeading => 'Worth it before they even landed';
+
+  @override
   String get paywallReview1 => '「計画に費やす時間を節約できました。」';
 
   @override
@@ -3480,6 +3525,10 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get paywallRestorePurchases => '購入したものを復元する';
+
+  @override
+  String get paywallRestorePreviewDisabled =>
+      'Restore is disabled in preview mode — use a full build to test restore.';
 
   @override
   String get paywallPurchaseSuccess => '購入が完了しました - コンシェルジュのロックが解除されました。';

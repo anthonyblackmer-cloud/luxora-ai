@@ -133,8 +133,16 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
       await CityPackSync.switchCity(enriched.cityId);
 
+      if (!mounted) return;
+
+      if (PaywallService.needsUnlock(enriched.cityId)) {
+        await PaywallService.showPaywall(context, cityId: enriched.cityId);
+      }
+
+      if (!mounted) return;
+
       if (enriched.cityId == OrlandoAddonCatalog.parentCityId) {
-        await PaywallService.promptOrlandoThemeParksIfNeeded(context);
+        await PaywallService.promptOrlandoThemeParksIfNeeded(context, force: true);
       }
 
       if (!mounted) return;
@@ -169,10 +177,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     if (_finishing) return;
 
     if (_step == 6 &&
-        _profile.cityId == OrlandoAddonCatalog.parentCityId &&
-        _profile.tripStyles.contains(TripStyle.themeParks)) {
-      final ready = await PaywallService.prepareOrlandoBeforeOccasion(context);
-      if (!ready || !mounted) return;
+        _profile.cityId == OrlandoAddonCatalog.parentCityId) {
+      await PaywallService.prepareOrlandoBeforeOccasion(context);
+      if (!mounted) return;
       _onEntitlementsChanged();
     }
 
@@ -419,6 +426,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         CityDestinationPicker(
           label: l.onboardCityLabel,
           selectedCityId: _profile.cityId,
+          showUnlockStatus: false,
           onChanged: (id) => CityPickerActions.handleSelection(
             context,
             pickedId: id,

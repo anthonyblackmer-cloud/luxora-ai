@@ -17,10 +17,12 @@ class FreemiumLockedDaysPanel extends StatelessWidget {
     super.key,
     required this.days,
     this.cityId,
+    this.onLockedDayTap,
   });
 
   final List<TripDay> days;
   final String? cityId;
+  final ValueChanged<int>? onLockedDayTap;
 
   @override
   Widget build(BuildContext context) {
@@ -74,6 +76,7 @@ class FreemiumLockedDaysPanel extends StatelessWidget {
                     '🔒 ${FreemiumService.lockedRowLabel(l, days[i].dayNumber)}',
                 locked: true,
                 tokens: tokens,
+                onTap: onLockedDayTap == null ? null : () => onLockedDayTap!(i),
               ),
             const SizedBox(height: 12),
             LuxButton(
@@ -97,24 +100,49 @@ class _Row extends StatelessWidget {
     required this.label,
     required this.locked,
     required this.tokens,
+    this.onTap,
   });
 
   final String label;
   final bool locked;
   final LuxThemeTokens tokens;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
+    final text = Text(
+      label,
+      style: TextStyle(
+        fontSize: 13,
+        fontWeight: locked ? FontWeight.w600 : FontWeight.w700,
+        color: locked ? tokens.textMuted : tokens.accent,
+      ),
+    );
+
     return Padding(
       padding: const EdgeInsets.only(bottom: 6),
-      child: Text(
-        label,
-        style: TextStyle(
-          fontSize: 13,
-          fontWeight: locked ? FontWeight.w600 : FontWeight.w700,
-          color: locked ? tokens.textMuted : tokens.accent,
-        ),
-      ),
+      child: onTap == null
+          ? text
+          : Material(
+              color: Colors.transparent,
+              child: InkWell(
+                borderRadius: BorderRadius.circular(8),
+                onTap: onTap,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 4),
+                  child: Row(
+                    children: [
+                      Expanded(child: text),
+                      Icon(
+                        Icons.lock_outline_rounded,
+                        size: 16,
+                        color: tokens.textMuted.withValues(alpha: 0.85),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
     );
   }
 }

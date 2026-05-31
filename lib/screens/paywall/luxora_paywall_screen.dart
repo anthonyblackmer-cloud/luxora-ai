@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:luxora_ai/data/iap_product_catalog.dart';
 import 'package:luxora_ai/data/orlando/orlando_addon_catalog.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
@@ -9,21 +8,16 @@ import 'package:luxora_ai/services/city_pack_entitlement_store.dart';
 import 'package:luxora_ai/services/city_pack_sync.dart';
 import 'package:luxora_ai/services/iap_purchase_service.dart';
 import 'package:luxora_ai/services/paywall_personalization.dart';
+import 'package:luxora_ai/services/paywall_bypass.dart';
 import 'package:luxora_ai/services/paywall_service.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/util/iap_user_messages.dart';
 import 'package:luxora_ai/widgets/city_destination_picker.dart';
-import 'package:luxora_ai/widgets/paywall/paywall_benefit_cards.dart';
+import 'package:luxora_ai/widgets/paywall/paywall_compact_body.dart';
 import 'package:luxora_ai/widgets/paywall/paywall_cta.dart';
-import 'package:luxora_ai/widgets/paywall/paywall_feature_grid.dart';
-import 'package:luxora_ai/widgets/paywall/paywall_hero.dart';
-import 'package:luxora_ai/widgets/paywall/paywall_locked_preview.dart';
-import 'package:luxora_ai/widgets/paywall/paywall_orlando_addon_section.dart';
-import 'package:luxora_ai/widgets/paywall/paywall_pricing_card.dart';
-import 'package:luxora_ai/widgets/paywall/paywall_social_proof.dart';
 import 'package:luxora_ai/widgets/settings/luxora_premium_sheet_shell.dart';
 
-/// Full-screen cinematic paywall — unlock a personal concierge, not software.
+/// Full-screen paywall — single view for App Store screenshots and unlock flow.
 class LuxoraPaywallScreen extends StatefulWidget {
   const LuxoraPaywallScreen({
     super.key,
@@ -45,14 +39,10 @@ class _LuxoraPaywallScreenState extends State<LuxoraPaywallScreen> {
   late PaywallPersona _persona;
   PaywallAddonOffer? _addonOffer;
   bool _unlocking = false;
-  bool _unlockingAddon = false;
   bool _restoring = false;
 
   bool get _addonFocus =>
       _addonOffer != null && PaywallService.isOrlandoAddon(_addonOffer!.addonId);
-
-  bool get _showOrlandoAddons =>
-      _offer.cityId == OrlandoAddonCatalog.parentCityId && !_addonFocus;
 
   @override
   void initState() {
@@ -90,7 +80,7 @@ class _LuxoraPaywallScreenState extends State<LuxoraPaywallScreen> {
         if (_offer.cityId == OrlandoAddonCatalog.parentCityId) {
           await PaywallService.promptOrlandoThemeParksIfNeeded(context);
         }
-        if (mounted) context.pop(true);
+        if (mounted) Navigator.of(context).pop(true);
         return;
       }
       if (outcome != IapPurchaseOutcome.pending) {
@@ -98,29 +88,6 @@ class _LuxoraPaywallScreenState extends State<LuxoraPaywallScreen> {
       }
     } finally {
       if (mounted) setState(() => _unlocking = false);
-    }
-  }
-
-  Future<void> _unlockAddon(String addonId) async {
-    if (_unlockingAddon) return;
-    if (!CityPackEntitlementStore.instance
-        .isUnlocked(OrlandoAddonCatalog.parentCityId)) {
-      return;
-    }
-    setState(() => _unlockingAddon = true);
-    try {
-      final outcome = await PaywallService.purchaseAddon(addonId);
-      if (!mounted) return;
-      if (outcome == IapPurchaseOutcome.success ||
-          outcome == IapPurchaseOutcome.alreadyOwned) {
-        setState(() {});
-        return;
-      }
-      if (outcome != IapPurchaseOutcome.pending) {
-        showIapSnackBar(context, iapPurchaseMessage(context.l10n, outcome));
-      }
-    } finally {
-      if (mounted) setState(() => _unlockingAddon = false);
     }
   }
 
@@ -137,7 +104,7 @@ class _LuxoraPaywallScreenState extends State<LuxoraPaywallScreen> {
       if (!mounted) return;
       if (outcome == IapPurchaseOutcome.success ||
           outcome == IapPurchaseOutcome.alreadyOwned) {
-        context.pop(true);
+        Navigator.of(context).pop(true);
         return;
       }
       if (outcome != IapPurchaseOutcome.pending) {
@@ -150,6 +117,10 @@ class _LuxoraPaywallScreenState extends State<LuxoraPaywallScreen> {
 
   Future<void> _restorePurchases() async {
     if (_restoring || _unlocking) return;
+    if (PaywallBypass.forcePreviewMode) {
+      showIapSnackBar(context, context.l10n.paywallRestorePreviewDisabled);
+      return;
+    }
     setState(() => _restoring = true);
     try {
       final outcome = await PaywallService.restorePurchases();
@@ -158,7 +129,7 @@ class _LuxoraPaywallScreenState extends State<LuxoraPaywallScreen> {
       if (outcome == IapRestoreOutcome.restored) {
         setState(() {});
         if (!_addonFocus && !PaywallService.needsUnlock(_offer.cityId)) {
-          context.pop(true);
+          Navigator.of(context).pop(true);
         }
       }
     } finally {
@@ -174,13 +145,14 @@ class _LuxoraPaywallScreenState extends State<LuxoraPaywallScreen> {
       });
       return;
     }
-    if (!PaywallService.needsUnlock(cityId)) {
+    if (!PaywallBypass.forcePreviewMode &&
+        !PaywallService.needsUnlock(cityId)) {
       await CityPackSync.switchCity(cityId);
       if (!mounted) return;
       if (cityId == OrlandoAddonCatalog.parentCityId) {
         await PaywallService.promptOrlandoThemeParksIfNeeded(context);
       }
-      if (mounted) context.pop(true);
+      if (mounted) Navigator.of(context).pop(true);
       return;
     }
     setState(() {
@@ -190,7 +162,7 @@ class _LuxoraPaywallScreenState extends State<LuxoraPaywallScreen> {
   }
 
   void _continueExploring() {
-    context.pop(false);
+    Navigator.of(context).pop(false);
   }
 
   String _headline(dynamic l) {
@@ -218,131 +190,86 @@ class _LuxoraPaywallScreenState extends State<LuxoraPaywallScreen> {
     final l = context.l10n;
     final headline = widget.contextHeadline ?? _headline(l);
     final heroId = _heroPhotoId();
-    final cityLocked = PaywallService.needsUnlock(_offer.cityId);
+    final preview = PaywallBypass.forcePreviewMode;
+    final cityLocked =
+        preview || PaywallService.needsUnlock(_offer.cityId);
     final addonLocked = _addonFocus &&
         _addonOffer != null &&
-        PaywallService.needsAddonUnlock(_addonOffer!.addonId);
+        (preview || PaywallService.needsAddonUnlock(_addonOffer!.addonId));
+    final priceLabel =
+        PaywallService.storePriceForCity(_offer.cityId) ?? _offer.formattedPrice;
 
     return Scaffold(
       backgroundColor: t.bg,
-      body: Stack(
-        children: [
-          CustomScrollView(
-            physics: const BouncingScrollPhysics(
-              parent: AlwaysScrollableScrollPhysics(),
-            ),
-            slivers: [
-              if (!_addonFocus)
-                SliverToBoxAdapter(
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(20, 56, 20, 0),
-                    child: CityDestinationPicker(
-                      label: l.paywallSwitchCity,
-                      selectedCityId: _offer.cityId,
-                      limitedCityIds: IapProductCatalog.launchCityIds,
-                      onChanged: _switchCity,
+      body: SafeArea(
+        child: Stack(
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 8, 20, 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  if (!_addonFocus)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 12),
+                      child: CityDestinationPicker(
+                        label: l.paywallUnlockingDestination,
+                        selectedCityId: _offer.cityId,
+                        limitedCityIds: IapProductCatalog.launchCityIds,
+                        showUnlockStatus: false,
+                        onChanged: _switchCity,
+                      ),
                     ),
-                  ),
-                ),
-              SliverToBoxAdapter(
-                child: PaywallHero(
-                  key: ValueKey('$_addonFocus-${_offer.cityId}-$heroId'),
-                  heroPhotoId: heroId,
-                  headline: headline,
-                  subheadline: _addonFocus
-                      ? l.paywallOrlandoAddonsHeading
-                      : l.paywallHeroSubheadline,
-                  emotionalLine: l.paywallEmotionalLine,
-                ),
-              ),
-              SliverPadding(
-                padding: const EdgeInsets.fromLTRB(20, 8, 20, 120),
-                sliver: SliverList(
-                  delegate: SliverChildListDelegate([
-                    if (!_addonFocus) ...[
-                      PaywallFeatureGrid(revealIndex: 1),
-                      const SizedBox(height: 28),
-                      PaywallBenefitCards(revealIndex: 2),
-                      const SizedBox(height: 28),
-                      PaywallLockedPreview(revealIndex: 3),
-                      const SizedBox(height: 28),
-                    ],
-                    if (_addonFocus && _addonOffer != null)
-                      PaywallAddonPricingCard(
-                        offer: _addonOffer!,
-                        revealIndex: 1,
-                      )
-                    else if (cityLocked)
-                      ListenableBuilder(
+                  Expanded(
+                    child: SingleChildScrollView(
+                      physics: const BouncingScrollPhysics(),
+                      child: ListenableBuilder(
                         listenable: IapPurchaseService.instance,
                         builder: (context, _) {
-                          return PaywallPricingCard(
+                          return PaywallCompactBody(
                             offer: _offer,
-                            revealIndex: 4,
-                            priceLabel: PaywallService.storePriceForCity(
-                                  _offer.cityId,
-                                ) ??
-                                _offer.formattedPrice,
+                            headline: headline,
+                            heroPhotoId: heroId,
+                            priceLabel: priceLabel,
+                            addonOffer: _addonOffer,
+                            addonFocus: _addonFocus,
                           );
                         },
                       ),
-                    if (_showOrlandoAddons) ...[
-                      const SizedBox(height: 28),
-                      PaywallOrlandoAddonSection(
-                        revealIndex: 5,
-                        unlocking: _unlockingAddon,
-                        onAddonUnlock: _unlockAddon,
-                      ),
-                    ],
-                    if (!_addonFocus) ...[
-                      const SizedBox(height: 28),
-                      PaywallSocialProof(revealIndex: 6),
-                      const SizedBox(height: 28),
-                      PaywallCTA(
-                        offer: _offer,
-                        onUnlock: _unlockCity,
-                        onContinue: _continueExploring,
-                        onRestore: _restorePurchases,
-                        isLoading: _unlocking,
-                        isRestoring: _restoring,
-                        revealIndex: 7,
-                      ),
-                    ] else if (addonLocked && _addonOffer != null) ...[
-                      const SizedBox(height: 28),
-                      PaywallAddonCTA(
-                        packName: l.paywallAddonThemeParksTitle,
-                        onUnlock: _unlockFocusedAddon,
-                        onContinue: _continueExploring,
-                        isLoading: _unlocking,
-                        revealIndex: 2,
-                      ),
-                    ],
-                  ]),
-                ),
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  if (_addonFocus && addonLocked && _addonOffer != null)
+                    PaywallAddonCTA(
+                      packName: l.paywallAddonThemeParksTitle,
+                      onUnlock: _unlockFocusedAddon,
+                      onContinue: _continueExploring,
+                      isLoading: _unlocking,
+                    )
+                  else if (cityLocked)
+                    PaywallCTA(
+                      offer: _offer,
+                      onUnlock: _unlockCity,
+                      onContinue: _continueExploring,
+                      onRestore: preview ? null : _restorePurchases,
+                      isLoading: _unlocking,
+                      isRestoring: _restoring,
+                      revealIndex: 0,
+                    ),
+                ],
               ),
-            ],
-          ),
-          Positioned(
-            top: MediaQuery.paddingOf(context).top + 8,
-            right: 12,
-            child: LuxSheetCloseButton(
-              color: LuxColors.cream,
-              background: Colors.black.withValues(alpha: 0.35),
-              onClose: _continueExploring,
             ),
-          ),
-          if (!_addonFocus && cityLocked)
             Positioned(
-              left: 0,
-              right: 0,
-              bottom: 0,
-              child: PaywallStickyCTA(
-                offer: _offer,
-                onUnlock: _unlockCity,
-                isLoading: _unlocking,
+              top: 8,
+              right: 12,
+              child: LuxSheetCloseButton(
+                color: LuxColors.cream,
+                background: Colors.black.withValues(alpha: 0.35),
+                onClose: _continueExploring,
               ),
             ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -355,14 +282,12 @@ class PaywallAddonCTA extends StatelessWidget {
     required this.onUnlock,
     required this.onContinue,
     this.isLoading = false,
-    this.revealIndex = 2,
   });
 
   final String packName;
   final VoidCallback onUnlock;
   final VoidCallback onContinue;
   final bool isLoading;
-  final int revealIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -380,7 +305,7 @@ class PaywallAddonCTA extends StatelessWidget {
             style: FilledButton.styleFrom(
               backgroundColor: t.accent,
               foregroundColor: t.onAccent,
-              padding: const EdgeInsets.symmetric(vertical: 18),
+              padding: const EdgeInsets.symmetric(vertical: 16),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16),
               ),
@@ -399,13 +324,13 @@ class PaywallAddonCTA extends StatelessWidget {
                         ? l.paywallCtaUnlockAddon(packName)
                         : l.paywallAddonRequiresOrlando,
                     style: const TextStyle(
-                      fontSize: 17,
+                      fontSize: 16,
                       fontWeight: FontWeight.w900,
                     ),
                   ),
           ),
         ),
-        const SizedBox(height: 14),
+        const SizedBox(height: 10),
         TextButton(
           onPressed: isLoading ? null : onContinue,
           child: Text(l.paywallContinueExploring),

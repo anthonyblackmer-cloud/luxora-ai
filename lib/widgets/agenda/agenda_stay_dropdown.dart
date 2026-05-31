@@ -4,6 +4,7 @@ import 'package:luxora_ai/models/lux_hotel.dart';
 import 'package:luxora_ai/models/trip_plan.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
 import 'package:luxora_ai/services/agenda_recommendation_service.dart';
+import 'package:luxora_ai/services/freemium_service.dart';
 import 'package:luxora_ai/services/home_base_store.dart';
 import 'package:luxora_ai/services/hotel_intelligence_service.dart';
 import 'package:luxora_ai/services/trip_profile_store.dart';
@@ -76,7 +77,7 @@ class AgendaStayDropdown extends StatelessWidget {
               onChanged: (value) async {
                 if (value == null) return;
                 if (value == _searchToken) {
-                  await showDestinationSearchSheet(
+                  await FreemiumService.openSearchOrPaywall(
                     context,
                     initialFilter: PlaceSearchFilter.hotels,
                   );
