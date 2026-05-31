@@ -4,8 +4,8 @@ import 'package:luxora_ai/data/gem_discoveries.dart';
 import 'package:luxora_ai/data/florida_keys/florida_keys_content.dart';
 import 'package:luxora_ai/data/miami/miami_content.dart';
 import 'package:luxora_ai/data/naples/naples_content.dart';
-import 'package:luxora_ai/data/st_augustine/st_augustine_content.dart';
-import 'package:luxora_ai/data/tampa_bay/tampa_bay_content.dart';
+import 'package:luxora_ai/data/nyc/nyc_content.dart';
+import 'package:luxora_ai/data/st_augustine/st_augustine_content.dart';import 'package:luxora_ai/data/tampa_bay/tampa_bay_content.dart';
 import 'package:luxora_ai/data/vegas/vegas_content.dart';
 import 'package:luxora_ai/services/city_pack_registry.dart';
 import 'package:luxora_ai/services/orlando_addon_service.dart';
@@ -26,13 +26,12 @@ abstract final class CityContentCatalog {
     if (cityId == VegasContent.cityId) {
       return VegasContent.feedItems;
     }
-        if (cityId == NycContent.cityId) {
+    if (cityId == NycContent.cityId) {
       return NycContent.feedItems;
     }
-if (cityId == TampaBayContent.cityId) {
+    if (cityId == TampaBayContent.cityId) {
       return TampaBayContent.feedItems;
-    }
-    if (cityId == MiamiContent.cityId) {
+    }    if (cityId == MiamiContent.cityId) {
       return MiamiContent.feedItems;
     }
     if (cityId == FloridaKeysContent.cityId) {
