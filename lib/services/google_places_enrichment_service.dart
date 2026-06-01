@@ -16,7 +16,12 @@ class GooglePlacesEnrichmentService extends ChangeNotifier {
   static final GooglePlacesEnrichmentService instance =
       GooglePlacesEnrichmentService._();
 
-  static const _prefsKey = 'luxora_google_places_enrichment_v1';
+  static const _prefsKey = 'luxora_google_places_enrichment_v2';
+  static const _queryOverrides = <String, String>{
+    // Feed card "Space Coast launch window" maps to this place id.
+    'place-kennedy-space-center':
+        'Kennedy Space Center Visitor Complex Merritt Island FL',
+  };
 
   final GooglePlacesApiClient _client = GooglePlacesApiClient();
   final Map<String, GooglePlaceEnrichment> _cache = {};
@@ -55,7 +60,18 @@ class GooglePlacesEnrichmentService extends ChangeNotifier {
         if (value is! Map<String, dynamic>) {
           continue;
         }
-        _cache[entry.key] = GooglePlaceEnrichment.fromJson(value);
+        var enrichment = GooglePlaceEnrichment.fromJson(value);
+        if (!GooglePlaceEnrichment.isUsableHeroPhotoUrl(enrichment.heroPhotoUrl)) {
+          enrichment = GooglePlaceEnrichment(
+            luxPlaceId: enrichment.luxPlaceId,
+            googlePlaceId: enrichment.googlePlaceId,
+            websiteUri: enrichment.websiteUri,
+            heroPhotoUrl: null,
+            photoAttribution: enrichment.photoAttribution,
+            googleMapsUri: enrichment.googleMapsUri,
+          );
+        }
+        _cache[entry.key] = enrichment;
       }
     } catch (e, st) {
       debugPrint('GooglePlacesEnrichmentService.load failed: $e\n$st');
@@ -66,7 +82,12 @@ class GooglePlacesEnrichmentService extends ChangeNotifier {
     if (!isAvailable || place.moodTags.contains('trip-cover')) {
       return;
     }
-    if (_cache.containsKey(place.id) || _inFlight.containsKey(place.id)) {
+    final cached = _cache[place.id];
+    if (cached != null &&
+        GooglePlaceEnrichment.isUsableHeroPhotoUrl(cached.heroPhotoUrl)) {
+      return;
+    }
+    if (_inFlight.containsKey(place.id)) {
       return;
     }
     final future = enrich(place);
@@ -79,7 +100,8 @@ class GooglePlacesEnrichmentService extends ChangeNotifier {
       return null;
     }
     final existing = _cache[place.id];
-    if (existing != null) {
+    if (existing != null &&
+        GooglePlaceEnrichment.isUsableHeroPhotoUrl(existing.heroPhotoUrl)) {
       return existing;
     }
 
@@ -100,8 +122,11 @@ class GooglePlacesEnrichmentService extends ChangeNotifier {
       String? photoAttribution;
       if (match.photos.isNotEmpty) {
         final photo = match.photos.first;
-        heroPhotoUrl = (await _client.photoUri(photo.name)).toString();
-        photoAttribution = photo.primaryAttribution;
+        final resolved = (await _client.photoUri(photo.name)).toString();
+        if (GooglePlaceEnrichment.isUsableHeroPhotoUrl(resolved)) {
+          heroPhotoUrl = resolved;
+          photoAttribution = photo.primaryAttribution;
+        }
       }
 
       final enrichment = GooglePlaceEnrichment(
@@ -123,6 +148,10 @@ class GooglePlacesEnrichmentService extends ChangeNotifier {
   }
 
   String _textQueryFor(LuxPlace place) {
+    final override = _queryOverrides[place.id];
+    if (override != null && override.isNotEmpty) {
+      return override;
+    }
     final title = place.title.trim();
     final location = place.location.trim();
     if (location.isEmpty) {

@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:luxora_ai/services/google_places_config.dart';
 
@@ -95,23 +96,42 @@ class GooglePlacesApiClient {
     int maxWidthPx = 1200,
   }) async {
     _ensureConfigured();
-    final uri = Uri.parse(
-      '${GooglePlacesConfig.apiBase}/$photoResourceName/media?maxWidthPx=$maxWidthPx',
-    );
-    final response = await _client.get(
-      uri,
-      headers: {'X-Goog-Api-Key': GooglePlacesConfig.apiKey},
-    );
-    if (response.statusCode != 302 && response.statusCode != 200) {
-      throw Exception(
-        'Places photo media failed: ${response.statusCode} ${response.body}',
-      );
+    final uri = Uri.parse('${GooglePlacesConfig.apiBase}/$photoResourceName/media')
+        .replace(queryParameters: {'maxWidthPx': '$maxWidthPx'});
+
+    // Browser http clients can fail on Places photo-media due CORS.
+    // For Flutter web, let Image.network request media directly with key.
+    if (kIsWeb) {
+      return uri.replace(queryParameters: {
+        ...uri.queryParameters,
+        'key': GooglePlacesConfig.apiKey,
+      });
     }
-    final resolved = response.headers['location'];
-    if (resolved != null && resolved.isNotEmpty) {
-      return Uri.parse(resolved);
+    // Must not follow redirects — the media endpoint returns 302 to
+    // googleusercontent.com; Image.network cannot send X-Goog-Api-Key.
+    final request = http.Request('GET', uri)
+      ..followRedirects = false
+      ..headers['X-Goog-Api-Key'] = GooglePlacesConfig.apiKey;
+    final streamed = await _client.send(request);
+    final response = await http.Response.fromStream(streamed);
+
+    if (response.statusCode == 301 || response.statusCode == 302) {
+      final resolved = response.headers['location'];
+      if (resolved != null && resolved.isNotEmpty) {
+        return Uri.parse(resolved);
+      }
     }
-    return uri;
+
+    final finalUrl = response.request?.url;
+    if (response.statusCode == 200 &&
+        finalUrl != null &&
+        finalUrl.host.contains('googleusercontent.com')) {
+      return finalUrl;
+    }
+
+    throw Exception(
+      'Places photo media failed: ${response.statusCode} ${response.body}',
+    );
   }
 }
 

@@ -35,4 +35,20 @@ class GooglePlaceEnrichment {
       googleMapsUri: json['googleMapsUri'] as String?,
     );
   }
+
+  /// CDN redirect targets work in [Image.network]; API media URLs need headers.
+  static bool isUsableHeroPhotoUrl(String? url) {
+    if (url == null || url.trim().isEmpty) {
+      return false;
+    }
+    final uri = Uri.tryParse(url.trim());
+    if (uri == null || !uri.hasScheme) {
+      return false;
+    }
+    if (!uri.host.contains('places.googleapis.com')) {
+      return true;
+    }
+    // Flutter web uses Places photo media URL + key query param directly.
+    return uri.queryParameters.containsKey('key');
+  }
 }

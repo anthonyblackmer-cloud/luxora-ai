@@ -151,9 +151,14 @@ class _AttractionDetailSheet extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 16),
-                _LocationCard(
-                  place: place,
-                  officialMapUrl: detail.officialMapUrl,
+                ListenableBuilder(
+                  listenable: GooglePlacesEnrichmentService.instance,
+                  builder: (context, _) => _LocationCard(
+                    place: place,
+                    officialMapUrl: detail.officialMapUrl,
+                    websiteUrl:
+                        GooglePlacesEnrichmentService.instance.websiteFor(place),
+                  ),
                 ),
                 const SizedBox(height: 12),
                 TravelStopIntelCard(place: place),
@@ -364,15 +369,38 @@ class _HomeBaseButton extends StatelessWidget {
 }
 
 class _LocationCard extends StatelessWidget {
-  const _LocationCard({required this.place, this.officialMapUrl});
+  const _LocationCard({
+    required this.place,
+    this.officialMapUrl,
+    this.websiteUrl,
+  });
 
   final LuxPlace place;
   final String? officialMapUrl;
+  final String? websiteUrl;
 
   Future<void> _openOfficialMap(BuildContext context) async {
     final l = context.l10n;
     final messenger = ScaffoldMessenger.of(context);
     final ok = await MapLauncher.openUrl(officialMapUrl!);
+    if (!ok) {
+      messenger.showSnackBar(
+        SnackBar(
+          content: Text(l.detailMapsError),
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
+    }
+  }
+
+  Future<void> _openWebsite(BuildContext context) async {
+    final l = context.l10n;
+    final messenger = ScaffoldMessenger.of(context);
+    final target = websiteUrl;
+    if (target == null || target.isEmpty) {
+      return;
+    }
+    final ok = await MapLauncher.openUrl(target);
     if (!ok) {
       messenger.showSnackBar(
         SnackBar(
@@ -574,23 +602,41 @@ class _LocationCard extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(12, 0, 12, 12),
-            child: Row(
+            child: Column(
               children: [
-                Expanded(
-                  child: OutlinedButton.icon(
-                    onPressed: () => _chooseProvider(context, directions: true),
-                    icon: const Icon(Icons.directions_rounded, size: 18),
-                    label: Text(l.detailGetDirections),
-                  ),
-                ),
-                if (officialMapUrl != null) ...[
-                  const SizedBox(width: 8),
-                  Expanded(
-                    child: OutlinedButton.icon(
-                      onPressed: () => _openOfficialMap(context),
-                      icon: const Icon(Icons.map_rounded, size: 18),
-                      label: Text(l.detailParkMap),
+                Row(
+                  children: [
+                    Expanded(
+                      child: OutlinedButton.icon(
+                        onPressed: () => _chooseProvider(context, directions: true),
+                        icon: const Icon(Icons.directions_rounded, size: 18),
+                        label: Text(l.detailGetDirections),
+                      ),
                     ),
+                    if (officialMapUrl != null) ...[
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: OutlinedButton.icon(
+                          onPressed: () => _openOfficialMap(context),
+                          icon: const Icon(Icons.map_rounded, size: 18),
+                          label: Text(l.detailParkMap),
+                        ),
+                      ),
+                    ],
+                  ],
+                ),
+                if (websiteUrl != null && websiteUrl!.isNotEmpty) ...[
+                  const SizedBox(height: 8),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: OutlinedButton.icon(
+                          onPressed: () => _openWebsite(context),
+                          icon: const Icon(Icons.open_in_new_rounded, size: 18),
+                          label: Text(l.hotelVisitWebsite),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:luxora_ai/models/google_place_enrichment.dart';
 import 'package:luxora_ai/models/lux_place.dart';
 import 'package:luxora_ai/models/unsplash_photo.dart';
 import 'package:luxora_ai/services/google_places_config.dart';
@@ -70,22 +71,35 @@ class LuxPlaceImage extends StatelessWidget {
   }
 
   Widget _buildImage(BuildContext context, LuxPlace? targetPlace) {
-    if (overridePhotoId == null && targetPlace != null) {
-      final enrichment =
-          GooglePlacesEnrichmentService.instance.cached(targetPlace.id);
-      final googleUrl = enrichment?.heroPhotoUrl;
-      if (googleUrl != null && googleUrl.isNotEmpty) {
-        return _googlePhotoHero(
-          googleUrl,
-          attribution: enrichment?.photoAttribution,
-        );
-      }
-    }
-
     final photo = (overridePhotoId != null
             ? UnsplashPhotoRegistry.instance.byId(overridePhotoId)
             : null) ??
         targetPlace?.unsplashPhoto;
+
+    if (overridePhotoId == null && targetPlace != null) {
+      final enrichment =
+          GooglePlacesEnrichmentService.instance.cached(targetPlace.id);
+      final googleUrl = enrichment?.heroPhotoUrl;
+      if (GooglePlaceEnrichment.isUsableHeroPhotoUrl(googleUrl)) {
+        return _GoogleHeroWithUnsplashFallback(
+          googleUrl: googleUrl!,
+          attribution: enrichment?.photoAttribution,
+          unsplashPhoto: photo,
+          presentation: presentation,
+          height: _height(),
+          width: _width(),
+          borderRadius: borderRadius ?? _defaultRadius(),
+          presentationFilter: _presentationFilter,
+          scrimGradient: _scrimGradient(),
+          overlayChild: overlayChild,
+          bottomCaption: bottomCaption,
+          fallbackGradient: fallbackGradient,
+          trackUsageOnDisplay: trackUsageOnDisplay,
+          onUserSelect: onUserSelect,
+        );
+      }
+    }
+
     if (photo == null) {
       return _gradientOnly();
     }
@@ -105,68 +119,6 @@ class LuxPlaceImage extends StatelessWidget {
       expandOnTap: presentation != LuxImagePresentation.timelineThumb,
       trackUsageOnDisplay: trackUsageOnDisplay,
       onUserSelect: onUserSelect,
-    );
-  }
-
-  Widget _googlePhotoHero(String url, {String? attribution}) {
-    Widget image = Image.network(
-      url,
-      height: _height(),
-      width: _width(),
-      fit: BoxFit.cover,
-      errorBuilder: (_, _, _) => _gradientOnly(),
-    );
-    final filter = _presentationFilter;
-    if (filter != null) {
-      image = filter(image);
-    }
-
-    return ClipRRect(
-      borderRadius: borderRadius ?? _defaultRadius(),
-      child: SizedBox(
-        width: _width(),
-        height: _height(),
-        child: Stack(
-          fit: StackFit.expand,
-          children: [
-            image,
-            if (_scrimGradient() case final gradient?)
-              DecoratedBox(decoration: BoxDecoration(gradient: gradient)),
-            if (overlayChild != null) overlayChild!,
-            if (bottomCaption != null)
-              Positioned(
-                left: 12,
-                right: 12,
-                bottom: 10,
-                child: Text(
-                  bottomCaption!,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-            if (attribution != null &&
-                presentation != LuxImagePresentation.timelineThumb)
-              Positioned(
-                left: 10,
-                bottom: bottomCaption == null ? 8 : 34,
-                child: Text(
-                  attribution,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    color: Colors.white.withValues(alpha: 0.78),
-                    fontSize: 10,
-                  ),
-                ),
-              ),
-          ],
-        ),
-      ),
     );
   }
 
@@ -276,6 +228,173 @@ class LuxPlaceImage extends StatelessWidget {
           ),
         ),
         child: overlayChild,
+      ),
+    );
+  }
+}
+
+class _GoogleHeroWithUnsplashFallback extends StatefulWidget {
+  const _GoogleHeroWithUnsplashFallback({
+    required this.googleUrl,
+    required this.unsplashPhoto,
+    required this.presentation,
+    required this.height,
+    required this.width,
+    required this.borderRadius,
+    required this.presentationFilter,
+    required this.scrimGradient,
+    this.attribution,
+    this.overlayChild,
+    this.bottomCaption,
+    this.fallbackGradient,
+    this.trackUsageOnDisplay = false,
+    this.onUserSelect,
+  });
+
+  final String googleUrl;
+  final String? attribution;
+  final UnsplashPhoto? unsplashPhoto;
+  final LuxImagePresentation presentation;
+  final double height;
+  final double width;
+  final BorderRadius borderRadius;
+  final Widget Function(Widget child)? presentationFilter;
+  final Gradient? scrimGradient;
+  final Widget? overlayChild;
+  final String? bottomCaption;
+  final List<Color>? fallbackGradient;
+  final bool trackUsageOnDisplay;
+  final VoidCallback? onUserSelect;
+
+  @override
+  State<_GoogleHeroWithUnsplashFallback> createState() =>
+      _GoogleHeroWithUnsplashFallbackState();
+}
+
+class _GoogleHeroWithUnsplashFallbackState
+    extends State<_GoogleHeroWithUnsplashFallback> {
+  bool _googleFailed = false;
+
+  @override
+  Widget build(BuildContext context) {
+    if (!_googleFailed) {
+      return _googlePhotoHero(
+        onError: () {
+          if (mounted) {
+            setState(() => _googleFailed = true);
+          }
+        },
+      );
+    }
+
+    final photo = widget.unsplashPhoto;
+    if (photo != null) {
+      return UnsplashImage(
+        photo: photo,
+        height: widget.height,
+        width: widget.width,
+        borderRadius: widget.borderRadius,
+        presentationFilter: widget.presentationFilter,
+        scrim: widget.scrimGradient,
+        overlayChild: widget.overlayChild,
+        bottomCaption: widget.bottomCaption,
+        compactAttribution:
+            widget.presentation == LuxImagePresentation.timelineThumb,
+        showAttributionOverlay:
+            widget.presentation != LuxImagePresentation.timelineThumb,
+        expandOnTap: widget.presentation != LuxImagePresentation.timelineThumb,
+        trackUsageOnDisplay: widget.trackUsageOnDisplay,
+        onUserSelect: widget.onUserSelect,
+      );
+    }
+
+    return _gradientOnly();
+  }
+
+  Widget _googlePhotoHero({required VoidCallback onError}) {
+    Widget image = Image.network(
+      widget.googleUrl,
+      height: widget.height,
+      width: widget.width,
+      fit: BoxFit.cover,
+      errorBuilder: (_, _, _) {
+        WidgetsBinding.instance.addPostFrameCallback((_) => onError());
+        return _gradientOnly(showOverlay: false);
+      },
+    );
+    final filter = widget.presentationFilter;
+    if (filter != null) {
+      image = filter(image);
+    }
+
+    return ClipRRect(
+      borderRadius: widget.borderRadius,
+      child: SizedBox(
+        width: widget.width,
+        height: widget.height,
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            image,
+            if (widget.scrimGradient case final gradient?)
+              DecoratedBox(decoration: BoxDecoration(gradient: gradient)),
+            if (widget.overlayChild != null) widget.overlayChild!,
+            if (widget.bottomCaption != null)
+              Positioned(
+                left: 12,
+                right: 12,
+                bottom: 10,
+                child: Text(
+                  widget.bottomCaption!,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+            if (widget.attribution != null &&
+                widget.presentation != LuxImagePresentation.timelineThumb)
+              Positioned(
+                left: 10,
+                bottom: widget.bottomCaption == null ? 8 : 34,
+                child: Text(
+                  widget.attribution!,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    color: Colors.white.withValues(alpha: 0.78),
+                    fontSize: 10,
+                  ),
+                ),
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _gradientOnly({bool showOverlay = true}) {
+    final colors = widget.fallbackGradient ??
+        [
+          LuxColors.gold.withValues(alpha: 0.35),
+          const Color(0xFF1C1917),
+        ];
+    return ClipRRect(
+      borderRadius: widget.borderRadius,
+      child: Container(
+        width: widget.width,
+        height: widget.height,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: colors,
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
+        child: showOverlay ? widget.overlayChild : null,
       ),
     );
   }
