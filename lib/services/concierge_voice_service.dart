@@ -183,19 +183,17 @@ class ConciergeVoiceService {
   }) async {
     final trimmed = _normalizeForSpeech(text);
     if (trimmed.isEmpty || kIsWeb) return false;
-    final generation = ++_speakGeneration;
     try {
       await initialize();
       await _endSttSession();
       await stopSpeaking();
-      if (generation != _speakGeneration) return false;
+      final generation = _speakGeneration;
       await _configureIosAudioForSpeaking();
       await _applyVoice(languageCode: languageCode);
       _speakCompleter = Completer<void>();
       _onSpeakComplete = () {
         if (generation != _speakGeneration) return;
         onComplete?.call();
-        _finishSpeakWait();
       };
       _speaking = true;
       final result = await _tts.speak(trimmed);
