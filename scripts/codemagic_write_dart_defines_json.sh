@@ -6,6 +6,7 @@
 #   UNSPLASH_ACCESS_KEY, SUPABASE_URL, SUPABASE_ANON_KEY
 # Optional:
 #   MAPBOX_ACCESS_TOKEN (empty string ok — map uses Carto/OSM skins)
+#   GOOGLE_PLACES_API_KEY (empty string ok — falls back to Unsplash heroes)
 #   SUPABASE_CONCIERGE_FUNCTION (defaults to bright-processor)
 #   ALLOW_MISSING_LUXORA_KEYS=1 — write empty strings instead of failing
 
@@ -23,6 +24,7 @@ unsplash = (os.environ.get("UNSPLASH_ACCESS_KEY") or "").strip()
 supabase_url = (os.environ.get("SUPABASE_URL") or "").strip()
 supabase_anon = (os.environ.get("SUPABASE_ANON_KEY") or "").strip()
 mapbox = (os.environ.get("MAPBOX_ACCESS_TOKEN") or "").strip()
+google_places = (os.environ.get("GOOGLE_PLACES_API_KEY") or "").strip()
 concierge_fn = (
     os.environ.get("SUPABASE_CONCIERGE_FUNCTION") or "bright-processor"
 ).strip()
@@ -39,6 +41,7 @@ payload = {
     "SUPABASE_ANON_KEY": supabase_anon,
     "SUPABASE_CONCIERGE_FUNCTION": concierge_fn,
     "MAPBOX_ACCESS_TOKEN": mapbox,
+    "GOOGLE_PLACES_API_KEY": google_places,
 }
 with open(out, "w", encoding="utf-8") as f:
     json.dump(payload, f, ensure_ascii=False)

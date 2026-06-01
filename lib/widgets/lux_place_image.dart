@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:luxora_ai/models/lux_place.dart';
 import 'package:luxora_ai/models/unsplash_photo.dart';
+import 'package:luxora_ai/services/google_places_config.dart';
+import 'package:luxora_ai/services/google_places_enrichment_service.dart';
 import 'package:luxora_ai/services/unsplash_photo_registry.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/widgets/unsplash_image.dart';
 
-/// Tab-specific presentation for [LuxPlace] heroes — Unsplash via [UnsplashImage] only.
+/// Tab-specific presentation for [LuxPlace] heroes — Google Places photo when
+/// configured, otherwise Unsplash via [UnsplashImage].
 enum LuxImagePresentation {
   feedHero,
   detailHero,
@@ -52,10 +55,37 @@ class LuxPlaceImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final targetPlace = place;
+    if (targetPlace != null &&
+        overridePhotoId == null &&
+        GooglePlacesConfig.isConfigured &&
+        !targetPlace.moodTags.contains('trip-cover')) {
+      GooglePlacesEnrichmentService.instance.scheduleEnrich(targetPlace);
+      return ListenableBuilder(
+        listenable: GooglePlacesEnrichmentService.instance,
+        builder: (context, _) => _buildImage(context, targetPlace),
+      );
+    }
+    return _buildImage(context, targetPlace);
+  }
+
+  Widget _buildImage(BuildContext context, LuxPlace? targetPlace) {
+    if (overridePhotoId == null && targetPlace != null) {
+      final enrichment =
+          GooglePlacesEnrichmentService.instance.cached(targetPlace.id);
+      final googleUrl = enrichment?.heroPhotoUrl;
+      if (googleUrl != null && googleUrl.isNotEmpty) {
+        return _googlePhotoHero(
+          googleUrl,
+          attribution: enrichment?.photoAttribution,
+        );
+      }
+    }
+
     final photo = (overridePhotoId != null
             ? UnsplashPhotoRegistry.instance.byId(overridePhotoId)
             : null) ??
-        place?.unsplashPhoto;
+        targetPlace?.unsplashPhoto;
     if (photo == null) {
       return _gradientOnly();
     }
@@ -75,6 +105,68 @@ class LuxPlaceImage extends StatelessWidget {
       expandOnTap: presentation != LuxImagePresentation.timelineThumb,
       trackUsageOnDisplay: trackUsageOnDisplay,
       onUserSelect: onUserSelect,
+    );
+  }
+
+  Widget _googlePhotoHero(String url, {String? attribution}) {
+    Widget image = Image.network(
+      url,
+      height: _height(),
+      width: _width(),
+      fit: BoxFit.cover,
+      errorBuilder: (_, _, _) => _gradientOnly(),
+    );
+    final filter = _presentationFilter;
+    if (filter != null) {
+      image = filter(image);
+    }
+
+    return ClipRRect(
+      borderRadius: borderRadius ?? _defaultRadius(),
+      child: SizedBox(
+        width: _width(),
+        height: _height(),
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            image,
+            if (_scrimGradient() case final gradient?)
+              DecoratedBox(decoration: BoxDecoration(gradient: gradient)),
+            if (overlayChild != null) overlayChild!,
+            if (bottomCaption != null)
+              Positioned(
+                left: 12,
+                right: 12,
+                bottom: 10,
+                child: Text(
+                  bottomCaption!,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+            if (attribution != null &&
+                presentation != LuxImagePresentation.timelineThumb)
+              Positioned(
+                left: 10,
+                bottom: bottomCaption == null ? 8 : 34,
+                child: Text(
+                  attribution,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    color: Colors.white.withValues(alpha: 0.78),
+                    fontSize: 10,
+                  ),
+                ),
+              ),
+          ],
+        ),
+      ),
     );
   }
 

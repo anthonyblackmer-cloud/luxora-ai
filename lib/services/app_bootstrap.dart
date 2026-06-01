@@ -9,6 +9,7 @@ import 'package:luxora_ai/services/cloud_trips_auth_service.dart';
 import 'package:luxora_ai/services/cloud_trips_entitlement.dart';
 import 'package:luxora_ai/services/cloud_trips_sync_service.dart';
 import 'package:luxora_ai/services/discover_radius_controller.dart';
+import 'package:luxora_ai/services/google_places_enrichment_service.dart';
 import 'package:luxora_ai/services/home_base_store.dart';
 import 'package:luxora_ai/services/iap_purchase_service.dart';
 import 'package:luxora_ai/services/paywall_bypass.dart';
@@ -43,6 +44,7 @@ abstract final class AppBootstrap {
       ActiveDayFlowStore.instance.load(),
       TripProfileStore.instance.load(),
       HomeBaseStore.instance.load(),
+      GooglePlacesEnrichmentService.instance.load(),
     ]);
 
     await IapPurchaseService.instance.initialize();

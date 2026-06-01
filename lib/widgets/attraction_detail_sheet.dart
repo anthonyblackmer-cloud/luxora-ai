@@ -13,6 +13,7 @@ import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/models/attraction_detail.dart';
 import 'package:luxora_ai/models/lux_place.dart';
 import 'package:luxora_ai/services/attraction_detail_repository.dart';
+import 'package:luxora_ai/services/google_places_enrichment_service.dart';
 import 'package:luxora_ai/services/home_base_store.dart';
 import 'package:luxora_ai/services/map_launcher.dart';
 import 'package:luxora_ai/services/florida_keys_concierge_service.dart';
@@ -37,6 +38,7 @@ Future<void> showAttractionDetailSheet(
   BuildContext context, {
   required LuxPlace place,
 }) {
+  GooglePlacesEnrichmentService.instance.scheduleEnrich(place);
   return showModalBottomSheet<void>(
     context: context,
     isScrollControlled: true,
@@ -853,8 +855,7 @@ class _MenuComingSoon extends StatelessWidget {
   Future<void> _openMenuSearch(BuildContext context) async {
     final l = context.l10n;
     final messenger = ScaffoldMessenger.of(context);
-    // Prefer the venue's real website (from the OSM import) over a web search.
-    final website = place.website;
+    final website = GooglePlacesEnrichmentService.instance.websiteFor(place);
     final target = (website != null && website.isNotEmpty)
         ? website
         : 'https://www.google.com/search?q='
@@ -873,7 +874,10 @@ class _MenuComingSoon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l = context.l10n;
-    return Container(
+    return ListenableBuilder(
+      listenable: GooglePlacesEnrichmentService.instance,
+      builder: (context, _) {
+        return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(14),
@@ -919,6 +923,8 @@ class _MenuComingSoon extends StatelessWidget {
           ),
         ],
       ),
+        );
+      },
     );
   }
 }

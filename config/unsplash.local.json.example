@@ -3,5 +3,6 @@
   "SUPABASE_URL": "",
   "SUPABASE_ANON_KEY": "",
   "SUPABASE_CONCIERGE_FUNCTION": "bright-processor",
-  "MAPBOX_ACCESS_TOKEN": ""
+  "MAPBOX_ACCESS_TOKEN": "",
+  "GOOGLE_PLACES_API_KEY": ""
 }

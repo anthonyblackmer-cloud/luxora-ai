@@ -15,6 +15,7 @@
 #   SUPABASE_ANON_KEY
 
 #   MAPBOX_ACCESS_TOKEN   optional pk.… token (empty ok — Carto/OSM map tiles still work)
+#   GOOGLE_PLACES_API_KEY optional — Places API (New) for venue photos / enrichment
 
 #
 
