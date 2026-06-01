@@ -52,6 +52,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   bool _finishing = false;
   bool _bootstrapping = true;
   bool _isReturning = false;
+  bool _returningGreetingSpoken = false;
   TripProfile _profile = const TripProfile();
   late final TextEditingController _travelerNameController;
 
@@ -410,6 +411,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   }
 
   List<Widget> _cityStep(AppLocalizations l) => [
+        if (_isReturning && _step == ReturningTravelerService.cityStepIndex)
+          _ReturnTravelerVoiceCue(
+            spoken: _returningGreetingSpoken,
+            onSpoken: () => _returningGreetingSpoken = true,
+            profile: _profile,
+            l: l,
+          ),
         if (_isReturning)
           ..._returningWelcomeHeader(l)
         else
@@ -877,4 +885,54 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       ),
     );
   }
+}
+
+class _ReturnTravelerVoiceCue extends StatefulWidget {
+  const _ReturnTravelerVoiceCue({
+    required this.spoken,
+    required this.onSpoken,
+    required this.profile,
+    required this.l,
+  });
+
+  final bool spoken;
+  final VoidCallback onSpoken;
+  final TripProfile profile;
+  final AppLocalizations l;
+
+  @override
+  State<_ReturnTravelerVoiceCue> createState() => _ReturnTravelerVoiceCueState();
+}
+
+class _ReturnTravelerVoiceCueState extends State<_ReturnTravelerVoiceCue> {
+  bool _started = false;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (_started || widget.spoken || kIsWeb) return;
+    _started = true;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      unawaited(_speak());
+    });
+  }
+
+  Future<void> _speak() async {
+    if (!mounted) return;
+    final firstName = TravelerNameDisplay.firstName(widget.profile.travelerName);
+    final title = firstName != null
+        ? widget.l.onboardReturningTitle(firstName)
+        : widget.l.onboardReturningTitleGeneric;
+    final script = ConciergeVoiceService.scriptFromLines([
+      title,
+      widget.l.onboardReturningSubtitle,
+    ]);
+    final locale = Localizations.localeOf(context).languageCode;
+    await ConciergeVoiceService.instance.initialize();
+    await ConciergeVoiceService.instance.speak(script, languageCode: locale);
+    widget.onSpoken();
+  }
+
+  @override
+  Widget build(BuildContext context) => const SizedBox.shrink();
 }
