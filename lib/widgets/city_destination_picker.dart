@@ -16,7 +16,7 @@ class CityDestinationPicker extends StatelessWidget {
     required this.onChanged,
     this.showUnlockStatus = true,
     this.label,
-    this.showOrlandoThemeParksAddon = true,
+    this.showOrlandoThemeParksAddon = false,
     this.limitedCityIds,
   });
 

@@ -711,7 +711,7 @@
     }
   },
   "onboardOccasionLabel": "What's the occasion?",
-  "onboardThemeParksOccasionHint": "Unlock Disney & Universal to add theme-park occasions below — you'll see those chips right after purchase.",
+  "onboardThemeParksOccasionHint": "Unlock Orlando to reveal Disney & Universal theme-park occasions below.",
   "occasionGeneral": "Just exploring",
   "occasionAnniversary": "Anniversary",
   "occasionHoneymoon": "Honeymoon",
@@ -1300,7 +1300,7 @@
       }
     }
   },
-  "paywallUnifiedPriceBody": "Orlando, Miami, Florida Keys — plus the Disney & Universal pack. One-time purchase each at the same price. No subscription.",
+  "paywallUnifiedPriceBody": "Orlando (includes Disney & Universal), Miami, and Florida Keys — one-time purchase each at the same price. No subscription.",
   "paywallSelectedPackToday": "Unlocking today: {packName}",
   "@paywallSelectedPackToday": {
     "placeholders": {

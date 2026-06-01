@@ -1293,7 +1293,7 @@
   "onboardSummaryRestaurants": "Рестораны",
   "onboardSummaryRomantic": "Романтические впечатления от заката",
   "onboardSummaryRooftopDining": "Рестораны на крыше",
-  "onboardThemeParksOccasionHint": "Разблокируйте Disney & Universal, чтобы добавить мероприятия в тематических парках ниже — вы увидите эти фишки сразу после покупки.",
+  "onboardThemeParksOccasionHint": "Разблокируйте Orlando, чтобы увидеть поводы для Disney и Universal ниже.",
   "onboardTravelerNameEyebrow": "Перво-наперво",
   "onboardTravelerNameHint": "например Мария",
   "onboardTravelerNameLabel": "Ваше имя",
@@ -2562,5 +2562,48 @@
   "themeChampagneLuxe": "Champagne Luxe",
   "themeChampagneLuxeMood": "Элегантность частного консьержа",
   "themeBlackCard": "Black Card",
-  "themeBlackCardMood": "Престиж частной авиации"
+  "themeBlackCardMood": "Престиж частной авиации",
+  "paywallUnlockingDestination": "Разблокировка для этой поездки",
+  "paywallUnifiedPriceHeadline": "Каждый городской пакет разблокируется за {price}",
+  "@paywallUnifiedPriceHeadline": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallUnifiedPriceBody": "Орlando (Disney и Universal включены), Майами и Флорида-Кис — разовая покупка по одной цене. Без подписки.",
+  "paywallSelectedPackToday": "Разблокируем сегодня: {packName}",
+  "@paywallSelectedPackToday": {
+    "placeholders": {
+      "packName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallAddonUnifiedHeadline": "Disney и Universal — {price} один раз",
+  "@paywallAddonUnifiedHeadline": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallAddonUnifiedBody": "Та же простая цена, что и у каждого пакета Флориды — одна покупка, доступ навсегда.",
+  "paywallValueStory": "Каждый пакет Флориды — включая Disney и Universal в Орlando — разблокируется за {price}. Вы получаете полного консьержа для {cityName}: маршруты, скрытые жемчужины, отельную аналитику и безлимитный ИИ-гид.",
+  "@paywallValueStory": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      },
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallRoiHook": "Один плохой ужин, дорогие билеты или потерянный день стоят дороже этой разовой разблокировки.",
+  "paywallPeaceOfMindTitle": "Спокойствие уже внутри",
+  "paywallPeaceOfMindBody": "Вы не покупаете ещё одну подписку. Вы покупаете более умный отпуск — спланированный до приземления и с поддержкой на месте.",
+  "paywallSocialProofHeading": "Окупилось ещё до приземления",
+  "paywallRestorePreviewDisabled": "Восстановление отключено в режиме предпросмотра — протестируйте в полной сборке."
 }

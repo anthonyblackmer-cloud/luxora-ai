@@ -236,11 +236,11 @@ class LuxoraSettingsSheet extends StatelessWidget {
                   color: theme.colorScheme.primary,
                 ),
                 title: const Text(
-                  'Preview theme parks add-on',
+                  'Preview Orlando paywall',
                   style: TextStyle(fontWeight: FontWeight.w600),
                 ),
                 subtitle: Text(
-                  'Orlando Disney & Universal paywall',
+                  'Orlando city pack (includes Disney & Universal)',
                   style: subtitleStyle,
                 ),
                 trailing: const Icon(Icons.chevron_right_rounded),
@@ -249,7 +249,6 @@ class LuxoraSettingsSheet extends StatelessWidget {
                   await PaywallService.openPaywallPreview(
                     context,
                     cityId: OrlandoAddonCatalog.parentCityId,
-                    addonId: OrlandoAddonCatalog.themeParks,
                   );
                   if (context.mounted) Navigator.of(context).pop();
                 },

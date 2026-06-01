@@ -61,14 +61,14 @@ const moodOptions = [
 
 const floridaExperiences = [
   ExperienceCard(
-    id: 'winter-park-rooftop',
-    title: 'Rooftop Sunset & Small Plates',
-    subtitle: 'Winter Park skyline',
+    id: 'luma-on-park',
+    title: 'Luma on Park — Park Avenue dinner',
+    subtitle: 'Winter Park dining',
     category: 'Rooftop dining',
     location: 'Winter Park, FL',
     gradient: [Color(0xFFF59E0B), Color(0xFFE11D48), Color(0xFF312E81)],
     emotionalHook:
-        'Golden hour arrives before your appetite — this is where the vacation truly begins.',
+        'Park Avenue glow at your table — the vacation rhythm shifts from rushing to savoring.',
     tags: ['romantic', 'foodie', 'luxury'],
   ),
   ExperienceCard(
@@ -130,8 +130,8 @@ const sampleOrlandoItinerary = [
     time: '9:00 AM',
     title: 'Slow spa morning',
     emotionalLine:
-        'You ease into the day — steam, citrus water, and time that belongs to you.',
-    location: 'Winter Park wellness studio',
+        'You ease into the day — steam, quiet rooms, and time that belongs to you.',
+    location: 'The Woodhouse Day Spa, Winter Park',
     category: 'Spas',
   ),
   ItineraryMoment(
@@ -146,10 +146,10 @@ const sampleOrlandoItinerary = [
   ItineraryMoment(
     id: '3',
     time: '6:45 PM',
-    title: 'Rooftop sunset dinner',
+    title: 'Luma on Park dinner',
     emotionalLine:
-        'Your table is timed for golden hour — the skyline blushes with your first toast.',
-    location: 'Winter Park rooftop',
-    category: 'Rooftop dining',
+        'Park Avenue glow at your table — seasonal plates and a wine list worth lingering over.',
+    location: 'Winter Park',
+    category: 'Dining',
   ),
 ];

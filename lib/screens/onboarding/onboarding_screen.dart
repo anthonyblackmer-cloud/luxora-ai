@@ -141,11 +141,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
       if (!mounted) return;
 
-      if (enriched.cityId == OrlandoAddonCatalog.parentCityId) {
-        await PaywallService.promptOrlandoThemeParksIfNeeded(context, force: true);
-      }
-
-      if (!mounted) return;
       final l = context.l10n;
       final buildResult = await OnboardingFinishService.complete(
         profile: enriched,

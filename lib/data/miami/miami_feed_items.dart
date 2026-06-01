@@ -29,11 +29,11 @@ const miamiDiscoveryFeed = [
   FeedItem(
     id: 'miami-feed-brickell-rooftop',
     kind: FeedItemKind.viralSpot,
-    title: 'Brickell skyline omakase deck',
-    subtitle: 'Financial district · reel-famous sunset',
+    title: 'Komodo — Brickell skyline dinner',
+    subtitle: 'Financial district · three-story dining',
     location: 'Brickell, Miami',
     headline:
-        'The table everyone\'s filming — golden hour reservations gone in minutes this season.',
+        'Southeast Asian plates with a see-and-be-seen lounge — reserve early for Friday sunset tables.',
     socialProof: '11.2K saves · #BrickellSunset',
     gradient: [Color(0xFFFB7185), Color(0xFFF97316), Color(0xFF4C1D95)],
     isLive: true,
@@ -62,13 +62,13 @@ const miamiDiscoveryFeed = [
   ),
   FeedItem(
     id: 'miami-feed-design-district-opening',
-    kind: FeedItemKind.newOpening,
-    title: 'Design District tasting salon — just opened',
-    subtitle: 'Luxury corridor · 2 weeks old',
+    kind: FeedItemKind.trending,
+    title: 'Mandolin Aegean Bistro courtyard',
+    subtitle: 'Design District · bougainvillea patio',
     location: 'Design District, Miami',
     headline:
-        'New chef\'s counter with sculpture garden seating — soft launch through June.',
-    socialProof: 'Grand opening · limited slots',
+        'Greek mezze under string lights — the courtyard table locals book for unhurried lunches.',
+    socialProof: 'Local favorite · lunch + dinner',
     gradient: [Color(0xFFA78BFA), Color(0xFF6366F1), Color(0xFF1E293B)],
   ),
   FeedItem(
@@ -143,10 +143,10 @@ const miamiDiscoveryFeed = [
 const kMiamiFeedItemPlaceIds = <String, String>{
   'miami-feed-ocean-drive-sunrise': 'place-miami-ocean-drive',
   'miami-feed-wynwood-mural-crawl': 'place-miami-wynwood-walls',
-  'miami-feed-brickell-rooftop': 'place-miami-brickell-rooftop',
+  'miami-feed-brickell-rooftop': 'dining-miami-komodo',
   'miami-feed-little-havana-cafecito': 'place-miami-little-havana',
   'miami-feed-south-beach-social': 'place-miami-lummus-park',
-  'miami-feed-design-district-opening': 'place-miami-design-district',
+  'miami-feed-design-district-opening': 'dining-miami-mandolin',
   'miami-feed-key-biscayne-bike': 'place-miami-key-biscayne',
   'miami-feed-live-storm-clearing': 'place-miami-south-pointe',
   'miami-feed-vizcaya-golden': 'place-miami-vizcaya',
@@ -158,5 +158,5 @@ const kMiamiFeedItemPlaceIds = <String, String>{
 const kMiamiItineraryMomentPlaceIds = <String, String>{
   'moment-1': 'place-miami-lummus-park',
   'moment-2': 'place-miami-wynwood-walls',
-  'moment-3': 'place-miami-brickell-rooftop',
+  'moment-3': 'dining-miami-komodo',
 };

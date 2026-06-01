@@ -1166,8 +1166,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get onboardOccasionLabel => '什么场合？';
 
   @override
-  String get onboardThemeParksOccasionHint =>
-      '解锁迪士尼和环球影城以添加下面的主题公园活动 - 购买后您将立即看到这些筹码。';
+  String get onboardThemeParksOccasionHint => '解锁奥兰多即可在下方显示迪士尼和环球影城主题公园场合。';
 
   @override
   String get occasionGeneral => '只是探索';
@@ -2281,30 +2280,29 @@ class AppLocalizationsZh extends AppLocalizations {
   String get paywallSwitchCity => '目的地';
 
   @override
-  String get paywallUnlockingDestination => 'Unlocking for this trip';
+  String get paywallUnlockingDestination => '本次行程解锁';
 
   @override
   String paywallUnifiedPriceHeadline(String price) {
-    return 'Every City Pack unlocks for $price each';
+    return '每个城市包解锁价格为 $price';
   }
 
   @override
   String get paywallUnifiedPriceBody =>
-      'Orlando, Miami, Florida Keys — plus the Disney & Universal pack. One-time purchase each at the same price. No subscription.';
+      '奥兰多（含迪士尼和环球影城）、迈阿密和佛罗里达群岛 — 相同价格一次性购买。无订阅。';
 
   @override
   String paywallSelectedPackToday(String packName) {
-    return 'Unlocking today: $packName';
+    return '今日解锁：$packName';
   }
 
   @override
   String paywallAddonUnifiedHeadline(String price) {
-    return 'Disney & Universal — $price one time';
+    return '迪士尼和环球影城 — $price 一次性';
   }
 
   @override
-  String get paywallAddonUnifiedBody =>
-      'Same simple pricing as every Florida city pack — one unlock, lifetime access.';
+  String get paywallAddonUnifiedBody => '与每个佛罗里达包相同的简单定价 — 一次解锁，终身访问。';
 
   @override
   String get cityPickerUnlocked => '解锁';
@@ -3353,19 +3351,18 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String paywallValueStory(String cityName, String price) {
-    return 'Every Florida city pack — including Disney & Universal — unlocks for $price. You\'re getting the full concierge for $cityName: itineraries, hidden gems, hotel intel, and unlimited AI guidance.';
+    return '每个佛罗里达包（包括奥兰多的迪士尼和环球影城）解锁价格为 $price。您将获得 $cityName 的完整礼宾服务：行程、隐藏宝藏、酒店情报和无限 AI 指导。';
   }
 
   @override
-  String get paywallRoiHook =>
-      'One bad meal, overpriced ticket booth, or wasted afternoon costs more than this one-time unlock.';
+  String get paywallRoiHook => '一顿糟糕的餐食、昂贵的门票或浪费的下午，都比这次一次性解锁更贵。';
 
   @override
-  String get paywallPeaceOfMindTitle => 'Peace of mind, built in';
+  String get paywallPeaceOfMindTitle => '内置安心保障';
 
   @override
   String get paywallPeaceOfMindBody =>
-      'You\'re not buying another subscription. You\'re buying a smarter vacation — planned before you land and supported while you\'re there.';
+      '您不是在购买又一个订阅。您是在购买更聪明的假期 — 落地前已规划，旅途中持续支持。';
 
   @override
   String get paywallLockedPreviewTitle => '在礼宾部等候';
@@ -3439,7 +3436,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get paywallSocialProofTitle => '解锁卢克索拉的旅行者';
 
   @override
-  String get paywallSocialProofHeading => 'Worth it before they even landed';
+  String get paywallSocialProofHeading => '落地前就值得';
 
   @override
   String get paywallReview1 => '“节省了我们数小时的计划时间。”';
@@ -3465,8 +3462,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get paywallRestorePurchases => '恢复购买';
 
   @override
-  String get paywallRestorePreviewDisabled =>
-      'Restore is disabled in preview mode — use a full build to test restore.';
+  String get paywallRestorePreviewDisabled => '预览模式下无法恢复购买 — 请使用完整版本测试恢复功能。';
 
   @override
   String get paywallPurchaseSuccess => '购买完成——您的礼宾服务已解锁。';

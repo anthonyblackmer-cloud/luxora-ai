@@ -265,96 +265,10 @@ abstract final class MiamiContent {
   }
 
   static List<LuxPlace> _buildAllPlaces() {
-    final out = <LuxPlace>[
+    return [
       ...MiamiCuratedPlaces.flagship,
       ...MiamiHotelsCatalog.hotelPlaces,
     ];
-    var idx = 0;
-
-    for (var d = 0; d < districts.length; d++) {
-      final dist = districts[d];
-      final lat = _districtLat(dist);
-      final lng = _districtLng(dist);
-
-      for (var r = 0; r < 4 && out.where((p) => p.category == LuxPlaceCategory.dining).length < 50; r++) {
-        final style = _restaurantStyles[(d + r) % _restaurantStyles.length];
-        out.add(_place(
-          id: 'miami-dining-${dist.districtId}-$r',
-          title: '${dist.districtName} ${style.$1} ${r + 1}',
-          category: LuxPlaceCategory.dining,
-          lat: lat + (r * 0.002),
-          lng: lng - (r * 0.001),
-          location: '${dist.districtName}, Miami',
-          description: 'Concierge-curated ${style.$1.toLowerCase()} — ${dist.description}',
-          moodTags: [...style.$2, 'dining', 'miami'],
-          photo: _photo(idx++),
-        ));
-      }
-
-      for (var a = 0; a < 2 && out.where((p) => p.category == LuxPlaceCategory.beach || p.category == LuxPlaceCategory.adventure || p.category == LuxPlaceCategory.nature).where((p) => !p.id.contains('exp')).length < 30; a++) {
-        final kind = _attractionKinds[(d + a) % _attractionKinds.length];
-        out.add(_place(
-          id: 'miami-attr-${dist.districtId}-$a',
-          title: '${dist.districtName} ${kind.$1}',
-          category: kind.$2,
-          lat: lat - (a * 0.003),
-          lng: lng + (a * 0.002),
-          location: '${dist.districtName}, Miami',
-          description: '${kind.$1} — ${dist.vibeTags.take(2).join(' & ')} energy.',
-          moodTags: [...kind.$3, 'miami'],
-          photo: _photo(idx++),
-        ));
-      }
-
-      for (var e = 0; e < 2 && out.where((p) => p.id.contains('-exp-')).length < 30; e++) {
-        final kind = _experienceKinds[(d + e) % _experienceKinds.length];
-        out.add(_place(
-          id: 'miami-exp-${dist.districtId}-$e',
-          title: '${dist.districtName} ${kind.$1}',
-          category: LuxPlaceCategory.adventure,
-          lat: lat + (e * 0.004),
-          lng: lng + (e * 0.003),
-          location: '${dist.districtName}, Miami',
-          description: 'Bookable experience — ${kind.$1.toLowerCase()} with local operators.',
-          moodTags: [...kind.$2, 'experience', 'miami'],
-          photo: _photo(idx++),
-        ));
-      }
-
-      for (var g = 0; g < 3 && out.where((p) => p.id.contains('gem-place')).length < 40; g++) {
-        out.add(_place(
-          id: 'miami-gem-place-${dist.districtId}-$g',
-          title: 'Hidden ${dist.districtName} spot ${g + 1}',
-          category: g.isEven ? LuxPlaceCategory.dining : LuxPlaceCategory.beach,
-          lat: lat + (g * 0.0015),
-          lng: lng - (g * 0.002),
-          location: '${dist.districtName} · local secret',
-          description: 'Insider-only — quiet, photogenic, and worth the detour.',
-          moodTags: ['hidden', 'local', 'gem', 'miami'],
-          photo: _photo(idx++),
-        ));
-      }
-
-      if (dist.districtType == DistrictType.beach ||
-          dist.districtType == DistrictType.nightlife ||
-          dist.vibeTags.contains('nightlife')) {
-        for (var n = 0; n < 2 && out.where((p) => p.category == LuxPlaceCategory.nightlife).length < 25; n++) {
-          out.add(_place(
-            id: 'miami-nightlife-place-${dist.districtId}-$n',
-            title: '${dist.districtName} Night ${n + 1}',
-            category: LuxPlaceCategory.nightlife,
-            lat: lat - (n * 0.002),
-            lng: lng - (n * 0.003),
-            location: '${dist.districtName}, Miami',
-            description: 'Nightlife concierge pick — dress sharp, arrive fashionably late.',
-            moodTags: ['nightlife', 'social', 'music', 'miami'],
-            photo: _photo(idx++),
-          ));
-        }
-      }
-    }
-
-    return out;
   }
 
   static List<NightlifeVenue> _buildNightlife() {
@@ -380,7 +294,7 @@ abstract final class MiamiContent {
               .take(1)
               .map((p) => p.id)
               .toList(),
-          websiteUrl: 'https://example.com/miami-nightlife-$i',
+          websiteUrl: nlPlaces[i].website,
         ),
     ];
   }

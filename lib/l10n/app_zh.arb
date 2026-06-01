@@ -1293,7 +1293,7 @@
   "onboardSummaryRestaurants": "餐厅",
   "onboardSummaryRomantic": "浪漫的日落体验",
   "onboardSummaryRooftopDining": "屋顶用餐体验",
-  "onboardThemeParksOccasionHint": "解锁迪士尼和环球影城以添加下面的主题公园活动 - 购买后您将立即看到这些筹码。",
+  "onboardThemeParksOccasionHint": "解锁奥兰多即可在下方显示迪士尼和环球影城主题公园场合。",
   "onboardTravelerNameEyebrow": "首先要事",
   "onboardTravelerNameHint": "例如玛丽亚",
   "onboardTravelerNameLabel": "你的名字",
@@ -2562,5 +2562,48 @@
   "themeChampagneLuxe": "Champagne Luxe",
   "themeChampagneLuxeMood": "私人礼宾优雅风",
   "themeBlackCard": "Black Card",
-  "themeBlackCardMood": "私人航空尊贵感"
+  "themeBlackCardMood": "私人航空尊贵感",
+  "paywallUnlockingDestination": "本次行程解锁",
+  "paywallUnifiedPriceHeadline": "每个城市包解锁价格为 {price}",
+  "@paywallUnifiedPriceHeadline": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallUnifiedPriceBody": "奥兰多（含迪士尼和环球影城）、迈阿密和佛罗里达群岛 — 相同价格一次性购买。无订阅。",
+  "paywallSelectedPackToday": "今日解锁：{packName}",
+  "@paywallSelectedPackToday": {
+    "placeholders": {
+      "packName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallAddonUnifiedHeadline": "迪士尼和环球影城 — {price} 一次性",
+  "@paywallAddonUnifiedHeadline": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallAddonUnifiedBody": "与每个佛罗里达包相同的简单定价 — 一次解锁，终身访问。",
+  "paywallValueStory": "每个佛罗里达包（包括奥兰多的迪士尼和环球影城）解锁价格为 {price}。您将获得 {cityName} 的完整礼宾服务：行程、隐藏宝藏、酒店情报和无限 AI 指导。",
+  "@paywallValueStory": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      },
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallRoiHook": "一顿糟糕的餐食、昂贵的门票或浪费的下午，都比这次一次性解锁更贵。",
+  "paywallPeaceOfMindTitle": "内置安心保障",
+  "paywallPeaceOfMindBody": "您不是在购买又一个订阅。您是在购买更聪明的假期 — 落地前已规划，旅途中持续支持。",
+  "paywallSocialProofHeading": "落地前就值得",
+  "paywallRestorePreviewDisabled": "预览模式下无法恢复购买 — 请使用完整版本测试恢复功能。"
 }

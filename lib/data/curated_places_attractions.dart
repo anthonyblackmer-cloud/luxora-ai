@@ -297,6 +297,32 @@ const curatedPlacesAttractions = <LuxPlace>[
     description: 'Winter manatee encounters — wetsuit morning you’ll never forget.',
     moodTags: ['nature', 'adventure', 'seasonal'],
   ),
+  LuxPlace(
+    id: 'place-merritt-island-nwr',
+    slug: 'merritt-island-national-wildlife-refuge',
+    title: 'Merritt Island National Wildlife Refuge',
+    category: LuxPlaceCategory.nature,
+    unsplashPhotoId: 'Tb5yggQfMs4',
+    location: 'Titusville, FL',
+    latitude: 28.6127,
+    longitude: -80.8078,
+    description:
+        'Black Point Wildlife Drive and mangrove channels — herons, gators, and Space Coast quiet.',
+    moodTags: ['nature', 'wildlife', 'hidden', 'gem', 'adventure'],
+  ),
+  LuxPlace(
+    id: 'place-lakeside-inn-mount-dora',
+    slug: 'lakeside-inn-mount-dora',
+    title: 'Lakeside Inn',
+    category: LuxPlaceCategory.romantic,
+    unsplashPhotoId: 'P9NMCFXYiCo',
+    location: 'Mount Dora, FL',
+    latitude: 28.8025,
+    longitude: -81.6445,
+    description:
+        'Historic lakefront inn since 1883 — porch rocking chairs and small-town stillness.',
+    moodTags: ['romantic', 'historic', 'relaxing', 'hidden', 'gem'],
+  ),
   // —— Gulf & Atlantic coast (60–100 mi) ——
   LuxPlace(
     id: 'place-clearwater-beach',

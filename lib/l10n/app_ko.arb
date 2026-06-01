@@ -1293,7 +1293,7 @@
   "onboardSummaryRestaurants": "레스토랑",
   "onboardSummaryRomantic": "낭만적인 일몰 체험",
   "onboardSummaryRooftopDining": "루프탑 식사 경험",
-  "onboardThemeParksOccasionHint": "아래에 테마파크 행사를 추가하려면 Disney 및 Universal을 잠금 해제하세요. 구매 후 바로 해당 칩을 볼 수 있습니다.",
+  "onboardThemeParksOccasionHint": "올랜도 잠금을 해제하면 아래에 디즈니 및 유니버설 테마파크 행사가 표시됩니다.",
   "onboardTravelerNameEyebrow": "중요한 것 먼저",
   "onboardTravelerNameHint": "예를 들어 마리아",
   "onboardTravelerNameLabel": "당신의 이름",
@@ -2562,5 +2562,48 @@
   "themeChampagneLuxe": "Champagne Luxe",
   "themeChampagneLuxeMood": "프라이빗 컨시어지 우아함",
   "themeBlackCard": "Black Card",
-  "themeBlackCardMood": "프라이빗 항공의 위엄"
+  "themeBlackCardMood": "프라이빗 항공의 위엄",
+  "paywallUnlockingDestination": "이번 여행 잠금 해제",
+  "paywallUnifiedPriceHeadline": "모든 시티 팩은 {price}에 잠금 해제",
+  "@paywallUnifiedPriceHeadline": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallUnifiedPriceBody": "올랜도(Disney·Universal 포함), 마이애미, 플로리다 키스 — 동일 가격 일회 구매. 구독 없음.",
+  "paywallSelectedPackToday": "오늘 잠금 해제: {packName}",
+  "@paywallSelectedPackToday": {
+    "placeholders": {
+      "packName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallAddonUnifiedHeadline": "Disney & Universal — {price} 일회",
+  "@paywallAddonUnifiedHeadline": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallAddonUnifiedBody": "모든 플로리다 팩과 같은 간단한 가격 — 한 번 잠금 해제, 평생 이용.",
+  "paywallValueStory": "플로리다 각 팩(올랜도 Disney·Universal 포함)은 {price}에 잠금 해제됩니다. {cityName} 전체 컨시어지: 일정, 숨은 명소, 호텔 정보, 무제한 AI 가이드.",
+  "@paywallValueStory": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      },
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallRoiHook": "별로인 식사, 비싼 티켓, 낭비된 오후는 이 일회 잠금 해제보다 비쌉니다.",
+  "paywallPeaceOfMindTitle": "마음의 평화, 기본 포함",
+  "paywallPeaceOfMindBody": "또 다른 구독이 아닙니다. 도착 전에 계획되고 현지에서도 지원받는 더 똑똑한 휴가를 구매하는 것입니다.",
+  "paywallSocialProofHeading": "착륙 전부터 그만한 가치",
+  "paywallRestorePreviewDisabled": "미리보기 모드에서는 복원이 비활성화됩니다 — 전체 빌드에서 테스트하세요."
 }

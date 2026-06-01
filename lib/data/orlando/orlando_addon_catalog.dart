@@ -24,7 +24,6 @@ abstract final class OrlandoAddonCatalog {
     'place-hollywood-studios',
     'place-animal-kingdom',
     'place-disney-springs',
-    'place-disney-night',
     'place-typhoon-lagoon',
     'place-blizzard-beach',
   };

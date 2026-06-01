@@ -1213,7 +1213,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get onboardThemeParksOccasionHint =>
-      'Desbloquea Disney y Universal para agregar eventos de parques temáticos a continuación; verás esos chips inmediatamente después de la compra.';
+      'Desbloquea Orlando para ver ocasiones de parques Disney y Universal a continuación.';
 
   @override
   String get occasionGeneral => 'Solo explorando';
@@ -2414,30 +2414,30 @@ class AppLocalizationsEs extends AppLocalizations {
   String get paywallSwitchCity => 'Destino';
 
   @override
-  String get paywallUnlockingDestination => 'Unlocking for this trip';
+  String get paywallUnlockingDestination => 'Desbloqueo para este viaje';
 
   @override
   String paywallUnifiedPriceHeadline(String price) {
-    return 'Every City Pack unlocks for $price each';
+    return 'Cada pack de ciudad se desbloquea por $price';
   }
 
   @override
   String get paywallUnifiedPriceBody =>
-      'Orlando, Miami, Florida Keys — plus the Disney & Universal pack. One-time purchase each at the same price. No subscription.';
+      'Orlando (incluye Disney y Universal), Miami y Florida Keys — compra única al mismo precio. Sin suscripción.';
 
   @override
   String paywallSelectedPackToday(String packName) {
-    return 'Unlocking today: $packName';
+    return 'Desbloqueando hoy: $packName';
   }
 
   @override
   String paywallAddonUnifiedHeadline(String price) {
-    return 'Disney & Universal — $price one time';
+    return 'Disney y Universal — $price una vez';
   }
 
   @override
   String get paywallAddonUnifiedBody =>
-      'Same simple pricing as every Florida city pack — one unlock, lifetime access.';
+      'El mismo precio simple que cada pack de Florida — un desbloqueo, acceso de por vida.';
 
   @override
   String get cityPickerUnlocked => 'desbloqueado';
@@ -3545,19 +3545,19 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String paywallValueStory(String cityName, String price) {
-    return 'Every Florida city pack — including Disney & Universal — unlocks for $price. You\'re getting the full concierge for $cityName: itineraries, hidden gems, hotel intel, and unlimited AI guidance.';
+    return 'Cada pack de Florida — incluido Disney y Universal en Orlando — se desbloquea por $price. Obtienes el concierge completo para $cityName: itinerarios, joyas ocultas, inteligencia hotelera y guía IA ilimitada.';
   }
 
   @override
   String get paywallRoiHook =>
-      'One bad meal, overpriced ticket booth, or wasted afternoon costs more than this one-time unlock.';
+      'Una mala comida, entradas caras o una tarde perdida cuestan más que este desbloqueo único.';
 
   @override
-  String get paywallPeaceOfMindTitle => 'Peace of mind, built in';
+  String get paywallPeaceOfMindTitle => 'Tranquilidad incluida';
 
   @override
   String get paywallPeaceOfMindBody =>
-      'You\'re not buying another subscription. You\'re buying a smarter vacation — planned before you land and supported while you\'re there.';
+      'No compras otra suscripción. Compras unas vacaciones más inteligentes — planificadas antes de aterrizar y con apoyo mientras estás allí.';
 
   @override
   String get paywallLockedPreviewTitle => 'Esperando dentro de su conserje';
@@ -3633,7 +3633,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get paywallSocialProofTitle => 'Viajeros que desbloquearon Luxora';
 
   @override
-  String get paywallSocialProofHeading => 'Worth it before they even landed';
+  String get paywallSocialProofHeading => 'Valió la pena antes de aterrizar';
 
   @override
   String get paywallReview1 => '\"Nos ahorró horas de planificación\".';
@@ -3663,7 +3663,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get paywallRestorePreviewDisabled =>
-      'Restore is disabled in preview mode — use a full build to test restore.';
+      'Restaurar está desactivado en modo vista previa — usa una compilación completa para probar la restauración.';
 
   @override
   String get paywallPurchaseSuccess =>

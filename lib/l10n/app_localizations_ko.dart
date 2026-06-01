@@ -1183,7 +1183,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get onboardThemeParksOccasionHint =>
-      '아래에 테마파크 행사를 추가하려면 Disney 및 Universal을 잠금 해제하세요. 구매 후 바로 해당 칩을 볼 수 있습니다.';
+      '올랜도 잠금을 해제하면 아래에 디즈니 및 유니버설 테마파크 행사가 표시됩니다.';
 
   @override
   String get occasionGeneral => '그냥 탐색 중';
@@ -2334,30 +2334,30 @@ class AppLocalizationsKo extends AppLocalizations {
   String get paywallSwitchCity => '목적지';
 
   @override
-  String get paywallUnlockingDestination => 'Unlocking for this trip';
+  String get paywallUnlockingDestination => '이번 여행 잠금 해제';
 
   @override
   String paywallUnifiedPriceHeadline(String price) {
-    return 'Every City Pack unlocks for $price each';
+    return '모든 시티 팩은 $price에 잠금 해제';
   }
 
   @override
   String get paywallUnifiedPriceBody =>
-      'Orlando, Miami, Florida Keys — plus the Disney & Universal pack. One-time purchase each at the same price. No subscription.';
+      '올랜도(Disney·Universal 포함), 마이애미, 플로리다 키스 — 동일 가격 일회 구매. 구독 없음.';
 
   @override
   String paywallSelectedPackToday(String packName) {
-    return 'Unlocking today: $packName';
+    return '오늘 잠금 해제: $packName';
   }
 
   @override
   String paywallAddonUnifiedHeadline(String price) {
-    return 'Disney & Universal — $price one time';
+    return 'Disney & Universal — $price 일회';
   }
 
   @override
   String get paywallAddonUnifiedBody =>
-      'Same simple pricing as every Florida city pack — one unlock, lifetime access.';
+      '모든 플로리다 팩과 같은 간단한 가격 — 한 번 잠금 해제, 평생 이용.';
 
   @override
   String get cityPickerUnlocked => '잠금 해제됨';
@@ -3425,19 +3425,18 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String paywallValueStory(String cityName, String price) {
-    return 'Every Florida city pack — including Disney & Universal — unlocks for $price. You\'re getting the full concierge for $cityName: itineraries, hidden gems, hotel intel, and unlimited AI guidance.';
+    return '플로리다 각 팩(올랜도 Disney·Universal 포함)은 $price에 잠금 해제됩니다. $cityName 전체 컨시어지: 일정, 숨은 명소, 호텔 정보, 무제한 AI 가이드.';
   }
 
   @override
-  String get paywallRoiHook =>
-      'One bad meal, overpriced ticket booth, or wasted afternoon costs more than this one-time unlock.';
+  String get paywallRoiHook => '별로인 식사, 비싼 티켓, 낭비된 오후는 이 일회 잠금 해제보다 비쌉니다.';
 
   @override
-  String get paywallPeaceOfMindTitle => 'Peace of mind, built in';
+  String get paywallPeaceOfMindTitle => '마음의 평화, 기본 포함';
 
   @override
   String get paywallPeaceOfMindBody =>
-      'You\'re not buying another subscription. You\'re buying a smarter vacation — planned before you land and supported while you\'re there.';
+      '또 다른 구독이 아닙니다. 도착 전에 계획되고 현지에서도 지원받는 더 똑똑한 휴가를 구매하는 것입니다.';
 
   @override
   String get paywallLockedPreviewTitle => '컨시어지 안에서 기다리기';
@@ -3511,7 +3510,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get paywallSocialProofTitle => '룩소라를 잠금 해제한 여행자';
 
   @override
-  String get paywallSocialProofHeading => 'Worth it before they even landed';
+  String get paywallSocialProofHeading => '착륙 전부터 그만한 가치';
 
   @override
   String get paywallReview1 => '\"계획 시간을 절약했습니다.\"';
@@ -3538,7 +3537,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get paywallRestorePreviewDisabled =>
-      'Restore is disabled in preview mode — use a full build to test restore.';
+      '미리보기 모드에서는 복원이 비활성화됩니다 — 전체 빌드에서 테스트하세요.';
 
   @override
   String get paywallPurchaseSuccess => '구매 완료 — 컨시어지가 잠금 해제되었습니다.';

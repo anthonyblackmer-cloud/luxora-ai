@@ -32,7 +32,7 @@ const hiddenGemsCatalog = [
   HiddenGem(
     id: 'gem-wekiwa-dawn',
     title: 'Wekiwa Springs — east bank float',
-    location: 'Apopka, FL · locals only trail',
+    location: 'Apopka, FL · Wekiwa Springs State Park',
     whySpecial:
         'Crystal water without the ticket-line energy of the main spring — feels like a private nature reset.',
     bestTime: '7:00–9:30 AM weekdays',
@@ -44,40 +44,40 @@ const hiddenGemsCatalog = [
   ),
   HiddenGem(
     id: 'gem-winter-park-alley',
-    title: 'Park Avenue courtyard wine bar',
-    location: 'Winter Park, FL · alley entrance',
+    title: 'Prato — Park Avenue Italian',
+    location: 'Winter Park, FL · 124 N Park Ave',
     whySpecial:
-        'No signage on the street — candlelit courtyard tucked behind a bookstore.',
-    bestTime: 'Sunset, Tue–Thu',
-    crowdLevel: 'Intimate · reservations help',
+        'Wood-fired pizza and house pasta on Park Avenue — the patio fills fast on golden-hour weekends.',
+    bestTime: 'Early dinner Tue–Thu',
+    crowdLevel: 'Moderate · reservations recommended weekends',
     insiderTip:
-        'Ask for the corner table under the string lights — best for conversation, not people-watching.',
-    localOnlyNote: 'Walk-ins rarely find seats Fri–Sat without a local tip.',
+        'Request a sidewalk table when weather is mild — best people-watching on the avenue.',
+    localOnlyNote: 'Hotel concierges often default to chain restaurants on I-Drive instead.',
     gradient: [Color(0xFF78716C), Color(0xFF57534E), Color(0xFF292524)],
   ),
   HiddenGem(
     id: 'gem-merritt-island',
-    title: 'Merritt Island dusk paddle',
-    location: 'Titusville, FL · mangrove channels',
+    title: 'Merritt Island Wildlife Drive',
+    location: 'Titusville, FL · Black Point Wildlife Drive',
     whySpecial:
-        'Bioluminescent potential in season; herons lift off in silence — Florida’s secret cathedral.',
-    bestTime: '90 min before sunset',
-    crowdLevel: 'Very low · guide optional',
+        'Seven-mile auto tour through salt marsh and pine flatwoods — alligators, roseate spoonbills, and zero theme-park noise.',
+    bestTime: 'Sunrise or 90 min before sunset',
+    crowdLevel: 'Very low weekdays',
     insiderTip:
-        'Book the last slot of the day; bring insect repellent and a light jacket.',
-    localOnlyNote: 'Tour buses never route here — kayak outfitters are local-run.',
+        'Pair with a Kennedy Space Center afternoon — the refuge entrance is on the same island.',
+    localOnlyNote: 'Most Orlando visitors never leave the KSC parking lot for the refuge loop.',
     gradient: [Color(0xFF6B7280), Color(0xFF4B5563), Color(0xFF1F2937)],
   ),
   HiddenGem(
     id: 'gem-mount-dora',
-    title: 'Mount Dora lakeside inn porch',
-    location: 'Mount Dora, FL · lakefront',
+    title: 'Lakeside Inn porch',
+    location: 'Mount Dora, FL · 100 E 3rd Ave',
     whySpecial:
-        'Small-town stillness 45 minutes from Orlando — rocking chairs, no theme-park hum.',
+        'Florida\'s oldest continuously operating hotel — lakefront rocking chairs 45 minutes from Orlando.',
     bestTime: 'Late afternoon golden hour',
     crowdLevel: 'Low · weekend brunch busier',
     insiderTip:
-        'Order the citrus spritz at the porch bar — they’ll point you to the antique pier walk.',
+        'Order a drink on the porch bar, then walk the antique district before dinner.',
     localOnlyNote: 'Orlando visitors rarely day-trip here without a local nudge.',
     gradient: [Color(0xFFA8A29E), Color(0xFF78716C), Color(0xFF292524)],
   ),
@@ -112,7 +112,7 @@ const hiddenGemsCatalog = [
     title: 'Sanford craft riverwalk',
     location: 'Sanford, FL · lakefront',
     whySpecial:
-        'Brick alleys and lake breezes — Orlando’s theme-park bubble disappears in twenty minutes.',
+        'Brick alleys and lake breezes — Orlando\'s theme-park bubble disappears in twenty minutes.',
     bestTime: 'Thursday happy hour',
     crowdLevel: 'Low weekdays',
     insiderTip:

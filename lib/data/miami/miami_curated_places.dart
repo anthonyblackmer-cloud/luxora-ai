@@ -141,21 +141,6 @@ abstract final class MiamiCuratedPlaces {
       source: LuxPlaceSource.curated,
     ),
     LuxPlace(
-      id: 'place-miami-brickell-rooftop',
-      slug: 'brickell-rooftop-dining',
-      title: 'Brickell Skyline Rooftop',
-      category: LuxPlaceCategory.dining,
-      unsplashPhotoId: 'RibghBxKlKc',
-      location: 'Brickell, Miami',
-      latitude: 25.7617,
-      longitude: -80.1918,
-      description:
-          'Tower views, craft cocktails, and the financial district humming below your table.',
-      moodTags: ['luxury', 'nightlife', 'foodie', 'sunset'],
-      cityPackId: cityId,
-      source: LuxPlaceSource.curated,
-    ),
-    LuxPlace(
       id: 'dining-miami-versailles',
       slug: 'versailles-little-havana',
       title: 'Versailles Restaurant',

@@ -155,81 +155,10 @@ abstract final class FloridaKeysContent {
   }
 
   static List<LuxPlace> _buildAllPlaces() {
-    final out = <LuxPlace>[
+    return [
       ...FloridaKeysCuratedPlaces.flagship,
       ...FloridaKeysHotelsCatalog.hotelPlaces,
     ];
-    var idx = 0;
-
-    for (var d = 0; d < districts.length; d++) {
-      final dist = districts[d];
-      final lat = _districtLat(dist);
-      final lng = _districtLng(dist);
-
-      for (var r = 0; r < 30; r++) {
-        final style = _restaurantStyles[(d + r) % _restaurantStyles.length];
-        out.add(_place(
-          id: 'keys-dining-${dist.districtId}-$r',
-          title: '${dist.districtName} ${style.$1}',
-          category: LuxPlaceCategory.dining,
-          lat: lat + (r * 0.0018),
-          lng: lng - (r * 0.0012),
-          location: '${dist.districtName}, FL Keys',
-          description:
-              'Concierge-curated ${style.$1.toLowerCase()} — ${dist.description}',
-          moodTags: [...style.$2, 'dining', 'keys'],
-          photo: _photos[idx++ % _photos.length],
-        ));
-      }
-
-      for (var a = 0; a < 15; a++) {
-        final kind = _attractionKinds[(d + a) % _attractionKinds.length];
-        out.add(_place(
-          id: 'keys-attr-${dist.districtId}-$a',
-          title: '${dist.districtName} ${kind.$1}',
-          category: kind.$2,
-          lat: lat - (a * 0.0025),
-          lng: lng + (a * 0.0018),
-          location: '${dist.districtName}, FL Keys',
-          description: '${kind.$1} — ${dist.vibeTags.take(2).join(' & ')} island energy.',
-          moodTags: [...kind.$3, 'keys', 'attraction'],
-          photo: _photos[idx++ % _photos.length],
-        ));
-      }
-
-      for (var e = 0; e < 20; e++) {
-        final kind = _experienceKinds[(d + e) % _experienceKinds.length];
-        out.add(_place(
-          id: 'keys-exp-${dist.districtId}-$e',
-          title: '${dist.districtName} ${kind.$1}',
-          category: LuxPlaceCategory.adventure,
-          lat: lat + (e * 0.0022),
-          lng: lng + (e * 0.0015),
-          location: '${dist.districtName}, FL Keys',
-          description:
-              'Bookable Keys experience — ${kind.$1.toLowerCase()} with vetted local captains.',
-          moodTags: [...kind.$2, 'experience', 'keys'],
-          photo: _photos[idx++ % _photos.length],
-        ));
-      }
-
-      for (var g = 0; g < 20; g++) {
-        out.add(_place(
-          id: 'keys-gem-place-${dist.districtId}-$g',
-          title: 'Secret ${dist.districtName} spot ${g + 1}',
-          category: g.isEven ? LuxPlaceCategory.beach : LuxPlaceCategory.dining,
-          lat: lat + (g * 0.0012),
-          lng: lng - (g * 0.0016),
-          location: '${dist.districtName} · local secret',
-          description:
-              'Insider-only — quiet dock, sunset angle, or reef entry locals guard.',
-          moodTags: ['hidden', 'local', 'gem', 'keys', 'sunset'],
-          photo: _photos[idx++ % _photos.length],
-        ));
-      }
-    }
-
-    return out;
   }
 
   static List<KeysWaterIntelligence> _buildWaterIntel() {
@@ -270,7 +199,13 @@ abstract final class FloridaKeysContent {
   static List<KeysMoodRoute> _buildMoodRoutes() {
     final dining = places.where((p) => p.category == LuxPlaceCategory.dining).toList();
     final beaches = places.where((p) => p.category == LuxPlaceCategory.beach).toList();
-    final experiences = places.where((p) => p.id.contains('-exp-')).toList();
+    final experiences = places
+        .where(
+          (p) =>
+              p.category == LuxPlaceCategory.adventure ||
+              p.category == LuxPlaceCategory.nature,
+        )
+        .toList();
     final sunsets = places.where((p) => p.moodTags.contains('sunset')).toList();
 
     String pick(List<LuxPlace> list, int i) =>

@@ -79,11 +79,11 @@ void main() {
   test('radius filter excludes Keys from 50mi Orlando hub', () {
     final repo = PlacesRepository.instance;
     final within50 = repo.placesWithinRadius(DiscoverRadius.miles50);
-    expect(within50.any((p) => p.id == 'place-keys-sail'), isFalse);
+    expect(within50.any((p) => p.id == 'place-clearwater-beach'), isFalse);
     expect(within50.any((p) => p.id == 'place-magic-kingdom'), isTrue);
 
     final all = repo.placesWithinRadius(DiscoverRadius.allFlorida);
-    expect(all.any((p) => p.id == 'place-keys-sail'), isTrue);
+    expect(all.any((p) => p.id == 'place-clearwater-beach'), isTrue);
   });
 
   test('trip cover resolver maps saved trips', () {

@@ -2,6 +2,7 @@ import 'package:luxora_ai/data/curated_places_attractions.dart';
 import 'package:luxora_ai/data/curated_places_dining.dart';
 import 'package:luxora_ai/data/curated_places_lodging.dart';
 import 'package:luxora_ai/data/curated_places_major_attractions.dart';
+import 'package:luxora_ai/data/curated_places_wellness.dart';
 import 'package:luxora_ai/models/lux_place.dart';
 
 export 'package:luxora_ai/data/curated_places_attractions.dart'
@@ -12,82 +13,11 @@ export 'package:luxora_ai/data/curated_places_lodging.dart'
     show curatedPlacesLodging;
 export 'package:luxora_ai/data/curated_places_major_attractions.dart'
     show curatedPlacesMajorAttractions;
+export 'package:luxora_ai/data/curated_places_wellness.dart'
+    show curatedPlacesWellness;
 
-/// Core demo places (original MVP set) — mood covers + flagship gems.
+/// Core demo places — real editorial gem + trip mood covers (not businesses).
 const _curatedPlacesCore = <LuxPlace>[
-  LuxPlace(
-    id: 'place-winter-park-rooftop',
-    slug: 'winter-park-rooftop',
-    title: 'Winter Park rooftop golden hour',
-    category: LuxPlaceCategory.dining,
-    unsplashPhotoId: 'BQCuGbkIPR0',
-    location: 'Winter Park, FL',
-    latitude: 28.5980,
-    longitude: -81.3508,
-    description: 'Editorial rooftop dining — skyline blush at first toast.',
-    moodTags: ['romantic', 'foodie', 'trending', 'sunset'],
-    aspectRole: LuxImageRole.hero,
-  ),
-  LuxPlace(
-    id: 'place-disney-night',
-    slug: 'disney-after-dark',
-    title: 'After-dark park sparkle',
-    category: LuxPlaceCategory.family,
-    unsplashPhotoId: 'uPQiTOzYoo0',
-    location: 'Lake Buena Vista, FL',
-    latitude: 28.3852,
-    longitude: -81.5639,
-    description: 'Night magic — fewer crowds, more wonder.',
-    moodTags: ['family', 'trending', 'adventure'],
-  ),
-  LuxPlace(
-    id: 'place-wellness-spa',
-    slug: 'citrus-wellness-spa',
-    title: 'Citrus ritual spa',
-    category: LuxPlaceCategory.wellness,
-    unsplashPhotoId: 'WPcKMcXZ7no',
-    location: 'Winter Park, FL',
-    latitude: 28.5965,
-    longitude: -81.3520,
-    description: 'Hydrotherapy and soft launch calm — wellness editorial.',
-    moodTags: ['wellness', 'relaxing', 'new-opening'],
-  ),
-  LuxPlace(
-    id: 'place-keys-sail',
-    slug: 'keys-island-sail',
-    title: 'Keys turquoise sail',
-    category: LuxPlaceCategory.adventure,
-    unsplashPhotoId: 'qW5Q6yOWVEA',
-    location: 'Key West trail, FL',
-    latitude: 24.5551,
-    longitude: -81.8067,
-    description: 'Island-hop catamaran — wind, salt, chapter-by-chapter water.',
-    moodTags: ['adventure', 'creator', 'trending'],
-  ),
-  LuxPlace(
-    id: 'place-springs-circuit',
-    slug: 'summer-springs-circuit',
-    title: 'Spring cooldown circuit',
-    category: LuxPlaceCategory.springs,
-    unsplashPhotoId: 'SKOhaTnRqQ0',
-    location: 'Central Florida',
-    latitude: 28.8026,
-    longitude: -81.3301,
-    description: 'Emerald springs and shaded lunch — beat the humidity.',
-    moodTags: ['nature', 'seasonal', 'springs'],
-  ),
-  LuxPlace(
-    id: 'place-gulf-beach-clearing',
-    slug: 'gulf-beach-storm-clearing',
-    title: 'Gulf coast light break',
-    category: LuxPlaceCategory.beach,
-    unsplashPhotoId: 'xMMA_mtJ8xM',
-    location: 'Clearwater area, FL',
-    latitude: 27.9778,
-    longitude: -82.8315,
-    description: 'Storm clearing — best beach window editorial.',
-    moodTags: ['beach', 'live', 'sunset'],
-  ),
   LuxPlace(
     id: 'place-wekiwa-springs',
     slug: 'wekiwa-springs-dawn',
@@ -99,42 +29,6 @@ const _curatedPlacesCore = <LuxPlace>[
     longitude: -81.4980,
     description: 'Quiet spring water — locals’ east bank secret.',
     moodTags: ['hidden', 'nature', 'springs', 'gem'],
-  ),
-  LuxPlace(
-    id: 'place-winter-park-courtyard',
-    slug: 'park-avenue-courtyard',
-    title: 'Park Avenue courtyard',
-    category: LuxPlaceCategory.dining,
-    unsplashPhotoId: 's5o_LdATc6A',
-    location: 'Winter Park, FL',
-    latitude: 28.5978,
-    longitude: -81.3492,
-    description: 'Hidden courtyard wine — candlelit, no street signage.',
-    moodTags: ['hidden', 'romantic', 'gem', 'foodie'],
-  ),
-  LuxPlace(
-    id: 'place-mangrove-paddle',
-    slug: 'merritt-island-paddle',
-    title: 'Mangrove dusk paddle',
-    category: LuxPlaceCategory.nature,
-    unsplashPhotoId: 'Tb5yggQfMs4',
-    location: 'Titusville, FL',
-    latitude: 28.6127,
-    longitude: -80.8078,
-    description: 'Mangrove channels — herons and bioluminescent hush.',
-    moodTags: ['hidden', 'nature', 'gem', 'adventure'],
-  ),
-  LuxPlace(
-    id: 'place-mount-dora-porch',
-    slug: 'mount-dora-porch',
-    title: 'Mount Dora lake porch',
-    category: LuxPlaceCategory.romantic,
-    unsplashPhotoId: 'P9NMCFXYiCo',
-    location: 'Mount Dora, FL',
-    latitude: 28.8025,
-    longitude: -81.6445,
-    description: 'Small-town rocking chairs — no theme-park hum.',
-    moodTags: ['hidden', 'relaxing', 'gem'],
   ),
   LuxPlace(
     id: 'cover-romantic-sunset',
@@ -186,25 +80,28 @@ List<LuxPlace> _mergeCatalogSlices(List<LuxPlace> base, List<LuxPlace> extra) {
 }
 
 /// Full catalog: core + attractions + major destinations + lodging + dining
-/// (deduped by id).
+/// + wellness (deduped by id).
 final curatedPlacesCatalog = _mergeCatalogSlices(
   _mergeCatalogSlices(
     _mergeCatalogSlices(
-      _mergeCatalogSlices(_curatedPlacesCore, curatedPlacesAttractions),
-      curatedPlacesMajorAttractions,
+      _mergeCatalogSlices(
+        _mergeCatalogSlices(_curatedPlacesCore, curatedPlacesAttractions),
+        curatedPlacesMajorAttractions,
+      ),
+      curatedPlacesLodging,
     ),
-    curatedPlacesLodging,
+    curatedPlacesDining,
   ),
-  curatedPlacesDining,
+  curatedPlacesWellness,
 );
 
 const kFeedItemPlaceIds = <String, String>{
-  'feed-rooftop-viral': 'place-winter-park-rooftop',
-  'feed-disney-after-dark': 'place-disney-night',
-  'feed-new-wellness': 'place-wellness-spa',
-  'feed-creator-keys': 'place-keys-sail',
-  'feed-summer-springs': 'place-springs-circuit',
-  'feed-live-storm': 'place-gulf-beach-clearing',
+  'feed-rooftop-viral': 'dining-luma-on-park',
+  'feed-disney-after-dark': 'place-magic-kingdom',
+  'feed-new-wellness': 'place-woodhouse-winter-park',
+  'feed-creator-keys': 'place-cocoa-beach-pier',
+  'feed-summer-springs': 'place-kelly-park-rock-springs',
+  'feed-live-storm': 'place-clearwater-beach',
   'feed-universal-hype': 'place-universal-studios',
   'feed-kennedy-launch': 'place-kennedy-space-center',
   'feed-lake-eola-sunset': 'place-lake-eola',
@@ -215,9 +112,9 @@ const kFeedItemPlaceIds = <String, String>{
 
 const kGemPlaceIds = <String, String>{
   'gem-wekiwa-dawn': 'place-wekiwa-springs',
-  'gem-winter-park-alley': 'place-winter-park-courtyard',
-  'gem-merritt-island': 'place-mangrove-paddle',
-  'gem-mount-dora': 'place-mount-dora-porch',
+  'gem-winter-park-alley': 'dining-prato',
+  'gem-merritt-island': 'place-merritt-island-nwr',
+  'gem-mount-dora': 'place-lakeside-inn-mount-dora',
   'gem-kelly-park-tube': 'place-kelly-park-rock-springs',
   'gem-blue-spring-manatee': 'place-blue-spring-state-park',
   'gem-sanford-riverwalk': 'place-sanford-riverwalk',
@@ -225,9 +122,9 @@ const kGemPlaceIds = <String, String>{
 };
 
 const kItineraryMomentPlaceIds = <String, String>{
-  '1': 'place-wellness-spa',
+  '1': 'place-woodhouse-winter-park',
   '2': 'place-wekiwa-springs',
-  '3': 'place-winter-park-rooftop',
+  '3': 'dining-luma-on-park',
 };
 
 const kSavedTripCoverPlaceIds = <String, String>{

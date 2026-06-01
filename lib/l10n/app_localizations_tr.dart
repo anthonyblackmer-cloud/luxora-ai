@@ -1207,7 +1207,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get onboardThemeParksOccasionHint =>
-      'Aşağıya tema parkı etkinlikleri eklemek için Disney ve Universal\'in kilidini açın; bu çipleri satın aldıktan hemen sonra göreceksiniz.';
+      'Aşağıda Disney ve Universal tema parkı etkinliklerini görmek için Orlando\'nun kilidini açın.';
 
   @override
   String get occasionGeneral => 'Sadece keşfediyorum';
@@ -2400,30 +2400,30 @@ class AppLocalizationsTr extends AppLocalizations {
   String get paywallSwitchCity => 'Varış noktası';
 
   @override
-  String get paywallUnlockingDestination => 'Unlocking for this trip';
+  String get paywallUnlockingDestination => 'Bu gezi için kilidi aç';
 
   @override
   String paywallUnifiedPriceHeadline(String price) {
-    return 'Every City Pack unlocks for $price each';
+    return 'Her şehir paketi $price karşılığında açılır';
   }
 
   @override
   String get paywallUnifiedPriceBody =>
-      'Orlando, Miami, Florida Keys — plus the Disney & Universal pack. One-time purchase each at the same price. No subscription.';
+      'Orlando (Disney ve Universal dahil), Miami ve Florida Keys — aynı fiyata tek seferlik satın alma. Abonelik yok.';
 
   @override
   String paywallSelectedPackToday(String packName) {
-    return 'Unlocking today: $packName';
+    return 'Bugün açılıyor: $packName';
   }
 
   @override
   String paywallAddonUnifiedHeadline(String price) {
-    return 'Disney & Universal — $price one time';
+    return 'Disney ve Universal — $price tek sefer';
   }
 
   @override
   String get paywallAddonUnifiedBody =>
-      'Same simple pricing as every Florida city pack — one unlock, lifetime access.';
+      'Her Florida paketiyle aynı basit fiyat — tek açılış, ömür boyu erişim.';
 
   @override
   String get cityPickerUnlocked => 'Kilitli değil';
@@ -3529,19 +3529,19 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String paywallValueStory(String cityName, String price) {
-    return 'Every Florida city pack — including Disney & Universal — unlocks for $price. You\'re getting the full concierge for $cityName: itineraries, hidden gems, hotel intel, and unlimited AI guidance.';
+    return 'Her Florida paketi — Orlando\'daki Disney ve Universal dahil — $price karşılığında açılır. $cityName için tam concierge: rotalar, gizli mücevherler, otel bilgisi ve sınırsız AI rehberliği.';
   }
 
   @override
   String get paywallRoiHook =>
-      'One bad meal, overpriced ticket booth, or wasted afternoon costs more than this one-time unlock.';
+      'Kötü bir yemek, pahalı biletler veya boşa geçen bir öğleden sonra, bu tek seferlik açılıştan daha pahalıya patlar.';
 
   @override
-  String get paywallPeaceOfMindTitle => 'Peace of mind, built in';
+  String get paywallPeaceOfMindTitle => 'İç huzur dahil';
 
   @override
   String get paywallPeaceOfMindBody =>
-      'You\'re not buying another subscription. You\'re buying a smarter vacation — planned before you land and supported while you\'re there.';
+      'Başka bir abonelik almıyorsunuz. İnişten önce planlanan ve oradayken desteklenen daha akıllı bir tatil alıyorsunuz.';
 
   @override
   String get paywallLockedPreviewTitle => 'Kapıcınızın İçerisinde Bekliyorum';
@@ -3618,7 +3618,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get paywallSocialProofTitle => 'Luxora\'nın Kilidini Açan Gezginler';
 
   @override
-  String get paywallSocialProofHeading => 'Worth it before they even landed';
+  String get paywallSocialProofHeading => 'İnmeden önce bile değdi';
 
   @override
   String get paywallReview1 =>
@@ -3648,7 +3648,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get paywallRestorePreviewDisabled =>
-      'Restore is disabled in preview mode — use a full build to test restore.';
+      'Önizleme modunda geri yükleme devre dışı — tam derlemede test edin.';
 
   @override
   String get paywallPurchaseSuccess =>

@@ -47,7 +47,7 @@ class TripCoverResolver {
       return _places.byId('cover-romantic-sunset');
     }
     if (lower.any((t) => t.contains('springs'))) {
-      return _places.byId('place-springs-circuit');
+      return _places.byId('place-kelly-park-rock-springs');
     }
     return _places.byId('cover-luxury-ocean');
   }

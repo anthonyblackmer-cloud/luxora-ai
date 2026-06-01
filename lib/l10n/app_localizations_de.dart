@@ -1209,7 +1209,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get onboardThemeParksOccasionHint =>
-      'Schalten Sie Disney und Universal frei, um unten Themenpark-Events hinzuzufügen – Sie sehen diese Chips direkt nach dem Kauf.';
+      'Schalten Sie Orlando frei, um unten Disney- und Universal-Themenpark-Anlässe anzuzeigen.';
 
   @override
   String get occasionGeneral => 'Einfach erkunden';
@@ -2407,30 +2407,30 @@ class AppLocalizationsDe extends AppLocalizations {
   String get paywallSwitchCity => 'Ziel';
 
   @override
-  String get paywallUnlockingDestination => 'Unlocking for this trip';
+  String get paywallUnlockingDestination => 'Freischaltung für diese Reise';
 
   @override
   String paywallUnifiedPriceHeadline(String price) {
-    return 'Every City Pack unlocks for $price each';
+    return 'Jedes City Pack kostet einmalig $price';
   }
 
   @override
   String get paywallUnifiedPriceBody =>
-      'Orlando, Miami, Florida Keys — plus the Disney & Universal pack. One-time purchase each at the same price. No subscription.';
+      'Orlando (mit Disney & Universal), Miami und Florida Keys — einmaliger Kauf zum gleichen Preis. Kein Abo.';
 
   @override
   String paywallSelectedPackToday(String packName) {
-    return 'Unlocking today: $packName';
+    return 'Heute freischalten: $packName';
   }
 
   @override
   String paywallAddonUnifiedHeadline(String price) {
-    return 'Disney & Universal — $price one time';
+    return 'Disney & Universal — $price einmalig';
   }
 
   @override
   String get paywallAddonUnifiedBody =>
-      'Same simple pricing as every Florida city pack — one unlock, lifetime access.';
+      'Gleiche simple Preisgestaltung wie bei jedem Florida City Pack — einmal freischalten, lebenslang nutzen.';
 
   @override
   String get cityPickerUnlocked => 'Entsperrt';
@@ -3536,19 +3536,19 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String paywallValueStory(String cityName, String price) {
-    return 'Every Florida city pack — including Disney & Universal — unlocks for $price. You\'re getting the full concierge for $cityName: itineraries, hidden gems, hotel intel, and unlimited AI guidance.';
+    return 'Jedes Florida City Pack — einschließlich Disney & Universal in Orlando — kostet einmalig $price. Sie erhalten den vollen Concierge für $cityName: Reiserouten, Geheimtipps, Hotel-Infos und unbegrenzte KI-Beratung.';
   }
 
   @override
   String get paywallRoiHook =>
-      'One bad meal, overpriced ticket booth, or wasted afternoon costs more than this one-time unlock.';
+      'Ein schlechtes Essen, überteuerte Tickets oder ein verlorener Nachmittag kosten mehr als diese einmalige Freischaltung.';
 
   @override
-  String get paywallPeaceOfMindTitle => 'Peace of mind, built in';
+  String get paywallPeaceOfMindTitle => 'Ruhe und Sicherheit inklusive';
 
   @override
   String get paywallPeaceOfMindBody =>
-      'You\'re not buying another subscription. You\'re buying a smarter vacation — planned before you land and supported while you\'re there.';
+      'Kein weiteres Abo. Sie kaufen einen smarteren Urlaub — geplant, bevor Sie landen, und begleitet, während Sie unterwegs sind.';
 
   @override
   String get paywallLockedPreviewTitle => 'Warten in Ihrem Concierge';
@@ -3625,7 +3625,7 @@ class AppLocalizationsDe extends AppLocalizations {
       'Reisende, die Luxora freigeschaltet haben';
 
   @override
-  String get paywallSocialProofHeading => 'Worth it before they even landed';
+  String get paywallSocialProofHeading => 'Schon vor der Landung überzeugt';
 
   @override
   String get paywallReview1 => '„Hat uns stundenlange Planung erspart.“';
@@ -3653,7 +3653,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get paywallRestorePreviewDisabled =>
-      'Restore is disabled in preview mode — use a full build to test restore.';
+      'Wiederherstellen ist im Vorschaumodus deaktiviert — testen Sie Restore in einem vollständigen Build.';
 
   @override
   String get paywallPurchaseSuccess =>

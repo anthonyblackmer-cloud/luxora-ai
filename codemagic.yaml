@@ -1,120 +1,239 @@
-# Luxora AI — CI/CD (Codemagic)
-# Add Application → this repo → enable codemagic.yaml → start `luxora-ios-workflow`.
-# Reuse group `appstore_credentials` (APP_STORE_CONNECT_*) from Discipline.
-#
-# Add to appstore_credentials (Secret unless noted):
-#   UNSPLASH_ACCESS_KEY
-#   SUPABASE_URL          e.g. https://YOUR_PROJECT.supabase.co
-#   SUPABASE_ANON_KEY
-#   MAPBOX_ACCESS_TOKEN   optional pk.… token (empty ok — Carto/OSM map tiles still work)
-#
-# IMPORTANT: Do not duplicate dart-defines in the Codemagic UI Flutter build step.
-# This yaml writes build/dart_defines.json and passes --dart-define-from-file only.
-# Bare `--dart-define=MAPBOX_ACCESS_TOKEN` (no value) breaks iOS archive with exit 255.
-
-workflows:
-  luxora-ios-workflow:
-    name: Luxora AI iOS
-    instance_type: mac_mini_m1
-    max_build_duration: 60
-    triggering:
-      events:
-        - push
-      branch_patterns:
-        - pattern: main
-          include: true
-          source: true
-    environment:
-      flutter: stable
-      xcode: latest
-      ios_signing:
-        distribution_type: app_store
-        bundle_identifier: com.luxora.luxoraAi
-      groups:
-        - appstore_credentials
-      vars:
-        XCODE_SCHEME: Runner
-        BUNDLE_ID: com.luxora.luxoraAi
-        APP_BUILD_NAME: "1.0.28"
-        APP_BUILD_NUMBER: "2000"
-        SUPABASE_CONCIERGE_FUNCTION: "bright-processor"
-
-    scripts:
-      - name: Install dependencies
-        script: |
-          set -euo pipefail
-          flutter pub get
-
-      - name: Localization and iOS bundles
-        script: |
-          set -euo pipefail
-          flutter gen-l10n
-          dart run tool/generate_ios_lproj_localizations.dart
-
-      - name: Write dart defines
-        script: bash scripts/codemagic_write_dart_defines_json.sh
-
-      - name: Build IPA
-        script: |
-          set -euo pipefail
-          flutter clean
-          DEFS_JSON="${CM_BUILD_DIR:-$PWD}/build/dart_defines.json"
-          flutter build ipa --release \
-            --verbose \
-            --build-name="$APP_BUILD_NAME" \
-            --build-number="$APP_BUILD_NUMBER" \
-            --dart-define-from-file="$DEFS_JSON" \
-            --export-options-plist=/Users/builder/export_options.plist
-
-    artifacts:
-      - build/ios/ipa/*.ipa
-      - build/dart_defines.json
-      - /tmp/xcodebuild_logs/*.log
-
-    publishing:
-      app_store_connect:
-        api_key: $APP_STORE_CONNECT_PRIVATE_KEY
-        key_id: $APP_STORE_CONNECT_KEY_IDENTIFIER
-        issuer_id: $APP_STORE_CONNECT_ISSUER_ID
-        submit_to_testflight: true
-
-  luxora-android-workflow:
-    name: Luxora AI Android
-    instance_type: mac_mini_m1
-    max_build_duration: 60
-    environment:
-      flutter: stable
-      android_signing:
-        - keystore_reference
-      groups:
-        - google_play
-      vars:
-        PACKAGE_NAME: com.luxora.luxora_ai
-        APP_BUILD_NAME: "1.0.28"
-        APP_BUILD_NUMBER: "2000"
-        SUPABASE_CONCIERGE_FUNCTION: "bright-processor"
-
-    scripts:
-      - name: Install dependencies
-        script: flutter pub get
-
-      - name: Localization
-        script: flutter gen-l10n
-
-      - name: Write dart defines
-        script: bash scripts/codemagic_write_dart_defines_json.sh
-
-      - name: Build AAB
-        script: |
-          set -euo pipefail
-          flutter clean
-          DEFS_JSON="${CM_BUILD_DIR:-$PWD}/build/dart_defines.json"
-          flutter build appbundle --release \
-            --build-name="$APP_BUILD_NAME" \
-            --build-number="$APP_BUILD_NUMBER" \
-            --dart-define-from-file="$DEFS_JSON"
-
-    artifacts:
-      - build/**/outputs/**/*.aab
-      - build/dart_defines.json
-
+# Luxora AI — CI/CD (Codemagic)
+
+# Add Application → this repo → enable codemagic.yaml → start `luxora-ios-workflow`.
+
+# Reuse group `appstore_credentials` (APP_STORE_CONNECT_*) from Discipline.
+
+#
+
+# Add to appstore_credentials (Secret unless noted):
+
+#   UNSPLASH_ACCESS_KEY
+
+#   SUPABASE_URL          e.g. https://YOUR_PROJECT.supabase.co
+
+#   SUPABASE_ANON_KEY
+
+#   MAPBOX_ACCESS_TOKEN   optional pk.… token (empty ok — Carto/OSM map tiles still work)
+
+#
+
+# IMPORTANT: Do not duplicate dart-defines in the Codemagic UI Flutter build step.
+
+# This yaml writes build/dart_defines.json and passes --dart-define-from-file only.
+
+# Bare `--dart-define=MAPBOX_ACCESS_TOKEN` (no value) breaks iOS archive with exit 255.
+
+
+
+workflows:
+
+  luxora-ios-workflow:
+
+    name: Luxora AI iOS
+
+    instance_type: mac_mini_m1
+
+    max_build_duration: 60
+
+    triggering:
+
+      events:
+
+        - push
+
+      branch_patterns:
+
+        - pattern: main
+
+          include: true
+
+          source: true
+
+    environment:
+
+      flutter: stable
+
+      xcode: latest
+
+      ios_signing:
+
+        distribution_type: app_store
+
+        bundle_identifier: com.luxora.luxoraAi
+
+      groups:
+
+        - appstore_credentials
+
+      vars:
+
+        XCODE_SCHEME: Runner
+
+        BUNDLE_ID: com.luxora.luxoraAi
+
+        APP_BUILD_NAME: "1.0.28"
+
+        APP_BUILD_NUMBER: "2000"
+
+        SUPABASE_CONCIERGE_FUNCTION: "bright-processor"
+
+
+
+    scripts:
+
+      - name: Install dependencies
+
+        script: |
+
+          set -euo pipefail
+
+          flutter pub get
+
+
+
+      - name: Localization and iOS bundles
+
+        script: |
+
+          set -euo pipefail
+
+          flutter gen-l10n
+
+          dart run tool/generate_ios_lproj_localizations.dart
+
+
+
+      - name: Write dart defines
+
+        script: bash scripts/codemagic_write_dart_defines_json.sh
+
+
+
+      - name: Build IPA
+
+        script: |
+
+          set -euo pipefail
+
+          flutter clean
+
+          DEFS_JSON="${CM_BUILD_DIR:-$PWD}/build/dart_defines.json"
+
+          flutter build ipa --release \
+
+            --verbose \
+
+            --build-name="$APP_BUILD_NAME" \
+
+            --build-number="$APP_BUILD_NUMBER" \
+
+            --dart-define-from-file="$DEFS_JSON" \
+
+            --export-options-plist=/Users/builder/export_options.plist
+
+
+
+    artifacts:
+
+      - build/ios/ipa/*.ipa
+
+      - build/dart_defines.json
+
+      - /tmp/xcodebuild_logs/*.log
+
+
+
+    publishing:
+
+      app_store_connect:
+
+        api_key: $APP_STORE_CONNECT_PRIVATE_KEY
+
+        key_id: $APP_STORE_CONNECT_KEY_IDENTIFIER
+
+        issuer_id: $APP_STORE_CONNECT_ISSUER_ID
+
+        submit_to_testflight: true
+
+
+
+  luxora-android-workflow:
+
+    name: Luxora AI Android
+
+    instance_type: mac_mini_m1
+
+    max_build_duration: 60
+
+    environment:
+
+      flutter: stable
+
+      android_signing:
+
+        - keystore_reference
+
+      groups:
+
+        - google_play
+
+      vars:
+
+        PACKAGE_NAME: com.luxora.luxora_ai
+
+        APP_BUILD_NAME: "1.0.28"
+
+        APP_BUILD_NUMBER: "2000"
+
+        SUPABASE_CONCIERGE_FUNCTION: "bright-processor"
+
+
+
+    scripts:
+
+      - name: Install dependencies
+
+        script: flutter pub get
+
+
+
+      - name: Localization
+
+        script: flutter gen-l10n
+
+
+
+      - name: Write dart defines
+
+        script: bash scripts/codemagic_write_dart_defines_json.sh
+
+
+
+      - name: Build AAB
+
+        script: |
+
+          set -euo pipefail
+
+          flutter clean
+
+          DEFS_JSON="${CM_BUILD_DIR:-$PWD}/build/dart_defines.json"
+
+          flutter build appbundle --release \
+
+            --build-name="$APP_BUILD_NAME" \
+
+            --build-number="$APP_BUILD_NUMBER" \
+
+            --dart-define-from-file="$DEFS_JSON"
+
+
+
+    artifacts:
+
+      - build/**/outputs/**/*.aab
+
+      - build/dart_defines.json
+
+

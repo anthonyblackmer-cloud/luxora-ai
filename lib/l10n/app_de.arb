@@ -1293,7 +1293,7 @@
   "onboardSummaryRestaurants": "Restaurants",
   "onboardSummaryRomantic": "Romantische Sonnenuntergangserlebnisse",
   "onboardSummaryRooftopDining": "Kulinarische Erlebnisse auf dem Dach",
-  "onboardThemeParksOccasionHint": "Schalten Sie Disney und Universal frei, um unten Themenpark-Events hinzuzufügen – Sie sehen diese Chips direkt nach dem Kauf.",
+  "onboardThemeParksOccasionHint": "Schalten Sie Orlando frei, um unten Disney- und Universal-Themenpark-Anlässe anzuzeigen.",
   "onboardTravelerNameEyebrow": "Das Wichtigste zuerst",
   "onboardTravelerNameHint": "z.B. Maria",
   "onboardTravelerNameLabel": "Dein Vorname",
@@ -2562,5 +2562,48 @@
   "themeChampagneLuxe": "Champagne Luxe",
   "themeChampagneLuxeMood": "Private Concierge-Eleganz",
   "themeBlackCard": "Black Card",
-  "themeBlackCardMood": "Prestige der Privatluftfahrt"
+  "themeBlackCardMood": "Prestige der Privatluftfahrt",
+  "paywallUnlockingDestination": "Freischaltung für diese Reise",
+  "paywallUnifiedPriceHeadline": "Jedes City Pack kostet einmalig {price}",
+  "@paywallUnifiedPriceHeadline": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallUnifiedPriceBody": "Orlando (mit Disney & Universal), Miami und Florida Keys — einmaliger Kauf zum gleichen Preis. Kein Abo.",
+  "paywallSelectedPackToday": "Heute freischalten: {packName}",
+  "@paywallSelectedPackToday": {
+    "placeholders": {
+      "packName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallAddonUnifiedHeadline": "Disney & Universal — {price} einmalig",
+  "@paywallAddonUnifiedHeadline": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallAddonUnifiedBody": "Gleiche simple Preisgestaltung wie bei jedem Florida City Pack — einmal freischalten, lebenslang nutzen.",
+  "paywallValueStory": "Jedes Florida City Pack — einschließlich Disney & Universal in Orlando — kostet einmalig {price}. Sie erhalten den vollen Concierge für {cityName}: Reiserouten, Geheimtipps, Hotel-Infos und unbegrenzte KI-Beratung.",
+  "@paywallValueStory": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      },
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallRoiHook": "Ein schlechtes Essen, überteuerte Tickets oder ein verlorener Nachmittag kosten mehr als diese einmalige Freischaltung.",
+  "paywallPeaceOfMindTitle": "Ruhe und Sicherheit inklusive",
+  "paywallPeaceOfMindBody": "Kein weiteres Abo. Sie kaufen einen smarteren Urlaub — geplant, bevor Sie landen, und begleitet, während Sie unterwegs sind.",
+  "paywallSocialProofHeading": "Schon vor der Landung überzeugt",
+  "paywallRestorePreviewDisabled": "Wiederherstellen ist im Vorschaumodus deaktiviert — testen Sie Restore in einem vollständigen Build."
 }

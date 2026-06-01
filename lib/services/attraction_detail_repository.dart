@@ -105,45 +105,46 @@ class AttractionDetailRepository {
       ),
       vibeMatch: ['Nature-heavy', 'Wellness reset', 'Hidden luxury', 'Less crowded'],
       nearbyGemPlaceIds: [
-        'place-winter-park-courtyard',
-        'place-winter-park-rooftop',
-        'place-wellness-spa',
+        'dining-prato',
+        'dining-luma-on-park',
+        'place-woodhouse-winter-park',
+        'place-amore-domani-spa',
       ],
     ),
-    'place-winter-park-rooftop': AttractionDetail(
-      placeId: 'place-winter-park-rooftop',
-      title: 'Winter Park Rooftop Sunset Dinner',
+    'dining-luma-on-park': AttractionDetail(
+      placeId: 'dining-luma-on-park',
+      title: 'Luma on Park',
       emotionalHook:
-          'Golden hour arrives at your table first — skyline blush, warm light, and a slow first toast.',
+          'Park Avenue energy slows to conversation — seasonal plates and golden-hour light through the windows.',
       whySpecial:
-          'This rooftop feels editorial without trying too hard: open skyline lines, polished service, and a pace that invites conversation. As the sun drops, the city shifts into amber and deep blue, giving the entire evening a cinematic arc. It works whether you are celebrating something big or simply marking that the trip has officially started. The staff tends to read the room well, so the experience can feel remarkably tailored. It is one of those rare places where atmosphere does half the storytelling for you.',
+          'One of Winter Park\'s anchor restaurants — modern American cooking, a serious wine program, and a sidewalk scene that feels like the heart of the neighborhood. It works for a first-night celebration or a mid-trip reset between park days.',
       bestTimeToGo:
-          'Request a reservation 35–50 minutes before sunset for the best light transition. Weeknights are smoother; Friday peak can feel energetic and louder. Rain windows clear quickly in summer, so keep a flexible backup slot.',
+          'Reserve 45–60 minutes before sunset on weekends. Weeknight early dinners are easier to walk in.',
       insiderTips:
-          'Ask for west-facing seating when available. Order in two waves: a light starter before peak color, then mains after sunset for a longer golden-to-indigo flow. If you are continuing the night, pre-book your next stop to avoid surge wait times.',
+          'Ask for a sidewalk table when weather cooperates. Pair with a stroll on Park Avenue before or after.',
       practicalDetails: AttractionPracticalDetails(
         typicalDuration: '90–120 min',
         costRange: '\$\$\$',
         bestFor: ['Romantic', 'Foodie', 'Celebrations'],
       ),
-      vibeMatch: ['Romantic', 'Aesthetic dining', 'Golden hour', 'Luxury mood'],
+      vibeMatch: ['Romantic', 'Aesthetic dining', 'Golden hour', 'Foodie'],
       nearbyGemPlaceIds: [
-        'place-winter-park-courtyard',
-        'place-wellness-spa',
-        'place-wekiwa-springs',
+        'dining-prato',
+        'place-woodhouse-winter-park',
+        'place-scenic-boat-winter-park',
       ],
     ),
-    'place-wellness-spa': AttractionDetail(
-      placeId: 'place-wellness-spa',
-      title: 'Citrus Wellness Studio',
+    'place-woodhouse-winter-park': AttractionDetail(
+      placeId: 'place-woodhouse-winter-park',
+      title: 'The Woodhouse Day Spa – Winter Park',
       emotionalHook:
-          'You walk in carrying travel noise and leave in a softer state — lighter, slower, and more present.',
+          'Slip into a quiet treatment room and let the travel tension melt before the day picks up again.',
       whySpecial:
-          'This studio is designed around decompression rather than spectacle: warm tones, intentional quiet, and treatments that feel restorative instead of performative. Citrus-forward rituals and hydro moments create a clean reset after flights or long drives. It is especially powerful as a first-day anchor, because it sets your pace before the rest of the itinerary. Service is polished but calm, giving the entire visit a private-club energy. Luxora uses this stop as a rhythm setter for trips that prioritize emotional quality over volume.',
+          'A proper day spa minutes from Park Avenue — massage, facials, and calm rooms without resort pricing theatrics. It is an easy first-day anchor or a mid-trip reset when park days stack up. Book a block with hydro access when available and keep lunch walkable on Winter Park’s side streets.',
       bestTimeToGo:
-          'Best in the 8:30–11:00 AM window when energy is calm and schedules are flexible. Late afternoons can book quickly, especially before weekend evenings. Arrive 15 minutes early for full facility time.',
+          'Weekday mornings (9:00–11:30 AM) are calmest. Saturday afternoons fill fast — reserve ahead.',
       insiderTips:
-          'Book treatment + hydro access as one block, then schedule a low-friction lunch nearby. Keep your phone on minimal mode during and 30 minutes after; the mood carryover is part of the value. If you are pairing with springs, spa first usually feels better.',
+          'Pair with the scenic boat tour or Morse Museum for a slow Winter Park chapter. Arrive fifteen minutes early and keep your next stop unhurried.',
       practicalDetails: AttractionPracticalDetails(
         typicalDuration: '75–120 min',
         costRange: '\$\$\$',
@@ -151,9 +152,33 @@ class AttractionDetailRepository {
       ),
       vibeMatch: ['Wellness reset', 'Slow mornings', 'Hidden luxury'],
       nearbyGemPlaceIds: [
-        'place-wekiwa-springs',
-        'place-winter-park-rooftop',
-        'place-winter-park-courtyard',
+        'place-scenic-boat-winter-park',
+        'place-morse-museum',
+        'dining-luma-on-park',
+        'place-amore-domani-spa',
+      ],
+    ),
+    'place-spa-ritz-grande-lakes': AttractionDetail(
+      placeId: 'place-spa-ritz-grande-lakes',
+      title: 'The Ritz-Carlton Spa, Grande Lakes',
+      emotionalHook:
+          'Lake breezes, hushed corridors, and time that finally belongs to you again.',
+      whySpecial:
+          'One of Orlando’s most polished resort spas — strong for anniversaries, slow afternoons, and travelers who want luxury without a park ticket. Treatments lean unhurried; the setting does the emotional work.',
+      bestTimeToGo:
+          'Book mid-week afternoons for the quietest rooms. Allow buffer before dinner at the resort or a sunset drive back toward the parks.',
+      insiderTips:
+          'Combine with a Grande Lakes stroll or pool time if you are staying on property. Mention celebration notes when booking — the team often personalizes the room setup.',
+      practicalDetails: AttractionPracticalDetails(
+        typicalDuration: '90–150 min',
+        costRange: '\$\$\$\$',
+        bestFor: ['Wellness', 'Romantic', 'Luxury'],
+      ),
+      vibeMatch: ['Wellness reset', 'Hidden luxury', 'Romantic'],
+      nearbyGemPlaceIds: [
+        'place-spa-jw-bonnet-creek',
+        'place-spa-waldorf-orlando',
+        'place-leu-gardens',
       ],
     ),
     'place-miami-vizcaya': AttractionDetail(

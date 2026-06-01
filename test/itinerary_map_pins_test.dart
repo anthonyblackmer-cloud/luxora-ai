@@ -15,9 +15,9 @@ void main() {
     final data = ItineraryMapPins.resolveDay(day: day);
     expect(data, isNotNull);
     expect(data!.routePlaceIds, [
-      'place-wellness-spa',
+      'place-woodhouse-winter-park',
       'place-wekiwa-springs',
-      'place-winter-park-rooftop',
+      'dining-luma-on-park',
     ]);
   });
 

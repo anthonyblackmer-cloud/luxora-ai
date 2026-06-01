@@ -1293,7 +1293,7 @@
   "onboardSummaryRestaurants": "रेस्टोरेंट",
   "onboardSummaryRomantic": "रोमांटिक सूर्यास्त अनुभव",
   "onboardSummaryRooftopDining": "छत पर भोजन का अनुभव",
-  "onboardThemeParksOccasionHint": "नीचे थीम-पार्क अवसरों को जोड़ने के लिए डिज़्नी और यूनिवर्सल को अनलॉक करें - आप खरीदारी के तुरंत बाद उन चिप्स को देखेंगे।",
+  "onboardThemeParksOccasionHint": "ऑरलैंडो अनलॉक करें और नीचे Disney व Universal थीम-पार्क अवसर देखें।",
   "onboardTravelerNameEyebrow": "सबसे पहली बात",
   "onboardTravelerNameHint": "जैसे मारिया",
   "onboardTravelerNameLabel": "आपका प्रथम नाम",
@@ -2562,5 +2562,48 @@
   "themeChampagneLuxe": "Champagne Luxe",
   "themeChampagneLuxeMood": "निजी कॉन्सierge की शान",
   "themeBlackCard": "Black Card",
-  "themeBlackCardMood": "प्राइवेट एविएशन प्रतिष्ठा"
+  "themeBlackCardMood": "प्राइवेट एविएशन प्रतिष्ठा",
+  "paywallUnlockingDestination": "इस यात्रा के लिए अनलॉक",
+  "paywallUnifiedPriceHeadline": "हर सिटी पैक {price} में अनलॉक होता है",
+  "@paywallUnifiedPriceHeadline": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallUnifiedPriceBody": "ऑरलैंडो (Disney और Universal सहित), मियामी और Florida Keys — एक ही कीमत पर एक बार की खरीद। कोई सब्सक्रिप्शन नहीं।",
+  "paywallSelectedPackToday": "आज अनलॉक: {packName}",
+  "@paywallSelectedPackToday": {
+    "placeholders": {
+      "packName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallAddonUnifiedHeadline": "Disney और Universal — {price} एक बार",
+  "@paywallAddonUnifiedHeadline": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallAddonUnifiedBody": "हर Florida पैक जैसी सरल कीमत — एक अनलॉक, जीवनभर एक्सेस।",
+  "paywallValueStory": "हर Florida पैक — Orlando में Disney और Universal सहित — {price} में अनलॉक होता है। आपको {cityName} के लिए पूरा concierge मिलता है: यात्रा कार्यक्रम, छिपे हुए रत्न, होटल जानकारी और असीमित AI मार्गदर्शन।",
+  "@paywallValueStory": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      },
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallRoiHook": "एक खराब भोजन, महंगे टिकट या बर्बाद दोपहर इस एक बार के अनलॉक से महंगी पड़ती है।",
+  "paywallPeaceOfMindTitle": "मन की शांति, पहले से शामिल",
+  "paywallPeaceOfMindBody": "आप कोई नया सब्सक्रिप्शन नहीं खरीद रहे। आप एक smarter छुट्टी खरीद रहे हैं — उतरने से पहले योजना और वहाँ रहते समय सहायता।",
+  "paywallSocialProofHeading": "उतरने से पहले ही फायदेमंद",
+  "paywallRestorePreviewDisabled": "पूर्वावलोकन मोड में restore अक्षम है — पूर्ण बिल्ड में परीक्षण करें।"
 }

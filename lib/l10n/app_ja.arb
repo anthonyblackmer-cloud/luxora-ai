@@ -1293,7 +1293,7 @@
   "onboardSummaryRestaurants": "レストラン",
   "onboardSummaryRomantic": "ロマンチックな夕日体験",
   "onboardSummaryRooftopDining": "屋上でのダイニング体験",
-  "onboardThemeParksOccasionHint": "ディズニーとユニバーサルのロックを解除して、以下のテーマパークのイベントを追加します。これらのチップは購入後すぐに表示されます。",
+  "onboardThemeParksOccasionHint": "オーランドのロックを解除すると、以下にディズニーとユニバーサルのテーマパークの機会が表示されます。",
   "onboardTravelerNameEyebrow": "まず最初に",
   "onboardTravelerNameHint": "例えばマリア",
   "onboardTravelerNameLabel": "あなたの名前",
@@ -2562,5 +2562,48 @@
   "themeChampagneLuxe": "Champagne Luxe",
   "themeChampagneLuxeMood": "プライベートコンシェルジュの優雅さ",
   "themeBlackCard": "Black Card",
-  "themeBlackCardMood": "プライベート航空の威信"
+  "themeBlackCardMood": "プライベート航空の威信",
+  "paywallUnlockingDestination": "この旅行のロック解除",
+  "paywallUnifiedPriceHeadline": "各シティパックは{price}で解除",
+  "@paywallUnifiedPriceHeadline": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallUnifiedPriceBody": "オーランド（Disney・Universal込み）、マイアミ、フロリダキーズ — 同じ価格の買い切り。サブスクなし。",
+  "paywallSelectedPackToday": "本日の解除：{packName}",
+  "@paywallSelectedPackToday": {
+    "placeholders": {
+      "packName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallAddonUnifiedHeadline": "Disney & Universal — {price} 買い切り",
+  "@paywallAddonUnifiedHeadline": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallAddonUnifiedBody": "フロリダ各パックと同じシンプルな価格 — 一度の解除で生涯アクセス。",
+  "paywallValueStory": "フロリダ各パック（オーランドのDisney・Universal含む）は{price}で解除。{cityName}向けフルコンシェルジュ：旅程、隠れた名所、ホテル情報、無制限AIガイド。",
+  "@paywallValueStory": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      },
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallRoiHook": "残念な食事、高いチケット、無駄な午後は、この買い切り解除より高くつきます。",
+  "paywallPeaceOfMindTitle": "安心感を標準装備",
+  "paywallPeaceOfMindBody": "追加のサブスクではありません。到着前に計画され、現地でも支えられる、より賢い休暇を買うのです。",
+  "paywallSocialProofHeading": "着陸前から価値あり",
+  "paywallRestorePreviewDisabled": "プレビューモードでは復元は無効です — 完全ビルドでテストしてください。"
 }

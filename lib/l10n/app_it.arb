@@ -1293,7 +1293,7 @@
   "onboardSummaryRestaurants": "Ristoranti",
   "onboardSummaryRomantic": "Esperienze romantiche al tramonto",
   "onboardSummaryRooftopDining": "Esperienze culinarie sul tetto",
-  "onboardThemeParksOccasionHint": "Sblocca Disney & Universal per aggiungere occasioni nei parchi a tema qui sotto: vedrai i gettoni subito dopo l'acquisto.",
+  "onboardThemeParksOccasionHint": "Sblocca Orlando per mostrare le occasioni nei parchi Disney e Universal qui sotto.",
   "onboardTravelerNameEyebrow": "Per prima cosa",
   "onboardTravelerNameHint": "per esempio. Maria",
   "onboardTravelerNameLabel": "Il tuo nome",
@@ -2562,5 +2562,48 @@
   "themeChampagneLuxe": "Champagne Luxe",
   "themeChampagneLuxeMood": "Eleganza concierge privato",
   "themeBlackCard": "Black Card",
-  "themeBlackCardMood": "Prestigio dell'aviazione privata"
+  "themeBlackCardMood": "Prestigio dell'aviazione privata",
+  "paywallUnlockingDestination": "Sblocco per questo viaggio",
+  "paywallUnifiedPriceHeadline": "Ogni City Pack si sblocca per {price} ciascuno",
+  "@paywallUnifiedPriceHeadline": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallUnifiedPriceBody": "Orlando (include Disney e Universal), Miami e Florida Keys — acquisto una tantum allo stesso prezzo. Nessun abbonamento.",
+  "paywallSelectedPackToday": "Sblocco oggi: {packName}",
+  "@paywallSelectedPackToday": {
+    "placeholders": {
+      "packName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallAddonUnifiedHeadline": "Disney e Universal — {price} una volta",
+  "@paywallAddonUnifiedHeadline": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallAddonUnifiedBody": "Stesso prezzo semplice di ogni pack Florida — un unlock, accesso a vita.",
+  "paywallValueStory": "Ogni pack Florida — inclusi Disney e Universal a Orlando — si sblocca per {price}. Ottieni il concierge completo per {cityName}: itinerari, gemme nascoste, intel hotel e guida IA illimitata.",
+  "@paywallValueStory": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      },
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallRoiHook": "Un pasto deludente, biglietti troppo cari o un pomeriggio sprecato costano più di questo sblocco una tantum.",
+  "paywallPeaceOfMindTitle": "Serenità inclusa",
+  "paywallPeaceOfMindBody": "Non stai comprando un altro abbonamento. Stai comprando una vacanza più intelligente — pianificata prima di atterrare e supportata mentre sei lì.",
+  "paywallSocialProofHeading": "Ne valeva la pena prima di atterrare",
+  "paywallRestorePreviewDisabled": "Ripristino disabilitato in modalità anteprima — usa una build completa per testarlo."
 }

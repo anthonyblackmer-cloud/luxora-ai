@@ -27,9 +27,9 @@ void main() {
     );
   });
 
-  test('theme park occasions appear after Disney & Universal pack unlock', () async {
+  test('theme park occasions appear after Orlando city unlock', () async {
     await CityPackEntitlementStore.instance
-        .unlockAddon(OrlandoAddonCatalog.themeParks);
+        .unlockCity(OrlandoAddonCatalog.parentCityId);
 
     const profile = TripProfile(cityId: OrlandoAddonCatalog.parentCityId);
     final visible = TripOccasionCatalog.visibleOccasions(profile);

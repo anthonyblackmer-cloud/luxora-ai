@@ -50,7 +50,7 @@ class _LuxoraPaywallScreenState extends State<LuxoraPaywallScreen> {
     _offer = PaywallService.offerForCity(widget.cityId);
     _persona = PaywallService.personaForCurrentTrip();
     if (PaywallService.isOrlandoAddon(widget.addonId)) {
-      _addonOffer = PaywallService.addonOfferFor(widget.addonId!);
+      _addonOffer = null;
     }
     CityPackEntitlementStore.instance.addListener(_onEntitlementsChanged);
   }
@@ -77,9 +77,6 @@ class _LuxoraPaywallScreenState extends State<LuxoraPaywallScreen> {
       if (!mounted) return;
       if (outcome == IapPurchaseOutcome.success ||
           outcome == IapPurchaseOutcome.alreadyOwned) {
-        if (_offer.cityId == OrlandoAddonCatalog.parentCityId) {
-          await PaywallService.promptOrlandoThemeParksIfNeeded(context);
-        }
         if (mounted) Navigator.of(context).pop(true);
         return;
       }
@@ -139,19 +136,11 @@ class _LuxoraPaywallScreenState extends State<LuxoraPaywallScreen> {
 
   Future<void> _switchCity(String cityId) async {
     if (CityDestinationPicker.isThemeParksPickerValue(cityId)) {
-      setState(() {
-        _offer = PaywallService.offerForCity(OrlandoAddonCatalog.parentCityId);
-        _addonOffer = PaywallService.addonOfferFor(cityId);
-      });
-      return;
+      cityId = OrlandoAddonCatalog.parentCityId;
     }
     if (!PaywallBypass.forcePreviewMode &&
         !PaywallService.needsUnlock(cityId)) {
       await CityPackSync.switchCity(cityId);
-      if (!mounted) return;
-      if (cityId == OrlandoAddonCatalog.parentCityId) {
-        await PaywallService.promptOrlandoThemeParksIfNeeded(context);
-      }
       if (mounted) Navigator.of(context).pop(true);
       return;
     }

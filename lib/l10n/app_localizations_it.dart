@@ -1216,7 +1216,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get onboardThemeParksOccasionHint =>
-      'Sblocca Disney & Universal per aggiungere occasioni nei parchi a tema qui sotto: vedrai i gettoni subito dopo l\'acquisto.';
+      'Sblocca Orlando per mostrare le occasioni nei parchi Disney e Universal qui sotto.';
 
   @override
   String get occasionGeneral => 'Sto solo esplorando';
@@ -2417,30 +2417,30 @@ class AppLocalizationsIt extends AppLocalizations {
   String get paywallSwitchCity => 'Destinazione';
 
   @override
-  String get paywallUnlockingDestination => 'Unlocking for this trip';
+  String get paywallUnlockingDestination => 'Sblocco per questo viaggio';
 
   @override
   String paywallUnifiedPriceHeadline(String price) {
-    return 'Every City Pack unlocks for $price each';
+    return 'Ogni City Pack si sblocca per $price ciascuno';
   }
 
   @override
   String get paywallUnifiedPriceBody =>
-      'Orlando, Miami, Florida Keys — plus the Disney & Universal pack. One-time purchase each at the same price. No subscription.';
+      'Orlando (include Disney e Universal), Miami e Florida Keys — acquisto una tantum allo stesso prezzo. Nessun abbonamento.';
 
   @override
   String paywallSelectedPackToday(String packName) {
-    return 'Unlocking today: $packName';
+    return 'Sblocco oggi: $packName';
   }
 
   @override
   String paywallAddonUnifiedHeadline(String price) {
-    return 'Disney & Universal — $price one time';
+    return 'Disney e Universal — $price una volta';
   }
 
   @override
   String get paywallAddonUnifiedBody =>
-      'Same simple pricing as every Florida city pack — one unlock, lifetime access.';
+      'Stesso prezzo semplice di ogni pack Florida — un unlock, accesso a vita.';
 
   @override
   String get cityPickerUnlocked => 'Sbloccato';
@@ -3551,19 +3551,19 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String paywallValueStory(String cityName, String price) {
-    return 'Every Florida city pack — including Disney & Universal — unlocks for $price. You\'re getting the full concierge for $cityName: itineraries, hidden gems, hotel intel, and unlimited AI guidance.';
+    return 'Ogni pack Florida — inclusi Disney e Universal a Orlando — si sblocca per $price. Ottieni il concierge completo per $cityName: itinerari, gemme nascoste, intel hotel e guida IA illimitata.';
   }
 
   @override
   String get paywallRoiHook =>
-      'One bad meal, overpriced ticket booth, or wasted afternoon costs more than this one-time unlock.';
+      'Un pasto deludente, biglietti troppo cari o un pomeriggio sprecato costano più di questo sblocco una tantum.';
 
   @override
-  String get paywallPeaceOfMindTitle => 'Peace of mind, built in';
+  String get paywallPeaceOfMindTitle => 'Serenità inclusa';
 
   @override
   String get paywallPeaceOfMindBody =>
-      'You\'re not buying another subscription. You\'re buying a smarter vacation — planned before you land and supported while you\'re there.';
+      'Non stai comprando un altro abbonamento. Stai comprando una vacanza più intelligente — pianificata prima di atterrare e supportata mentre sei lì.';
 
   @override
   String get paywallLockedPreviewTitle =>
@@ -3643,7 +3643,8 @@ class AppLocalizationsIt extends AppLocalizations {
       'Viaggiatori che hanno sbloccato Luxora';
 
   @override
-  String get paywallSocialProofHeading => 'Worth it before they even landed';
+  String get paywallSocialProofHeading =>
+      'Ne valeva la pena prima di atterrare';
 
   @override
   String get paywallReview1 =>
@@ -3674,7 +3675,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get paywallRestorePreviewDisabled =>
-      'Restore is disabled in preview mode — use a full build to test restore.';
+      'Ripristino disabilitato in modalità anteprima — usa una build completa per testarlo.';
 
   @override
   String get paywallPurchaseSuccess =>

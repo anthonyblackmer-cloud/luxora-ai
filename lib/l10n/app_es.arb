@@ -1293,7 +1293,7 @@
   "onboardSummaryRestaurants": "Restaurantes",
   "onboardSummaryRomantic": "Experiencias románticas al atardecer",
   "onboardSummaryRooftopDining": "Experiencias gastronómicas en la azotea",
-  "onboardThemeParksOccasionHint": "Desbloquea Disney y Universal para agregar eventos de parques temáticos a continuación; verás esos chips inmediatamente después de la compra.",
+  "onboardThemeParksOccasionHint": "Desbloquea Orlando para ver ocasiones de parques Disney y Universal a continuación.",
   "onboardTravelerNameEyebrow": "Lo primero es lo primero",
   "onboardTravelerNameHint": "p.ej. María",
   "onboardTravelerNameLabel": "tu nombre",
@@ -2562,5 +2562,48 @@
   "themeChampagneLuxe": "Champagne Luxe",
   "themeChampagneLuxeMood": "Elegancia de concierge privado",
   "themeBlackCard": "Black Card",
-  "themeBlackCardMood": "Prestigio de aviación privada"
+  "themeBlackCardMood": "Prestigio de aviación privada",
+  "paywallUnlockingDestination": "Desbloqueo para este viaje",
+  "paywallUnifiedPriceHeadline": "Cada pack de ciudad se desbloquea por {price}",
+  "@paywallUnifiedPriceHeadline": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallUnifiedPriceBody": "Orlando (incluye Disney y Universal), Miami y Florida Keys — compra única al mismo precio. Sin suscripción.",
+  "paywallSelectedPackToday": "Desbloqueando hoy: {packName}",
+  "@paywallSelectedPackToday": {
+    "placeholders": {
+      "packName": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallAddonUnifiedHeadline": "Disney y Universal — {price} una vez",
+  "@paywallAddonUnifiedHeadline": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallAddonUnifiedBody": "El mismo precio simple que cada pack de Florida — un desbloqueo, acceso de por vida.",
+  "paywallValueStory": "Cada pack de Florida — incluido Disney y Universal en Orlando — se desbloquea por {price}. Obtienes el concierge completo para {cityName}: itinerarios, joyas ocultas, inteligencia hotelera y guía IA ilimitada.",
+  "@paywallValueStory": {
+    "placeholders": {
+      "cityName": {
+        "type": "String"
+      },
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallRoiHook": "Una mala comida, entradas caras o una tarde perdida cuestan más que este desbloqueo único.",
+  "paywallPeaceOfMindTitle": "Tranquilidad incluida",
+  "paywallPeaceOfMindBody": "No compras otra suscripción. Compras unas vacaciones más inteligentes — planificadas antes de aterrizar y con apoyo mientras estás allí.",
+  "paywallSocialProofHeading": "Valió la pena antes de aterrizar",
+  "paywallRestorePreviewDisabled": "Restaurar está desactivado en modo vista previa — usa una compilación completa para probar la restauración."
 }

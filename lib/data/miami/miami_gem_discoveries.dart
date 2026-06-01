@@ -21,7 +21,7 @@ const miamiHiddenGemsCatalog = [
     title: 'Mandolin hidden courtyard table',
     location: 'Design District, Miami · behind the bougainvillea',
     whySpecial:
-        'No street signage on the best table — tucked under string lights where conversation actually happens.',
+        'The bougainvillea courtyard is the draw — mezze boards and unhurried lunches away from the Design District rush.',
     bestTime: 'Late lunch Tue–Thu',
     crowdLevel: 'Intimate · walk-ins rare Fri–Sat',
     insiderTip:
@@ -117,5 +117,5 @@ const kMiamiGemPlaceIds = <String, String>{
   'miami-gem-little-havana-domino': 'place-miami-little-havana',
   'miami-gem-south-pointe-pier': 'place-miami-south-pointe',
   'miami-gem-coconut-grove-sail': 'place-miami-bayside-harbor',
-  'miami-gem-brickell-baywalk': 'place-miami-brickell-rooftop',
+  'miami-gem-brickell-baywalk': 'dining-miami-komodo',
 };

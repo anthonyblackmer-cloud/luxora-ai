@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:luxora_ai/data/orlando/orlando_addon_catalog.dart';
 import 'package:luxora_ai/services/city_pack_sync.dart';
-import 'package:luxora_ai/services/paywall_service.dart';
 import 'package:luxora_ai/widgets/city_destination_picker.dart';
 
-/// Shared city-picker behavior — cities vs Orlando theme-park add-on.
+/// Shared city-picker behavior for Luxora destinations.
 abstract final class CityPickerActions {
   static Future<void> handleSelection(
     BuildContext context, {
@@ -12,22 +11,14 @@ abstract final class CityPickerActions {
     required String currentCityId,
     ValueChanged<String>? onCitySelected,
   }) async {
-    if (CityDestinationPicker.isThemeParksPickerValue(pickedId)) {
-      await PaywallService.showAddonPaywall(
-        context,
-        addonId: OrlandoAddonCatalog.themeParks,
-      );
-      return;
+    var cityId = pickedId;
+    if (CityDestinationPicker.isThemeParksPickerValue(cityId)) {
+      cityId = OrlandoAddonCatalog.parentCityId;
     }
 
-    if (pickedId == currentCityId) return;
+    if (cityId == currentCityId) return;
 
-    await CityPackSync.switchCity(pickedId);
-    onCitySelected?.call(pickedId);
-
-    if (context.mounted &&
-        pickedId == OrlandoAddonCatalog.parentCityId) {
-      await PaywallService.promptOrlandoThemeParksIfNeeded(context);
-    }
+    await CityPackSync.switchCity(cityId);
+    onCitySelected?.call(cityId);
   }
 }

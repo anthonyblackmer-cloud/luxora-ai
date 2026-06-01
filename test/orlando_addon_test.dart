@@ -24,14 +24,10 @@ void main() {
     expect(OrlandoAddonCatalog.addonForPlaceId('place-icon-park'), isNull);
   });
 
-  test('theme parks require orlando + theme-parks unlock', () async {
+  test('theme parks require Orlando city unlock', () async {
     final mk = PlacesRepository.instance.byId('place-magic-kingdom');
     expect(mk, isNotNull);
     expect(OrlandoAddonService.isPlaceAccessible(mk!), isFalse);
-
-    await CityPackEntitlementStore.instance
-        .unlockAddon(OrlandoAddonCatalog.themeParks);
-    expect(OrlandoAddonService.isPlaceAccessible(mk), isFalse);
 
     await CityPackEntitlementStore.instance
         .unlockCity(OrlandoAddonCatalog.parentCityId);

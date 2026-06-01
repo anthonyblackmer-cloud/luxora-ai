@@ -1,7 +1,7 @@
 import 'package:luxora_ai/data/orlando/orlando_addon_catalog.dart';
 import 'package:luxora_ai/models/trip_occasion.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
-import 'package:luxora_ai/services/city_pack_entitlement_store.dart';
+import 'package:luxora_ai/services/orlando_addon_service.dart';
 import 'package:luxora_ai/services/trip_occasion_interpreter.dart';
 import 'package:luxora_ai/services/trip_profile_store.dart';
 
@@ -21,9 +21,7 @@ abstract final class TripOccasionCatalog {
     TripOccasion.universalAdventure,
   ];
 
-  static bool themeParksUnlocked() =>
-      CityPackEntitlementStore.instance
-          .isAddonUnlocked(OrlandoAddonCatalog.themeParks);
+  static bool themeParksUnlocked() => OrlandoAddonService.canAccessThemeParks();
 
   static bool showsThemeParkOccasions(TripProfile profile) =>
       profile.cityId == OrlandoAddonCatalog.parentCityId && themeParksUnlocked();

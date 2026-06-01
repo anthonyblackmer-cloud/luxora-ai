@@ -1180,7 +1180,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get onboardThemeParksOccasionHint =>
-      'ディズニーとユニバーサルのロックを解除して、以下のテーマパークのイベントを追加します。これらのチップは購入後すぐに表示されます。';
+      'オーランドのロックを解除すると、以下にディズニーとユニバーサルのテーマパークの機会が表示されます。';
 
   @override
   String get occasionGeneral => 'ただ探索するだけ';
@@ -2325,30 +2325,29 @@ class AppLocalizationsJa extends AppLocalizations {
   String get paywallSwitchCity => '行き先';
 
   @override
-  String get paywallUnlockingDestination => 'Unlocking for this trip';
+  String get paywallUnlockingDestination => 'この旅行のロック解除';
 
   @override
   String paywallUnifiedPriceHeadline(String price) {
-    return 'Every City Pack unlocks for $price each';
+    return '各シティパックは$priceで解除';
   }
 
   @override
   String get paywallUnifiedPriceBody =>
-      'Orlando, Miami, Florida Keys — plus the Disney & Universal pack. One-time purchase each at the same price. No subscription.';
+      'オーランド（Disney・Universal込み）、マイアミ、フロリダキーズ — 同じ価格の買い切り。サブスクなし。';
 
   @override
   String paywallSelectedPackToday(String packName) {
-    return 'Unlocking today: $packName';
+    return '本日の解除：$packName';
   }
 
   @override
   String paywallAddonUnifiedHeadline(String price) {
-    return 'Disney & Universal — $price one time';
+    return 'Disney & Universal — $price 買い切り';
   }
 
   @override
-  String get paywallAddonUnifiedBody =>
-      'Same simple pricing as every Florida city pack — one unlock, lifetime access.';
+  String get paywallAddonUnifiedBody => 'フロリダ各パックと同じシンプルな価格 — 一度の解除で生涯アクセス。';
 
   @override
   String get cityPickerUnlocked => 'ロック解除済み';
@@ -3417,19 +3416,18 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String paywallValueStory(String cityName, String price) {
-    return 'Every Florida city pack — including Disney & Universal — unlocks for $price. You\'re getting the full concierge for $cityName: itineraries, hidden gems, hotel intel, and unlimited AI guidance.';
+    return 'フロリダ各パック（オーランドのDisney・Universal含む）は$priceで解除。$cityName向けフルコンシェルジュ：旅程、隠れた名所、ホテル情報、無制限AIガイド。';
   }
 
   @override
-  String get paywallRoiHook =>
-      'One bad meal, overpriced ticket booth, or wasted afternoon costs more than this one-time unlock.';
+  String get paywallRoiHook => '残念な食事、高いチケット、無駄な午後は、この買い切り解除より高くつきます。';
 
   @override
-  String get paywallPeaceOfMindTitle => 'Peace of mind, built in';
+  String get paywallPeaceOfMindTitle => '安心感を標準装備';
 
   @override
   String get paywallPeaceOfMindBody =>
-      'You\'re not buying another subscription. You\'re buying a smarter vacation — planned before you land and supported while you\'re there.';
+      '追加のサブスクではありません。到着前に計画され、現地でも支えられる、より賢い休暇を買うのです。';
 
   @override
   String get paywallLockedPreviewTitle => 'コンシェルジュの中でお待ちしています';
@@ -3504,7 +3502,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get paywallSocialProofTitle => 'ルクソラのロックを解除した旅行者';
 
   @override
-  String get paywallSocialProofHeading => 'Worth it before they even landed';
+  String get paywallSocialProofHeading => '着陸前から価値あり';
 
   @override
   String get paywallReview1 => '「計画に費やす時間を節約できました。」';
@@ -3531,7 +3529,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get paywallRestorePreviewDisabled =>
-      'Restore is disabled in preview mode — use a full build to test restore.';
+      'プレビューモードでは復元は無効です — 完全ビルドでテストしてください。';
 
   @override
   String get paywallPurchaseSuccess => '購入が完了しました - コンシェルジュのロックが解除されました。';

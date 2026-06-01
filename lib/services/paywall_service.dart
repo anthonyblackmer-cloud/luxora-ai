@@ -13,24 +13,16 @@ import 'package:luxora_ai/services/city_pack_sync.dart';
 import 'package:luxora_ai/services/freemium_service.dart';
 import 'package:luxora_ai/services/iap_purchase_service.dart';
 import 'package:luxora_ai/services/paywall_personalization.dart';
-import 'package:luxora_ai/l10n/luxora_l10n_ext.dart';
 import 'package:luxora_ai/router/app_router.dart';
 import 'package:luxora_ai/screens/paywall/luxora_paywall_screen.dart';
-import 'package:luxora_ai/services/orlando_addon_service.dart';
 import 'package:luxora_ai/services/paywall_bypass.dart';
 import 'package:luxora_ai/services/trip_profile_store.dart';
 import 'package:luxora_ai/util/trip_occasion_catalog.dart';
-import 'package:luxora_ai/theme/lux_theme.dart';
 
 /// Entry points for showing and completing city-pack unlock flows.
 abstract final class PaywallService {
-  static bool _orlandoAddonPromptVisible = false;
-  static bool _orlandoAddonPromptShown = false;
-
-  /// Clears so re-selecting Orlando can show the add-on prompt again.
-  static void resetOrlandoAddonPromptSession() {
-    _orlandoAddonPromptShown = false;
-  }
+  /// Legacy no-op — theme parks no longer use a separate prompt session.
+  static void resetOrlandoAddonPromptSession() {}
 
   static PaywallCityOffer offerForCity(String? cityId) {
     final id = cityId ?? CityPackRegistry.instance.active.cityId;
@@ -50,8 +42,10 @@ abstract final class PaywallService {
   static PaywallAddonOffer addonOfferFor(String addonId) =>
       OrlandoAddonCatalog.offerFor(addonId);
 
-  static bool needsAddonUnlock(String addonId) =>
-      !CityPackEntitlementStore.instance.hasStoredAddonUnlock(addonId);
+  static bool needsAddonUnlock(String addonId) {
+    if (OrlandoAddonCatalog.isThemeParksAddon(addonId)) return false;
+    return !CityPackEntitlementStore.instance.hasStoredAddonUnlock(addonId);
+  }
 
   static bool isOrlandoAddon(String? addonId) =>
       OrlandoAddonCatalog.isThemeParksAddon(addonId);
@@ -70,11 +64,9 @@ abstract final class PaywallService {
     final preview = PaywallBypass.forcePreviewMode;
 
     if (isOrlandoAddon(addonId)) {
-      if (!preview && !needsAddonUnlock(addonId!)) return true;
       return _pushPaywall(
         context,
-        id,
-        addonId: addonId,
+        OrlandoAddonCatalog.parentCityId,
         contextHeadline: contextHeadline,
       );
     }
@@ -86,7 +78,7 @@ abstract final class PaywallService {
     return _pushPaywall(context, id, contextHeadline: contextHeadline);
   }
 
-  /// Theme-park add-on paywall — Orlando base unlock sold separately.
+  /// Legacy entry — theme parks are bundled into the Orlando city pack.
   static Future<bool> showAddonPaywall(
     BuildContext context, {
     required String addonId,
@@ -94,81 +86,15 @@ abstract final class PaywallService {
       showPaywall(
         context,
         cityId: OrlandoAddonCatalog.parentCityId,
-        addonId: addonId,
       );
 
-  /// After Orlando is selected and unlocked, ask whether to add Disney & Universal.
-  ///
-  /// When [force] is true (onboarding before occasion chips), the prompt runs even
-  /// if it was already dismissed earlier in the same session.
+  /// No-op — Disney & Universal are included with Orlando.
   static Future<void> promptOrlandoThemeParksIfNeeded(
     BuildContext context, {
     bool force = false,
-  }) async {
-    if (!force && (_orlandoAddonPromptVisible || _orlandoAddonPromptShown)) {
-      return;
-    }
-    if (!CityPackEntitlementStore.instance
-        .hasStoredCityUnlock(OrlandoAddonCatalog.parentCityId)) {
-      return;
-    }
-    if (!OrlandoAddonService.needsThemeParksUnlock()) return;
-    if (!context.mounted) return;
+  }) async {}
 
-    _orlandoAddonPromptVisible = true;
-    try {
-      final l = context.l10n;
-      final offer = OrlandoAddonCatalog.offer;
-      final unlock = await showDialog<bool>(
-        context: context,
-        builder: (ctx) {
-          final tokens = luxThemeTokensOf(ctx);
-          return AlertDialog(
-            backgroundColor: tokens.bgSecondary,
-            title: Text(
-              l.orlandoThemeParksPromptTitle,
-              style: TextStyle(color: tokens.textPrimary),
-            ),
-            content: Text(
-              l.orlandoThemeParksPromptBody,
-              style: TextStyle(
-                color: tokens.textMuted,
-                height: 1.45,
-              ),
-            ),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.of(ctx).pop(false),
-                child: Text(l.orlandoThemeParksPromptNotNow),
-              ),
-              FilledButton(
-                onPressed: () => Navigator.of(ctx).pop(true),
-                style: FilledButton.styleFrom(
-                  backgroundColor: tokens.accent,
-                  foregroundColor: tokens.bg,
-                ),
-                child: Text(
-                  l.orlandoThemeParksPromptUnlock(offer.formattedPrice),
-                ),
-              ),
-            ],
-          );
-        },
-      );
-      if (unlock == true && context.mounted) {
-        await showAddonPaywall(
-          context,
-          addonId: OrlandoAddonCatalog.themeParks,
-        );
-      }
-    } finally {
-      _orlandoAddonPromptVisible = false;
-      _orlandoAddonPromptShown = true;
-    }
-  }
-
-  /// Ensures Orlando city + optional theme-park add-on are offered before occasion
-  /// selection during onboarding.
+  /// Ensures Orlando city unlock is offered before occasion selection.
   static Future<bool> prepareOrlandoBeforeOccasion(BuildContext context) async {
     await CityPackEntitlementStore.instance.load();
 
@@ -182,9 +108,7 @@ abstract final class PaywallService {
       await CityPackSync.switchCity(OrlandoAddonCatalog.parentCityId);
     }
 
-    if (!context.mounted) return false;
-    await promptOrlandoThemeParksIfNeeded(context, force: true);
-    return true;
+    return context.mounted;
   }
 
   /// Settings entry — show paywall when locked, otherwise open the Concierge tab.
@@ -224,10 +148,6 @@ abstract final class PaywallService {
     final id = cityId ?? CityPackRegistry.instance.active.cityId;
     await CityPackSync.switchCity(id);
 
-    if (!context.mounted) return;
-    if (id == OrlandoAddonCatalog.parentCityId) {
-      await promptOrlandoThemeParksIfNeeded(context);
-    }
     if (context.mounted) {
       context.go('/concierge');
     }
@@ -292,12 +212,14 @@ abstract final class PaywallService {
   /// Called after a verified store purchase — not exposed as a paywall shortcut.
   static Future<void> grantCityEntitlement(String cityId) async {
     await CityPackEntitlementStore.instance.unlockCity(cityId);
+    if (cityId == OrlandoAddonCatalog.parentCityId) {
+      await TripOccasionCatalog.applyThemeParksUnlockToActiveProfile();
+    }
   }
 
   static Future<void> grantAddonEntitlement(String addonId) async {
     await CityPackEntitlementStore.instance.unlockAddon(addonId);
     await TripOccasionCatalog.applyThemeParksUnlockToActiveProfile();
-    _orlandoAddonPromptShown = true;
   }
 
   @Deprecated('Use purchaseCityPack — simulated unlock removed from production.')

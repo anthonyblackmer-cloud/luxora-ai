@@ -10,17 +10,16 @@ abstract final class OrlandoAddonService {
   static bool get isOrlandoActive =>
       CityPackRegistry.instance.active.cityId == OrlandoAddonCatalog.parentCityId;
 
-  static bool needsThemeParksUnlock() =>
-      !CityPackEntitlementStore.instance
-          .hasStoredAddonUnlock(OrlandoAddonCatalog.themeParks);
+  static bool needsThemeParksUnlock() => !canAccessThemeParks();
 
+  /// Theme parks are included with the Orlando city pack. Legacy standalone
+  /// add-on purchases still grant access via [hasStoredAddonUnlock].
   static bool canAccessThemeParks() {
-    if (!CityPackEntitlementStore.instance
-        .isUnlocked(OrlandoAddonCatalog.parentCityId)) {
-      return false;
+    final store = CityPackEntitlementStore.instance;
+    if (store.hasStoredCityUnlock(OrlandoAddonCatalog.parentCityId)) {
+      return true;
     }
-    return CityPackEntitlementStore.instance
-        .isAddonUnlocked(OrlandoAddonCatalog.themeParks);
+    return store.hasStoredAddonUnlock(OrlandoAddonCatalog.themeParks);
   }
 
   static bool isPlaceAccessible(LuxPlace place) {

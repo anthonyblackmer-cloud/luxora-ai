@@ -126,7 +126,7 @@ const kFloridaKeysFeedItemPlaceIds = <String, String>{
   'keys-feed-hogfish-dock': 'place-keys-hogfish-bar',
   'keys-feed-dry-tortugas-day': 'place-keys-dry-tortugas',
   'keys-feed-fort-zachary-local': 'place-keys-fort-zachary',
-  'keys-feed-sandbar-boat': 'keys-exp-keys-marathon-0',
+  'keys-feed-sandbar-boat': 'place-keys-key-west-harbor',
   'keys-feed-latitudes-romantic': 'place-keys-latitudes',
 };
 

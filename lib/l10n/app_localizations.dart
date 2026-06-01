@@ -2226,7 +2226,7 @@ abstract class AppLocalizations {
   /// No description provided for @onboardThemeParksOccasionHint.
   ///
   /// In en, this message translates to:
-  /// **'Unlock Disney & Universal to add theme-park occasions below — you\'ll see those chips right after purchase.'**
+  /// **'Unlock Orlando to reveal Disney & Universal theme-park occasions below.'**
   String get onboardThemeParksOccasionHint;
 
   /// No description provided for @occasionGeneral.
@@ -4295,7 +4295,7 @@ abstract class AppLocalizations {
   /// No description provided for @paywallUnifiedPriceBody.
   ///
   /// In en, this message translates to:
-  /// **'Orlando, Miami, Florida Keys — plus the Disney & Universal pack. One-time purchase each at the same price. No subscription.'**
+  /// **'Orlando (includes Disney & Universal), Miami, and Florida Keys — one-time purchase each at the same price. No subscription.'**
   String get paywallUnifiedPriceBody;
 
   /// No description provided for @paywallSelectedPackToday.
