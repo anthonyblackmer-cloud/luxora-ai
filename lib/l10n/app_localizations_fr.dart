@@ -4666,6 +4666,22 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
+  String todayDayHeading(int day) {
+    return 'Jour $day';
+  }
+
+  @override
+  String get todayHappeningNowLabel => 'En ce moment';
+
+  @override
+  String get todayPlanComplete => 'Le programme du jour est terminé';
+
+  @override
+  String todayStartsIn(String duration) {
+    return 'Commence dans $duration';
+  }
+
+  @override
   String get todayRainRerouteTitle => 'Réacheminement météo';
 
   @override

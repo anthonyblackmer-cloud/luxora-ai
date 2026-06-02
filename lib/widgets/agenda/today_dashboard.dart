@@ -21,6 +21,7 @@ import 'package:luxora_ai/services/weather_service.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/util/today_plan_helpers.dart';
 import 'package:luxora_ai/util/traveler_name.dart';
+import 'package:luxora_ai/widgets/agenda/itinerary_day_timeline.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
 import 'package:luxora_ai/widgets/lux_button.dart';
 import 'package:luxora_ai/widgets/lux_place_image.dart';
@@ -45,6 +46,7 @@ class TodayDashboard extends StatefulWidget {
 class _TodayDashboardState extends State<TodayDashboard> {
   LuxWeather? _weather;
   bool _rerouteBusy = false;
+  Timer? _clockTimer;
 
   @override
   void initState() {
@@ -52,6 +54,15 @@ class _TodayDashboardState extends State<TodayDashboard> {
     PlacesRepository.instance.ensureLocalCatalogLoaded();
     unawaited(_loadWeather());
     unawaited(_ensureMediaReady());
+    _clockTimer = Timer.periodic(const Duration(minutes: 1), (_) {
+      if (mounted) setState(() {});
+    });
+  }
+
+  @override
+  void dispose() {
+    _clockTimer?.cancel();
+    super.dispose();
   }
 
   Future<void> _ensureMediaReady() async {
@@ -149,12 +160,12 @@ class _TodayDashboardState extends State<TodayDashboard> {
         home?.longitude ?? CityPackRegistry.instance.hubCenter.longitude;
     final placeLabel = home?.title ?? CityPackRegistry.instance.hubLabel;
 
-    final nextItem = widget.selectedDay == null
-        ? null
-        : TodayPlanHelpers.nextTripItem(widget.selectedDay!);
-    final nextBlock =
-        flow == null || flow.isEmpty ? null : TodayPlanHelpers.nextDayFlowBlock(flow);
     final day = widget.selectedDay;
+    final upNext = day == null
+        ? (flow == null || flow.isEmpty
+            ? const TodayUpNextState(kind: TodayUpNextKind.complete)
+            : TodayPlanHelpers.resolveUpNextFromFlow(flow))
+        : TodayPlanHelpers.resolveUpNext(day);
 
     return ListenableBuilder(
       listenable: Listenable.merge([
@@ -163,10 +174,13 @@ class _TodayDashboardState extends State<TodayDashboard> {
       ]),
       builder: (context, _) {
         final planHeroPlace = day == null ? null : _heroPlaceForDay(day);
-        final nextPlace = nextItem?.placeId == null
-            ? nextBlock?.place
-            : PlacesRepository.instance.byId(nextItem!.placeId) ??
-                nextBlock?.place;
+        final cityName = CityPackRegistry.instance.active.cityName;
+        final upNextItem = upNext.item;
+        final upNextBlock = upNext.block;
+        final upNextPlace = upNextItem?.placeId == null
+            ? upNextBlock?.place
+            : PlacesRepository.instance.byId(upNextItem!.placeId) ??
+                upNextBlock?.place;
 
         return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -189,20 +203,19 @@ class _TodayDashboardState extends State<TodayDashboard> {
                     const SizedBox(height: 12),
                   ],
                   Text(
-                    l.todayPlanSectionTitle,
-                    style: TextStyle(
-                      fontSize: 11,
-                      fontWeight: FontWeight.w700,
-                      letterSpacing: 1.6,
-                      color: tokens.accent.withValues(alpha: 0.85),
+                    l.freemiumVacationTitle(cityName),
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w800,
+                      height: 1.15,
                     ),
                   ),
                   const SizedBox(height: 6),
                   Text(
-                    l.itineraryDayTab(day.dayNumber, day.label),
+                    l.todayDayHeading(day.dayNumber),
                     style: const TextStyle(
                       fontSize: 16,
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w700,
                     ),
                   ),
                   const SizedBox(height: 4),
@@ -307,81 +320,29 @@ class _TodayDashboardState extends State<TodayDashboard> {
             ),
           ),
         ],
-        if (nextItem != null || nextBlock != null)
+        if (day != null && day.items.isNotEmpty) ...[
           Padding(
-            padding: const EdgeInsets.only(bottom: 14),
-            child: GlassCard(
-              glow: true,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    l.todayNextActivityLabel,
-                    style: TextStyle(
-                      fontSize: 11,
-                      fontWeight: FontWeight.w700,
-                      letterSpacing: 1.6,
-                      color: tokens.accent.withValues(alpha: 0.85),
-                    ),
+            padding: const EdgeInsets.only(bottom: 8),
+            child: Text(
+              l.todayPlanDetailsTitle,
+              style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.w800,
                   ),
-                  if (nextPlace != null) ...[
-                    const SizedBox(height: 10),
-                    LuxPlaceImage(
-                      place: nextPlace,
-                      presentation: LuxImagePresentation.feedHero,
-                      borderRadius: BorderRadius.circular(12),
-                      trackUsageOnDisplay: true,
-                    ),
-                  ],
-                  const SizedBox(height: 6),
-                  if (nextItem != null) ...[
-                    Text(
-                      nextItem.time,
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w600,
-                        color: tokens.accent.withValues(alpha: 0.9),
-                      ),
-                    ),
-                    const SizedBox(height: 4),
-                    Text(
-                      catalogText(context, nextItem.title),
-                      style: const TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.w800,
-                      ),
-                    ),
-                    const SizedBox(height: 6),
-                    Text(
-                      catalogText(context, nextItem.emotionalLine),
-                      style: TextStyle(
-                        fontSize: 13,
-                        height: 1.35,
-                        color: tokens.textMuted,
-                      ),
-                    ),
-                  ] else if (nextBlock != null) ...[
-                    Text(
-                      nextBlock.phase.name.toUpperCase(),
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w600,
-                        color: tokens.accent.withValues(alpha: 0.9),
-                      ),
-                    ),
-                    const SizedBox(height: 4),
-                    Text(
-                      nextBlock.place.title,
-                      style: const TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.w800,
-                      ),
-                    ),
-                  ],
-                ],
-              ),
             ),
           ),
+          ItineraryDayTimeline(day: day),
+          const SizedBox(height: 8),
+        ],
+        Padding(
+          padding: const EdgeInsets.only(bottom: 14),
+          child: GlassCard(
+            glow: true,
+            child: _UpNextSection(
+              upNext: upNext,
+              place: upNextPlace,
+            ),
+          ),
+        ),
         Padding(
           padding: const EdgeInsets.only(bottom: 8),
           child: LuxButton(
@@ -410,5 +371,126 @@ class _TodayDashboardState extends State<TodayDashboard> {
       }
     }
     return null;
+  }
+}
+
+class _UpNextSection extends StatelessWidget {
+  const _UpNextSection({
+    required this.upNext,
+    required this.place,
+  });
+
+  final TodayUpNextState upNext;
+  final LuxPlace? place;
+
+  @override
+  Widget build(BuildContext context) {
+    final l = context.l10n;
+    final tokens = luxThemeTokensOf(context);
+    final item = upNext.item;
+    final block = upNext.block;
+
+    final sectionLabel = switch (upNext.kind) {
+      TodayUpNextKind.happeningNow => l.todayHappeningNowLabel,
+      TodayUpNextKind.complete => l.todayNextActivityLabel,
+      TodayUpNextKind.upcoming => l.todayNextActivityLabel,
+    };
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          sectionLabel,
+          style: TextStyle(
+            fontSize: 11,
+            fontWeight: FontWeight.w700,
+            letterSpacing: 1.6,
+            color: tokens.accent.withValues(alpha: 0.85),
+          ),
+        ),
+        if (upNext.kind == TodayUpNextKind.complete) ...[
+          const SizedBox(height: 10),
+          Text(
+            l.todayPlanComplete,
+            style: const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w700,
+              height: 1.35,
+            ),
+          ),
+        ] else ...[
+          if (place != null) ...[
+            const SizedBox(height: 10),
+            LuxPlaceImage(
+              place: place!,
+              presentation: LuxImagePresentation.feedHero,
+              borderRadius: BorderRadius.circular(12),
+              trackUsageOnDisplay: true,
+            ),
+          ],
+          const SizedBox(height: 6),
+          if (item != null) ...[
+            Text(
+              item.time,
+              style: TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w600,
+                color: tokens.accent.withValues(alpha: 0.9),
+              ),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              catalogText(context, item.title),
+              style: const TextStyle(
+                fontSize: 17,
+                fontWeight: FontWeight.w800,
+              ),
+            ),
+            if (item.emotionalLine.trim().isNotEmpty) ...[
+              const SizedBox(height: 6),
+              Text(
+                catalogText(context, item.emotionalLine),
+                style: TextStyle(
+                  fontSize: 13,
+                  height: 1.35,
+                  color: tokens.textMuted,
+                ),
+              ),
+            ],
+          ] else if (block != null) ...[
+            Text(
+              block.phase.name.toUpperCase(),
+              style: TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w600,
+                color: tokens.accent.withValues(alpha: 0.9),
+              ),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              block.place.title,
+              style: const TextStyle(
+                fontSize: 17,
+                fontWeight: FontWeight.w800,
+              ),
+            ),
+          ],
+          if (upNext.kind == TodayUpNextKind.upcoming &&
+              upNext.startsIn != null) ...[
+            const SizedBox(height: 8),
+            Text(
+              l.todayStartsIn(
+                TodayPlanHelpers.formatStartsIn(upNext.startsIn!),
+              ),
+              style: TextStyle(
+                fontSize: 13,
+                fontWeight: FontWeight.w600,
+                color: tokens.textMuted,
+              ),
+            ),
+          ],
+        ],
+      ],
+    );
   }
 }

@@ -2002,6 +2002,24 @@
       }
     }
   },
+  "todayDayHeading": "दिन {day}",
+  "@todayDayHeading": {
+    "placeholders": {
+      "day": {
+        "type": "int"
+      }
+    }
+  },
+  "todayHappeningNowLabel": "अभी चल रहा है",
+  "todayPlanComplete": "आज की योजना पूरी हो गई है",
+  "todayStartsIn": "{duration} में शुरू",
+  "@todayStartsIn": {
+    "placeholders": {
+      "duration": {
+        "type": "String"
+      }
+    }
+  },
   "todayRainRerouteTitle": "मौसम reroute",
   "todayStaysDiningCollapsedHint": "होटल और रेस्तरां विचार - विस्तार करने के लिए टैप करें",
   "todayStaysDiningSection": "ठहरने और खाने का विकल्प",

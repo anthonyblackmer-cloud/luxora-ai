@@ -4490,6 +4490,22 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
+  String todayDayHeading(int day) {
+    return '$day일차';
+  }
+
+  @override
+  String get todayHappeningNowLabel => '진행 중';
+
+  @override
+  String get todayPlanComplete => '오늘 일정이 완료되었습니다';
+
+  @override
+  String todayStartsIn(String duration) {
+    return '$duration 후 시작';
+  }
+
+  @override
   String get todayRainRerouteTitle => '날씨 경로 변경';
 
   @override

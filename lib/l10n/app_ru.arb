@@ -2002,6 +2002,24 @@
       }
     }
   },
+  "todayDayHeading": "День {day}",
+  "@todayDayHeading": {
+    "placeholders": {
+      "day": {
+        "type": "int"
+      }
+    }
+  },
+  "todayHappeningNowLabel": "Сейчас",
+  "todayPlanComplete": "План на сегодня завершён",
+  "todayStartsIn": "Начнётся через {duration}",
+  "@todayStartsIn": {
+    "placeholders": {
+      "duration": {
+        "type": "String"
+      }
+    }
+  },
   "todayRainRerouteTitle": "Погодный перенос",
   "todayStaysDiningCollapsedHint": "Идеи для отелей и ресторанов — нажмите, чтобы развернуть",
   "todayStaysDiningSection": "Проживание и выбор ресторанов",

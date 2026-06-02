@@ -8200,6 +8200,30 @@ abstract class AppLocalizations {
   /// **'{count, plural, =1{1 stop today} other{{count} stops today}}'**
   String todayPlanStopCount(int count);
 
+  /// No description provided for @todayDayHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Day {day}'**
+  String todayDayHeading(int day);
+
+  /// No description provided for @todayHappeningNowLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Happening now'**
+  String get todayHappeningNowLabel;
+
+  /// No description provided for @todayPlanComplete.
+  ///
+  /// In en, this message translates to:
+  /// **'Today\'s plan is complete'**
+  String get todayPlanComplete;
+
+  /// No description provided for @todayStartsIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Starts in {duration}'**
+  String todayStartsIn(String duration);
+
   /// No description provided for @todayRainRerouteTitle.
   ///
   /// In en, this message translates to:

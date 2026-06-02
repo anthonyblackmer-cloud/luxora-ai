@@ -4644,6 +4644,22 @@ class AppLocalizationsEs extends AppLocalizations {
   }
 
   @override
+  String todayDayHeading(int day) {
+    return 'Día $day';
+  }
+
+  @override
+  String get todayHappeningNowLabel => 'Ahora mismo';
+
+  @override
+  String get todayPlanComplete => 'El plan de hoy está completo';
+
+  @override
+  String todayStartsIn(String duration) {
+    return 'Empieza en $duration';
+  }
+
+  @override
   String get todayRainRerouteTitle => 'Cambio por clima';
 
   @override

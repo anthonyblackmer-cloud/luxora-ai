@@ -17,6 +17,7 @@ import 'package:luxora_ai/services/places_repository.dart';
 import 'package:luxora_ai/services/saved_places_storage.dart';
 import 'package:luxora_ai/services/trip_feel_interpreter.dart';
 import 'package:luxora_ai/services/trip_occasion_interpreter.dart';
+import 'package:luxora_ai/services/smart_itinerary/smart_itinerary_rule_engine.dart';
 import 'package:luxora_ai/services/trip_profile_build_intent.dart';
 import 'package:luxora_ai/services/trip_profile_store.dart';
 
@@ -191,22 +192,34 @@ abstract final class ConciergeItinerarySync {
       savedIds: savedIds,
       repo: repo,
     );
-    if (!_planIsEmpty(multiDay)) return multiDay;
-
-    final widePool = repo.placesWithinRadius(DiscoverRadius.miles100);
-    if (widePool.length <= pool.length) return null;
-
-    multiDay = ConciergeMultiDayPlanner.build(
-      profile: enriched,
-      pool: widePool,
-      userMessage: trimmed,
-      cityId: cityId,
-      homeBase: homeBase,
-      savedIds: savedIds,
-      repo: repo,
-    );
+    var activePool = pool;
+    if (_planIsEmpty(multiDay)) {
+      final widePool = repo.placesWithinRadius(DiscoverRadius.miles100);
+      if (widePool.length <= pool.length) return null;
+      activePool = widePool;
+      multiDay = ConciergeMultiDayPlanner.build(
+        profile: enriched,
+        pool: widePool,
+        userMessage: trimmed,
+        cityId: cityId,
+        homeBase: homeBase,
+        savedIds: savedIds,
+        repo: repo,
+      );
+    }
     if (_planIsEmpty(multiDay)) return null;
-    return multiDay;
+
+    final validated = SmartItineraryRuleEngine.validateAndRepair(
+      raw: multiDay,
+      profile: enriched,
+      pool: activePool,
+      userMessage: trimmed,
+      repo: repo,
+      cityId: cityId,
+      savedIds: savedIds,
+    );
+    if (validated.confidenceScore < 0.35) return null;
+    return validated.plan;
   }
 
   static bool _planIsEmpty(ConciergeMultiDayPlan plan) =>

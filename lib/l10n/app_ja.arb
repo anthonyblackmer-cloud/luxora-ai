@@ -2002,6 +2002,24 @@
       }
     }
   },
+  "todayDayHeading": "{day}日目",
+  "@todayDayHeading": {
+    "placeholders": {
+      "day": {
+        "type": "int"
+      }
+    }
+  },
+  "todayHappeningNowLabel": "進行中",
+  "todayPlanComplete": "今日の予定は完了しました",
+  "todayStartsIn": "{duration}後に開始",
+  "@todayStartsIn": {
+    "placeholders": {
+      "duration": {
+        "type": "String"
+      }
+    }
+  },
   "todayRainRerouteTitle": "天候ルート変更",
   "todayStaysDiningCollapsedHint": "ホテルとレストランのアイデア — タップして展開します",
   "todayStaysDiningSection": "宿泊と食事のおすすめ",

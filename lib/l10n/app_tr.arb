@@ -2002,6 +2002,24 @@
       }
     }
   },
+  "todayDayHeading": "Gün {day}",
+  "@todayDayHeading": {
+    "placeholders": {
+      "day": {
+        "type": "int"
+      }
+    }
+  },
+  "todayHappeningNowLabel": "Şu anda",
+  "todayPlanComplete": "Bugünkü plan tamamlandı",
+  "todayStartsIn": "{duration} içinde başlıyor",
+  "@todayStartsIn": {
+    "placeholders": {
+      "duration": {
+        "type": "String"
+      }
+    }
+  },
   "todayRainRerouteTitle": "Hava rotası değişimi",
   "todayStaysDiningCollapsedHint": "Otel ve restoran fikirleri — genişletmek için dokunun",
   "todayStaysDiningSection": "Konaklamalar ve yemek seçenekleri",

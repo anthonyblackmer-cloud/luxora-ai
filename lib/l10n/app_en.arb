@@ -2476,6 +2476,24 @@
       }
     }
   },
+  "todayDayHeading": "Day {day}",
+  "@todayDayHeading": {
+    "placeholders": {
+      "day": {
+        "type": "int"
+      }
+    }
+  },
+  "todayHappeningNowLabel": "Happening now",
+  "todayPlanComplete": "Today's plan is complete",
+  "todayStartsIn": "Starts in {duration}",
+  "@todayStartsIn": {
+    "placeholders": {
+      "duration": {
+        "type": "String"
+      }
+    }
+  },
   "todayRainRerouteTitle": "Weather reroute",
   "todayExtrasSection": "Tickets & sharing",
   "todayExtrasCollapsedHint": "Deals, share card, and more",

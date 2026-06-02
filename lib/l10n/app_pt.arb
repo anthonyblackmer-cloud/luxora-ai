@@ -2002,6 +2002,24 @@
       }
     }
   },
+  "todayDayHeading": "Dia {day}",
+  "@todayDayHeading": {
+    "placeholders": {
+      "day": {
+        "type": "int"
+      }
+    }
+  },
+  "todayHappeningNowLabel": "Acontecendo agora",
+  "todayPlanComplete": "O plano de hoje está completo",
+  "todayStartsIn": "Começa em {duration}",
+  "@todayStartsIn": {
+    "placeholders": {
+      "duration": {
+        "type": "String"
+      }
+    }
+  },
   "todayRainRerouteTitle": "Desvio por clima",
   "todayStaysDiningCollapsedHint": "Ideias para hotéis e restaurantes – toque para expandir",
   "todayStaysDiningSection": "Estadias e opções de refeições",

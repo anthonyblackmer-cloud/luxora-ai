@@ -4408,6 +4408,22 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
+  String todayDayHeading(int day) {
+    return '第 $day 天';
+  }
+
+  @override
+  String get todayHappeningNowLabel => '正在进行';
+
+  @override
+  String get todayPlanComplete => '今日行程已完成';
+
+  @override
+  String todayStartsIn(String duration) {
+    return '$duration后开始';
+  }
+
+  @override
   String get todayRainRerouteTitle => '天气改道';
 
   @override

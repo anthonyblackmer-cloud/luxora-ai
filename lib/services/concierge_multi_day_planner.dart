@@ -407,6 +407,34 @@ abstract final class ConciergeMultiDayPlanner {
     );
   }
 
+  /// Builds a timeline day from a validated [DayFlow].
+  static TripDay tripDayFromFlow({
+    required DayFlow flow,
+    required int dayNumber,
+    required String label,
+  }) {
+    final items = <TripItem>[];
+    for (var i = 0; i < flow.blocks.length; i++) {
+      final block = flow.blocks[i];
+      items.add(
+        TripItem(
+          id: 'validated-${block.place.id}-d$dayNumber-$i',
+          time: _formatPhaseTime(block.phase),
+          title: block.place.title,
+          emotionalLine: _blockLine(block.reason, block.place.description),
+          location: block.place.location,
+          category: _categoryLabel(block.place.category.name),
+          placeId: block.place.id,
+        ),
+      );
+    }
+    return TripDay(
+      dayNumber: dayNumber,
+      label: label,
+      items: items,
+    );
+  }
+
   /// Picks a curated dining stop for the evening — used across park and explore days.
   static LuxPlace? pickRestaurant({
     required List<LuxPlace> pool,
