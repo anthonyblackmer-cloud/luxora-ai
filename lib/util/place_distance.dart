@@ -45,8 +45,7 @@ abstract final class PlaceDistance {
       driveTimeFromHubLabel(place);
 
   static String driveTimeLabel(double miles) {
-    const avgMph = 45.0;
-    final minutes = (miles / avgMph * 60).round();
+    final minutes = driveMinutesForMiles(miles);
     if (minutes < 5) {
       return '<5 min';
     }
@@ -56,5 +55,14 @@ abstract final class PlaceDistance {
     final hours = minutes ~/ 60;
     final rem = minutes % 60;
     return rem == 0 ? '${hours}h' : '${hours}h ${rem}m';
+  }
+
+  /// Rough drive minutes at ~45 mph (minimum 5 for sequencing).
+  static int driveMinutesBetween(LatLng from, LatLng to) =>
+      driveMinutesForMiles(milesBetween(from, to));
+
+  static int driveMinutesForMiles(double miles) {
+    const avgMph = 45.0;
+    return (miles / avgMph * 60).ceil().clamp(5, 120);
   }
 }

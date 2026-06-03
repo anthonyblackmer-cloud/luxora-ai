@@ -48,11 +48,36 @@ abstract final class TodayPlanHelpers {
   }
 
   static DateTime? parseScheduleTime(String raw) {
-    final trimmed = raw.trim();
+    var trimmed = raw.trim();
     if (trimmed.isEmpty) return null;
+
+    String startPart;
+    String? tailPart;
+    final enDash = trimmed.indexOf('–');
+    final hyphen = trimmed.indexOf('-');
+    if (enDash >= 0) {
+      startPart = trimmed.substring(0, enDash).trim();
+      tailPart = trimmed.substring(enDash + 1).trim();
+    } else if (hyphen > 0 && RegExp(r'\d').hasMatch(trimmed[hyphen - 1])) {
+      startPart = trimmed.substring(0, hyphen).trim();
+      tailPart = trimmed.substring(hyphen + 1).trim();
+    } else {
+      startPart = trimmed;
+    }
+
+    final meridiemPattern = RegExp(r'(am|pm)', caseSensitive: false);
+    if (tailPart != null &&
+        !meridiemPattern.hasMatch(startPart) &&
+        meridiemPattern.hasMatch(tailPart)) {
+      final meridiem = meridiemPattern.firstMatch(tailPart)?.group(0);
+      if (meridiem != null) {
+        startPart = '$startPart $meridiem';
+      }
+    }
+
     for (final pattern in ['h:mm a', 'hh:mm a', 'H:mm', 'HH:mm']) {
       try {
-        return DateFormat(pattern).parse(trimmed);
+        return DateFormat(pattern).parse(startPart);
       } catch (_) {
         continue;
       }

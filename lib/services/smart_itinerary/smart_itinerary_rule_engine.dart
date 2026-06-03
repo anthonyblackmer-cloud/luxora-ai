@@ -7,9 +7,11 @@ import 'package:luxora_ai/services/day_flow_planner.dart';
 import 'package:luxora_ai/services/places_repository.dart';
 import 'package:luxora_ai/util/place_distance.dart';
 
-import 'package:luxora_ai/services/smart_itinerary/experience_duration_catalog.dart';
+import 'experience_duration_catalog.dart';
+import 'itinerary_day_schedule.dart';
 
 export 'experience_duration_catalog.dart';
+export 'itinerary_day_schedule.dart';
 export 'smart_itinerary_prompt_guardrails.dart';
 
 /// Outcome of validating and repairing a multi-day concierge plan.
@@ -173,6 +175,8 @@ abstract final class SmartItineraryRuleEngine {
     }
 
     blocks = _avoidTripRepeats(blocks, tripUsed, pool, savedIds, note);
+
+    blocks = _trimToFeasibleSchedule(blocks, flow.start, note);
 
     var totalMiles = _totalMiles(blocks, flow.start);
 
@@ -451,6 +455,69 @@ abstract final class SmartItineraryRuleEngine {
       prev = here;
     }
     return total;
+  }
+
+  static List<DayBlock> _trimToFeasibleSchedule(
+    List<DayBlock> blocks,
+    LatLng start,
+    void Function(String, {double penalty}) note,
+  ) {
+    if (blocks.length < 2) return blocks;
+    if (ItineraryDaySchedule.isFeasible(blocks: blocks, dayStart: start)) {
+      return blocks;
+    }
+
+    var working = List<DayBlock>.from(blocks);
+    final dropPhases = [
+      DayPhase.night,
+      DayPhase.afternoon,
+      DayPhase.midday,
+      DayPhase.evening,
+      DayPhase.morning,
+    ];
+
+    while (working.length > 1 &&
+        !ItineraryDaySchedule.isFeasible(blocks: working, dayStart: start)) {
+      var removed = false;
+      for (final phase in dropPhases) {
+        final candidates = working
+            .where((b) => b.phase == phase)
+            .toList(growable: false);
+        if (candidates.isEmpty) continue;
+        DayBlock? victim;
+        if (phase == DayPhase.evening && candidates.length > 1) {
+          victim = candidates.firstWhere(
+            (b) =>
+                b.place.category != LuxPlaceCategory.dining &&
+                b.reason != DayBlockReason.eveningDining,
+            orElse: () => candidates.last,
+          );
+        } else {
+          victim = candidates.last;
+        }
+        if (ExperienceDurationCatalog.isMajorThemePark(victim.place.id) &&
+            working
+                    .where((w) =>
+                        ExperienceDurationCatalog.isMajorThemePark(w.place.id))
+                    .length ==
+                1) {
+          continue;
+        }
+        working = [
+          for (final b in working)
+            if (b != victim) b,
+        ];
+        note(
+          'Removed ${victim.place.title} — could not fit travel and visit windows in one day.',
+          penalty: 0.06,
+        );
+        removed = true;
+        break;
+      }
+      if (!removed) break;
+    }
+
+    return working;
   }
 
   static LuxPlace? _pickReplacement({

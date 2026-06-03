@@ -9,6 +9,7 @@ import 'package:luxora_ai/services/concierge_theme_park_planner.dart';
 import 'package:luxora_ai/services/crowd_prediction_service.dart';
 import 'package:luxora_ai/services/day_flow_planner.dart';
 import 'package:luxora_ai/services/places_repository.dart';
+import 'package:luxora_ai/services/smart_itinerary/itinerary_day_schedule.dart';
 import 'package:luxora_ai/util/place_distance.dart';
 import 'package:luxora_ai/services/trip_name_generator.dart';
 import 'package:luxora_ai/util/trip_duration.dart';
@@ -274,21 +275,14 @@ abstract final class ConciergeMultiDayPlanner {
         usedIds.add(block.place.id);
       }
 
-      final items = <TripItem>[];
-      for (var i = 0; i < flow.blocks.length; i++) {
-        final block = flow.blocks[i];
-        items.add(
-          TripItem(
-            id: 'concierge-${block.place.id}-d${d + 1}-$i',
-            time: _formatPhaseTime(block.phase),
-            title: block.place.title,
-            emotionalLine: _blockLine(block.reason, block.place.description),
-            location: block.place.location,
-            category: _categoryLabel(block.place.category.name),
-            placeId: block.place.id,
-          ),
-        );
-      }
+      final items = ItineraryDaySchedule.tripItemsFromBlocks(
+        blocks: flow.blocks,
+        dayStart: flow.start,
+        dayNumber: startDayNumber + d,
+        idPrefix: 'concierge',
+        blockLine: _blockLine,
+        categoryLabel: _categoryLabel,
+      );
 
       days.add(
         TripDay(
@@ -413,21 +407,14 @@ abstract final class ConciergeMultiDayPlanner {
     required int dayNumber,
     required String label,
   }) {
-    final items = <TripItem>[];
-    for (var i = 0; i < flow.blocks.length; i++) {
-      final block = flow.blocks[i];
-      items.add(
-        TripItem(
-          id: 'validated-${block.place.id}-d$dayNumber-$i',
-          time: _formatPhaseTime(block.phase),
-          title: block.place.title,
-          emotionalLine: _blockLine(block.reason, block.place.description),
-          location: block.place.location,
-          category: _categoryLabel(block.place.category.name),
-          placeId: block.place.id,
-        ),
-      );
-    }
+    final items = ItineraryDaySchedule.tripItemsFromBlocks(
+      blocks: flow.blocks,
+      dayStart: flow.start,
+      dayNumber: dayNumber,
+      idPrefix: 'validated',
+      blockLine: _blockLine,
+      categoryLabel: _categoryLabel,
+    );
     return TripDay(
       dayNumber: dayNumber,
       label: label,
