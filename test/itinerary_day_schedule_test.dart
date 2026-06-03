@@ -76,7 +76,7 @@ void main() {
       dayStart: PlaceDistance.hubCenter,
       dayNumber: 1,
       idPrefix: 'test',
-      blockLine: (_, desc) => desc,
+      blockLine: (block) => block.place.description,
       categoryLabel: (c) => c,
     );
 

@@ -9,6 +9,7 @@ import 'package:luxora_ai/services/concierge_theme_park_planner.dart';
 import 'package:luxora_ai/services/crowd_prediction_service.dart';
 import 'package:luxora_ai/services/day_flow_planner.dart';
 import 'package:luxora_ai/services/places_repository.dart';
+import 'package:luxora_ai/services/orlando_experience_moment_service.dart';
 import 'package:luxora_ai/services/smart_itinerary/itinerary_day_schedule.dart';
 import 'package:luxora_ai/services/smart_itinerary/itinerary_place_picker.dart';
 import 'package:luxora_ai/util/place_distance.dart';
@@ -294,7 +295,7 @@ abstract final class ConciergeMultiDayPlanner {
         dayStart: flow.start,
         dayNumber: startDayNumber + d,
         idPrefix: 'concierge',
-        blockLine: _blockLine,
+        blockLine: blockLineFor,
         categoryLabel: _categoryLabel,
       );
 
@@ -373,7 +374,11 @@ abstract final class ConciergeMultiDayPlanner {
           id: 'concierge-${route.routeId}-$itemIdx',
           time: _formatPhaseTime(segment.$1),
           title: place.title,
-          emotionalLine: route.description,
+          emotionalLine: OrlandoExperienceMomentService.lineForSegment(
+            placeId: place.id,
+            phase: segment.$1,
+            routeDescription: route.description,
+          ),
           location: place.location,
           category: 'Theme parks',
           placeId: place.id,
@@ -426,7 +431,7 @@ abstract final class ConciergeMultiDayPlanner {
       dayStart: flow.start,
       dayNumber: dayNumber,
       idPrefix: 'validated',
-      blockLine: _blockLine,
+      blockLine: blockLineFor,
       categoryLabel: _categoryLabel,
     );
     return TripDay(
@@ -468,6 +473,12 @@ abstract final class ConciergeMultiDayPlanner {
 
   static String _categoryLabel(String raw) =>
       raw.isEmpty ? 'Experience' : '${raw[0].toUpperCase()}${raw.substring(1)}';
+
+  static String blockLineFor(DayBlock block) =>
+      OrlandoExperienceMomentService.lineForBlock(
+        block: block,
+        fallback: _blockLine,
+      );
 
   static String _blockLine(DayBlockReason reason, String description) {
     final trimmed = description.trim();

@@ -9,6 +9,7 @@ import 'package:luxora_ai/models/trip_plan.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
 import 'package:luxora_ai/services/crowd_prediction_service.dart';
 import 'package:luxora_ai/services/day_flow_planner.dart';
+import 'package:luxora_ai/services/orlando_experience_moment_service.dart';
 import 'package:luxora_ai/services/places_repository.dart';
 import 'package:luxora_ai/services/trip_occasion_interpreter.dart';
 import 'package:luxora_ai/util/place_distance.dart';
@@ -157,7 +158,11 @@ abstract final class ConciergeThemeParkPlanner {
             id: 'concierge-${route.routeId}-$itemIdx',
             time: _formatPhaseTime(segment.$1),
             title: place.title,
-            emotionalLine: route.description,
+            emotionalLine: OrlandoExperienceMomentService.lineForSegment(
+              placeId: place.id,
+              phase: segment.$1,
+              routeDescription: route.description,
+            ),
             location: place.location,
             category: 'Theme parks',
             placeId: place.id,

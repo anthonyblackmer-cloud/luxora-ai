@@ -102,6 +102,18 @@ abstract final class TripProfileBuildIntent {
 
     final extras = <String>[];
 
+    if (profile.experiencePreferences.contains(ExperiencePreference.liveShows)) {
+      extras.add('iconic night shows and fireworks');
+    }
+
+    if (profile.experiencePreferences.contains(ExperiencePreference.waterParks)) {
+      extras.add('water park reset days');
+    }
+
+    if (profile.experiencePreferences.contains(ExperiencePreference.themeParks)) {
+      extras.add('must-do park moments — parades, fireworks, and castle shows');
+    }
+
     if (profile.foodieInterest >= 55) extras.add('great dining');
 
     if (profile.poolsideInterest >= 55) extras.add('poolside downtime');

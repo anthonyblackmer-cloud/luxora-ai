@@ -10,7 +10,7 @@ abstract final class DisneyWorldContent {
       routeId: 'disney-rope-drop-mk',
       title: 'Rope drop — Magic Kingdom',
       description:
-          'Seven Dwarfs first, then Liberty Square before the midday surge.',
+          'Seven Dwarfs first, Liberty Square before midday — stay for Happily Ever After on the hub.',
       moodTags: ['family', 'iconic', 'trending'],
       morningPlaceId: 'place-magic-kingdom',
       afternoonPlaceId: 'place-magic-kingdom',

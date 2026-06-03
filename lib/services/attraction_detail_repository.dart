@@ -1,6 +1,7 @@
 import 'package:luxora_ai/data/restaurant_menus.dart';
 import 'package:luxora_ai/models/attraction_detail.dart';
 import 'package:luxora_ai/models/lux_place.dart';
+import 'package:luxora_ai/services/orlando_experience_moment_service.dart';
 import 'package:luxora_ai/services/places_repository.dart';
 
 class AttractionDetailRepository {
@@ -20,18 +21,22 @@ class AttractionDetailRepository {
       return detail;
     }
 
+    final momentTip = OrlandoExperienceMomentService.insiderTipForPlace(place.id);
+    final moment = OrlandoExperienceMomentService.primaryMoment(placeId: place.id);
+
     return AttractionDetail(
       officialMapUrl: mapUrl,
       menu: menu,
       placeId: place.id,
       title: place.title,
-      emotionalHook:
-          'Arrive, exhale, and let ${place.location} recalibrate your pace before the next moment unfolds.',
+      emotionalHook: moment != null
+          ? moment.title
+          : 'Arrive, exhale, and let ${place.location} recalibrate your pace before the next moment unfolds.',
       whySpecial:
           '${place.title} is where Luxora turns planning into atmosphere. It blends ${place.categoryLabel.toLowerCase()} energy with an intentionally curated rhythm so your day feels composed, not crowded. You get the sense of discovery without the stress of guesswork. The result is a chapter that feels personal, cinematic, and quietly exclusive.',
       bestTimeToGo:
           'Best enjoyed in shoulder windows (early morning or golden hour) when lines are lighter and the mood is calmer. Midday can be busier; if crowds spike, Luxora can pivot this stop to a nearby alternative.',
-      insiderTips:
+      insiderTips: momentTip ??
           'Book your key slot before noon when possible, keep transfers short by clustering nearby stops, and leave 20–30 minutes of buffer so the experience feels unhurried. Ask staff for off-menu timing recommendations — locals often know the quietest window.',
       practicalDetails: AttractionPracticalDetails(
         typicalDuration: '75–120 min',
@@ -249,6 +254,78 @@ class AttractionDetailRepository {
         'place-miami-vizcaya',
         'place-miami-design-district',
       ],
+    ),
+    'place-magic-kingdom': AttractionDetail(
+      placeId: 'place-magic-kingdom',
+      title: 'Magic Kingdom',
+      emotionalHook: 'Happily Ever After on the castle hub — the moment most families fly home talking about.',
+      whySpecial:
+          'The anchor Disney park — rope drop energy, classic lands, parades, and the fireworks show that defines Orlando for millions of visitors. Luxora paces it as a full emotional arc, not a ride checklist.',
+      bestTimeToGo:
+          'Rope drop for top-priority rides; hold the hub or Main Street for Happily Ever After 45–60 minutes before showtime on busy nights.',
+      insiderTips:
+          'Main Street curb or hub grass for fireworks. Consider fireworks dining at California Grill if crowds are a hard no. Stack parades midday and save hard rides for morning or late evening.',
+      practicalDetails: AttractionPracticalDetails(
+        typicalDuration: 'Full day',
+        costRange: '\$\$\$',
+        bestFor: ['Family', 'First-timers', 'Iconic nights'],
+      ),
+      vibeMatch: ['Iconic', 'Family', 'Memorable nights'],
+      nearbyGemPlaceIds: ['place-disney-springs', 'dining-california-grill'],
+    ),
+    'place-epcot': AttractionDetail(
+      placeId: 'place-epcot',
+      title: 'EPCOT',
+      emotionalHook: 'World Showcase at dusk — food, culture, then the lagoon spectacular.',
+      whySpecial:
+          'The most adult-friendly Disney park day — festival booths, country pavilions, and a nighttime show that rewards slow pacing.',
+      bestTimeToGo:
+          'Late afternoon entry for Showcase grazing; lagoon edge 30 minutes before the nighttime spectacular.',
+      insiderTips:
+          'Mexico or Norway promenade for softer fireworks views. Festival seasons mean dinner is grazing, not one long reservation.',
+      practicalDetails: AttractionPracticalDetails(
+        typicalDuration: 'Full day or evening',
+        costRange: '\$\$\$',
+        bestFor: ['Foodie', 'Couples', 'Festivals'],
+      ),
+      vibeMatch: ['Foodie', 'Couples', 'Iconic nights'],
+      nearbyGemPlaceIds: ['place-disney-springs'],
+    ),
+    'place-hollywood-studios': AttractionDetail(
+      placeId: 'place-hollywood-studios',
+      title: 'Hollywood Studios',
+      emotionalHook: 'Galaxy\'s Edge at open, Fantasmic! to close — a two-act thrill day.',
+      whySpecial:
+          'Star Wars land, premium coasters, and one of Disney\'s best night shows. The park compresses well if you anchor morning and evening.',
+      bestTimeToGo:
+          'Galaxy\'s Edge at rope drop; Fantasmic! seating 45+ minutes early on peak nights.',
+      insiderTips:
+          'Ronto Roasters mobile order keeps you in Batuu. A dining package seat can save Fantasmic! stress on holiday weeks.',
+      practicalDetails: AttractionPracticalDetails(
+        typicalDuration: 'Full day',
+        costRange: '\$\$\$',
+        bestFor: ['Adventure', 'Star Wars fans', 'Night shows'],
+      ),
+      vibeMatch: ['Adventure', 'Iconic nights', 'Thrill'],
+      nearbyGemPlaceIds: ['place-disney-springs'],
+    ),
+    'place-islands-of-adventure': AttractionDetail(
+      placeId: 'place-islands-of-adventure',
+      title: 'Islands of Adventure',
+      emotionalHook: 'Hogsmeade at open, castle lights after dark.',
+      whySpecial:
+          'Wizarding World emotional anchor plus marquee coasters — the park hopper half of a Universal classic.',
+      bestTimeToGo:
+          'Hagrid\'s and VelociCoaster first hour; The Nighttime Lights on Hogwarts after sunset.',
+      insiderTips:
+          'Single-rider lines help on busy weekends. Park-to-park for Diagon Alley if your ticket allows.',
+      practicalDetails: AttractionPracticalDetails(
+        typicalDuration: 'Full day',
+        costRange: '\$\$\$',
+        bestFor: ['Adventure', 'Wizarding World', 'Thrill'],
+      ),
+      vibeMatch: ['Adventure', 'Iconic nights', 'Family'],
+      nearbyGemPlaceIds: ['place-universal-studios', 'place-volcano-bay'],
     ),
   };
 }

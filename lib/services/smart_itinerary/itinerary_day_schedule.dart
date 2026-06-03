@@ -152,7 +152,7 @@ abstract final class ItineraryDaySchedule {
     required LatLng dayStart,
     required int dayNumber,
     required String idPrefix,
-    required String Function(DayBlockReason reason, String description) blockLine,
+    required String Function(DayBlock block) blockLine,
     required String Function(String rawCategory) categoryLabel,
     DateTime? anchorDate,
   }) {
@@ -167,10 +167,7 @@ abstract final class ItineraryDaySchedule {
           id: '$idPrefix-${scheduled[i].block.place.id}-d$dayNumber-$i',
           time: formatTimeRange(scheduled[i].start, scheduled[i].end),
           title: scheduled[i].block.place.title,
-          emotionalLine: blockLine(
-            scheduled[i].block.reason,
-            scheduled[i].block.place.description,
-          ),
+          emotionalLine: blockLine(scheduled[i].block),
           location: scheduled[i].block.place.location,
           category: categoryLabel(scheduled[i].block.place.category.name),
           placeId: scheduled[i].block.place.id,

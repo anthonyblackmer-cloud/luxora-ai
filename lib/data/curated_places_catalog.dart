@@ -98,6 +98,8 @@ final curatedPlacesCatalog = _mergeCatalogSlices(
 const kFeedItemPlaceIds = <String, String>{
   'feed-rooftop-viral': 'dining-luma-on-park',
   'feed-disney-after-dark': 'place-magic-kingdom',
+  'feed-epcot-luminous': 'place-epcot',
+  'feed-fantasmic-studios': 'place-hollywood-studios',
   'feed-new-wellness': 'place-woodhouse-winter-park',
   'feed-creator-keys': 'place-cocoa-beach-pier',
   'feed-summer-springs': 'place-kelly-park-rock-springs',

@@ -65,7 +65,7 @@ const discoveryFeed = [
     subtitle: 'Lake Buena Vista',
     location: 'Orlando',
     headline:
-        'Extended evening hours and fireworks — fewer midday crowds when you shift to a late park day.',
+        'Happily Ever After on the castle — rope drop mornings, parade midday, fireworks night.',
     socialProof: 'Trending · families + couples',
     gradient: [Color(0xFFD946EF), Color(0xFF7C3AED), Color(0xFF020617)],
   ),
@@ -113,6 +113,28 @@ const discoveryFeed = [
     socialProof: 'Live weather window',
     gradient: [Color(0xFF64748B), Color(0xFF0EA5E9), Color(0xFF1E3A5F)],
     isLive: true,
+  ),
+  FeedItem(
+    id: 'feed-epcot-luminous',
+    kind: FeedItemKind.trending,
+    title: 'EPCOT lagoon nights',
+    subtitle: 'World Showcase · festival season',
+    location: 'Lake Buena Vista',
+    headline:
+        'Graze the countries, then hold the lagoon edge for the nighttime spectacular — the adult-friendly Disney must-do.',
+    socialProof: 'Trending · foodie couples',
+    gradient: [Color(0xFF6366F1), Color(0xFF8B5CF6), Color(0xFF0F172A)],
+  ),
+  FeedItem(
+    id: 'feed-fantasmic-studios',
+    kind: FeedItemKind.creatorPick,
+    title: 'Fantasmic! closing act',
+    subtitle: 'Hollywood Studios',
+    location: 'Lake Buena Vista',
+    headline:
+        'Galaxy\'s Edge morning, coasters midday, Fantasmic! finale — the Studios day locals actually recommend.',
+    socialProof: 'Creator pick · night shows',
+    gradient: [Color(0xFF7C3AED), Color(0xFFDB2777), Color(0xFF020617)],
   ),
   FeedItem(
     id: 'feed-universal-hype',

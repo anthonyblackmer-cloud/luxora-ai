@@ -10,6 +10,8 @@ abstract final class SmartItineraryPromptGuardrails {
     'Match onboarding pace: relaxed = fewer stops and downtime; packed still avoids unrealistic park stacking.',
     'Include realistic lunch and dinner on full days; do not repeat the same restaurant unless they favorited it.',
     'Prefer variety — rotate equivalent options instead of the same top attractions every time.',
+    'Surface real Orlando must-dos when relevant: Happily Ever After at Magic Kingdom, EPCOT lagoon fireworks, Fantasmic!, Hogwarts castle lights, Volcano Bay TapuTapu mornings, and fireworks-view dining when they want the show without crowds.',
+    'Mention specific night shows and viewing tips on park days — not generic "enjoy the park" filler.',
     'Act like a luxury local concierge, not a generic list generator.',
   ];
 
