@@ -21,6 +21,7 @@ import 'package:luxora_ai/services/weather_service.dart';
 import 'package:luxora_ai/theme/lux_theme.dart';
 import 'package:luxora_ai/util/today_plan_helpers.dart';
 import 'package:luxora_ai/util/traveler_name.dart';
+import 'package:luxora_ai/widgets/agenda/agenda_day_share_actions.dart';
 import 'package:luxora_ai/widgets/agenda/itinerary_day_timeline.dart';
 import 'package:luxora_ai/widgets/glass_card.dart';
 import 'package:luxora_ai/widgets/lux_button.dart';
@@ -32,10 +33,12 @@ import 'package:luxora_ai/widgets/weather_card.dart';
 class TodayDashboard extends StatefulWidget {
   const TodayDashboard({
     super.key,
+    required this.plan,
     required this.selectedDay,
     this.profile,
   });
 
+  final TripPlan plan;
   final TripDay? selectedDay;
   final TripProfile? profile;
 
@@ -227,6 +230,10 @@ class _TodayDashboardState extends State<TodayDashboard> {
                       height: 1.3,
                     ),
                   ),
+                  if (day.items.isNotEmpty) ...[
+                    const SizedBox(height: 12),
+                    AgendaDayShareActions(plan: widget.plan, day: day),
+                  ],
                 ],
               ),
             ),

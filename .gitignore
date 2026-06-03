@@ -32,6 +32,7 @@ migrate_working_dir/
 .pub/
 /build/
 /coverage/
+tool/generated/experience_moments/
 
 # Symbolication related
 app.*.symbols

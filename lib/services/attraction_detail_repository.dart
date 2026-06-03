@@ -1,7 +1,8 @@
 import 'package:luxora_ai/data/restaurant_menus.dart';
 import 'package:luxora_ai/models/attraction_detail.dart';
 import 'package:luxora_ai/models/lux_place.dart';
-import 'package:luxora_ai/services/orlando_experience_moment_service.dart';
+import 'package:luxora_ai/services/city_pack_registry.dart';
+import 'package:luxora_ai/services/experience_moment_service.dart';
 import 'package:luxora_ai/services/places_repository.dart';
 
 class AttractionDetailRepository {
@@ -21,8 +22,15 @@ class AttractionDetailRepository {
       return detail;
     }
 
-    final momentTip = OrlandoExperienceMomentService.insiderTipForPlace(place.id);
-    final moment = OrlandoExperienceMomentService.primaryMoment(placeId: place.id);
+    final cityId = CityPackRegistry.instance.active.cityId;
+    final momentTip = ExperienceMomentService.insiderTipForPlace(
+      place.id,
+      cityId: cityId,
+    );
+    final moment = ExperienceMomentService.primaryMoment(
+      placeId: place.id,
+      cityId: cityId,
+    );
 
     return AttractionDetail(
       officialMapUrl: mapUrl,

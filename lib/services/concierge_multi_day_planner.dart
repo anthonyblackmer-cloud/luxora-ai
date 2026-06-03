@@ -9,7 +9,7 @@ import 'package:luxora_ai/services/concierge_theme_park_planner.dart';
 import 'package:luxora_ai/services/crowd_prediction_service.dart';
 import 'package:luxora_ai/services/day_flow_planner.dart';
 import 'package:luxora_ai/services/places_repository.dart';
-import 'package:luxora_ai/services/orlando_experience_moment_service.dart';
+import 'package:luxora_ai/services/experience_moment_service.dart';
 import 'package:luxora_ai/services/smart_itinerary/itinerary_day_schedule.dart';
 import 'package:luxora_ai/services/smart_itinerary/itinerary_place_picker.dart';
 import 'package:luxora_ai/util/place_distance.dart';
@@ -158,6 +158,7 @@ abstract final class ConciergeMultiDayPlanner {
       usedIds: usedIds,
       startDayNumber: parkDays.length + 1,
       intentText: intentText,
+      cityId: cityId,
     );
 
     final mergedDays = _interleaveDays(parkDays, explore.days);
@@ -203,6 +204,7 @@ abstract final class ConciergeMultiDayPlanner {
       usedIds: usedIds,
       startDayNumber: 1,
       intentText: intentText,
+      cityId: cityId,
     );
 
     final title = TripNameGenerator.resolve(profile);
@@ -246,6 +248,7 @@ abstract final class ConciergeMultiDayPlanner {
     required Set<String> usedIds,
     required int startDayNumber,
     required String intentText,
+    required String cityId,
   }) {
     final days = <TripDay>[];
     final flows = <DayFlow>[];
@@ -295,7 +298,7 @@ abstract final class ConciergeMultiDayPlanner {
         dayStart: flow.start,
         dayNumber: startDayNumber + d,
         idPrefix: 'concierge',
-        blockLine: blockLineFor,
+        blockLine: blockLineForCity(cityId),
         categoryLabel: _categoryLabel,
       );
 
@@ -374,10 +377,11 @@ abstract final class ConciergeMultiDayPlanner {
           id: 'concierge-${route.routeId}-$itemIdx',
           time: _formatPhaseTime(segment.$1),
           title: place.title,
-          emotionalLine: OrlandoExperienceMomentService.lineForSegment(
+          emotionalLine: ExperienceMomentService.lineForSegment(
             placeId: place.id,
             phase: segment.$1,
             routeDescription: route.description,
+            cityId: 'orlando',
           ),
           location: place.location,
           category: 'Theme parks',
@@ -425,13 +429,14 @@ abstract final class ConciergeMultiDayPlanner {
     required DayFlow flow,
     required int dayNumber,
     required String label,
+    String? cityId,
   }) {
     final items = ItineraryDaySchedule.tripItemsFromBlocks(
       blocks: flow.blocks,
       dayStart: flow.start,
       dayNumber: dayNumber,
       idPrefix: 'validated',
-      blockLine: blockLineFor,
+      blockLine: blockLineForCity(cityId ?? 'orlando'),
       categoryLabel: _categoryLabel,
     );
     return TripDay(
@@ -474,11 +479,17 @@ abstract final class ConciergeMultiDayPlanner {
   static String _categoryLabel(String raw) =>
       raw.isEmpty ? 'Experience' : '${raw[0].toUpperCase()}${raw.substring(1)}';
 
+  static String Function(DayBlock) blockLineForCity(String cityId) {
+    return (block) => ExperienceMomentService.lineForBlock(
+          block: block,
+          fallback: _blockLine,
+          cityId: cityId,
+        );
+  }
+
+  @Deprecated('Use blockLineForCity')
   static String blockLineFor(DayBlock block) =>
-      OrlandoExperienceMomentService.lineForBlock(
-        block: block,
-        fallback: _blockLine,
-      );
+      blockLineForCity('orlando')(block);
 
   static String _blockLine(DayBlockReason reason, String description) {
     final trimmed = description.trim();

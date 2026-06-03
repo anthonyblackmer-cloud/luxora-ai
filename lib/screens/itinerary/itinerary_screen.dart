@@ -160,6 +160,7 @@ class _ItineraryScreenState extends State<ItineraryScreen> {
               const SizedBox(height: 16),
             ],
             TodayDashboard(
+              plan: plan,
               selectedDay: selectedDay,
               profile: profile,
             ),
