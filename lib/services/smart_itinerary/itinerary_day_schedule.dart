@@ -31,6 +31,7 @@ abstract final class ItineraryDaySchedule {
     required List<DayBlock> blocks,
     required LatLng dayStart,
     DateTime? anchorDate,
+    bool compactDurations = false,
   }) {
     if (blocks.isEmpty) return const [];
 
@@ -57,7 +58,11 @@ abstract final class ItineraryDaySchedule {
         start = phaseFloor;
       }
 
-      final durationMinutes = _visitDurationMinutes(block);
+      final durationMinutes = _visitDurationMinutes(
+        block,
+        totalStops: blocks.length,
+        compact: compactDurations,
+      );
       final end = start.add(Duration(minutes: durationMinutes));
 
       out.add(
@@ -74,16 +79,32 @@ abstract final class ItineraryDaySchedule {
     return out;
   }
 
-  static int _visitDurationMinutes(DayBlock block) {
+  static int _visitDurationMinutes(
+    DayBlock block, {
+    required int totalStops,
+    bool compact = false,
+  }) {
     final profile = ExperienceDurationCatalog.profileFor(block.place);
     if (profile.isFullDayDestination) {
+      if (totalStops > 1 || compact) {
+        return profile.minDurationMinutes.clamp(120, 240);
+      }
       return profile.idealDurationMinutes.clamp(240, 540);
+    }
+    if (ExperienceDurationCatalog.isWaterPark(block.place.id)) {
+      if (totalStops > 1 || compact) {
+        return profile.minDurationMinutes.clamp(120, 180);
+      }
     }
     if (block.place.category == LuxPlaceCategory.dining ||
         block.reason == DayBlockReason.eveningDining) {
-      return profile.idealDurationMinutes.clamp(60, 120);
+      final ideal = compact
+          ? profile.minDurationMinutes
+          : profile.idealDurationMinutes;
+      return ideal.clamp(60, 120);
     }
-    return profile.idealDurationMinutes.clamp(
+    final ideal = compact ? profile.minDurationMinutes : profile.idealDurationMinutes;
+    return ideal.clamp(
       profile.minDurationMinutes,
       profile.maxDurationMinutes,
     );
@@ -106,11 +127,13 @@ abstract final class ItineraryDaySchedule {
     required List<DayBlock> blocks,
     required LatLng dayStart,
     DateTime? anchorDate,
+    bool compactDurations = false,
   }) {
     final scheduled = build(
       blocks: blocks,
       dayStart: dayStart,
       anchorDate: anchorDate,
+      compactDurations: compactDurations,
     );
     if (scheduled.isEmpty) return false;
     final last = scheduled.last;

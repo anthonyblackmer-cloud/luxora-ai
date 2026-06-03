@@ -176,7 +176,22 @@ abstract final class SmartItineraryRuleEngine {
 
     blocks = _avoidTripRepeats(blocks, tripUsed, pool, savedIds, note);
 
-    blocks = _trimToFeasibleSchedule(blocks, flow.start, note);
+    blocks = _trimToFeasibleSchedule(
+      blocks,
+      flow.start,
+      profile,
+      note,
+    );
+
+    blocks = _ensureMinimumStops(
+      blocks: blocks,
+      profile: profile,
+      pool: pool,
+      tripUsed: tripUsed,
+      savedIds: savedIds,
+      start: flow.start,
+      note: note,
+    );
 
     var totalMiles = _totalMiles(blocks, flow.start);
 
@@ -411,12 +426,12 @@ abstract final class SmartItineraryRuleEngine {
     final out = <DayBlock>[];
     for (final block in blocks) {
       if (tripUsed.contains(block.place.id) &&
-          !savedIds.contains(block.place.id) &&
-          block.place.category != LuxPlaceCategory.dining) {
+          !savedIds.contains(block.place.id)) {
         final replacement = _pickReplacement(
           pool: pool,
           tripUsed: tripUsed,
           category: block.place.category,
+          near: LatLng(block.place.latitude, block.place.longitude),
         );
         if (replacement != null) {
           note('Swapped repeated ${block.place.title} for variety.');
@@ -429,7 +444,9 @@ abstract final class SmartItineraryRuleEngine {
           );
           continue;
         }
-        note('Kept repeat ${block.place.title} — no equivalent alternative.');
+        if (block.place.category != LuxPlaceCategory.dining) {
+          note('Kept repeat ${block.place.title} — no equivalent alternative.');
+        }
       }
       out.add(block);
     }
@@ -457,15 +474,34 @@ abstract final class SmartItineraryRuleEngine {
     return total;
   }
 
+  static int _minStopsForPace(PacePreference pace) => switch (pace) {
+        PacePreference.slow => 2,
+        PacePreference.balanced => 3,
+        PacePreference.packed => 4,
+      };
+
   static List<DayBlock> _trimToFeasibleSchedule(
     List<DayBlock> blocks,
     LatLng start,
+    TripProfile profile,
     void Function(String, {double penalty}) note,
   ) {
-    if (blocks.length < 2) return blocks;
+    if (blocks.isEmpty) return blocks;
+    final minStops = _minStopsForPace(profile.pace);
+
     if (ItineraryDaySchedule.isFeasible(blocks: blocks, dayStart: start)) {
       return blocks;
     }
+    if (ItineraryDaySchedule.isFeasible(
+      blocks: blocks,
+      dayStart: start,
+      compactDurations: true,
+    )) {
+      note('Compressed visit windows so every stop fits in one day.', penalty: 0.03);
+      return blocks;
+    }
+
+    if (blocks.length < 2) return blocks;
 
     var working = List<DayBlock>.from(blocks);
     final dropPhases = [
@@ -476,8 +512,12 @@ abstract final class SmartItineraryRuleEngine {
       DayPhase.morning,
     ];
 
-    while (working.length > 1 &&
-        !ItineraryDaySchedule.isFeasible(blocks: working, dayStart: start)) {
+    while (working.length > minStops &&
+        !ItineraryDaySchedule.isFeasible(
+          blocks: working,
+          dayStart: start,
+          compactDurations: true,
+        )) {
       var removed = false;
       for (final phase in dropPhases) {
         final candidates = working
@@ -520,16 +560,153 @@ abstract final class SmartItineraryRuleEngine {
     return working;
   }
 
+  static List<DayBlock> _ensureMinimumStops({
+    required List<DayBlock> blocks,
+    required TripProfile profile,
+    required List<LuxPlace> pool,
+    required Set<String> tripUsed,
+    required Set<String> savedIds,
+    required LatLng start,
+    required void Function(String, {double penalty}) note,
+  }) {
+    final minStops = _minStopsForPace(profile.pace);
+    if (blocks.length >= minStops) return blocks;
+
+    var working = List<DayBlock>.from(blocks);
+    final dayUsed = {for (final b in working) b.place.id};
+    final fillPhases = [
+      DayPhase.morning,
+      DayPhase.midday,
+      DayPhase.afternoon,
+    ];
+
+    while (working.length < minStops) {
+      final phase = fillPhases.firstWhere(
+        (p) => !working.any((b) => b.phase == p),
+        orElse: () => DayPhase.afternoon,
+      );
+      final anchor = working.isEmpty
+          ? start
+          : LatLng(
+              working.last.place.latitude,
+              working.last.place.longitude,
+            );
+      final filler = _pickDayFiller(
+        pool: pool,
+        tripUsed: tripUsed,
+        dayUsed: dayUsed,
+        savedIds: savedIds,
+        near: anchor,
+        profile: profile,
+        majorParksOnDay: working
+            .where((b) => ExperienceDurationCatalog.isMajorThemePark(b.place.id))
+            .length,
+      );
+      if (filler == null) break;
+
+      working.add(
+        DayBlock(
+          phase: phase,
+          place: filler,
+          reason: DayBlockReason.middayIcon,
+        ),
+      );
+      dayUsed.add(filler.id);
+      note('Added ${filler.title} to round out the day.', penalty: 0.04);
+    }
+
+    if (working.length >= minStops &&
+        !ItineraryDaySchedule.isFeasible(
+          blocks: working,
+          dayStart: start,
+          compactDurations: true,
+        )) {
+      return blocks.length >= working.length ? blocks : working;
+    }
+
+    return working;
+  }
+
+  static LuxPlace? _pickDayFiller({
+    required List<LuxPlace> pool,
+    required Set<String> tripUsed,
+    required Set<String> dayUsed,
+    required Set<String> savedIds,
+    required LatLng near,
+    required TripProfile profile,
+    int majorParksOnDay = 0,
+  }) {
+    LuxPlace? best;
+    var bestScore = double.negativeInfinity;
+
+    for (final place in pool) {
+      if (dayUsed.contains(place.id)) continue;
+      if (place.category == LuxPlaceCategory.dining ||
+          place.category == LuxPlaceCategory.nightlife) {
+        continue;
+      }
+      if (ExperienceDurationCatalog.isMajorThemePark(place.id) &&
+          majorParksOnDay >= 1) {
+        continue;
+      }
+
+      var score = 12.0;
+      if (tripUsed.contains(place.id)) score -= 55;
+      if (savedIds.contains(place.id)) score += 18;
+      if (place.source == LuxPlaceSource.curated) score += 8;
+      if (ExperienceDurationCatalog.isWaterPark(place.id)) {
+        score += profile.adventureInterest >= 35 ? 16 : 6;
+      } else if (ExperienceDurationCatalog.isMajorThemePark(place.id)) {
+        score += profile.adventureInterest >= 50 ? 10 : -8;
+      } else if (ExperienceDurationCatalog.profileFor(place).isFullDayDestination) {
+        score -= 12;
+      }
+      if (place.moodTags.any((t) => const {'iconic', 'trending', 'family'}.contains(t))) {
+        score += 10;
+      }
+
+      final miles = PlaceDistance.milesBetween(
+        near,
+        LatLng(place.latitude, place.longitude),
+      );
+      score -= miles * 0.2;
+
+      if (score > bestScore) {
+        bestScore = score;
+        best = place;
+      }
+    }
+    return best;
+  }
+
   static LuxPlace? _pickReplacement({
     required List<LuxPlace> pool,
     required Set<String> tripUsed,
     required LuxPlaceCategory category,
+    LatLng? near,
   }) {
+    final anchor = near ?? PlaceDistance.hubCenter;
+    LuxPlace? best;
+    var bestScore = double.negativeInfinity;
+
     for (final place in pool) {
       if (tripUsed.contains(place.id)) continue;
-      if (place.category == category) return place;
+      if (place.category != category) continue;
+
+      var score = 20.0;
+      if (place.source == LuxPlaceSource.curated) score += 6;
+      final miles = PlaceDistance.milesBetween(
+        anchor,
+        LatLng(place.latitude, place.longitude),
+      );
+      score -= miles * 0.15;
+
+      if (score > bestScore) {
+        bestScore = score;
+        best = place;
+      }
     }
-    return null;
+    return best;
   }
 }
 

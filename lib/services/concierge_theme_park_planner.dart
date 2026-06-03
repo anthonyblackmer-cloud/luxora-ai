@@ -33,8 +33,8 @@ class ThemeParkExcursionIntent {
 abstract final class ConciergeThemeParkPlanner {
   static ThemeParkExcursionIntent parseIntent(String message) {
     final lower = message.toLowerCase();
-    final disney = _mentionsDisney(lower);
-    final universal = _mentionsUniversal(lower);
+    final disney = _mentionsDisney(lower) || _mentionsGenericThemeParks(lower);
+    final universal = _mentionsUniversal(lower) || _mentionsGenericThemeParks(lower);
     return ThemeParkExcursionIntent(
       dayCount: _parseDayCount(lower),
       disney: disney,
@@ -95,24 +95,39 @@ abstract final class ConciergeThemeParkPlanner {
     final disneyRoutes = DisneyWorldContent.moodRoutes;
     final universalRoutes = UniversalOrlandoContent.moodRoutes;
     final out = <OrlandoParkMoodRoute>[];
+    final usedDisney = <String>{};
+    final usedUniversal = <String>{};
+
+    OrlandoParkMoodRoute nextFrom(
+      List<OrlandoParkMoodRoute> routes,
+      Set<String> used,
+      int pickIndex,
+    ) {
+      for (final route in routes) {
+        if (!used.contains(route.routeId)) {
+          used.add(route.routeId);
+          return route;
+        }
+      }
+      final route = routes[pickIndex % routes.length];
+      used.add(route.routeId);
+      return route;
+    }
+
     var disneyIdx = 0;
     var universalIdx = 0;
 
     for (var day = 0; day < dayCount; day++) {
       if (disney && universal) {
         if (day.isEven) {
-          out.add(disneyRoutes[disneyIdx % disneyRoutes.length]);
-          disneyIdx++;
+          out.add(nextFrom(disneyRoutes, usedDisney, disneyIdx++));
         } else {
-          out.add(universalRoutes[universalIdx % universalRoutes.length]);
-          universalIdx++;
+          out.add(nextFrom(universalRoutes, usedUniversal, universalIdx++));
         }
       } else if (disney) {
-        out.add(disneyRoutes[disneyIdx % disneyRoutes.length]);
-        disneyIdx++;
+        out.add(nextFrom(disneyRoutes, usedDisney, disneyIdx++));
       } else if (universal) {
-        out.add(universalRoutes[universalIdx % universalRoutes.length]);
-        universalIdx++;
+        out.add(nextFrom(universalRoutes, usedUniversal, universalIdx++));
       }
     }
     return out;
@@ -249,13 +264,21 @@ abstract final class ConciergeThemeParkPlanner {
       lower.contains('magic kingdom') ||
       lower.contains('epcot') ||
       lower.contains('hollywood studios') ||
-      lower.contains('animal kingdom');
+      lower.contains('animal kingdom') ||
+      lower.contains('typhoon lagoon') ||
+      lower.contains('blizzard beach');
 
   static bool _mentionsUniversal(String lower) =>
       lower.contains('universal') ||
       lower.contains('islands of adventure') ||
       lower.contains('volcano bay') ||
       lower.contains('epic universe');
+
+  static bool _mentionsGenericThemeParks(String lower) =>
+      lower.contains('theme park') ||
+      lower.contains('water park') ||
+      lower.contains('seaworld') ||
+      lower.contains('aquatica');
 
   static int _boost(int value, int delta) => (value + delta).clamp(0, 100);
 

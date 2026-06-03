@@ -100,39 +100,65 @@ abstract final class DayFlowPlanner {
     final blocks = <DayBlock>[];
     var cursor = start;
 
+    double scorePlace(
+      LuxPlace place,
+      List<LuxPlaceCategory> categories, {
+      List<String> tags = const [],
+      bool requireTagHit = true,
+    }) {
+      final lowerTags = {for (final t in tags) t.toLowerCase()};
+      var score = 0.0;
+      final catIndex = categories.indexOf(place.category);
+      if (catIndex >= 0) {
+        score += (categories.length - catIndex) * 10.0;
+      }
+      final tagHits = place.moodTags
+          .where((t) => lowerTags.contains(t.toLowerCase()))
+          .length;
+      score += tagHits * 5.0;
+      if (score <= 0) return score;
+      if (requireTagHit && tagHits == 0 && categories.isNotEmpty) {
+        return 0;
+      }
+      if (savedIds.contains(place.id)) score += 30.0;
+      if (place.source == LuxPlaceSource.curated) score += 6.0;
+      final miles = PlaceDistance.milesBetween(
+        cursor,
+        LatLng(place.latitude, place.longitude),
+      );
+      score -= miles * 0.18;
+      return score;
+    }
+
     LuxPlace? pick(
       List<LuxPlaceCategory> categories, {
       List<String> tags = const [],
     }) {
-      final lowerTags = {for (final t in tags) t.toLowerCase()};
       LuxPlace? best;
       var bestScore = double.negativeInfinity;
       for (final place in pool) {
         if (used.contains(place.id)) continue;
-        var score = 0.0;
-        final catIndex = categories.indexOf(place.category);
-        if (catIndex >= 0) {
-          score += (categories.length - catIndex) * 10.0;
-        }
-        final tagHits = place.moodTags
-            .where((t) => lowerTags.contains(t.toLowerCase()))
-            .length;
-        score += tagHits * 5.0;
-        // Must relate to the phase in some way.
+        final score = scorePlace(place, categories, tags: tags);
         if (score <= 0) continue;
-        // Honor the traveler's own bookmarks.
-        if (savedIds.contains(place.id)) score += 30.0;
-        // Curated editorial beats bulk OSM at equal relevance.
-        if (place.source == LuxPlaceSource.curated) score += 6.0;
-        // Keep the day tight: nearer the previous stop is better.
-        final miles = PlaceDistance.milesBetween(
-          cursor,
-          LatLng(place.latitude, place.longitude),
-        );
-        score -= miles * 0.18;
         if (score > bestScore) {
           bestScore = score;
           best = place;
+        }
+      }
+      if (best == null) {
+        for (final place in pool) {
+          if (used.contains(place.id)) continue;
+          final score = scorePlace(
+            place,
+            categories,
+            tags: tags,
+            requireTagHit: false,
+          );
+          if (score <= 0) continue;
+          if (score > bestScore) {
+            bestScore = score;
+            best = place;
+          }
         }
       }
       if (best != null) {
@@ -140,6 +166,22 @@ abstract final class DayFlowPlanner {
         cursor = LatLng(best.latitude, best.longitude);
       }
       return best;
+    }
+
+    LuxPlace? pickAnyExperience() {
+      const categories = [
+        LuxPlaceCategory.family,
+        LuxPlaceCategory.adventure,
+        LuxPlaceCategory.nature,
+        LuxPlaceCategory.springs,
+        LuxPlaceCategory.beach,
+        LuxPlaceCategory.wellness,
+        LuxPlaceCategory.romantic,
+      ];
+      return pick(
+        categories,
+        tags: const ['iconic', 'trending', 'family', 'adventure', 'water'],
+      );
     }
 
     void add(DayPhase phase, LuxPlace? place, DayBlockReason reason) {
@@ -307,6 +349,33 @@ abstract final class DayFlowPlanner {
           tags: const ['nightlife', 'trending', 'social', 'bar'],
         ),
         DayBlockReason.nightOut,
+      );
+    }
+
+    final minStops = switch (p.pace) {
+      PacePreference.slow => 2,
+      PacePreference.balanced => 3,
+      PacePreference.packed => 4,
+    };
+    final fillPhases = [
+      DayPhase.morning,
+      DayPhase.midday,
+      DayPhase.afternoon,
+      DayPhase.evening,
+    ];
+    while (blocks.length < minStops) {
+      final phase = fillPhases.firstWhere(
+        (p) => !blocks.any((b) => b.phase == p),
+        orElse: () => DayPhase.afternoon,
+      );
+      final filler = pickAnyExperience();
+      if (filler == null) break;
+      add(
+        phase,
+        filler,
+        phase == DayPhase.evening
+            ? DayBlockReason.eveningDining
+            : DayBlockReason.middayIcon,
       );
     }
 

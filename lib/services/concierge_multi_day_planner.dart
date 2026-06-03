@@ -439,9 +439,9 @@ abstract final class ConciergeMultiDayPlanner {
           place.category != LuxPlaceCategory.romantic) {
         continue;
       }
-      if (usedIds.contains(place.id)) continue;
 
       var score = profile.foodieInterest.toDouble();
+      if (usedIds.contains(place.id)) score -= 65;
       for (final cuisine in profile.cuisinePreferences) {
         if (place.moodTags.any((t) => t.toLowerCase().contains(cuisine.name)) ||
             place.title.toLowerCase().contains(cuisine.name)) {
@@ -476,7 +476,7 @@ abstract final class ConciergeMultiDayPlanner {
         best = place;
       }
     }
-    return best;
+    return bestScore > double.negativeInfinity ? best : null;
   }
 
   static String _formatPhaseTime(DayPhase phase) {

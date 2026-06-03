@@ -141,6 +141,66 @@ void main() {
         .length;
     expect(majors, 2);
   });
+
+  test('refills sparse explore day to minimum stops', () {
+    final nature = _place(
+      id: 'place-winter-park',
+      title: 'Park Avenue stroll',
+      category: LuxPlaceCategory.nature,
+      lat: 28.5990,
+      lng: -81.3390,
+    );
+    final springs = _place(
+      id: 'place-wekiwa-springs',
+      title: 'Wekiwa Springs',
+      category: LuxPlaceCategory.springs,
+      lat: 28.7110,
+      lng: -81.3650,
+    );
+    final seaworld = _place(
+      id: 'place-seaworld-orlando',
+      title: 'SeaWorld Orlando',
+      category: LuxPlaceCategory.family,
+      lat: 28.4110,
+      lng: -81.4610,
+    );
+
+    final sparse = DayFlow(
+      blocks: [
+        DayBlock(
+          phase: DayPhase.evening,
+          place: dining,
+          reason: DayBlockReason.eveningDining,
+        ),
+      ],
+      start: PlaceDistance.hubCenter,
+      totalMiles: 0,
+    );
+
+    final result = SmartItineraryRuleEngine.validateAndRepair(
+      raw: ConciergeMultiDayPlan(
+        plan: TripPlan(id: 'test', title: 'Test', days: const []),
+        activeFlow: sparse,
+        flowsByDay: [sparse],
+      ),
+      profile: const TripProfile(
+        pace: PacePreference.balanced,
+        adventureInterest: 70,
+      ),
+      pool: [dining, nature, springs, seaworld, mk],
+      userMessage: 'Orlando explore day',
+      repo: PlacesRepository.instance,
+      cityId: 'orlando',
+    );
+
+    expect(result.plan.activeFlow.blocks.length, greaterThanOrEqualTo(3));
+    expect(
+      result.plan.activeFlow.blocks
+          .where((b) => b.place.category == LuxPlaceCategory.dining)
+          .length,
+      1,
+    );
+  });
 }
 
 LuxPlace _place({

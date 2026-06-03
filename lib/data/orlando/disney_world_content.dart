@@ -42,5 +42,29 @@ abstract final class DisneyWorldContent {
       bestStartTime: '8 AM safari window',
       crowdSensitive: true,
     ),
+    OrlandoParkMoodRoute(
+      routeId: 'disney-hollywood-studios-thrills',
+      title: 'Hollywood Studios thrill day',
+      description:
+          'Galaxy\'s Edge morning, then Sunset Boulevard coasters before the crowds peak.',
+      moodTags: ['adventure', 'family', 'iconic'],
+      morningPlaceId: 'place-hollywood-studios',
+      afternoonPlaceId: 'place-hollywood-studios',
+      eveningPlaceId: 'place-disney-springs',
+      bestStartTime: 'Park open − 30 min',
+      crowdSensitive: true,
+    ),
+    OrlandoParkMoodRoute(
+      routeId: 'disney-typhoon-lagoon-reset',
+      title: 'Typhoon Lagoon water day',
+      description:
+          'Wave pool morning, lazy river reset — pairs with a light Springs evening.',
+      moodTags: ['family', 'relaxing', 'water'],
+      morningPlaceId: 'place-typhoon-lagoon',
+      afternoonPlaceId: 'place-typhoon-lagoon',
+      eveningPlaceId: 'place-disney-springs',
+      bestStartTime: '10 AM · chairs first',
+      crowdSensitive: false,
+    ),
   ];
 }
