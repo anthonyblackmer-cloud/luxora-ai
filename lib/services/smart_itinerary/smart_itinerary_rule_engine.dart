@@ -9,9 +9,11 @@ import 'package:luxora_ai/util/place_distance.dart';
 
 import 'experience_duration_catalog.dart';
 import 'itinerary_day_schedule.dart';
+import 'itinerary_place_picker.dart';
 
 export 'experience_duration_catalog.dart';
 export 'itinerary_day_schedule.dart';
+export 'itinerary_place_picker.dart';
 export 'smart_itinerary_prompt_guardrails.dart';
 
 /// Outcome of validating and repairing a multi-day concierge plan.
@@ -65,6 +67,8 @@ abstract final class SmartItineraryRuleEngine {
         tripUsed: tripUsed,
         allowParkHopper: allowHopper,
         cityId: cityId,
+        intentText: userMessage,
+        dayIndex: i,
       );
 
       notes.addAll(dayResult.notes);
@@ -119,6 +123,8 @@ abstract final class SmartItineraryRuleEngine {
     required Set<String> tripUsed,
     required bool allowParkHopper,
     required String cityId,
+    required String intentText,
+    required int dayIndex,
   }) {
     final notes = <String>[];
     var confidence = 1.0;
@@ -152,12 +158,17 @@ abstract final class SmartItineraryRuleEngine {
                 blocks.last.place.latitude,
                 blocks.last.place.longitude,
               );
-        final dining = ConciergeMultiDayPlanner.pickRestaurant(
-          pool: pool,
-          profile: profile,
-          usedIds: tripUsed,
-          savedIds: savedIds,
-          near: anchor,
+        final dining = ItineraryPlacePicker.pickDining(
+          ctx: ItineraryPickContext(
+            profile: profile,
+            pool: pool,
+            tripUsed: tripUsed,
+            dayUsed: {for (final b in blocks) b.place.id},
+            savedIds: savedIds,
+            near: anchor,
+            rotationSeed: dayIndex * 53 + blocks.length,
+            intentText: intentText,
+          ),
         );
         if (dining != null) {
           blocks.add(
@@ -174,7 +185,15 @@ abstract final class SmartItineraryRuleEngine {
       }
     }
 
-    blocks = _avoidTripRepeats(blocks, tripUsed, pool, savedIds, note);
+    blocks = _avoidTripRepeats(
+      blocks,
+      tripUsed,
+      pool,
+      savedIds,
+      profile,
+      intentText,
+      note,
+    );
 
     blocks = _trimToFeasibleSchedule(
       blocks,
@@ -190,6 +209,8 @@ abstract final class SmartItineraryRuleEngine {
       tripUsed: tripUsed,
       savedIds: savedIds,
       start: flow.start,
+      intentText: intentText,
+      dayIndex: dayIndex,
       note: note,
     );
 
@@ -421,17 +442,26 @@ abstract final class SmartItineraryRuleEngine {
     Set<String> tripUsed,
     List<LuxPlace> pool,
     Set<String> savedIds,
+    TripProfile profile,
+    String intentText,
     void Function(String, {double penalty}) note,
   ) {
     final out = <DayBlock>[];
     for (final block in blocks) {
       if (tripUsed.contains(block.place.id) &&
           !savedIds.contains(block.place.id)) {
-        final replacement = _pickReplacement(
-          pool: pool,
-          tripUsed: tripUsed,
+        final replacement = ItineraryPlacePicker.pickReplacement(
+          ctx: ItineraryPickContext(
+            profile: profile,
+            pool: pool,
+            tripUsed: tripUsed,
+            dayUsed: {for (final b in out) b.place.id, block.place.id},
+            savedIds: savedIds,
+            near: LatLng(block.place.latitude, block.place.longitude),
+            rotationSeed: tripUsed.length + out.length,
+            intentText: intentText,
+          ),
           category: block.place.category,
-          near: LatLng(block.place.latitude, block.place.longitude),
         );
         if (replacement != null) {
           note('Swapped repeated ${block.place.title} for variety.');
@@ -567,6 +597,8 @@ abstract final class SmartItineraryRuleEngine {
     required Set<String> tripUsed,
     required Set<String> savedIds,
     required LatLng start,
+    required String intentText,
+    required int dayIndex,
     required void Function(String, {double penalty}) note,
   }) {
     final minStops = _minStopsForPace(profile.pace);
@@ -591,13 +623,17 @@ abstract final class SmartItineraryRuleEngine {
               working.last.place.latitude,
               working.last.place.longitude,
             );
-      final filler = _pickDayFiller(
-        pool: pool,
-        tripUsed: tripUsed,
-        dayUsed: dayUsed,
-        savedIds: savedIds,
-        near: anchor,
-        profile: profile,
+      final filler = ItineraryPlacePicker.pickDayFiller(
+        ctx: ItineraryPickContext(
+          profile: profile,
+          pool: pool,
+          tripUsed: tripUsed,
+          dayUsed: dayUsed,
+          savedIds: savedIds,
+          near: anchor,
+          rotationSeed: dayIndex * 67 + working.length,
+          intentText: intentText,
+        ),
         majorParksOnDay: working
             .where((b) => ExperienceDurationCatalog.isMajorThemePark(b.place.id))
             .length,
@@ -625,88 +661,6 @@ abstract final class SmartItineraryRuleEngine {
     }
 
     return working;
-  }
-
-  static LuxPlace? _pickDayFiller({
-    required List<LuxPlace> pool,
-    required Set<String> tripUsed,
-    required Set<String> dayUsed,
-    required Set<String> savedIds,
-    required LatLng near,
-    required TripProfile profile,
-    int majorParksOnDay = 0,
-  }) {
-    LuxPlace? best;
-    var bestScore = double.negativeInfinity;
-
-    for (final place in pool) {
-      if (dayUsed.contains(place.id)) continue;
-      if (place.category == LuxPlaceCategory.dining ||
-          place.category == LuxPlaceCategory.nightlife) {
-        continue;
-      }
-      if (ExperienceDurationCatalog.isMajorThemePark(place.id) &&
-          majorParksOnDay >= 1) {
-        continue;
-      }
-
-      var score = 12.0;
-      if (tripUsed.contains(place.id)) score -= 55;
-      if (savedIds.contains(place.id)) score += 18;
-      if (place.source == LuxPlaceSource.curated) score += 8;
-      if (ExperienceDurationCatalog.isWaterPark(place.id)) {
-        score += profile.adventureInterest >= 35 ? 16 : 6;
-      } else if (ExperienceDurationCatalog.isMajorThemePark(place.id)) {
-        score += profile.adventureInterest >= 50 ? 10 : -8;
-      } else if (ExperienceDurationCatalog.profileFor(place).isFullDayDestination) {
-        score -= 12;
-      }
-      if (place.moodTags.any((t) => const {'iconic', 'trending', 'family'}.contains(t))) {
-        score += 10;
-      }
-
-      final miles = PlaceDistance.milesBetween(
-        near,
-        LatLng(place.latitude, place.longitude),
-      );
-      score -= miles * 0.2;
-
-      if (score > bestScore) {
-        bestScore = score;
-        best = place;
-      }
-    }
-    return best;
-  }
-
-  static LuxPlace? _pickReplacement({
-    required List<LuxPlace> pool,
-    required Set<String> tripUsed,
-    required LuxPlaceCategory category,
-    LatLng? near,
-  }) {
-    final anchor = near ?? PlaceDistance.hubCenter;
-    LuxPlace? best;
-    var bestScore = double.negativeInfinity;
-
-    for (final place in pool) {
-      if (tripUsed.contains(place.id)) continue;
-      if (place.category != category) continue;
-
-      var score = 20.0;
-      if (place.source == LuxPlaceSource.curated) score += 6;
-      final miles = PlaceDistance.milesBetween(
-        anchor,
-        LatLng(place.latitude, place.longitude),
-      );
-      score -= miles * 0.15;
-
-      if (score > bestScore) {
-        bestScore = score;
-        best = place;
-      }
-    }
-    return best;
   }
 }
 

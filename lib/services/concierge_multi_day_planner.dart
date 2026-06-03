@@ -10,6 +10,7 @@ import 'package:luxora_ai/services/crowd_prediction_service.dart';
 import 'package:luxora_ai/services/day_flow_planner.dart';
 import 'package:luxora_ai/services/places_repository.dart';
 import 'package:luxora_ai/services/smart_itinerary/itinerary_day_schedule.dart';
+import 'package:luxora_ai/services/smart_itinerary/itinerary_place_picker.dart';
 import 'package:luxora_ai/util/place_distance.dart';
 import 'package:luxora_ai/services/trip_name_generator.dart';
 import 'package:luxora_ai/util/trip_duration.dart';
@@ -67,6 +68,7 @@ abstract final class ConciergeMultiDayPlanner {
         savedIds: savedIds,
         usedIds: usedIds,
         repo: repo,
+        intentText: userMessage,
       );
     }
 
@@ -79,6 +81,7 @@ abstract final class ConciergeMultiDayPlanner {
       homeBase: homeBase,
       savedIds: savedIds,
       usedIds: usedIds,
+      intentText: userMessage,
     );
   }
 
@@ -93,6 +96,7 @@ abstract final class ConciergeMultiDayPlanner {
     required Set<String> savedIds,
     required Set<String> usedIds,
     required PlacesRepository repo,
+    required String intentText,
   }) {
     final parkDayCount = _parkDayBudget(totalDays, parkIntent);
     final exploreDayCount = totalDays - parkDayCount;
@@ -121,6 +125,8 @@ abstract final class ConciergeMultiDayPlanner {
         usedIds: usedIds,
         savedIds: savedIds,
         near: LatLng(flow.blocks.last.place.latitude, flow.blocks.last.place.longitude),
+        rotationSeed: i * 19 + usedIds.length,
+        intentText: intentText,
       );
       final items = _itemsFromParkRoute(route, repo, dining: dining);
       for (final item in items) {
@@ -150,6 +156,7 @@ abstract final class ConciergeMultiDayPlanner {
       savedIds: savedIds,
       usedIds: usedIds,
       startDayNumber: parkDays.length + 1,
+      intentText: intentText,
     );
 
     final mergedDays = _interleaveDays(parkDays, explore.days);
@@ -184,6 +191,7 @@ abstract final class ConciergeMultiDayPlanner {
     LuxPlace? homeBase,
     required Set<String> savedIds,
     required Set<String> usedIds,
+    required String intentText,
   }) {
     final explore = _buildExploreDays(
       profile: profile,
@@ -193,6 +201,7 @@ abstract final class ConciergeMultiDayPlanner {
       savedIds: savedIds,
       usedIds: usedIds,
       startDayNumber: 1,
+      intentText: intentText,
     );
 
     final title = TripNameGenerator.resolve(profile);
@@ -235,6 +244,7 @@ abstract final class ConciergeMultiDayPlanner {
     required Set<String> savedIds,
     required Set<String> usedIds,
     required int startDayNumber,
+    required String intentText,
   }) {
     final days = <TripDay>[];
     final flows = <DayFlow>[];
@@ -247,6 +257,8 @@ abstract final class ConciergeMultiDayPlanner {
         homeBase: homeBase,
         savedIds: savedIds,
         excludePlaceIds: usedIds,
+        dayIndex: startDayNumber + d,
+        intentText: intentText,
       );
       if (flow.isEmpty) break;
 
@@ -265,6 +277,8 @@ abstract final class ConciergeMultiDayPlanner {
                   flow.blocks.last.place.latitude,
                   flow.blocks.last.place.longitude,
                 ),
+          rotationSeed: (startDayNumber + d) * 23 + usedIds.length,
+          intentText: intentText,
         );
         if (dining != null) {
           flow = _appendDiningBlock(flow, dining);
@@ -429,54 +443,22 @@ abstract final class ConciergeMultiDayPlanner {
     required Set<String> usedIds,
     Set<String> savedIds = const {},
     LatLng? near,
+    int rotationSeed = 0,
+    String intentText = '',
   }) {
     final anchor = near ?? PlaceDistance.hubCenter;
-    LuxPlace? best;
-    var bestScore = double.negativeInfinity;
-
-    for (final place in pool) {
-      if (place.category != LuxPlaceCategory.dining &&
-          place.category != LuxPlaceCategory.romantic) {
-        continue;
-      }
-
-      var score = profile.foodieInterest.toDouble();
-      if (usedIds.contains(place.id)) score -= 65;
-      for (final cuisine in profile.cuisinePreferences) {
-        if (place.moodTags.any((t) => t.toLowerCase().contains(cuisine.name)) ||
-            place.title.toLowerCase().contains(cuisine.name)) {
-          score += 14;
-        }
-      }
-      for (final style in profile.diningPreferences) {
-        score += switch (style) {
-          DiningPreference.fineDining =>
-            place.moodTags.any((t) => t.contains('luxury')) ? 12 : 0,
-          DiningPreference.dateNight =>
-            place.moodTags.any((t) => t.contains('romantic')) ? 12 : 0,
-          DiningPreference.hiddenGems =>
-            place.moodTags.any((t) => t.contains('hidden')) ? 10 : 0,
-          DiningPreference.waterfront =>
-            place.location.toLowerCase().contains('water') ? 10 : 0,
-          _ => 0,
-        };
-      }
-      if (savedIds.contains(place.id)) score += 35;
-      if (place.source == LuxPlaceSource.curated) score += 10;
-      if (place.moodTags.any((t) => const {'foodie', 'dining', 'romantic'}.contains(t))) {
-        score += 12;
-      }
-      final miles = PlaceDistance.milesBetween(
-        anchor,
-        LatLng(place.latitude, place.longitude),
-      );
-      score -= miles * 0.25;
-      if (score > bestScore) {
-        bestScore = score;
-        best = place;
-      }
-    }
-    return bestScore > double.negativeInfinity ? best : null;
+    return ItineraryPlacePicker.pickDining(
+      ctx: ItineraryPickContext(
+        profile: profile,
+        pool: pool,
+        tripUsed: usedIds,
+        dayUsed: const {},
+        savedIds: savedIds,
+        near: anchor,
+        rotationSeed: rotationSeed,
+        intentText: intentText.isNotEmpty ? intentText : profile.tripFeel,
+      ),
+    );
   }
 
   static String _formatPhaseTime(DayPhase phase) {
