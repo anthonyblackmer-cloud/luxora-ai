@@ -2530,6 +2530,10 @@ class AppLocalizationsHi extends AppLocalizations {
   String get dayFlowReasonMiddayIcon => 'दिन का हस्ताक्षर क्षण.';
 
   @override
+  String get dayFlowReasonMiddayLunch =>
+      'A midday meal break between experiences.';
+
+  @override
   String get dayFlowReasonAfternoonDowntime =>
       'रिचार्ज करने के लिए दोपहर का डाउनटाइम।';
 

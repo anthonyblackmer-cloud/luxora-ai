@@ -10,6 +10,7 @@ import 'package:luxora_ai/services/crowd_prediction_service.dart';
 import 'package:luxora_ai/services/day_flow_planner.dart';
 import 'package:luxora_ai/services/places_repository.dart';
 import 'package:luxora_ai/services/experience_moment_service.dart';
+import 'package:luxora_ai/services/smart_itinerary/experience_duration_catalog.dart';
 import 'package:luxora_ai/services/smart_itinerary/itinerary_day_schedule.dart';
 import 'package:luxora_ai/services/smart_itinerary/itinerary_place_picker.dart';
 import 'package:luxora_ai/util/place_distance.dart';
@@ -266,11 +267,18 @@ abstract final class ConciergeMultiDayPlanner {
       );
       if (flow.isEmpty) break;
 
-      final hasDining = flow.blocks.any(
-        (b) => b.place.category == LuxPlaceCategory.dining,
+      final isParkDay = flow.blocks.any(
+        (b) => ExperienceDurationCatalog.isMajorThemePark(b.place.id),
       );
-      if (!hasDining) {
-        final dining = pickRestaurant(
+      bool hasMealAt(DayPhase phase) => flow.blocks.any(
+            (b) =>
+                b.phase == phase &&
+                (b.place.category == LuxPlaceCategory.dining ||
+                    b.place.category == LuxPlaceCategory.romantic),
+          );
+
+      if (!isParkDay && !hasMealAt(DayPhase.midday)) {
+        final lunch = pickRestaurant(
           pool: pool,
           profile: profile,
           usedIds: usedIds,
@@ -284,8 +292,38 @@ abstract final class ConciergeMultiDayPlanner {
           rotationSeed: (startDayNumber + d) * 23 + usedIds.length,
           intentText: intentText,
         );
-        if (dining != null) {
-          flow = _appendDiningBlock(flow, dining);
+        if (lunch != null) {
+          flow = _appendDiningBlock(
+            flow,
+            lunch,
+            phase: DayPhase.midday,
+            reason: DayBlockReason.middayLunch,
+          );
+        }
+      }
+
+      if (!hasMealAt(DayPhase.evening)) {
+        final dinner = pickRestaurant(
+          pool: pool,
+          profile: profile,
+          usedIds: usedIds,
+          savedIds: savedIds,
+          near: flow.blocks.isEmpty
+              ? null
+              : LatLng(
+                  flow.blocks.last.place.latitude,
+                  flow.blocks.last.place.longitude,
+                ),
+          rotationSeed: (startDayNumber + d) * 29 + usedIds.length,
+          intentText: intentText,
+        );
+        if (dinner != null) {
+          flow = _appendDiningBlock(
+            flow,
+            dinner,
+            phase: DayPhase.evening,
+            reason: DayBlockReason.eveningDining,
+          );
         }
       }
 
@@ -407,14 +445,19 @@ abstract final class ConciergeMultiDayPlanner {
     return items;
   }
 
-  static DayFlow _appendDiningBlock(DayFlow flow, LuxPlace dining) {
+  static DayFlow _appendDiningBlock(
+    DayFlow flow,
+    LuxPlace dining, {
+    DayPhase phase = DayPhase.evening,
+    DayBlockReason reason = DayBlockReason.eveningDining,
+  }) {
     return DayFlow(
       blocks: [
         ...flow.blocks,
         DayBlock(
-          phase: DayPhase.evening,
+          phase: phase,
           place: dining,
-          reason: DayBlockReason.eveningDining,
+          reason: reason,
         ),
       ],
       start: flow.start,
@@ -508,6 +551,8 @@ abstract final class ConciergeMultiDayPlanner {
         'Culture and story when you are fresh enough to actually take it in.',
       DayBlockReason.middayIcon =>
         'The signature stop — the one you will remember from this trip.',
+      DayBlockReason.middayLunch =>
+        'A midday meal break between experiences.',
       DayBlockReason.afternoonDowntime =>
         'Breathing room before evening — reset, not more checklist tourism.',
       DayBlockReason.afternoonGem =>

@@ -25,6 +25,7 @@ String dayFlowReasonLabel(AppLocalizations l, DayBlockReason reason) =>
       DayBlockReason.middayAdventure => l.dayFlowReasonMiddayAdventure,
       DayBlockReason.middayCulture => l.dayFlowReasonMiddayCulture,
       DayBlockReason.middayIcon => l.dayFlowReasonMiddayIcon,
+      DayBlockReason.middayLunch => l.dayFlowReasonMiddayLunch,
       DayBlockReason.afternoonDowntime => l.dayFlowReasonAfternoonDowntime,
       DayBlockReason.afternoonGem => l.dayFlowReasonAfternoonGem,
       DayBlockReason.eveningDining => l.dayFlowReasonEveningDining,

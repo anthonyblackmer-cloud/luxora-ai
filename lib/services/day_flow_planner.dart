@@ -45,6 +45,8 @@ enum DayBlockReason {
 
   middayIcon,
 
+  middayLunch,
+
   afternoonDowntime,
 
   afternoonGem,
@@ -349,19 +351,20 @@ abstract final class DayFlowPlanner {
 
           isMiami
 
-              ? const [
+              ? [
 
                   LuxPlaceCategory.beach,
 
                   LuxPlaceCategory.nature,
 
-                  LuxPlaceCategory.wellness,
+                  if (TripPreferenceGates.wantsSpaWellness(p))
+                    LuxPlaceCategory.wellness,
 
                   LuxPlaceCategory.adventure,
 
                 ]
 
-              : const [
+              : [
 
                   LuxPlaceCategory.springs,
 
@@ -369,7 +372,8 @@ abstract final class DayFlowPlanner {
 
                   LuxPlaceCategory.beach,
 
-                  LuxPlaceCategory.wellness,
+                  if (TripPreferenceGates.wantsSpaWellness(p))
+                    LuxPlaceCategory.wellness,
 
                 ],
 
@@ -439,6 +443,22 @@ abstract final class DayFlowPlanner {
       );
     }
 
+    // --- Midday meal when the day has room (before afternoon downtime). ---
+
+    if (p.foodieInterest >= 20 &&
+        !blocks.any(
+          (b) =>
+              b.phase == DayPhase.midday &&
+              (b.place.category == LuxPlaceCategory.dining ||
+                  b.place.category == LuxPlaceCategory.romantic),
+        )) {
+      add(
+        DayPhase.midday,
+        pickDining(),
+        DayBlockReason.middayLunch,
+      );
+    }
+
 
 
     // --- Afternoon: downtime (skipped for a packed pace unless poolside). ---
@@ -450,6 +470,7 @@ abstract final class DayFlowPlanner {
     if (wantAfternoon) {
 
       final gemReason = p.discoveryStyle == DiscoveryStyle.hiddenGems;
+      final allowWellness = TripPreferenceGates.wantsSpaWellness(p);
 
       add(
 
@@ -459,11 +480,11 @@ abstract final class DayFlowPlanner {
 
           isMiami
 
-              ? const [
+              ? [
 
                   LuxPlaceCategory.beach,
 
-                  LuxPlaceCategory.wellness,
+                  if (allowWellness) LuxPlaceCategory.wellness,
 
                   LuxPlaceCategory.nature,
 
@@ -471,9 +492,9 @@ abstract final class DayFlowPlanner {
 
                 ]
 
-              : const [
+              : [
 
-                  LuxPlaceCategory.wellness,
+                  if (allowWellness) LuxPlaceCategory.wellness,
 
                   LuxPlaceCategory.beach,
 
@@ -483,7 +504,11 @@ abstract final class DayFlowPlanner {
 
                 ],
 
-          tags: const ['relaxing', 'pool', 'spa', 'beach', 'hidden', 'scenic'],
+          tags: allowWellness
+
+              ? const ['relaxing', 'pool', 'spa', 'beach', 'hidden', 'scenic']
+
+              : const ['relaxing', 'beach', 'hidden', 'scenic', 'nature'],
 
         ),
 

@@ -115,6 +115,7 @@ abstract final class ItineraryPlacePicker {
       if (!_isExperienceCandidate(place)) continue;
       if (ctx.dayUsed.contains(place.id)) continue;
       if (!TripPreferenceGates.allowsPlace(ctx.profile, place.id)) continue;
+      if (!TripPreferenceGates.allowsWellnessPlace(ctx.profile, place)) continue;
       if (ExperienceDurationCatalog.isMajorThemePark(place.id) &&
           majorParksOnDay >= 1) {
         continue;
@@ -183,6 +184,9 @@ abstract final class ItineraryPlacePicker {
       return double.negativeInfinity;
     }
     if (!TripPreferenceGates.allowsPlace(ctx.profile, place.id)) {
+      return double.negativeInfinity;
+    }
+    if (!TripPreferenceGates.allowsWellnessPlace(ctx.profile, place)) {
       return double.negativeInfinity;
     }
 

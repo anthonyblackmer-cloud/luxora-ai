@@ -119,7 +119,8 @@ abstract final class ItineraryDaySchedule {
       }
     }
     if (block.place.category == LuxPlaceCategory.dining ||
-        block.reason == DayBlockReason.eveningDining) {
+        block.reason == DayBlockReason.eveningDining ||
+        block.reason == DayBlockReason.middayLunch) {
       final ideal = compact
           ? profile.minDurationMinutes
           : profile.idealDurationMinutes;

@@ -2539,6 +2539,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get dayFlowReasonMiddayIcon => 'Günün imza anı.';
 
   @override
+  String get dayFlowReasonMiddayLunch =>
+      'A midday meal break between experiences.';
+
+  @override
   String get dayFlowReasonAfternoonDowntime =>
       'Yeniden şarj olmak için öğleden sonra kesinti.';
 

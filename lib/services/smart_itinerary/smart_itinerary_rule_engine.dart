@@ -149,43 +149,17 @@ abstract final class SmartItineraryRuleEngine {
     blocks = _reorderByProximity(blocks, flow.start);
 
     if (_needsMeal(blocks)) {
-      final hasDining = blocks.any(
-        (b) =>
-            b.place.category == LuxPlaceCategory.dining ||
-            b.place.category == LuxPlaceCategory.romantic,
+      blocks = _ensureMeals(
+        blocks: blocks,
+        profile: profile,
+        pool: pool,
+        tripUsed: tripUsed,
+        savedIds: savedIds,
+        flow: flow,
+        intentText: intentText,
+        dayIndex: dayIndex,
+        note: note,
       );
-      if (!hasDining) {
-        final anchor = blocks.isEmpty
-            ? flow.start
-            : LatLng(
-                blocks.last.place.latitude,
-                blocks.last.place.longitude,
-              );
-        final dining = ItineraryPlacePicker.pickDining(
-          ctx: ItineraryPickContext(
-            profile: profile,
-            pool: pool,
-            tripUsed: tripUsed,
-            dayUsed: {for (final b in blocks) b.place.id},
-            savedIds: savedIds,
-            near: anchor,
-            rotationSeed: dayIndex * 53 + blocks.length,
-            intentText: intentText,
-          ),
-        );
-        if (dining != null) {
-          blocks.add(
-            DayBlock(
-              phase: DayPhase.evening,
-              place: dining,
-              reason: DayBlockReason.eveningDining,
-            ),
-          );
-          note('Added dinner stop for a realistic full day.', penalty: 0.04);
-        } else {
-          note('Full day missing a meal stop.', penalty: 0.12);
-        }
-      }
     }
 
     blocks = _avoidTripRepeats(
@@ -486,14 +460,102 @@ abstract final class SmartItineraryRuleEngine {
     return out;
   }
 
+  static bool _isDiningBlock(DayBlock block) =>
+      block.place.category == LuxPlaceCategory.dining ||
+      block.place.category == LuxPlaceCategory.romantic ||
+      block.reason == DayBlockReason.eveningDining ||
+      block.reason == DayBlockReason.middayLunch;
+
+  static int _diningStopCount(List<DayBlock> blocks) =>
+      blocks.where(_isDiningBlock).length;
+
+  static bool _isParkDay(List<DayBlock> blocks) => blocks.any(
+        (b) => ExperienceDurationCatalog.isMajorThemePark(b.place.id),
+      );
+
   static bool _needsMeal(List<DayBlock> blocks) {
     if (blocks.isEmpty) return false;
-    if (blocks.any(
-      (b) => ExperienceDurationCatalog.isMajorThemePark(b.place.id),
-    )) {
-      return true;
+    if (_isParkDay(blocks)) {
+      return _diningStopCount(blocks) < 1;
     }
-    return blocks.length >= 3;
+    if (blocks.length >= 2) {
+      return _diningStopCount(blocks) < 2;
+    }
+    return _diningStopCount(blocks) < 1;
+  }
+
+  static List<DayBlock> _ensureMeals({
+    required List<DayBlock> blocks,
+    required TripProfile profile,
+    required List<LuxPlace> pool,
+    required Set<String> tripUsed,
+    required Set<String> savedIds,
+    required DayFlow flow,
+    required String intentText,
+    required int dayIndex,
+    required void Function(String, {double penalty}) note,
+  }) {
+    var working = List<DayBlock>.from(blocks);
+    final target = _isParkDay(working)
+        ? 1
+        : (working.length >= 2 ? 2 : 1);
+
+    while (_diningStopCount(working) < target) {
+      final hasLunch = working.any(
+        (b) => b.phase == DayPhase.midday && _isDiningBlock(b),
+      );
+      final hasDinner = working.any(
+        (b) => b.phase == DayPhase.evening && _isDiningBlock(b),
+      );
+      final DayPhase phase;
+      final DayBlockReason reason;
+      if (!_isParkDay(working) && !hasLunch) {
+        phase = DayPhase.midday;
+        reason = DayBlockReason.middayLunch;
+      } else if (!hasDinner) {
+        phase = DayPhase.evening;
+        reason = DayBlockReason.eveningDining;
+      } else {
+        break;
+      }
+
+      final anchor = working.isEmpty
+          ? flow.start
+          : LatLng(
+              working.last.place.latitude,
+              working.last.place.longitude,
+            );
+      final dining = ItineraryPlacePicker.pickDining(
+        ctx: ItineraryPickContext(
+          profile: profile,
+          pool: pool,
+          tripUsed: tripUsed,
+          dayUsed: {for (final b in working) b.place.id},
+          savedIds: savedIds,
+          near: anchor,
+          rotationSeed: dayIndex * 53 + working.length,
+          intentText: intentText,
+        ),
+      );
+      if (dining == null) {
+        note('Full day missing a meal stop.', penalty: 0.12);
+        break;
+      }
+      working.add(
+        DayBlock(
+          phase: phase,
+          place: dining,
+          reason: reason,
+        ),
+      );
+      note(
+        phase == DayPhase.midday
+            ? 'Added lunch stop for a realistic full day.'
+            : 'Added dinner stop for a realistic full day.',
+        penalty: 0.04,
+      );
+    }
+    return working;
   }
 
   static double _totalMiles(List<DayBlock> blocks, LatLng start) {
@@ -560,9 +622,7 @@ abstract final class SmartItineraryRuleEngine {
         DayBlock? victim;
         if (phase == DayPhase.evening && candidates.length > 1) {
           victim = candidates.firstWhere(
-            (b) =>
-                b.place.category != LuxPlaceCategory.dining &&
-                b.reason != DayBlockReason.eveningDining,
+            (b) => !_isDiningBlock(b),
             orElse: () => candidates.last,
           );
         } else {

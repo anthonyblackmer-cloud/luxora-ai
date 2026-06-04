@@ -4526,6 +4526,12 @@ abstract class AppLocalizations {
   /// **'The signature moment of the day.'**
   String get dayFlowReasonMiddayIcon;
 
+  /// No description provided for @dayFlowReasonMiddayLunch.
+  ///
+  /// In en, this message translates to:
+  /// **'A midday meal break between experiences.'**
+  String get dayFlowReasonMiddayLunch;
+
   /// No description provided for @dayFlowReasonAfternoonDowntime.
   ///
   /// In en, this message translates to:

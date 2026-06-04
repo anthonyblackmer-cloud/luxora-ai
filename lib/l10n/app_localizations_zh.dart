@@ -2412,6 +2412,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get dayFlowReasonMiddayIcon => '当天的签名时刻。';
 
   @override
+  String get dayFlowReasonMiddayLunch =>
+      'A midday meal break between experiences.';
+
+  @override
   String get dayFlowReasonAfternoonDowntime => '下午休息充电。';
 
   @override

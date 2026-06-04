@@ -2468,6 +2468,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get dayFlowReasonMiddayIcon => '오늘의 시그니처 순간.';
 
   @override
+  String get dayFlowReasonMiddayLunch =>
+      'A midday meal break between experiences.';
+
+  @override
   String get dayFlowReasonAfternoonDowntime => '재충전을 위한 오후의 다운타임.';
 
   @override

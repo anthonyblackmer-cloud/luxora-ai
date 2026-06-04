@@ -2525,6 +2525,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get dayFlowReasonMiddayIcon => 'The signature moment of the day.';
 
   @override
+  String get dayFlowReasonMiddayLunch =>
+      'A midday meal break between experiences.';
+
+  @override
   String get dayFlowReasonAfternoonDowntime =>
       'Afternoon downtime to recharge.';
 

@@ -1,3 +1,4 @@
+import 'package:luxora_ai/models/lux_place.dart';
 import 'package:luxora_ai/models/trip_occasion.dart';
 import 'package:luxora_ai/models/trip_preferences.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
@@ -17,9 +18,22 @@ abstract final class TripPreferenceGates {
       profile.experiencePreferences.contains(ExperiencePreference.waterParks) ||
       wantsThemeParks(profile);
 
+  /// Explicit onboarding opt-in only — trip styles and poolside dials must not
+  /// schedule spa stops when the traveler skipped "Spas".
   static bool wantsSpaWellness(TripProfile profile) =>
-      profile.experiencePreferences.contains(ExperiencePreference.spas) ||
-      profile.tripStyles.contains(TripStyle.wellness);
+      profile.experiencePreferences.contains(ExperiencePreference.spas);
+
+  static bool isWellnessOrSpaPlace(LuxPlace place) =>
+      place.category == LuxPlaceCategory.wellness ||
+      place.moodTags.any((t) {
+        final lower = t.toLowerCase();
+        return lower == 'spa' || lower == 'wellness';
+      });
+
+  static bool allowsWellnessPlace(TripProfile profile, LuxPlace place) {
+    if (!isWellnessOrSpaPlace(place)) return true;
+    return wantsSpaWellness(profile);
+  }
 
   static bool wantsFamilyAttractions(TripProfile profile) =>
       profile.travelerType == TravelerType.family ||
@@ -59,7 +73,5 @@ abstract final class TripPreferenceGates {
   }
 
   static bool allowsWellnessMorning(TripProfile profile) =>
-      wantsSpaWellness(profile) ||
-      (profile.poolsideInterest >= 70 &&
-          profile.tripStyles.contains(TripStyle.relaxation));
+      wantsSpaWellness(profile);
 }

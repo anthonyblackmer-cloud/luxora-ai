@@ -115,9 +115,10 @@ abstract final class TripProfileBuildIntent {
 
     if (profile.foodieInterest >= 55) extras.add('great dining');
 
-    if (TripPreferenceGates.wantsSpaWellness(profile) ||
-        profile.tripStyles.contains(TripStyle.relaxation)) {
+    if (TripPreferenceGates.wantsSpaWellness(profile)) {
       extras.add('poolside downtime');
+    } else if (profile.tripStyles.contains(TripStyle.relaxation)) {
+      extras.add('relaxed pacing');
     }
 
     if (profile.adventureInterest >= 55) extras.add('outdoor adventure');
