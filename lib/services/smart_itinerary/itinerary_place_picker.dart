@@ -314,7 +314,36 @@ abstract final class ItineraryPlacePicker {
         place.moodTags.any((t) => t.contains('hidden'))) {
       boost += 10;
     }
+    for (final token in _titleMatchTokens(place)) {
+      if (blob.contains(token)) {
+        boost += 22;
+      }
+    }
     return boost;
+  }
+
+  static List<String> _titleMatchTokens(LuxPlace place) {
+    const stop = {
+      'the',
+      'and',
+      'for',
+      'with',
+      'from',
+      'at',
+      'orlando',
+      'miami',
+      'tampa',
+      'florida',
+      'park',
+      'world',
+      'resort',
+      'hotel',
+    };
+    return place.title
+        .toLowerCase()
+        .split(RegExp(r'[^\w]+'))
+        .where((t) => t.length >= 4 && !stop.contains(t))
+        .toList();
   }
 
   static double _diversityAdjust(LuxPlace place, ItineraryPickContext ctx) {

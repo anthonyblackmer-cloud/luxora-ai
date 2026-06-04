@@ -66,6 +66,21 @@ abstract final class ConciergeAgendaChatFormat {
             lower.contains('map'))) {
       return true;
     }
+    if (lower.contains("i've added") ||
+        lower.contains('i have added') ||
+        lower.contains("i've scheduled") ||
+        lower.contains('i have scheduled') ||
+        lower.contains("i've updated") ||
+        lower.contains('i have updated') ||
+        lower.contains("i've put") ||
+        lower.contains('added that') ||
+        lower.contains('scheduled that') ||
+        lower.contains('slotted') ||
+        lower.contains('put that on') ||
+        lower.contains('now on your') ||
+        lower.contains("it's on your")) {
+      return true;
+    }
     if (lower.contains('ready on map') ||
         lower.contains('on map and') ||
         lower.contains('your agenda is') ||

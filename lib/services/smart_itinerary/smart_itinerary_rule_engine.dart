@@ -7,7 +7,9 @@ import 'package:luxora_ai/services/day_flow_planner.dart';
 import 'package:luxora_ai/services/places_repository.dart';
 import 'package:luxora_ai/util/place_distance.dart';
 
+import 'concierge_intent_place_matcher.dart';
 import 'experience_duration_catalog.dart';
+import 'trip_preference_gates.dart';
 import 'itinerary_day_schedule.dart';
 import 'itinerary_place_picker.dart';
 
@@ -103,7 +105,7 @@ abstract final class SmartItineraryRuleEngine {
       );
     }
 
-    return SmartItineraryResult(
+    final injected = _injectRequestedPlaces(
       plan: ConciergeMultiDayPlan(
         plan: TripPlan(
           id: raw.plan.id,
@@ -113,9 +115,161 @@ abstract final class SmartItineraryRuleEngine {
         activeFlow: repairedFlows.first,
         flowsByDay: repairedFlows,
       ),
+      userMessage: userMessage,
+      pool: pool,
+      profile: profile,
+      cityId: cityId,
+      savedIds: savedIds,
+      notes: notes,
+    );
+
+    return SmartItineraryResult(
+      plan: injected,
       confidenceScore: confidence.clamp(0, 1),
       validationNotes: notes,
     );
+  }
+
+  static ConciergeMultiDayPlan _injectRequestedPlaces({
+    required ConciergeMultiDayPlan plan,
+    required String userMessage,
+    required List<LuxPlace> pool,
+    required TripProfile profile,
+    required String cityId,
+    required Set<String> savedIds,
+    required List<String> notes,
+  }) {
+    final requested =
+        ConciergeIntentPlaceMatcher.placesMentionedIn(userMessage, pool);
+    if (requested.isEmpty) return plan;
+
+    final flows = List<DayFlow>.from(plan.flowsByDay);
+    final labels = List<String>.from(plan.plan.days.map((d) => d.label));
+    final tripUsed = <String>{
+      for (final flow in flows)
+        for (final block in flow.blocks) block.place.id,
+    };
+    final targetDay = ConciergeIntentPlaceMatcher.resolveTargetDayIndex(
+      userMessage,
+      flows.length,
+    );
+
+    var changed = false;
+    for (final place in requested) {
+      if (tripUsed.contains(place.id)) continue;
+      if (!TripPreferenceGates.allowsPlace(profile, place.id)) continue;
+      if (!TripPreferenceGates.allowsWellnessPlace(profile, place)) continue;
+
+      final dayIndex = targetDay ?? _bestDayIndexForInjection(flows, place);
+      if (dayIndex < 0 || dayIndex >= flows.length) continue;
+
+      final flow = flows[dayIndex];
+      final phase = _phaseForInjectedPlace(place);
+      final reason = _reasonForInjectedPlace(place);
+      final updatedBlocks = [
+        ...flow.blocks,
+        DayBlock(phase: phase, place: place, reason: reason),
+      ];
+      var workingBlocks = _trimToFeasibleSchedule(
+        updatedBlocks,
+        flow.start,
+        profile,
+        (_, {penalty = 0.08}) {},
+      );
+
+      if (!workingBlocks.any((b) => b.place.id == place.id)) {
+        continue;
+      }
+
+      flows[dayIndex] = DayFlow(
+        blocks: workingBlocks,
+        start: flow.start,
+        totalMiles: flow.totalMiles,
+        homeBase: flow.homeBase,
+        emphases: flow.emphases,
+      );
+      tripUsed.add(place.id);
+      changed = true;
+      notes.add('Added ${place.title} from your Concierge request.');
+    }
+
+    if (!changed) return plan;
+
+    final days = <TripDay>[];
+    for (var i = 0; i < flows.length; i++) {
+      days.add(
+        ConciergeMultiDayPlanner.tripDayFromFlow(
+          flow: flows[i],
+          dayNumber: i + 1,
+          label: i < labels.length ? labels[i] : 'Day ${i + 1}',
+          cityId: cityId,
+        ),
+      );
+    }
+
+    return ConciergeMultiDayPlan(
+      plan: TripPlan(
+        id: plan.plan.id,
+        title: plan.plan.title,
+        days: days,
+      ),
+      activeFlow: flows.first,
+      flowsByDay: flows,
+    );
+  }
+
+  static int _bestDayIndexForInjection(List<DayFlow> flows, LuxPlace place) {
+    var bestIndex = 0;
+    var bestScore = double.negativeInfinity;
+    for (var i = 0; i < flows.length; i++) {
+      final flow = flows[i];
+      if (flow.blocks.any(
+        (b) => ExperienceDurationCatalog.isMajorThemePark(b.place.id),
+      )) {
+        continue;
+      }
+      final anchor = flow.blocks.isEmpty
+          ? flow.start
+          : LatLng(
+              flow.blocks.last.place.latitude,
+              flow.blocks.last.place.longitude,
+            );
+      final miles = PlaceDistance.milesBetween(
+        anchor,
+        LatLng(place.latitude, place.longitude),
+      );
+      final score = 100 - miles - flow.blocks.length * 3;
+      if (score > bestScore) {
+        bestScore = score;
+        bestIndex = i;
+      }
+    }
+    return bestIndex;
+  }
+
+  static DayPhase _phaseForInjectedPlace(LuxPlace place) {
+    return switch (place.category) {
+      LuxPlaceCategory.dining || LuxPlaceCategory.romantic => DayPhase.evening,
+      LuxPlaceCategory.nightlife => DayPhase.night,
+      LuxPlaceCategory.wellness || LuxPlaceCategory.beach => DayPhase.afternoon,
+      _ => DayPhase.midday,
+    };
+  }
+
+  static DayBlockReason _reasonForInjectedPlace(LuxPlace place) {
+    return switch (place.category) {
+      LuxPlaceCategory.dining || LuxPlaceCategory.romantic =>
+        DayBlockReason.eveningDining,
+      LuxPlaceCategory.nightlife => DayBlockReason.nightOut,
+      LuxPlaceCategory.wellness => DayBlockReason.afternoonDowntime,
+      LuxPlaceCategory.beach => DayBlockReason.afternoonDowntime,
+      LuxPlaceCategory.nature ||
+      LuxPlaceCategory.springs =>
+        DayBlockReason.middayIcon,
+      LuxPlaceCategory.adventure || LuxPlaceCategory.family =>
+        DayBlockReason.middayAdventure,
+      _ => DayBlockReason.middayIcon,
+    };
   }
 
   static _DayRepairResult _repairDay({

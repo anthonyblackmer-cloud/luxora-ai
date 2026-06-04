@@ -5,6 +5,7 @@ import 'package:luxora_ai/models/trip_plan.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
 import 'package:luxora_ai/services/active_trip_plan_store.dart';
 import 'package:luxora_ai/services/concierge_theme_park_planner.dart';
+import 'package:luxora_ai/services/smart_itinerary/concierge_intent_place_matcher.dart';
 import 'package:luxora_ai/services/city_pack_registry.dart';
 import 'package:luxora_ai/services/saved_trips_store.dart';
 import 'package:luxora_ai/services/trip_profile_store.dart';
@@ -208,6 +209,9 @@ abstract final class ConciergeTripSaveSync {
     if (trimmed.isEmpty) return false;
     if (shouldSkipItineraryRebuild(trimmed)) return false;
     if (ConciergeThemeParkPlanner.parseIntent(trimmed).isExcursion) return true;
+    if (ConciergeIntentPlaceMatcher.hasActivitySchedulingIntent(trimmed)) {
+      return true;
+    }
     return hasPlanningIntent(trimmed);
   }
 

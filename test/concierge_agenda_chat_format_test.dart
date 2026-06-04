@@ -47,6 +47,12 @@ I've mapped it on Timeline for you.''';
       isTrue,
     );
     expect(
+      ConciergeTripSaveSync.shouldRebuildItinerary(
+        'We want Kennedy Space Center on day 3',
+      ),
+      isTrue,
+    );
+    expect(
       ConciergeTripSaveSync.shouldRebuildItinerary('Thanks so much!'),
       isFalse,
     );
@@ -77,6 +83,12 @@ I've mapped it on Timeline for you.''';
     expect(
       ConciergeAgendaChatFormat.assistantPromisedAgendaSync(
         'I added that to your Map and Timeline.',
+      ),
+      isTrue,
+    );
+    expect(
+      ConciergeAgendaChatFormat.assistantPromisedAgendaSync(
+        "I've scheduled that on your agenda.",
       ),
       isTrue,
     );
