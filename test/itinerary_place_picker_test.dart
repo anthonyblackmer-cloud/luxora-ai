@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:luxora_ai/models/lux_place.dart';
+import 'package:luxora_ai/models/trip_preferences.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
 import 'package:luxora_ai/services/smart_itinerary/itinerary_place_picker.dart';
 import 'package:luxora_ai/util/place_distance.dart';
@@ -83,7 +84,10 @@ void main() {
   });
 
   test('boosts OSM and fresh venues after curated picks are consumed', () {
-    const profile = TripProfile(adventureInterest: 70);
+    const profile = TripProfile(
+      adventureInterest: 70,
+      experiencePreferences: [ExperiencePreference.waterParks],
+    );
     final pool = [luma, osmA, seaworld, volcano];
 
     final pick = ItineraryPlacePicker.pickExperience(

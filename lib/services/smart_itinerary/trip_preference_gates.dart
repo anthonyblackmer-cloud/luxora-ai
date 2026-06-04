@@ -1,0 +1,65 @@
+import 'package:luxora_ai/models/trip_occasion.dart';
+import 'package:luxora_ai/models/trip_preferences.dart';
+import 'package:luxora_ai/models/trip_profile.dart';
+import 'package:luxora_ai/services/smart_itinerary/experience_duration_catalog.dart';
+
+/// Opt-in gates from onboarding checkboxes — interest dials alone must not
+/// override explicit "I didn't select this" choices.
+abstract final class TripPreferenceGates {
+  static bool wantsThemeParks(TripProfile profile) =>
+      profile.experiencePreferences.contains(ExperiencePreference.themeParks) ||
+      profile.experiencePreferences.contains(ExperiencePreference.waterParks) ||
+      profile.tripStyles.contains(TripStyle.themeParks) ||
+      profile.occasion == TripOccasion.disneyAdventure ||
+      profile.occasion == TripOccasion.universalAdventure;
+
+  static bool wantsWaterParks(TripProfile profile) =>
+      profile.experiencePreferences.contains(ExperiencePreference.waterParks) ||
+      wantsThemeParks(profile);
+
+  static bool wantsSpaWellness(TripProfile profile) =>
+      profile.experiencePreferences.contains(ExperiencePreference.spas) ||
+      profile.tripStyles.contains(TripStyle.wellness);
+
+  static bool wantsFamilyAttractions(TripProfile profile) =>
+      profile.travelerType == TravelerType.family ||
+      profile.kids > 0 ||
+      profile.childrenTypes.isNotEmpty ||
+      profile.occasion == TripOccasion.familyWithKids;
+
+  static bool isFriendsOrAdultSocialTrip(TripProfile profile) =>
+      profile.travelerType == TravelerType.friends ||
+      (profile.travelerType == TravelerType.solo && profile.kids == 0);
+
+  static bool isKidFocusedFamilyVenue(String placeId) =>
+      const {
+        'place-ripleys-orlando',
+        'place-sealife-orlando',
+        'place-madame-tussauds-orlando',
+        'place-crayola-experience',
+        'place-wonderworks-orlando',
+        'place-legoland-florida',
+      }.contains(placeId);
+
+  static bool allowsPlace(TripProfile profile, String placeId) {
+    if (ExperienceDurationCatalog.isMajorThemePark(placeId) &&
+        !wantsThemeParks(profile)) {
+      return false;
+    }
+    if (ExperienceDurationCatalog.isWaterPark(placeId) &&
+        !wantsWaterParks(profile)) {
+      return false;
+    }
+    if (isKidFocusedFamilyVenue(placeId) &&
+        isFriendsOrAdultSocialTrip(profile) &&
+        !wantsFamilyAttractions(profile)) {
+      return false;
+    }
+    return true;
+  }
+
+  static bool allowsWellnessMorning(TripProfile profile) =>
+      wantsSpaWellness(profile) ||
+      (profile.poolsideInterest >= 70 &&
+          profile.tripStyles.contains(TripStyle.relaxation));
+}

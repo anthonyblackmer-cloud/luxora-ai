@@ -3,6 +3,7 @@ import 'package:luxora_ai/models/lux_place.dart';
 import 'package:luxora_ai/models/trip_preferences.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
 import 'package:luxora_ai/services/smart_itinerary/experience_duration_catalog.dart';
+import 'package:luxora_ai/services/smart_itinerary/trip_preference_gates.dart';
 import 'package:luxora_ai/util/place_distance.dart';
 
 /// Inputs shared by explore-day, dining, and repair pickers.
@@ -113,6 +114,7 @@ abstract final class ItineraryPlacePicker {
     for (final place in ctx.pool) {
       if (!_isExperienceCandidate(place)) continue;
       if (ctx.dayUsed.contains(place.id)) continue;
+      if (!TripPreferenceGates.allowsPlace(ctx.profile, place.id)) continue;
       if (ExperienceDurationCatalog.isMajorThemePark(place.id) &&
           majorParksOnDay >= 1) {
         continue;
@@ -178,6 +180,9 @@ abstract final class ItineraryPlacePicker {
     required bool requireCategory,
   }) {
     if (ctx.dayUsed.contains(place.id)) {
+      return double.negativeInfinity;
+    }
+    if (!TripPreferenceGates.allowsPlace(ctx.profile, place.id)) {
       return double.negativeInfinity;
     }
 
@@ -295,6 +300,11 @@ abstract final class ItineraryPlacePicker {
           ExperienceDurationCatalog.isWaterPark(place.id)) {
         boost += 6;
       }
+    }
+    if (TripPreferenceGates.isFriendsOrAdultSocialTrip(ctx.profile) &&
+        place.moodTags.contains('family') &&
+        !TripPreferenceGates.wantsFamilyAttractions(ctx.profile)) {
+      boost -= 35;
     }
     if (ctx.profile.discoveryStyle == DiscoveryStyle.hiddenGems &&
         place.moodTags.any((t) => t.contains('hidden'))) {

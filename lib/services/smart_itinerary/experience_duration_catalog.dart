@@ -165,6 +165,41 @@ abstract final class ExperienceDurationCatalog {
     'place-typhoon-lagoon': _waterPark,
     'place-blizzard-beach': _waterPark,
     'place-discovery-cove': _waterPark,
+    'place-ripleys-orlando': ExperienceProfile(
+      minDurationMinutes: 60,
+      idealDurationMinutes: 90,
+      maxDurationMinutes: 120,
+      energyCost: ExperienceEnergyCost.medium,
+      crowdSensitive: true,
+    ),
+    'place-sealife-orlando': ExperienceProfile(
+      minDurationMinutes: 60,
+      idealDurationMinutes: 90,
+      maxDurationMinutes: 120,
+      energyCost: ExperienceEnergyCost.medium,
+      crowdSensitive: true,
+    ),
+    'place-madame-tussauds-orlando': ExperienceProfile(
+      minDurationMinutes: 60,
+      idealDurationMinutes: 90,
+      maxDurationMinutes: 120,
+      energyCost: ExperienceEnergyCost.medium,
+      crowdSensitive: true,
+    ),
+    'place-wonderworks-orlando': ExperienceProfile(
+      minDurationMinutes: 60,
+      idealDurationMinutes: 90,
+      maxDurationMinutes: 150,
+      energyCost: ExperienceEnergyCost.medium,
+      crowdSensitive: true,
+    ),
+    'place-crayola-experience': ExperienceProfile(
+      minDurationMinutes: 90,
+      idealDurationMinutes: 120,
+      maxDurationMinutes: 180,
+      energyCost: ExperienceEnergyCost.medium,
+      crowdSensitive: true,
+    ),
   };
 
   static const _byCategory = <LuxPlaceCategory, ExperienceProfile>{

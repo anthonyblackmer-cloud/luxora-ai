@@ -5,6 +5,7 @@ import 'package:luxora_ai/models/trip_plan.dart';
 import 'package:luxora_ai/services/crowd_prediction_service.dart';
 import 'package:luxora_ai/services/day_flow_planner.dart';
 import 'package:luxora_ai/services/smart_itinerary/experience_duration_catalog.dart';
+import 'package:luxora_ai/services/smart_itinerary/venue_hours_catalog.dart';
 import 'package:luxora_ai/util/place_distance.dart';
 
 /// One stop with a realistic start/end window on a single calendar day.
@@ -58,11 +59,32 @@ abstract final class ItineraryDaySchedule {
         start = phaseFloor;
       }
 
-      final durationMinutes = _visitDurationMinutes(
+      final hours = VenueHoursCatalog.forPlace(block.place);
+      final open = VenueHoursCatalog.openAt(hours, dayAnchor);
+      final close = VenueHoursCatalog.closeAt(hours, dayAnchor);
+      if (start.isBefore(open)) {
+        start = open;
+      }
+
+      var durationMinutes = _visitDurationMinutes(
         block,
         totalStops: blocks.length,
         compact: compactDurations,
       );
+
+      if (start.isAfter(close) ||
+          start.add(Duration(minutes: durationMinutes)).isAfter(close)) {
+        final remaining = close.difference(start).inMinutes;
+        final profile = ExperienceDurationCatalog.profileFor(block.place);
+        if (remaining < profile.minDurationMinutes) {
+          break;
+        }
+        durationMinutes = remaining.clamp(
+          profile.minDurationMinutes,
+          durationMinutes,
+        );
+      }
+
       final end = start.add(Duration(minutes: durationMinutes));
 
       out.add(
@@ -144,7 +166,14 @@ abstract final class ItineraryDaySchedule {
       _dayEndHour,
       _dayEndMinute,
     );
-    return !last.end.isAfter(dayEnd);
+    if (last.end.isAfter(dayEnd)) return false;
+    return scheduled.every(
+      (slot) => VenueHoursCatalog.isOpenDuring(
+        place: slot.block.place,
+        start: slot.start,
+        end: slot.end,
+      ),
+    );
   }
 
   static List<TripItem> tripItemsFromBlocks({

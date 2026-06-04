@@ -8,6 +8,8 @@ import 'package:luxora_ai/models/trip_profile.dart';
 
 import 'package:luxora_ai/util/trip_duration.dart';
 
+import 'package:luxora_ai/services/smart_itinerary/trip_preference_gates.dart';
+import 'package:luxora_ai/util/trip_duration.dart';
 import 'package:luxora_ai/util/trip_occasion_catalog.dart';
 
 
@@ -38,11 +40,8 @@ abstract final class TripProfileBuildIntent {
 
 
 
-    final wantsThemeParks = profile.tripStyles.contains(TripStyle.themeParks) ||
-
-        profile.experiencePreferences.contains(ExperiencePreference.themeParks) ||
-
-        profile.experiencePreferences.contains(ExperiencePreference.waterParks);
+    final wantsThemeParks =
+        TripPreferenceGates.wantsThemeParks(profile);
 
 
 
@@ -116,7 +115,10 @@ abstract final class TripProfileBuildIntent {
 
     if (profile.foodieInterest >= 55) extras.add('great dining');
 
-    if (profile.poolsideInterest >= 55) extras.add('poolside downtime');
+    if (TripPreferenceGates.wantsSpaWellness(profile) ||
+        profile.tripStyles.contains(TripStyle.relaxation)) {
+      extras.add('poolside downtime');
+    }
 
     if (profile.adventureInterest >= 55) extras.add('outdoor adventure');
 

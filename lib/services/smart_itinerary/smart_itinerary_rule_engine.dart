@@ -14,6 +14,8 @@ import 'itinerary_place_picker.dart';
 export 'experience_duration_catalog.dart';
 export 'itinerary_day_schedule.dart';
 export 'itinerary_place_picker.dart';
+export 'trip_preference_gates.dart';
+export 'venue_hours_catalog.dart';
 export 'smart_itinerary_prompt_guardrails.dart';
 
 /// Outcome of validating and repairing a multi-day concierge plan.
@@ -88,6 +90,7 @@ abstract final class SmartItineraryRuleEngine {
           flow: dayResult.flow,
           dayNumber: repairedDays.length + 1,
           label: dayLabel,
+          cityId: cityId,
         ),
       );
     }
@@ -195,13 +198,6 @@ abstract final class SmartItineraryRuleEngine {
       note,
     );
 
-    blocks = _trimToFeasibleSchedule(
-      blocks,
-      flow.start,
-      profile,
-      note,
-    );
-
     blocks = _ensureMinimumStops(
       blocks: blocks,
       profile: profile,
@@ -212,6 +208,13 @@ abstract final class SmartItineraryRuleEngine {
       intentText: intentText,
       dayIndex: dayIndex,
       note: note,
+    );
+
+    blocks = _trimToFeasibleSchedule(
+      blocks,
+      flow.start,
+      profile,
+      note,
     );
 
     var totalMiles = _totalMiles(blocks, flow.start);
@@ -649,15 +652,20 @@ abstract final class SmartItineraryRuleEngine {
       );
       dayUsed.add(filler.id);
       note('Added ${filler.title} to round out the day.', penalty: 0.04);
-    }
 
-    if (working.length >= minStops &&
-        !ItineraryDaySchedule.isFeasible(
-          blocks: working,
-          dayStart: start,
-          compactDurations: true,
-        )) {
-      return blocks.length >= working.length ? blocks : working;
+      if (!ItineraryDaySchedule.isFeasible(
+        blocks: working,
+        dayStart: start,
+        compactDurations: true,
+      )) {
+        working.removeLast();
+        dayUsed.remove(filler.id);
+        note(
+          'Skipped ${filler.title} — could not fit within open hours today.',
+          penalty: 0.05,
+        );
+        break;
+      }
     }
 
     return working;
