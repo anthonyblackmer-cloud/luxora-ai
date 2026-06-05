@@ -6,6 +6,7 @@ import 'package:luxora_ai/models/trip_profile.dart';
 import 'package:luxora_ai/services/active_day_flow_store.dart';
 import 'package:luxora_ai/services/active_trip_plan_store.dart';
 import 'package:luxora_ai/services/concierge_multi_day_planner.dart';
+import 'package:luxora_ai/services/concierge_itinerary_patch.dart';
 import 'package:luxora_ai/services/concierge_theme_park_planner.dart';
 import 'package:luxora_ai/services/concierge_ticket_sync.dart';
 import 'package:luxora_ai/services/concierge_trip_save_sync.dart';
@@ -57,15 +58,120 @@ abstract final class ConciergeItinerarySync {
   }) async {
     final trimmed = userMessage.trim();
     if (trimmed.isEmpty) return null;
-    if (!forceRebuild && !ConciergeTripSaveSync.shouldRebuildItinerary(trimmed)) {
+
+    final base = profile ?? TripProfileStore.instance.profile.value ?? const TripProfile();
+    await ActiveTripPlanStore.instance.load();
+    final cityId = _resolveCityId(base);
+    final existing = ActiveTripPlanStore.instance.planFor(cityId);
+    final canPatch = !forceRebuild &&
+        existing != null &&
+        ConciergeItineraryPatch.shouldPatch(trimmed, existing, base);
+
+    if (!forceRebuild && !canPatch && !ConciergeTripSaveSync.shouldRebuildItinerary(trimmed)) {
       return null;
     }
 
-    final base = profile ?? TripProfileStore.instance.profile.value ?? const TripProfile();
+    if (canPatch) {
+      return _executePatch(
+        userMessage: trimmed,
+        baseProfile: base,
+        existing: existing!,
+        cityId: cityId,
+      );
+    }
+
     return _executeBuild(
       userMessage: trimmed,
       baseProfile: base,
       mergeMessageIntoFeel: true,
+    );
+  }
+
+  static Future<ConciergeItinerarySyncResult?> _executePatch({
+    required String userMessage,
+    required TripProfile baseProfile,
+    required TripPlan existing,
+    required String cityId,
+  }) async {
+    PlacesRepository.instance.ensureLocalCatalogLoaded();
+    await PlacesRepository.instance.initialize();
+
+    var enriched = TripOccasionInterpreter.apply(
+      ConciergeThemeParkPlanner.enrichProfile(
+        TripFeelInterpreter.enrichFromText(
+          TripFeelInterpreter.enrich(baseProfile),
+          userMessage,
+        ),
+        userMessage,
+      ),
+    );
+    await TripProfileStore.instance.save(enriched);
+
+    final repo = PlacesRepository.instance;
+    final radius = DiscoverRadiusController.instance.radius;
+    var pool = repo.placesWithinRadius(
+      radius == DiscoverRadius.allFlorida ? DiscoverRadius.miles100 : radius,
+    );
+    final homeBaseId = HomeBaseStore.instance.placeId.value;
+    final homeBase = homeBaseId == null ? null : repo.byId(homeBaseId);
+    final savedIds = SavedPlacesStorage.instance.savedIds.value;
+
+    var patched = ConciergeItineraryPatch.patch(
+      existing: existing,
+      profile: enriched,
+      pool: pool,
+      userMessage: userMessage,
+      cityId: cityId,
+      savedIds: savedIds,
+      repo: repo,
+    );
+    if (patched == null) {
+      final widePool = repo.placesWithinRadius(DiscoverRadius.miles100);
+      if (widePool.length > pool.length) {
+        patched = ConciergeItineraryPatch.patch(
+          existing: existing,
+          profile: enriched,
+          pool: widePool,
+          userMessage: userMessage,
+          cityId: cityId,
+          savedIds: savedIds,
+          repo: repo,
+        );
+      }
+    }
+    if (patched == null || patched.plan.days.isEmpty) return null;
+
+    final flow = patched.activeFlow;
+    final plan = patched.plan;
+
+    final deals = ConciergeTicketSync.dealsFor(
+      userMessage: userMessage,
+      plan: plan,
+      profile: enriched,
+    );
+    final planWithDeals = ConciergeTicketSync.attachDealsToPlan(plan, deals);
+
+    await ActiveTripPlanStore.instance.save(planWithDeals, cityId: cityId);
+    await ActiveDayFlowStore.instance.save(flow, cityId: cityId);
+    await _syncSavedTripCard(enriched, flow, planWithDeals);
+
+    for (final block in flow.blocks) {
+      await SavedPlacesStorage.instance.save(block.place.id);
+    }
+    for (final day in planWithDeals.days) {
+      for (final item in day.items) {
+        final placeId = item.placeId;
+        if (placeId != null) {
+          await SavedPlacesStorage.instance.save(placeId);
+        }
+      }
+    }
+
+    return ConciergeItinerarySyncResult(
+      flow: flow,
+      plan: planWithDeals,
+      profile: enriched,
+      attachedDeals: deals,
     );
   }
 

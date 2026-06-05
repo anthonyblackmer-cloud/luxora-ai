@@ -277,11 +277,14 @@ abstract final class ConciergeMultiDayPlanner {
                     b.place.category == LuxPlaceCategory.romantic),
           );
 
+      final dayUsed = <String>{};
+
       if (!isParkDay && !hasMealAt(DayPhase.midday)) {
         final lunch = pickRestaurant(
           pool: pool,
           profile: profile,
           usedIds: usedIds,
+          dayUsed: dayUsed,
           savedIds: savedIds,
           near: flow.blocks.isEmpty
               ? null
@@ -293,6 +296,8 @@ abstract final class ConciergeMultiDayPlanner {
           intentText: intentText,
         );
         if (lunch != null) {
+          usedIds.add(lunch.id);
+          dayUsed.add(lunch.id);
           flow = _appendDiningBlock(
             flow,
             lunch,
@@ -307,6 +312,7 @@ abstract final class ConciergeMultiDayPlanner {
           pool: pool,
           profile: profile,
           usedIds: usedIds,
+          dayUsed: dayUsed,
           savedIds: savedIds,
           near: flow.blocks.isEmpty
               ? null
@@ -494,6 +500,7 @@ abstract final class ConciergeMultiDayPlanner {
     required List<LuxPlace> pool,
     required TripProfile profile,
     required Set<String> usedIds,
+    Set<String> dayUsed = const {},
     Set<String> savedIds = const {},
     LatLng? near,
     int rotationSeed = 0,
@@ -505,7 +512,7 @@ abstract final class ConciergeMultiDayPlanner {
         profile: profile,
         pool: pool,
         tripUsed: usedIds,
-        dayUsed: const {},
+        dayUsed: dayUsed,
         savedIds: savedIds,
         near: anchor,
         rotationSeed: rotationSeed,

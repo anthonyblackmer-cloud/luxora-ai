@@ -47,6 +47,7 @@ abstract final class SmartItineraryRuleEngine {
     required PlacesRepository repo,
     required String cityId,
     Set<String> savedIds = const {},
+    Set<int>? preserveDayIndices,
   }) {
     final notes = <String>[];
     var confidence = 1.0;
@@ -62,6 +63,29 @@ abstract final class SmartItineraryRuleEngine {
       final dayLabel = i < raw.plan.days.length
           ? raw.plan.days[i].label
           : 'Day ${i + 1}';
+
+      if (preserveDayIndices != null && preserveDayIndices.contains(i)) {
+        if (original.isEmpty) continue;
+        for (final block in original.blocks) {
+          tripUsed.add(block.place.id);
+        }
+        repairedFlows.add(original);
+        repairedDays.add(
+          i < raw.plan.days.length
+              ? TripDay(
+                  dayNumber: repairedDays.length + 1,
+                  label: raw.plan.days[i].label,
+                  items: raw.plan.days[i].items,
+                )
+              : ConciergeMultiDayPlanner.tripDayFromFlow(
+                  flow: original,
+                  dayNumber: repairedDays.length + 1,
+                  label: dayLabel,
+                  cityId: cityId,
+                ),
+        );
+        continue;
+      }
 
       final dayResult = _repairDay(
         flow: original,
@@ -105,7 +129,7 @@ abstract final class SmartItineraryRuleEngine {
       );
     }
 
-    final injected = _injectRequestedPlaces(
+    var injected = _injectRequestedPlaces(
       plan: ConciergeMultiDayPlan(
         plan: TripPlan(
           id: raw.plan.id,
@@ -120,6 +144,16 @@ abstract final class SmartItineraryRuleEngine {
       profile: profile,
       cityId: cityId,
       savedIds: savedIds,
+      notes: notes,
+    );
+
+    injected = _dedupeTripDiningAcrossDays(
+      plan: injected,
+      pool: pool,
+      profile: profile,
+      savedIds: savedIds,
+      intentText: userMessage,
+      cityId: cityId,
       notes: notes,
     );
 
@@ -581,6 +615,35 @@ abstract final class SmartItineraryRuleEngine {
     for (final block in blocks) {
       if (tripUsed.contains(block.place.id) &&
           !savedIds.contains(block.place.id)) {
+        if (_isDiningBlock(block)) {
+          final replacement = ItineraryPlacePicker.pickDining(
+            ctx: ItineraryPickContext(
+              profile: profile,
+              pool: pool,
+              tripUsed: tripUsed,
+              dayUsed: {for (final b in out) b.place.id},
+              savedIds: savedIds,
+              near: LatLng(block.place.latitude, block.place.longitude),
+              rotationSeed: tripUsed.length + out.length,
+              intentText: intentText,
+            ),
+          );
+          if (replacement != null) {
+            note('Swapped repeated restaurant ${block.place.title}.');
+            out.add(
+              DayBlock(
+                phase: block.phase,
+                place: replacement,
+                reason: block.reason,
+              ),
+            );
+            tripUsed.add(replacement.id);
+            continue;
+          }
+          note('Skipped repeat restaurant ${block.place.title} on this trip.');
+          continue;
+        }
+
         final replacement = ItineraryPlacePicker.pickReplacement(
           ctx: ItineraryPickContext(
             profile: profile,
@@ -603,15 +666,107 @@ abstract final class SmartItineraryRuleEngine {
               reason: block.reason,
             ),
           );
+          tripUsed.add(replacement.id);
           continue;
         }
-        if (block.place.category != LuxPlaceCategory.dining) {
-          note('Kept repeat ${block.place.title} — no equivalent alternative.');
-        }
+        note('Kept repeat ${block.place.title} — no equivalent alternative.');
       }
       out.add(block);
+      tripUsed.add(block.place.id);
     }
     return out;
+  }
+
+  static ConciergeMultiDayPlan _dedupeTripDiningAcrossDays({
+    required ConciergeMultiDayPlan plan,
+    required List<LuxPlace> pool,
+    required TripProfile profile,
+    required Set<String> savedIds,
+    required String intentText,
+    required String cityId,
+    required List<String> notes,
+  }) {
+    final tripDining = <String>{};
+    final flows = <DayFlow>[];
+
+    for (final flow in plan.flowsByDay) {
+      final blocks = <DayBlock>[];
+      for (final block in flow.blocks) {
+        if (!_isDiningBlock(block)) {
+          blocks.add(block);
+          continue;
+        }
+        if (tripDining.contains(block.place.id) &&
+            !savedIds.contains(block.place.id)) {
+          final replacement = ItineraryPlacePicker.pickDining(
+            ctx: ItineraryPickContext(
+              profile: profile,
+              pool: pool,
+              tripUsed: tripDining,
+              dayUsed: {for (final b in blocks) b.place.id},
+              savedIds: savedIds,
+              near: LatLng(block.place.latitude, block.place.longitude),
+              rotationSeed: tripDining.length + blocks.length,
+              intentText: intentText,
+            ),
+          );
+          if (replacement != null) {
+            notes.add(
+              'Varied dining — ${replacement.title} instead of a repeat.',
+            );
+            blocks.add(
+              DayBlock(
+                phase: block.phase,
+                place: replacement,
+                reason: block.reason,
+              ),
+            );
+            tripDining.add(replacement.id);
+            continue;
+          }
+          notes.add('Removed duplicate restaurant ${block.place.title}.');
+          continue;
+        }
+        blocks.add(block);
+        tripDining.add(block.place.id);
+      }
+      flows.add(
+        DayFlow(
+          blocks: blocks,
+          start: flow.start,
+          totalMiles: flow.totalMiles,
+          homeBase: flow.homeBase,
+          emphases: flow.emphases,
+        ),
+      );
+    }
+
+    if (flows.isEmpty) return plan;
+
+    final days = <TripDay>[];
+    for (var i = 0; i < flows.length; i++) {
+      final label = i < plan.plan.days.length
+          ? plan.plan.days[i].label
+          : 'Day ${i + 1}';
+      days.add(
+        ConciergeMultiDayPlanner.tripDayFromFlow(
+          flow: flows[i],
+          dayNumber: i + 1,
+          label: label,
+          cityId: cityId,
+        ),
+      );
+    }
+
+    return ConciergeMultiDayPlan(
+      plan: TripPlan(
+        id: plan.plan.id,
+        title: plan.plan.title,
+        days: days,
+      ),
+      activeFlow: flows.first,
+      flowsByDay: flows,
+    );
   }
 
   static bool _isDiningBlock(DayBlock block) =>

@@ -5,6 +5,7 @@ import 'package:luxora_ai/models/trip_plan.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
 import 'package:luxora_ai/services/active_trip_plan_store.dart';
 import 'package:luxora_ai/services/concierge_theme_park_planner.dart';
+import 'package:luxora_ai/services/concierge_itinerary_patch.dart';
 import 'package:luxora_ai/services/smart_itinerary/concierge_intent_place_matcher.dart';
 import 'package:luxora_ai/services/city_pack_registry.dart';
 import 'package:luxora_ai/services/saved_trips_store.dart';
@@ -213,6 +214,17 @@ abstract final class ConciergeTripSaveSync {
       return true;
     }
     return hasPlanningIntent(trimmed);
+  }
+
+  /// True when an existing saved plan should receive a surgical patch, not a full rebuild.
+  static bool shouldPatchItinerary(
+    String message, {
+    TripPlan? existingPlan,
+    TripProfile? profile,
+  }) {
+    if (existingPlan == null || existingPlan.days.isEmpty) return false;
+    final base = profile ?? TripProfileStore.instance.profile.value ?? const TripProfile();
+    return ConciergeItineraryPatch.shouldPatch(message, existingPlan, base);
   }
 
   static bool hasPlanningIntent(String message) {

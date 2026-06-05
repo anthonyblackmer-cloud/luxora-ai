@@ -225,6 +225,10 @@ abstract final class ItineraryPlacePicker {
     if (ctx.dayUsed.contains(place.id)) {
       return double.negativeInfinity;
     }
+    if (ctx.tripUsed.contains(place.id) &&
+        !ctx.savedIds.contains(place.id)) {
+      return double.negativeInfinity;
+    }
 
     var score = ctx.profile.foodieInterest.toDouble();
     score += _diversityAdjust(place, ctx);

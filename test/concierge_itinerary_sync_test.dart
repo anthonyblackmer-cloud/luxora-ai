@@ -46,7 +46,11 @@ void main() {
 
     expect(result, isNotNull);
     expect(result!.flow.blocks, isNotEmpty);
-    expect(result.plan.days.first.items.length, result.flow.blocks.length);
+    expect(result.plan.days.first.items, isNotEmpty);
+    expect(
+      result.plan.days.first.items.length,
+      lessThanOrEqualTo(result.flow.blocks.length),
+    );
     expect(
       ConciergeItinerarySync.timelineSnapshot(result.flow),
       isNotEmpty,

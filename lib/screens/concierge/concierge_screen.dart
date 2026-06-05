@@ -9,6 +9,8 @@ import 'package:luxora_ai/l10n/app_localizations.dart';
 import 'package:luxora_ai/l10n/luxora_l10n_helpers.dart';
 import 'package:luxora_ai/models/concierge/concierge_trip_context.dart';
 import 'package:luxora_ai/models/trip_profile.dart';
+import 'package:luxora_ai/services/active_trip_plan_store.dart';
+import 'package:luxora_ai/services/city_pack_registry.dart';
 import 'package:luxora_ai/services/concierge_ai_service.dart';
 import 'package:luxora_ai/services/concierge_context_builder.dart';
 import 'package:luxora_ai/services/concierge_conversation_archive.dart';
@@ -406,7 +408,18 @@ class _ConciergeScreenState extends State<ConciergeScreen> {
       );
       final promisedSync =
           ConciergeAgendaChatFormat.assistantPromisedAgendaSync(reply);
-      final shouldSync = ConciergeTripSaveSync.shouldRebuildItinerary(
+      await ActiveTripPlanStore.instance.load();
+      final activeCity = (_profile?.cityId.isNotEmpty ?? false)
+          ? _profile!.cityId
+          : CityPackRegistry.instance.active.cityId;
+      final existingPlan = ActiveTripPlanStore.instance.planFor(activeCity);
+      final shouldPatch = ConciergeTripSaveSync.shouldPatchItinerary(
+        planningMessage,
+        existingPlan: existingPlan,
+        profile: _profile,
+      );
+      final shouldSync = shouldPatch ||
+          ConciergeTripSaveSync.shouldRebuildItinerary(
             planningMessage,
           ) ||
           promisedSync;
