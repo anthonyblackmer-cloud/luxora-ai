@@ -4640,4 +4640,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get freemiumLocalSecretsSubtitle => '현지인이 지키는 시간, 주차, 전망 스팟.';
+
+  @override
+  String get onboardNeedChoiceHint => '계속하려면 최소 한 가지를 선택해 주세요.';
 }

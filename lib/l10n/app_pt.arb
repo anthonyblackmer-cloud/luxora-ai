@@ -2624,5 +2624,6 @@
   "paywallPeaceOfMindTitle": "Tranquilidade incluída",
   "paywallPeaceOfMindBody": "Você não está comprando outra assinatura. Está comprando férias mais inteligentes — planejadas antes de pousar e apoiadas enquanto você está lá.",
   "paywallSocialProofHeading": "Valeu a pena antes mesmo de pousar",
-  "paywallRestorePreviewDisabled": "Restaurar está desativado no modo de pré-visualização — use uma build completa para testar."
+  "paywallRestorePreviewDisabled": "Restaurar está desativado no modo de pré-visualização — use uma build completa para testar.",
+  "onboardNeedChoiceHint": "Escolha pelo menos uma opção para continuar."
 }

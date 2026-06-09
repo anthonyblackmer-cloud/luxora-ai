@@ -2624,5 +2624,6 @@
   "paywallPeaceOfMindTitle": "内置安心保障",
   "paywallPeaceOfMindBody": "您不是在购买又一个订阅。您是在购买更聪明的假期 — 落地前已规划，旅途中持续支持。",
   "paywallSocialProofHeading": "落地前就值得",
-  "paywallRestorePreviewDisabled": "预览模式下无法恢复购买 — 请使用完整版本测试恢复功能。"
+  "paywallRestorePreviewDisabled": "预览模式下无法恢复购买 — 请使用完整版本测试恢复功能。",
+  "onboardNeedChoiceHint": "请至少选择一项后再继续。"
 }

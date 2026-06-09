@@ -4556,4 +4556,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get freemiumLocalSecretsSubtitle => '当地人私藏的时间、停车与观景点。';
+
+  @override
+  String get onboardNeedChoiceHint => '请至少选择一项后再继续。';
 }

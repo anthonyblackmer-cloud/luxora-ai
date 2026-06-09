@@ -4823,4 +4823,8 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get freemiumLocalSecretsSubtitle =>
       'Horaires, stationnement et points de vue que les locaux gardent.';
+
+  @override
+  String get onboardNeedChoiceHint =>
+      'Choisissez au moins une option pour continuer.';
 }

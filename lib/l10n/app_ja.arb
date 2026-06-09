@@ -2624,5 +2624,6 @@
   "paywallPeaceOfMindTitle": "安心感を標準装備",
   "paywallPeaceOfMindBody": "追加のサブスクではありません。到着前に計画され、現地でも支えられる、より賢い休暇を買うのです。",
   "paywallSocialProofHeading": "着陸前から価値あり",
-  "paywallRestorePreviewDisabled": "プレビューモードでは復元は無効です — 完全ビルドでテストしてください。"
+  "paywallRestorePreviewDisabled": "プレビューモードでは復元は無効です — 完全ビルドでテストしてください。",
+  "onboardNeedChoiceHint": "続けるには、少なくとも1つ選択してください。"
 }

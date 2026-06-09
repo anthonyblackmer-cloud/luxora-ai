@@ -4793,4 +4793,8 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get freemiumLocalSecretsSubtitle =>
       'Insider-Timing, Parken und Aussichtspunkte, die Einheimische hüten.';
+
+  @override
+  String get onboardNeedChoiceHint =>
+      'Bitte treffen Sie mindestens eine Auswahl, um fortzufahren.';
 }

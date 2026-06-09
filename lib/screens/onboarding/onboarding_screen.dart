@@ -1,4 +1,4 @@
-import 'dart:async';
+﻿import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -169,6 +169,20 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     }
   }
 
+  Future<void> _onContinuePressed() async {
+    if (_finishing) return;
+    if (!_canContinue) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(context.l10n.onboardNeedChoiceHint),
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
+      return;
+    }
+    await _next();
+  }
+
   Future<void> _next() async {
     if (_finishing) return;
 
@@ -189,21 +203,21 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     }
   }
 
-  bool get _canContinue {
-    return switch (_step) {
+  bool _stepIsValid(int step) {
+    return switch (step) {
       1 => _profile.travelerName.trim().isNotEmpty,
-      7 => _profile.tripStyles.isNotEmpty,
-      8 => _profile.hotelTypePreferences.isNotEmpty,
-      9 => _profile.cuisinePreferences.isNotEmpty ||
-          _profile.diningPreferences.isNotEmpty,
-      10 => true,
-      11 => _profile.vacationGoals.isNotEmpty,
-      12 => _profile.experiencePreferences.isNotEmpty,
-      13 => true,
-      14 => true,
+      6 => _profile.tripStyles.isNotEmpty,
+      7 => _profile.hotelTypePreferences.isNotEmpty,
+      8 =>
+        _profile.cuisinePreferences.isNotEmpty ||
+            _profile.diningPreferences.isNotEmpty,
+      10 => _profile.vacationGoals.isNotEmpty,
+      11 => _profile.experiencePreferences.isNotEmpty,
       _ => true,
     };
   }
+
+  bool get _canContinue => _stepIsValid(_step);
 
   @override
   Widget build(BuildContext context) {
@@ -237,63 +251,71 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               : Stack(
                   children: [
                     Padding(
-            padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(4),
-                  child: LinearProgressIndicator(
-                    value: _isReturning
-                        ? (_step -
-                                ReturningTravelerService.cityStepIndex +
-                                1) /
-                            (_stepCount -
-                                ReturningTravelerService.cityStepIndex)
-                        : (_step + 1) / _stepCount,
-                    minHeight: 4,
-                    backgroundColor: Colors.white.withValues(alpha: 0.1),
-                    color: LuxColors.gold,
-                  ),
-                ),
-                const SizedBox(height: 8),
-                if (!_isReturning || _step >= ReturningTravelerService.cityStepIndex)
-                  Text(
-                    _isReturning
-                        ? l.onboardReturningEyebrow
-                        : (_step == 0
-                            ? l.onboardWelcomeEyebrow
-                            : l.onboardV2Eyebrow),
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 11,
-                      fontWeight: FontWeight.w700,
-                      letterSpacing: 2,
-                      color: LuxColors.gold.withValues(alpha: 0.75),
+                      padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(4),
+                            child: LinearProgressIndicator(
+                              value: _isReturning
+                                  ? (_step -
+                                          ReturningTravelerService
+                                              .cityStepIndex +
+                                          1) /
+                                      (_stepCount -
+                                          ReturningTravelerService
+                                              .cityStepIndex)
+                                  : (_step + 1) / _stepCount,
+                              minHeight: 4,
+                              backgroundColor:
+                                  Colors.white.withValues(alpha: 0.1),
+                              color: LuxColors.gold,
+                            ),
+                          ),
+                          const SizedBox(height: 8),
+                          if (!_isReturning ||
+                              _step >=
+                                  ReturningTravelerService.cityStepIndex)
+                            Text(
+                              _isReturning
+                                  ? l.onboardReturningEyebrow
+                                  : (_step == 0
+                                      ? l.onboardWelcomeEyebrow
+                                      : l.onboardV2Eyebrow),
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 11,
+                                fontWeight: FontWeight.w700,
+                                letterSpacing: 2,
+                                color:
+                                    LuxColors.gold.withValues(alpha: 0.75),
+                              ),
+                            ),
+                          if (!_isReturning ||
+                              _step >=
+                                  ReturningTravelerService.cityStepIndex)
+                            const SizedBox(height: 16),
+                          Expanded(child: _buildStep(l)),
+                          const SizedBox(height: 16),
+                          LuxButton(
+                            label: _finishing
+                                ? l.onboardBuilding
+                                : (_step == 0
+                                    ? l.onboardWelcomeCta
+                                    : (_step == _stepCount - 1
+                                        ? l.onboardFinish
+                                        : l.commonContinue)),
+                            icon: _step >= _stepCount - 2
+                                ? Icons.auto_awesome_rounded
+                                : Icons.favorite_rounded,
+                            onPressed: _finishing
+                                ? null
+                                : () => unawaited(_onContinuePressed()),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                if (!_isReturning || _step >= ReturningTravelerService.cityStepIndex)
-                  const SizedBox(height: 16),
-                Expanded(child: _buildStep(l)),
-                const SizedBox(height: 16),
-                LuxButton(
-                  label: _finishing
-                      ? l.onboardBuilding
-                      : (_step == 0
-                          ? l.onboardWelcomeCta
-                          : (_step == _stepCount - 1
-                              ? l.onboardFinish
-                              : l.commonContinue)),
-                  icon: _step >= _stepCount - 2
-                      ? Icons.auto_awesome_rounded
-                      : Icons.favorite_rounded,
-                  onPressed: (_finishing || !_canContinue)
-                      ? null
-                      : () => unawaited(_next()),
-                ),
-              ],
-            ),
-          ),
                     if (_finishing) _buildingOverlay(l),
                   ],
                 ),
@@ -374,9 +396,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           textCapitalization: TextCapitalization.words,
           autocorrect: false,
           textInputAction: TextInputAction.done,
-          onSubmitted: (_) {
-            if (_canContinue) unawaited(_next());
-          },
+          onSubmitted: (_) => unawaited(_onContinuePressed()),
           decoration: InputDecoration(
             labelText: l.onboardTravelerNameLabel,
             hintText: l.onboardTravelerNameHint,
@@ -384,11 +404,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             fillColor: Colors.white.withValues(alpha: 0.06),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide(color: Colors.white.withValues(alpha: 0.12)),
+              borderSide:
+                  BorderSide(color: Colors.white.withValues(alpha: 0.12)),
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide(color: Colors.white.withValues(alpha: 0.12)),
+              borderSide:
+                  BorderSide(color: Colors.white.withValues(alpha: 0.12)),
             ),
           ),
           style: const TextStyle(color: LuxColors.cream),
@@ -446,7 +468,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       ];
 
   List<Widget> _datesStep(AppLocalizations l) => [
-        ..._header(l.onboardStep2Title, l.onboardStep2Subtitle, l.onboardDatesHint),
+        ..._header(
+          l.onboardStep2Title,
+          l.onboardStep2Subtitle,
+          l.onboardDatesHint,
+        ),
         TripDatePickerFields(
           startIso: _profile.startDate,
           endIso: _profile.endDate,
@@ -553,8 +579,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           ],
           labelFor: (v) => onboardingTripStyleLabel(l, v),
           selected: _profile.tripStyles.toSet(),
-          onChanged: (next) =>
-              setState(() => _profile = _profile.copyWith(tripStyles: next.toList())),
+          onChanged: (next) => setState(
+            () => _profile = _profile.copyWith(tripStyles: next.toList()),
+          ),
         ),
       ];
 
@@ -573,7 +600,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           labelFor: (v) => onboardingHotelTypeLabel(l, v),
           selected: _profile.hotelTypePreferences.toSet(),
           onChanged: (next) => setState(
-            () => _profile = _profile.copyWith(hotelTypePreferences: next.toList()),
+            () => _profile =
+                _profile.copyWith(hotelTypePreferences: next.toList()),
           ),
         ),
         const SizedBox(height: 20),
@@ -643,7 +671,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           labelFor: (v) => onboardingCuisineLabel(l, v),
           selected: _profile.cuisinePreferences.toSet(),
           onChanged: (next) => setState(
-            () => _profile = _profile.copyWith(cuisinePreferences: next.toList()),
+            () =>
+                _profile = _profile.copyWith(cuisinePreferences: next.toList()),
           ),
         ),
         const SizedBox(height: 20),
@@ -665,7 +694,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           labelFor: (v) => onboardingDiningLabel(l, v),
           selected: _profile.diningPreferences.toSet(),
           onChanged: (next) => setState(
-            () => _profile = _profile.copyWith(diningPreferences: next.toList()),
+            () =>
+                _profile = _profile.copyWith(diningPreferences: next.toList()),
           ),
         ),
       ];
@@ -688,7 +718,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             PacePreference.packed => l.onboardV2PacePackedBody,
           },
           selected: _profile.pace,
-          onSelected: (v) => setState(() => _profile = _profile.copyWith(pace: v)),
+          onSelected: (v) =>
+              setState(() => _profile = _profile.copyWith(pace: v)),
         ),
       ];
 
@@ -728,8 +759,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           labelFor: (v) => onboardingExperienceLabel(l, v),
           selected: _profile.experiencePreferences.toSet(),
           onChanged: (next) => setState(
-            () =>
-                _profile = _profile.copyWith(experiencePreferences: next.toList()),
+            () => _profile =
+                _profile.copyWith(experiencePreferences: next.toList()),
           ),
         ),
       ];
@@ -901,7 +932,8 @@ class _ReturnTravelerVoiceCue extends StatefulWidget {
   final AppLocalizations l;
 
   @override
-  State<_ReturnTravelerVoiceCue> createState() => _ReturnTravelerVoiceCueState();
+  State<_ReturnTravelerVoiceCue> createState() =>
+      _ReturnTravelerVoiceCueState();
 }
 
 class _ReturnTravelerVoiceCueState extends State<_ReturnTravelerVoiceCue> {
@@ -919,7 +951,8 @@ class _ReturnTravelerVoiceCueState extends State<_ReturnTravelerVoiceCue> {
 
   Future<void> _speak() async {
     if (!mounted) return;
-    final firstName = TravelerNameDisplay.firstName(widget.profile.travelerName);
+    final firstName =
+        TravelerNameDisplay.firstName(widget.profile.travelerName);
     final title = firstName != null
         ? widget.l.onboardReturningTitle(firstName)
         : widget.l.onboardReturningTitleGeneric;

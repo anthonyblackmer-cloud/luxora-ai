@@ -4774,4 +4774,8 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get freemiumLocalSecretsSubtitle =>
       'Insider timing, parking और viewpoints जो locals संभालते हैं।';
+
+  @override
+  String get onboardNeedChoiceHint =>
+      'आगे बढ़ने के लिए कम से कम एक विकल्प चुनें।';
 }

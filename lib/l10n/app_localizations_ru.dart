@@ -4797,4 +4797,8 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get freemiumLocalSecretsSubtitle =>
       'Время, парковка и виды, которые хранят местные.';
+
+  @override
+  String get onboardNeedChoiceHint =>
+      'Выберите хотя бы один вариант, чтобы продолжить.';
 }

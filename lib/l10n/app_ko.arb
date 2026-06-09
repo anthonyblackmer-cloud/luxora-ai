@@ -2624,5 +2624,6 @@
   "paywallPeaceOfMindTitle": "마음의 평화, 기본 포함",
   "paywallPeaceOfMindBody": "또 다른 구독이 아닙니다. 도착 전에 계획되고 현지에서도 지원받는 더 똑똑한 휴가를 구매하는 것입니다.",
   "paywallSocialProofHeading": "착륙 전부터 그만한 가치",
-  "paywallRestorePreviewDisabled": "미리보기 모드에서는 복원이 비활성화됩니다 — 전체 빌드에서 테스트하세요."
+  "paywallRestorePreviewDisabled": "미리보기 모드에서는 복원이 비활성화됩니다 — 전체 빌드에서 테스트하세요.",
+  "onboardNeedChoiceHint": "계속하려면 최소 한 가지를 선택해 주세요."
 }

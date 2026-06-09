@@ -2624,5 +2624,6 @@
   "paywallPeaceOfMindTitle": "Ruhe und Sicherheit inklusive",
   "paywallPeaceOfMindBody": "Kein weiteres Abo. Sie kaufen einen smarteren Urlaub — geplant, bevor Sie landen, und begleitet, während Sie unterwegs sind.",
   "paywallSocialProofHeading": "Schon vor der Landung überzeugt",
-  "paywallRestorePreviewDisabled": "Wiederherstellen ist im Vorschaumodus deaktiviert — testen Sie Restore in einem vollständigen Build."
+  "paywallRestorePreviewDisabled": "Wiederherstellen ist im Vorschaumodus deaktiviert — testen Sie Restore in einem vollständigen Build.",
+  "onboardNeedChoiceHint": "Bitte treffen Sie mindestens eine Auswahl, um fortzufahren."
 }

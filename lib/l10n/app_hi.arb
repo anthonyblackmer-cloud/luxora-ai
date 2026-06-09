@@ -2624,5 +2624,6 @@
   "paywallPeaceOfMindTitle": "मन की शांति, पहले से शामिल",
   "paywallPeaceOfMindBody": "आप कोई नया सब्सक्रिप्शन नहीं खरीद रहे। आप एक smarter छुट्टी खरीद रहे हैं — उतरने से पहले योजना और वहाँ रहते समय सहायता।",
   "paywallSocialProofHeading": "उतरने से पहले ही फायदेमंद",
-  "paywallRestorePreviewDisabled": "पूर्वावलोकन मोड में restore अक्षम है — पूर्ण बिल्ड में परीक्षण करें।"
+  "paywallRestorePreviewDisabled": "पूर्वावलोकन मोड में restore अक्षम है — पूर्ण बिल्ड में परीक्षण करें।",
+  "onboardNeedChoiceHint": "आगे बढ़ने के लिए कम से कम एक विकल्प चुनें।"
 }

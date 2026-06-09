@@ -2624,5 +2624,6 @@
   "paywallPeaceOfMindTitle": "Serenità inclusa",
   "paywallPeaceOfMindBody": "Non stai comprando un altro abbonamento. Stai comprando una vacanza più intelligente — pianificata prima di atterrare e supportata mentre sei lì.",
   "paywallSocialProofHeading": "Ne valeva la pena prima di atterrare",
-  "paywallRestorePreviewDisabled": "Ripristino disabilitato in modalità anteprima — usa una build completa per testarlo."
+  "paywallRestorePreviewDisabled": "Ripristino disabilitato in modalità anteprima — usa una build completa per testarlo.",
+  "onboardNeedChoiceHint": "Seleziona almeno un'opzione per continuare."
 }

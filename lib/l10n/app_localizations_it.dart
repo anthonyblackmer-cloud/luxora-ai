@@ -4811,4 +4811,8 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get freemiumLocalSecretsSubtitle =>
       'Orari, parcheggio e punti panoramici custoditi dai locali.';
+
+  @override
+  String get onboardNeedChoiceHint =>
+      'Seleziona almeno un\'opzione per continuare.';
 }

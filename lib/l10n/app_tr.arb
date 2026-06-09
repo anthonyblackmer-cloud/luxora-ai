@@ -2624,5 +2624,6 @@
   "paywallPeaceOfMindTitle": "İç huzur dahil",
   "paywallPeaceOfMindBody": "Başka bir abonelik almıyorsunuz. İnişten önce planlanan ve oradayken desteklenen daha akıllı bir tatil alıyorsunuz.",
   "paywallSocialProofHeading": "İnmeden önce bile değdi",
-  "paywallRestorePreviewDisabled": "Önizleme modunda geri yükleme devre dışı — tam derlemede test edin."
+  "paywallRestorePreviewDisabled": "Önizleme modunda geri yükleme devre dışı — tam derlemede test edin.",
+  "onboardNeedChoiceHint": "Devam etmek için en az bir seçim yapmalısınız."
 }

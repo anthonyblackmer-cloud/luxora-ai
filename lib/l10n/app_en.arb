@@ -2624,5 +2624,6 @@
   "freemiumHeadlineHotelMatchmaker": "Unlock Hotel Intelligence to compare every stay.",
   "freemiumHeadlineFullItinerary": "Unlock your full vacation plan.",
   "freemiumLocalSecretsTitle": "Local secrets",
-  "freemiumLocalSecretsSubtitle": "Insider timing, parking, and viewing spots locals guard."
+  "freemiumLocalSecretsSubtitle": "Insider timing, parking, and viewing spots locals guard.",
+  "onboardNeedChoiceHint": "You need to make at least one choice to move forward."
 }

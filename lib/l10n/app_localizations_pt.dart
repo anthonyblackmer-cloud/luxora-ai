@@ -4793,4 +4793,8 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get freemiumLocalSecretsSubtitle =>
       'Horários, estacionamento e mirantes que os locais guardam.';
+
+  @override
+  String get onboardNeedChoiceHint =>
+      'Escolha pelo menos uma opção para continuar.';
 }

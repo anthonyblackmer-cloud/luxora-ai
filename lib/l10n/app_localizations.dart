@@ -8421,6 +8421,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Insider timing, parking, and viewing spots locals guard.'**
   String get freemiumLocalSecretsSubtitle;
+
+  /// No description provided for @onboardNeedChoiceHint.
+  ///
+  /// In en, this message translates to:
+  /// **'You need to make at least one choice to move forward.'**
+  String get onboardNeedChoiceHint;
 }
 
 class _AppLocalizationsDelegate

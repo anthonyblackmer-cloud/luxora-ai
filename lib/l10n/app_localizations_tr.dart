@@ -4785,4 +4785,8 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get freemiumLocalSecretsSubtitle =>
       'Yerel halkın sakladığı zamanlama, park ve manzara noktaları.';
+
+  @override
+  String get onboardNeedChoiceHint =>
+      'Devam etmek için en az bir seçim yapmalısınız.';
 }

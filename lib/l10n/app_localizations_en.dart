@@ -4759,4 +4759,8 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get freemiumLocalSecretsSubtitle =>
       'Insider timing, parking, and viewing spots locals guard.';
+
+  @override
+  String get onboardNeedChoiceHint =>
+      'You need to make at least one choice to move forward.';
 }

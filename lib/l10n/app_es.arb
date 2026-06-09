@@ -2624,5 +2624,6 @@
   "paywallPeaceOfMindTitle": "Tranquilidad incluida",
   "paywallPeaceOfMindBody": "No compras otra suscripción. Compras unas vacaciones más inteligentes — planificadas antes de aterrizar y con apoyo mientras estás allí.",
   "paywallSocialProofHeading": "Valió la pena antes de aterrizar",
-  "paywallRestorePreviewDisabled": "Restaurar está desactivado en modo vista previa — usa una compilación completa para probar la restauración."
+  "paywallRestorePreviewDisabled": "Restaurar está desactivado en modo vista previa — usa una compilación completa para probar la restauración.",
+  "onboardNeedChoiceHint": "Debes elegir al menos una opción para continuar."
 }

@@ -4800,4 +4800,8 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get freemiumLocalSecretsSubtitle =>
       'Horarios, estacionamiento y miradores que los locales protegen.';
+
+  @override
+  String get onboardNeedChoiceHint =>
+      'Debes elegir al menos una opción para continuar.';
 }

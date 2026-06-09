@@ -2624,5 +2624,6 @@
   "paywallPeaceOfMindTitle": "Tranquillité d'esprit incluse",
   "paywallPeaceOfMindBody": "Pas un nouvel abonnement. Vous achetez des vacances plus intelligentes — planifiées avant l'atterrissage et accompagnées sur place.",
   "paywallSocialProofHeading": "Ça valait le coup avant même d'atterrir",
-  "paywallRestorePreviewDisabled": "La restauration est désactivée en mode aperçu — utilisez une build complète pour tester."
+  "paywallRestorePreviewDisabled": "La restauration est désactivée en mode aperçu — utilisez une build complète pour tester.",
+  "onboardNeedChoiceHint": "Choisissez au moins une option pour continuer."
 }

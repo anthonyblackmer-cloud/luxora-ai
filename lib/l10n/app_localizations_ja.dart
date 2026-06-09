@@ -4633,4 +4633,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get freemiumLocalSecretsSubtitle => '地元が守る時間帯、駐車、絶景スポット。';
+
+  @override
+  String get onboardNeedChoiceHint => '続けるには、少なくとも1つ選択してください。';
 }
