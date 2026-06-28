@@ -1,0 +1,32 @@
+# Pings Luxora Supabase twice weekly so the free-tier project stays active.
+# Add repo secrets: SUPABASE_URL, SUPABASE_ANON_KEY (Dashboard → Settings → API).
+name: Keep Supabase alive
+
+on:
+  schedule:
+    - cron: '0 14 * * 1,4'
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping places table
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          set -euo pipefail
+          if [ -z "${SUPABASE_URL:-}" ] || [ -z "${SUPABASE_ANON_KEY:-}" ]; then
+            echo "Skip: add SUPABASE_URL and SUPABASE_ANON_KEY under repo Secrets."
+            exit 0
+          fi
+          base="${SUPABASE_URL%/}"
+          code=$(curl -sS -o /tmp/supabase_ping.json -w "%{http_code}" \
+            "${base}/rest/v1/places?select=id&limit=1" \
+            -H "apikey: ${SUPABASE_ANON_KEY}" \
+            -H "Authorization: Bearer ${SUPABASE_ANON_KEY}")
+          echo "HTTP ${code}"
+          head -c 200 /tmp/supabase_ping.json || true
+          echo ""
+          test "${code}" = "200" -o "${code}" = "206"
