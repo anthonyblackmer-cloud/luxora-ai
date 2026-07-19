@@ -1,10 +1,13 @@
-# Pings Luxora Supabase twice weekly so the free-tier project stays active.
-# Add repo secrets: SUPABASE_URL, SUPABASE_ANON_KEY (Dashboard → Settings → API).
+# Pings Luxora Supabase twice daily so the free-tier project stays active.
+# Required repo secrets (Settings → Secrets and variables → Actions):
+#   SUPABASE_URL       — Project Settings → API → Project URL
+#   SUPABASE_ANON_KEY  — publishable or legacy anon key (not service_role)
 name: Keep Supabase alive
 
 on:
   schedule:
-    - cron: '0 14 * * 1,4'
+    # Twice daily: 08:00 and 20:00 UTC (~4am / 4pm Eastern)
+    - cron: '0 8,20 * * *'
   workflow_dispatch:
 
 jobs:
@@ -18,15 +21,21 @@ jobs:
         run: |
           set -euo pipefail
           if [ -z "${SUPABASE_URL:-}" ] || [ -z "${SUPABASE_ANON_KEY:-}" ]; then
-            echo "Skip: add SUPABASE_URL and SUPABASE_ANON_KEY under repo Secrets."
-            exit 0
+            echo "::error::Missing secrets. Add SUPABASE_URL and SUPABASE_ANON_KEY under repo Settings → Secrets → Actions."
+            exit 1
           fi
           base="${SUPABASE_URL%/}"
           code=$(curl -sS -o /tmp/supabase_ping.json -w "%{http_code}" \
             "${base}/rest/v1/places?select=id&limit=1" \
             -H "apikey: ${SUPABASE_ANON_KEY}" \
-            -H "Authorization: Bearer ${SUPABASE_ANON_KEY}")
+            -H "Authorization: Bearer ${SUPABASE_ANON_KEY}" \
+            --connect-timeout 20 \
+            --max-time 60) || true
           echo "HTTP ${code}"
-          head -c 200 /tmp/supabase_ping.json || true
+          head -c 400 /tmp/supabase_ping.json || true
           echo ""
-          test "${code}" = "200" -o "${code}" = "206"
+          if [ "${code}" != "200" ] && [ "${code}" != "206" ]; then
+            echo "::error::Supabase ping failed (HTTP ${code}). Project may be paused — restore it in the Supabase dashboard, then re-run this workflow."
+            exit 1
+          fi
+          echo "OK — project responded."

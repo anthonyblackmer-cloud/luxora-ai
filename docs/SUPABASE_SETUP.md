@@ -43,17 +43,6 @@ Dashboard → **SQL Editor** → paste and run the full contents of:
 
 This creates the `places` table and allows the app to read active rows with the anon key.
 
-It also creates `user_saved_trips` with row-level security so signed-in users can back up and restore their saved trips (premium feature — requires a city pack unlock in the app).
-
-### Enable email OTP auth
-
-Dashboard → **Authentication** → **Providers** → **Email**:
-
-1. Enable **Email** provider
-2. Enable **Email OTP** (one-time password / magic code)
-
-Users sign in from **More → Cloud backup** with a 6-digit code sent to their email.
-
 ## 4. Deploy Concierge AI (edge function)
 
 ### Option A — Supabase CLI (recommended)
@@ -79,7 +68,17 @@ Project ref is the short id in your dashboard URL: `https://supabase.com/dashboa
 1. Restart the app (hot restart is not enough after changing dart-defines).
 2. Debug console should show: `Supabase: connected (https://...)`
 3. Open **Concierge** → send a message → real GPT reply (not the setup banner).
-4. Unlock a city pack → **More → Cloud backup** → sign in with email OTP → saved trips sync.
+
+## 6. Keep free-tier project from pausing
+
+GitHub Action: `.github/workflows/keep-supabase-alive.yml` pings `places` **twice daily** (08:00 and 20:00 UTC).
+
+1. Repo → **Settings** → **Secrets and variables** → **Actions**
+2. Add secrets: `SUPABASE_URL`, `SUPABASE_ANON_KEY` (same values as the app)
+3. **Actions** → **Keep Supabase alive** → **Run workflow** once to verify (must show HTTP 200, not “missing secrets”)
+4. If the project is already paused, **Restore** it in the Supabase dashboard first — a ping cannot wake a paused project until you restore
+
+Scheduled workflows only run on the default branch and can stop if the repo sits idle for a long time; use **Run workflow** anytime to force a ping.
 
 ## Troubleshooting
 
@@ -89,6 +88,6 @@ Project ref is the short id in your dashboard URL: `https://supabase.com/dashboa
 | `SupabaseBootstrap` error in console | Check URL/key; project must be running |
 | 503 OPENAI_API_KEY | Set secret on edge function |
 | Places not syncing | Run `setup_all.sql`; table can be empty until you seed rows |
-| Cloud backup fails | Run full `setup_all.sql` (includes `user_saved_trips`); enable Email OTP auth |
+| Project keeps pausing | Confirm Action secrets exist; run workflow manually; restore paused project in dashboard |
 
 See also: `docs/CONCIERGE_AI.md`, `docs/DISCOVER_RADIUS.md`.
